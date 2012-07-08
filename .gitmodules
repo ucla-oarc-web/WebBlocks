@@ -4,3 +4,6 @@
 [submodule "package/selectivizr"]
 	path = package/selectivizr
 	url = git://github.com/keithclark/selectivizr.git
+[submodule "package/respond"]
+	path = package/respond
+	url = git://github.com/scottjehl/Respond.git

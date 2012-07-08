@@ -7,3 +7,6 @@
 [submodule "package/respond"]
 	path = package/respond
 	url = git://github.com/scottjehl/Respond.git
+[submodule "package/sass-twitter-bootstrap"]
+	path = package/sass-twitter-bootstrap
+	url = git://github.com/jlong/sass-twitter-bootstrap.git

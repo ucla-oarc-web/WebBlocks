@@ -1,3 +1,6 @@
 [submodule "package/modernizr"]
 	path = package/modernizr
 	url = git://github.com/Modernizr/Modernizr.git
+[submodule "package/selectivizr"]
+	path = package/selectivizr
+	url = git://github.com/keithclark/selectivizr.git

@@ -10,3 +10,6 @@
 [submodule "package/sass-twitter-bootstrap"]
 	path = package/sass-twitter-bootstrap
 	url = git://github.com/jlong/sass-twitter-bootstrap.git
+[submodule "package/jquery"]
+	path = package/jquery
+	url = git://github.com/jquery/jquery.git

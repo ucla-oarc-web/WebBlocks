@@ -64,8 +64,6 @@ The entire process from checkout to completed build is as follows:
 ```
 git clone git@github.com:ucla/WebBlocks.git
 cd WebBlocks
-git submodule init
-git submodule update
 rake
 ```
 

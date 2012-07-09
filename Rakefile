@@ -4,6 +4,11 @@ require 'fileutils'
 load 'Rakefile-configure.rb'
 
 task :check do
+  if PACKAGES.include?("jquery")
+    if `which make`.empty?
+      fail 'make required'
+    end
+  end
   if `which sass`.empty?
     fail 'SASS required'
   end

@@ -1,18 +1,9 @@
-require 'rubygems'
-require 'bundler'
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
 require 'rake'
 require 'pathname'
 require 'fileutils'
 load 'Rakefile-configure.rb'
 
-task :prereq do
+task :check do
   if `which sass`.empty?
     fail 'SASS required'
   end
@@ -37,12 +28,18 @@ task :packages do
   if !`which git`.empty?
     sh "git submodule init"
     sh "git submodule update"
+    pwd = Dir.pwd
+    jquery_package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
+    Dir.chdir(jquery_package_dir)
+    sh "git submodule init"
+    sh "git submodule update"
+    Dir.chdir(pwd)
   else
     puts "cannot update git submodules because git is not installed"
   end
 end
 
-task :build => [:prereq, :packages] do
+task :build => [:check, :packages] do
   
   begin
   

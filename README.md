@@ -15,7 +15,6 @@ such, the following are required to build WebBlocks:
 
 * ruby
 * gem
-* bundle
 * rake
 
 The Rakefile itself uses several additional tools:
@@ -25,8 +24,8 @@ The Rakefile itself uses several additional tools:
 
 Several packages have additional requirements:
 
-* bootstrap - sass, rb-fsevent
-* jquery - GNU make
+* `bootstrap`: sass, rb-fsevent
+* `jquery`: make
 
 #### Installing Prerequisites
 
@@ -37,23 +36,30 @@ To install Ruby, please visit:
 Once Ruby is installed, one may install other Ruby utilities:
 
 ```
-gem install bundler
-gem install rake
-gem install rb-fsevent
-gem install sass
+sudo gem install rake
+sudo gem install rb-fsevent
+sudo gem install sass
 ```
 
-The JS and CSS minification tools are written in Node.js, and thus Node.js and
-its package manager `npm` should be installed from here:
+The JS and CSS minification tools are written in Node.js, and thus Node.js 
+should be installed:
 
     http://nodejs.org/
 
-Once Node.js and npm are installed, one may install  the required Node.js tools:
+Node.js comes with a package manager `npm` that can be used to install the
+required tools:
 
 ```
-npm -g install uglifycss
-npm -g install uglify-js
+sudo npm -g install uglifycss
+sudo npm -g install uglify-js
 ```
+
+In addition, GNU `make` is required in order to build jQuery. Most distributions
+of *NIX include `make` by default or include it in the package manager. If your
+distribution does not include it, please see http://www.gnu.org/software/make.
+Mac OS X users can get `make` by installing Command Line Tools for xCode.
+Several ports also exist for Windows including MinWG (http://www.mingw.org)
+and GNUWin32 (http://gnuwin32.sourceforge.net/packages/make.htm).
 
 #### Building WebBlocks
 
@@ -70,7 +76,7 @@ rake
 The Rakefile actually includes several separate tasks that may be invoked
 individually:
 
-* `rake prereq` check for prerequisites
+* `rake check` check for prerequisites
 * `rake packages` update all packages (git submodules)
 * `rake build` create a build of WebBlocks
 * `rake clean` remove a build of WebBlocks

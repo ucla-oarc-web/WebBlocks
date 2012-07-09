@@ -14,7 +14,7 @@ load 'Rakefile-configure.rb'
 
 task :prereq do
   if `which sass`.empty?
-    fail 'SASS precompiler required'
+    fail 'SASS required'
   end
   if `which uglifycss`.empty?
     if `which npm`.empty?
@@ -33,7 +33,16 @@ task :prereq do
   puts "prerequisite check successful"
 end
 
-task :build => [:prereq] do
+task :packages do
+  if !`which git`.empty?
+    sh "git submodule init"
+    sh "git submodule update"
+  else
+    puts "cannot update git submodules because git is not installed"
+  end
+end
+
+task :build => [:prereq, :packages] do
   
   begin
   

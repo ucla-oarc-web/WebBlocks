@@ -64,6 +64,8 @@ The entire process from checkout to completed build is as follows:
 ```
 git clone git@github.com:ucla/WebBlocks.git
 cd WebBlocks
+git submodule init
+git submodule update
 rake
 ```
 
@@ -71,10 +73,11 @@ The Rakefile actually includes several separate tasks that may be invoked
 individually:
 
 * `rake prereq` check for prerequisites
+* `rake packages` update all packages (git submodules)
 * `rake build` create a build of WebBlocks
 * `rake clean` remove a build of WebBlocks
 
-The default Rakefile task executes `clean -> prereq -> build`.
+The default Rakefile task executes `clean -> prereq -> packages -> build`.
 
 A configuration file `Rakefile-configure.rb` may be modified to change the
 packages included in the build, the final destination of the build, etc.

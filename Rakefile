@@ -12,7 +12,7 @@ def executable_exists(name)
 end
 
 task :check do
-  puts "WARNING: this does not necessarily work with non-default CMD_ paths"
+  puts "WARNING: this does not necessarily work with non-default CMD paths"
   if !executable_exists(CMD_GIT)
     fail "git [#{CMD_GIT}] must be installed"
   end
@@ -35,19 +35,14 @@ task :check do
 end
 
 task :packages do
-  if !executable_exists(CMD_GIT)
-    sh "#{CMD_GIT} submodule init"
-    sh "#{CMD_GIT} submodule update"
-    pwd = Dir.pwd
-    jquery_package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
-    Dir.chdir(jquery_package_dir)
-    sh "#{CMD_GIT} submodule init"
-    sh "#{CMD_GIT} submodule update"
-    Dir.chdir(pwd)
-  else
-    puts "cannot update git submodules because git is not installed"
-    puts "confirm that CMD_GIT is set properly in Rakefile-configure.rb"
-  end
+  sh "#{CMD_GIT} submodule init"
+  sh "#{CMD_GIT} submodule update"
+  pwd = Dir.pwd
+  jquery_package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
+  Dir.chdir(jquery_package_dir)
+  sh "#{CMD_GIT} submodule init"
+  sh "#{CMD_GIT} submodule update"
+  Dir.chdir(pwd)
 end
 
 task :build => [:packages] do
@@ -127,7 +122,7 @@ def build_jquery(js_path)
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
   pwd = Dir.pwd
   Dir.chdir(package_dir)
-  sh "#{CMD_NPM} -g install"
+  sh "#{CMD_NPM} install"
   sh "#{CMD_GRUNT}"
   Dir.chdir(pwd)
   append_contents_to_file("#{package_dir}/dist/jquery.min.js", js_path)

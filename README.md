@@ -28,14 +28,17 @@ Several packages have additional requirements:
 * `bootstrap`: sass, rb-fsevent
 * `jquery`: grunt
 
+By default, the Rakefile execute these tools as though they are within the user
+search path. In the event that they reside elsewhere in the file system, the 
+invoking commands should be specified within `Rakefile-configure.rb`.
+
 #### Installing Prerequisites
 
 To install Ruby, please visit:
 
     http://www.ruby-lang.org/en/downloads/
 
-Once Ruby is installed, one may install other Ruby utilities (may require
-superuser privileges):
+Once Ruby is installed, one may install other Ruby utilities:
 
 ```
 gem install rake
@@ -49,7 +52,7 @@ should be installed:
     http://nodejs.org/
 
 Node.js comes with a package manager `npm` that can be used to install the
-required tools (may require superuser privileges):
+required tools:
 
 ```
 npm -g install grunt
@@ -57,9 +60,11 @@ npm -g install uglifycss
 npm -g install uglify-js
 ```
 
+Some or all of these installations may require superuser privileges.
+
 #### Building WebBlocks
 
-WebBlocks may be built simply by invoking `rake`.
+WebBlocks can be built simply by invoking `rake`.
 
 The entire process from checkout to completed build is as follows:
 
@@ -69,22 +74,22 @@ cd WebBlocks
 rake
 ```
 
-The Rakefile actually includes several separate tasks that may be invoked
-individually:
+The Rakefile includes several tasks that may be invoked separately as well:
 
-* `rake check` check for prerequisites (not currently with custom paths)
-* `rake packages` update all packages (git submodules)
+* `rake check` check for prerequisites (requires commands in user search path)
+* `rake packages` update all submodule packages from their remote repositories
 * `rake build` create a build of WebBlocks
 * `rake clean` remove a build of WebBlocks
 
-The default Rakefile task executes `clean -> prereq -> packages -> build`.
+The default Rakefile task executes `clean -> packages -> build`.
 
-A configuration file `Rakefile-configure.rb` may be modified to change the
-packages included in the build, the final destination of the build, etc.
+The configuration file `Rakefile-configure.rb` may be modified to change a 
+number of properties about the build including the packages, the final build
+destination, and the commands for various executables.
 
 ## Credits
 
-WebBlocks leverages a number of existing packages:
+WebBlocks leverages a number of external packages:
 
 * jQuery - MIT License - http://jquery.com
 * Modernizr - MIT or BSD License - http://modernizr.com

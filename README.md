@@ -19,13 +19,14 @@ such, the following are required to build WebBlocks:
 
 The Rakefile itself uses several additional tools:
 
+* git
 * uglifycss
 * uglifyjs
 
 Several packages have additional requirements:
 
 * `bootstrap`: sass, rb-fsevent
-* `jquery`: make
+* `jquery`: grunt
 
 #### Installing Prerequisites
 
@@ -33,12 +34,13 @@ To install Ruby, please visit:
 
     http://www.ruby-lang.org/en/downloads/
 
-Once Ruby is installed, one may install other Ruby utilities:
+Once Ruby is installed, one may install other Ruby utilities (may require
+superuser privileges):
 
 ```
-sudo gem install rake
-sudo gem install rb-fsevent
-sudo gem install sass
+gem install rake
+gem install rb-fsevent
+gem install sass
 ```
 
 The JS and CSS minification tools are written in Node.js, and thus Node.js 
@@ -47,19 +49,13 @@ should be installed:
     http://nodejs.org/
 
 Node.js comes with a package manager `npm` that can be used to install the
-required tools:
+required tools (may require superuser privileges):
 
 ```
-sudo npm -g install uglifycss
-sudo npm -g install uglify-js
+npm -g install grunt
+npm -g install uglifycss
+npm -g install uglify-js
 ```
-
-In addition, GNU `make` is required in order to build jQuery. Most distributions
-of *NIX include `make` by default or include it in the package manager. If your
-distribution does not include it, please see http://www.gnu.org/software/make.
-Mac OS X users can get `make` by installing Command Line Tools for xCode.
-Several ports also exist for Windows including MinWG (http://www.mingw.org)
-and GNUWin32 (http://gnuwin32.sourceforge.net/packages/make.htm).
 
 #### Building WebBlocks
 
@@ -76,7 +72,7 @@ rake
 The Rakefile actually includes several separate tasks that may be invoked
 individually:
 
-* `rake check` check for prerequisites
+* `rake check` check for prerequisites (not currently with custom paths)
 * `rake packages` update all packages (git submodules)
 * `rake build` create a build of WebBlocks
 * `rake clean` remove a build of WebBlocks
@@ -85,7 +81,6 @@ The default Rakefile task executes `clean -> prereq -> packages -> build`.
 
 A configuration file `Rakefile-configure.rb` may be modified to change the
 packages included in the build, the final destination of the build, etc.
-
 
 ## Credits
 

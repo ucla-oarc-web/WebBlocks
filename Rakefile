@@ -3,48 +3,54 @@ require 'pathname'
 require 'fileutils'
 load 'Rakefile-configure.rb'
 
+def executable_exists(name)
+  if system("which #{name}") == nil and system("where #{name}") == false
+    return false
+  else
+    return true
+  end
+end
+
 task :check do
-  if PACKAGES.include?("jquery")
-    if `which make`.empty?
-      fail 'make required'
-    end
+  puts "WARNING: this does not necessarily work with non-default CMD_ paths"
+  if !executable_exists(CMD_GIT)
+    fail "git [#{CMD_GIT}] must be installed"
   end
-  if `which sass`.empty?
-    fail 'SASS required'
+  if !executable_exists(CMD_GRUNT)
+    fail "grunt [#{CMD_GRUNT}] must be installed (run \"npm -g install grunt\")"
   end
-  if `which uglifycss`.empty?
-    if `which npm`.empty?
-      fail 'uglifycss required'
-    else
-      fail 'uglifycss required (run "npm -g install uglifycss")'
-    end
+  if !executable_exists(CMD_NPM)
+    fail "npm [#{CMD_NPM}] must be installed"
   end
-  if `which uglifyjs`.empty?
-    if `which npm`.empty?
-      fail 'uglifyjs required'
-    else
-      fail 'uglifyjs required (run "npm -g install uglify-js")'
-    end
+  if !executable_exists(CMD_UGLIFYCSS)
+    fail "uglifycss [#{CMD_UGLIFYCSS}] must be installed (run \"npm -g install uglifycss\")"
+  end
+  if !executable_exists(CMD_UGLIFYJS)
+    fail "uglifyjs [#{CMD_UGLIFYJS}] must be installed (run \"npm -g install uglify-js\")"
+  end
+  if !executable_exists(CMD_SASS)
+    fail "sass [#{CMD_SASS}] must be installed (run \"gem install sass\")"
   end
   puts "prerequisite check successful"
 end
 
 task :packages do
-  if !`which git`.empty?
-    sh "git submodule init"
-    sh "git submodule update"
+  if !executable_exists(CMD_GIT)
+    sh "#{CMD_GIT} submodule init"
+    sh "#{CMD_GIT} submodule update"
     pwd = Dir.pwd
     jquery_package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
     Dir.chdir(jquery_package_dir)
-    sh "git submodule init"
-    sh "git submodule update"
+    sh "#{CMD_GIT} submodule init"
+    sh "#{CMD_GIT} submodule update"
     Dir.chdir(pwd)
   else
     puts "cannot update git submodules because git is not installed"
+    puts "confirm that CMD_GIT is set properly in Rakefile-configure.rb"
   end
 end
 
-task :build => [:check, :packages] do
+task :build => [:packages] do
   
   begin
   
@@ -89,11 +95,11 @@ task :build => [:check, :packages] do
     ie_css = "#{DIR_BUILD}/#{FILE_IE_CSS}"
     ie_js = "#{DIR_BUILD}/#{FILE_IE_JS}"
 
-    sh "uglifycss \"#{tmp_main_css}\" > \"#{main_css}\""
-    sh "uglifyjs \"#{tmp_main_js}\" --extras --unsafe >> \"#{main_js}\""
+    sh "#{CMD_UGLIFYCSS} \"#{tmp_main_css}\" > \"#{main_css}\""
+    sh "#{CMD_UGLIFYJS} \"#{tmp_main_js}\" --extras --unsafe >> \"#{main_js}\""
     
-    sh "uglifycss \"#{tmp_ie_css}\" > \"#{ie_css}\""
-    sh "uglifyjs \"#{tmp_ie_js}\" --extras --unsafe >> \"#{ie_js}\""
+    sh "#{CMD_UGLIFYCSS} \"#{tmp_ie_css}\" > \"#{ie_css}\""
+    sh "#{CMD_UGLIFYJS} \"#{tmp_ie_js}\" --extras --unsafe >> \"#{ie_js}\""
     
   ensure
 
@@ -119,24 +125,18 @@ task :default => [:clean, :build]
 
 def build_jquery(js_path)
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}"
-  begin
-    pwd = Dir.pwd
-    Dir.chdir(package_dir)
-    sh "make"
-    Dir.chdir(pwd)
-    append_contents_to_file("#{package_dir}/dist/jquery.min.js", js_path)
-  ensure
-    pwd = Dir.pwd
-    Dir.chdir(package_dir)
-    sh "make clean"
-    Dir.chdir(pwd)
-  end
+  pwd = Dir.pwd
+  Dir.chdir(package_dir)
+  sh "#{CMD_NPM} -g install"
+  sh "#{CMD_GRUNT}"
+  Dir.chdir(pwd)
+  append_contents_to_file("#{package_dir}/dist/jquery.min.js", js_path)
 end
 
 def build_bootstrap(css_path, js_path)
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["bootstrap"]}"
-  sh "sass --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site.scss >> \"#{css_path}\""
-  sh "sass --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site-responsive.scss >> \"#{css_path}\""
+  sh "#{CMD_SASS} --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site.scss \"#{css_path}\""
+  sh "#{CMD_SASS} --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site-responsive.scss \"#{css_path}\""
   PACKAGE_BOOTSTRAP_SCRIPTS.each do |script|
     append_contents_to_file("#{package_dir}/js/bootstrap-#{script}.js", js_path)
   end 

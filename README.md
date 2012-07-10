@@ -53,6 +53,7 @@ required tools (may require superuser privileges):
 
 ```
 npm -g install grunt
+npm -g install grunt-compare-size
 npm -g install uglifycss
 npm -g install uglify-js
 ```

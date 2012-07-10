@@ -14,6 +14,15 @@ FILE_MAIN_JS    = 'main.js'
 FILE_IE_CSS     = 'ie.css'
 FILE_IE_JS      = 'ie.js'
 
+# specify the location of executables
+
+CMD_GIT         = 'git'         # '"C:\Program Files (x86)\Git\bin\git.exe"'
+CMD_GRUNT       = 'grunt'
+CMD_NPM         = 'npm'
+CMD_SASS        = 'sass'
+CMD_UGLIFYCSS   = 'uglifycss'
+CMD_UGLIFYJS    = 'uglifyjs'
+
 # package locations
 
 DIR_PACKAGE     = 'package'

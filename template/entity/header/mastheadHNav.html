@@ -1,0 +1,159 @@
+<!-- Adapted from UCLA Template V 1.0 -->
+
+<!-- added html5 entities: header, nav 
+	 clarified main site header with "masthead" since in html5 many header elements are allowed on a page.-->
+
+<!-- css: abstract box from content from skin from behavior for better modularity ; explicit here for sake of clarity, actual implementation
+     may be simplified due to SASS extensions and mixins -->
+
+<!-- Changes in naming conventions for easier recognization of elements & following WebBlocks agreed conventions: 
+	- fundamental element type seperated from its modifier (using camelCase) 
+	- Another pattern seen a lot is a wrapper div with its nested content: 
+	  here, the div is named "element it wraps + wrap" then,  the content is named just by the name of content. 
+	  This helps to clarify what is the box vs. what is the content -->
+	
+<!-- unless needed (as anchor point or JS hook) opted for classes instead of ids (keep css specificity as low as possible): 
+	- Class names are genereric and follow similar patterns so reuse is more possible
+	- ID names made more specific to context to avoid future conflicts -->
+	
+<!-- See full explanations & research here: (TO-DO: need to add child page) -->
+
+
+<doctype html>
+<head>
+</head>
+<body>
+
+<div class="pagewrap">
+
+<ul class="hide" class="skipnav">
+    <li><a href="#navAudience">Skip to Audience Navigation</a></li>
+    <li><a href="#navMain">Skip to Main Menu</a></li>
+    <li><a href="#searchformMain">Skip to Search</a></li>
+    <li><a href="#contentMain">Skip to Main Content</a></li>
+</ul>
+
+<!-- The "top bar" is often called a "utlitiy bar"; renamed class names to be more robust (may not always remain on top, always will contain
+utility navigation links. 
+
+The bar style (box) is abstracted from the content. Horizontal bars are a common layout pattern; make this generic class for reuse.-->
+
+<div class="barwrap">
+    <nav class="navUtility">
+        <a href="http://www.ucla.edu/" id="linkEdu">UCLA.edu</a>
+		<ul id="navAudience" role="navigation">
+            <li><a href="http://www.ucla.edu/students/prospective-students">Prospective Students</a></li>
+            <li><a href="http://www.ucla.edu/students/current-students">Current Students</a></li>
+            <li><a href="http://www.ucla.edu/faculty">Faculty</a></li>
+            <li><a href="http://www.ucla.edu/staff">Staff</a></li>
+            <li><a href="http://www.ucla.edu/alumni">Alumni</a></li>
+            <li><a href="http://www.ucla.edu/parents-and-families">Parents &amp; Families</a></li>
+		</ul>
+    </nav>
+</div>
+<!-- End Audience Navigation -->
+
+<!-- Begin the Page Header (aka Masthead) -->
+<span class="logoPrint"><img src="./img/logo-print.gif"></span>
+
+<div class="headerwrap" role="banner">
+	<header class="masthead">
+    	<h1 class="logo"><a href="./">UCLA</a></h1>
+            <!-- Responsive Buttons -->
+            <div class="navmobilewrap">
+                <a href="http://m.ucla.edu/" id="mobilelink">Mobile<span></span></a>
+                <a href="#" id="navcontrol">Menu<span></span></a>
+            </div>
+            <!-- End Responsive Buttons -->
+        <h2 class="logotype sub"><a href="#">Department Name</a></h2>
+			
+            <div class="navgroupwrap">
+                <nav class="searchbox">
+                    <form id="searchMain" name="searchform" role="search" method="get" action="#">
+                        <input type='hidden' name='site' value='UCLA'/>
+                        <input type='hidden' name='client' value='UCLA_Communication'/>
+                        <input type='hidden' name='proxystylesheet' value='UCLA_Communication'/>
+                        <input type='hidden' name='output' value='xml_no_dtd'/>
+                        <input type='hidden' name='proxyreload' value='1'/>
+                        <input type="text" name="q" id="searchMainInput" class="searchSite" title="Search Site" value="Search Site" size="20"  maxlength="255">
+                        <input id="searchMainBtn" type="image" value="Submit" name="search" alt="Search" src="./img/search-btn.gif">
+                    </form> 
+                </nav>
+                
+ 
+<!-- Menu/Submenu pattern is very common. Abstract the boxes from behavior (dropdown) and content (navigation) so reuse is more likely. -->
+                            
+                <!-- Main Navigation -->
+                <nav class="barwrap menuwrap">
+                    <ul id="navMain" class="menu" role="navigation">
+                        <li>
+                            <a href="#" class="menulink">PERSPICIATIS</a>
+                            <ul class="submenu isDropdown" role="region" aria-live="polite">
+                               <li>
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 1</a></li>
+                                        <li><a href="#">Expanded Nav 2</a></li>
+                                        <li><a href="#">Expanded Nav 3</a></li>
+                                    </ul>
+                                    
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 4</a></li>
+                                        <li><a href="#">Expanded Nav 5</a></li>
+                                        <li><a href="#">Expanded Nav 6</a></li>
+                                    </ul>
+                                    
+                                    <a href="" class="close">Close (X)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menuLink">UNDE OMNIS</a>
+                            <ul class="submenu isDropdown" role="region" aria-live="polite">
+                                <li>
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 7</a></li>
+                                        <li><a href="#">Expanded Nav 8</a></li>
+                                        <li><a href="#">Expanded Nav 9</a></li>
+                                    </ul>
+                                    
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 10</a></li>
+                                        <li><a href="#">Expanded Nav 11</a></li>
+                                        <li><a href="#">Expanded Nav 12</a></li>
+                                    </ul>
+                                    
+                                    <a href="" class="close">Close (X)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menulink">ISTE NATUS</a>
+                            <ul class="submenu isDropdown" role="region" aria-live="polite">
+                                <li>
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 13</a></li>
+                                        <li><a href="#">Expanded Nav 14</a></li>
+                                        <li><a href="#">Expanded Nav 15</a></li>
+                                    </ul>
+                                    
+                                    <ul class="menucolumn">
+                                        <li><a href="#">Expanded Nav 16</a></li>
+                                        <li><a href="#">Expanded Nav 17</a></li>
+                                        <li><a href="#">Expanded Nav 18</a></li>
+                                    </ul>
+                                    <a href="" class="close">Close (X)</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="./direct-link-url1">VOLUPTATEM</a></li>
+                        <li><a href="./direct-link-url2">ACCUSANTIUM</a></li>
+                        <li><a href="./direct-link-url3">DOLOREMQUE</a></li>
+                    </ul>           
+                    <div class="submenuSpacer"></div> 
+                </nav><!-- End Main Nav Bar--> 
+            </div><!-- End Navigation Group -->
+    </header> <!-- End Masthead -->
+</div><!-- End Masthead Wrapper -->
+
+</body>
+</html>

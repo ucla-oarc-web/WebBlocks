@@ -1,0 +1,102 @@
+<!-- header.masthead
+
+This defines a full spanning masthead at the top of the page, designed to 
+support the masthead currently used by the UCLA Gateway. It should include
+support for when nav.topbar is defined within it, as well as when it is not.
+
+Also, it should support several arrangements of children (besides nav.topbar):
+
+    - h1 + aside + nav: left title, right aside, nav below (default alignment)
+    - aside + h1 + nav: left aside, right title, nav below (default alignment)
+    - h1 + nav: title and then nav below (default alignment on both)
+    - aside + nav
+
+In the cases with only h1 or aside but not both, .left, .center and .right 
+should control where the element resides. Similarly, .left, .center and .right
+should allow for explicit alignment of nav.
+
+-->
+
+<header class="masthead">
+    
+    <!-- nav.topbar
+    
+    This defines a horizontal menu across top of page supports several child 
+    arrangements:
+
+        - aside + ul: left aside, right menu
+        - ul + aside: left menu, right aside
+        - ul: alignment via .left, .center or .right
+
+    NOTE: This will be its own entity so it can be used outside of .masthead.
+          However, it is described here as this is a motivating example drawn
+          right from the UCLA Gateway, which does use a topbar in this style.
+
+    -->
+
+    <nav class="topbar">
+
+        <aside>
+            <a href="http://www.atmos.ucla.edu/component/option,com_wrapper/Itemid,147/">
+                 <img src="http://www.ucla.edu/img/weather/sun.png" alt="sun"> <span>69&deg; and Sunny</span>
+            </a>
+        </aside>
+
+        <ul>
+            <li><a href="/students/prospective-students">Prospective Students</a></li>
+            <li><a href="/students/current-students">Current Students</a></li>
+            <li><a href="/faculty">Faculty</a></li>
+            <li><a href="/staff">Staff</a></li>
+            <li><a href="/alumni">Alumni</a></li>
+            <li><a href="/parents-and-family">Parents &amp; Family</a></li>
+        </ul>
+
+    </nav>
+    
+    <h1 class="logo">
+        <a href="/">UCLA</a>
+    </h1>
+    
+    <aside>
+        <form id="searchform" name="searchform" role="search" method="get" action="#">
+            <input type="hidden" name="site" value="UCLA">
+            <input type="hidden" name="client" value="UCLA_Communication">
+            <input type="hidden" name="proxystylesheet" value="UCLA_Communication">
+            <input type="hidden" name="output" value="xml_no_dtd">
+            <input type="hidden" name="proxyreload" value="1">
+            <input id="searchbox-input" class="google-search" title="Search UCLA.edu" name="q" type="text" size="20" maxlength="255" value="">
+            <input id="searchbox-btn" type="image" value="Submit" name="search" alt="Search" src="/img/search-btn.gif">
+        </form>
+    </aside>
+    
+    <nav>
+        <ul>
+            <li>
+                <a href="/about">ABOUT</a>
+                <ul>
+                    <li><a href="/about/">Overview</a></li>
+                    <li><a href="/about/mission-and-values">Mission &amp; Values</a></li>
+                    <li><a href="/about/facts-and-figures">Facts &amp; Figures</a></li>
+                    <li><a href="/about/awards-and-honors">Awards &amp; Honors</a></li>
+                    <li><a href="/about/centers-and-institutes">Centers &amp; Institutes</a></li>
+                    <li><a href="/about/administration">Administration</a></li>
+                    <li><a href="/about/careers">Careers</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/academics" class="dropdown-link">ACADEMICS</a>
+                <ul>
+                    <li><a href="/academics/undergraduate-education">Undergraduate Education</a></li>
+                    <li><a href="/academics/graduate-and-professional-education">Graduate &amp; Professional Education</a></li>
+                    <li><a href="/academics/continuing-education">Continuing Education</a></li>
+                    <li><a href="/academics/academic-opportunities">Academic Opportunities</a></li>
+                    <li><a href="/academics/faculty">Faculty</a></li>
+                    <li><a href="/academics/departments-and-programs">Departments &amp; Programs</a></li>
+                    <li><a href="/academics/libraries">Libraries</a></li>
+                </ul>
+            </li>
+            <!-- etc. -->
+        </ul>
+    </nav>
+    
+</header>

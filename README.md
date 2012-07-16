@@ -74,18 +74,20 @@ cd WebBlocks
 rake
 ```
 
-The Rakefile includes several tasks that may be invoked separately as well:
+The Rakefile includes a number of subtasks that may be invoked:
 
+* `rake build` builds WebBlocks
+* `rake build_all` updates and rebuilds all packages before building WebBlocks
+* `rake clean` removes the build directory for WebBlocks
+* `rake clean_all` removes build outputs for all packages and WebBlocks
 * `rake check` check for prerequisites (requires commands in user search path)
-* `rake packages` update all submodule packages from their remote repositories
-* `rake build` create a build of WebBlocks
-* `rake clean` remove a build of WebBlocks
-
-The default Rakefile task executes `clean -> packages -> build`.
+* `rake packages_build` builds all packages
+* `rake packages_clean` removes build outputs for all packages
+* `rake packages_update` updates submodules for all packages
 
 The configuration file `Rakefile-configure.rb` may be modified to change a 
 number of properties about the build including the packages, the final build
-destination, and the commands for various executables.
+destination and the commands for various executables.
 
 ## Credits
 

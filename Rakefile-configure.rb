@@ -9,10 +9,13 @@ PACKAGES = [
 ]
                    
 DIR_BUILD       = 'build'
-FILE_MAIN_CSS   = 'main.css'
-FILE_MAIN_JS    = 'main.js'
-FILE_IE_CSS     = 'ie.css'
-FILE_IE_JS      = 'ie.js'
+DIR_BUILD_CSS   = 'css'
+DIR_BUILD_JS    = 'js'
+DIR_BUILD_IMG   = 'img'
+FILE_MAIN_CSS   = 'blocks.css'
+FILE_MAIN_JS    = 'blocks.js'
+FILE_IE_CSS     = 'blocks-ie.css'
+FILE_IE_JS      = 'blocks-ie.js'
 
 # specify the location of executables
 

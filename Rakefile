@@ -3,15 +3,15 @@ require 'pathname'
 require 'fileutils'
 load 'Rakefile-configure.rb'
 
-tmp_main_css = "#{DIR_BUILD_TMP}/#{FILE_MAIN_CSS}"
-tmp_main_js = "#{DIR_BUILD_TMP}/#{FILE_MAIN_JS}"
-tmp_ie_css = "#{DIR_BUILD_TMP}/#{FILE_IE_CSS}"
-tmp_ie_js = "#{DIR_BUILD_TMP}/#{FILE_IE_JS}"
+tmp_main_css = "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}/#{FILE_MAIN_CSS}"
+tmp_main_js = "#{DIR_BUILD_TMP}/#{DIR_BUILD_JS}/#{FILE_MAIN_JS}"
+tmp_ie_css = "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}/#{FILE_IE_CSS}"
+tmp_ie_js = "#{DIR_BUILD_TMP}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 
-main_css = "#{DIR_BUILD}/#{FILE_MAIN_CSS}"
-main_js = "#{DIR_BUILD}/#{FILE_MAIN_JS}"
-ie_css = "#{DIR_BUILD}/#{FILE_IE_CSS}"
-ie_js = "#{DIR_BUILD}/#{FILE_IE_JS}"
+main_css = "#{DIR_BUILD}/#{DIR_BUILD_CSS}/#{FILE_MAIN_CSS}"
+main_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_MAIN_JS}"
+ie_css = "#{DIR_BUILD}/#{DIR_BUILD_CSS}/#{FILE_IE_CSS}"
+ie_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 
 #
 # primary tasks
@@ -47,6 +47,9 @@ end
 task :build_setup do
   
   mkdir DIR_BUILD_TMP unless File.exist? DIR_BUILD_TMP
+  mkdir "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}" unless File.exist? "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}"
+  mkdir "#{DIR_BUILD_TMP}/#{DIR_BUILD_JS}" unless File.exist? "#{DIR_BUILD_TMP}/#{DIR_BUILD_JS}"
+  mkdir "#{DIR_BUILD_TMP}/#{DIR_BUILD_IMG}" unless File.exist? "#{DIR_BUILD_TMP}/#{DIR_BUILD_IMG}"
   File.open tmp_main_css, "w" unless File.exist? tmp_main_css
   File.open tmp_main_js, "w" unless File.exist? tmp_main_js
   File.open tmp_ie_css, "w" unless File.exist? tmp_ie_css
@@ -65,10 +68,15 @@ task :build_execute => [
   
   mkdir DIR_BUILD unless File.exist? DIR_BUILD
   
+  FileUtils.cp_r "#{DIR_BUILD_TMP}/#{DIR_BUILD_IMG}", "#{DIR_BUILD}/#{DIR_BUILD_IMG}"
+  mkdir "#{DIR_BUILD}/#{DIR_BUILD_CSS}" unless File.exist? "#{DIR_BUILD}/#{DIR_BUILD_CSS}"
+  mkdir "#{DIR_BUILD}/#{DIR_BUILD_JS}" unless File.exist? "#{DIR_BUILD}/#{DIR_BUILD_JS}"
+  
   sh "#{CMD_UGLIFYCSS} \"#{tmp_main_css}\" > \"#{main_css}\""
   sh "#{CMD_UGLIFYJS} \"#{tmp_main_js}\" --extras --unsafe >> \"#{main_js}\""
   sh "#{CMD_UGLIFYCSS} \"#{tmp_ie_css}\" > \"#{ie_css}\""
   sh "#{CMD_UGLIFYJS} \"#{tmp_ie_js}\" --extras --unsafe >> \"#{ie_js}\""
+  
   
 end
 
@@ -94,6 +102,9 @@ task :_build_package_bootstrap => [:build_setup] do
   PACKAGE_BOOTSTRAP_SCRIPTS.each do |script|
     append_contents_to_file "#{package_dir}/js/bootstrap-#{script}.js", tmp_main_js
   end 
+  Dir.entries("#{package_dir}/img/").each do |name|
+    FileUtils.cp "#{package_dir}/img/#{name}", "#{DIR_BUILD_TMP}/img" unless File.directory? "#{package_dir}/img/#{name}"
+  end
 end
 
 task :_build_package_modernizr => [:build_setup] do

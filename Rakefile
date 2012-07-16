@@ -91,7 +91,6 @@ end
 task :_build_package_bootstrap => [:build_setup] do
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["bootstrap"]}"
   sh "#{CMD_SASS} --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site.scss \"#{tmp_main_css}\""
-  sh "#{CMD_SASS} --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site-responsive.scss \"#{tmp_main_css}\""
   PACKAGE_BOOTSTRAP_SCRIPTS.each do |script|
     append_contents_to_file "#{package_dir}/js/bootstrap-#{script}.js", tmp_main_js
   end 

@@ -17,18 +17,17 @@ such, the following are required to build WebBlocks:
 * gem
 * rake
 
-The Rakefile itself uses several additional tools:
+The Rakefile itself requires several additional tools:
 
 * git
+* sass
+* compass
+* rb-fsevent
 * uglifycss
 * uglifyjs
+* grunt (to package jQuery)
 
-Several packages have additional requirements:
-
-* `bootstrap`: sass, rb-fsevent
-* `jquery`: grunt
-
-By default, the Rakefile execute these tools as though they are within the user
+By default, the Rakefile executes these tools as though they are within the user
 search path. In the event that they reside elsewhere in the file system, the 
 invoking commands should be specified within `Rakefile-configure.rb`.
 
@@ -44,6 +43,7 @@ Once Ruby is installed, one may install other Ruby utilities:
 gem install rake
 gem install rb-fsevent
 gem install sass
+gem install compass
 ```
 
 The JS and CSS minification tools are written in Node.js, and thus Node.js 

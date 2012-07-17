@@ -19,11 +19,11 @@ ie_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 
 task :default => [:build]
 
-task :build => [:clean, :build_execute, :build_cleanup]
+task :build => [:clean, :_build_execute, :_build_cleanup]
 
 task :build_all => [:clean_all, :packages_update, :build]
 
-task :clean => [:build_cleanup] do
+task :clean => [:_build_cleanup] do
   FileUtils.rm_rf DIR_BUILD if File.exist?(DIR_BUILD)
 end
 
@@ -37,6 +37,7 @@ task :check do
   fail "uglifycss [#{CMD_UGLIFYCSS}] must be installed (run \"npm -g install uglifycss\")" unless executable_exists(CMD_UGLIFYCSS)
   fail "uglifyjs [#{CMD_UGLIFYJS}] must be installed (run \"npm -g install uglify-js\")" unless executable_exists(CMD_UGLIFYJS)
   fail "sass [#{CMD_SASS}] must be installed (run \"gem install sass\")" unless executable_exists(CMD_SASS)
+  fail "compass [#{CMD_COMPASS}] must be installed (run \"gem install compass\")" unless executable_exists(CMD_COMPASS)
   puts "prerequisite check successful"
 end
 
@@ -44,7 +45,7 @@ end
 # build subtasks
 #
 
-task :build_setup do
+task :_build_setup do
   
   mkdir DIR_BUILD_TMP unless File.exist? DIR_BUILD_TMP
   mkdir "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}" unless File.exist? "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}"
@@ -57,13 +58,14 @@ task :build_setup do
   
 end
 
-task :build_execute => [
-  :build_setup,
-  PACKAGES.include?("jquery") ? :_build_package_jquery : :skip,
-  PACKAGES.include?("bootstrap") ? :_build_package_bootstrap : :skip,
-  PACKAGES.include?("modernizr") ? :_build_package_modernizr : :skip,
-  PACKAGES.include?("respond") ? :_build_package_respond : :skip,
-  PACKAGES.include?("selectivizr") ? :_build_package_selectivizr : :skip
+task :_build_execute => [
+  :_build_setup,
+  :_build_compass,
+  PACKAGES.include?("bootstrap") ? :_build_package_bootstrap : :_skip,
+  PACKAGES.include?("jquery") ? :_build_package_jquery : :_skip,
+  PACKAGES.include?("modernizr") ? :_build_package_modernizr : :_skip,
+  PACKAGES.include?("respond") ? :_build_package_respond : :_skip,
+  PACKAGES.include?("selectivizr") ? :_build_package_selectivizr : :_skip
 ] do
   
   mkdir DIR_BUILD unless File.exist? DIR_BUILD
@@ -80,11 +82,11 @@ task :build_execute => [
   
 end
 
-task :build_cleanup do
+task :_build_cleanup do
   FileUtils.rm_rf DIR_BUILD_TMP if File.exist?(DIR_BUILD_TMP)
 end
 
-task :skip do
+task :_skip do
   next
 end
 
@@ -92,13 +94,20 @@ end
 # build package subtasks
 # 
 
-task :_build_package_jquery => [:build_setup, :package_jquery_build] do
+task :_build_package_jquery => [:_build_setup, :package_jquery_build] do
   append_contents_to_file "#{DIR_PACKAGE}/#{DIR_PACKAGES["jquery"]}/dist/jquery.min.js", tmp_main_js
 end
 
-task :_build_package_bootstrap => [:build_setup] do
+task :_build_compass => [:_build_setup] do
+  pwd = Dir.pwd
+  Dir.chdir "#{DIR_SRC}"
+  sh "#{CMD_COMPASS} compile --css-dir ../#{DIR_BUILD_TMP}/css" 
+  Dir.chdir pwd
+  append_contents_to_file("#{DIR_BUILD_TMP}/css/site.css", tmp_main_css)
+end
+
+task :_build_package_bootstrap => [:_build_setup] do
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["bootstrap"]}"
-  sh "#{CMD_SASS} --precision 10 --load-path src/css/lib --load-path #{package_dir}/lib/ --style expanded src/css/site.scss \"#{tmp_main_css}\""
   PACKAGE_BOOTSTRAP_SCRIPTS.each do |script|
     append_contents_to_file "#{package_dir}/js/bootstrap-#{script}.js", tmp_main_js
   end 
@@ -107,17 +116,17 @@ task :_build_package_bootstrap => [:build_setup] do
   end
 end
 
-task :_build_package_modernizr => [:build_setup] do
+task :_build_package_modernizr => [:_build_setup] do
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["modernizr"]}"
   append_contents_to_file "#{package_dir}/modernizr.js", tmp_main_js
 end
 
-task :_build_package_respond => [:build_setup] do
+task :_build_package_respond => [:_build_setup] do
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["respond"]}"
   append_contents_to_file "#{package_dir}/respond.min.js", tmp_ie_js
 end
 
-task :_build_package_selectivizr => [:build_setup] do
+task :_build_package_selectivizr => [:_build_setup] do
   package_dir = "#{DIR_PACKAGE}/#{DIR_PACKAGES["selectivizr"]}"
   append_contents_to_file("#{package_dir}/selectivizr.js", tmp_ie_js)
 end

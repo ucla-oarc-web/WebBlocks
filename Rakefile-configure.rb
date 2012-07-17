@@ -1,17 +1,18 @@
 # build settings
 
 PACKAGES = [
+ 'bootstrap',
  'jquery',
  'modernizr',
- 'selectivizr',
- 'bootstrap',
- 'respond'
+ 'respond',
+ 'selectivizr'
 ]
                    
 DIR_BUILD       = 'build'
 DIR_BUILD_CSS   = 'css'
 DIR_BUILD_JS    = 'js'
 DIR_BUILD_IMG   = 'img'
+DIR_SRC         = 'src'
 FILE_MAIN_CSS   = 'blocks.css'
 FILE_MAIN_JS    = 'blocks.js'
 FILE_IE_CSS     = 'blocks-ie.css'
@@ -25,6 +26,7 @@ CMD_NPM         = 'npm'
 CMD_SASS        = 'sass'
 CMD_UGLIFYCSS   = 'uglifycss'
 CMD_UGLIFYJS    = 'uglifyjs'
+CMD_COMPASS     = 'compass'
 
 # package locations
 

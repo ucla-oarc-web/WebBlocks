@@ -11,10 +11,12 @@ existing web packages and extends them with additional functionality.
 #### Prerequisites
 
 WebBlocks is built via `rake`, a Ruby build utility similar to GNU `make`. As 
-such, the following are required to build WebBlocks:
+such, the following are required to use WebBlocks:
 
 * ruby
 * gem
+* rubygems
+* bundler
 * rake
 
 The Rakefile itself requires several additional tools:
@@ -46,6 +48,8 @@ gem install sass
 gem install compass
 ```
 
+It is also possible to install these by issuing the `bundle` command.
+
 The JS and CSS minification tools are written in Node.js, and thus Node.js 
 should be installed:
 
@@ -59,6 +63,8 @@ npm -g install grunt
 npm -g install uglifycss
 npm -g install uglify-js
 ```
+
+It is also possible to install these by issuing the `npm install` command.
 
 Some or all of these installations may require superuser privileges.
 

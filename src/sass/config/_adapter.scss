@@ -1,0 +1,11 @@
+/*********************
+ * 
+ * Adapter Configuration
+ *
+ * WebBlocks implements a significant portion of its entities by extending an
+ * existing framework (such as Twitter Bootstrap). The framework used as this
+ * foundation may be changed by modifying the adapter. 
+ *
+ */
+
+@import "adapter/bootstrap";

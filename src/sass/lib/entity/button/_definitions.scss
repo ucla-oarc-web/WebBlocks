@@ -1,0 +1,45 @@
+@mixin entity-button {
+    
+    @extend .btn;
+    
+    &.primary {
+        @extend .btn-primary;
+    }
+    
+    &.warning {
+        @extend .btn-warning;
+    }
+    
+    &.danger {
+        @extend .btn-danger;
+    }
+    
+    &.success {
+        @extend .btn-success;
+    }
+    
+    &.info {
+        @extend .btn-info;
+    }
+    
+    &.inverse {
+        @extend .btn-inverse;
+    }
+    
+    &[disabled], &.disabled {
+        @extend .btn.disabled;
+    }
+    
+    &.large {
+        @extend .btn-large;
+    }
+    
+    &.small {
+        @extend .btn-small;
+    }
+    
+    &.mini {
+        @extend .btn-mini;
+    }
+    
+}

@@ -113,6 +113,7 @@ task :_build_compass => [:_build_setup] do
   sh "#{CMD_COMPASS} compile --css-dir ../#{DIR_BUILD_TMP}/css" 
   Dir.chdir pwd
   append_contents_to_file("#{DIR_BUILD_TMP}/css/site.css", tmp_main_css)
+  append_contents_to_file("#{DIR_BUILD_TMP}/css/site-ie.css", tmp_ie_css)
 end
 
 task :_build_package_bootstrap => [:_build_setup] do

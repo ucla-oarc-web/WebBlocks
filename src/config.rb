@@ -5,7 +5,7 @@
 # 
 
 sass_dir = "sass"
-additional_import_paths = ["../package/sass-twitter-bootstrap/lib", "sass/lib"]
+additional_import_paths = ["../package/sass-twitter-bootstrap/lib"]
 
 http_path = "/"
 css_dir = "css"

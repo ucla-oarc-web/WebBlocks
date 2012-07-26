@@ -1,6 +1,8 @@
 # Header/Masthead
 
-## Masthead the primary page header for a website. It includes the site logo and branding elements. It may optionally include
+## Definition
+
+Masthead the primary page header for a website. It includes the site logo and branding elements. It may optionally include
 primary navigation elements.
 
 

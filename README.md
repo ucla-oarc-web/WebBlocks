@@ -71,6 +71,8 @@ The entire process from checkout to completed build is as follows:
 ```
 git clone git@github.com:ucla/WebBlocks.git
 cd WebBlocks
+bundle
+npm install
 rake packages_update
 rake
 ```

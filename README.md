@@ -13,13 +13,12 @@ existing web packages and extends them with additional functionality.
 WebBlocks is built via `rake`, a Ruby build utility similar to GNU `make`. As 
 such, the following are required to use WebBlocks:
 
-* ruby
 * gem
 * rubygems
 * bundler
 * rake
 
-The Rakefile itself requires several additional tools:
+The rake build file (Rakefile) also requires several tools:
 
 * git
 * sass
@@ -28,6 +27,9 @@ The Rakefile itself requires several additional tools:
 * uglifycss
 * uglifyjs
 * grunt (to package jQuery)
+
+These tools are all written in either Ruby or Node.js, and as such, both are
+required (see ''Installing Prerequisites'' below).
 
 By default, the Rakefile executes these tools as though they are within the user
 search path. In the event that they reside elsewhere in the file system, the 
@@ -39,34 +41,26 @@ To install Ruby, please visit:
 
     http://www.ruby-lang.org/en/downloads/
 
-Once Ruby is installed, one may install other Ruby utilities:
+With Ruby installed, use Bundler to install the required Ruby packages:
 
 ```
-gem install rake
-gem install rb-fsevent
-gem install sass
-gem install compass
+bundle          # from within WebBlocks root directory
 ```
 
-It is also possible to install these by issuing the `bundle` command.
-
-The JS and CSS minification tools are written in Node.js, and thus Node.js 
-should be installed:
+Several required tools are written in Node.js. To install Node.js, please visit:
 
     http://nodejs.org/
 
-Node.js comes with a package manager `npm` that can be used to install the
-required tools:
+With Node.js installed, use NPM to install the required Node.js packages:
 
 ```
-npm -g install grunt
-npm -g install uglifycss
-npm -g install uglify-js
+npm install     # from within WebBlocks root directory
 ```
-
-It is also possible to install these by issuing the `npm install` command.
 
 Some or all of these installations may require superuser privileges.
+
+If Bundler and/or NPM are not viable, you can also install these packages 
+individually through `gem install` and `npm install`.
 
 #### Building WebBlocks
 
@@ -77,6 +71,7 @@ The entire process from checkout to completed build is as follows:
 ```
 git clone git@github.com:ucla/WebBlocks.git
 cd WebBlocks
+rake packages_update
 rake
 ```
 

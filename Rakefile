@@ -28,7 +28,7 @@ ie_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 
 task :default => [:build]
 
-task :build => [:clean, :_build_execute, :_build_cleanup]
+task :build => [:clean, :init, :_build_execute, :_build_cleanup]
 
 task :build_all => [:clean_all, :packages_update, :build]
 
@@ -48,6 +48,17 @@ task :check do
   fail "sass [#{CMD_SASS}] must be installed (run \"gem install sass\")" unless executable_exists(CMD_SASS)
   fail "compass [#{CMD_COMPASS}] must be installed (run \"gem install compass\")" unless executable_exists(CMD_COMPASS)
   puts "prerequisite check successful"
+end
+
+task :init do
+  unless File.exists? DIR_METADATA
+    Rake::Task["packages_update"].invoke
+    mkdir DIR_METADATA
+  end
+end
+
+task :reset => [:clean_all] do
+  FileUtils.rm_rf DIR_METADATA
 end
 
 #

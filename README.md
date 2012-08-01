@@ -73,9 +73,10 @@ git clone git@github.com:ucla/WebBlocks.git
 cd WebBlocks
 bundle
 npm install
-rake packages_update
 rake
 ```
+
+Again, as a reminder, these commands may require superuser privileges.
 
 The Rakefile includes a number of subtasks that may be invoked:
 
@@ -84,9 +85,13 @@ The Rakefile includes a number of subtasks that may be invoked:
 * `rake clean` removes the build directory for WebBlocks
 * `rake clean_all` removes build outputs for all packages and WebBlocks
 * `rake check` check for prerequisites (requires commands in user search path)
-* `rake packages_build` builds all packages
-* `rake packages_clean` removes build outputs for all packages
-* `rake packages_update` updates submodules for all packages
+* `rake packages_build` builds all packages '''(!)'''
+* `rake packages_clean` removes build outputs for all packages '''(!)'''
+* `rake packages_update` updates submodules for all packages '''(!)'''
+* `rake init` first time call to initialize WebBlocks including submodules '''(!)'''
+* `rake destroy` completely reset and clean state of WebBlocks build '''(!)'''
+
+''(!) denotes an advanced feature that should likely never be called individually''
 
 The configuration file `Rakefile-configure.rb` may be modified to change a 
 number of properties about the build including the packages, the final build

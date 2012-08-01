@@ -51,3 +51,4 @@ PACKAGE_BOOTSTRAP_SCRIPTS = [
 # advanced configuration
 
 DIR_BUILD_TMP   = '.build-tmp'
+DIR_METADATA    = '.blocks'

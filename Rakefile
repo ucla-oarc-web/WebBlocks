@@ -156,7 +156,7 @@ end
 # package tasks
 # 
 
-task :packages_build => [:packages_clean, :package_jquery_build]
+task :packages_build => [:packages_update, :package_jquery_build]
 
 task :packages_clean => [:package_jquery_clean]
 

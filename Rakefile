@@ -40,9 +40,6 @@ ie_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 
 task :default => [:build]
 
-task :test do |opts|
-end
-
 task :build => [:clean, :init, :_build_execute, :_build_cleanup]
 
 task :build_all => [:clean_all, :packages_update, :build]

@@ -4,8 +4,9 @@
 # Default settings are likely sufficient
 # 
 
-sass_dir = "sass"
-additional_import_paths = ["../package"]
+additional_import_paths = [
+  "sass", 
+  "../package"]
 
 http_path = "/"
 css_dir = "css"

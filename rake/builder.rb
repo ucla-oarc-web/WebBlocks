@@ -105,7 +105,8 @@ module WebBlocks
     def append_sass
       pwd = Dir.pwd
       Dir.chdir @config[:src][:dir]
-      sh "#{@config[:exec][:compass]} compile --css-dir ../#{@path[:tmp][:dir]}/css" 
+      puts "#{@config[:exec][:compass]} compile --sass-dir #{@config[:src][:sass]} --css-dir ../#{@path[:tmp][:dir]}/css" 
+      sh "#{@config[:exec][:compass]} compile --sass-dir #{@config[:src][:sass]} --css-dir ../#{@path[:tmp][:dir]}/css" 
       Dir.chdir pwd
       self.append_contents_to_file "#{@path[:tmp][:dir]}/css/site.css", @path[:tmp][:css][:file]
       self.append_contents_to_file "#{@path[:tmp][:dir]}/css/site-ie.css", @path[:tmp][:css][:file_ie]

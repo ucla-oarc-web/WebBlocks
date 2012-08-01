@@ -89,7 +89,7 @@ The Rakefile includes a number of subtasks that may be invoked:
 * `rake packages_clean` removes build outputs for all packages '''(!)'''
 * `rake packages_update` updates submodules for all packages '''(!)'''
 * `rake init` first time call to initialize WebBlocks including submodules '''(!)'''
-* `rake destroy` completely reset and clean state of WebBlocks build '''(!)'''
+* `rake reset` completely reset and clean state of WebBlocks build '''(!)'''
 
 ''(!) denotes an advanced feature that should likely never be called individually''
 

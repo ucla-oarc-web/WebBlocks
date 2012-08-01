@@ -10,7 +10,19 @@ end
 require 'rake'
 require 'pathname'
 require 'fileutils'
-load 'Rakefile-configure.rb'
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: rake [options]"
+  options[:config] = false
+  opts.on( '-c', '--config [OPT]', "Config file location (optional)" ) do |filename|
+    options[:config] = filename || false
+  end
+  
+end.parse!
+
+load options[:config] ? options[:config] : 'Rakefile-configure.rb'
 
 tmp_main_css = "#{DIR_BUILD_TMP}/#{DIR_BUILD_CSS}/#{FILE_MAIN_CSS}"
 tmp_main_js = "#{DIR_BUILD_TMP}/#{DIR_BUILD_JS}/#{FILE_MAIN_JS}"
@@ -27,6 +39,9 @@ ie_js = "#{DIR_BUILD}/#{DIR_BUILD_JS}/#{FILE_IE_JS}"
 #
 
 task :default => [:build]
+
+task :test do |opts|
+end
 
 task :build => [:clean, :init, :_build_execute, :_build_cleanup]
 

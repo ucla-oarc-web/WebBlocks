@@ -97,6 +97,15 @@ The configuration file `Rakefile-configure.rb` may be modified to change a
 number of properties about the build including the packages, the final build
 destination and the commands for various executables.
 
+In some cases, it may make sense to specify a configuration file in a different
+location, such as it WebBlocks is checked out as a submodule of a larger 
+project. Under these conditions, a command line argument `config` is available
+to specify this path, such as:
+
+```
+rake [command] -- --config=Rakefile-configure.rb
+```
+
 ## Credits
 
 WebBlocks leverages a number of external packages:

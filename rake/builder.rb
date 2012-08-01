@@ -84,7 +84,9 @@ module WebBlocks
     end
     
     def generate_build_files
-      FileUtils.cp_r @path[:tmp][:img][:dir], @path[:build][:img][:dir]
+      Dir.entries(@path[:tmp][:img][:dir]).each do |name|
+        FileUtils.cp_r "#{@path[:tmp][:img][:dir]}/#{name}", @path[:build][:img][:dir] unless name[0,1] == '.'
+      end
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file]}\" > \"#{@path[:build][:css][:file]}\""
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file]}\" --extras --unsafe > \"#{@path[:build][:js][:file]}\""
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file_ie]}\" > \"#{@path[:build][:css][:file_ie]}\""

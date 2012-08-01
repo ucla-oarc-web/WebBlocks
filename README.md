@@ -93,9 +93,9 @@ The Rakefile includes a number of subtasks that may be invoked:
 
 ''(!) denotes an advanced feature that should likely never be called individually''
 
-The configuration file `Rakefile-configure.rb` may be modified to change a 
-number of properties about the build including the packages, the final build
-destination and the commands for various executables.
+The WebBlocks build process is highly configurable. By default, you may define
+configuration settings within `Rakefile-config.rb`. A full list of all 
+properties and their default values is available within `rake/config.rb`.
 
 In some cases, it may make sense to specify a configuration file in a different
 location, such as it WebBlocks is checked out as a submodule of a larger 
@@ -103,7 +103,7 @@ project. Under these conditions, a command line argument `config` is available
 to specify this path, such as:
 
 ```
-rake [command] -- --config=Rakefile-configure.rb
+rake [command] -- --config=Rakefile-config.rb
 ```
 
 ## Credits

@@ -76,8 +76,8 @@ end
 task :_build_execute => [
   :_build_setup,
   :_build_compass,
-  builder.package?(:bootstrap) ? :_build_package_bootstrap : :_skip,
   builder.package?(:jquery) ? :_build_package_jquery : :_skip,
+  builder.package?(:bootstrap) ? :_build_package_bootstrap : :_skip,
   builder.package?(:modernizr) ? :_build_package_modernizr : :_skip,
   builder.package?(:respond) ? :_build_package_respond : :_skip,
   builder.package?(:selectivizr) ? :_build_package_selectivizr : :_skip

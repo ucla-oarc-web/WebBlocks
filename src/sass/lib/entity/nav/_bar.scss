@@ -1,0 +1,21 @@
+nav.bar {
+    
+    @include -entity-nav-bar;
+    
+    /*
+    &.top { }
+    
+    &.bottom { }
+    
+    > header, > aside {
+        
+        &:first-child { }
+        
+        &:last-child { }
+        
+    }
+    
+    > ul { }
+    
+    */
+}

@@ -1,0 +1,12 @@
+/***
+ * Similar to Bootstrap's fluid-span mixin, except:
+ *
+ *   - Second argument specifies number of gutters applied as padding to element
+ *   - Grid column and gutter widths are third and forth argument
+ *   - Grid column and gutter widths default to their config values
+ */
+
+@mixin -fluid-span-padded($columns, $padding: 1, $fluidGridColumnWidth: $fluidGridColumnWidth, $fluidGridGutterWidth: $fluidGridGutterWidth) {
+  width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - $padding));
+  *width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - $padding)) - (.5 / $gridRowWidth * 100px * 1%);
+}

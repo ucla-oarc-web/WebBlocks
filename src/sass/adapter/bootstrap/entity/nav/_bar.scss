@@ -1,0 +1,69 @@
+@mixin -entity-nav-bar {
+    
+    overflow: auto;
+    width: 100%;
+    
+    &.top, &.bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    
+    &.top {
+        top: 0;
+    }
+    
+    &.bottom {
+        bottom: 0;
+    }
+    
+    > * {
+        float: left;
+    }
+    
+    > *, > ul > li {
+        line-height: 2;
+    }
+    
+    > header, > aside {
+        
+        @include -fluid-span-padded(3, 2);
+        padding-right: $fluidGridGutterWidth;
+        padding-left: $fluidGridGutterWidth;
+        
+        &:first-child {
+            text-align: left;
+        }
+        
+        &:last-child {
+            text-align: right;
+        }
+        
+    }
+    
+    > ul {
+        
+        list-style: none;
+        margin: 0;
+        @include -fluid-span-padded(9, 2);
+        
+        > li {
+            float: left;
+        }
+        
+        &:first-child {
+            padding-left: $fluidGridGutterWidth;
+            > li {
+                padding-right: $fluidGridGutterWidth;
+            }
+        }
+        
+        &:last-child {
+            padding-right: $fluidGridGutterWidth;
+            > li {
+                padding-left: $fluidGridGutterWidth;
+            }
+        }
+    }
+    
+}

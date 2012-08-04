@@ -3,4 +3,6 @@
 @import "sass-twitter-bootstrap/lib/responsive";
 
 // Subpackages within Bootstrap
-@import "adapter/bootstrap/entity"
+@import "adapter/bootstrap/util";
+@import "adapter/bootstrap/base";
+@import "adapter/bootstrap/entity";

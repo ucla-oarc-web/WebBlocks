@@ -1,4 +1,4 @@
-# Figure/Gallery
+# Gallery
 
 ## Definition
 
@@ -9,7 +9,8 @@ demonstrate a project portfolio, to showcase photographs documenting an event, t
 
 * Use only for a group of images that are related by purpose; Users assumptions will be that these images are related.
 * If interactive gallery, player controls should be supported.
-* Any optional caption should be marked up as a fig caption; html5 stipulates that only one fig caption may be nested in a figure while multiple images can be.
+* If position is not critical use figure/fig caption to mark up the gallery; if it is use div.
+* If using figure, the optional caption should be marked up as a fig caption; html5 stipulates that only one fig caption may be nested in a figure while multiple images can be.
 
 
 ## Responsive Considerations

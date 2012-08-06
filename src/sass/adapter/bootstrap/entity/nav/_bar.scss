@@ -46,23 +46,22 @@
         list-style: none;
         margin: 0;
         @include -fluid-span-padded(9, 2);
+        padding-left: $fluidGridGutterWidth;
+        
+        > li {
+            padding-right: $fluidGridGutterWidth;
+        }
+        
+        &:first-child:last-child {
+            @include -fluid-span-padded(12, 2);
+        }
+        
+        &:not(:first-child):not(:last-child) {
+            @include -fluid-span-padded(6, 2);
+        }
         
         > li {
             float: left;
-        }
-        
-        &:first-child {
-            padding-left: $fluidGridGutterWidth;
-            > li {
-                padding-right: $fluidGridGutterWidth;
-            }
-        }
-        
-        &:last-child {
-            padding-right: $fluidGridGutterWidth;
-            > li {
-                padding-left: $fluidGridGutterWidth;
-            }
         }
     }
     

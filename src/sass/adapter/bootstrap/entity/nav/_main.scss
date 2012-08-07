@@ -1,0 +1,47 @@
+@mixin -entity-nav-main {
+    
+    > ul {
+        
+        > li {
+            
+            > a, > ul > li > a, > ul > li > ul > li > a {
+                
+                &.close {
+                    
+                }
+                
+            }
+            
+            > a {
+                
+            }
+            
+            > ul {
+                
+                > li {
+                    
+                    > a {
+                        
+                    }
+                    
+                    > ul {
+                        
+                        > li {
+                            
+                            > a {
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}

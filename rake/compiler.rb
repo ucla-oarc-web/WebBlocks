@@ -2,7 +2,7 @@ module WebBlocks
   
   class Compiler
     
-    attr_accessor :src, :dst, :mods, :adapter, :sass_dir, :img_dir
+    attr_accessor :src, :mods, :adapter, :sass_dir, :img_dir, :js_core_dir, :js_core_ie_dir, :js_scripts_dir, :dst
     
     def initialize config, dst
       
@@ -11,6 +11,9 @@ module WebBlocks
       @adapter = config[:adapter]
       @sass_dir = config[:sass]
       @img_dir = config[:img]
+      @js_core_dir = config[:js][:core]
+      @js_core_ie_dir = config[:js][:core_ie]
+      @js_script_dir = config[:js][:script_dir]
       @dst = dst
       
     end
@@ -42,6 +45,7 @@ module WebBlocks
       
       scss = File.open "tmp/_WebBlocks.scss", "w"
       js = File.open "../#{@dst}/js/blocks.js", "a"
+      js_ie = File.open "../#{@dst}/js/blocks-ie.js", "a"
       scss.puts "@import \"variables\";"
       
       @mods.unshift "adapter/#{@adapter}"
@@ -54,7 +58,7 @@ module WebBlocks
             file.chomp! ".scss";
             scss.puts "@import \"#{file}\";"
           when js?(file)
-            puts "[WebBlocks::Compiler mod js] #{file}"
+            puts "[WebBlocks::Compiler mod js core] #{file}"
             contents = File.read(file)
             js.puts contents
           when img?(file)
@@ -73,8 +77,31 @@ module WebBlocks
         cp_mkdir file, dst
       end
       
+      tree = get_tree @js_core_dir
+      tree.flatten.each do |file|
+        puts "[WebBlocks::Compiler app js core] #{file}"
+        contents = File.read(file)
+        js.puts contents
+      end
+      
+      tree = get_tree @js_core_ie_dir
+      tree.flatten.each do |file|
+        puts "[WebBlocks::Compiler app js core-ie] #{file}"
+        contents = File.read(file)
+        js_ie.puts contents
+      end
+      
+      tree = get_tree @js_script_dir
+      tree.flatten.each do |file|
+        relfile = file.gsub /^#{@js_script_dir}\//, ""
+        puts "[WebBlocks::Compiler app js script] #{relfile}"
+        dst = @dst[0,1] == '/' ? "#{@dst}/js/script/#{relfile}" : "../#{@dst}/js/script/#{relfile}"
+        cp_mkdir file, dst
+      end
+      
       scss.close
       js.close
+      js_ie.close
       
       puts "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
       sh "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 

@@ -2,15 +2,16 @@ module WebBlocks
   
   class Compiler
     
-    attr_accessor :src, :dst, :mods, :adapter, :sass_dir
+    attr_accessor :src, :dst, :mods, :adapter, :sass_dir, :img_dir
     
-    def initialize src, dst, mods = ['core'], adapter = 'bootstrap', sass_dir = 'sass'
+    def initialize config, dst
       
-      @sass_dir = sass_dir
-      @src = src
+      @src = config[:dir]
+      @mods = config[:modules]
+      @adapter = config[:adapter]
+      @sass_dir = config[:sass]
+      @img_dir = config[:img]
       @dst = dst
-      @mods = mods
-      @adapter = adapter
       
     end
     
@@ -49,20 +50,27 @@ module WebBlocks
         tree.flatten.each do |file|
           case
           when scss?(file)
-            puts "[WebBlocks::Compiler scss] #{file}"
+            puts "[WebBlocks::Compiler mod scss] #{file}"
             file.chomp! ".scss";
             scss.puts "@import \"#{file}\";"
           when js?(file)
-            puts "[WebBlocks::Compiler js] #{file}"
+            puts "[WebBlocks::Compiler mod js] #{file}"
             contents = File.read(file)
             js.puts contents
           when img?(file)
-            puts "[WebBlocks::Compiler img] #{file}"
-            dst = "../#{@dst}/img/#{file}"
-            FileUtils.mkdir_p(File.dirname(dst))
-            FileUtils.cp file, dst
+            puts "[WebBlocks::Compiler mod img] #{file}"
+            dst = @dst[0,1] == '/' ? "#{@dst}/img/#{file}" :"../#{@dst}/img/#{file}"
+            cp_mkdir file, dst
           end
         end
+      end
+      
+      tree = get_tree @img_dir
+      tree.flatten.each do |file|
+        relfile = file.gsub /^#{@img_dir}\//, ""
+        puts "[WebBlocks::Compiler app img] #{relfile}"
+        dst = @dst[0,1] == '/' ? "#{@dst}/img/#{relfile}" : "../#{@dst}/img/#{relfile}"
+        cp_mkdir file, dst
       end
       
       scss.close
@@ -96,6 +104,11 @@ module WebBlocks
       
       return contents
       
+    end
+    
+    def cp_mkdir src, dst
+      FileUtils.mkdir_p(File.dirname(dst))
+      FileUtils.cp src, dst
     end
     
     def execute

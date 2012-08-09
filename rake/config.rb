@@ -50,6 +50,7 @@ module WebBlocks
   @config[:src] = {
     :dir      => 'src',
     :sass     => 'sass',
+    :img      => 'img',
     :adapter  => 'bootstrap',
     :modules  => ['core']
   }

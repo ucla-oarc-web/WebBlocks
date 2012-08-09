@@ -15,15 +15,20 @@ module WebBlocks
     end
     
     def ext? file, ext
-      (File.extname file) == ext
+      ext = ext.join '|' if ext.respond_to? 'join'
+      file.match(/.*\.(#{ext})$/)
     end
     
     def scss? file
-      ext? file, '.scss'
+      ext? file, 'scss'
     end
     
     def js? file
-      ext? file, '.js'
+      ext? file, 'js'
+    end
+    
+    def img? file
+      ext? file, ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'tif', 'svg']
     end
     
     def generate
@@ -44,13 +49,18 @@ module WebBlocks
         tree.flatten.each do |file|
           case
           when scss?(file)
-            file.chomp! ".scss";
             puts "[WebBlocks::Compiler scss] #{file}"
+            file.chomp! ".scss";
             scss.puts "@import \"#{file}\";"
           when js?(file)
             puts "[WebBlocks::Compiler js] #{file}"
             contents = File.read(file)
             js.puts contents
+          when img?(file)
+            puts "[WebBlocks::Compiler img] #{file}"
+            dst = "../#{@dst}/img/#{file}"
+            FileUtils.mkdir_p(File.dirname(dst))
+            FileUtils.cp file, dst
           end
         end
       end
@@ -75,11 +85,7 @@ module WebBlocks
       
       dir = File.dirname path
       Dir.entries(dir).each do |child|
-        basename = File.basename path
-        idx = child.index(basename);
-        if idx == 0 && child[basename.length,1] == '.' || idx == 1 && child[0,1] == '_' && child[basename.length+1,1] == '.'
-          contents.push "#{dir}/#{child}"
-        end
+        contents.push "#{dir}/#{child}" if child.match(/^_?(#{File.basename path})\..*/)
       end
 
       return contents unless FileTest.directory? path

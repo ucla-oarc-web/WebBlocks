@@ -99,7 +99,7 @@ module WebBlocks
     end
     
     def append_compile
-      compiler = WebBlocks::Compiler.new(@config[:src][:dir], @path[:tmp][:dir], @config[:src][:modules], @config[:src][:adapter])
+      compiler = WebBlocks::Compiler.new(@config[:src][:dir], @path[:tmp][:dir], @config[:src][:modules], @config[:src][:adapter], @config[:src][:sass])
       compiler.execute
     end
     

@@ -28,9 +28,10 @@ module WebBlocks
   }
   
   @config[:build][:js] = {
-    :dir      => 'js',
-    :name     => 'blocks.js',
-    :name_ie  => 'blocks-ie.js'
+    :dir                => 'js',
+    :name               => 'blocks.js',
+    :name_ie            => 'blocks-ie.js',
+    :name_script_dir    => 'script'
   }
   
   @config[:build][:img] = {
@@ -51,6 +52,11 @@ module WebBlocks
     :dir      => 'src',
     :sass     => 'sass',
     :img      => 'img',
+    :js       => {
+      :core         => 'js/core',     # directory packaged into blocks.js
+      :core_ie      => 'js/core-ie',  # directory packaged into blocks-ie.js
+      :script_dir   => 'js/script'    # directory of standalone scripts
+    },
     :adapter  => 'bootstrap',
     :modules  => ['core']
   }

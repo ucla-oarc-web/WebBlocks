@@ -17,7 +17,8 @@ module WebBlocks
           :js => {
             :dir => "#{@config[:build][:dir_tmp]}/#{@config[:build][:js][:dir]}",
             :file => "#{@config[:build][:dir_tmp]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name]}",
-            :file_ie => "#{@config[:build][:dir_tmp]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}"
+            :file_ie => "#{@config[:build][:dir_tmp]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}",
+            :script_dir => "#{@config[:build][:dir_tmp]}/#{@config[:build][:js][:dir]}/script"
           },
           :img => {
             :dir => "#{@config[:build][:dir_tmp]}/#{@config[:build][:img][:dir]}"
@@ -33,7 +34,8 @@ module WebBlocks
           :js => {
             :dir => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}",
             :file => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name]}",
-            :file_ie => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}"
+            :file_ie => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}",
+            :script_dir => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_script_dir]}"
           },
           :img => {
             :dir => "#{@config[:build][:dir]}/#{@config[:build][:img][:dir]}"
@@ -83,6 +85,7 @@ module WebBlocks
       Dir.entries(@path[:tmp][:img][:dir]).each do |name|
         FileUtils.cp_r "#{@path[:tmp][:img][:dir]}/#{name}", @path[:build][:img][:dir] unless name[0,1] == '.'
       end
+      FileUtils.cp_r @path[:tmp][:js][:script_dir], @path[:build][:js][:script_dir] if File.exists? @path[:tmp][:js][:script_dir]
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file]}\" > \"#{@path[:build][:css][:file]}\""
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file]}\" --extras --unsafe > \"#{@path[:build][:js][:file]}\""
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file_ie]}\" > \"#{@path[:build][:css][:file_ie]}\""

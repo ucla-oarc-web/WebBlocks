@@ -2,10 +2,11 @@ module WebBlocks
   
   class Compiler
     
-    attr_accessor :src, :dst, :mods, :adapter
+    attr_accessor :src, :dst, :mods, :adapter, :sass_dir
     
-    def initialize src, dst, mods, adapter
+    def initialize src, dst, mods = ['core'], adapter = 'bootstrap', sass_dir = 'sass'
       
+      @sass_dir = sass_dir
       @src = src
       @dst = dst
       @mods = mods
@@ -57,8 +58,8 @@ module WebBlocks
       scss.close
       js.close
       
-      puts "compass compile --sass-dir sass --css-dir ../#{@dst}/css" 
-      sh "compass compile --sass-dir sass --css-dir ../#{@dst}/css" 
+      puts "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
+      sh "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
       
       FileUtils.rm_rf "tmp" if File.exists? "tmp";
       

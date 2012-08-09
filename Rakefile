@@ -25,6 +25,7 @@ end.parse!
 
 load 'rake/builder.rb'
 load 'rake/config.rb'
+load 'rake/compiler.rb'
 load options[:config] ? options[:config] : 'Rakefile-config.rb'
 
 builder = WebBlocks::Builder.new(WebBlocks.config)
@@ -75,12 +76,12 @@ end
 
 task :_build_execute => [
   :_build_setup,
-  :_build_compass,
   builder.package?(:jquery) ? :_build_package_jquery : :_skip,
   builder.package?(:bootstrap) ? :_build_package_bootstrap : :_skip,
   builder.package?(:modernizr) ? :_build_package_modernizr : :_skip,
   builder.package?(:respond) ? :_build_package_respond : :_skip,
-  builder.package?(:selectivizr) ? :_build_package_selectivizr : :_skip
+  builder.package?(:selectivizr) ? :_build_package_selectivizr : :_skip,
+  :_build_compile
 ] do
   
   builder.mk_build_dir
@@ -104,8 +105,8 @@ task :_build_package_jquery => [:_build_setup, :package_jquery_build] do
   builder.append_jquery_js
 end
 
-task :_build_compass => [:_build_setup] do
-  builder.append_sass
+task :_build_compile => [:_build_setup] do
+  builder.append_compile
 end
 
 task :_build_package_bootstrap => [:_build_setup] do

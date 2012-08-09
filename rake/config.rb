@@ -49,7 +49,9 @@ module WebBlocks
   
   @config[:src] = {
     :dir      => 'src',
-    :sass     => 'sass'
+    :sass     => 'sass',
+    :adapter  => 'bootstrap',
+    :modules  => ['core']
   }
 
   # executables configuration

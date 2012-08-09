@@ -62,10 +62,6 @@ module WebBlocks
     end
     
     def touch_tmp_build_files
-      File.open @path[:tmp][:css][:file], "w" unless File.exist? @path[:tmp][:css][:file]
-      File.open @path[:tmp][:css][:file_ie], "w" unless File.exist? @path[:tmp][:css][:file_ie]
-      File.open @path[:tmp][:js][:file], "w" unless File.exist? @path[:tmp][:js][:file]
-      File.open @path[:tmp][:js][:file_ie], "w" unless File.exist? @path[:tmp][:js][:file_ie]
     end
     
     def rm_tmp_build_dir
@@ -102,14 +98,9 @@ module WebBlocks
       return @config[:build][:packages].include? name
     end
     
-    def append_sass
-      pwd = Dir.pwd
-      Dir.chdir @config[:src][:dir]
-      puts "#{@config[:exec][:compass]} compile --sass-dir #{@config[:src][:sass]} --css-dir ../#{@path[:tmp][:dir]}/css" 
-      sh "#{@config[:exec][:compass]} compile --sass-dir #{@config[:src][:sass]} --css-dir ../#{@path[:tmp][:dir]}/css" 
-      Dir.chdir pwd
-      self.append_contents_to_file "#{@path[:tmp][:dir]}/css/site.css", @path[:tmp][:css][:file]
-      self.append_contents_to_file "#{@path[:tmp][:dir]}/css/site-ie.css", @path[:tmp][:css][:file_ie]
+    def append_compile
+      compiler = WebBlocks::Compiler.new(@config[:src][:dir], @path[:tmp][:dir], @config[:src][:modules], @config[:src][:adapter])
+      compiler.execute
     end
     
     def append_jquery_js

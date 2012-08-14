@@ -43,3 +43,53 @@
     }
     
 }
+
+@mixin -entity-button-primary {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+@mixin -entity-button-warning {
+    @extend .btn;
+    @extend .btn-warning;
+}
+
+@mixin -entity-button-danger {
+    @extend .btn;
+    @extend .btn-danger;
+}
+
+@mixin -entity-button-success {
+    @extend .btn;
+    @extend .btn-success;
+}
+
+@mixin -entity-button-info {
+    @extend .btn;
+    @extend .btn-info;
+}
+
+@mixin -entity-button-inverse {
+    @extend .btn;
+    @extend .btn-inverse;
+}
+
+@mixin -entity-button-disabled {
+    @extend .btn;
+    @extend .btn.disabled;
+}
+
+@mixin -entity-button-large {
+    @extend .btn;
+    @extend .btn-large;
+}
+
+@mixin -entity-button-small {
+    @extend .btn;
+    @extend .btn-small;
+}
+
+@mixin -entity-button-mini {
+    @extend .btn;
+    @extend .btn-mini;
+}

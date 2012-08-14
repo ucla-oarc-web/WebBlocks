@@ -1,3 +1,15 @@
 table {
     @include -entity-table;
 }
+
+table.striped {
+    @include -entity-table-striped;
+}
+
+table.bordered {
+    @include -entity-table-bordered;
+}
+
+table.condensed {
+    @include -entity-table-condensed;
+}

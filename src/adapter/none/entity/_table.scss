@@ -1,0 +1,43 @@
+@mixin -entity-table {
+    
+    &.striped {
+        
+    }
+    
+    &.bordered {
+        
+    }
+    
+    &.scrollable {
+        
+    }
+    
+    > caption {
+        
+    }
+    
+    > thead {
+        
+        > tr > td, > tr > th {
+            
+        }
+        
+    }
+    
+    > tfoot {
+        
+        > tr > td, > tr > th {
+            
+        }
+        
+    }
+    
+    > tbody {
+        
+        > tr > td, > tr > th {
+            
+        }
+        
+    }
+    
+}

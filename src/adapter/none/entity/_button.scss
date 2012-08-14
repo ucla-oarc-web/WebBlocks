@@ -1,5 +1,28 @@
-@mixin -entity-button {
-    
-    
-    
-}
+// Primary composite mixin (that includes all the subclasses)
+// This is used where .primary, .warning, etc. are desired
+
+@mixin -entity-button { }
+
+// Additional mixins that create just a single type of button
+// Useful when you have an entity you want to style as a button
+// but you don't want to @extend the entire button functionality
+
+@mixin -entity-button-primary { }
+
+@mixin -entity-button-warning { }
+
+@mixin -entity-button-danger { }
+
+@mixin -entity-button-success { }
+
+@mixin -entity-button-info { }
+
+@mixin -entity-button-inverse { }
+
+@mixin -entity-button-disabled { }
+
+@mixin -entity-button-large { }
+
+@mixin -entity-button-small { }
+
+@mixin -entity-button-mini { }

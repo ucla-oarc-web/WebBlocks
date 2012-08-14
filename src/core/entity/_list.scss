@@ -1,3 +1,7 @@
 ul, ol {
     @include -entity-list;
 }
+
+ul.unstyled, ol.unstyled {
+    @include -entity-list-unstyled;
+}

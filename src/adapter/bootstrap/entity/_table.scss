@@ -1,22 +1,16 @@
 @mixin -entity-table {
-    
     @extend .table;
+}
+
+@mixin -entity-table-striped {
+    @extend .table-striped;
+}
+
+@mixin -entity-table-bordered {
+    @extend .table-bordered;
+}
     
-    &.striped {
-        @extend .table-striped;
-    }
-    
-    &.bordered {
-        @extend .table-bordered;
-    }
-    
-    &.condensed {
-        @extend .table-condensed;
-        width: auto;
-    }
-    
-    &.scrollable {
-        
-    }
-    
+@mixin -entity-table-condensed {
+    @extend .table-condensed;
+    width: auto;
 }

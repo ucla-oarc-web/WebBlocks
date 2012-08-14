@@ -1,43 +1,7 @@
-@mixin -entity-table {
+@mixin -entity-table { }
+
+@mixin -entity-table-striped { }
+
+@mixin -entity-table-bordered { }
     
-    &.striped {
-        
-    }
-    
-    &.bordered {
-        
-    }
-    
-    &.scrollable {
-        
-    }
-    
-    > caption {
-        
-    }
-    
-    > thead {
-        
-        > tr > td, > tr > th {
-            
-        }
-        
-    }
-    
-    > tfoot {
-        
-        > tr > td, > tr > th {
-            
-        }
-        
-    }
-    
-    > tbody {
-        
-        > tr > td, > tr > th {
-            
-        }
-        
-    }
-    
-}
+@mixin -entity-table-condensed { }

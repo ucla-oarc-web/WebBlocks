@@ -1,0 +1,17 @@
+@mixin -entity-table {
+    
+    @extend .table;
+    
+    &.striped {
+        @extend .table-striped;
+    }
+    
+    &.bordered {
+        @extend .table-bordered;
+    }
+    
+    &.scrollable {
+        
+    }
+    
+}

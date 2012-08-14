@@ -10,6 +10,11 @@
         @extend .table-bordered;
     }
     
+    &.condensed {
+        @extend .table-condensed;
+        width: auto;
+    }
+    
     &.scrollable {
         
     }

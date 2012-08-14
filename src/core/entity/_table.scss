@@ -2,6 +2,10 @@ table {
     @include -entity-table;
 }
 
+table > caption {
+    @include -entity-table-caption;
+}
+
 table.striped {
     @include -entity-table-striped;
 }

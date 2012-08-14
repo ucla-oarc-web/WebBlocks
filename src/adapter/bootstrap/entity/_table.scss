@@ -2,6 +2,19 @@
     @extend .table;
 }
 
+@mixin -entity-table-caption {
+    
+    color: $gray;
+    
+    &.top {
+        caption-side: top;
+    }
+    
+    &.bottom {
+        caption-side: bottom;
+    }
+}
+
 @mixin -entity-table-striped {
     @extend .table-striped;
 }

@@ -7,7 +7,6 @@ module WebBlocks
     def initialize config, dst
       
       @src = config[:dir]
-      @mods = config[:modules]
       @adapter = config[:adapter]
       @sass_dir = config[:sass]
       @img_dir = config[:img]
@@ -15,6 +14,15 @@ module WebBlocks
       @js_core_ie_dir = config[:js][:core_ie]
       @js_script_dir = config[:js][:script_dir]
       @dst = dst
+      
+      if config[:modules] == :all
+        @mods = []
+        Dir.entries("#{@src}/core/definitions").each do |child|
+          @mods.push child unless child[0,1] == '.'
+        end
+      else
+        @mods = config[:modules]
+      end
       
     end
     
@@ -48,7 +56,17 @@ module WebBlocks
       js_ie = File.open "../#{@dst}/js/blocks-ie.js", "a"
       scss.puts "@import \"variables\";"
       
-      @mods.unshift "adapter/#{@adapter}"
+      # map package names to .scss files under core/definitions
+      @mods.map! do |mod| 
+        "core/definitions/#{mod}"
+      end
+      
+      # shift configured adapter to the front of the load chain
+      @mods.unshift "adapter/#{@adapter}" if @adapter
+      
+      # shift core adapter (for default mixin defs) to the front of load chain
+      @mods.unshift "core/adapter"
+      
       @mods.each do |mod|
         tree = get_tree mod
         tree.flatten.each do |file|

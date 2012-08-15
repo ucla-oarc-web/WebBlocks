@@ -46,6 +46,37 @@ module WebBlocks
       ext? file, ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'tif', 'svg']
     end
     
+    def includes
+      
+      includes = @mods;
+      
+      # map package names to .scss files under core/definitions
+      includes.map! do |mod| 
+        "core/definitions/#{mod}"
+      end
+      
+      # shift configured adapter(s) to the front of the load chain
+      # if array of adapters, FIFO load order so later adapters take precedence
+      if @adapter.respond_to? :each
+        rev_mods = []
+        @adapter.each { |mod| rev_mods.unshift mod }
+        rev_mods.each { |mod| includes.unshift "adapter/#{mod}" }
+      elsif @adapter
+        includes.unshift "adapter/#{@adapter}"
+      end
+      
+      # shift core adapter (for default mixin defs) to the front of load chain
+      includes.unshift "core/adapter"
+      
+      if @extensions
+        @extensions = [@extensions] unless @extensions.respond_to? :each
+        @extensions.each { |extension| includes.push extension }
+      end
+      
+      return includes
+      
+    end
+    
     def generate
       
       pwd = Dir.pwd
@@ -59,30 +90,7 @@ module WebBlocks
       js_ie = File.open "../#{@dst}/js/blocks-ie.js", "a"
       scss.puts "@import \"variables\";"
       
-      # map package names to .scss files under core/definitions
-      @mods.map! do |mod| 
-        "core/definitions/#{mod}"
-      end
-      
-      # shift configured adapter(s) to the front of the load chain
-      # if array of adapters, FIFO load order so later adapters take precedence
-      if @adapter.respond_to? :each
-        rev_mods = []
-        @adapter.each { |mod| rev_mods.unshift mod }
-        rev_mods.each { |mod| @mods.unshift "adapter/#{mod}" }
-      elsif @adapter
-        @mods.unshift "adapter/#{@adapter}"
-      end
-      
-      # shift core adapter (for default mixin defs) to the front of load chain
-      @mods.unshift "core/adapter"
-      
-      if @extensions
-        @extensions = [@extensions] unless @extensions.respond_to? :each
-        @extensions.each { |extension| @mods.push extension }
-      end
-      
-      @mods.each do |mod|
+      includes.each do |mod|
         tree = get_tree mod
         tree.flatten.each do |file|
           case

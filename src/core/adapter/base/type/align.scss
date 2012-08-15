@@ -1,0 +1,15 @@
+@mixin -base-type-align-left {
+    text-align: left;
+}
+
+@mixin -base-type-align-center {
+    text-align: center;
+}
+
+@mixin -base-type-align-right {
+    text-align: right;
+}
+
+@mixin -base-type-align-justify {
+    text-align: justify;
+}

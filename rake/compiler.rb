@@ -61,8 +61,15 @@ module WebBlocks
         "core/definitions/#{mod}"
       end
       
-      # shift configured adapter to the front of the load chain
-      @mods.unshift "adapter/#{@adapter}" if @adapter
+      # shift configured adapter(s) to the front of the load chain
+      # if array of adapters, FIFO load order so later adapters take precedence
+      if @adapter.respond_to? :each
+        rev_mods = []
+        @adapter.each { |mod| rev_mods.unshift mod }
+        rev_mods.each { |mod| @mods.unshift "adapter/#{mod}" }
+      elsif @adapter
+        @mods.unshift "adapter/#{@adapter}"
+      end
       
       # shift core adapter (for default mixin defs) to the front of load chain
       @mods.unshift "core/adapter"

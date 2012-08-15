@@ -1,0 +1,15 @@
+.text-left {
+    @include -base-type-align-left;
+}
+
+.text-center {
+    @include -base-type-align-center;
+}
+
+.text-right {
+    @include -base-type-align-right;
+}
+
+.text-justify {
+    @include -base-type-align-justify;
+}

@@ -30,13 +30,6 @@ Also, static highlighting can be added to a row so that a specific row will alwa
 "highlight" CSS class to the targeted `tr` element. This should also be a unique color (also different than the color
 used in hover highlighting).
 
-### Scrollable Table
-
-By adding the "scrollable" CSS class to a table, the `tbody` element of a table will be given a fixed maximum height
-of 350 pixels and scrollbars will be added if the total height of the rows within the `tbody` extend beyond this fixed
-height. When scrolling, however, both `thead` and `tfoot` will remain in a static position, creating a compact table
-that can provide a large amount of tabular data without consuming an excessive amount of space on the page.
-
 ## Responsive Considerations
 
 TODO

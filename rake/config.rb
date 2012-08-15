@@ -58,7 +58,9 @@ module WebBlocks
       :script_dir   => 'js/script'    # directory of standalone scripts
     },
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
-    :modules  => :all                 # array of directories in /src/core/definitions or :all
+    :modules  => :all                 # array of directories in /src/core/definitions
+                                      # or false if no modules to include
+                                      # or :all to include all modules
   }
 
   # executables configuration

@@ -20,8 +20,10 @@ module WebBlocks
         Dir.entries("#{@src}/core/definitions").each do |child|
           @mods.push child unless child[0,1] == '.'
         end
-      else
+      elsif config[:modules]
         @mods = config[:modules]
+      else
+        @mods = []
       end
       
     end

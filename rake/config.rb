@@ -57,10 +57,15 @@ module WebBlocks
       :core_ie      => 'js/core-ie',  # directory packaged into blocks-ie.js
       :script_dir   => 'js/script'    # directory of standalone scripts
     },
+    
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
-    :modules  => :all                 # array of directories in /src/core/definitions
+    
+    :modules  => :all,                # array of directories in /src/core/definitions
                                       # or false if no modules to include
                                       # or :all to include all modules
+                                      
+    :extensions => false              # array of additional directories in /src
+                                      # or false if no additional directories to include
   }
 
   # executables configuration

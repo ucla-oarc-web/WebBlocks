@@ -2,12 +2,13 @@ module WebBlocks
   
   class Compiler
     
-    attr_accessor :src, :mods, :adapter, :sass_dir, :img_dir, :js_core_dir, :js_core_ie_dir, :js_scripts_dir, :dst
+    attr_accessor :src, :mods, :adapter, :extensions, :sass_dir, :img_dir, :js_core_dir, :js_core_ie_dir, :js_scripts_dir, :dst
     
     def initialize config, dst
       
       @src = config[:dir]
       @adapter = config[:adapter]
+      @extensions = config[:extensions]
       @sass_dir = config[:sass]
       @img_dir = config[:img]
       @js_core_dir = config[:js][:core]
@@ -75,6 +76,11 @@ module WebBlocks
       
       # shift core adapter (for default mixin defs) to the front of load chain
       @mods.unshift "core/adapter"
+      
+      if @extensions
+        @extensions = [@extensions] unless @extensions.respond_to? :each
+        @extensions.each { |extension| @mods.push extension }
+      end
       
       @mods.each do |mod|
         tree = get_tree mod

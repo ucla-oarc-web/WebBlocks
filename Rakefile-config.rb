@@ -5,10 +5,11 @@
 # 
 # Eamples of configuration property redefinitions as follows:
 #
-#   WebBlocks.config[:build][:dir]    = 'build'
-#   WebBlocks.config[:src][:sass]     = 'sass'
-#   WebBlocks.config[:src][:adapter]  = 'bootstrap'
-#   WebBlocks.config[:src][:modules]  = ['base', 'entity', ...] or [:all]
+#   WebBlocks.config[:build][:dir]      = 'build'
+#   WebBlocks.config[:src][:sass]       = 'sass'
+#   WebBlocks.config[:src][:adapter]    = 'bootstrap' or ['bootstrap', ...]
+#   WebBlocks.config[:src][:modules]    = ['base', 'entity', ...] or [:all]
+#   WebBlocks.config[:src][:extensions] = 'org' or ['org', ...]
 #
 # This file may also reside elsewhere in your filesystem, in which case Rake 
 # should be passed a command-line property on invocation:

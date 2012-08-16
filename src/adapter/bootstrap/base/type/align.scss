@@ -1,0 +1,7 @@
+@mixin -base-type-align-center {
+    @extend .pagination-centered;
+}
+
+@mixin -base-type-align-right {
+    @extend .pagination-right;
+}

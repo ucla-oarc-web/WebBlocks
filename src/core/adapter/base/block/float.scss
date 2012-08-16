@@ -1,0 +1,24 @@
+@mixin -base-block-float-left {
+    float: left;
+}
+
+@mixin -base-block-float-right {
+    float: right;
+}
+
+@mixin -base-block-float-clear {
+    clear: both;
+}
+
+// from http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin -base-block-float-container {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}

@@ -1,0 +1,15 @@
+.float-left {
+    @include -base-block-float-left;
+}
+
+.float-right {
+    @include -base-block-float-right;
+}
+
+.float-clear {
+    @include -base-block-float-clear;
+}
+
+.float-container {
+    @include -base-block-float-container;
+}

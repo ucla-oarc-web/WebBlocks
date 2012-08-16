@@ -54,6 +54,36 @@ task :check do
   puts "prerequisite check successful"
 end
 
+task :environment => [:paths, :packages, :includes]
+
+task :packages do
+  puts "Packages:"
+  builder.packages.each { |package| puts "- #{package}" }
+end
+
+task :includes do
+  puts "Includes:"
+  builder.includes.each { |include| puts "- #{include}"}
+end
+
+task :paths do
+  puts "Build Paths:"
+  puts "- Base Directory: #{builder.path[:build][:dir]}"
+  puts "- CSS Directory: #{builder.path[:build][:css][:dir]}"
+  puts "- CSS File: #{builder.path[:build][:css][:file]}"
+  puts "- CSS File (IE): #{builder.path[:build][:css][:file_ie]}"
+  puts "- JS Directory: #{builder.path[:build][:js][:dir]}"
+  puts "- JS File: #{builder.path[:build][:js][:file]}"
+  puts "- JS File (IE): #{builder.path[:build][:js][:file_ie]}"
+  puts "- Image Directory: #{builder.path[:build][:img][:dir]}"
+  puts "Compile Paths:"
+  puts "- Package Directory: #{WebBlocks.config[:package][:dir]}"
+  puts "- Source Directory: #{WebBlocks.config[:src][:dir]}"
+  puts "Internal Paths:"
+  puts "- Temporary Build Directory: #{WebBlocks.config[:build][:dir_tmp]}"
+  puts "- Metadata Directory: #{WebBlocks.config[:build][:dir_metadata]}"
+end
+
 task :init do
   unless builder.init?
     Rake::Task["packages_update"].invoke

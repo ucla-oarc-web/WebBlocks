@@ -56,6 +56,15 @@ module WebBlocks
       FileUtils.rm_rf @config[:build][:dir_metadata]
     end
     
+    def includes
+      compiler = WebBlocks::Compiler.new(@config[:src], @path[:tmp][:dir])
+      compiler.includes
+    end
+    
+    def path
+      @path
+    end
+    
     def mk_tmp_build_dir
       mkdir @path[:tmp][:dir] unless File.exist? @path[:tmp][:dir]
       mkdir @path[:tmp][:css][:dir] unless File.exists? @path[:tmp][:css][:dir]
@@ -97,8 +106,16 @@ module WebBlocks
       sh "#{@config[:exec][:git]} submodule update"
     end
     
+    def packages
+      @config[:build][:packages]
+    end
+    
     def package?(name)
-      return @config[:build][:packages].include? name
+      @config[:build][:packages].include? name
+    end
+    
+    def packages_dir
+      
     end
     
     def append_compile

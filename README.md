@@ -85,6 +85,10 @@ The Rakefile includes a number of subtasks that may be invoked:
 * `rake clean` removes the build directory for WebBlocks
 * `rake clean_all` removes build outputs for all packages and WebBlocks
 * `rake check` check for prerequisites (requires commands in user search path)
+* `rake environment` display the environment configuration used by WebBlocks
+* `rake paths` display paths for compile/build as configured for WebBlocks
+* `rake packages` display external packages WebBlocks is configured to include
+* `rake includes` display sources WebBlocks is configured to include
 * `rake packages_build` builds all packages '''(!)'''
 * `rake packages_clean` removes build outputs for all packages '''(!)'''
 * `rake packages_update` updates submodules for all packages '''(!)'''

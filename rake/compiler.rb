@@ -2,9 +2,9 @@ module WebBlocks
   
   class Compiler
     
-    attr_accessor :src, :mods, :adapter, :extensions, :sass_dir, :img_dir, :js_core_dir, :js_core_ie_dir, :js_scripts_dir, :dst
+    attr_accessor :src, :mods, :adapter, :extensions, :sass_dir, :img_dir, :js_core_dir, :js_core_ie_dir, :js_scripts_dir, :dst, :debug
     
-    def initialize config, dst
+    def initialize config, dst, debug = false
       
       @src = config[:dir]
       @adapter = config[:adapter]
@@ -15,6 +15,7 @@ module WebBlocks
       @js_core_ie_dir = config[:js][:core_ie]
       @js_script_dir = config[:js][:script_dir]
       @dst = dst
+      @debug = debug
       
       if config[:modules] == :all
         @mods = []
@@ -144,8 +145,10 @@ module WebBlocks
       js.close
       js_ie.close
       
-      puts "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
-      sh "compass compile --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
+      environment = @debug ? "development" : "production"
+      
+      puts "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
+      sh "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir ../#{@dst}/css" 
       
       FileUtils.rm_rf "tmp" if File.exists? "tmp";
       

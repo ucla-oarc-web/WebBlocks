@@ -19,6 +19,11 @@ module WebBlocks
   
   @config[:build] = Hash.new
   
+  @config[:build][:debug] = {
+    :enabled  => false,
+    :dir      => 'debug'
+  }
+  
   @config[:build][:dir] = 'build'
   
   @config[:build][:css] = {

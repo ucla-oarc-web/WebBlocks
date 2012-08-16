@@ -55,12 +55,40 @@ module WebBlocks
   
   @config[:src] = {
     :dir      => 'src',
-    :sass     => 'sass',
-    :img      => 'img',
+    :sass     => {
+      :dir => 'sass'
+    },
+    :img      => {
+      :dir => 'img'
+    },
     :js       => {
-      :core         => 'js/core',     # directory packaged into blocks.js
-      :core_ie      => 'js/core-ie',  # directory packaged into blocks-ie.js
-      :script_dir   => 'js/script'    # directory of standalone scripts
+      :dir  => 'js',
+      :core => {
+        :dir => 'core',               # directory packaged into blocks.js
+      },
+      :core_ie => {
+        :dir => 'core-ie'             # directory packaged into blocks-ie.js
+      }, 
+      :script => {
+        :dir => 'script'              # directory of standalone scripts
+      }  
+    },
+    
+    :adapters => {
+      :dir => 'adapter'
+    },
+    
+    :core => {
+      :dir => 'core',
+      :compass => {
+        :config => 'config.rb'
+      },
+      :definitions => {
+        :dir => 'definitions'
+      },
+      :adapter => {
+        :dir => 'adapter'
+      }
     },
     
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false

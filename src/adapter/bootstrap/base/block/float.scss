@@ -1,0 +1,11 @@
+@mixin -base-block-float-left {
+    @extend .pull-left;
+}
+
+@mixin -base-block-float-right {
+    @extend .pull-right;
+}
+
+@mixin -base-block-float-container {
+    @extend .clearfix;
+}

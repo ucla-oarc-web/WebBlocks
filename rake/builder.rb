@@ -116,17 +116,37 @@ module WebBlocks
       Dir.entries(@path[:tmp][:img][:dir]).each do |name|
         FileUtils.cp_r "#{@path[:tmp][:img][:dir]}/#{name}", @path[:build][:img][:dir] unless name[0,1] == '.'
       end
-      FileUtils.cp_r @path[:tmp][:js][:script_dir], @path[:build][:js][:script_dir] if File.exists? @path[:tmp][:js][:script_dir]
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file]}\" > \"#{@path[:build][:css][:file]}\""
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file]}\" --extras --unsafe > \"#{@path[:build][:js][:file]}\""
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file_ie]}\" > \"#{@path[:build][:css][:file_ie]}\""
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file_ie]}\" --extras --unsafe > \"#{@path[:build][:js][:file_ie]}\""
+      generate_build_script_files @path[:tmp][:js][:script_dir], @path[:build][:js][:script_dir] if File.exists? @path[:tmp][:js][:script_dir]
       if @config[:build][:debug][:enabled]
         FileUtils.cp_r @path[:tmp][:css][:file], @path[:build][:debug][:css][:file]
         FileUtils.cp_r @path[:tmp][:js][:file], @path[:build][:debug][:js][:file]
         FileUtils.cp_r @path[:tmp][:css][:file_ie], @path[:build][:debug][:css][:file_ie]
         FileUtils.cp_r @path[:tmp][:js][:file_ie], @path[:build][:debug][:js][:file_ie]
         FileUtils.cp_r @path[:tmp][:js][:script_dir], @path[:build][:debug][:js][:script_dir] if File.exists? @path[:tmp][:js][:script_dir]
+      end
+    end
+    
+    def generate_build_script_files src, dst
+      Dir.entries(src).each do |child|
+        if child[0,1] == '.'
+          next
+        elsif FileTest.directory? "#{src}/#{child}"
+          generate_build_script_files "#{src}/#{child}", "#{dst}/#{child}"
+        else
+          FileUtils.mkdir_p dst unless File.exists? dst
+          begin
+            sh "#{@config[:exec][:uglifyjs]} \"#{src}/#{child}\"  --extras --unsafe > \"#{dst}/#{child}\""
+          rescue
+            puts "WARNING: Failed to compress #{src}/#{child} to #{dst}/#{child}"
+            puts "         Performing direct copy instead"
+            FileUtils.cp "#{src}/#{child}", "#{dst}/#{child}"
+            puts "cat #{src}/#{child} > #{dst}/#{child}"
+          end
+        end
       end
     end
     

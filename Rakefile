@@ -58,32 +58,42 @@ task :environment => [:paths, :packages, :includes]
 
 task :packages do
   puts "Packages:"
-  builder.packages.each { |package| puts "- #{package}" }
+  builder.packages.each { |package| puts "  - #{package}" }
 end
 
 task :includes do
   puts "Includes:"
-  builder.includes.each { |include| puts "- #{include}"}
+  builder.includes.each { |include| puts "  - #{include}"}
 end
 
 task :paths do
   puts "Build Paths:"
-  puts "- Base Directory: #{builder.path[:build][:dir]}"
-  puts "- CSS Directory: #{builder.path[:build][:css][:dir]}"
-  puts "- CSS File: #{builder.path[:build][:css][:file]}"
-  puts "- CSS File (IE): #{builder.path[:build][:css][:file_ie]}"
-  puts "- JS Directory: #{builder.path[:build][:js][:dir]}"
-  puts "- JS File: #{builder.path[:build][:js][:file]}"
-  puts "- JS File (IE): #{builder.path[:build][:js][:file_ie]}"
-  puts "- JS Script Directory: #{builder.path[:build][:js][:script_dir]}"
-  puts "- Image Directory: #{builder.path[:build][:img][:dir]}"
-  puts "- Debug Directory: #{builder.path[:build][:debug][:dir]} [#{WebBlocks.config[:build][:debug][:enabled] ? 'ENABLED' : 'DISABLED'}]"
+  puts "  - Base Directory: #{builder.path[:build][:dir]}"
+  puts "  - CSS Directory: #{builder.path[:build][:css][:dir]}"
+  puts "  - CSS File: #{builder.path[:build][:css][:file]}"
+  puts "  - CSS File (IE): #{builder.path[:build][:css][:file_ie]}"
+  puts "  - JS Directory: #{builder.path[:build][:js][:dir]}"
+  puts "  - JS File: #{builder.path[:build][:js][:file]}"
+  puts "  - JS File (IE): #{builder.path[:build][:js][:file_ie]}"
+  puts "  - JS Script Directory: #{builder.path[:build][:js][:script_dir]}"
+  puts "  - Image Directory: #{builder.path[:build][:img][:dir]}"
+  puts "  - Debug Directory: #{builder.path[:build][:debug][:dir]} [#{WebBlocks.config[:build][:debug][:enabled] ? 'ENABLED' : 'DISABLED'}]"
   puts "Compile Paths:"
-  puts "- Package Directory: #{WebBlocks.config[:package][:dir]}"
-  puts "- Source Directory: #{WebBlocks.config[:src][:dir]}"
+  puts "  - Package Directory: #{WebBlocks.config[:package][:dir]}"
+  puts "  - Source Directory: #{WebBlocks.config[:src][:dir]}"
+  puts "    - Core Directory: #{WebBlocks.config[:src][:core][:dir]}"
+  puts "      - Core Definitions Directory: #{WebBlocks.config[:src][:core][:definitions][:dir]}"
+  puts "      - Core Adapter Directory: #{WebBlocks.config[:src][:core][:adapter][:dir]}"
+  puts "    - Adapters Directory: #{WebBlocks.config[:src][:adapters][:dir]}"
+  puts "    - SASS Directory: #{WebBlocks.config[:src][:sass][:dir]}"
+  puts "    - JS Directory: #{WebBlocks.config[:src][:js][:dir]}"
+  puts "      - JS Core Directory: #{WebBlocks.config[:src][:js][:core][:dir]}"
+  puts "      - JS Core-IE Directory: #{WebBlocks.config[:src][:js][:core_ie][:dir]}"
+  puts "      - JS Scripts Directory: #{WebBlocks.config[:src][:js][:core_ie][:dir]}"
+  puts "    - Image Directory: #{WebBlocks.config[:src][:img][:dir]}"
   puts "Internal Paths:"
-  puts "- Temporary Build Directory: #{WebBlocks.config[:build][:dir_tmp]}"
-  puts "- Metadata Directory: #{WebBlocks.config[:build][:dir_metadata]}"
+  puts "  - Temporary Build Directory: #{WebBlocks.config[:build][:dir_tmp]}"
+  puts "  - Metadata Directory: #{WebBlocks.config[:build][:dir_metadata]}"
 end
 
 task :init do

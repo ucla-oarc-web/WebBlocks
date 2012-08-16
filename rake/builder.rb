@@ -37,6 +37,20 @@ module WebBlocks
             :file_ie => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}",
             :script_dir => "#{@config[:build][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_script_dir]}"
           },
+          :debug => {
+            :dir => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}",
+            :css => {
+              :dir => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:css][:dir]}",
+              :file => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:css][:dir]}/#{@config[:build][:css][:name]}",
+              :file_ie => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:css][:dir]}/#{@config[:build][:css][:name_ie]}"
+            },
+            :js => {
+              :dir => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:js][:dir]}",
+              :file => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name]}",
+              :file_ie => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_ie]}",
+              :script_dir => "#{@config[:build][:dir]}/#{@config[:build][:debug][:dir]}/#{@config[:build][:js][:dir]}/#{@config[:build][:js][:name_script_dir]}"
+            },
+          },
           :img => {
             :dir => "#{@config[:build][:dir]}/#{@config[:build][:img][:dir]}"
           }
@@ -80,10 +94,18 @@ module WebBlocks
     end
     
     def mk_build_dir
+      
       mkdir @config[:build][:dir] unless File.exist? @config[:build][:dir]
       mkdir @path[:build][:css][:dir] unless File.exist? @path[:build][:css][:dir]
       mkdir @path[:build][:js][:dir] unless File.exist? @path[:build][:js][:dir]
       mkdir @path[:build][:img][:dir] unless File.exist? @path[:build][:img][:dir]
+      
+      if @config[:build][:debug][:enabled]
+        mkdir @path[:build][:debug][:dir] unless File.exist? @config[:build][:debug][:dir]
+        mkdir @path[:build][:debug][:css][:dir] unless File.exist? @path[:build][:debug][:css][:dir]
+        mkdir @path[:build][:debug][:js][:dir] unless File.exist? @path[:build][:debug][:js][:dir]
+      end
+      
     end
     
     def rm_build_dir
@@ -99,6 +121,13 @@ module WebBlocks
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file]}\" --extras --unsafe > \"#{@path[:build][:js][:file]}\""
       sh "#{@config[:exec][:uglifycss]} \"#{@path[:tmp][:css][:file_ie]}\" > \"#{@path[:build][:css][:file_ie]}\""
       sh "#{@config[:exec][:uglifyjs]} \"#{@path[:tmp][:js][:file_ie]}\" --extras --unsafe > \"#{@path[:build][:js][:file_ie]}\""
+      if @config[:build][:debug][:enabled]
+        FileUtils.cp_r @path[:tmp][:css][:file], @path[:build][:debug][:css][:file]
+        FileUtils.cp_r @path[:tmp][:js][:file], @path[:build][:debug][:js][:file]
+        FileUtils.cp_r @path[:tmp][:css][:file_ie], @path[:build][:debug][:css][:file_ie]
+        FileUtils.cp_r @path[:tmp][:js][:file_ie], @path[:build][:debug][:js][:file_ie]
+        FileUtils.cp_r @path[:tmp][:js][:script_dir], @path[:build][:debug][:js][:script_dir] if File.exists? @path[:tmp][:js][:script_dir]
+      end
     end
     
     def update_packages
@@ -119,12 +148,13 @@ module WebBlocks
     end
     
     def append_compile
-      compiler = WebBlocks::Compiler.new(@config[:src], @path[:tmp][:dir])
+      compiler = WebBlocks::Compiler.new(@config[:src], @path[:tmp][:dir], @config[:build][:debug][:enabled])
       compiler.execute
     end
     
     def append_jquery_js
-      src = "#{@config[:package][:dir]}/#{@config[:package][:jquery][:dir]}/dist/jquery.min.js"
+      file = @config[:build][:debug][:enabled] ? "jquery.js" : "jquery.min.js"
+      src = "#{@config[:package][:dir]}/#{@config[:package][:jquery][:dir]}/dist/#{file}"
       self.append_contents_to_file src, @path[:tmp][:js][:file]
     end
     
@@ -148,7 +178,8 @@ module WebBlocks
     end
     
     def append_respond_js
-      src = "#{@config[:package][:dir]}/#{@config[:package][:respond][:dir]}/respond.min.js"
+      file = @config[:build][:debug][:enabled] ? "respond.src.js" : "respond.min.js"
+      src = "#{@config[:package][:dir]}/#{@config[:package][:respond][:dir]}/respond.src.js"
       self.append_contents_to_file src, @path[:tmp][:js][:file_ie]
     end
     

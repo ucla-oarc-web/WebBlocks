@@ -13,4 +13,5 @@ fonts_dir = "fonts"
 javascripts_dir = "js"
 relative_assets = true
 
-output_style = :compressed
+output_style = (environment == :production) ? :compressed : :compact
+line_comments = environment != :production

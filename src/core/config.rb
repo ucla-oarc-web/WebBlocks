@@ -4,7 +4,10 @@
 # Default settings are likely sufficient
 # 
 
-additional_import_paths = ["../package", "tmp", "."]
+require 'pathname'
+rootdir = File.dirname(File.dirname(File.dirname(Pathname.new(__FILE__).realpath)))
+
+additional_import_paths = ["#{rootdir}/package", "tmp", "."]
 
 http_path = "/"
 css_dir = "css"

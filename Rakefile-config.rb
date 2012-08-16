@@ -6,7 +6,8 @@
 # Eamples of configuration property redefinitions as follows:
 #
 #   WebBlocks.config[:build][:dir]      = 'build'
-#   WebBlocks.config[:src][:sass]       = 'sass'
+#   WebBlocks.config[:src][:dir]        = 'src'
+#   WebBlocks.config[:src][:sass][:dir] = 'sass'
 #   WebBlocks.config[:src][:adapter]    = 'bootstrap' or ['bootstrap', ...]
 #   WebBlocks.config[:src][:modules]    = ['base', 'entity', ...] or [:all]
 #   WebBlocks.config[:src][:extensions] = 'org' or ['org', ...]

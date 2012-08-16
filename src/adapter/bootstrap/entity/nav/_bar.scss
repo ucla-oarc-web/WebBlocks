@@ -32,11 +32,11 @@
         padding-left: $fluidGridGutterWidth;
         
         &:first-child {
-            text-align: left;
+            @extend .text-left;
         }
         
         &:last-child {
-            text-align: right;
+            @extend .text-right;
         }
         
     }

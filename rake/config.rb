@@ -108,8 +108,8 @@ module WebBlocks
     :grunt      => './node_modules/grunt/bin/grunt',
     :npm        => 'npm',
     :sass       => 'sass',
-    :uglifycss  => 'uglifycss',
-    :uglifyjs   => 'uglifyjs',
+    :uglifycss  => './node_modules/uglifycss/uglifycss',
+    :uglifyjs   => './node_modules/uglify-js/bin/uglifyjs',
     :compass    => 'compass'
   }
   

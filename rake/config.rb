@@ -105,7 +105,7 @@ module WebBlocks
 
   @config[:exec] = {
     :git        => 'git',
-    :grunt      => 'grunt',
+    :grunt      => './node_modules/grunt/bin/grunt',
     :npm        => 'npm',
     :sass       => 'sass',
     :uglifycss  => 'uglifycss',

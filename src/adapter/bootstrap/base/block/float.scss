@@ -6,6 +6,6 @@
     @extend .pull-right;
 }
 
-@mixin -base-block-float-container {
+@mixin -base-block-float-clearfix {
     @extend .clearfix;
 }

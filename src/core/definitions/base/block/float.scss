@@ -13,3 +13,7 @@
 .float-container {
     @include -base-block-float-container;
 }
+
+.clearfix {
+    @include -base-block-float-clearfix;
+}

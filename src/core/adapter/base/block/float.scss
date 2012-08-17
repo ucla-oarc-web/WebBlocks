@@ -10,8 +10,14 @@
     clear: both;
 }
 
-// from http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin -base-block-float-container {
+    &:not(.clearfix) {
+        overflow: auto;
+    }
+}
+
+// from http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin -base-block-float-clearfix {
     *zoom: 1;
     &:before,
     &:after {

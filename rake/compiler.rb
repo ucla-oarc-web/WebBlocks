@@ -38,6 +38,7 @@ module WebBlocks
       @core_definitions_dir = config[:core][:definitions][:dir]
       @core_adapter_dir = config[:core][:adapter][:dir]
       @adapters_dir = config[:adapters][:dir]
+      @extension_dir = config[:extension][:dir]
       @core_compass_config = config[:core][:compass][:config]
       @dst = dst
       @debug = debug
@@ -122,9 +123,12 @@ module WebBlocks
 
         if @extensions
           Dir.chdir @src do
-            @extensions.each do |extension|
-              Dir.chdir extension
-              includes.push Dir.pwd
+            Dir.chdir @extension_dir do
+              @extensions.each do |extension|
+                Dir.chdir extension do
+                  includes.push Dir.pwd
+                end
+              end
             end
           end
         end

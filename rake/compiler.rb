@@ -93,6 +93,23 @@ module WebBlocks
           end
         end
 
+        extension_variables = []
+        if @extensions
+          Dir.chdir @src do
+            Dir.chdir @extension_dir do
+              extensions = @extensions.reverse # because of "unshifting"
+              extensions.each do |extension|
+                Dir.chdir extension do
+                  if File.exists? "_variables.scss"
+                    extension_variables.push "#{Dir.pwd}/_variables.scss"
+                  end
+                  includes.unshift Dir.pwd
+                end
+              end
+            end
+          end
+        end
+
         # shift configured adapter(s) to the front of the load chain
         # if array of adapters, FIFO load order so later adapters take precedence
         Dir.chdir @src do
@@ -120,17 +137,9 @@ module WebBlocks
             end
           end
         end
-
-        if @extensions
-          Dir.chdir @src do
-            Dir.chdir @extension_dir do
-              @extensions.each do |extension|
-                Dir.chdir extension do
-                  includes.push Dir.pwd
-                end
-              end
-            end
-          end
+        
+        extension_variables.each do |file|
+          includes.unshift file
         end
       
       end

@@ -101,7 +101,7 @@ module WebBlocks
                                       # or false if no modules to include
                                       # or :all to include all modules
                                       
-    :extensions => ['ucla']              # array of additional directories in /src
+    :extensions => false              # array of additional directories in /src
                                       # or false if no additional directories to include
   }
 

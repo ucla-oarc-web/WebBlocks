@@ -93,16 +93,12 @@ module WebBlocks
           end
         end
 
-        extension_variables = []
         if @extensions
           Dir.chdir @src do
             Dir.chdir @extension_dir do
               extensions = @extensions.reverse # because of "unshifting"
               extensions.each do |extension|
                 Dir.chdir extension do
-                  if File.exists? "_variables.scss"
-                    extension_variables.push "#{Dir.pwd}/_variables.scss"
-                  end
                   includes.unshift Dir.pwd
                 end
               end
@@ -137,10 +133,6 @@ module WebBlocks
             end
           end
         end
-        
-        extension_variables.each do |file|
-          includes.unshift file
-        end
       
       end
       
@@ -164,6 +156,20 @@ module WebBlocks
 
         js = File.open "#{dst_dir}/js/blocks.js", "a"
         js_ie = File.open "#{dst_dir}/js/blocks-ie.js", "a"
+        
+        if @extensions
+          Dir.chdir @extension_dir do
+            @extensions.each do |extension|
+              Dir.chdir extension do
+                if File.exists? "_variables.scss"
+                  scss.puts "@import \"#{Dir.pwd}/_variables\";"
+                elsif File.exists? "variables.scss"
+                  scss.puts "@import \"#{Dir.pwd}/variables\";"
+                end
+              end
+            end
+          end
+        end
 
         scss.puts "@import \"variables\";"
 
@@ -248,7 +254,7 @@ module WebBlocks
         puts "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir #{dst_dir}/css --config \"#{compass_filename}\"" 
         sh "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir #{dst_dir}/css --config \"#{compass_filename}\"" 
 
-        FileUtils.rm_rf "tmp" if File.exists? "tmp";
+        #FileUtils.rm_rf "tmp" if File.exists? "tmp";
 
       end
       

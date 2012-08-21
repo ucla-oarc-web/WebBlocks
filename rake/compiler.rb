@@ -254,7 +254,7 @@ module WebBlocks
         puts "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir #{dst_dir}/css --config \"#{compass_filename}\"" 
         sh "compass compile -e #{environment} --sass-dir #{@sass_dir} --css-dir #{dst_dir}/css --config \"#{compass_filename}\"" 
 
-        #FileUtils.rm_rf "tmp" if File.exists? "tmp";
+        FileUtils.rm_rf "tmp" if File.exists? "tmp";
 
       end
       

@@ -13,10 +13,10 @@ A Billboard is a narrative device (primarily used by marketing websites) to conv
 * A billboard may be executed with either a div or a figure; if using a figure, the semantic suggestion is that the content can be considered an encapsulated unit where the flow within the page can be arbitrary to the surrounding content.
 * If using figure, the tagline should be marked up as a fig caption; html5 stipulates that only one fig caption may be nested in a figure while multiple images can be.
 * A call-to-action button is supported but optional to the billboard. 
-* Interactive media features are optionally supported (js slideshow/video player); in such as case player controls will need to be rendered.
+* Interactive media features are optionally supported (js slideshow/ js carousel/ js accordion / video player); in such a case player controls will need to be rendered.
 
 
 ## Responsive Considerations
 
 * Image resizing will be an issue. 
-* Player controls for slideshow type billboards should be thoughtfully positioned in relation to mobile constraints and UI standards on transformation.
+* Player controls for interactive type billboards should be thoughtfully positioned in relation to mobile constraints and UI standards on transformation.

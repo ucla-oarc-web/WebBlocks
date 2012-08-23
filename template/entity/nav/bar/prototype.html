@@ -1,58 +1,51 @@
-<!--
-
-additional classes on nav.bar like .top and .bottom to fix to top or bottom
-
--->
-
-<!-- 
-menu options right-aligned and aside or header left-aligned 
--->
-
+<!-- Form 1: Right-aligned navigation, left-aligned aside/header -->
+<!-- Optional class "nav.top" or "nav.bottom" to fix the bar to the top or bottom of the page -->
 <nav class="bar">
 
     <!-- 0..1 -->
     <aside|header>
-        <!-- aside or header content -->
+        {Aside or header content}
     </aside|header>
 
     <!-- 0..1 -->
-    <ul>
+    <ul|ol>
         
+		<!-- Optional class "li.active" to denote "current" or "active" list item -->
         <!-- 0..* -->
         <li>
             <!-- 1 -->
-            <a href="#"><!-- Text --></a>
+            <a href="{Menu Item 1 URL}">{Menu Item 1 Text}</a>
         </li>
         
-    </ul>
+    </ul|ol>
+	
+	<!-- 0..1 -->
+	<a|button class="toggle">{Toggle Link Text}</a>
 
 </nav>
 
-
-
-
-
-
-<!-- 
-menu options left-aligned and aside or header right-aligned 
--->
-
+<!-- Form 2: Left-aligned navigation, left-aligned aside/header -->
+<!-- Optional class "nav.top" or "nav.bottom" to fix the bar to the top or bottom of the page -->
 <nav class="bar">
 
     <!-- 0..1 -->
-    <ul>
+    <ul|ol>
         
+		<!-- Optional class "li.active" to denote "current" or "active" list item -->
         <!-- 0..* -->
         <li>
             <!-- 1 -->
-            <a href="#"><!-- Text --></a>
+            <a href="{Menu Item 1 URL}">{Menu Item 1 Text}</a>
         </li>
         
-    </ul>
+    </ul|ol>
 
     <!-- 0..1 -->
     <aside|header>
-        <!-- aside or header content -->
+        {Aside or header content}
     </aside|header>
+	
+	<!-- 0..1 -->
+	<a|button class="toggle">{Toggle Link Text}</a>
 
 </nav>

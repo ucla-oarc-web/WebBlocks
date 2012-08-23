@@ -13,7 +13,8 @@ A Gallery is a collection of images grouped by a common conceptual/content purpo
 * The gallery can be an interactive (javascript) component or not.
 * Interactive media features are optionally supported (js slideshow/ js carousel/ js accordion / video player); in such a case player controls will need to be rendered.
 * If position is not critical use figure/fig caption to mark up the gallery; if it is use div.
-* If using figure, the optional caption should be marked up as a fig caption; html5 stipulates that only one fig caption may be nested in a figure while multiple images can be.
+* If using figure, the optional caption should be marked up as a fig caption; html5 stipulates that only one fig caption may be nested in a figure while multiple images can be. 
+* If each image requires its own caption, use the nested figure alternative markup.
 
 
 ## Responsive Considerations

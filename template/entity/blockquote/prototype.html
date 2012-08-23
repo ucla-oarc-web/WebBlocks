@@ -2,7 +2,17 @@
 <!-- Optional attribute "cite" -->
 <!-- Optional class "blockquote.callout" to create a callout-style blockquote -->
 <blockquote>
+	
 	{Blockquote Text}
+	
+	<!-- NOTE: This is NOT the correct way to provide an attribution for a blockquote per the current HTML5 spec.
+			This option is provided because of the ease of implementation. If you are providing the attribution of a
+			blockquote, use Form 2, provided below -->
+	<!-- 0..1 -->
+	<cite>
+		{Blockquote Attribution}
+	</cite>
+	
 </blockquote>
 
 <!-- Form 2: Blockquote With Attribution -->

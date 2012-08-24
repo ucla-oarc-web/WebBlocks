@@ -9,9 +9,6 @@ the page.
 
 * Contain the main, top-level navigation of the website
 * Contain an alternative, ancillary form of navigation (e.g., links to role-based sections, like
-"Students" or "Parents")
-* Contain the search form
-* Contain a minor utility section of the website (e.g., current weather)
 
 ## Features
 
@@ -20,13 +17,6 @@ the page.
 The "top" or "bottom" CSS classes can be added to the containing `nav` element to create a menu
 that is fixed either to the bottom or top of the User's screen. Thus, when the User scrolls, the
 menu will stay in that position.
-
-### Including Other Content
-
-Besides navigation, a `header` or `article` can be added to the `nav` element. This element can
-contain either the title of the website (in the case of `header`) or a minor utility section
-(in the case of `aside`) that would be useful placed near the bar's navigation (e.g., a search
-form or the current weather).
 
 ### "Active" Navigation Item
 
@@ -44,3 +34,6 @@ In either case, however, the bar will turn into a vertical list in smaller viewp
 space. On smaller viewports, the navigation will revert to a static position at the top of the
 page, rather than remaining fixed while the User scrolls. The "toggle" `a` or `button` element
 would not appear on viewports where it is not applicable.
+
+The `h2` element can be added to the `nav` to display the title of the navigation, which can be
+especially useful when the menu is collapsed.

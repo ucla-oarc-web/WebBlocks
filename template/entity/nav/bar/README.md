@@ -30,10 +30,12 @@ extend the full width of the page in larger, desktop-sized viewports. Otherwise,
 stretch to fit the width of its container.
 
 In either case, however, the bar will turn into a vertical list in smaller viewports. If the
-"toggle" `a` or `button` element is present, the list can be expanded and collapsed to conserve
-space. On smaller viewports, the navigation will revert to a static position at the top of the
-page, rather than remaining fixed while the User scrolls. The "toggle" `a` or `button` element
+"togglable" CSS class has been applied, the list can be expanded and collapsed to conserve
+space using the "toggle" `a` or `button` element. The "toggle" `a` or `button` element
 would not appear on viewports where it is not applicable.
 
-The `h2` element can be added to the `nav` to display the title of the navigation, which can be
+When fixed, the navigation will revert to a static position at the top of the page on smaller
+viewports, rather than remaining fixed while the User scrolls.
+
+A header element can be added to the `nav` to display the title of the navigation, which can be
 especially useful when the menu is collapsed.

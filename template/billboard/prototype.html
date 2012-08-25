@@ -1,36 +1,18 @@
-<!-- Optional class "billboard.slideshow" to have framework add slideshow interactions  -->
-<!-- Optional class "billboard.carousel" to have framework add carousel interactions  -->
-<!-- Optional class "billboard.accordion" to have framework add accordion interactions  -->
-<!-- Optional class "billboard.video" to have framework add video player capabilities  -->
-
 <!-- 1 -->
 <div|figure class="billboard"> <!--use div if position in flow of content matters, otherwise figure -->
+	
 	<!-- 1 : if static image type 1..* if player type -->
 	<img src="{Image 1 Thumbnail URL}" alt="{Alt description text}" />
 	
+	<!-- Billboard image can be replaced with the "gallery" component to add an image carousel -->
+	<figure|div class="gallery">
+	</figure|div>
+	<!-- [[gallery.carousel, gallery.slideshow etc. with interactive compmentent]] -->
+	
 	<!-- 0..1 -->
-	<h2 class="title">Some Title here</h2>
+	<hX>Some Title here</hX>
 	
 	<!-- 1 -->
-	<p|figcaption class="tagline">Some Great Marketing Pitch Here</p>
-	<a|button class="btn" href="{Image 1 URL}">Some Call-to-Action Link or Button</a>
-</div>
-
-<!-- Nested figure option for cases when each image needs its own caption 
-     html5 stipulates that only one figcaption can be contained by a single figure parent -->
-
-<figure class="billboard">
-	<!-- 0..1 -->
-	<h2 class="title">Some Title here</h2>
-	<!-- 0..1 -->
-	<figcaption class="tagline" role="group">Caption for the Set Here</figcaption>
-		<!-- 1..* -->
-		<figure>
-			<!-- 1 -->
-			<img src="{Image 1 Thumbnail URL}" alt="{Alt description text}" />
-			<!-- 0..1 -->
-			<figcaption>Caption for the Item Here</figcaption>
-		</figure>
-	<!-- 0..1 -->
-	<a|button class="btn" href="{Image 1 URL}">Some Call-to-Action Link or Button</a>
-</figure>
+	<p|figcaption>Some Great Marketing Pitch Here</p|figcaption>
+	<(a class="button"|button) href="{Image 1 URL}">Some Call-to-Action Link or Button</a|button>
+</div|figure>

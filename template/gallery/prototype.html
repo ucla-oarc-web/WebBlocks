@@ -15,7 +15,7 @@
 		</li>
 	</ul>
 	<!-- 0..1 -->
-	<figcaption|p class="tagline">Optional Caption Here</p>
+	<figcaption|p>Optional Caption Here</p>
 </figure>
 
 
@@ -24,14 +24,19 @@
 
 <figure class="gallery"> <!--use div if position in flow of content matters, otherwise figure -->
 	<!-- 0..1 -->
-	<figcaption class="tagline" role="group">Caption for the Set Here</figcaption>
+	<figcaption role="group">Caption for the Set Here</figcaption>
+	<!-- 1..* -->
+	<ul|ol>
 		<!-- 1..* -->
-		<figure>
-			<!-- 1 -->
-			<a href="{Image 1 URL}">
-				<img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" />
-			</a>
-			<!-- 0..1 -->
-			<figcaption>Caption for the Item Here</figcaption>
-		</figure>
+		<li>
+			<figure>
+				<!-- 1 -->
+				<a href="{Image 1 URL}">
+					<img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" />
+				</a>
+				<!-- 0..1 -->
+				<figcaption>Caption for the Item Here</figcaption>
+			</figure>
+		</li>
+	</ul>	
 </figure>

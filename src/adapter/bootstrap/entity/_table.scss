@@ -1,5 +1,12 @@
 @mixin -entity-table {
     @extend .table;
+	
+	tr, td, th, col, colgroup {
+		&.highlight {
+			background: $infoBackground;
+		}
+	}
+	
 }
 
 @mixin -entity-table-caption {
@@ -13,6 +20,7 @@
     &.bottom {
         caption-side: bottom;
     }
+	
 }
 
 @mixin -entity-table-striped {

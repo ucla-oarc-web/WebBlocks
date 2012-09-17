@@ -38,6 +38,7 @@ module WebBlocks
       @core_definitions_dir = config[:core][:definitions][:dir]
       @core_adapter_dir = config[:core][:adapter][:dir]
       @adapters_dir = config[:adapters][:dir]
+      @extension_dir = config[:extension][:dir]
       @core_compass_config = config[:core][:compass][:config]
       @dst = dst
       @debug = debug
@@ -92,6 +93,19 @@ module WebBlocks
           end
         end
 
+        if @extensions
+          Dir.chdir @src do
+            Dir.chdir @extension_dir do
+              extensions = @extensions.reverse # because of "unshifting"
+              extensions.each do |extension|
+                Dir.chdir extension do
+                  includes.unshift Dir.pwd
+                end
+              end
+            end
+          end
+        end
+
         # shift configured adapter(s) to the front of the load chain
         # if array of adapters, FIFO load order so later adapters take precedence
         Dir.chdir @src do
@@ -119,15 +133,6 @@ module WebBlocks
             end
           end
         end
-
-        if @extensions
-          Dir.chdir @src do
-            @extensions.each do |extension|
-              Dir.chdir extension
-              includes.push Dir.pwd
-            end
-          end
-        end
       
       end
       
@@ -151,6 +156,20 @@ module WebBlocks
 
         js = File.open "#{dst_dir}/js/blocks.js", "a"
         js_ie = File.open "#{dst_dir}/js/blocks-ie.js", "a"
+        
+        if @extensions
+          Dir.chdir @extension_dir do
+            @extensions.each do |extension|
+              Dir.chdir extension do
+                if File.exists? "_variables.scss"
+                  scss.puts "@import \"#{Dir.pwd}/_variables\";"
+                elsif File.exists? "variables.scss"
+                  scss.puts "@import \"#{Dir.pwd}/variables\";"
+                end
+              end
+            end
+          end
+        end
 
         scss.puts "@import \"variables\";"
 

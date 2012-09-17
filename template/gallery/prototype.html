@@ -1,17 +1,42 @@
-<figure|div> <!--use div if position in flow of content matters, otherwise gallery -->
+<!-- Optional class "gallery.slideshow" to have framework add slideshow interactions  -->
+<!-- Optional class "gallery.carousel" to have framework add carousel interactions  -->
+<!-- Optional class "gallery.accordion" to have framework add accordion interactions  -->
+<!-- Optional class "gallery.video" to have framework add video player capabilities  -->
 
+<figure|div class="gallery"> <!--use div if position in flow of content matters, otherwise figure -->
 	<!-- 1..* -->
-	<ul|ol class="gallery">
-
+	<ul|ol>
 		<!-- 1..* -->
 		<li>
-
 			<!-- 1 -->
 			<a href="{Image 1 URL}">
 				<img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" />
 			</a>
-
 		</li>
-	</ul>
+	</ul|ol>
+	<!-- 0..1 -->
+	<figcaption|p>Optional Caption Here</p>
+</figure|div>
 
+
+<!-- Nested figure option for cases when each image needs its own caption 
+     html5 stipulates that only one figcaption can be contained by a single figure parent -->
+
+<figure class="gallery"> <!--use div if position in flow of content matters, otherwise figure -->
+	<!-- 0..1 -->
+	<figcaption role="group">Caption for the Set Here</figcaption>
+	<!-- 1..* -->
+	<ul|ol>
+		<!-- 1..* -->
+		<li>
+			<figure>
+				<!-- 1 -->
+				<a href="{Image 1 URL}">
+					<img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" />
+				</a>
+				<!-- 0..1 -->
+				<figcaption>Caption for the Item Here</figcaption>
+			</figure>
+		</li>
+	</ul|ol>	
 </figure>

@@ -1,12 +1,18 @@
 <!-- 1 -->
-<div|figure class="billboard"> <!--use div if position in flow of content matters, otherwise gallery -->
+<div|figure class="billboard"> <!--use div if position in flow of content matters, otherwise figure -->
+	
 	<!-- 1 : if static image type 1..* if player type -->
 	<img src="{Image 1 Thumbnail URL}" alt="{Alt description text}" />
 	
+	<!-- Billboard image can be replaced with the "gallery" component to add an image carousel -->
+	<figure|div class="gallery">
+	</figure|div>
+	<!-- [[gallery.carousel, gallery.slideshow etc. with interactive compmentent]] -->
+	
 	<!-- 0..1 -->
-	<h2 class="title">Some Title here</h2>
+	<hX>Some Title here</hX>
 	
 	<!-- 1 -->
-	<p class="tagline">Some Great Marketing Pitch Here</p>
-	<a|button class="btn" href="{Image 1 URL}">Some Call-to-Action Link or Button</a>
-</div>
+	<p|figcaption>Some Great Marketing Pitch Here</p|figcaption>
+	<(a class="button"|button) href="{Image 1 URL}">Some Call-to-Action Link or Button</a|button>
+</div|figure>

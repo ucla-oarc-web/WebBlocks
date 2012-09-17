@@ -78,6 +78,10 @@ module WebBlocks
       :dir => 'adapter'
     },
     
+    :extension => {
+      :dir => 'extension'
+    },
+    
     :core => {
       :dir => 'core',
       :compass => {

@@ -1,3 +1,7 @@
-@mixin -entity-list { }
+@mixin -entity-list-unordered { }
 
-@mixin -entity-list-unstyled { }
+@mixin -entity-list-unordered-unstyled { }
+
+@mixin -entity-list-ordered { }
+
+@mixin -entity-list-ordered-unstyled { }

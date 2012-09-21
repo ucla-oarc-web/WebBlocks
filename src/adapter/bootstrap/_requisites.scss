@@ -10,7 +10,7 @@
 // workaround is instead to import each responsive file individually
 
 @import "sass-twitter-bootstrap/lib/responsive-utilities";
-@import "sass-twitter-bootstrap/lib/responsive-767px-max";
-@import "sass-twitter-bootstrap/lib/responsive-768px-979px";
 @import "sass-twitter-bootstrap/lib/responsive-1200px-min";
+@import "sass-twitter-bootstrap/lib/responsive-768px-979px";
+@import "sass-twitter-bootstrap/lib/responsive-767px-max";
 @import "sass-twitter-bootstrap/lib/responsive-navbar";

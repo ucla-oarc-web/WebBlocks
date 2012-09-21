@@ -36,7 +36,7 @@ builder = WebBlocks::Builder.new(WebBlocks.config)
 
 task :default   => [:build]
 
-task :build     => [:clean, :init, :_build_execute, :_build_cleanup]
+task :build     => [:package_update, :clean, :init, :_build_execute, :_build_cleanup]
 
 task :build_all => [:clean_all, :packages_update, :build]
 

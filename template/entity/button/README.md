@@ -1,31 +1,38 @@
-# Blockquote
+# Button
 
 ## Definition
 
-A blockquote represents quoted content that is semantically offset from the rest of the content on a page. The content
-is generally offset due to length or significance.
+A button is a user interface element that a User can "press" to cause some action within the application.
 
 ## Usages
 
-* Quote an outside source (for example, an excerpt from a blog article or a passage from a book)
-* Redundantly quote a noteworthy portion of a current body of text to call attention to the quoted content
+A button has many uses, including:
+
+* Submit a form
+* Toggle state
+* Close a dialog
 
 ## Features
 
-The `blockquote` element can either be used on its own for a simple quote without attribution or nested within a
-`figure` element with a corresponding `figcaption` to create a quote with attribution. Attribution for a blockquote
-can not be placed within a `blockquote` element (http://www.whatwg.org/specs/web-apps/current-work/#the-blockquote-element).
+A button can be created using three different HTML elements:
 
-If the quoted material is located at an accessible URL, provide the URL within the `cite` attribute of the `blockquote`
-element.
+1. `a`
+2. `button`
+3. `input` (with `type` equal to "submit", "button", or "reset")
 
-By default, a blockquote will stretch to fit the full width of its container. However, the optional `callout` CSS
-class can be added to create a smaller, more compact style that will allow wrapped text for quotes that are intended
-to be "callout" quotes dropped throughout a body of text (see the second usage above).
+To style the element as a button, simply add the CSS class "button." The semantic color classes (e.g., "success",
+"warning", and "inverse") can also be added to style the button appopriately.
+
+### Disabled State
+
+You can indicate that a button is disabled by either adding the "disabled" CSS class or adding the
+"disabled" attribute to the element. Although both methods will work, adding the attribute should be preferred unless
+it is not possible (as in the case of the `a` element).
+
+### Button Size
+
+Button size can be controlled via using one of the CSS utility classes ("large", "small", and "mini").
 
 ## Responsive Considerations
 
-* The standard blockquote will stretch to fit the full width of its container, so adapting to fit a responsive design
-is not a major concern. Some stylistic padding and margin may be removed to create a more condensed look and feel for
-the smallest viewports
-* The `callout` version of the blockquote should change to fit the full width of its container for smaller viewports
+The button should not require any responsive adaptation since it is more or less an inline element.

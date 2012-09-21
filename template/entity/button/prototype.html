@@ -1,33 +1,19 @@
-<!-- Form 1: Single Blockquote -->
-<!-- Optional attribute "cite" -->
-<!-- Optional class "blockquote.callout" to create a callout-style blockquote -->
-<blockquote>
-	
-	{Blockquote Text}
-	
-	<!-- NOTE: This is NOT the correct way to provide an attribution for a blockquote per the current HTML5 spec.
-			This option is provided because of the ease of implementation. If you are providing the attribution of a
-			blockquote, use Form 2, provided below -->
-	<!-- 0..1 -->
-	<cite>
-		{Blockquote Attribution}
-	</cite>
-	
-</blockquote>
+<!-- Form 1: Using "a" -->
+<!-- Optional class "a.danger" or any other semantic color class -->
+<!-- Optional class "a.disabled" to style the button as disabled -->
+<!-- Optional class "a.large|small|mini" to control button size -->
+<a class="button">{Button Text}</a>
 
-<!-- Form 2: Blockquote With Attribution -->
-<!-- Optional class "figure.quote.callout" to create a callout-style blockquote -->
-<figure class="quote">
+<!-- Form 2: Using "button" -->
+<!-- Optional class "button.danger" or any other semantic color class -->
+<!-- Optional class "button.disabled" to style the button as disabled -->
+<!-- Optional attribute "disabled" to style the button as disabled -->
+<!-- Optional class "button.large|small|mini" to control button size -->
+<button type="submit|button|reset" class="button">{Button Text}</button>
 
-	<!-- 1 -->
-	<!-- Optional attribute "cite" -->
-	<blockquote>
-		{Blockquote Text}
-	</blockquote>
-	
-	<!-- 0..1 -->
-	<figcaption>
-		{Blockquote Attribution}
-	</figcaption>
-	
-</figure>
+<!-- Form 3: Using "input" -->
+<!-- Optional class "input.danger" or any other semantic color class -->
+<!-- Optional class "input.disabled" to style the button as disabled -->
+<!-- Optional attribute "disabled" to style the button as disabled -->
+<!-- Optional class "input.large|small|mini" to control button size -->
+<input type="submit|button|reset" class="button" value="{Button Text}" />

@@ -5,9 +5,13 @@ module WebBlocks
   
   module Build
     
-    class Respond < Builder
+    module Package
+    
+      class Jquery < Builder
       
-      # TODO
+        # TODO
+      
+      end
       
     end
     

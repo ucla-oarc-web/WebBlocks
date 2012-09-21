@@ -1,15 +1,15 @@
 [submodule "package/modernizr"]
 	path = package/modernizr
-	url = git://github.com/Modernizr/Modernizr.git
+	url = https://github.com/Modernizr/Modernizr.git
 [submodule "package/selectivizr"]
 	path = package/selectivizr
-	url = git://github.com/keithclark/selectivizr.git
+	url = https://github.com/keithclark/selectivizr.git
 [submodule "package/respond"]
 	path = package/respond
-	url = git://github.com/scottjehl/Respond.git
+	url = https://github.com/scottjehl/Respond.git
 [submodule "package/sass-twitter-bootstrap"]
 	path = package/sass-twitter-bootstrap
-	url = git://github.com/jlong/sass-twitter-bootstrap.git
+	url = https://github.com/jlong/sass-twitter-bootstrap.git
 [submodule "package/jquery"]
 	path = package/jquery
-	url = git://github.com/jquery/jquery.git
+	url = https://github.com/jquery/jquery.git

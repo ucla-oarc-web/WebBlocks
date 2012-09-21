@@ -111,7 +111,11 @@ module WebBlocks
         Dir.chdir @src do
           Dir.chdir @adapters_dir do
 
-            adapter = (@adapter.respond_to? :each) ? @adapter : [@adapter]
+            if @adapter
+              adapter = (@adapter.respond_to? :each) ? @adapter : [@adapter]
+            else
+              adapter = []
+            end
 
             rev_mods = []
             adapter.each { |mod| rev_mods.unshift mod }

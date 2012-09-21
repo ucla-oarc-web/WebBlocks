@@ -3,7 +3,7 @@
 ## Definition
 
 This library provides several helper utilities related to block-level elements.
-The classes described by this library may be used on any block-level element.
+The classes described by this module may be used on any block-level element.
 
 ## Usages
 

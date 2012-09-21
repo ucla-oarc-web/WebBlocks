@@ -9,7 +9,9 @@ module WebBlocks
     
       class Builder < WebBlocks::Build::Builder
         
-        # TODO
+        def dir_packages
+          @config[:package][:dir]
+        end
 
       end
     

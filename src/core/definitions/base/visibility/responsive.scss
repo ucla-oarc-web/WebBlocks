@@ -1,0 +1,23 @@
+.show-small {
+    @include -base-visibility-show-small;
+}
+
+.show-medium {
+    @include -base-visibility-show-medium;
+}
+
+.show-large {
+    @include -base-visibility-show-large;
+}
+
+.hide-small {
+    @include -base-visibility-hide-small;
+}
+
+.hide-medium {
+    @include -base-visibility-hide-medium;
+}
+
+.hide-large {
+    @include -base-visibility-hide-large;
+}

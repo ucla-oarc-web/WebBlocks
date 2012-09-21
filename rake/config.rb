@@ -109,11 +109,11 @@ module WebBlocks
 
   @config[:exec] = {
     :git        => 'git',
-    :grunt      => './node_modules/grunt/bin/grunt',
+    :grunt      => 'node ./node_modules/grunt/bin/grunt',
     :npm        => 'npm',
     :sass       => 'sass',
-    :uglifycss  => './node_modules/uglifycss/uglifycss',
-    :uglifyjs   => './node_modules/uglify-js/bin/uglifyjs',
+    :uglifycss  => 'node ./node_modules/uglifycss/uglifycss',
+    :uglifyjs   => 'node ./node_modules/uglify-js/bin/uglifyjs',
     :compass    => 'compass'
   }
   

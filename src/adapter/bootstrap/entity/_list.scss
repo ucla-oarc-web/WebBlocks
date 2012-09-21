@@ -1,11 +1,23 @@
-@mixin -entity-list {
+@mixin -entity-list-unordered {
     
-    /* do nothing as Bootstrap already applies these styles */
+    @extend ul;
     
 }
 
-@mixin -entity-list-unstyled {
+@mixin -entity-list-unordered-unstyled {
     
-    /* do nothing as Bootstrap already applies these styles */
+    @extend ul.unstyled;
+    
+}
+
+@mixin -entity-list-ordered {
+    
+    @extend ol;
+    
+}
+
+@mixin -entity-list-ordered-unstyled {
+    
+    @extend ol.unstyled;
     
 }

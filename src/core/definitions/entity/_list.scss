@@ -1,7 +1,15 @@
-ul, ol {
-    @include -entity-list;
+ul {
+    @include -entity-list-unordered;
 }
 
-ul.unstyled, ol.unstyled {
-    @include -entity-list-unstyled;
+ul.unstyled {
+    @include -entity-list-unordered-unstyled;
+}
+
+ol {
+    @include -entity-list-ordered;
+}
+
+ol.unstyled {
+    @include -entity-list-ordered-unstyled;
 }

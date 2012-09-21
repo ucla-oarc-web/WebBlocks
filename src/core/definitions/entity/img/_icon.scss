@@ -1,0 +1,172 @@
+span.icon {
+
+	@include -entity-img-icon;
+	
+	&.search {
+		@include -entity-img-icon-search;
+	}
+	
+	&.envelope {
+		@include -entity-img-icon-envelope;
+	}
+	
+	&.user {
+		@include -entity-img-icon-user;
+	}
+	
+	&.ok {
+		@include -entity-img-icon-ok;
+	}
+	
+	&.remove {
+		@include -entity-img-icon-remove;
+	}
+	
+	&.cog {
+		@include -entity-img-icon-cog;
+	}
+	
+	&.trash {
+		@include -entity-img-icon-trash;
+	}
+	
+	&.home {
+		@include -entity-img-icon-home;
+	}
+	
+	&.file {
+		@include -entity-img-icon-file;
+	}
+	
+	&.repeat {
+		@include -entity-img-icon-repeat;
+	}
+	
+	&.refresh {
+		@include -entity-img-icon-refresh;
+	}
+	
+	&.lock {
+		@include -entity-img-icon-lock;
+	}
+	
+	&.print {
+		@include -entity-img-icon-print;
+	}
+	
+	&.font {
+		@include -entity-img-icon-font;
+	}
+	
+	&.list {
+		@include -entity-img-icon-list;
+	}
+	
+	&.pencil {
+		@include -entity-img-icon-pencil;
+	}
+	
+	&.step-backward {
+		@include -entity-img-icon-step-backward;
+	}
+	
+	&.fast-backward {
+		@include -entity-img-icon-fast-backward;
+	}
+	
+	&.backward {
+		@include -entity-img-icon-backward;
+	}
+	
+	&.play {
+		@include -entity-img-icon-play;
+	}
+	
+	&.pause {
+		@include -entity-img-icon-pause;
+	}
+	
+	&.stop {
+		@include -entity-img-icon-stop;
+	}
+	
+	&.forward {
+		@include -entity-img-icon-forward;
+	}
+	
+	&.fast-forward {
+		@include -entity-img-icon-fast-forward;
+	}
+	
+	&.step-forward {
+		@include -entity-img-icon-step-forward;
+	}
+	
+	&.chevron-right {
+		@include -entity-img-icon-chevron-right;
+	}
+	
+	&.chevron-left {
+		@include -entity-img-icon-chevron-left;
+	}
+	
+	&.plus-sign {
+		@include -entity-img-icon-plus-sign;
+	}
+	
+	&.minus-sign {
+		@include -entity-img-icon-minus-sign;
+	}
+	
+	&.remove-sign {
+		@include -entity-img-icon-remove-sign;
+	}
+	
+	&.ok-sign {
+		@include -entity-img-icon-ok-sign;
+	}
+	
+	&.question-sign {
+		@include -entity-img-icon-question-sign;
+	}
+	
+	&.info-sign {
+		@include -entity-img-icon-info-sign;
+	}
+	
+	&.arrow-left {
+		@include -entity-img-icon-arrow-left;
+	}
+
+	&.arrow-right {
+		@include -entity-img-icon-arrow-right;
+	}
+
+	&.arrow-up {
+		@include -entity-img-icon-arrow-up;
+	}
+
+	&.arrow-down {
+		@include -entity-img-icon-arrow-down;
+	}
+	
+	&.plus {
+		@include -entity-img-icon-plus;
+	}
+	
+	&.minus {
+		@include -entity-img-icon-minus;
+	}
+	
+	&.exclamation-sign {
+		@include -entity-img-icon-exclamation-sign;
+	}
+	
+	&.chevron-up {
+		@include -entity-img-icon-chevron-up;
+	}
+	
+	&.chevron-down {
+		@include -entity-img-icon-chevron-down;
+	}
+}

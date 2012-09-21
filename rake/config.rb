@@ -134,7 +134,7 @@ module WebBlocks
   }
   
   @config[:package][:jquery] = {
-    :dir        => 'jquery'
+    :dir      => 'jquery'
   }
   
   @config[:package][:modernizr] = {

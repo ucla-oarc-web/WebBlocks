@@ -43,15 +43,25 @@ end
 
 task :build     => [:init] do
   
-  invoke builder.packages, :build
-  invoke builder.blocks, :build
+  begin
+    invoke builder.blocks, :build_setup
+    invoke builder.packages, :build
+    invoke builder.blocks, :build
+  ensure
+    invoke builder.blocks, :build_cleanup
+  end
   
 end
 
 task :build_all => [:init] do
   
-  invoke builder.packages, :rebuild
-  invoke builder.blocks, :build
+  begin
+    invoke builder.blocks, :build_setup
+    invoke builder.packages, :rebuild
+    invoke builder.blocks, :build
+  ensure
+    invoke builder.blocks, :build_cleanup
+  end
   
 end
 

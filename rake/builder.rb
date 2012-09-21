@@ -1,4 +1,5 @@
 require 'pathname'
+load "#{File.dirname(Pathname.new(__FILE__).realpath)}/util.rb"
 
 module WebBlocks
   

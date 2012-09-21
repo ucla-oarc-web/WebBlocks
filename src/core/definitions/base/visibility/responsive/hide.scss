@@ -1,0 +1,11 @@
+.hide-small {
+    @include -base-visibility-hide-small;
+}
+
+.hide-medium {
+    @include -base-visibility-hide-medium;
+}
+
+.hide-large {
+    @include -base-visibility-hide-large;
+}

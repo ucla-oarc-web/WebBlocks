@@ -5,10 +5,14 @@ module WebBlocks
   
   module Build
     
-    class Bootstrap < Builder
-      
-      # TODO
-      
+    module Package
+    
+      class Bootstrap < Builder
+
+        # TODO
+
+      end
+    
     end
     
   end

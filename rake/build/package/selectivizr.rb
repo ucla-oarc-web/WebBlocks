@@ -5,9 +5,13 @@ module WebBlocks
   
   module Build
     
-    class Modernizr < Builder
+    module Package
+    
+      class Selectivizr < Builder
       
-      # TODO
+        # TODO
+      
+      end
       
     end
     

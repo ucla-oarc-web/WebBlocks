@@ -25,11 +25,11 @@ module WebBlocks
       unless @builder_packages
         @builder_packages = []
         @config[:build][:packages].each do |name|
-          file = "#{File.dirname(Pathname.new(__FILE__).realpath)}/build/#{name}.rb"
+          file = "#{File.dirname(Pathname.new(__FILE__).realpath)}/build/package/#{name}.rb"
           if File.exists? file
             load file
             begin
-              classname = eval "WebBlocks::Build::#{name.to_s.capitalize}"
+              classname = eval "WebBlocks::Build::Package::#{name.to_s.capitalize}"
               @builder_packages.push(classname.new(@config))
               puts "[INITIALIZE] #{classname}"
             rescue

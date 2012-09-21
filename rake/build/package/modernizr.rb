@@ -5,9 +5,13 @@ module WebBlocks
   
   module Build
     
-    class Jquery < Builder
+    module Package
+    
+      class Modernizr < Builder
       
-      # TODO
+        # TODO
+      
+      end
       
     end
     

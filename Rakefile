@@ -71,17 +71,24 @@ task :clean => [:init] do
   
 end
 
-task :clean_all => [:clean] do
+task :clean_packages => [:init] do
   
   invoke builder.packages, :clean
   
 end
 
-task :reset => [:clean_all] do
+task :clean_all => [:clean_packages, :clean]
+
+task :reset => [:clean_all, :reset_packages] do
   
   invoke builder.blocks, :reset
-  invoke builder.packages, :reset
   
+end
+
+task :reset_packages => [:clean_packages] do
+
+  invoke builder.packages, :reset
+
 end
 
 task :check do

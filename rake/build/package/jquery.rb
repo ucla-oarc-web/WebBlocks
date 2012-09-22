@@ -13,14 +13,21 @@ module WebBlocks
         def dir_package
           
           dir_root = Pathname.new(Dir.pwd)
-          dir_package = WebBlocks::Util.dir_from_dir_stack self.dir_packages, @config[:package][:jquery][:dir]
+          dir_package = WebBlocks::Util.file_from_dir_stack self.dir_packages, @config[:package][:jquery][:dir]
           Pathname.new(dir_package).relative_path_from(dir_root);
           
         end
         
         def build
           
-          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule --init --recursive update #{dir_package}"
+          puts ".. Managing jQuery submodule"
+          
+          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule init #{dir_package}"
+          puts ".... Initialized jQuery submodule" if stdout.length > 0
+          
+          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule update #{dir_package}"
+          puts ".... Updated jQuery submodule" if stdout.length > 0
+          
           rebuild = ((stdout.length > 0) or !(File.exist? "#{dir_package}/dist"))
           
           compile if rebuild
@@ -59,6 +66,13 @@ module WebBlocks
           
           puts ".. Removing jQuery dist directory"
           FileUtils.rm_rf "#{dir_package}/dist"
+          
+        end
+        
+        def reset
+          
+          puts ".. Removing checkout of jQuery submodule"
+          FileUtils.rm_rf "#{dir_package}"
           
         end
       

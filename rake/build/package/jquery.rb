@@ -26,7 +26,7 @@ module WebBlocks
           compile if rebuild
           
           puts ".. Packaging jQuery"
-          # TODO
+          
           
         end
         

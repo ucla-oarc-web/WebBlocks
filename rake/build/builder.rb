@@ -1,4 +1,5 @@
 require 'pathname'
+require 'systemu'
 load "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/util.rb"
 
 module WebBlocks
@@ -54,6 +55,16 @@ module WebBlocks
         File.open dst, "a" do |handle|
           handle.puts contents
         end
+      end
+      
+      def append_compressed_css_to_file src, dst
+        status, stdout, stderr = systemu "#{@config[:exec][:uglifycss]} \"#{src}\" >> \"#{dst}\""
+        status == 0
+      end
+      
+      def append_compressed_js_to_file src, dst
+        status, stdout, stderr = systemu "#{@config[:exec][:uglifyjs]} \"#{src}\" --extras --unsafe >> \"#{dst}\""
+        status == 0
       end
       
     end

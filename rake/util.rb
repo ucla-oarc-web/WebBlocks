@@ -41,6 +41,20 @@ module WebBlocks
       File.dirname(File.dirname(Pathname.new(__FILE__).realpath))
     end
     
+    def self.file_ext? file, ext
+      return true unless ext
+      ext = ext.join '|' if ext.respond_to? 'join'
+      file.match(/.*\.(#{ext})$/)
+    end
+
+    def self.file_scss? file
+      ext? file, 'scss'
+    end
+
+    def self.file_js? file
+      ext? file, 'js'
+    end
+    
   end
   
 end

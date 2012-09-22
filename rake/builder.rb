@@ -34,10 +34,10 @@ module WebBlocks
               @builder_packages.push(classname.new(@config))
               puts "[INITIALIZE] #{classname}"
             rescue
-              fail "[INITIALIZE ERROR] #{classname}"
+              fail "[INITIALIZE ERROR] WebBlocks::Build::#{name.to_s.capitalize}"
             end
           else
-            puts "[INITIALIZE SKIPPED] WebBlocks::Build::#{name}"
+            puts "[INITIALIZE SKIPPED] WebBlocks::Build::#{name.to_s.capitalize}"
           end
         end
       end

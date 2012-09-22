@@ -20,11 +20,7 @@ module WebBlocks
           
           puts ".. Managing Modernizr submodule"
           
-          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule init #{dir_package}"
-          puts ".... Initialized Modernizr submodule" if stdout.length > 0
-          
-          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule update #{dir_package}"
-          puts ".... Updated Modernizr submodule" if stdout.length > 0
+          manage_submodule 'Modernizr', dir_package
           
           puts ".. Packaging Modernizr into Core JS file"
           
@@ -36,17 +32,9 @@ module WebBlocks
           
         end
         
-        def clean
-          
-          puts ".. Removing jQuery dist directory"
-          FileUtils.rm_rf "#{dir_package}/dist"
-          
-        end
-        
         def reset
           
-          puts ".. Removing checkout of jQuery submodule"
-          FileUtils.rm_rf "#{dir_package}"
+          reset_submodule 'Modernizr', dir_package
           
         end
       

@@ -20,13 +20,9 @@ module WebBlocks
           
           puts ".. Managing jQuery submodule"
           
-          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule init #{dir_package}"
-          puts ".... Initialized jQuery submodule" if stdout.length > 0
+          updated = manage_submodule 'jQuery', dir_package
           
-          status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule update #{dir_package}"
-          puts ".... Updated jQuery submodule" if stdout.length > 0
-          
-          rebuild = ((stdout.length > 0) or !(File.exist? "#{dir_package}/dist"))
+          rebuild = updated or !(File.exist? "#{dir_package}/dist")
           
           compile if rebuild
           
@@ -54,15 +50,16 @@ module WebBlocks
         
         def clean
           
-          puts ".. Removing jQuery dist directory"
-          FileUtils.rm_rf "#{dir_package}/dist"
+          if File.exists? "#{dir_package}/dist"
+            puts ".. Removing jQuery dist directory"
+            FileUtils.rm_rf "#{dir_package}/dist"
+          end
           
         end
         
         def reset
           
-          puts ".. Removing checkout of jQuery submodule"
-          FileUtils.rm_rf "#{dir_package}"
+          reset_submodule 'jQuery', dir_package
           
         end
       

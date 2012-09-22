@@ -27,6 +27,9 @@ module WebBlocks
           
           puts ".. Packaging jQuery"
           
+          filename = @config[:build][:debug] ? "jquery.js" : "jquery.min.js"
+          append_contents_to_file "#{dir_package}/dist/#{filename}", file_build_temp_js
+          
           
         end
         

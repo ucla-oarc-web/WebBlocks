@@ -12,9 +12,7 @@ module WebBlocks
 
         def dir_package
           
-          dir_root = Pathname.new(Dir.pwd)
-          dir_package = WebBlocks::Util.file_from_dir_stack self.dir_packages, @config[:package][:jquery][:dir]
-          Pathname.new(dir_package).relative_path_from(dir_root);
+          generate_dir_package @config[:package][:jquery][:dir]
           
         end
         
@@ -32,19 +30,11 @@ module WebBlocks
           
           compile if rebuild
           
-          puts ".. Packaging jQuery"
+          puts ".. Packaging jQuery into Core JS file"
           
           filename = @config[:build][:debug] ? "jquery.js" : "jquery.min.js"
           append_contents_to_file "#{dir_package}/dist/#{filename}", file_build_temp_js
           
-          
-        end
-        
-        def rebuild
-          
-          puts ".. Rebuilding jQuery"
-          compile
-          build
           
         end
         

@@ -1,4 +1,5 @@
 require 'pathname'
+require 'systemu'
 load "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/builder.rb"
 
 module WebBlocks

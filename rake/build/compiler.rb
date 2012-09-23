@@ -42,23 +42,7 @@ module WebBlocks
       end
       
       def get_files dir, ext = false, recursive = true
-        files = []
-        Dir.entries(dir).each do |name|
-          next if name[0,1] == '.'
-          path = "#{dir}/#{name}"
-          if File.directory? path
-            if recursive
-              get_files(path, ext, recursive).each do |sub|
-                files.push sub
-              end
-            elsif !ext
-              files.push path
-            end
-          elsif WebBlocks::Util.file_ext? name, ext
-            files.push "#{dir}/#{name}"
-          end
-        end
-        files
+        WebBlocks::Util.get_files dir, ext, recursive
       end
       
     end

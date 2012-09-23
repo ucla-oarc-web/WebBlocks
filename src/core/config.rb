@@ -7,7 +7,7 @@
 require 'pathname'
 rootdir = File.dirname(File.dirname(File.dirname(Pathname.new(__FILE__).realpath)))
 
-additional_import_paths = ["#{rootdir}/package", "tmp", "."]
+additional_import_paths = ["#{rootdir}/package", "sass"]
 
 http_path = "/"
 css_dir = "css"

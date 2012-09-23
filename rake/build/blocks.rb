@@ -255,6 +255,11 @@ module WebBlocks
           end
           @modules.each do |path|
             files.push(get_files(dir_src_core_definition(path), ext))
+            ext = [ext] unless ext.respond_to? :each
+            ext.each do |e|
+              files.push "#{dir_src_core_definitions}/#{path}.#{e}" if File.exists? "#{dir_src_core_definitions}/#{path}.#{e}"
+              files.push "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}" if File.exists? "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"
+            end
           end
           files.flatten
         end

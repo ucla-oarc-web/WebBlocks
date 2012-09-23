@@ -181,6 +181,11 @@ module WebBlocks
             end
           end
           
+          # Add core adapter as first adapter
+          @adapters_compilers.unshift WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_adapter)
+          
+          @core_definitions_compiler = WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_definitions)
+          
           if @config[:src][:extensions]
             @extensions = (@config[:src][:extensions].respond_to? :each) ? @config[:src][:extensions] : [@config[:src][:extensions]]
           else
@@ -233,10 +238,13 @@ module WebBlocks
         end
         
         def run_compass_compiler
+          success = true
           environment = @config[:build][:debug] ? "development" : "production"
           Dir.chdir @config[:build][:dir_tmp] do
-            systemu "compass compile -e #{environment} --sass-dir #{dir_src_sass} --config \"#{@file_src_core_compass_config}\""
+            status, stdout, stderr = systemu "compass compile -e #{environment} --sass-dir #{dir_src_sass} --config \"#{@file_src_core_compass_config}\""
+            success = false if status != 0
           end
+          fail "[ERROR] Compass compile error" unless success
         end
         
         def append_javascript
@@ -246,21 +254,23 @@ module WebBlocks
         end
         
         def included_files ext
-          files = [get_files(dir_src_core_adapter, ext)]
+          files = []
+          #files = [get_files(dir_src_core_adapter, ext)]
           @adapters_compilers.each do |adapter_compiler|
-            files.push adapter_compiler.included_adapter_files ext
+            files.push adapter_compiler.included_adapter_module_files(@modules, ext)
           end
           @extensions.each do |path|
             files.push get_files(dir_src_extension(path), ext)
           end
-          @modules.each do |path|
-            files.push(get_files(dir_src_core_definition(path), ext))
-            ext = [ext] unless ext.respond_to? :each
-            ext.each do |e|
-              files.push "#{dir_src_core_definitions}/#{path}.#{e}" if File.exists? "#{dir_src_core_definitions}/#{path}.#{e}"
-              files.push "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}" if File.exists? "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"
-            end
-          end
+          files.push @core_definitions_compiler.included_adapter_module_files(@modules, ext)
+          #@modules.each do |path|
+          #  files.push(get_files(dir_src_core_definition(path), ext))
+          #  ext = [ext] unless ext.respond_to? :each
+          #  ext.each do |e|
+          #    files.push ["#{dir_src_core_definitions}/#{path}.#{e}"] if File.exists? "#{dir_src_core_definitions}/#{path}.#{e}"
+          #    files.push ["#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"] if File.exists? "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"
+          #  end
+          #end
           files.flatten
         end
         

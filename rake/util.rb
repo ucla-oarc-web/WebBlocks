@@ -18,8 +18,12 @@ module WebBlocks
         Pathname.new(Dir.pwd)
       elsif
         subdir = args.shift
-        Dir.chdir subdir do
-          dir_from_dir_stack_array args
+        begin
+          Dir.chdir subdir do
+            dir_from_dir_stack_array args
+          end
+        rescue
+          false
         end
       end
     end
@@ -57,20 +61,24 @@ module WebBlocks
       
     def self.get_files dir, ext = false, recursive = true
       files = []
-      Dir.entries(dir).each do |name|
-        next if name[0,1] == '.'
-        path = "#{dir}/#{name}"
-        if File.directory? path
-          if recursive
-            get_files(path, ext, recursive).each do |sub|
-              files.push sub
+      begin
+        Dir.entries(dir).each do |name|
+          next if name[0,1] == '.'
+          path = "#{dir}/#{name}"
+          if File.directory? path
+            if recursive
+              get_files(path, ext, recursive).each do |sub|
+                files.push sub
+              end
+            elsif !ext
+              files.push path
             end
-          elsif !ext
-            files.push path
+          elsif WebBlocks::Util.file_ext? name, ext
+            files.push "#{dir}/#{name}"
           end
-        elsif WebBlocks::Util.file_ext? name, ext
-          files.push "#{dir}/#{name}"
         end
+      rescue
+        []
       end
       files
     end

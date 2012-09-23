@@ -74,6 +74,13 @@ module WebBlocks
       end
       files
     end
+      
+    def self.append_contents_to_file src, dst
+      contents = File.read src
+      File.open dst, "a" do |handle|
+        handle.puts contents
+      end
+    end
     
   end
   

@@ -55,10 +55,7 @@ module WebBlocks
       end
       
       def append_contents_to_file src, dst
-        contents = File.read src
-        File.open dst, "a" do |handle|
-          handle.puts contents
-        end
+        WebBlocks::Util.append_contents_to_file src, dst
       end
       
       def append_compressed_css_to_file src, dst

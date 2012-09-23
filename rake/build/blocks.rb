@@ -33,6 +33,7 @@ module WebBlocks
       
       def build_setup
         
+        # TODO move this back to build_cleanup once dev is done
         FileUtils.rm_rf dir_build_temp
         
         fail "[ERROR] Temporary build directory already exists [run `rake clean` to resolve]" if File.exists? dir_build_temp
@@ -54,6 +55,12 @@ module WebBlocks
         
         compiler = WebBlocks::Build::Blocks::Compiler.new(@config)
         compiler.compile
+        
+        puts ".. Appending compiled files to build"
+        
+        WebBlocks::Util.get_files(dir_build_temp_css, 'css').each do |file|
+          append_contents_to_file file, (file.match(/.*\-ie.css$/) ? file_build_temp_css_ie : file_build_temp_css)
+        end
         
         puts ".. Copying build from temporary region into build targets"
         
@@ -100,7 +107,7 @@ module WebBlocks
             
           end
           
-          src = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_js
+          src = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
           dst = Pathname.new(@config[:build][:img][:dir]).realpath
           FileUtils.mkdir_p File.dirname(dst)
           puts ".... Images to #{dst}"

@@ -21,6 +21,10 @@ module WebBlocks
       def dir_build_temp
         @config[:build][:dir_tmp]
       end
+
+      def dir_build_temp_css
+        WebBlocks::Util.file_from_root_through_dir_stack "#{@config[:build][:dir_tmp]}/css"
+      end
       
       def file_build_temp_css
         "#{@config[:build][:dir_tmp]}/core.css"

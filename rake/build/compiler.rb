@@ -66,6 +66,20 @@ module WebBlocks
         WebBlocks::Util.get_files dir, ext, recursive
       end
       
+      def append_contents_to_file src, dst
+        WebBlocks::Util.append_contents_to_file src, dst
+      end
+      
+      def append_compressed_css_to_file src, dst
+        status, stdout, stderr = systemu "#{@config[:exec][:uglifycss]} \"#{src}\" >> \"#{dst}\""
+        status == 0
+      end
+      
+      def append_compressed_js_to_file src, dst
+        status, stdout, stderr = systemu "#{@config[:exec][:uglifyjs]} \"#{src}\" --extras --unsafe >> \"#{dst}\""
+        status == 0
+      end
+      
     end
     
   end

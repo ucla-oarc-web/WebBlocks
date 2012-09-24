@@ -43,6 +43,7 @@ module WebBlocks
         #       (intended as global non-namespaced includes and helpers)
         #       
         # => resides within one of the paths in modules
+        #       (either in folder by mod name or as file with mod name and ext)
         #
         # Override this for an individual module compiler to control different 
         # behaviors for which files to include for a given set of modules.
@@ -68,7 +69,7 @@ module WebBlocks
             # include file if it is within a module namespace
             else
               module_paths.each do |module_path|
-                files.push file if file.match /^#{module_path}\/.*/
+                files.push file if file.match /^#{module_path}\/.*/ or file.match /^#{module_path}\..*/
               end
             end
             

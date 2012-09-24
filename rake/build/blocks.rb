@@ -248,14 +248,15 @@ module WebBlocks
         end
         
         def append_javascript
-          included_files('js').each do |file|
-            WebBlocks::Util.append_contents_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+          @adapters_compilers.each do |adapter_compiler|
+            adapter_compiler.included_adapter_module_files(@modules, 'js').each do |file|
+              WebBlocks::Util.append_contents_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+            end
           end
         end
         
         def included_files ext
           files = []
-          #files = [get_files(dir_src_core_adapter, ext)]
           @adapters_compilers.each do |adapter_compiler|
             files.push adapter_compiler.included_adapter_module_files(@modules, ext)
           end

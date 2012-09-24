@@ -9,7 +9,16 @@ module WebBlocks
     
       class Bootstrap < Builder
         
-        # TODO
+        def dir_package
+          generate_dir_package @config[:package][:bootstrap][:dir]
+        end
+        
+        # TODO: Copy Bootstrap images and Javascript into temp build dir
+        
+        # Deletes the submodule
+        def reset
+          reset_submodule 'Bootstrap', dir_package
+        end
 
       end
     

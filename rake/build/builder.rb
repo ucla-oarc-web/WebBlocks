@@ -1,3 +1,15 @@
+#
+# WebBlocks Builder Base Class
+# 
+# The WebBlocks::Build::Builder is a base clase used by both the WebBlocks
+# builder itself in WebBlocks::Build::Blocks and by the package builders in 
+# /rake/build/package including the package builder base class
+# Rake::Build::Package::Builder.
+# 
+# This class should not be used as a builder itself as it does not respond
+# to methods such as init, build, clean and reset.
+#
+
 require 'pathname'
 require 'systemu'
 load "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/util.rb"

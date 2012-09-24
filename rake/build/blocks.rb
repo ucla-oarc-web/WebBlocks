@@ -1,3 +1,26 @@
+#
+# Blocks Builder
+# 
+# This builder is used to build WebBlocks itself as mediated for use through the
+# WebBlocks::Builder build manager with methods invoked from the Rakefile.
+# 
+# This builder responds to several build methods:
+# 
+# => init
+# => init?
+# => reset
+# => build_setup
+# => build
+# => build_cleanup
+# => built?
+# => clean
+# 
+# In the case of the build method, this builder is assumed to be invoked after 
+# the package builders, as it is responsible for taking all CSS, JS, and images 
+# and placing them in their final build locations after it invokes the
+# WebBlocks::Build::Blocks::Compiler to generate CSS from the SASS files.
+#
+
 require 'fileutils'
 require 'pathname'
 require 'systemu'
@@ -12,6 +35,7 @@ module WebBlocks
     
     class Blocks < Builder
       
+      # Initialization defines the WebBlocks metadata directory
       def init
         
         puts ".. Defining WebBlocks metadata"
@@ -19,12 +43,14 @@ module WebBlocks
         
       end
       
+      # Initialized if the WebBlocks metadata directory exists
       def init?
         
         File.exists? dir_build_metadata
         
       end
       
+      # Reset removes the WebBlocks metadata directory
       def reset
         
         puts ".. Resetting WebBlocks to initial state"
@@ -32,6 +58,9 @@ module WebBlocks
         
       end
       
+      # Build setup invokes creating the temporary build location where the 
+      # WebBlocks build occurs. This ensures that a partial build will not
+      # trash a successful build already residing in the build directory.
       def build_setup
         
         # TODO move this back to build_cleanup once dev is done
@@ -50,6 +79,15 @@ module WebBlocks
         
       end
       
+      # Building WebBlocks involves several steps:
+      #
+      # => Compile WebBlocks via WebBlocks::Build::Blocks::Compiler
+      # => Append files built into the css directory into the CSS build files
+      # => Copy files from the compile process (and package builders) into build
+      #
+      # The third step thus requires that the package builders have already
+      # been run, as otherwise it will fail to copy assets composed by the
+      # package builders into the build directory.
       def build
         
         puts ".. Compiling WebBlocks"
@@ -65,8 +103,12 @@ module WebBlocks
         
         puts ".. Copying build from temporary region into build targets"
         
+        # Copy files to build directory
+        
         FileUtils.mkdir_p @config[:build][:dir] unless File.exists? @config[:build][:dir]
         Dir.chdir @config[:build][:dir] do
+          
+          # Copy CSS files to build directory
           
           FileUtils.mkdir_p @config[:build][:css][:dir] unless File.exists? @config[:build][:css][:dir]
           Dir.chdir @config[:build][:css][:dir] do
@@ -84,6 +126,8 @@ module WebBlocks
             FileUtils.cp src, dst
             
           end
+          
+          # Copy JS files to build directory
           
           FileUtils.mkdir_p @config[:build][:js][:dir] unless File.exists? @config[:build][:js][:dir]
           Dir.chdir @config[:build][:js][:dir] do
@@ -108,6 +152,8 @@ module WebBlocks
             
           end
           
+          # Copy image files to build directory
+          
           src = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
           dst = Pathname.new(@config[:build][:img][:dir]).realpath
           FileUtils.mkdir_p File.dirname(dst)
@@ -118,18 +164,52 @@ module WebBlocks
         
       end
       
+      # Build cleanup involves removing the temporary build region.
       def build_cleanup
         #FileUtils.rm_rf dir_build_temp
       end
       
+      # WebBlocks is built if a build directory exists. This is not the same
+      # thing as being up-to-date, which is a method that maybe added later.
       def built?
         File.exists? dir_build
       end
 
+      # Clean removes the build directory and ensures that the temporary build
+      # region no longer exists (although this region should have been removed
+      # by build_cleanup after the build routine).
       def clean
         build_cleanup
         FileUtils.rm_rf dir_build
       end
+      
+      #
+      # Blocks Compiler
+      # 
+      # The blocks compiler is responsible for compiling the SASS sources into
+      # the css directory of the temporary build region. 
+      # 
+      # To accomplish this, it first builds a _WebBlocks.scss file based on
+      # includes as determined by adapters and extensions, and then it invokes
+      # compass to actually build the CSS sources from SASS files residing in
+      # the SASS source directory.
+      # 
+      # Part of this process involves invoking adapter compilers within 
+      # WebBlocks::Build::Adapter as residing in rake/build/adapter. It also 
+      # involves 
+      # 
+      # If config[:src][:modules] is set to anything but :all, it will select
+      # only adapter mixins and core definitions from within the subdirectories
+      # defined in config[:src][:modules]. However, for convience, it will also
+      # include all files in all subdirectories of the adapters and core 
+      # definitions that have the name _variables.scss or variables.scss, as
+      # well as any files defined in the directory root of an adapter or the
+      # core definitions.
+      # 
+      # When the import file is actually built, note that all variables files
+      # are loaded before any other files, following the same load stack order
+      # as other includes to allow for proper overriding.
+      #
       
       class Compiler < WebBlocks::Build::Compiler
         
@@ -163,6 +243,12 @@ module WebBlocks
             @adapters = []
           end
           
+          # Build the adapter compilers. For the adapter 'name', it will 
+          # construct a compiler WebBlocks::Build::Adapter::Name as defined in
+          # /rake/build/adapter/name.rb. If one does not exist, then it will
+          # construct the compiler WebBlocks::Build::Adapter::Compiler as
+          # defined in /rake/build/adapter/compiler.rb. This is convinient as
+          # not all adapters need custom behavior.
           @adapters_compilers = []
           @adapters.each do |name|
             file = "#{File.dirname(Pathname.new(__FILE__).realpath)}/adapter/#{name.to_s}.rb"
@@ -171,19 +257,24 @@ module WebBlocks
               classname = eval "WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
               begin
                 @adapters_compilers.push(classname.new(@config))
-                puts "[INITIALIZE] #{classname}"
               rescue
                 fail "[INITIALIZE ERROR] WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
               end
             else
               @adapters_compilers.push(WebBlocks::Build::Adapter::Compiler.new(@config, name.to_s.downcase))
-              puts "[INITIALIZE] WebBlocks::Build::Adapter::Compiler"
             end
           end
           
-          # Add core adapter as first adapter
+          # An adapter is unshifted onto the front of the array of adapter
+          # compilers for the actual core adapter, as its mixins should load
+          # first to ensure that there are no undefined mixins during load.
+          # Adapters defined later in the set will include overrides of the
+          # mixins defined in the core adapter.
           @adapters_compilers.unshift WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_adapter)
           
+          # Core definitions can conviniently also be built via a compiler.
+          # However, they are included separately as they load after extensions,
+          # which are not compiled via an adapter.
           @core_definitions_compiler = WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_definitions)
           
           if @config[:src][:extensions]
@@ -205,14 +296,24 @@ module WebBlocks
           
         end
         
+        # Determine the path to an extension by name path
         def dir_src_extension path
           WebBlocks::Util.dir_from_dir_stack dir_src_extensions, path
         end
         
+        # Determine the path to a core definition by name path
         def dir_src_core_definition path
           WebBlocks::Util.dir_from_dir_stack dir_src_core_definitions, path
         end
         
+        # The compile routine involves several phases:
+        # 
+        # => Create the SASS import file based on import priority rules
+        # => Run the Compass compiler on the SASS sources with import file
+        # => Append Javascript stored within the modules into core[-ie].js
+        #
+        # TODO: Copy images into their relative directories
+        # TODO: Add -ie.scss impot file as well
         def compile
           
           puts ".... Generating SASS import file"
@@ -224,10 +325,11 @@ module WebBlocks
           puts ".... Copy Javascript sources"
           append_javascript 
           
-          puts ".... CSS files generated by Compass compiler"
-          
         end
         
+        # Import file is generated with the included SCSS files as determined
+        # by included_scss_files. The output file will include nothing but a
+        # large set of @import lines.
         def create_sass_import_file file
           FileUtils.mkdir_p File.dirname(file)
           File.open file, "w" do |scss|
@@ -237,6 +339,9 @@ module WebBlocks
           end
         end
         
+        # Runs the Compass compiler on the SASS sources folder using the
+        # import file generated earlier in the compile routine by the
+        # create_sass_import_file method.
         def run_compass_compiler
           success = true
           environment = @config[:build][:debug] ? "development" : "production"
@@ -247,6 +352,9 @@ module WebBlocks
           fail "[ERROR] Compass compile error" unless success
         end
         
+        # Append Javascript residing within the adapters. These includes use
+        # the same rules as SASS includes concerning module settings, so a JS
+        # file not within an included module will not be included.
         def append_javascript
           @adapters_compilers.each do |adapter_compiler|
             adapter_compiler.included_adapter_module_files(@modules, 'js').each do |file|
@@ -255,6 +363,9 @@ module WebBlocks
           end
         end
         
+        # Determines included files of type ext as determined by the adapter
+        # compilers, all extension files of the type ext, and the core
+        # definitions.
         def included_files ext
           files = []
           @adapters_compilers.each do |adapter_compiler|
@@ -264,17 +375,14 @@ module WebBlocks
             files.push get_files(dir_src_extension(path), ext)
           end
           files.push @core_definitions_compiler.included_adapter_module_files(@modules, ext)
-          #@modules.each do |path|
-          #  files.push(get_files(dir_src_core_definition(path), ext))
-          #  ext = [ext] unless ext.respond_to? :each
-          #  ext.each do |e|
-          #    files.push ["#{dir_src_core_definitions}/#{path}.#{e}"] if File.exists? "#{dir_src_core_definitions}/#{path}.#{e}"
-          #    files.push ["#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"] if File.exists? "#{dir_src_core_definitions}/#{File.dirname(path)}/_#{File.basename(path)}.#{e}"
-          #  end
-          #end
           files.flatten
         end
         
+        # Essentially a call-forward to included_files to get SASS files in the
+        # order [core adapter]-[adapters]-[extensions]-[core definitions],
+        # except that it reordered all _variables.scss and variables.scss to
+        # be loaded first in the overall call stack. This ensures that variables
+        # will be loaded before they are needed.
         def included_scss_files
           files = [[],[]]
           included_files("scss").each do |file|
@@ -288,6 +396,9 @@ module WebBlocks
           files.flatten
         end
         
+        # Call-forward to included_files with the JS extension. No ordering is
+        # assumed (unless included_scss_files) except that they follow the
+        # [core adapter]-[adapters]-[extensions]-[core definitions] order.
         def included_js_files
           included_files "js"
         end

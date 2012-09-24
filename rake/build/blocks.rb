@@ -246,6 +246,7 @@ module WebBlocks
           
           @file_build_temp_sass = "#{dir_build_temp_sass}/_WebBlocks.scss"
           @dir_build_temp_img = "#{dir_build_temp}/img"
+          @dir_build_temp_script = "#{dir_build_temp}/script"
           @dir_src_sass = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:sass][:dir]
           @dir_src_core = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:core][:dir]
           @dir_src_core_definitions = WebBlocks::Util.dir_from_dir_stack @dir_src_core, @config[:src][:core][:definitions][:dir]
@@ -254,6 +255,7 @@ module WebBlocks
           @dir_src_js = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:js][:dir]
           @dir_src_js_core = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core][:dir]
           @dir_src_js_core_ie = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core_ie][:dir]
+          @dir_src_js_script = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:script][:dir]
           @file_src_core_compass_config = WebBlocks::Util.file_from_dir_stack @dir_src_core, @config[:src][:core][:compass][:config]
           
           if @config[:src][:adapter]
@@ -405,6 +407,13 @@ module WebBlocks
             else
               append_compressed_js_to_file file, file_build_temp_js_ie
             end
+          end
+          
+          # Copy all files from JS scripts dir to temporary scripts dir
+          WebBlocks::Util.get_files(@dir_src_js_script, 'js').each do |file|
+            dst = "#{@dir_build_temp_script}/#{file.sub /^#{@dir_src_js_script}\//, ''}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp file, dst
           end
           
         end

@@ -251,6 +251,9 @@ module WebBlocks
           @dir_src_core_definitions = WebBlocks::Util.dir_from_dir_stack @dir_src_core, @config[:src][:core][:definitions][:dir]
           @dir_src_core_adapter = WebBlocks::Util.dir_from_root_through_dir_stack @dir_src_core, @config[:src][:core][:adapter][:dir]
           @dir_src_extensions = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:extension][:dir]
+          @dir_src_js = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:js][:dir]
+          @dir_src_js_core = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core][:dir]
+          @dir_src_js_core_ie = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core_ie][:dir]
           @file_src_core_compass_config = WebBlocks::Util.file_from_dir_stack @dir_src_core, @config[:src][:core][:compass][:config]
           
           if @config[:src][:adapter]
@@ -337,7 +340,7 @@ module WebBlocks
           puts ".... Running Compass compiler"
           run_compass_compiler
           
-          puts ".... Copy Javascript sources"
+          puts ".... Appending Javascript sources"
           append_javascript 
           
           puts ".... Copy image sources"
@@ -370,15 +373,40 @@ module WebBlocks
           fail "[ERROR] Compass compile error" unless success
         end
         
-        # Append Javascript residing within the adapters. These includes use
-        # the same rules as SASS includes concerning module settings, so a JS
-        # file not within an included module will not be included.
+        # Append Javascript from adapters, JS core source and JS core-ie source.
         def append_javascript
+          
+          # Append Javascript residing within the adapters. These includes use
+          # the same rules as SASS includes concerning module settings, so a JS
+          # file not within an included module will not be included.
           @adapters_compilers.each do |adapter_compiler|
             adapter_compiler.included_adapter_module_files(@modules, 'js').each do |file|
-              WebBlocks::Util.append_contents_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+              if @config[:build][:debug]
+                append_contents_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+              else
+                append_compressed_js_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+              end
             end
           end
+          
+          # Append all files from JS core sources
+          WebBlocks::Util.get_files(@dir_src_js_core, 'js').each do |file|
+            if @config[:build][:debug]
+              append_contents_to_file file, file_build_temp_js
+            else
+              append_compressed_js_to_file file, file_build_temp_js
+            end
+          end
+          
+          # Append all files from JS core-ie sources
+          WebBlocks::Util.get_files(@dir_src_js_core_ie, 'js').each do |file|
+            if @config[:build][:debug]
+              append_contents_to_file file, file_build_temp_js_ie
+            else
+              append_compressed_js_to_file file, file_build_temp_js_ie
+            end
+          end
+          
         end
         
         def append_images

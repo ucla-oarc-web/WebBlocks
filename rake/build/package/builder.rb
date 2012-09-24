@@ -39,9 +39,7 @@ module WebBlocks
         end
         
         def generate_dir_package name
-          dir_root = Pathname.new(Dir.pwd)
-          dir_package = WebBlocks::Util.file_from_dir_stack self.dir_packages, name
-          Pathname.new(dir_package).relative_path_from(dir_root);
+          WebBlocks::Util.dir_from_root_through_dir_stack self.dir_packages, name
         end
 
       end

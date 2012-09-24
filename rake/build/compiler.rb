@@ -1,3 +1,15 @@
+#
+# WebBlocks Compiler Base Class
+# 
+# The WebBlocks::Build::Compiler is a base clase used by both the WebBlocks
+# compiler itself in WebBlocks::Build::Blocks::Compiler and by the adapter
+# compilers in /rake/build/adapter including the adapter compiler base class
+# Rake::Build::Adapter::Compiler.
+# 
+# This class should not be used as a compiler itself as it does not respond
+# to the compile method.
+#
+
 require 'pathname'
 load "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/util.rb"
 
@@ -23,6 +35,8 @@ module WebBlocks
         @dir_src = WebBlocks::Util.dir_from_root_through_dir_stack @config[:src][:dir]
       end
 
+      # Returns an array of module (subdirectories) under dir. Unless recursive
+      # is set to false, this will include all subdirectories recursively.
       def get_modules dir, recursive = true
         mods = []
         Dir.entries(dir).each do |name|
@@ -45,6 +59,9 @@ module WebBlocks
         mods
       end
       
+      # Call-forward to WebBlocks::Util.get_files to return all files within
+      # dir, optionally filtered by the extension ext and can be set
+      # non-recursive by setting recursive to false.
       def get_files dir, ext = false, recursive = true
         WebBlocks::Util.get_files dir, ext, recursive
       end

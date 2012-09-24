@@ -256,6 +256,7 @@ module WebBlocks
           @dir_src_js_core = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core][:dir]
           @dir_src_js_core_ie = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core_ie][:dir]
           @dir_src_js_script = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:script][:dir]
+          @dir_src_img = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:img][:dir]
           @file_src_core_compass_config = WebBlocks::Util.file_from_dir_stack @dir_src_core, @config[:src][:core][:compass][:config]
           
           if @config[:src][:adapter]
@@ -419,14 +420,24 @@ module WebBlocks
         end
         
         def append_images
+          
+          img_exts = ['jpg','jpeg','gif','png','bmp','svg']
+          
           @adapters_compilers.each do |adapter_compiler|
-            adapter_compiler.included_adapter_module_files(@modules, ['jpg','jpeg','gif','png','bmp','svg']).each do |src|
+            adapter_compiler.included_adapter_module_files(@modules, img_exts).each do |src|
               relsrc = src.sub /^#{adapter_compiler.dir_src_adapter}\//, ''
               dst = "#{@dir_build_temp_img}/#{relsrc}"
               FileUtils.mkdir_p File.dirname(dst)
               FileUtils.cp src, dst
             end
           end
+          
+          WebBlocks::Util.get_files(@dir_src_img, img_exts).each do |file|
+            dst = "#{@dir_build_temp_img}/#{file.sub /^#{@dir_src_img}\//, ''}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp file, dst
+          end
+          
         end
         
         # Determines included files of type ext as determined by the adapter

@@ -1,12 +1,26 @@
 @mixin -entity-table {
     @extend .table;
-	
-	tr, td, th, col, colgroup {
-		&.highlight {
-			background: $infoBackground;
-		}
-	}
-	
+
+    > tr, > tr > td,
+    > tbody > tr, > tbody > tr > td, > tbody > tr > th,
+    > thead > tr, > thead > tr > td, > thead > tr > th,
+    > tfoot > tr, > tfoot > tr > td, > tfoot > tr > th,
+    > colgroup, > colgroup > col {
+        @include -entity-table-highlight;
+    }
+    
+}
+
+@mixin -entity-table-highlight {
+
+    &.highlight {
+        background: $infoBackground;
+    }
+
+}
+
+@mixin -entity-table-hover {
+    @extend .table-hover;
 }
 
 @mixin -entity-table-caption {
@@ -20,7 +34,7 @@
     &.bottom {
         caption-side: bottom;
     }
-	
+    
 }
 
 @mixin -entity-table-striped {

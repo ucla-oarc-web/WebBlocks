@@ -14,6 +14,14 @@ module WebBlocks
         end
         
         # TODO: Copy Bootstrap images and Javascript into temp build dir
+        def build
+          
+          puts ".. Managing Bootstrap submodule"
+          
+          updated = manage_submodule 'Bootstrap', dir_package
+          
+          
+        end
         
         # Deletes the submodule
         def reset

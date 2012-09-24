@@ -336,17 +336,17 @@ module WebBlocks
         # TODO: Add -ie.scss impot file as well
         def compile
           
-          puts ".... Generating SASS import file"
-          create_sass_import_file file_build_temp_sass
-          
-          puts ".... Running Compass compiler"
-          run_compass_compiler
-          
           puts ".... Appending Javascript sources"
           append_javascript 
           
           puts ".... Copy image sources"
           append_images
+          
+          puts ".... Generating SASS import file"
+          create_sass_import_file file_build_temp_sass
+          
+          puts ".... Running Compass compiler"
+          run_compass_compiler
           
         end
         

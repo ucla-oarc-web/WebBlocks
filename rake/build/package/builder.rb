@@ -39,7 +39,7 @@ module WebBlocks
         end
         
         def generate_dir_package name
-          WebBlocks::Util.dir_from_root_through_dir_stack self.dir_packages, name
+          WebBlocks::Util.file_from_root_through_dir_stack self.dir_packages, name
         end
 
       end

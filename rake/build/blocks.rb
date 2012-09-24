@@ -114,13 +114,13 @@ module WebBlocks
           Dir.chdir @config[:build][:css][:dir] do
             
             src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css
-            dst = Pathname.new(@config[:build][:css][:name]).realpath
+            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name]
             FileUtils.mkdir_p File.dirname(dst)
             puts ".... Core CSS file to #{dst}"
             FileUtils.cp src, dst
             
             src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css_ie
-            dst = Pathname.new(@config[:build][:css][:name_ie]).realpath
+            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name_ie]
             FileUtils.mkdir_p File.dirname(dst)
             puts ".... IE CSS file to #{dst}"
             FileUtils.cp src, dst
@@ -133,32 +133,46 @@ module WebBlocks
           Dir.chdir @config[:build][:js][:dir] do
             
             src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js
-            dst = Pathname.new(@config[:build][:js][:name]).realpath
+            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name]
             FileUtils.mkdir_p File.dirname(dst)
             puts ".... Core JS file to #{dst}"
             FileUtils.cp src, dst
             
             src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js_ie
-            dst = Pathname.new(@config[:build][:js][:name_ie]).realpath
+            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_ie]
             FileUtils.mkdir_p File.dirname(dst)
             puts ".... IE JS file to #{dst}"
             FileUtils.cp src, dst
             
-            src = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_js
-            dst = Pathname.new(@config[:build][:js][:name_script_dir]).realpath
-            FileUtils.mkdir_p File.dirname(dst)
-            puts ".... JS scripts to #{dst}"
-            FileUtils.cp_r src, dst
+            # Copy scripts to build directory. Note that this will overwrite
+            # scripts defined in the build, but it will not delete scripts in
+            # the script build directory that were not part of the build. To do 
+            # this latter action, perform a git clean instead to remove the 
+            # build directory completely.
+            src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_js
+            dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_script_dir]
+            puts ".... JS scripts to #{dst_base_dir}"
+            WebBlocks::Util.get_files(src_base_dir).each do |src|
+              dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
+              FileUtils.mkdir_p File.dirname(dst)
+              FileUtils.cp src, dst
+            end
             
           end
           
-          # Copy image files to build directory
-          
-          src = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
-          dst = Pathname.new(@config[:build][:img][:dir]).realpath
-          FileUtils.mkdir_p File.dirname(dst)
-          puts ".... Images to #{dst}"
-          FileUtils.cp_r src, dst
+          # Copy image files to build directory. Note that this will overwrite
+          # images defined in the build, but it will not delete images in the
+          # image build directory that were not part of the build. To do this
+          # latter action, perform a git clean instead to remove the build
+          # directory completely.
+          src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
+          dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:img][:dir]
+          puts ".... Images to #{dst_base_dir}"
+          WebBlocks::Util.get_files(src_base_dir).each do |src|
+            dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp src, dst
+          end
           
         end
         

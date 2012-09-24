@@ -6,6 +6,10 @@ table > caption {
     @include -entity-table-caption;
 }
 
+table.hover {
+    @include -entity-table-hover;
+}
+
 table.striped {
     @include -entity-table-striped;
 }

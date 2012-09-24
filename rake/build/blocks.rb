@@ -218,6 +218,7 @@ module WebBlocks
         attr_accessor :extensions
         attr_accessor :modules
         attr_accessor :file_build_temp_sass
+        attr_accessor :dir_build_temp_img
         attr_accessor :dir_src_sass
         attr_accessor :dir_src_core
         attr_accessor :dir_src_core_definitions
@@ -230,6 +231,7 @@ module WebBlocks
           super config
           
           @file_build_temp_sass = "#{dir_build_temp_sass}/_WebBlocks.scss"
+          @dir_build_temp_img = "#{dir_build_temp}/img"
           @dir_src_sass = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:sass][:dir]
           @dir_src_core = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:core][:dir]
           @dir_src_core_definitions = WebBlocks::Util.dir_from_dir_stack @dir_src_core, @config[:src][:core][:definitions][:dir]
@@ -312,7 +314,6 @@ module WebBlocks
         # => Run the Compass compiler on the SASS sources with import file
         # => Append Javascript stored within the modules into core[-ie].js
         #
-        # TODO: Copy images into their relative directories
         # TODO: Add -ie.scss impot file as well
         def compile
           
@@ -324,6 +325,9 @@ module WebBlocks
           
           puts ".... Copy Javascript sources"
           append_javascript 
+          
+          puts ".... Copy image sources"
+          append_images
           
         end
         
@@ -359,6 +363,17 @@ module WebBlocks
           @adapters_compilers.each do |adapter_compiler|
             adapter_compiler.included_adapter_module_files(@modules, 'js').each do |file|
               WebBlocks::Util.append_contents_to_file file, (file.match(/.*\-ie.js$/) ? file_build_temp_js_ie : file_build_temp_js)
+            end
+          end
+        end
+        
+        def append_images
+          @adapters_compilers.each do |adapter_compiler|
+            adapter_compiler.included_adapter_module_files(@modules, ['jpg','jpeg','gif','png','bmp','svg']).each do |src|
+              relsrc = src.sub /^#{adapter_compiler.dir_src_adapter}\//, ''
+              dst = "#{@dir_build_temp_img}/#{relsrc}"
+              FileUtils.mkdir_p File.dirname(dst)
+              FileUtils.cp src, dst
             end
           end
         end

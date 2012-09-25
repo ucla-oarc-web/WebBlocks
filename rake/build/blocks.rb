@@ -89,7 +89,7 @@ module WebBlocks
         
         puts ".. Compiling WebBlocks"
         
-        compiler = WebBlocks::Build::Blocks::Compiler.new(@config)
+        compiler = WebBlocks::Build::Blocks::Compiler.new @config, @log
         compiler.compile
         
         puts ".. Appending compiled files to build"
@@ -237,9 +237,9 @@ module WebBlocks
         attr_accessor :file_src_core_compass_config
         attr_accessor :dir_src_extensions
         
-        def initialize config
+        def initialize config, log
           
-          super config
+          super config, log
           
           @file_build_temp_sass = "#{dir_build_temp_sass}/_WebBlocks.scss"
           @dir_build_temp_img = "#{dir_build_temp}/img"
@@ -275,12 +275,12 @@ module WebBlocks
               load file
               classname = eval "WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
               begin
-                @adapters_compilers.push(classname.new(@config))
+                @adapters_compilers.push(classname.new @config, @log)
               rescue
                 fail "[INITIALIZE ERROR] WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
               end
             else
-              @adapters_compilers.push(WebBlocks::Build::Adapter::Compiler.new(@config, name.to_s.downcase))
+              @adapters_compilers.push(WebBlocks::Build::Adapter::Compiler.new @config, @log, name.to_s.downcase)
             end
           end
           
@@ -289,12 +289,12 @@ module WebBlocks
           # first to ensure that there are no undefined mixins during load.
           # Adapters defined later in the set will include overrides of the
           # mixins defined in the core adapter.
-          @adapters_compilers.unshift WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_adapter)
+          @adapters_compilers.unshift WebBlocks::Build::Adapter::Compiler.new @config, @log, @dir_src_core_adapter
           
           # Core definitions can conviniently also be built via a compiler.
           # However, they are included separately as they load after extensions,
           # which are not compiled via an adapter.
-          @core_definitions_compiler = WebBlocks::Build::Adapter::Compiler.new(@config, @dir_src_core_definitions)
+          @core_definitions_compiler = WebBlocks::Build::Adapter::Compiler.new @config, @log, @dir_src_core_definitions
           
           if @config[:src][:extensions]
             @extensions = (@config[:src][:extensions].respond_to? :each) ? @config[:src][:extensions] : [@config[:src][:extensions]]

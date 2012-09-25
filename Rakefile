@@ -1,3 +1,20 @@
+#
+# WebBlocks Build Script
+# 
+# This script performs a WebBlocks build taskas:
+# 
+#   rake [command]
+# 
+# One may specify a configuration file besides /Rakefile-config.rb via a
+# command-line argument passed to rake:
+# 
+#   rake [command] -- --config=Rakefile-config.rb
+#   
+# This Rakefile uses a number of libraries within the WebBlocks namespace that 
+# reside within the /rake directory.
+#
+
+# Confirm that all requisites have been installed
 require 'rubygems'
 require 'bundler'
 begin
@@ -7,12 +24,15 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+
+# Load required libraries
 require 'rake'
 require 'pathname'
 require 'fileutils'
 require 'optparse'
 include Rake::DSL
 
+# Parse the --config option if specified
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: rake [options]"
@@ -20,198 +40,113 @@ OptionParser.new do |opts|
   opts.on( '-c', '--config [OPT]', "Config file location (optional)" ) do |filename|
     options[:config] = filename || false
   end
-  
 end.parse!
 
+# Load the required WebBlocks rake libraries
 load 'rake/builder.rb'
 load 'rake/config.rb'
-load 'rake/compiler.rb'
+
+# Load the configuration file, either Rakefile-config.rb or as specified by
+# the command-line argument --config
 load options[:config] ? options[:config] : 'Rakefile-config.rb'
 
 builder = WebBlocks::Builder.new(WebBlocks.config)
 
-#
-# primary tasks
-#
-
+# By default, invoke the build task
 task :default   => [:build]
 
-task :build     => [:package_update, :clean, :init, :_build_execute, :_build_cleanup]
-
-task :build_all => [:clean_all, :packages_update, :build]
-
-task :clean     => [:_build_cleanup] do
-  builder.rm_build_dir
+# The init task initializes WebBlocks unless it is already initialized
+task :init do
+  invoke builder.blocks, :init unless builder.blocks.init?
 end
 
-task :clean_all => [:packages_clean, :clean]
-
-task :check do
-  puts "WARNING: this does not necessarily work with non-default CMD paths"
-  WebBlocks.config[:exec].each do |cmd|
-    fail "git [#{cmd}] must be installed" unless executable_exists(cmd)
+# The build task sets up a temporary region for the build process, then builds 
+# all packages into the region, followed by WebBlocks itself, and finally 
+# replaces the existing build directory with the newyl built version and cleans
+# up the temporary region. If any step in the build process fails, it will still
+# clean up build remenants.
+task :build     => [:init] do
+  begin
+    invoke builder.blocks, :build_setup
+    invoke builder.packages, :build
+    invoke builder.blocks, :build
+  ensure
+    invoke builder.blocks, :build_cleanup
   end
-  puts "prerequisite check successful"
 end
 
+# The build_all task is essentially the same as the build task, except that it
+# recompiles all packages that require a compile.
+task :build_all => [:init] do
+  begin
+    invoke builder.blocks, :build_setup
+    invoke builder.packages, :compile
+    invoke builder.packages, :build
+    invoke builder.blocks, :build
+  ensure
+    invoke builder.blocks, :build_cleanup
+  end
+end
+
+# The clean task removes the WebBlocks build.
+task :clean => [:init] do
+  invoke builder.blocks, :clean
+end
+
+# The clean_packages task removes any compilations that occurred as part of 
+# the package build processes.
+task :clean_packages => [:init] do
+  invoke builder.packages, :clean
+end
+
+# The clean_all task both removes the WebBlocks build and any compilations of
+# packages that occurred.
+task :clean_all => [:clean_packages, :clean]
+
+task :reset => [:clean_all, :reset_packages] do
+  invoke builder.blocks, :reset
+end
+
+# The reset_packages task resets all Git submodules by removing them. If using
+# this task, you will need to refetch all Git submodules before a WebBlocks
+# build may occur. Implicitly, this process will also clean all packages.
+task :reset_packages => [:clean_packages] do
+  invoke builder.packages, :reset
+end
+
+# TODO: The check task WILL check if the environment is configured properly.
+task :check do
+  # TODO
+end
+
+# The environment task provides output about the paths, packages and includes
+# for the WebBlocks build as currently configured.
 task :environment => [:paths, :packages, :includes]
 
+# TODO: The packages task determines all packages that will be included in the
+# WebBlocks build as currently configured.
 task :packages do
-  puts "Packages:"
-  builder.packages.each { |package| puts "  - #{package}" }
 end
 
+# TODO: The includes task determines all modules that will be included in the
+# WebBlocks build as currently configured.
 task :includes do
-  puts "Includes:"
-  builder.includes.each { |include| puts "  - #{include}"}
 end
 
+# TODO: The paths task determines the paths that will be used as part of the
+# WebBlocks build (including sources, packages, includes and destinations)
+# as currently configured.
 task :paths do
-  puts "Build Paths:"
-  puts "  - Base Directory: #{builder.path[:build][:dir]}"
-  puts "  - CSS Directory: #{builder.path[:build][:css][:dir]}"
-  puts "  - CSS File: #{builder.path[:build][:css][:file]}"
-  puts "  - CSS File (IE): #{builder.path[:build][:css][:file_ie]}"
-  puts "  - JS Directory: #{builder.path[:build][:js][:dir]}"
-  puts "  - JS File: #{builder.path[:build][:js][:file]}"
-  puts "  - JS File (IE): #{builder.path[:build][:js][:file_ie]}"
-  puts "  - JS Script Directory: #{builder.path[:build][:js][:script_dir]}"
-  puts "  - Image Directory: #{builder.path[:build][:img][:dir]}"
-  puts "  - Debug Directory: #{builder.path[:build][:debug][:dir]} [#{WebBlocks.config[:build][:debug][:enabled] ? 'ENABLED' : 'DISABLED'}]"
-  puts "Compile Paths:"
-  puts "  - Package Directory: #{WebBlocks.config[:package][:dir]}"
-  puts "  - Source Directory: #{WebBlocks.config[:src][:dir]}"
-  puts "    - Core Directory: #{WebBlocks.config[:src][:core][:dir]}"
-  puts "      - Core Definitions Directory: #{WebBlocks.config[:src][:core][:definitions][:dir]}"
-  puts "      - Core Adapter Directory: #{WebBlocks.config[:src][:core][:adapter][:dir]}"
-  puts "    - Adapters Directory: #{WebBlocks.config[:src][:adapters][:dir]}"
-  puts "    - SASS Directory: #{WebBlocks.config[:src][:sass][:dir]}"
-  puts "    - JS Directory: #{WebBlocks.config[:src][:js][:dir]}"
-  puts "      - JS Core Directory: #{WebBlocks.config[:src][:js][:core][:dir]}"
-  puts "      - JS Core-IE Directory: #{WebBlocks.config[:src][:js][:core_ie][:dir]}"
-  puts "      - JS Scripts Directory: #{WebBlocks.config[:src][:js][:core_ie][:dir]}"
-  puts "    - Image Directory: #{WebBlocks.config[:src][:img][:dir]}"
-  puts "Internal Paths:"
-  puts "  - Temporary Build Directory: #{WebBlocks.config[:build][:dir_tmp]}"
-  puts "  - Metadata Directory: #{WebBlocks.config[:build][:dir_metadata]}"
 end
 
-task :init do
-  unless builder.init?
-    Rake::Task["packages_update"].invoke
-    builder.init
-  end
-end
-
-task :reset => [:clean_all] do
-  builder.reset
-end
-
-#
-# build subtasks
-#
-
-task :_build_setup do
-  builder.mk_tmp_build_dir
-  builder.touch_tmp_build_files
-end
-
-task :_build_execute => [
-  :_build_setup,
-  builder.package?(:jquery) ? :_build_package_jquery : :_skip,
-  builder.package?(:bootstrap) ? :_build_package_bootstrap : :_skip,
-  builder.package?(:modernizr) ? :_build_package_modernizr : :_skip,
-  builder.package?(:respond) ? :_build_package_respond : :_skip,
-  builder.package?(:selectivizr) ? :_build_package_selectivizr : :_skip,
-  :_build_compile
-] do
-  
-  builder.mk_build_dir
-  builder.generate_build_files
-  
-end
-
-task :_build_cleanup do
-  builder.rm_tmp_build_dir
-end
-
-task :_skip do
-  next
-end
-
-#
-# build package subtasks
-# 
-
-task :_build_package_jquery => [:_build_setup, :package_jquery_build] do
-  builder.append_jquery_js
-end
-
-task :_build_compile => [:_build_setup] do
-  builder.append_compile
-end
-
-task :_build_package_bootstrap => [:_build_setup] do
-  builder.append_bootstrap_js
-  builder.copy_bootstrap_images
-end
-
-task :_build_package_modernizr => [:_build_setup] do
-  builder.append_modernizr_js
-end
-
-task :_build_package_respond => [:_build_setup] do
-  builder.append_respond_js
-end
-
-task :_build_package_selectivizr => [:_build_setup] do
-  builder.append_selectivizr_js
-end
-
-#
-# package tasks
-# 
-
-task :packages_build => [:packages_update, :package_jquery_build]
-
-task :packages_clean => [:package_jquery_clean]
-
-task :packages_update => [:packages_clean, :package_update, :package_jquery_update]
-
-task :package_update do
-  builder.update_packages
-end
-
-task :package_jquery_build do
-  unless WebBlocks::Builder::JQuery.new(WebBlocks.config).build
-    puts "Skipping package_build_jquery as build already exists"
-  end
-end
-
-task :package_jquery_clean do
-  WebBlocks::Builder::JQuery.new(WebBlocks.config).clean
-end
-
-task :package_jquery_update do
-  WebBlocks::Builder::JQuery.new(WebBlocks.config).update
-end
-
-#
-# helper functions
-#
-
-def executable_exists(name)
-  if system("which #{name}") == nil and system("where #{name}") == false
-    return false
-  else
-    return true
-  end
-end
-
-def append_contents_to_file(src, dst)
-  puts "cat #{src} >> #{dst}"
-  contents = File.read(src)
-  File.open(dst, "a") do |handle|
-    handle.puts contents
+# Helper function that accepts an object or array of objects and invokes a 
+# method on each of them, if they respond to the method. This is useful in
+# this context because not all builders will necessarily respond to a given
+# method.
+def invoke object, method
+  if object.respond_to? :each
+    object.each { |obj| invoke obj, method }
+  elsif object.respond_to? method
+    object.send(method)
   end
 end

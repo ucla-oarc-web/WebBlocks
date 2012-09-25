@@ -21,6 +21,10 @@ module WebBlocks
   
   @config[:build][:debug] = false
   
+  @config[:build][:log] = {
+    :name => 'build.log'
+  }
+  
   @config[:build][:dir] = 'build'
   
   @config[:build][:css] = {

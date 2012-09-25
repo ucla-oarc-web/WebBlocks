@@ -30,7 +30,7 @@ module WebBlocks
     # else this returns false.
     def self.dir_from_dir_stack_array args
       if args.length == 0
-        Pathname.new(Dir.pwd)
+        Dir.pwd
       elsif
         subdir = args.shift
         begin

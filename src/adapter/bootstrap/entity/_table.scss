@@ -1,22 +1,18 @@
 @mixin -entity-table {
     @extend .table;
 
-    > tr, > tr > td,
-    > tbody > tr, > tbody > tr > td, > tbody > tr > th,
-    > thead > tr, > thead > tr > td, > thead > tr > th,
-    > tfoot > tr, > tfoot > tr > td, > tfoot > tr > th,
-    > colgroup, > colgroup > col {
+    > tr.highlight, > tr > td.highlight,
+    > tbody > tr.highlight, > tbody > tr > td.highlight, > tbody > tr > th.highlight,
+    > thead > tr.highlight, > thead > tr > td.highlight, > thead > tr > th.highlight,
+    > tfoot > tr.highlight, > tfoot > tr > td.highlight, > tfoot > tr > th.highlight,
+    > colgroup.highlight, > colgroup > col.highlight {
         @include -entity-table-highlight;
     }
     
 }
 
 @mixin -entity-table-highlight {
-
-    &.highlight {
-        background: $infoBackground;
-    }
-
+    background: $infoBackground;
 }
 
 @mixin -entity-table-hover {

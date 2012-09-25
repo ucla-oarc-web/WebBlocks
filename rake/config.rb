@@ -19,10 +19,7 @@ module WebBlocks
   
   @config[:build] = Hash.new
   
-  @config[:build][:debug] = {
-    :enabled  => false,
-    :dir      => 'debug'
-  }
+  @config[:build][:debug] = false
   
   @config[:build][:dir] = 'build'
   
@@ -134,7 +131,7 @@ module WebBlocks
   }
   
   @config[:package][:jquery] = {
-    :dir        => 'jquery'
+    :dir      => 'jquery'
   }
   
   @config[:package][:modernizr] = {

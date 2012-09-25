@@ -63,9 +63,6 @@ module WebBlocks
       # trash a successful build already residing in the build directory.
       def build_setup
         
-        # TODO move this back to build_cleanup once dev is done
-        FileUtils.rm_rf dir_build_temp
-        
         fail "[ERROR] Temporary build directory already exists [run `rake clean` to resolve]" if File.exists? dir_build_temp
         puts ".. Setting up temporary region for build"
         
@@ -180,7 +177,7 @@ module WebBlocks
       
       # Build cleanup involves removing the temporary build region.
       def build_cleanup
-        #FileUtils.rm_rf dir_build_temp
+        FileUtils.rm_rf dir_build_temp
       end
       
       # WebBlocks is built if a build directory exists. This is not the same

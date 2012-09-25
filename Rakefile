@@ -116,27 +116,32 @@ end
 
 # TODO: The check task WILL check if the environment is configured properly.
 task :check do
-  # TODO
+  puts "This task is currently not available (TODO)"
 end
 
 # The environment task provides output about the paths, packages and includes
 # for the WebBlocks build as currently configured.
-task :environment => [:paths, :packages, :includes]
+task :environment do # should depend on => [:paths, :packages, :includes]
+  puts "This task is currently not available (TODO)"
+end
 
 # TODO: The packages task determines all packages that will be included in the
 # WebBlocks build as currently configured.
 task :packages do
+  puts "This task is currently not available (TODO)"
 end
 
 # TODO: The includes task determines all modules that will be included in the
 # WebBlocks build as currently configured.
 task :includes do
+  puts "This task is currently not available (TODO)"
 end
 
 # TODO: The paths task determines the paths that will be used as part of the
 # WebBlocks build (including sources, packages, includes and destinations)
 # as currently configured.
 task :paths do
+  puts "This task is currently not available (TODO)"
 end
 
 # Helper function that accepts an object or array of objects and invokes a 

@@ -17,16 +17,16 @@ module WebBlocks
         
         def build
           
-          puts ".. Managing Respond.js submodule"
+          @log.task "Builder: Respond.js", "Managing Respond.js submodule" do
+            manage_submodule 'Respond.js', dir_package
+          end
           
-          manage_submodule 'Respond.js', dir_package
-          
-          puts ".. Packaging Respond.js into Core JS file"
-          
-          if @config[:build][:debug]
-            append_contents_to_file "#{dir_package}/respond.src.js", file_build_temp_js_ie
-          elsif
-            append_contents_to_file "#{dir_package}/respond.min.js", file_build_temp_js_ie
+          @log.task "Builder: Respond.js", "Packaging Respond.js into IE JS file" do
+            if @config[:build][:debug]
+              append_contents_to_file "#{dir_package}/respond.src.js", file_build_temp_js_ie
+            elsif
+              append_contents_to_file "#{dir_package}/respond.min.js", file_build_temp_js_ie
+            end
           end
           
         end

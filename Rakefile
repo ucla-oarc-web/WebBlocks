@@ -127,7 +127,7 @@ end
 # this task, you will need to refetch all Git submodules before a WebBlocks
 # build may occur. Implicitly, this process will also clean all packages.
 task :reset_packages => [:clean_packages] do
-  log.scope "Rakefile", "task: reset_packages", :task do
+  log.task "Rakefile", "reset_packages" do
     invoke builder.packages, :reset
   end
 end

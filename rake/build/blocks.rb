@@ -38,8 +38,9 @@ module WebBlocks
       # Initialization defines the WebBlocks metadata directory
       def init
         
-        puts ".. Defining WebBlocks metadata"
-        FileUtils.mkdir_p dir_build_metadata unless init?
+        @log.task "Builder", "Defining WebBlocks metadata" do
+          FileUtils.mkdir_p dir_build_metadata unless init?
+        end
         
       end
       
@@ -53,8 +54,9 @@ module WebBlocks
       # Reset removes the WebBlocks metadata directory
       def reset
         
-        puts ".. Resetting WebBlocks to initial state"
-        FileUtils.rm_rf dir_build_metadata
+        @log.task "Builder", "Resetting WebBlocks to initial state" do
+          FileUtils.rm_rf dir_build_metadata
+        end
         
       end
       
@@ -63,16 +65,17 @@ module WebBlocks
       # trash a successful build already residing in the build directory.
       def build_setup
         
-        fail "[ERROR] Temporary build directory already exists [run `rake clean` to resolve]" if File.exists? dir_build_temp
-        puts ".. Setting up temporary region for build"
+        @log.failure "Builder", "Temporary build directory already exists [run `rake clean` to resolve]" if File.exists? dir_build_temp
         
-        FileUtils.mkdir_p dir_build_temp 
-        FileUtils.touch file_build_temp_css
-        FileUtils.touch file_build_temp_css_ie
-        FileUtils.touch file_build_temp_js
-        FileUtils.touch file_build_temp_js_ie
-        FileUtils.mkdir_p dir_build_temp_js
-        FileUtils.mkdir_p dir_build_temp_img
+        @log.task "Builder", "Setting up temporary build region" do
+          FileUtils.mkdir_p dir_build_temp and @log.info "Created directory: #{dir_build_temp}"
+          FileUtils.touch file_build_temp_css and @log.info "Created core CSS target: #{file_build_temp_css}"
+          FileUtils.touch file_build_temp_css_ie and @log.info "Created IE CSS target: #{file_build_temp_css_ie}"
+          FileUtils.touch file_build_temp_js and @log.info "Created core JS target: #{file_build_temp_js}"
+          FileUtils.touch file_build_temp_js_ie and @log.info "Created IE JS target: #{file_build_temp_js_ie}"
+          FileUtils.mkdir_p dir_build_temp_js and @log.info "Created scripts JS target: #{file_build_temp_js_ie}"
+          FileUtils.mkdir_p dir_build_temp_img and @log.info "Created images target: #{file_build_temp_js_ie}"
+        end
         
       end
       
@@ -87,92 +90,117 @@ module WebBlocks
       # package builders into the build directory.
       def build
         
-        puts ".. Compiling WebBlocks"
-        
-        compiler = WebBlocks::Build::Blocks::Compiler.new @config, @log
-        compiler.compile
-        
-        puts ".. Appending compiled files to build"
-        
-        WebBlocks::Util.get_files(dir_build_temp_css, 'css').each do |file|
-          append_contents_to_file file, (file.match(/.*\-ie.css$/) ? file_build_temp_css_ie : file_build_temp_css)
+        @log.task "Builder", "Compiling WebBlocks" do
+          compiler = WebBlocks::Build::Blocks::Compiler.new @config, @log
+          compiler.compile
         end
         
-        puts ".. Copying build from temporary region into build targets"
-        
-        # Copy files to build directory
-        
-        FileUtils.mkdir_p @config[:build][:dir] unless File.exists? @config[:build][:dir]
-        Dir.chdir @config[:build][:dir] do
-          
-          # Copy CSS files to build directory
-          
-          FileUtils.mkdir_p @config[:build][:css][:dir] unless File.exists? @config[:build][:css][:dir]
-          Dir.chdir @config[:build][:css][:dir] do
-            
-            src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css
-            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name]
-            FileUtils.mkdir_p File.dirname(dst)
-            puts ".... Core CSS file to #{dst}"
-            FileUtils.cp src, dst
-            
-            src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css_ie
-            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name_ie]
-            FileUtils.mkdir_p File.dirname(dst)
-            puts ".... IE CSS file to #{dst}"
-            FileUtils.cp src, dst
-            
+        @log.task "Builder", "Appending compiled CSS to build" do
+          WebBlocks::Util.get_files(dir_build_temp_css, 'css').each do |file|
+            append_contents_to_file file, (file.match(/.*\-ie.css$/) ? file_build_temp_css_ie : file_build_temp_css)
           end
-          
-          # Copy JS files to build directory
-          
-          FileUtils.mkdir_p @config[:build][:js][:dir] unless File.exists? @config[:build][:js][:dir]
-          Dir.chdir @config[:build][:js][:dir] do
-            
-            src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js
-            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name]
-            FileUtils.mkdir_p File.dirname(dst)
-            puts ".... Core JS file to #{dst}"
-            FileUtils.cp src, dst
-            
-            src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js_ie
-            dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_ie]
-            FileUtils.mkdir_p File.dirname(dst)
-            puts ".... IE JS file to #{dst}"
-            FileUtils.cp src, dst
-            
-            # Copy scripts to build directory. Note that this will overwrite
-            # scripts defined in the build, but it will not delete scripts in
-            # the script build directory that were not part of the build. To do 
-            # this latter action, perform a git clean instead to remove the 
-            # build directory completely.
-            src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_js
-            dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_script_dir]
-            puts ".... JS scripts to #{dst_base_dir}"
-            WebBlocks::Util.get_files(src_base_dir).each do |src|
-              dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
+        end
+        
+        @log.task "Builder", "Copying build from temporary region into build targets" do
+        
+          # Copy files to build directory
+
+          FileUtils.mkdir_p @config[:build][:dir] unless File.exists? @config[:build][:dir]
+          Dir.chdir @config[:build][:dir] do
+
+            # Copy CSS files to build directory
+
+            FileUtils.mkdir_p @config[:build][:css][:dir] unless File.exists? @config[:build][:css][:dir]
+            Dir.chdir @config[:build][:css][:dir] do
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name]
               FileUtils.mkdir_p File.dirname(dst)
-              FileUtils.cp src, dst
+              log.info "Copying core CSS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css_ie
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name_ie]
+              FileUtils.mkdir_p File.dirname(dst)
+              log.info "Copying IE CSS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
             end
-            
+
+            # Copy JS files to build directory
+
+            FileUtils.mkdir_p @config[:build][:js][:dir] unless File.exists? @config[:build][:js][:dir]
+            Dir.chdir @config[:build][:js][:dir] do
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name]
+              FileUtils.mkdir_p File.dirname(dst)
+              log.info "Copying core JS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_js_ie
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_ie]
+              FileUtils.mkdir_p File.dirname(dst)
+              log.info "Copying IE JS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
+              # Copy scripts to build directory. Note that this will overwrite
+              # scripts defined in the build, but it will not delete scripts in
+              # the script build directory that were not part of the build. To do 
+              # this latter action, perform a git clean instead to remove the 
+              # build directory completely.
+              src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_js
+              dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:js][:name_script_dir]
+              log.info "Copying JS script files" do
+                log.debug "src: #{src_base_dir}"
+                log.debug "dst: #{dst_base_dir}"
+                log.debug "files:" do
+                  WebBlocks::Util.get_files(src_base_dir).each do |src|
+                    log.debug src.sub(/^#{src_base_dir}\//, '')
+                    dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
+                    FileUtils.mkdir_p File.dirname(dst)
+                    FileUtils.cp src, dst
+                  end
+                end
+              end
+
+            end
+
+            # Copy image files to build directory. Note that this will overwrite
+            # images defined in the build, but it will not delete images in the
+            # image build directory that were not part of the build. To do this
+            # latter action, perform a git clean instead to remove the build
+            # directory completely.
+            src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
+            dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:img][:dir]
+            log.info "Copying image files" do
+              log.debug "src: #{src_base_dir}"
+              log.debug "dst: #{dst_base_dir}"
+              log.debug "files:" do
+                WebBlocks::Util.get_files(src_base_dir).each do |src|
+                  dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
+                  FileUtils.mkdir_p File.dirname(dst)
+                  FileUtils.cp src, dst
+                end
+              end
+            end
+
           end
-          
-          # Copy image files to build directory. Note that this will overwrite
-          # images defined in the build, but it will not delete images in the
-          # image build directory that were not part of the build. To do this
-          # latter action, perform a git clean instead to remove the build
-          # directory completely.
-          src_base_dir = WebBlocks::Util.dir_from_root_through_dir_stack dir_build_temp_img
-          dst_base_dir = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:img][:dir]
-          puts ".... Images to #{dst_base_dir}"
-          WebBlocks::Util.get_files(src_base_dir).each do |src|
-            dst = "#{dst_base_dir}/#{src.sub /^#{src_base_dir}\//, ''}"
-            FileUtils.mkdir_p File.dirname(dst)
-            FileUtils.cp src, dst
-          end
-          
+
         end
-        
+      
       end
       
       # Build cleanup involves removing the temporary build region.
@@ -277,7 +305,7 @@ module WebBlocks
               begin
                 @adapters_compilers.push(classname.new @config, @log)
               rescue
-                fail "[INITIALIZE ERROR] WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
+                @log.failure "Compiler", "WebBlocks::Build::Adapter::#{name.to_s.capitalize}"
               end
             else
               @adapters_compilers.push(WebBlocks::Build::Adapter::Compiler.new @config, @log, name.to_s.downcase)
@@ -334,17 +362,21 @@ module WebBlocks
         # TODO: Add -ie.scss impot file as well
         def compile
           
-          puts ".... Appending Javascript sources"
-          append_javascript 
+          @log.task "Compiler", "Appending Javascript sources" do
+            append_javascript 
+          end
           
-          puts ".... Copy image sources"
-          append_images
+          @log.task "Compiler", "Copy image sources" do
+            append_images
+          end
           
-          puts ".... Generating SASS import file"
-          create_sass_import_file file_build_temp_sass
+          @log.task "Compiler", "Generating SASS import file" do
+            create_sass_import_file file_build_temp_sass
+          end
           
-          puts ".... Running Compass compiler"
-          run_compass_compiler
+          @log.task "Compiler", "Running Compass compiler" do
+            run_compass_compiler
+          end
           
         end
         
@@ -370,7 +402,7 @@ module WebBlocks
             status, stdout, stderr = systemu "compass compile -e #{environment} --sass-dir #{dir_src_sass} --config \"#{@file_src_core_compass_config}\""
             success = false if status != 0
           end
-          fail "[ERROR] Compass compile error" unless success
+          @log.failure "Compiler", "Compass compile error" unless success
         end
         
         # Append Javascript from adapters, JS core source and JS core-ie source.

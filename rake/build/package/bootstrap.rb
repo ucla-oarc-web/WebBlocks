@@ -16,9 +16,9 @@ module WebBlocks
         # TODO: Copy Bootstrap images and Javascript into temp build dir
         def build
           
-          puts ".. Managing Bootstrap submodule"
-          
-          updated = manage_submodule 'Bootstrap', dir_package
+          @log.task "Builder: Bootstrap", "Managing Bootstrap submodule" do
+            updated = manage_submodule 'Bootstrap', dir_package
+          end
           
           
         end

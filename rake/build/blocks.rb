@@ -475,6 +475,12 @@ module WebBlocks
             else
               @log.failure "Compiler", "Compass compile error"
             end
+            # cleanup SASS includes directory if its within the SASS source directory
+            # as it should not be appended later in execution
+            if @dir_src_sass_includes.match /^#{dir_src_sass}\//
+              relname = @dir_src_sass_includes.sub /^#{dir_src_sass}\//, ''
+              FileUtils.rm_rf "#{@dir_build_temp_css}/#{relname}"
+            end
           end
         end
         

@@ -4,6 +4,7 @@
 
 A list of items, either ordered or unordered. The list elements (`ul` and `ol`) are used in a number of other
 prototypes given their semantic value, but this prototype refers specifically to lists used outside other prototypes.
+To apply WebBlocks styling, the element must be defined as `.list`.
 
 ## Usages
 
@@ -11,7 +12,7 @@ prototypes given their semantic value, but this prototype refers specifically to
 
 ## Features
 
-The "unstyled" class can be added to a list to remove the default margin, padding, and bullets (or numbering). Child
+The `.unstyled` class can be added to a list to remove the default margin, padding, and bullets (or numbering). Child
 lists will not be affected.
 
 ## Responsive Considerations

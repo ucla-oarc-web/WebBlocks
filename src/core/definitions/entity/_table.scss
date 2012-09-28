@@ -1,28 +1,28 @@
-table {
+.table {
     @include -entity-table;
 }
 
-table > caption {
+.table > caption {
     @include -entity-table-caption;
 }
 
-table.hover {
+.table.hover {
     @include -entity-table-hover;
 }
 
-table.striped {
+.table.striped {
     @include -entity-table-striped;
 }
 
-table.bordered {
+.table.bordered {
     @include -entity-table-bordered;
 }
 
-table.condensed {
+.table.condensed {
     @include -entity-table-condensed;
 }
 
-table {
+.table {
     > tr.highlight, > tr > td.highlight,
     > tbody > tr.highlight, > tbody > tr > td.highlight, > tbody > tr > th.highlight,
     > thead > tr.highlight, > thead > tr > td.highlight, > thead > tr > th.highlight,

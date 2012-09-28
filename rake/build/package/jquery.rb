@@ -28,7 +28,7 @@ module WebBlocks
             end
           end
           
-          log.task "Builder: jQuery", ".. Packaging jQuery into Core JS file" do
+          log.task "Builder: jQuery", "Packaging jQuery into Core JS file" do
             filename = @config[:build][:debug] ? "jquery.js" : "jquery.min.js"
             append_contents_to_file "#{dir_package}/dist/#{filename}", file_build_temp_js
           end

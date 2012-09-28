@@ -12,11 +12,13 @@ module WebBlocks
         
         def manage_submodule module_name, module_path
           
+          @log.debug "Builder: Package", "Invoking #{@config[:exec][:git]} submodule init #{module_path}"
           status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule init #{module_path}"
-          @log.task "Builder: Package", "Initialized #{module_name} submodule" if stdout.length > 0
+          @log.info "Builder: Package", "Initialized #{module_name} submodule" if stdout.length > 0
           
+          @log.debug "Builder: Package", "Invoking #{@config[:exec][:git]} submodule update #{module_path}"
           status, stdout, stderr = systemu "#{@config[:exec][:git]} submodule update #{module_path}"
-          @log.task "Builder: Package", "Updated #{module_name} submodule" if stdout.length > 0
+          @log.info "Builder: Package", "Updated #{module_name} submodule" if stdout.length > 0
           
           stdout.length > 0
           

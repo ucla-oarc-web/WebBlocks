@@ -49,20 +49,21 @@ module WebBlocks
       end
     end
     
-    def info message
-      scope :info, message do
+    def info category, message = false
+      scope :info, category, message do
         yield if block_given?
       end
     end
     
-    def debug message
-      scope :debug, message do
+    def debug category, message = false
+      scope :debug, category, message do
         yield if block_given?
       end
     end
     
     def write type, category, message = false
-      text = message ? "#{'  ' * @scope}[#{category}] #{message}" : "#{'  ' * @scope}#{category}"
+      text = message ? "[#{category}] #{message}" : "#{category}"
+      text = "#{'  ' * @scope}#{text}".gsub "\n", "\n#{'  ' * @scope}"
       puts text if @types_to_print.include? type
       @file_handle.puts text if @types_to_file.include? type
     end

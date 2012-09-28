@@ -1,3 +1,5 @@
+# Integration
+
 There are a couple primary ways that WebBlocks can be integrated into your workflow:
 
 1. An application may include WebBlocks as a submodule and set up the Rake process via a custom configuration file so that WebBlocks builds into a web-accessible directory within the application. This is ideal for applications that seek to leverage WebBlocks but want to include their own custom SASS definitions using the SASS/Compass/Bootstrap/WebBlocks. This submodule could be the WebBlocks repository itself, or some fork of WebBlocks that is provided by an organization using method (1).

@@ -273,6 +273,7 @@ module WebBlocks
           @dir_build_temp_img = "#{dir_build_temp}/img"
           @dir_build_temp_script = "#{dir_build_temp}/script"
           @dir_src_sass = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:sass][:dir]
+          @dir_src_sass_includes = WebBlocks::Util.dir_from_dir_stack @dir_src_sass, @config[:src][:sass][:includes][:dir]
           @dir_src_core = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:core][:dir]
           @dir_src_core_definitions = WebBlocks::Util.dir_from_dir_stack @dir_src_core, @config[:src][:core][:definitions][:dir]
           @dir_src_core_adapter = WebBlocks::Util.dir_from_root_through_dir_stack @dir_src_core, @config[:src][:core][:adapter][:dir]
@@ -286,7 +287,9 @@ module WebBlocks
           
           @log.info "Compiler", "Defining paths" do
             @log.debug "Source Directory: #{dir_src}" do
-              @log.debug "SASS Sources: #{@dir_src_sass.sub /^#{dir_src}\//, ''}"
+              @log.debug "SASS Sources: #{@dir_src_sass.sub /^#{dir_src}\//, ''}" do
+                @log.debug "Includes Directory: #{@dir_src_sass_includes.sub /^#{@dir_src_sass}\//, ''}"
+              end
               @log.debug "Core Sources: #{@dir_src_core.sub /^#{dir_src}\//, ''}" do
                 @log.debug "Definitions: #{@dir_src_core_definitions.sub /^#{@dir_src_core}\//, ''}"
                 @log.debug "Adapter: #{@dir_src_core_adapter.sub /^#{@dir_src_core}\//, ''}"
@@ -573,7 +576,7 @@ module WebBlocks
         # will be loaded before they are needed.
         def included_scss_files
           files = [[],[]]
-          included_files("scss").each do |file|
+          [included_files("scss"), get_files(@dir_src_sass_includes, "scss")].flatten.each do |file|
             if File.basename(file) == '_variables.scss' or File.basename(file) == 'variables.scss'
               files[0].push file
             else

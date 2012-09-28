@@ -57,7 +57,10 @@ module WebBlocks
   @config[:src] = {
     :dir      => 'src',
     :sass     => {
-      :dir => 'sass'
+      :dir => 'sass',
+      :includes => {
+        :dir => 'blocks'
+      }
     },
     :img      => {
       :dir => 'img'

@@ -45,19 +45,23 @@ end.parse!
 # Load the required WebBlocks rake libraries
 load 'rake/builder.rb'
 load 'rake/config.rb'
+load 'rake/logger.rb'
 
 # Load the configuration file, either Rakefile-config.rb or as specified by
 # the command-line argument --config
 load options[:config] ? options[:config] : 'Rakefile-config.rb'
 
-builder = WebBlocks::Builder.new(WebBlocks.config)
+log = WebBlocks::Logger.new WebBlocks::Util.file_from_root_through_dir_stack WebBlocks.config[:build][:log][:name]
+builder = WebBlocks::Builder.new WebBlocks.config, log
 
 # By default, invoke the build task
 task :default   => [:build]
 
 # The init task initializes WebBlocks unless it is already initialized
 task :init do
-  invoke builder.blocks, :init unless builder.blocks.init?
+  log.task "Rakefile", "init" do
+    invoke builder.blocks, :init unless builder.blocks.init?
+  end
 end
 
 # The build task sets up a temporary region for the build process, then builds 
@@ -66,52 +70,66 @@ end
 # up the temporary region. If any step in the build process fails, it will still
 # clean up build remenants.
 task :build     => [:init] do
-  begin
-    invoke builder.blocks, :build_setup
-    invoke builder.packages, :build
-    invoke builder.blocks, :build
-  ensure
-    invoke builder.blocks, :build_cleanup
+  log.task "Rakefile", "build" do
+    begin
+      invoke builder.blocks, :build_setup
+      invoke builder.packages, :build
+      invoke builder.blocks, :build
+    ensure
+      invoke builder.blocks, :build_cleanup
+    end
   end
 end
 
 # The build_all task is essentially the same as the build task, except that it
 # recompiles all packages that require a compile.
 task :build_all => [:init] do
-  begin
-    invoke builder.blocks, :build_setup
-    invoke builder.packages, :compile
-    invoke builder.packages, :build
-    invoke builder.blocks, :build
-  ensure
-    invoke builder.blocks, :build_cleanup
+  log.task "Rakefile", "build_all" do
+    begin
+      invoke builder.blocks, :build_setup
+      invoke builder.packages, :compile
+      invoke builder.packages, :build
+      invoke builder.blocks, :build
+    ensure
+      invoke builder.blocks, :build_cleanup
+    end
   end
 end
 
 # The clean task removes the WebBlocks build.
 task :clean => [:init] do
-  invoke builder.blocks, :clean
+  log.task "Rakefile", "clean" do
+    invoke builder.blocks, :clean
+  end
 end
 
 # The clean_packages task removes any compilations that occurred as part of 
 # the package build processes.
 task :clean_packages => [:init] do
-  invoke builder.packages, :clean
+  log.task "Rakefile", "clean_packages" do
+    invoke builder.packages, :clean
+  end
 end
 
 # The clean_all task both removes the WebBlocks build and any compilations of
 # packages that occurred.
-task :clean_all => [:clean_packages, :clean]
+task :clean_all => [:clean_packages, :clean] do
+  log.task "Rakefile", "clean_all"
+end
 
 task :reset => [:clean_all, :reset_packages] do
-  invoke builder.blocks, :reset
+  log.task "Rakefile", "reset" do
+    invoke builder.blocks, :reset
+  end
 end
 
 # The reset_packages task resets all Git submodules by removing them. If using
 # this task, you will need to refetch all Git submodules before a WebBlocks
 # build may occur. Implicitly, this process will also clean all packages.
 task :reset_packages => [:clean_packages] do
-  invoke builder.packages, :reset
+  log.task "Rakefile", "reset_packages" do
+    invoke builder.packages, :reset
+  end
 end
 
 # TODO: The check task WILL check if the environment is configured properly.

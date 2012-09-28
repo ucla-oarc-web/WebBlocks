@@ -45,8 +45,8 @@ module WebBlocks
   }
   
   @config[:build][:packages] = [
-    :bootstrap,
     :jquery,
+    :bootstrap,
     :modernizr,
     :respond,
     :selectivizr

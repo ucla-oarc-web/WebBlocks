@@ -21,3 +21,13 @@ table.bordered {
 table.condensed {
     @include -entity-table-condensed;
 }
+
+table {
+    > tr.highlight, > tr > td.highlight,
+    > tbody > tr.highlight, > tbody > tr > td.highlight, > tbody > tr > th.highlight,
+    > thead > tr.highlight, > thead > tr > td.highlight, > thead > tr > th.highlight,
+    > tfoot > tr.highlight, > tfoot > tr > td.highlight, > tfoot > tr > th.highlight,
+    > colgroup.highlight, > colgroup > col.highlight {
+        @include -entity-table-highlight;
+    }
+}

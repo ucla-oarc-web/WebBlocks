@@ -290,7 +290,7 @@ module WebBlocks
           @log.info "Compiler", "Defining paths" do
             @log.debug "Source Directory: #{dir_src}" do
               @log.debug "SASS Sources: #{@dir_src_sass.sub /^#{dir_src}\//, ''}" do
-                @log.debug "Includes Directory: #{@dir_src_sass_includes.sub /^#{@dir_src_sass}\//, ''}"
+                @log.debug "Includes Directory: #{@dir_src_sass_includes.sub /^#{@dir_src_sass}\//, ''}" if @dir_src_sass_includes
               end
               @log.debug "Core Sources: #{@dir_src_core.sub /^#{dir_src}\//, ''}" do
                 @log.debug "Definitions: #{@dir_src_core_definitions.sub /^#{@dir_src_core}\//, ''}"
@@ -302,8 +302,8 @@ module WebBlocks
                 @log.debug "Core IE: #{@dir_src_js_core_ie.sub /^#{@dir_src_js}\//, ''}"
                 @log.debug "Scripts: #{@dir_src_js_script.sub /^#{@dir_src_js}\//, ''}"
               end
-              @log.debug "Image Sources: #{@dir_src_img.sub /^#{dir_src}\//, ''}"
-              @log.debug "Extensions: #{@dir_src_extensions.sub /^#{dir_src}\//, ''}"
+              @log.debug "Image Sources: #{@dir_src_img.sub /^#{dir_src}\//, ''}" if @dir_src_img
+              @log.debug "Extensions: #{@dir_src_extensions.sub /^#{dir_src}\//, ''}" if @dir_src_extensions
             end
             @log.debug "Temporary Build Directory: #{dir_build_temp}" do
               @log.debug "SASS Includes File: #{@file_build_temp_sass.sub /^#{dir_build_temp}\//, ''}"
@@ -477,7 +477,7 @@ module WebBlocks
             end
             # cleanup SASS includes directory if its within the SASS source directory
             # as it should not be appended later in execution
-            if @dir_src_sass_includes.match /^#{dir_src_sass}\//
+            if @dir_src_sass_includes and @dir_src_sass_includes.match /^#{dir_src_sass}\//
               relname = @dir_src_sass_includes.sub /^#{dir_src_sass}\//, ''
               FileUtils.rm_rf "#{@dir_build_temp_css}/#{relname}"
             end

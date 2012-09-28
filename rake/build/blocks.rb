@@ -272,6 +272,7 @@ module WebBlocks
           @file_build_temp_sass = "#{dir_build_temp_sass}/_WebBlocks.scss"
           @dir_build_temp_img = "#{dir_build_temp}/img"
           @dir_build_temp_script = "#{dir_build_temp}/script"
+          @dir_build_temp_css = "#{dir_build_temp}/css"
           @dir_src_sass = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:sass][:dir]
           @dir_src_sass_includes = WebBlocks::Util.dir_from_dir_stack @dir_src_sass, @config[:src][:sass][:includes][:dir]
           @dir_src_core = WebBlocks::Util.dir_from_root_through_dir_stack dir_src, @config[:src][:core][:dir]
@@ -283,6 +284,7 @@ module WebBlocks
           @dir_src_js_core_ie = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:core_ie][:dir]
           @dir_src_js_script = WebBlocks::Util.dir_from_dir_stack @dir_src_js, @config[:src][:js][:script][:dir]
           @dir_src_img = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:img][:dir]
+          @dir_src_css = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:css][:dir]
           @file_src_core_compass_config = WebBlocks::Util.file_from_dir_stack @dir_src_core, @config[:src][:core][:compass][:config]
           
           @log.info "Compiler", "Defining paths" do
@@ -427,7 +429,7 @@ module WebBlocks
           end
           
           @log.task "Compiler", "Copy image sources" do
-            append_images
+            copy_images
           end
           
           @log.task "Compiler", "Generating SASS import file" do
@@ -436,6 +438,10 @@ module WebBlocks
           
           @log.task "Compiler", "Running Compass compiler" do
             run_compass_compiler
+          end
+          
+          @log.task "Compiler", "Copy CSS sources" do
+            copy_css
           end
           
         end
@@ -527,7 +533,20 @@ module WebBlocks
           
         end
         
-        def append_images
+        def copy_css
+          
+          @log.info "Compiler", "Copying source CSS to CSS directory" do
+            WebBlocks::Util.get_files(@dir_src_css, 'css').each do |file|
+              @log.debug file
+              dst = "#{@dir_build_temp_css}/#{file.sub /^#{@dir_src_css}\//, ''}"
+              FileUtils.mkdir_p File.dirname(dst)
+              FileUtils.cp file, dst
+            end
+          end
+          
+        end
+        
+        def copy_images
           
           img_exts = ['jpg','jpeg','gif','png','bmp','svg']
           

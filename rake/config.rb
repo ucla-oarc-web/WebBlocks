@@ -62,6 +62,9 @@ module WebBlocks
         :dir => 'blocks'
       }
     },
+    :css      => {
+      :dir => 'css'
+    },
     :img      => {
       :dir => 'img'
     },

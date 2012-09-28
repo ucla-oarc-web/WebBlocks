@@ -16,8 +16,9 @@ module WebBlocks
     
     attr_accessor :config
 
-    def initialize(config)
+    def initialize config, log
       @config = config
+      @log = log
       @builder_blocks = false
       @builder_packages = false
     end
@@ -27,7 +28,7 @@ module WebBlocks
     def blocks
       unless @builder_blocks
         load "#{File.dirname(Pathname.new(__FILE__).realpath)}/build/blocks.rb"
-        @builder_blocks = Build::Blocks.new @config
+        @builder_blocks = Build::Blocks.new @config, @log
       end
       @builder_blocks
     end
@@ -46,7 +47,7 @@ module WebBlocks
             load file
             begin
               classname = eval "WebBlocks::Build::Package::#{name.to_s.capitalize}"
-              @builder_packages.push(classname.new(@config))
+              @builder_packages.push classname.new @config, @log
             rescue
               fail "[INITIALIZE ERROR] WebBlocks::Build::#{name.to_s.capitalize}"
             end

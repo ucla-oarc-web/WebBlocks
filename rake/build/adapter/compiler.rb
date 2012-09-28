@@ -14,9 +14,9 @@ module WebBlocks
         attr_accessor :dir_src_adapters
         attr_accessor :dir_src_adapter
         
-        def initialize config, name = false
+        def initialize config, log, name = false
           name = self.class.name.sub(/^.*::/, '').downcase unless name
-          super config
+          super config, log
           @dir_src_adapters = WebBlocks::Util.dir_from_dir_stack dir_src, @config[:src][:adapters][:dir]
           @dir_src_adapter = WebBlocks::Util.dir_from_dir_stack @dir_src_adapters, name
         end

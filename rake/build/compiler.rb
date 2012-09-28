@@ -20,14 +20,16 @@ module WebBlocks
     class Compiler
       
       attr_accessor :config
+      attr_accessor :log
       attr_accessor :dir_build_temp
       attr_accessor :dir_src
       attr_accessor :dir_build_temp_sass
       attr_accessor :file_build_temp_js
       attr_accessor :file_build_temp_js_ie
       
-      def initialize(config)
+      def initialize config, log
         @config = config
+        @log = log
         @dir_build_temp = WebBlocks::Util.dir_from_root_through_dir_stack @config[:build][:dir_tmp] 
         @dir_build_temp_sass = "#{dir_build_temp}/sass"
         @file_build_temp_js = "#{dir_build_temp}/core.js"

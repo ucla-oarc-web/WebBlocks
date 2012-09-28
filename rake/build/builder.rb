@@ -21,9 +21,11 @@ module WebBlocks
     class Builder
       
       attr_accessor :config
+      attr_accessor :log
       
-      def initialize(config)
+      def initialize config, log
         @config = config
+        @log = log
       end
         
       def dir_build

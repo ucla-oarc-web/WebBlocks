@@ -90,23 +90,30 @@ module WebBlocks
     # provided (as a string or an array of strings), then it will only return
     # files matching that extension. Unless recursive is set false, this will
     # recursively search all subdirectories for matching files as well. Files
-    # are returned in a context that is absolute relative to dir.
+    # are returned in a context that is absolute relative to dir. Note that
+    # this function recursively iterates in breadth-first order.
     def self.get_files dir, ext = false, recursive = true
       files = []
       begin
+        subdirs = []
+        # Pass 1: Files (and storing directories for Pass 2)
         Dir.entries(dir).each do |name|
           next if name[0,1] == '.'
           path = "#{dir}/#{name}"
           if File.directory? path
-            if recursive
-              get_files(path, ext, recursive).each do |sub|
-                files.push sub
-              end
-            elsif !ext
-              files.push path
-            end
+            subdirs.push path
           elsif WebBlocks::Util.file_ext? name, ext
             files.push "#{dir}/#{name}"
+          end
+        end
+        # Pass 2: Directories
+        subdirs.each do |path|
+          if recursive
+            get_files(path, ext, recursive).each do |sub|
+              files.push sub
+            end
+          elsif !ext
+            files.push path
           end
         end
       rescue

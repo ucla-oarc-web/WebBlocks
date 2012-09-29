@@ -19,13 +19,31 @@ module WebBlocks
         def build
           
           @log.task "Builder: jQuery", "Managing jQuery submodule" do
-            updated = manage_submodule 'jQuery', dir_package
-            rebuild = updated or !(File.exist? "#{dir_package}/dist")
+            
+            updated_package = manage_submodule 'jQuery', dir_package
+            
+            Dir.chdir dir_package do
+              
+              @log.debug "Builder: jQuery", "Invoking #{@config[:exec][:git]} submodule init within package"
+              status, stdout_init, stderr = systemu "#{@config[:exec][:git]} submodule init"
+              @log.info "Builder: jQuery", "Initialized jQuery package submodules" if stdout_init.length > 0
+              
+              @log.debug "Builder: jQuery", "Invoking #{@config[:exec][:git]} submodule update within package"
+              status, stdout_update, stderr = systemu "#{@config[:exec][:git]} submodule update"
+              @log.info "Builder: jQuery", "Updated jQuery package submodules" if stdout_update.length > 0
+              
+              updated_package = updated_package or stdout_init or stdout_update
+              
+            end
+            
+            rebuild = updated_package or !(File.exist? "#{dir_package}/dist")
+            
             if rebuild
               @log.task "Builder: jQuery", "Building jQuery submodule" do
                 compile
               end
             end
+            
           end
           
           log.task "Builder: jQuery", "Packaging jQuery into Core JS file" do

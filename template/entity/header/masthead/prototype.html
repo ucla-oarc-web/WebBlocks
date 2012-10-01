@@ -1,23 +1,41 @@
+<!-- The masthead is a special header entity that wraps an <h1 class="site-tile"> 
+     with optional branding elements and secondary nav elements. Often used in 
+     combination with top and main nav bars.
+     
+     In the case of a mini top navbar style site header, do not use the masthead; 
+     simply wrap <h1 class="site-tile> as part of the nav entity-->
+
+<!-- 0..1 -->
+<nav class="bar top">
+     <!-- see entity/nav/topbar -->
+</nav>
+
 <header class="masthead">
 
     <!-- 0..1 -->
-    <nav class="bar">
-        <!-- see entity/nav/topbar -->
-    </nav>
-    
-    <!-- 0..1 -->
-    <h1>
+    <h1 class="site-title">
         <!-- title block of the page - should include text -->
     </h1>
     
     <!-- 0..1 -->
-    <nav>
-        <!-- any nav:not(.main) - likely something like a search box --> 
-    </nav>
+    <p>
+    	<!-- Optional tagline: common pattern in marketing sites, publications & blogs -->
+    </p>
     
     <!-- 0..1 -->
-    <nav class="main">
-        <!-- see entity/nav/main -->
+    <h2>
+        <!-- Optional: Cases where both Sub-brand & Main-brand need to be shown (common in University Department Websites) -->
+    </h2>
+    
+    
+    <!-- 0..* -->
+    <nav>
+        <!-- any nav:not(.main), likely search or utility nav --> 
     </nav>
     
 </header>
+
+<!-- 0..1 -->
+<nav class="main">
+    <!-- see entity/nav/main -->
+</nav>

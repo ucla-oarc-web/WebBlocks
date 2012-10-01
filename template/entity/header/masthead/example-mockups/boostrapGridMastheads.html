@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Masthead Types with Bootstrap (V 2.1.1) Responsive Grid</title>
+<!-- Bootstrap -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="css/social.css" rel="stylesheet" />
+<link href="css/extra.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="css/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+<!-- Just WebBlock Dev Notes -->
+<h2 class="-annotation">Masthead Patterns</h2>
+<ul class="-annotation">
+	<li> The Masthead block (.-masthead) is the area shown in black. White nav areas are structurally not part of the Masthead.</li>
+	<li>First, the most common UC patterns.</li>
+	<li>Then, some common website types.</li>
+	<li>See accompanying patterns document (MastheadPatterns.pdf) for detailed annotations.</li>
+</ul>
+
+<h3 class="-annotation">Implementation Notes:</h3>
+<ul class="-annotation">
+	<li>Using the Bootstrap (V 2.1.1) Grid & Float Technique (requires wrappers: .container-fluid, .row-fluid, spanX)</li>
+	<li>This technique is better for simple Mastheads -- tricky for complex mastheads with 2-tier nested nav and right alignments.</li>
+	<li>Bootstrap .nabvar requires .navbar-inner wrapper to keep cross-browser gradients from collapsing; this is documented bug-fix</li>
+	<li>Tested on Chrome, Safari 5.1.2, Firefox 15.0.1</li>
+	<li>Few minor layout bugs: searchbar issue with Full Banner Variant 1</li>
+</ul>
+
+<!-- end notes -->
+
+<h3 class="-annotation">UC Masthead Patterns</h3>
+<p class="-annotation">Left Logo & Right 2-Tier Nav ( see <a href="http://www.ucmerced.edu">ucmerced.edu</a> ) :</p>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#">Site Branding</a></h1>
+	<!-- This is how Bootstrap creates thier mobile menu toggle; a good candidate for a mixin into something like .-menutoggle -->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    </a>
+	</nav>
+	<!--end toggle -->
+	<nav class="navbar navbar-inverse nav-collapse">
+		<ul class="nav">
+			<li><a href="#">Site List</a></li>
+			<li><a href="#">Find People</a></li>
+			<li><a href="#">MyUCMerced</a></li>
+		</ul>
+	</nav>
+	<nav class="navbar navbar-inverse row-fluid">
+		<a href="#" class="btn">Info</a>
+		<a href="#" class="btn">Visit</a>
+		<a href="#" class="btn">Apply</a>
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+<nav class="navbar nav-collapse row-fluid">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>
+
+<p class="-annotation">Full Banner, Variant 1 ( see <a href="http://www.ucsb.edu">ucsb.edu</a> ) :</p>
+
+<nav class="navbar navbar-static-top nav-collapse row-fluid">
+	<div class="navbar-inner -box-parent">
+		<a href="#" class="nav-link">home link</a>
+		<ul class="-nav-index">
+			<li><a href="#">A</a></li>
+			<li><a href="#">B</a></li>
+			<li><a href="#">C</a></li>
+			<li><a href="#">D</a></li>
+			<li><a href="#">E</a></li>
+			<li><a href="#">F</a></li>
+			<li><a href="#">G</a></li>
+			<li><a href="#">H</a></li>
+			<li><a href="#">I</a></li>
+			<li><a href="#">J</a></li>
+			<li><a href="#">K</a></li>
+			<li><a href="#">L</a></li>
+			<li><a href="#">M</a></li>
+			<li><a href="#">N</a></li>
+			<li><a href="#">O</a></li>
+			<li><a href="#">P</a></li>
+			<li><a href="#">Q</a></li>
+			<li><a href="#">R</a></li>
+			<li><a href="#">S</a></li>
+			<li><a href="#">T</a></li>
+			<li><a href="#">U</a></li>
+			<li><a href="#">V</a></li>
+			<li><a href="#">W</a></li>
+			<li><a href="#">X</a></li>
+			<li><a href="#">Y</a></li>
+			<li><a href="#">Z</a></li>
+		</ul>
+		<!-- Support for a dl alternative in cases when this is more semanticly correct  
+		<dl class="-nav-index">
+			<dt>Index:</dt>
+			<dd><a href="#">A</a></dd>
+			<dd><a href="#">B</a></dd>
+			<dd><a href="#">C</a></dd>
+			<dd><a href="#">D</a></dd>
+			<dd><a href="#">E</a></dd>
+			<dd><a href="#">F</a></dd>
+			<dd><a href="#">G</a></dd>
+			<dd><a href="#">H</a></dd>
+			<dd><a href="#">I</a></dd>
+			<dd><a href="#">J</a></dd>
+			<dd><a href="#">K</a></dd>
+			<dd><a href="#">L</a></dd>
+			<dd><a href="#">M</a></dd>
+			<dd><a href="#">N</a></dd>
+			<dd><a href="#">O</a></dd>
+			<dd><a href="#">P</a></dd>
+			<dd><a href="#">Q</a></dd>
+			<dd><a href="#">R</a></dd>
+			<dd><a href="#">S</a></dd>
+			<dd><a href="#">T</a></dd>
+			<dd><a href="#">U</a></dd>
+			<dd><a href="#">V</a></dd>
+			<dd><a href="#">W</a></dd>
+			<dd><a href="#">X</a></dd>
+			<dd><a href="#">Y</a></dd>
+			<dd><a href="#">Z</a></dd>
+		</dl>-->
+		<form class="navbar-search pull-right">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</div>
+</nav>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#">Site Branding</a></h1>
+	
+	<!-- BS's Mobile Toggle -->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!-- End Toggle -->
+</header>
+
+<p class="-annotation">Full Banner, Variant 2 ( see <a href="http://uxt.ucsd.edu">uxt.ucsd.edu</a> ) :</p>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#" class="" >Sub-Site Branding</a></h1>
+	
+	<!-- working with Float Technique this order must be maintained -->
+	<!-- BS's Mobile Toggle -->	
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!-- End Toggle -->
+	<h2><a href="#" class="">Main Branding</a></h2>
+</header>
+
+<nav class="navbar navbar-static-top nav-collapse row-fluid">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>	 
+<nav>
+	<div class="navbar-inner">
+		<form class="navbar-search pull-right">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</div>
+</nav>
+
+<p class="-annotation">Left Logo & Right Nav, Variant 1 Search ( see <a href="http://www.ucla.edu">ucla.edu</a> ) :</p>
+
+<nav class="navbar navbar-static-top nav-collapse row-fluid">
+	<div class="navbar-inner -box-parent">
+		<a href="#" class="nav-link hidden-phone hidden-tablet">ucla.edu</a>
+		<ul class="nav pull-right hidden-phone hidden-tablet">	
+			<li class="divider-vertical"></li>
+			<li><a href="#">VISIT</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">GIVE</a></li>
+			<li class="divider-vertical"></li>
+		</ul>
+		<ul class="nav pull-right">
+			<li><a href="#">Prospective Students</a></li>
+			<li><a href="#">Current Students</a></li>
+			<li><a href="#">Faculty</a></li>
+			<li><a href="#">Staff</a></li>
+			<li><a href="#">Alumni</a></li>
+			<li><a href="#">Parents & Familes</a></li>
+		</ul>
+	</div>
+</nav>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#">Site Branding</a></h1>
+	
+	<!-- BS's Mobile Toggle -->	
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!-- End Toggle -->
+	<nav class="navbar navbar-inverse nav-collapse">
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+<nav class="navbar nav-collapse row-fluid">
+	<div class="navbar-inner">
+		<ul class="nav pull-right">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>	
+
+<p class="-annotation">Left Logo & Right Nav, Variant 2 Search+ ( see <a href="http://www.ucsc.edu">ucsc.edu</a> ) :</p>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#">Site Branding</a></h1>
+	<!-- BS's Mobile Toggle -->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!--End Toggle -->
+
+	<nav class="navbar navbar-inverse nav-collapse">
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+		<ul class="nav">
+			<li><a href="#">MyUCSC</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">People</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Calendar</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">A-Z Index</a></li>
+		</ul>
+	</nav>
+</header>
+
+<nav class="navbar nav-collapse row-fluid">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>
+
+<p class="-annotation">All-in-one Bar: Masthead Parent ( see <a href="http://www.ucsf.edu">ucsf.edu</a> ) :</p>
+
+<header class="-masthead row-fluid">
+	<h1><a href="#">Site Branding</a></h1>
+	<!-- BS's Mobile Toggle -->	
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!--End Toggle -->
+	<nav class="navbar navbar-inverse nav-collapse">
+		<!--<div class="navbar-inner">-->
+			<ul class="nav">
+				<li><a href="#">Nav Item 1</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+				<li><a href="#">Nav Item 4</a></li>
+				<li><a href="#">Nav Item 5</a></li>
+			</ul>
+			<form class="navbar-search">
+				<input type="text" class="search-query" placeholder="Search">
+			</form>
+		<!--</div>-->
+	</nav>
+</header>
+	
+<h3 class="-annotation">Common Website Masthead Patterns</h3>
+
+<p class="-annotation">Personal Blog Banner ( see <a href="http://www.markforrester.co.za/">markforrester.co.za</a> ) :</p>
+
+<header class="-masthead row-fluid">
+	<img class="hidden-phone span2" src="assets/Banner240.png" alt="" />
+	<div class="-branding span10">
+		<h1 class="row-fluid"><a href="#">Site Branding</a></h1>
+		<p class="row-fluid">Tagline sentence that goes with the Title</p>
+		<nav class="row-fluid">
+			<ul class="nav nav-pills span6">
+				<li class="active"><a href="#">Nav Item 1</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+				<li><a href="#">Nav Item 4</a></li>
+				<li><a href="#">Nav Item 5</a></li>
+			</ul>
+			<div class="btn-toolbar span4">
+				<a href="#" class="btn btn-inverse -social-icons pull-right">F</a>
+				<a href="#" class="btn btn-inverse -social-icons pull-right">L</a>
+				<a href="#" class="btn btn-inverse -social-icons pull-right">R</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+
+<p class="-annotation">News Outlet Masthead ( see <a href="http://www.guardiannews.com/">guardiannews.com</a> ) :</p>
+
+<nav class="navbar navbar-static-top row-fluid">
+	<ul class="nav pull-left">
+		<li><a href="#">Utility Item 1</a></li>
+		<li class="divider-vertical"></li>
+		<li><a href="#">Utility Item 2</a></li>
+	</ul>		
+	<form class="navbar-search pull-right">
+		<input type="text" class="search-query" placeholder="Search">
+	</form>
+</nav>
+
+<header class="-masthead row-fluid">
+	<!--wrapper is needed to control nested floats -->
+	<div class="-branding">
+		<h1 class="row-fluid"><a href="#">Site Branding</a></h1>
+		<p class="row-fluid">Something here about the Publisher</p>
+	</div>
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+</header>
+
+<nav class="navbar navbar-static-top nav-collapse row-fluid">
+	<div class="navbar-inner">
+		<ul class="nav pull-left">
+			<li><a href="#">Item 1</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Item 8</a></li>
+		</ul>
+	</div>
+</nav>
+<nav class="row-fluid">	
+	<ul class="nav nav-pills pull-left">
+		<li><a href="#">Filter Tool</a></li>
+		<li><a href="#">Filter Tool</a></li>
+		<li><a href="#">Filter Tool</a></li>
+	</ul>
+	<ul class="nav nav-pills pull-right">
+	<li><a href="#">Filter Tool</a></li>
+	<li><a href="#">Filter Tool</a></li>
+	</ul>
+</nav>
+
+
+<p class="-annotation">Mini Bar + Billboard ( see <a href="http://floatschedule.com/">floatschedule.com</a> ) :</p>
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="navbar-inner">
+		<header class="-masthead -mini row-fluid">
+		<h1><a href="#">Site Branding</a></h1
+		</header>
+		
+		<ul class="nav pull-right">
+			<li><a href="#">Nav Item 1</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Nav Item 5</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="hero-unit">
+	<img class="" src="assets/billboard.png" alt="" />
+	<h2>Buy Me!</h2>
+	<p>Here's the pitch for our super duper marketing message!</p>
+	<a href="#" class="btn btn-primary btn-large">Call-to-action Click Convergence!</a>
+</div>
+
+<p class="-annotation">Big Headline Masthead ( see <a href="http://www.sustainableoperationssummit.com/">sustainableoperationssummit.com</a> ) :</p>
+
+<header class="-masthead">
+	<h1><a href="#">Site Branding</a></h1>
+	<img src="assets/billboard.png" alt="" />
+</header>
+<nav class="navbar">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+		</ul>
+	</div>
+</nav>
+
+<p class="-annotation">Pictorial, aka 0 Masthead ( see <a href="http://www.hellostudios.com.au/">hellostudios.com.au</a> ) :</p>
+<ul class="-annotation">
+	<li>This is just brochureware (page consists of a billboard) and has no information hierarchy, thus no need for a Masthead.</li>
+	<li>Only included to demo sites layout without a Masthead.</li>
+	<li>All sites will have a site title 'H1' but not all will be a Masthead.</li>
+	<li>A Masthead implies that it is the Primary Headline and thus implies there is an info hierarchy with other headlines</li>
+</ul>
+
+<div class="hero-unit">
+	<img class="" src="assets/billboard.png" alt="" />
+	<h1>This is an Embedded Title</h1>
+	<p>This is some Embedded Text</p>
+</div>
+
+<p class="-annotation">Overlay Masthead + Billboard ( see <a href="http://www.visitphilly.com/">visitphilly.com</a> ) :</p>
+
+<div class="container -box-parent">
+	<div class="hero-unit -background-child hidden-phone">
+		<img class="" src="assets/billboard.png" alt="" />
+	</div>
+
+	<header class="-masthead -overlay-child">
+		<h1><a href="#">Site Branding</a></h1>
+		
+		<!-- BS's Mobile Toggle -->
+		<nav class="navbar hidden-desktop">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    </a>
+		</nav>
+		<!--End Toggle -->
+		
+		<nav class="navbar navbar-inverse nav-collapse">
+			<form class="navbar-search">
+				<input type="text" class="search-query" placeholder="Search">
+			</form>
+		</nav>
+		<nav class="navbar nav-collapse row-fluid">
+			<ul class="nav">
+				<li><a href="#">Nav Item 1</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+			</ul>
+			<ul class="nav nav-pills pull-right">
+				<li class="active"><a href="#">Nav Item 1</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+				<li><a href="#">Nav Item 4</a></li>
+			</ul>
+		</nav>
+	</header>
+</div>
+
+</div><!-- End container -->
+
+</body>
+</html>

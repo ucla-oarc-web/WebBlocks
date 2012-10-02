@@ -17,3 +17,12 @@
     @extend small;
 
 }
+
+@mixin -entity-blockquote-callout {
+
+    border: 5px solid #EEE;
+    border-width: 5px 0;
+	margin: 5px 10px;
+	padding: 10px 0;
+
+}

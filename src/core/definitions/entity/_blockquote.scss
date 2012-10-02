@@ -5,3 +5,7 @@
 .blockquote > cite, .blockquote > figcaption {
     @include -entity-blockquote-cite;
 }
+
+.blockquote.callout {
+    @include -entity-blockquote-callout;
+}

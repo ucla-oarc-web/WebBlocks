@@ -1,0 +1,7 @@
+﻿.blockquote {
+    @include -entity-blockquote;
+}
+
+.blockquote > cite, .blockquote > figcaption {
+    @include -entity-blockquote-cite;
+}

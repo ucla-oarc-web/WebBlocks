@@ -23,6 +23,9 @@ By default, a blockquote will stretch to fit the full width of its container. Ho
 class can be added to create a smaller, more compact style that will allow wrapped text for quotes that are intended
 to be "callout" quotes dropped throughout a body of text (see the second usage above).
 
+The `text-right` CSS class can be applied to the containing `figure` or `blockquote` element to the align the contents of the
+blockquote to the right.
+
 ## Responsive Considerations
 
 * The standard blockquote will stretch to fit the full width of its container, so adapting to fit a responsive design

@@ -1,23 +1,31 @@
 @mixin -entity-list-unordered {
-    
     @extend ul;
-    
 }
 
 @mixin -entity-list-unordered-unstyled {
-    
     @extend ul.unstyled;
-    
 }
 
 @mixin -entity-list-ordered {
-    
     @extend ol;
-    
 }
 
 @mixin -entity-list-ordered-unstyled {
-    
     @extend ol.unstyled;
-    
+}
+
+@mixin -entity-list-upper-alpha {
+    list-style-type: upper-alpha;
+}
+
+@mixin -entity-list-lower-alpha {
+    list-style-type: lower-alpha;
+}
+
+@mixin -entity-list-upper-roman {
+    list-style-type: upper-roman;
+}
+
+@mixin -entity-list-lower-roman {
+    list-style-type: lower-roman;
 }

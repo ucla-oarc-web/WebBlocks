@@ -13,3 +13,19 @@ ol.list {
 ol.unstyled, ol.list.unstyled {
     @include -entity-list-ordered-unstyled;
 }
+
+ul.list.upper-alpha, ol.list.upper-alpha {
+    @include -entity-list-upper-alpha;
+}
+
+ul.list.lower-alpha, ol.list.lower-alpha {
+    @include -entity-list-lower-alpha;
+}
+
+ul.list.upper-roman, ol.list.upper-roman {
+    @include -entity-list-upper-roman;
+}
+
+ul.list.lower-roman, ol.list.lower-roman {
+    @include -entity-list-lower-roman;
+}

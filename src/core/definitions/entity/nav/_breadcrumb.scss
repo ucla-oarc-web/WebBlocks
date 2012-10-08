@@ -1,0 +1,15 @@
+﻿.breadcrumb {
+    @include -entity-breadcrumb;
+}
+
+.breadcrumb > ol > li, .breadcrumb > ul > li {
+    @include -entity-breadcrumb-item;
+}
+
+.breadcrumb > ol > li.active, .breadcrumb > ul > li.active {
+    @include -entity-breadcrumb-item-active;
+}
+
+.breadcrumb > ol > li > .divider, .breadcrumb > ul > li > .divider {
+    @include -entity-breadcrumb-divider;
+}

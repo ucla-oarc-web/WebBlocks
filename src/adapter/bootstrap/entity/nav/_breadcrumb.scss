@@ -1,0 +1,11 @@
+﻿@mixin -entity-breadcrumb {
+    > ul, > ol {
+        margin: 0;
+    }
+}
+
+@mixin -entity-breadcrumb-item {}
+
+@mixin -entity-breadcrumb-item-active {}
+
+@mixin -entity-breadcrumb-divider {}

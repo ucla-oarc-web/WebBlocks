@@ -473,7 +473,7 @@ module WebBlocks
             if success
               @log.debug stdout
             else
-              @log.failure "Compiler", "Compass compile error"
+              @log.failure "Compiler", "Compass compile error: #{stderr}"
             end
             # cleanup SASS includes directory if its within the SASS source directory
             # as it should not be appended later in execution

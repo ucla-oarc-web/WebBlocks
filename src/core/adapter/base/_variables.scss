@@ -1,3 +1,35 @@
-$base-breakpoint-small: 768px !default;     /* width-based */
-$base-breakpoint-medium: 978px !default;    /* width-based */
-$max-container-width: 960px !default;
+$base-breakpoint-small:     768px !default;     /* width-based */
+$base-breakpoint-medium:    978px !default;     /* width-based */
+
+$max-container-width:       960px !default;
+
+$color-mood-default-background-text:    #555 !default;
+$color-mood-default-background:         darken(#fff, 10%) !default;
+$color-mood-default-background-shadow:  #fff !default;
+$color-mood-default-border:             #bbb !default;
+
+$color-mood-info-background-text:       #fff !default;
+$color-mood-info-background:            #5bc0de !default;
+$color-mood-info-background-shadow:     #2f96b4 !default;
+$color-mood-info-border:                #bbb !default;
+
+$color-mood-success-background-text:    #fff !default;
+$color-mood-success-background:         #62c462 !default;
+$color-mood-success-background-shadow:  #51a351 !default;
+$color-mood-success-border:             #bbb !default;
+
+$color-mood-warning-background-text:    #fff !default;
+$color-mood-warning-background:         lighten(#f89406, 15%) !default;
+$color-mood-warning-background-shadow:  #f89406 !default;
+$color-mood-warning-border:             #bbb !default;
+
+$color-mood-danger-background-text:     #fff !default;
+$color-mood-danger-background:          #ee5f5b !default;
+$color-mood-danger-background-shadow:   #bd362f !default;
+$color-mood-danger-border:              #bbb !default;
+
+$color-mood-inverse-background-text:    #fff !default;
+$color-mood-inverse-background:         #444 !default;
+$color-mood-inverse-background-shadow:  #222 !default;
+$color-mood-inverse-border:             #bbb !default;
+

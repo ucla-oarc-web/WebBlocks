@@ -1,0 +1,7 @@
+.mood.background {
+    @include -base-color-mood-background;
+}
+
+.mood.background.gradient {
+    @include -base-color-mood-background-gradient;
+}

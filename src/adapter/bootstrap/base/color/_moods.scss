@@ -1,0 +1,37 @@
+@mixin -base-color-mood-background-gradient {
+    
+    @include buttonBackground($btnBackground, $btnBackgroundHighlight, $color-mood-default-background-text);
+    
+    &.info {
+        @include buttonBackground($btnInfoBackground, $btnInfoBackgroundHighlight);
+    }
+    
+    &.important {
+        /** TODO */
+    }
+    
+    &.success {
+        @include buttonBackground($btnSuccessBackground, $btnSuccessBackgroundHighlight);
+    }
+    
+    &.warning {
+        @include buttonBackground($btnWarningBackground, $btnWarningBackgroundHighlight);
+    }
+    
+    &.danger {
+        @include buttonBackground($btnDangerBackground, $btnDangerBackgroundHighlight);
+    }
+    
+    &.inverse {
+        @include buttonBackground($btnInverseBackground, $btnInverseBackgroundHighlight);
+    }
+    
+    &.highlight {
+        /** TODO */
+    }
+    
+    &.required {
+        /** TODO */
+    }
+    
+}

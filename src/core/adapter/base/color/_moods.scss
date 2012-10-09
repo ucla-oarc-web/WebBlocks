@@ -1,0 +1,90 @@
+@import "compass";
+
+@mixin -base-color-mood-background {
+    
+    color: $color-mood-default-background-text;
+    border-color: $color-mood-default-border;
+    
+    &.info {
+        color: $color-mood-info-background-text;
+        background-color: $color-mood-info-background-shadow;
+        border-color: $color-mood-info-border;
+    }
+    
+    &.important {
+        /** TODO */
+    }
+    
+    &.success {
+        color: $color-mood-success-background-text;
+        background-color: $color-mood-success-background-shadow;
+        border-color: $color-mood-success-border;
+    }
+    
+    &.warning {
+        color: $color-mood-warning-background-text;
+        background-color: $color-mood-warning-background-shadow;
+        border-color: $color-mood-warning-border;
+    }
+    
+    &.danger {
+        color: $color-mood-danger-background-text;
+        background-color: $color-mood-danger-background-shadow;
+        border-color: $color-mood-danger-border;
+    }
+    
+    &.inverse {
+        color: $color-mood-inverse-background-text;
+        background-color: $color-mood-inverse-background-shadow;
+        border-color: $color-mood-inverse-border;
+    }
+    
+    &.highlight {
+        /** TODO */
+    }
+    
+    &.required {
+        /** TODO */
+    }
+    
+}
+
+/* @include background-image(linear-gradient(left top, white, #dddddd)); } */
+
+@mixin -base-color-mood-background-gradient {
+    
+    @include background-image(linear-gradient($color-mood-default-background, $color-mood-default-background-shadow));
+    
+    &.info {
+        @include background-image(linear-gradient($color-mood-info-background, $color-mood-info-background-shadow));
+    }
+    
+    &.important {
+        /** TODO */
+    }
+    
+    &.success {
+        @include background-image(linear-gradient($color-mood-success-background, $color-mood-success-background-shadow));
+    }
+    
+    &.warning {
+        @include background-image(linear-gradient($color-mood-warning-background, $color-mood-warning-background-shadow));
+    }
+    
+    &.danger {
+        @include background-image(linear-gradient($color-mood-danger-background, $color-mood-danger-background-shadow));
+    }
+    
+    &.inverse {
+        @include background-image(linear-gradient($color-mood-inverse-background, $color-mood-inverse-background-shadow));
+    }
+    
+    &.highlight {
+        /** TODO */
+    }
+    
+    &.required {
+        /** TODO */
+    }
+    
+}

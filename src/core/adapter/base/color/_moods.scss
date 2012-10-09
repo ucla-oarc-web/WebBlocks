@@ -7,100 +7,101 @@
     border-color: $color-mood-default-border;
     text-shadow: $color-mood-default-background-text-shadow;
     
-    &.info {
-        color: $color-mood-info-background-text;
-        background-color: $color-mood-info-background-shadow;
-        border-color: $color-mood-info-border;
-        text-shadow: $color-mood-info-background-text-shadow;
-    }
-    
-    &.important {
-        color: $color-mood-important-background-text;
-        background-color: $color-mood-important-background-shadow;
-        border-color: $color-mood-important-border;
-        text-shadow: $color-mood-important-background-text-shadow;
-    }
-    
-    &.success {
-        color: $color-mood-success-background-text;
-        background-color: $color-mood-success-background-shadow;
-        border-color: $color-mood-success-border;
-        text-shadow: $color-mood-success-background-text-shadow;
-    }
-    
-    &.warning {
-        color: $color-mood-warning-background-text;
-        background-color: $color-mood-warning-background-shadow;
-        border-color: $color-mood-warning-border;
-        text-shadow: $color-mood-warning-background-text-shadow;
-    }
-    
-    &.danger {
-        color: $color-mood-danger-background-text;
-        background-color: $color-mood-danger-background-shadow;
-        border-color: $color-mood-danger-border;
-        text-shadow: $color-mood-danger-background-text-shadow;
-    }
-    
-    &.inverse {
-        color: $color-mood-inverse-background-text;
-        background-color: $color-mood-inverse-background-shadow;
-        border-color: $color-mood-inverse-border;
-        text-shadow: $color-mood-inverse-background-text-shadow;
-    }
-    
-    &.highlight {
-        color: $color-mood-highlight-background-text;
-        background-color: $color-mood-highlight-background-shadow;
-        border-color: $color-mood-highlight-border;
-        text-shadow: $color-mood-highlight-background-text-shadow;
-    }
-    
-    &.required {
-        color: $color-mood-required-background-text;
-        background-color: $color-mood-required-background-shadow;
-        border-color: $color-mood-required-border;
-        text-shadow: $color-mood-required-background-text-shadow;
-    }
-    
 }
 
-/* @include background-image(linear-gradient(left top, white, #dddddd)); } */
+@mixin -base-color-mood-info-background {
+    color: $color-mood-info-background-text;
+    background-color: $color-mood-info-background-shadow;
+    border-color: $color-mood-info-border;
+    text-shadow: $color-mood-info-background-text-shadow;
+}
+
+@mixin -base-color-mood-important-background {
+    color: $color-mood-important-background-text;
+    background-color: $color-mood-important-background-shadow;
+    border-color: $color-mood-important-border;
+    text-shadow: $color-mood-important-background-text-shadow;
+}
+
+@mixin -base-color-mood-success-background {
+    color: $color-mood-success-background-text;
+    background-color: $color-mood-success-background-shadow;
+    border-color: $color-mood-success-border;
+    text-shadow: $color-mood-success-background-text-shadow;
+}
+
+@mixin -base-color-mood-warning-background {
+    color: $color-mood-warning-background-text;
+    background-color: $color-mood-warning-background-shadow;
+    border-color: $color-mood-warning-border;
+    text-shadow: $color-mood-warning-background-text-shadow;
+}
+
+@mixin -base-color-mood-danger-background {
+    color: $color-mood-danger-background-text;
+    background-color: $color-mood-danger-background-shadow;
+    border-color: $color-mood-danger-border;
+    text-shadow: $color-mood-danger-background-text-shadow;
+}
+
+@mixin -base-color-mood-inverse-background {
+    color: $color-mood-inverse-background-text;
+    background-color: $color-mood-inverse-background-shadow;
+    border-color: $color-mood-inverse-border;
+    text-shadow: $color-mood-inverse-background-text-shadow;
+}
+
+@mixin -base-color-mood-highlight-background {
+    color: $color-mood-highlight-background-text;
+    background-color: $color-mood-highlight-background-shadow;
+    border-color: $color-mood-highlight-border;
+    text-shadow: $color-mood-highlight-background-text-shadow;
+    font-weight: bold;
+}
+
+@mixin -base-color-mood-required-background {
+    color: $color-mood-required-background-text;
+    background-color: $color-mood-required-background-shadow;
+    border-color: $color-mood-required-border;
+    text-shadow: $color-mood-required-background-text-shadow;
+    font-weight: bold;
+}
 
 @mixin -base-color-mood-background-gradient {
-    
-    @include background-image(linear-gradient($color-mood-default-background, $color-mood-default-background-shadow));
-    
-    &.info {
-        @include background-image(linear-gradient($color-mood-info-background, $color-mood-info-background-shadow));
-    }
-    
-    &.important {
-        @include background-image(linear-gradient($color-mood-important-background, $color-mood-important-background-shadow));
-    }
-    
-    &.success {
-        @include background-image(linear-gradient($color-mood-success-background, $color-mood-success-background-shadow));
-    }
-    
-    &.warning {
-        @include background-image(linear-gradient($color-mood-warning-background, $color-mood-warning-background-shadow));
-    }
-    
-    &.danger {
-        @include background-image(linear-gradient($color-mood-danger-background, $color-mood-danger-background-shadow));
-    }
-    
-    &.inverse {
-        @include background-image(linear-gradient($color-mood-inverse-background, $color-mood-inverse-background-shadow));
-    }
-    
-    &.highlight {
-        @include background-image(linear-gradient($color-mood-highlight-background, $color-mood-highlight-background-shadow));
-    }
-    
-    &.required {
-        @include background-image(linear-gradient($color-mood-required-background, $color-mood-required-background-shadow));
-    }
-    
+    @include background-image(linear-gradient($color-mood-default-background, 
+                                              $color-mood-default-background-shadow));   
+}
+
+@mixin -base-color-mood-info-background-gradient {
+    @include background-image(linear-gradient($color-mood-info-background, 
+                                              $color-mood-info-background-shadow));
+}
+
+@mixin -base-color-mood-important-background-gradient {
+    @include background-image(linear-gradient($color-mood-important-background, 
+                                              $color-mood-important-background-shadow));
+}
+
+@mixin -base-color-mood-success-background-gradient {
+    @include background-image(linear-gradient($color-mood-success-background, $color-mood-success-background-shadow));
+}
+
+@mixin -base-color-mood-warning-background-gradient {
+    @include background-image(linear-gradient($color-mood-warning-background, $color-mood-warning-background-shadow));
+}
+
+@mixin -base-color-mood-danger-background-gradient {
+    @include background-image(linear-gradient($color-mood-danger-background, $color-mood-danger-background-shadow));
+}
+
+@mixin -base-color-mood-inverse-background-gradient {
+    @include background-image(linear-gradient($color-mood-inverse-background, $color-mood-inverse-background-shadow));
+}
+
+@mixin -base-color-mood-highlight-background-gradient {
+    @include background-image(linear-gradient($color-mood-highlight-background, $color-mood-highlight-background-shadow));
+}
+
+@mixin -base-color-mood-required-background-gradient {
+    @include background-image(linear-gradient($color-mood-required-background, $color-mood-required-background-shadow));
 }

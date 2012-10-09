@@ -36,8 +36,6 @@
     &:hover {
         color: $grayDark;
         text-decoration: none;
-        background-color: darken(#fff, 10%);
-        *background-color: darken(#fff, 15%);
         background-position: 0 -15px;
         @include transition(background-position .1s linear);
     }

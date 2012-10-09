@@ -3,48 +3,64 @@
 @mixin -base-color-mood-background {
     
     color: $color-mood-default-background-text;
+    background-color: $color-mood-default-background-shadow;
     border-color: $color-mood-default-border;
+    text-shadow: $color-mood-default-background-text-shadow;
     
     &.info {
         color: $color-mood-info-background-text;
         background-color: $color-mood-info-background-shadow;
         border-color: $color-mood-info-border;
+        text-shadow: $color-mood-info-background-text-shadow;
     }
     
     &.important {
-        /** TODO */
+        color: $color-mood-important-background-text;
+        background-color: $color-mood-important-background-shadow;
+        border-color: $color-mood-important-border;
+        text-shadow: $color-mood-important-background-text-shadow;
     }
     
     &.success {
         color: $color-mood-success-background-text;
         background-color: $color-mood-success-background-shadow;
         border-color: $color-mood-success-border;
+        text-shadow: $color-mood-success-background-text-shadow;
     }
     
     &.warning {
         color: $color-mood-warning-background-text;
         background-color: $color-mood-warning-background-shadow;
         border-color: $color-mood-warning-border;
+        text-shadow: $color-mood-warning-background-text-shadow;
     }
     
     &.danger {
         color: $color-mood-danger-background-text;
         background-color: $color-mood-danger-background-shadow;
         border-color: $color-mood-danger-border;
+        text-shadow: $color-mood-danger-background-text-shadow;
     }
     
     &.inverse {
         color: $color-mood-inverse-background-text;
         background-color: $color-mood-inverse-background-shadow;
         border-color: $color-mood-inverse-border;
+        text-shadow: $color-mood-inverse-background-text-shadow;
     }
     
     &.highlight {
-        /** TODO */
+        color: $color-mood-highlight-background-text;
+        background-color: $color-mood-highlight-background-shadow;
+        border-color: $color-mood-highlight-border;
+        text-shadow: $color-mood-highlight-background-text-shadow;
     }
     
     &.required {
-        /** TODO */
+        color: $color-mood-required-background-text;
+        background-color: $color-mood-required-background-shadow;
+        border-color: $color-mood-required-border;
+        text-shadow: $color-mood-required-background-text-shadow;
     }
     
 }
@@ -60,7 +76,7 @@
     }
     
     &.important {
-        /** TODO */
+        @include background-image(linear-gradient($color-mood-important-background, $color-mood-important-background-shadow));
     }
     
     &.success {
@@ -80,11 +96,11 @@
     }
     
     &.highlight {
-        /** TODO */
+        @include background-image(linear-gradient($color-mood-highlight-background, $color-mood-highlight-background-shadow));
     }
     
     &.required {
-        /** TODO */
+        @include background-image(linear-gradient($color-mood-required-background, $color-mood-required-background-shadow));
     }
     
 }

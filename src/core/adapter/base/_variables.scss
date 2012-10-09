@@ -3,33 +3,59 @@ $base-breakpoint-medium:    978px !default;     /* width-based */
 
 $max-container-width:       960px !default;
 
-$color-mood-default-background-text:    #555 !default;
-$color-mood-default-background:         darken(#fff, 10%) !default;
-$color-mood-default-background-shadow:  #fff !default;
-$color-mood-default-border:             #bbb !default;
+$color-mood-default-background-text:            #555 !default;
+$color-mood-default-background-text-shadow:     0 !default;
+$color-mood-default-background:                 darken(#fff, 10%) !default;
+$color-mood-default-background-shadow:          #fff !default;
+$color-mood-default-border:                     #bbb !default;
 
-$color-mood-info-background-text:       #fff !default;
-$color-mood-info-background:            #5bc0de !default;
-$color-mood-info-background-shadow:     #2f96b4 !default;
-$color-mood-info-border:                #bbb !default;
+$color-mood-info-background-text:               #fff !default;
+$color-mood-info-background-text-shadow:        0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-info-background:                    #5bc0de !default;
+$color-mood-info-background-shadow:             #2f96b4 !default;
+$color-mood-info-border:                        #bbb !default;
 
-$color-mood-success-background-text:    #fff !default;
-$color-mood-success-background:         #62c462 !default;
-$color-mood-success-background-shadow:  #51a351 !default;
-$color-mood-success-border:             #bbb !default;
+$color-mood-success-background-text:            #fff !default;
+$color-mood-success-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-success-background:                 #62c462 !default;
+$color-mood-success-background-shadow:          #51a351 !default;
+$color-mood-success-border:                     #bbb !default;
 
-$color-mood-warning-background-text:    #fff !default;
-$color-mood-warning-background:         lighten(#f89406, 15%) !default;
-$color-mood-warning-background-shadow:  #f89406 !default;
-$color-mood-warning-border:             #bbb !default;
+$color-mood-warning-background-text:            #fff !default;
+$color-mood-warning-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-warning-background:                 lighten(#f89406, 15%) !default;
+$color-mood-warning-background-shadow:          #f89406 !default;
+$color-mood-warning-border:                     #bbb !default;
 
-$color-mood-danger-background-text:     #fff !default;
-$color-mood-danger-background:          #ee5f5b !default;
-$color-mood-danger-background-shadow:   #bd362f !default;
-$color-mood-danger-border:              #bbb !default;
+$color-mood-danger-background-text:             #fff !default;
+$color-mood-danger-background-text-shadow:      0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-danger-background:                  #ee5f5b !default;
+$color-mood-danger-background-shadow:           #bd362f !default;
+$color-mood-danger-border:                      #bbb !default;
 
-$color-mood-inverse-background-text:    #fff !default;
-$color-mood-inverse-background:         #444 !default;
-$color-mood-inverse-background-shadow:  #222 !default;
-$color-mood-inverse-border:             #bbb !default;
+$color-mood-inverse-background-text:            #fff !default;
+$color-mood-inverse-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-inverse-background:                 #444 !default;
+$color-mood-inverse-background-shadow:          #222 !default;
+$color-mood-inverse-border:                     #bbb !default;
 
+/** TODO: define real values */
+$color-mood-important-background-text:          $color-mood-danger-background-text !default;
+$color-mood-important-background-text-shadow:   0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-important-background:               $color-mood-danger-background !default;
+$color-mood-important-background-shadow:        $color-mood-danger-background-shadow !default;
+$color-mood-important-border:                   $color-mood-danger-border !default;
+
+/** TODO: define real values */
+$color-mood-required-background-text:           #a00 !default;
+$color-mood-required-background-text-shadow:    0 !default;
+$color-mood-required-background:                $color-mood-default-background !default;
+$color-mood-required-background-shadow:         $color-mood-default-background-shadow !default;
+$color-mood-required-border:                    #c55 !default;
+
+/** TODO: define real values */
+$color-mood-highlight-background-text:          $color-mood-warning-background !default;
+$color-mood-highlight-background-text-shadow:   0 !default;
+$color-mood-highlight-background:               $color-mood-default-background !default;
+$color-mood-highlight-background-shadow:        $color-mood-default-background-shadow !default;
+$color-mood-highlight-border:                   $color-mood-warning-background-shadow !default;

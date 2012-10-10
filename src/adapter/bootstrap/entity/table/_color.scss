@@ -1,5 +1,7 @@
-.table tbody {
-    tr.info td, tr.success td, tr.warning td {
-        background: inherit;
+.table > thead, .table > tbody, .table {
+    > tr.info, > tr.success, > tr.warning {
+        > td, > th {
+            background: inherit;
+        }
     }
 }

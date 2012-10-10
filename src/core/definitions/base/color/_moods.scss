@@ -1,8 +1,8 @@
-.mood.background {
+.mood.background, .mood.background.default {
     @include -base-color-mood-background;
 }
 
-.mood.background.gradient {
+.mood.background.gradient, .mood.background.default.gradient {
     @include -base-color-mood-background-gradient;
 }
 

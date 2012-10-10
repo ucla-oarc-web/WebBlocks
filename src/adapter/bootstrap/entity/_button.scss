@@ -1,7 +1,7 @@
 @mixin -entity-button { 
     
-    @extend .mood.background;
-    @extend .mood.background.gradient;
+    @extend .background;
+    @extend .background.gradient;
 
     /**
      * BOOTSTRAP BUTTON IMPLEMENTATION (see below)

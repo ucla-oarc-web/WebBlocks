@@ -2,10 +2,6 @@
     @extend .table;
 }
 
-@mixin -entity-table-highlight {
-    background: $infoBackground;
-}
-
 @mixin -entity-table-hover {
     @extend .table-hover;
 }

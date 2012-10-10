@@ -1,71 +1,81 @@
-.mood.background, .mood.background.default {
-    @include -base-color-mood-background;
+.background {
+    &, & .default {
+        @include -base-color-mood-background;
+    }
+    
+    &.info, & .info {
+        @include -base-color-mood-info-background;
+    }
+    
+    &.important, & .important {
+        @include -base-color-mood-important-background;
+    }
+    
+    &.success, & .success {
+        @include -base-color-mood-success-background;
+    }
+    
+    &.warning, & .warning {
+        @include -base-color-mood-warning-background;
+    }
+    
+    &.danger, & .danger {
+        @include -base-color-mood-danger-background;
+    }
+    
+    &.inverse, & .inverse {
+        @include -base-color-mood-inverse-background;
+    }
+    
+    &.highlight, & .highlight {
+        @include -base-color-mood-highlight-background;
+    }
+    
+    &.required, & .required {
+        @include -base-color-mood-required-background;
+    }
 }
 
-.mood.background.gradient, .mood.background.default.gradient {
-    @include -base-color-mood-background-gradient;
+.background.gradient {
+        
+    &, & .default {
+        @include -base-color-mood-background-gradient;
+    }
+
+    &.info, & .info {
+        @include -base-color-mood-info-background-gradient;
+    }
+
+    &.important, & .important {
+        @include -base-color-mood-important-background-gradient;
+    }
+
+    &.success, & .success {
+        @include -base-color-mood-success-background-gradient;
+    }
+
+    &.warning, & .warning {
+        @include -base-color-mood-warning-background-gradient;
+    }
+
+    &.danger, & .danger {
+        @include -base-color-mood-danger-background-gradient;
+    }
+
+    &.inverse, & .inverse {
+        @include -base-color-mood-inverse-background-gradient;
+    }
+
+    &.highlight, & .highlight {
+        @include -base-color-mood-highlight-background-gradient;
+    }
+
+    &.required, & .required {
+        @include -base-color-mood-required-background-gradient;
+    }
+
 }
 
-.mood.background.info {
-    @include -base-color-mood-info-background;
-}
-
-.mood.background.info.gradient {
-    @include -base-color-mood-info-background-gradient;
-}
-
-.mood.background.important {
-    @include -base-color-mood-important-background;
-}
-
-.mood.background.important.gradient {
-    @include -base-color-mood-important-background-gradient;
-}
-
-.mood.background.success {
-    @include -base-color-mood-success-background;
-}
-
-.mood.background.success.gradient {
-    @include -base-color-mood-success-background-gradient;
-}
-
-.mood.background.warning {
-    @include -base-color-mood-warning-background;
-}
-
-.mood.background.warning.gradient {
-    @include -base-color-mood-warning-background-gradient;
-}
-
-.mood.background.danger {
-    @include -base-color-mood-danger-background;
-}
-
-.mood.background.danger.gradient {
-    @include -base-color-mood-danger-background-gradient;
-}
-
-.mood.background.inverse {
-    @include -base-color-mood-inverse-background;
-}
-
-.mood.background.inverse.gradient {
-    @include -base-color-mood-inverse-background-gradient;
-}
-
-.mood.background.highlight {
-    @include -base-color-mood-highlight-background;
-}
-
-.mood.background.highlight.gradient {
-    @include -base-color-mood-highlight-background-gradient;
-}
-
-.mood.background.required {
-    @include -base-color-mood-required-background;
-}
-
-.mood.background.required.gradient {
-    @include -base-color-mood-required-background-gradient;
+.background .gradient {
+    @extend .background.gradient;
 }

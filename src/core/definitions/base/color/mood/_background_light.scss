@@ -1,37 +1,56 @@
-.background.light {
-    &, & .default {
-        @include -base-color-mood-background-light;
+.light {
+    
+    &.default {
+        &:not(.text){
+            @include -base-color-mood-background-light;
+        }
     }
     
-    &.info, & .info {
-        @include -base-color-mood-info-background-light;
+    &.info {
+        &:not(.text){
+            @include -base-color-mood-info-background-light;
+        }
     }
     
-    &.important, & .important {
-        @include -base-color-mood-important-background-light;
+    &.important {
+        &:not(.text){
+            @include -base-color-mood-important-background-light;
+        }
     }
     
-    &.success, & .success {
-        @include -base-color-mood-success-background-light;
+    &.success {
+        &:not(.text){
+            @include -base-color-mood-success-background-light;
+        }
     }
     
-    &.warning, & .warning {
-        @include -base-color-mood-warning-background-light;
+    &.warning {
+        &:not(.text){
+            @include -base-color-mood-warning-background-light;
+        }
     }
     
-    &.danger, & .danger {
-        @include -base-color-mood-danger-background-light;
+    &.danger {
+        &:not(.text){
+            @include -base-color-mood-danger-background-light;
+        }
     }
     
-    &.inverse, & .inverse {
-        @include -base-color-mood-inverse-background-light;
+    &.inverse {
+        &:not(.text){
+            @include -base-color-mood-inverse-background-light;
+        }
     }
     
-    &.highlight, & .highlight {
-        @include -base-color-mood-highlight-background-light;
+    &.highlight {
+        &:not(.text){
+            @include -base-color-mood-highlight-background-light;
+        }
     }
     
-    &.required, & .required {
-        @include -base-color-mood-required-background-light;
+    &.required {
+        &:not(.text){
+            @include -base-color-mood-required-background-light;
+        }
     }
 }

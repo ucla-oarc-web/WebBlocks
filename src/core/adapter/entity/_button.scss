@@ -1,4 +1,6 @@
 @mixin -entity-button { 
-    @extend .background;
-    @extend .background.gradient;
+    &:not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
+        @extend .default;
+    }
+    @extend .gradient;
 }

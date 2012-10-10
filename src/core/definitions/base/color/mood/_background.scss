@@ -1,37 +1,53 @@
-.background {
-    &, & .default {
+.default {
+    &:not(.text){
         @include -base-color-mood-background;
     }
-    
-    &.info, & .info {
+}
+
+.info {
+    &:not(.text){
         @include -base-color-mood-info-background;
     }
-    
-    &.important, & .important {
+}
+
+.important {
+    &:not(.text){
         @include -base-color-mood-important-background;
     }
-    
-    &.success, & .success {
+}
+
+.success {
+    &:not(.text){
         @include -base-color-mood-success-background;
     }
-    
-    &.warning, & .warning {
+}
+
+.warning {
+    &:not(.text){
         @include -base-color-mood-warning-background;
     }
-    
-    &.danger, & .danger {
+}
+
+.danger {
+    &:not(.text){
         @include -base-color-mood-danger-background;
     }
-    
-    &.inverse, & .inverse {
+}
+
+.inverse {
+    &:not(.text){
         @include -base-color-mood-inverse-background;
     }
-    
-    &.highlight, & .highlight {
+}
+
+.highlight {
+    &:not(.text){
         @include -base-color-mood-highlight-background;
     }
-    
-    &.required, & .required {
+}
+
+.required {
+    &:not(.text){
         @include -base-color-mood-required-background;
     }
 }

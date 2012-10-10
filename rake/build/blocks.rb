@@ -473,7 +473,7 @@ module WebBlocks
             if success
               @log.debug stdout
             else
-              @log.failure "Compiler", "Compass compile error: #{stderr}"
+              @log.failure "Compiler", "Compass compile error: \n#{stdout}\n#{stderr}"
             end
             # cleanup SASS includes directory if its within the SASS source directory
             # as it should not be appended later in execution
@@ -600,12 +600,14 @@ module WebBlocks
         # be loaded first in the overall call stack. This ensures that variables
         # will be loaded before they are needed.
         def included_scss_files
-          files = [[],[]]
+          files = [[],[],[]]
           [included_files("scss"), get_files(@dir_src_sass_includes, "scss")].flatten.each do |file|
             if File.basename(file) == '_variables.scss' or File.basename(file) == 'variables.scss'
               files[0].push file
-            else
+            elsif File.basename(file) == '_require.scss' or File.basename(file) == 'require.scss'
               files[1].push file
+            else
+              files[2].push file
             end
           end
           files[0].push "#{dir_src_sass}/_variables.scss" if File.exists? "#{dir_src_sass}/_variables.scss"

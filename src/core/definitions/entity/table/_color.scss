@@ -1,0 +1,10 @@
+.table {
+    &,
+    > tr, > tr > td,
+    > tbody > tr, > tbody > tr > td, > tbody > tr > th,
+    > thead > tr, > thead > tr > td, > thead > tr > th,
+    > tfoot > tr, > tfoot > tr > td, > tfoot > tr > th {
+        @include -entity-table-color;
+    }
+    
+}

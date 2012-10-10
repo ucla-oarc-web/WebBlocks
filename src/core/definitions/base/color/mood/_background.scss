@@ -1,0 +1,37 @@
+.background {
+    &, & .default {
+        @include -base-color-mood-background;
+    }
+    
+    &.info, & .info {
+        @include -base-color-mood-info-background;
+    }
+    
+    &.important, & .important {
+        @include -base-color-mood-important-background;
+    }
+    
+    &.success, & .success {
+        @include -base-color-mood-success-background;
+    }
+    
+    &.warning, & .warning {
+        @include -base-color-mood-warning-background;
+    }
+    
+    &.danger, & .danger {
+        @include -base-color-mood-danger-background;
+    }
+    
+    &.inverse, & .inverse {
+        @include -base-color-mood-inverse-background;
+    }
+    
+    &.highlight, & .highlight {
+        @include -base-color-mood-highlight-background;
+    }
+    
+    &.required, & .required {
+        @include -base-color-mood-required-background;
+    }
+}

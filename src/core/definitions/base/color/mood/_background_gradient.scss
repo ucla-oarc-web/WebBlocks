@@ -1,39 +1,57 @@
-.background.gradient {
+.gradient {
         
-    &, & .default {
-        @include -base-color-mood-background-gradient;
+    &.default {
+        &:not(.text){
+            @include -base-color-mood-background-gradient;
+        }
     }
 
-    &.info, & .info {
-        @include -base-color-mood-info-background-gradient;
+    &.info {
+        &:not(.text){
+            @include -base-color-mood-info-background-gradient;
+        }
     }
 
-    &.important, & .important {
-        @include -base-color-mood-important-background-gradient;
+    &.important {
+        &:not(.text){
+            @include -base-color-mood-important-background-gradient;
+        }
     }
 
-    &.success, & .success {
-        @include -base-color-mood-success-background-gradient;
+    &.success {
+        &:not(.text){
+            @include -base-color-mood-success-background-gradient;
+        }
     }
 
-    &.warning, & .warning {
-        @include -base-color-mood-warning-background-gradient;
+    &.warning {
+        &:not(.text){
+            @include -base-color-mood-warning-background-gradient;
+        }
     }
 
-    &.danger, & .danger {
-        @include -base-color-mood-danger-background-gradient;
+    &.danger {
+        &:not(.text){
+            @include -base-color-mood-danger-background-gradient;
+        }
     }
 
-    &.inverse, & .inverse {
-        @include -base-color-mood-inverse-background-gradient;
+    &.inverse {
+        &:not(.text){
+            @include -base-color-mood-inverse-background-gradient;
+        }
     }
 
-    &.highlight, & .highlight {
-        @include -base-color-mood-highlight-background-gradient;
+    &.highlight {
+        &:not(.text){
+            @include -base-color-mood-highlight-background-gradient;
+        }
     }
 
-    &.required, & .required {
-        @include -base-color-mood-required-background-gradient;
+    &.required {
+        &:not(.text){
+            @include -base-color-mood-required-background-gradient;
+        }
     }
 
 }

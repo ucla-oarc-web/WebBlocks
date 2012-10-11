@@ -97,7 +97,7 @@ module WebBlocks
       begin
         subdirs = []
         # Pass 1: Files (and storing directories for Pass 2)
-        Dir.entries(dir).each do |name|
+        Dir.entries(dir).sort.each do |name|
           next if name[0,1] == '.'
           path = "#{dir}/#{name}"
           if File.directory? path

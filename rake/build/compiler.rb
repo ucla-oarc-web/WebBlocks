@@ -41,7 +41,7 @@ module WebBlocks
       # is set to false, this will include all subdirectories recursively.
       def get_modules dir, recursive = true
         mods = []
-        Dir.entries(dir).each do |name|
+        Dir.entries(dir).sort.each do |name|
           next if name[0,1] == '.'
           path = "#{dir}/#{name}"
           if File.directory? path

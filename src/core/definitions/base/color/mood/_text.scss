@@ -1,0 +1,35 @@
+.text.default {
+    @include -base-color-mood-default-text;
+}
+
+.text.info{
+    @include -base-color-mood-info-text;
+}
+
+.text.important {
+    @include -base-color-mood-important-text;
+}
+
+.text.success {
+    @include -base-color-mood-success-text;
+}
+
+.text.warning {
+    @include -base-color-mood-warning-text;
+}
+
+.text.danger {
+    @include -base-color-mood-danger-text;
+}
+
+.text.inverse {
+    @include -base-color-mood-inverse-text;
+}
+
+.text.highlight {
+    @include -base-color-mood-highlight-text;
+}
+
+.text.required {
+    @include -base-color-mood-required-text;
+}

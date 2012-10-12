@@ -1,0 +1,35 @@
+@mixin -base-color-mood-default-text {
+    color: $color-mood-default-foreground-text;
+}
+
+@mixin -base-color-mood-info-text {
+    color: $color-mood-info-foreground-text;
+}
+
+@mixin -base-color-mood-important-text {
+    color: $color-mood-important-foreground-text;
+}
+
+@mixin -base-color-mood-success-text {
+    color: $color-mood-success-foreground-text;
+}
+
+@mixin -base-color-mood-warning-text {
+    color: $color-mood-warning-foreground-text;
+}
+
+@mixin -base-color-mood-danger-text {
+    color: $color-mood-danger-foreground-text;
+}
+
+@mixin -base-color-mood-inverse-text {
+    color: $color-mood-inverse-foreground-text;
+}
+
+@mixin -base-color-mood-highlight-text {
+    color: $color-mood-highlight-foreground-text;
+}
+
+@mixin -base-color-mood-required-text {
+    color: $color-mood-required-foreground-text;
+}

@@ -1,0 +1,56 @@
+.gradient.light {
+    
+    &.default {
+        &:not(.text){
+            @include -base-color-mood-background-light-gradient;
+        }
+    }
+    
+    &.info {
+        &:not(.text){
+            @include -base-color-mood-info-background-light-gradient;
+        }
+    }
+    
+    &.important {
+        &:not(.text){
+            @include -base-color-mood-important-background-light-gradient;
+        }
+    }
+    
+    &.success {
+        &:not(.text){
+            @include -base-color-mood-success-background-light-gradient;
+        }
+    }
+    
+    &.warning {
+        &:not(.text){
+            @include -base-color-mood-warning-background-light-gradient;
+        }
+    }
+    
+    &.danger {
+        &:not(.text){
+            @include -base-color-mood-danger-background-light-gradient;
+        }
+    }
+    
+    &.inverse {
+        &:not(.text){
+            @include -base-color-mood-inverse-background-light-gradient;
+        }
+    }
+    
+    &.highlight {
+        &:not(.text){
+            @include -base-color-mood-highlight-background-light-gradient;
+        }
+    }
+    
+    &.required {
+        &:not(.text){
+            @include -base-color-mood-required-background-light-gradient;
+        }
+    }
+}

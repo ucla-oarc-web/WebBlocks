@@ -3,6 +3,16 @@ $base-breakpoint-medium:    978px !default;     /* width-based */
 
 $max-container-width:       960px !default;
 
+$color-mood-default-foreground-text:            #333 !default;
+$color-mood-info-foreground-text:               #2f96b4 !default;
+$color-mood-success-foreground-text:            #51a351 !default;
+$color-mood-warning-foreground-text:            #f89406 !default;
+$color-mood-danger-foreground-text:             #bd362f !default;
+$color-mood-inverse-foreground-text:            #ddd !default;
+$color-mood-important-foreground-text:          #bd362f !default;
+$color-mood-required-foreground-text:           #700 !default;
+$color-mood-highlight-foreground-text:          #97FFFF !default;
+
 $color-mood-default-background-text:            #555 !default;
 $color-mood-default-background-text-shadow:     none !default;
 $color-mood-default-background:                 darken(#fff, 10%) !default;

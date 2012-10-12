@@ -11,6 +11,8 @@
         
         <h1>Button</h1>
         
+        <h2>Basic Styles</h2>
+        
         <p>
         <a class="button">{Button Text}</a>
         <button type="submit" class="button">{Button Text}</button>
@@ -83,6 +85,19 @@
         <input type="submit" class="button highlight" value="{Button Text}" />
         <input type="button" class="button highlight" value="{Button Text}" />
         <input type="reset" class="button highlight" value="{Button Text}" />
+        </p>
+        
+        <h2>Variations</h2>
+        
+        <h3>Separate Moods on Text</h3>
+        
+        <p>The <code>a.button</code> and <code>button.button</code> elements both support changing text of color by using an internal <code>span.text.{mood}</code> element. This is not possible with an <code>input</code> element.</p>
+        
+        <p>
+        <a class="button"><span class="text danger">a.button .text.danger</span></a>
+        <button type="submit" class="button"><span class="text success">button.button .text.success</span></button>
+        <a class="button inverse"><span class="text highlight">button.inverse .text.highlight</span></a>
+        <button type="submit" class="button warning"><span class="text default">button.button.warning text.default</span></button>
         </p>
         
     </body>

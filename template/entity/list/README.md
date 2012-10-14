@@ -15,6 +15,9 @@ To apply WebBlocks styling, the element must be defined as `.list`.
 The `.unstyled` class can be added to a list to remove the default margin, padding, and bullets (or numbering). Child
 lists will not be affected.
 
+The `.lower-roman`, `.upper-roman`, `.lower-alpha`, `.upper-alpha` classes can be added to the list to change the
+list style type.
+
 ## Responsive Considerations
 
 * This type of list will always expand to fit the full width of its containing element. In the case of the smallest

@@ -8,3 +8,40 @@
     text-shadow: $color-branding-default-background-text-shadow;
     
 }
+
+@mixin -base-color-branding-primary-background {
+    
+    color: $color-branding-primary-background-text;
+    background-color: $color-branding-primary-background-shadow;
+    border-color: $color-branding-primary-border;
+    text-shadow: $color-branding-primary-background-text-shadow;
+    
+}
+
+@mixin -base-color-branding-secondary-background {
+    
+    color: $color-branding-secondary-background-text;
+    background-color: $color-branding-secondary-background-shadow;
+    border-color: $color-branding-secondary-border;
+    text-shadow: $color-branding-secondary-background-text-shadow;
+    
+}
+
+@mixin -base-color-branding-tertiary-background {
+    
+    color: $color-branding-tertiary-background-text;
+    background-color: $color-branding-tertiary-background-shadow;
+    border-color: $color-branding-tertiary-border;
+    text-shadow: $color-branding-tertiary-background-text-shadow;
+    
+}
+
+@mixin -base-color-branding-neutral-background {
+    
+    color: $color-branding-neutral-background-text;
+    background-color: $color-branding-neutral-background-shadow;
+    border-color: $color-branding-neutral-border;
+    text-shadow: $color-branding-neutral-background-text-shadow;
+    
+}
+

@@ -4,3 +4,23 @@
     @include background-image(linear-gradient($color-branding-default-background, 
                                               $color-branding-default-background-shadow));   
 }
+
+@mixin -base-color-branding-primary-background-gradient {
+    @include background-image(linear-gradient($color-branding-primary-background, 
+                                              $color-branding-primary-background-shadow));   
+}
+
+@mixin -base-color-branding-secondary-background-gradient {
+    @include background-image(linear-gradient($color-branding-secondary-background, 
+                                              $color-branding-secondary-background-shadow));   
+}
+
+@mixin -base-color-branding-tertiary-background-gradient {
+    @include background-image(linear-gradient($color-branding-tertiary-background, 
+                                              $color-branding-tertiary-background-shadow));   
+}
+
+@mixin -base-color-branding-neutral-background-gradient {
+    @include background-image(linear-gradient($color-branding-neutral-background, 
+                                              $color-branding-neutral-background-shadow));   
+}

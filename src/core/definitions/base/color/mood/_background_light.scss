@@ -1,11 +1,5 @@
 .light {
     
-    &.default {
-        &:not(.text){
-            @include -base-color-mood-background-light;
-        }
-    }
-    
     &.info {
         &:not(.text){
             @include -base-color-mood-info-background-light;

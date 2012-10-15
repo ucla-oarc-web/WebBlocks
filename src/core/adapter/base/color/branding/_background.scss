@@ -1,0 +1,10 @@
+@import "compass";
+
+@mixin -base-color-branding-default-background {
+    
+    color: $color-branding-default-background-text;
+    background-color: $color-branding-default-background-shadow;
+    border-color: $color-branding-default-border;
+    text-shadow: $color-branding-default-background-text-shadow;
+    
+}

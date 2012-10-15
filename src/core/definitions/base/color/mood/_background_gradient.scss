@@ -1,10 +1,4 @@
 .gradient {
-        
-    &.default {
-        &:not(.text){
-            @include -base-color-mood-background-gradient;
-        }
-    }
 
     &.info {
         &:not(.text){

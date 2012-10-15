@@ -1,0 +1,15 @@
+﻿@mixin -base-image-replacement {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    direction: ltr;
+    display: block;
+    text-align: left;
+    text-indent: -999em;
+    overflow: hidden;
+    *line-height: 0;  
+
+    br {
+        display: none;
+    }
+}

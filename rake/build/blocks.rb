@@ -203,6 +203,58 @@ module WebBlocks
       
       end
       
+      # This is a reduced version of the build method that only builds the CSS.
+      def build_css
+        
+        @log.task "Builder", "Compiling WebBlocks" do
+          compiler = WebBlocks::Build::Blocks::Compiler.new @config, @log
+          compiler.compile
+        end
+        
+        @log.task "Builder", "Appending compiled CSS to build" do
+          WebBlocks::Util.get_files(dir_build_temp_css, 'css').each do |file|
+            append_contents_to_file file, (file.match(/.*\-ie.css$/) ? file_build_temp_css_ie : file_build_temp_css)
+          end
+        end
+        
+        @log.task "Builder", "Copying build from temporary region into build targets" do
+        
+          # Copy files to build directory
+
+          FileUtils.mkdir_p @config[:build][:dir] unless File.exists? @config[:build][:dir]
+          Dir.chdir @config[:build][:dir] do
+
+            # Copy CSS files to build directory
+
+            FileUtils.mkdir_p @config[:build][:css][:dir] unless File.exists? @config[:build][:css][:dir]
+            Dir.chdir @config[:build][:css][:dir] do
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name]
+              FileUtils.mkdir_p File.dirname(dst)
+              log.info "Copying core CSS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
+              src = WebBlocks::Util.file_from_root_through_dir_stack file_build_temp_css_ie
+              dst = WebBlocks::Util.file_from_dir_stack Dir.pwd, @config[:build][:css][:name_ie]
+              FileUtils.mkdir_p File.dirname(dst)
+              log.info "Copying IE CSS file" do
+                log.debug "src: #{src}"
+                log.debug "dst: #{dst}"
+                FileUtils.cp src, dst
+              end
+
+            end
+
+          end
+
+        end
+      
+      end
+      
       # Build cleanup involves removing the temporary build region.
       def build_cleanup
         FileUtils.rm_rf dir_build_temp

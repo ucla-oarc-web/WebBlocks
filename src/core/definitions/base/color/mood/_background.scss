@@ -1,9 +1,3 @@
-.default {
-    &:not(.text){
-        @include -base-color-mood-background;
-    }
-}
-
 .info {
     &:not(.text){
         @include -base-color-mood-info-background;

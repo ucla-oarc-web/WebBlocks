@@ -1,0 +1,9 @@
+.light {
+    
+    &.default {
+        &:not(.text){
+            @include -base-color-branding-default-background-light;
+        }
+    }
+    
+}

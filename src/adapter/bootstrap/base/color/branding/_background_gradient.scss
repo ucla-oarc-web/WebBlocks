@@ -1,0 +1,6 @@
+@mixin -base-color-branding-default-background-gradient {
+    @include buttonBackground($color-branding-default-background, 
+                              $color-branding-default-background-shadow, 
+                              $color-branding-default-background-text, 
+                              $color-branding-default-background-text-shadow);
+}

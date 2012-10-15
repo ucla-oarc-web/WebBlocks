@@ -1,14 +1,5 @@
 @import "compass";
 
-@mixin -base-color-mood-background-light {
-    
-    color: $color-mood-default-background-light-text;
-    background-color: $color-mood-default-background-light-shadow;
-    border-color: $color-mood-default-border;
-    text-shadow: $color-mood-default-background-light-text-shadow;
-    
-}
-
 @mixin -base-color-mood-info-background-light {
     color: $color-mood-info-background-light-text;
     background-color: $color-mood-info-background-light-shadow;

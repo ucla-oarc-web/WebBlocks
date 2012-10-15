@@ -1,0 +1,6 @@
+@import "compass";
+
+@mixin -base-color-branding-default-background-light-gradient {
+    @include background-image(linear-gradient($color-branding-default-background-light, 
+                                              $color-branding-default-background-light-shadow));   
+}

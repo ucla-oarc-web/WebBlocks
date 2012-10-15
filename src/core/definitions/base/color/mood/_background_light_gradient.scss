@@ -1,11 +1,5 @@
 .gradient.light {
     
-    &.default {
-        &:not(.text){
-            @include -base-color-mood-background-light-gradient;
-        }
-    }
-    
     &.info {
         &:not(.text){
             @include -base-color-mood-info-background-light-gradient;

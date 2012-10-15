@@ -1,10 +1,5 @@
 @import "compass";
 
-@mixin -base-color-mood-background-light-gradient {
-    @include background-image(linear-gradient($color-mood-default-background-light, 
-                                              $color-mood-default-background-light-shadow));   
-}
-
 @mixin -base-color-mood-info-background-light-gradient {
     @include background-image(linear-gradient($color-mood-info-background-light, 
                                               $color-mood-info-background-light-shadow));

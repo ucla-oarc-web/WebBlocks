@@ -1,6 +1,6 @@
 button.button {
     &:not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
-        @include -base-color-mood-background;
-        @include -base-color-mood-background-gradient;
+        @include -base-color-branding-default-background;
+        @include -base-color-branding-default-background-gradient;
     }
 }

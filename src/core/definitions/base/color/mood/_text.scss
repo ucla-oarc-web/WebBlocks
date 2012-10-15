@@ -1,7 +1,3 @@
-.text.default {
-    @include -base-color-mood-default-text;
-}
-
 .text.info{
     @include -base-color-mood-info-text;
 }

@@ -1,9 +1,30 @@
+/**************************************************************************** 
+ * Dimensions and Breakpoints 
+ */
+
 $base-breakpoint-small:     768px !default;     /* width-based */
 $base-breakpoint-medium:    978px !default;     /* width-based */
 
 $max-container-width:       960px !default;
 
-$color-mood-default-foreground-text:            #333 !default;
+/****************************************************************************
+ * Branding Colors
+ */
+
+$color-branding-default-foreground-text:        #333 !default;
+
+$color-branding-default-background-text:        #555 !default;
+$color-branding-default-background-text-shadow: none !default;
+$color-branding-default-background:             darken(#fff, 10%) !default;
+$color-branding-default-background-shadow:      #fff !default;
+$color-branding-default-border:                 #bbb !default;
+
+/****************************************************************************
+ * Mood Colors
+ */
+
+/** Text Colors */
+
 $color-mood-info-foreground-text:               #2f96b4 !default;
 $color-mood-success-foreground-text:            #51a351 !default;
 $color-mood-warning-foreground-text:            #f89406 !default;
@@ -13,11 +34,7 @@ $color-mood-important-foreground-text:          #bd362f !default;
 $color-mood-required-foreground-text:           #700 !default;
 $color-mood-highlight-foreground-text:          #97FFFF !default;
 
-$color-mood-default-background-text:            #555 !default;
-$color-mood-default-background-text-shadow:     none !default;
-$color-mood-default-background:                 darken(#fff, 10%) !default;
-$color-mood-default-background-shadow:          #fff !default;
-$color-mood-default-border:                     #bbb !default;
+/** Sharp Background Colors */
 
 $color-mood-info-background-text:               #fff !default;
 $color-mood-info-background-text-shadow:        0 -1px 0 rgba(0,0,0,.25) !default;
@@ -49,38 +66,33 @@ $color-mood-inverse-background:                 #444 !default;
 $color-mood-inverse-background-shadow:          #222 !default;
 $color-mood-inverse-border:                     #bbb !default;
 
-/** TODO: define real values */
+/* TODO: define real values */
 $color-mood-important-background-text:          $color-mood-danger-background-text !default;
 $color-mood-important-background-text-shadow:   0 -1px 0 rgba(0,0,0,.25) !default;
 $color-mood-important-background:               $color-mood-danger-background !default;
 $color-mood-important-background-shadow:        $color-mood-danger-background-shadow !default;
 $color-mood-important-border:                   $color-mood-danger-border !default;
 
-/** TODO: define real values */
+/* TODO: define real values */
 $color-mood-required-background-text:           #a00 !default;
 $color-mood-required-background-text-shadow:    none !default;
-$color-mood-required-background:                $color-mood-default-background !default;
-$color-mood-required-background-shadow:         $color-mood-default-background-shadow !default;
+$color-mood-required-background:                $color-branding-default-background !default;
+$color-mood-required-background-shadow:         $color-branding-default-background-shadow !default;
 $color-mood-required-border:                    #c55 !default;
 
-/** TODO: define real values */
+/* TODO: define real values */
 $color-mood-highlight-background-text:          #555 !default;
 $color-mood-highlight-background-text-shadow:   none !default;
 $color-mood-highlight-background:               #BBFFFF !default;
 $color-mood-highlight-background-shadow:        #97FFFF !default;
 $color-mood-highlight-border:                   #bbb !default;
 
+/** Light background colors */
 
-
-
-/**
- * Light color settings
- */
-
-$color-mood-default-background-light-text:            #333;
-$color-mood-default-background-light-text-shadow:     $color-mood-default-background-text-shadow !default;
-$color-mood-default-background-light:                 lighten($color-mood-default-background, 35%) !default;
-$color-mood-default-background-light-shadow:          lighten($color-mood-default-background-shadow, 35%) !default;
+$color-branding-default-background-light-text:        #333;
+$color-branding-default-background-light-text-shadow: $color-branding-default-background-text-shadow !default;
+$color-branding-default-background-light:             lighten($color-branding-default-background, 35%) !default;
+$color-branding-default-background-light-shadow:      lighten($color-branding-default-background-shadow, 35%) !default;
 
 $color-mood-info-background-light-text:               #333;
 $color-mood-info-background-light-text-shadow:        none !default;

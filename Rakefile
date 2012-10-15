@@ -81,6 +81,19 @@ task :build     => [:init] do
   end
 end
 
+task :_build_css => [:init] do
+  log.task "Rakefile", "_build_css" do
+    log.warning "Rakefile", "WARNING: This is an experimental feature and is not guaranteed to remain available"
+    log.warning "Rakefile", "WARNING: This routine will ONLY rebuild the WebBlocks CSS"
+    begin
+      invoke builder.blocks, :build_setup
+      invoke builder.blocks, :build_css
+    ensure
+      invoke builder.blocks, :build_cleanup
+    end
+  end
+end
+
 # The build_all task is essentially the same as the build task, except that it
 # recompiles all packages that require a compile.
 task :build_all => [:init] do

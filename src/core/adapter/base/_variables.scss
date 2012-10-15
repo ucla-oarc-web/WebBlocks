@@ -11,13 +11,73 @@ $max-container-width:       960px !default;
  * Branding Colors
  */
 
-$color-branding-default-foreground-text:        #333 !default;
+/** Text Colors */
 
-$color-branding-default-background-text:        #555 !default;
-$color-branding-default-background-text-shadow: none !default;
-$color-branding-default-background:             darken(#fff, 10%) !default;
-$color-branding-default-background-shadow:      #fff !default;
-$color-branding-default-border:                 #bbb !default;
+$color-branding-default-foreground-text:            #333 !default;
+$color-branding-primary-foreground-text:            #08c !default;
+$color-branding-secondary-foreground-text:          #5bc0de !default;
+$color-branding-tertiary-foreground-text:           #ddb40a !default;
+$color-branding-neutral-foreground-text:            #777 !default;
+
+/** Sharp Background Colors */
+
+$color-branding-default-background-text:            #555 !default;
+$color-branding-default-background-text-shadow:     none !default;
+$color-branding-default-background:                 darken(#fff, 10%) !default;
+$color-branding-default-background-shadow:          #fff !default;
+$color-branding-default-border:                     #bbb !default;
+
+$color-branding-primary-background-text:            #fff !default;
+$color-branding-primary-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
+$color-branding-primary-background:                 #08c !default;
+$color-branding-primary-background-shadow:          darken($color-branding-primary-background, 15%) !default;
+$color-branding-primary-border:                     #bbb !default;
+
+$color-branding-secondary-background-text:          #fff !default;
+$color-branding-secondary-background-text-shadow:   0 -1px 0 rgba(0,0,0,.25) !default;
+$color-branding-secondary-background:               #5bc0de !default;
+$color-branding-secondary-background-shadow:        #2f96b4 !default;
+$color-branding-secondary-border:                   #bbb !default;
+
+$color-branding-tertiary-background-text:           #222 !default;
+$color-branding-tertiary-background-text-shadow:    none !default;
+$color-branding-tertiary-background:                darken(#ffc40d, 10%)  !default;
+$color-branding-tertiary-background-shadow:         #ffc40d !default;
+$color-branding-tertiary-border:                    #bbb !default;
+
+$color-branding-neutral-background-text:            #eee !default;
+$color-branding-neutral-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
+$color-branding-neutral-background:                 #777 !default;
+$color-branding-neutral-background-shadow:          #555 !default;
+$color-branding-neutral-border:                     #bbb !default;
+
+/** Light background colors */
+
+$color-branding-default-background-light-text:          #333;
+$color-branding-default-background-light-text-shadow:   $color-branding-default-background-text-shadow !default;
+$color-branding-default-background-light:               lighten($color-branding-default-background, 35%) !default;
+$color-branding-default-background-light-shadow:        lighten($color-branding-default-background-shadow, 35%) !default;
+
+$color-branding-primary-background-light-text:          #333;
+$color-branding-primary-background-light-text-shadow:   $color-branding-primary-background-text-shadow !default;
+$color-branding-primary-background-light:               lighten($color-branding-primary-background, 55%) !default;
+$color-branding-primary-background-light-shadow:        lighten($color-branding-primary-background-shadow, 55%) !default;
+
+$color-branding-secondary-background-light-text:        #333;
+$color-branding-secondary-background-light-text-shadow: none !default;
+$color-branding-secondary-background-light:             lighten($color-branding-secondary-background, 35%) !default;
+$color-branding-secondary-background-light-shadow:      lighten($color-branding-secondary-background-shadow, 35%) !default;
+
+$color-branding-tertiary-background-light-text:         #333;
+$color-branding-tertiary-background-light-text-shadow:  $color-branding-tertiary-background-text-shadow !default;
+$color-branding-tertiary-background-light:              lighten($color-branding-tertiary-background, 35%) !default;
+$color-branding-tertiary-background-light-shadow:       lighten($color-branding-tertiary-background-shadow, 35%) !default;
+
+$color-branding-neutral-background-light-text:          #333;
+$color-branding-neutral-background-light-text-shadow:   none !default;
+$color-branding-neutral-background-light:               lighten($color-branding-neutral-background, 35%) !default;
+$color-branding-neutral-background-light-shadow:        lighten($color-branding-neutral-background-shadow, 35%) !default;
+
 
 /****************************************************************************
  * Mood Colors
@@ -26,13 +86,13 @@ $color-branding-default-border:                 #bbb !default;
 /** Text Colors */
 
 $color-mood-info-foreground-text:               #2f96b4 !default;
-$color-mood-success-foreground-text:            #51a351 !default;
+$color-mood-success-foreground-text:            #419341 !default;
 $color-mood-warning-foreground-text:            #f89406 !default;
 $color-mood-danger-foreground-text:             #bd362f !default;
 $color-mood-inverse-foreground-text:            #ddd !default;
 $color-mood-important-foreground-text:          #bd362f !default;
 $color-mood-required-foreground-text:           #700 !default;
-$color-mood-highlight-foreground-text:          #97FFFF !default;
+$color-mood-highlight-foreground-text:          #67DDDD !default;
 
 /** Sharp Background Colors */
 
@@ -88,11 +148,6 @@ $color-mood-highlight-background-shadow:        #97FFFF !default;
 $color-mood-highlight-border:                   #bbb !default;
 
 /** Light background colors */
-
-$color-branding-default-background-light-text:        #333;
-$color-branding-default-background-light-text-shadow: $color-branding-default-background-text-shadow !default;
-$color-branding-default-background-light:             lighten($color-branding-default-background, 35%) !default;
-$color-branding-default-background-light-shadow:      lighten($color-branding-default-background-shadow, 35%) !default;
 
 $color-mood-info-background-light-text:               #333;
 $color-mood-info-background-light-text-shadow:        none !default;

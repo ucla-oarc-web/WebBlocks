@@ -2,7 +2,7 @@
     border: 1px solid;
     padding: 2px 6px 3px;
     font: inherit; /* overrides -webkit-small control */
-    &:not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
         @extend .default;
     }
     @extend .gradient;

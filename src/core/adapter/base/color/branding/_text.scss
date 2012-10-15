@@ -1,3 +1,19 @@
 @mixin -base-color-branding-default-text {
     color: $color-branding-default-foreground-text;
 }
+
+@mixin -base-color-branding-primary-text {
+    color: $color-branding-primary-foreground-text;
+}
+
+@mixin -base-color-branding-secondary-text {
+    color: $color-branding-secondary-foreground-text;
+}
+
+@mixin -base-color-branding-tertiary-text {
+    color: $color-branding-tertiary-foreground-text;
+}
+
+@mixin -base-color-branding-neutral-text {
+    color: $color-branding-neutral-foreground-text;
+}

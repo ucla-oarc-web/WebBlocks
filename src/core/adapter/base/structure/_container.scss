@@ -7,17 +7,25 @@
             and (max-width: $structure-container-width-max 
                                 + $structure-container-width-max 
                                     * (($structure-container-gutter*2)/100%) )
-            and (min-width: $breakpoint-small) /* body applies its own padding in bootstrap */
+            and (min-width: $breakpoint-small)
         {                                       
             width: 100% - ($structure-container-gutter*2);
             padding-left: $structure-container-gutter;
             padding-right: $structure-container-gutter;
         }
-        @media screen and (max-width: $breakpoint-small - 1) {
-            width: auto;
-            padding-left: ($structure-container-gutter/100%) * $breakpoint-small; 
-            padding-right: ($structure-container-gutter/100%) * $breakpoint-small; 
-        }
         max-width: $structure-container-width-max;
+    } @else {
+        @media screen 
+            and (min-width: $breakpoint-small)
+        {                                       
+            width: 100% - ($structure-container-gutter*2);
+            padding-left: $structure-container-gutter;
+            padding-right: $structure-container-gutter;
+        }
+    }
+    @media screen and (max-width: $breakpoint-small - 1) {
+        width: auto;
+        padding-left: ($structure-container-gutter/100%) * $breakpoint-small; 
+        padding-right: ($structure-container-gutter/100%) * $breakpoint-small; 
     }
 }

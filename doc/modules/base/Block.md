@@ -17,9 +17,12 @@ positioned later in the DOM will be flowed below all of the contained elements.
 
 * `.float-left` applies a left float to a block
 * `.float-right` applies a right float to a block
-* `.float-clear` applies a clear on both right and left floats, meaning that this block will appear below floated elements above it in the DOM
-* `.float-container` is a utility to wrap floated elements so that elements positioned later in the DOM will be flowed below all of the contained elements.
-* `.clearfix` is an advanced version of `.float-container` that ensures containment even in scenarios where `overflow:auto` is ineffective
+* `.float-clear` applies a clear on both right and left floats, meaning that 
+this block will appear below floated elements above it in the DOM
+* `.float-container` is a utility to wrap floated elements so that elements 
+positioned later in the DOM will be flowed below all of the contained elements.
+* `.clearfix` is an advanced version of `.float-container` that ensures 
+containment in scenarios where `overflow:auto` is ineffective
 
 The `.float-container` class is preferred for most float containment scenarios.
 However, there are a couple conditions where `.clearfix` is required:

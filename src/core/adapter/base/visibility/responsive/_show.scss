@@ -1,6 +1,6 @@
 @mixin -base-visibility-show-small {
     
-    @media screen and (min-width: $base-breakpoint-small) {
+    @media screen and (min-width: $breakpoint-small) {
         display: none;  
     }
     
@@ -8,11 +8,11 @@
 
 @mixin -base-visibility-show-medium {
     
-    @media screen and (max-width: $base-breakpoint-small - 1) {
+    @media screen and (max-width: $breakpoint-small - 1) {
         display: none;  
     }
     
-    @media screen and (min-width: $base-breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-medium) {
         display: none;  
     }
     
@@ -20,7 +20,7 @@
 
 @mixin -base-visibility-show-large {
     
-    @media screen and (max-width: $base-breakpoint-medium - 1) {
+    @media screen and (max-width: $breakpoint-medium - 1) {
         display: none;  
     }
     

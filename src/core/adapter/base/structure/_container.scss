@@ -1,3 +1,19 @@
 ﻿@mixin -base-structure-container {
-    max-width: 960px;
+    &:not(.bootstrap) {
+        width: 100%;
+        margin: auto;
+        @if $structure-container-width-max {
+            @media screen 
+                and (max-width: $structure-container-width-max 
+                                    + $structure-container-width-max 
+                                        * (($structure-container-gutter*2)/100%) )
+                and (min-width: 768px) /* body applies its own padding in bootstrap */
+            {                                       
+                width: 100% - ($structure-container-gutter*2);
+                padding-left: $structure-container-gutter;
+                padding-right: $structure-container-gutter;
+            }
+            max-width: $structure-container-width-max;
+        }
+    }
 }

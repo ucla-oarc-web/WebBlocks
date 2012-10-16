@@ -55,7 +55,7 @@ WebBlocks.config[:exec][:git] = 'git'
 
 # executable path to Grunt
 # defaults to relative path for npm module installation
-WebBlocks.config[:exec][:git] = 'node ./node_modules/grunt/bin/grunt'
+WebBlocks.config[:exec][:git] = 'node ./node_modules/grunt/bin/grunt --force'
 
 # executable path to NPM
 WebBlocks.config[:exec][:npm] = 'npm'

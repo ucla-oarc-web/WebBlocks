@@ -1,3 +1,34 @@
-@mixin -base-structure-grid-panel {
+﻿@mixin -base-structure-grid-panel {
     
+    @media screen and (min-width: $breakpoint-small) {
+    
+        [class*="panel-"] {
+            float: left;
+            &:not(:first-child){
+                margin-left: $structure-panel-gutter;
+            }
+        }
+        
+        $i: $structure-panels;
+        @while $i > 0 {
+            .panel-#{$i} { 
+                @include -base-structure-grid-panel-fluid-span($i, $structure-panel-width, $structure-panel-gutter); 
+            }
+            $i: ($i - 1);
+        }
+    
+    }
+    
+    @media screen and (max-width: $breakpoint-small - 1) {
+        [class*="panel-"] {
+            width: 100%;
+        }
+    }
+}
+    
+/**
+ * Mixin brought in from Bootstrap
+ */
+@mixin -base-structure-grid-panel-fluid-span($columns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
+    width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
 }

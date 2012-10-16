@@ -17,5 +17,6 @@ $btnDangerBackgroundHighlight:      $color-mood-danger-background-shadow !defaul
 $btnInverseBackground:              $color-mood-inverse-background !default;
 $btnInverseBackgroundHighlight:     $color-mood-inverse-background-shadow !default;
 
-$fluidGridColumnWidth:              $structure-panels-width;
-$fluidGridGutterWidth:              $structure-panels-gutter;
+$gridColumns:                       $structure-panels;
+$fluidGridColumnWidth:              $structure-panel-width;
+$fluidGridGutterWidth:              $structure-panel-gutter;

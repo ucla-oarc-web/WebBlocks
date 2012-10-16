@@ -9,8 +9,8 @@ $breakpoint-medium:    978px !default;     /* width-based */
  * Structure
  */
 
-$structure-container-gutter:    2%;           /* minimum spacing on either side of container */
-$structure-container-width-max: 1024px !default; /* pixel-based to limit max size (or false) */
+$structure-container-gutter:    2%;               /* minimum spacing (*percantage*) on either side of container */
+$structure-container-width-max: 1024px !default;  /* pixel-based to limit max size (or false) */
 $structure-panels:              12 !default;
 $structure-panel-gutter:        2.5641% !default;
 $structure-panel-width:         (100% - ($structure-panels - 1) * $structure-panel-gutter)

@@ -1,0 +1,27 @@
+﻿@mixin -base-structure-grid-panel {
+    
+    @media screen and (min-width: $breakpoint-small) {
+    
+        [class*="panel-"] {
+            float: left;
+            &:not(:first-child){
+                margin-left: $structure-panels-gutter;
+            }
+        }
+        
+        $i: $structure-panels;
+        @while $i > 0 {
+            .panel-#{$i} { 
+                @include grid-fluid-span($i, $structure-panels-width, $structure-panels-gutter); 
+            }
+            $i: ($i - 1);
+        }
+    
+    }
+    
+    @media screen and (max-width: $breakpoint-small - 1) {
+        [class*="panel-"] {
+            width: 100%;
+        }
+    }
+}

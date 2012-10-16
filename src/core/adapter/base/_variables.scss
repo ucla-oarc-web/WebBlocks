@@ -1,11 +1,20 @@
 /**************************************************************************** 
- * Dimensions and Breakpoints 
+ * Breakpoints 
  */
 
-$base-breakpoint-small:     768px !default;     /* width-based */
-$base-breakpoint-medium:    978px !default;     /* width-based */
+$breakpoint-small:     768px !default;     /* width-based */
+$breakpoint-medium:    978px !default;     /* width-based */
 
-$max-container-width:       960px !default;
+/****************************************************************************
+ * Structure
+ */
+
+$structure-container-gutter:    2%;           /* minimum spacing on either side of container */
+$structure-container-width-max: 1024px !default; /* pixel-based to limit max size (or false) */
+$structure-panels:              12 !default;
+$structure-panels-gutter:       2.5641% !default;
+$structure-panels-width:        (100% - ($structure-panels - 1) * $structure-panels-gutter)
+                                / $structure_panels;
 
 /****************************************************************************
  * Branding Colors

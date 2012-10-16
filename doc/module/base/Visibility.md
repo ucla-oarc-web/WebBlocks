@@ -15,11 +15,11 @@ removing this class to change visibility. An alternative might be using the
 
 The `Base/Visibility/Responsive/Show` library provides helpers that set visibility
 to none for devices with viewport dimensions that **do** meet the breakpoints
-specified as `$base-breakpoint-small` and `$base-breakpoint-medium`.
+specified as `$breakpoint-small` and `$breakpoint-medium`.
 
 The `Base/Visibility/Responsive/Show` library provides helpers that set visibility
 to none for devices with viewport dimensions that **don't** meet the breakpoints
-specified as `$base-breakpoint-small` and `$base-breakpoint-medium`.
+specified as `$breakpoint-small` and `$breakpoint-medium`.
 
 ## Features
 
@@ -29,15 +29,21 @@ specified as `$base-breakpoint-small` and `$base-breakpoint-medium`.
 
 ### Base/Visibility/Responsive/Hide
 
-* `.hide-small` hides the element on all devices smaller than `$base-breakpoint-small`
-* `.hide-medium` hides the element on all devices smaller than `$base-breakpoint-medium` and at least as large as `$base-breakpoint-small`
-* `.hide-large` hides the element on all devices at least as large as `$base-breakpoint-medium`
+* `.hide-small` hides the element on all devices smaller than 
+`$breakpoint-small`
+* `.hide-medium` hides the element on all devices smaller than 
+`$breakpoint-medium` and at least as large as `$breakpoint-small`
+* `.hide-large` hides the element on all devices at least as large as 
+`$breakpoint-medium`
 
 ### Base/Visibility/Responsive/Show
 
-* `.show-small` shows the element on all devices smaller than `$base-breakpoint-small`
-* `.show-medium` shows the element on all devices smaller than `$base-breakpoint-medium` and at least as large as `$base-breakpoint-small`
-* `.show-large` shows the element on all devices at least as large as `$base-breakpoint-medium`
+* `.show-small` shows the element on all devices smaller than 
+`$breakpoint-small`
+* `.show-medium` shows the element on all devices smaller than 
+`$breakpoint-medium` and at least as large as `$breakpoint-small`
+* `.show-large` shows the element on all devices at least as large as 
+`$breakpoint-medium`
 
 ## Responsive Considerations
 

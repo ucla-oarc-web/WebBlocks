@@ -35,17 +35,35 @@ To apply image replacement to an element, add the `.ir` class to the element and
 then create a CSS declaration containing the width, height, and background image to
 use in image replacement. For example:
 
-```html
-<h1>Website Title</h1>
-```
-
 ```css
-h1
+h1.website-title
 {
 	background-image: url(main-logo.png);
 	height: 200px;
 	width: 500px;
 }
+```
+
+```html
+<h1 class="website-title ir">Website Title</h1>
+```
+
+When working with a SASS source file that includes WebBlocks, this can be taken
+a step further using the `@extend` directive and then it is no longer necessary
+to apply the `.ir` class in markup:
+
+```css
+h1.website-title
+{
+        @extend .ir;
+	background-image: url(main-logo.png);
+	height: 200px;
+	width: 500px;
+}
+```
+
+```html
+<h1 class="website-title">Website Title</h1>
 ```
 
 ## Responsive Considerations

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>IE Nav Testing with Boostrap/WebBlocks Custom Rewrites</title>
+<!-- Bootstrap -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/ModBootstrapNav.css" rel="stylesheet">
+<link href="css/IEnav.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/extra.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="css/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--
+Showing markup for the fixed-top bar class; commented out since it clashes with the top bar class.
+
+<nav class="-nav -bar -fixed-top">
+	<div class="container-fluid">
+	<ul class="-linklist">
+		<li><a href="#">Fixed Top</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+	</div>
+</nav>
+
+-->
+
+<nav class="-nav -bar -top">
+	<div class="container-fluid">
+		<div class="-chrome">
+			<ul class="-linklist">
+				<li><a href="#">Top</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+				<li><a href="#">Nav Item 4</a></li>
+				<li><a href="#">Nav Item 5</a></li>
+				<li><a href="#">Nav Item 6</a></li>
+				<li><a href="#">Nav Item 7</a></li>
+				<li><a href="#">Nav Item 8</a></li>
+				<li><a href="#">Nav Item 9</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="container-fluid">
+
+<!-- Just WebBlock Dev Notes -->
+<h2 class="-annotation">Navbar and Navigation Children IE ONLY Markup</h2>
+<ul>
+	<li>Shows situations when the extra -chrome wrapper is needed -- ONLY when parent has both .-nav.-bar</li>
+	<li>The markup structure is when nav|footer|div class contains both .-nav.-bar, then div class="-chrome" should be the direct child
+	    wrapping all other children entities</li>
+</ul>
+<!-- end notes -->
+
+
+<header class="row-fluid -masthead">
+	<h1><a href="#">Site Branding</a></h1>
+	<!-- This is how Bootstrap creates thier mobile menu toggle; a good candidate for a mixin into something like .-menutoggle -->
+	<nav class="-nav -bar hidden-desktop">
+		<div class="-chrome">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    </a>
+	    </div>
+	</nav>
+	<!--end toggle -->
+	<nav class="-nav -bar nav-collapse">
+		<div class="-chrome">
+			<ul class="-linklist">
+				<li><a href="#">Site List</a></li>
+				<li><a href="#">Find People</a></li>
+				<li><a href="#">MyUCMerced</a></li>
+			</ul>
+		</div>
+	</nav>
+	<nav class="-nav -bar">
+		<div class="-chrome">
+			<a href="#" class="btn">Info</a>
+			<a href="#" class="btn">Visit</a>
+			<a href="#" class="btn">Apply</a>
+			<form class="navbar-search">
+				<input type="text" class="search-query" placeholder="Search">
+			</form>
+		</div>
+	</nav>
+</header>
+
+<nav class="-nav -bar nav-collapse">
+	<div class="-chrome">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+<!-- Showing how linklist can be expanded to support both lists of links (on landing pages) & navigation 
+     Also showing how to use Grid Styles for body content rather than the custom layouts to avoid layout 
+     bugs and collisions with the Grid -->
+
+<section class="row">
+	<nav class="-nav span4">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</nav>
+	
+	<div class="span4">
+		<ul class="-linklist">
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+		</ul>
+	</div>
+	
+	<div class="span4">
+		<ul class="-linklist">
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+		</ul>
+	</div>
+</section>
+
+</div><!-- End container -->
+
+<footer class="-nav -bar -fixed-bottom">
+	<div class="container-fluid">
+		<div class="-chrome">
+			<ul class="-linklist">
+				<li><a href="#">Fixed Bottom</a></li>
+				<li><a href="#">Nav Item 2</a></li>
+				<li><a href="#">Nav Item 3</a></li>
+				<li><a href="#">Nav Item 4</a></li>
+				<li><a href="#">Nav Item 5</a></li>
+				<li><a href="#">Nav Item 6</a></li>
+				<li><a href="#">Nav Item 7</a></li>
+				<li><a href="#">Nav Item 8</a></li>
+				<li><a href="#">Nav Item 9</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

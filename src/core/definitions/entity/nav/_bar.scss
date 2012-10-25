@@ -1,21 +1,6 @@
 nav.bar {
     
     @include -entity-nav-bar;
+    @include -entity-nav-bar-ie;
     
-    /*
-    &.top { }
-    
-    &.bottom { }
-    
-    > header, > aside {
-        
-        &:first-child { }
-        
-        &:last-child { }
-        
-    }
-    
-    > ul { }
-    
-    */
 }

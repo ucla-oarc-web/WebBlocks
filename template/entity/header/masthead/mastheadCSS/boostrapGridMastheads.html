@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Masthead with Boostrap/Webblocks Custom Rewrites</title>
+<!-- Bootstrap -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/ModBootstrapNav.css" rel="stylesheet" />
+<link href="css/social.css" rel="stylesheet" />
+<link href="css/masthead.css" rel="stylesheet" />
+<link href="css/extra.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+<!-- Just WebBlock Dev Notes -->
+<h2 class="-annotation">Masthead Tests</h2>
+<ul class="-annotation">
+	<li>The Masthead block (.-masthead) is the area shown in black. White nav areas are structurally not part of the Masthead.</li>
+	<li>Nesting hierarchy and names changed to reflect WebBlocks markup requirements</li>
+	<li>WebBlocks names have a prefix dash: '-' ; Original Bootstrap Classes reflect dependencies - these names are 
+	    not part of the masthead scope so they have been left in original classnames for the sake of clarity -they also show where classes
+	    need to be abstracted apart</li>
+	<li>.-nav.-nobar is introduced to cover the use-case when a horizontal nav is a child of the .-masthead; this distinct class name
+	    is only used for the static CSS to demo the need of a @mixin that targets .-nav.-bar when parent is .-masthead. Extra styles have been added to the ModBootstrapNav.css where needed.</li>
+	<li>.-sitetitle is introduced (was .brand in Bootstrap) to demo @mixin and show changes needed when .-sitetitle is a child of .-masthead vs. .-nav.-main</li>
+	<li>Only basic implementation cases are show here; for full Masthead patterns see Patterns mockups and for the inherited nav
+	    details see the navbarCSS docs</li>
+</ul>
+
+<!-- end notes -->
+
+<div class="container-fluid">
+
+<h3 class="-annotation">UC Masthead Patterns</h3>
+<p class="-annotation">Left Logo & Right 2-Tier Nav ( see <a href="http://www.ucmerced.edu">ucmerced.edu</a> ) :</p>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Site Branding</a></h1>
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    </a>
+	</nav>
+	<!--end toggle -->
+	
+	<nav class="-nav -nobar navbar-inverse nav-collapse">
+		<ul class="-linklist">
+			<li><a href="#">Site List</a></li>
+			<li><a href="#">Find People</a></li>
+			<li><a href="#">MyUCMerced</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Out of scope to masthead: buttons have not been extended yet, this has been left in original Boostrap Names to render and demo 
+	     but retaining their original names to show classes needed -->
+	<nav class="navbar navbar-inverse">
+		<a href="#" class="btn">Info</a>
+		<a href="#" class="btn">Visit</a>
+		<a href="#" class="btn">Apply</a>
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+
+<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+<nav class="-nav -bar nav-collapse">	
+	<ul class="-linklist">
+		<li><a href="#">Nav Item 1</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+</nav>
+
+<p class="-annotation">Full Banner, Variant 1 ( see <a href="http://www.ucsb.edu">ucsb.edu</a> ) :</p>
+
+<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+<nav class="navbar navbar-static-top nav-collapse">
+	<div class="navbar-inner -box-parent">
+		<a href="#" class="nav-link">home link</a>
+		<ul class="-nav-index">
+			<li><a href="#">A</a></li>
+			<li><a href="#">B</a></li>
+			<li><a href="#">C</a></li>
+			<li><a href="#">D</a></li>
+			<li><a href="#">E</a></li>
+			<li><a href="#">F</a></li>
+			<li><a href="#">G</a></li>
+			<li><a href="#">H</a></li>
+			<li><a href="#">I</a></li>
+			<li><a href="#">J</a></li>
+			<li><a href="#">K</a></li>
+			<li><a href="#">L</a></li>
+			<li><a href="#">M</a></li>
+			<li><a href="#">N</a></li>
+			<li><a href="#">O</a></li>
+			<li><a href="#">P</a></li>
+			<li><a href="#">Q</a></li>
+			<li><a href="#">R</a></li>
+			<li><a href="#">S</a></li>
+			<li><a href="#">T</a></li>
+			<li><a href="#">U</a></li>
+			<li><a href="#">V</a></li>
+			<li><a href="#">W</a></li>
+			<li><a href="#">X</a></li>
+			<li><a href="#">Y</a></li>
+			<li><a href="#">Z</a></li>
+		</ul>
+		<!-- Support for a dl alternative in cases when this is more semanticly correct  
+		<dl class="-nav-index">
+			<dt>Index:</dt>
+			<dd><a href="#">A</a></dd>
+			<dd><a href="#">B</a></dd>
+			<dd><a href="#">C</a></dd>
+			<dd><a href="#">D</a></dd>
+			<dd><a href="#">E</a></dd>
+			<dd><a href="#">F</a></dd>
+			<dd><a href="#">G</a></dd>
+			<dd><a href="#">H</a></dd>
+			<dd><a href="#">I</a></dd>
+			<dd><a href="#">J</a></dd>
+			<dd><a href="#">K</a></dd>
+			<dd><a href="#">L</a></dd>
+			<dd><a href="#">M</a></dd>
+			<dd><a href="#">N</a></dd>
+			<dd><a href="#">O</a></dd>
+			<dd><a href="#">P</a></dd>
+			<dd><a href="#">Q</a></dd>
+			<dd><a href="#">R</a></dd>
+			<dd><a href="#">S</a></dd>
+			<dd><a href="#">T</a></dd>
+			<dd><a href="#">U</a></dd>
+			<dd><a href="#">V</a></dd>
+			<dd><a href="#">W</a></dd>
+			<dd><a href="#">X</a></dd>
+			<dd><a href="#">Y</a></dd>
+			<dd><a href="#">Z</a></dd>
+		</dl>-->
+		<form class="navbar-search -demo">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</div>
+</nav>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Site Branding</a></h1>
+	
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!-- End Toggle -->
+</header>
+
+<p class="-annotation">Full Banner, Variant 2 ( see <a href="http://uxt.ucsd.edu">uxt.ucsd.edu</a> ) :</p>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Sub-Site Branding</a></h1>
+	<h2><a href="#" class="">Main Branding</a></h2>
+	
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->	
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!-- End Toggle -->
+</header>
+
+<div class="row-fluid">
+	<nav class="-nav -bar -top nav-collapse col span12">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</nav>	 
+</div>
+
+<p class="-annotation">Left Logo & Right Nav, Variant 1 Search ( see <a href="http://www.ucla.edu">ucla.edu</a> ) :</p>
+
+<div class="row-fluid">
+	<nav class="-nav -bar -top nav-collapse col span12 -box-parent">
+		<a href="#" class="nav-link hidden-phone hidden-tablet">ucla.edu</a>
+		<ul class="-linklist pull-right hidden-phone hidden-tablet">	
+			<li class="divider-vertical"></li>
+			<li><a href="#">VISIT</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">GIVE</a></li>
+			<li class="divider-vertical"></li>
+		</ul>
+		<ul class="-linklist pull-right">
+			<li><a href="#">Prospective Students</a></li>
+			<li><a href="#">Current Students</a></li>
+			<li><a href="#">Faculty</a></li>
+			<li><a href="#">Staff</a></li>
+			<li><a href="#">Alumni</a></li>
+			<li><a href="#">Parents & Familes</a></li>
+		</ul>
+	</nav>
+</div>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Site Branding</a></h1>
+	
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	
+	<nav class="-nav -nobar navbar-inverse nav-collapse">
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+<nav class="-nav -bar nav-collapse">
+	<ul class="-linklist pull-right">
+		<li><a href="#">Nav Item 1</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+</nav>	
+
+<p class="-annotation">Left Logo & Right Nav, Variant 2 Search+ ( see <a href="http://www.ucsc.edu">ucsc.edu</a> ) :</p>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Site Branding</a></h1>
+	
+	
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!--End Toggle -->
+
+	<nav class="-nav -nobar navbar-inverse nav-collapse">
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+		<ul class="-linklist">
+			<li><a href="#">MyUCSC</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">People</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">Calendar</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="#">A-Z Index</a></li>
+		</ul>
+	</nav>
+</header>
+
+<nav class="-nav -bar nav-collapse">
+	<div class="container-fluid">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>
+
+<p class="-annotation">All-in-one Bar: Masthead Parent ( see <a href="http://www.ucsf.edu">ucsf.edu</a> ) :</p>
+
+<header class="-masthead">
+	<h1 class="-sitetitle"><a href="#">Site Branding</a></h1>
+	
+	<!-- Out of scope to masthead: Just here w/ original bootstrap lib to demo dependency-->
+	<nav class="navbar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+	</nav>
+	<!--End Toggle -->
+	
+	<nav class="-nav -nobar navbar-inverse nav-collapse">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+		</ul>
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+
+<p class="-annotation">Main Nav Bar Example (Not Masthead) -- Just for demoing the .-linklist @mixin</p>
+
+<nav class="-nav -bar -main">
+	<ul class="-linklist">
+		<li><a href="#" class="-sitetitle">Site Branding</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+</nav>
+
+</div>
+
+
+</body>
+</html>

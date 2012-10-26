@@ -1,0 +1,31 @@
+table {
+    @extend .table;
+}
+
+ul {
+    @extend ul.list;
+}
+
+ol {
+    @extend ol.list;
+}
+
+blockquote {
+    @extend ﻿.blockquote;
+}
+
+input[type="button"] {
+    @extend input[type="button"].button;
+}
+
+input[type="submit"] {
+    @extend input[type="submit"].button;
+}
+
+input[type="reset"] {
+    @extend input[type="reset"].button;
+}
+
+button {
+    @extend button.button;
+}

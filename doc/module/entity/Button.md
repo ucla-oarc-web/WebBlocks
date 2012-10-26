@@ -17,7 +17,7 @@ A button has many uses, including:
 A button can be created using three different HTML elements:
 
 1. `a`
-2. `button` (with `type` equal to "submit", "button", or "reset")
+2. `button`
 3. `input` (with `type` equal to "submit", "button", or "reset")
 
 To style the element as a button, simply add the CSS class `button`. 

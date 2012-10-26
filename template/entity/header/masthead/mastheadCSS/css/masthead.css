@@ -1,0 +1,226 @@
+/****************
+ WebBlocks Syntax Goodness & Custom overwrites
+ 
+ This section staying pretty true to Original Bootstrap Float methods 
+ ***************/
+
+img {width:100%;} /* Make all images responsive */
+
+.-masthead { 
+	background-color: black; /*sub any color or branding: here black for demo clarity */
+	width: 100%;
+  	*zoom: 1;
+}
+
+.-masthead:before,
+.-masthead:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.-masthead:after {
+  clear: both;
+}
+
+
+/*To work across various contexts (main nav and masthead).-sitetitle is declared as its own class so not to be dependent on one
+  specific markup structure */ 		
+.-sitetitle>a, .-masthead h2>a{	
+  	font-size: 20px;
+  	font-weight: 200;
+  	color: #777777;
+  	
+ 	/* These declarations were taken out from .navbar .brand (original context .brand was an <li><a> not h1)
+ 	   if using mixin pay attention to strip out these declarations that only apply to the original case:
+ 	
+ 	display: block; 
+  	padding: 10px 20px 10px;
+  	margin-left: -20px;*/
+  	
+  	/*text-shadow: 0 1px 0 #ffffff; Part of original style just removed this for better readability */
+  	
+  	/*Added custom positioning for the h1/h2 elements to keep them from bumping into Right Navigation*/
+  	display:inline-block;
+  	}
+ 
+/* Only headers that are immediate children of -masthead need padding; 
+   All others get this by being wrapped in row-fluid */ 	
+   
+.-masthead>.-sitetitle>a, .-masthead>h2>a{	
+  	padding: 10px 20px 10px 20px;
+	}
+
+/*The immediate h1 child of masthead is always pushed left
+  This is the Primary Site Logo link */
+.-masthead>.-sitetitle>a {
+	float: left;
+	}	
+
+/* H2 child of masthead is always pushed right
+   since this will be a Secondary Logo link in the masthead */	
+.-masthead>h2>a {
+	float: right;
+	}
+
+
+
+/********************************
+ Complex navigation aligments within the Masthead; pattern for nav in Masthead is always right aligned
+ to make room for left aligned Branding
+ Only targeted to masthead decendents as navigation outside Masthead has to meet more variations - there leave formatting 
+ up to authors by explicit pull-right/pull-left helper classes.
+
+********************************/
+
+/*Any nav that is an immediate child of .-masthead should be aligned right  
+  Any ancestor buttons & searchforms part of masthead should align right as well */
+.-masthead>nav, .-masthead>nav .navbar-search, .-masthead>nav a.btn {float: right;}
+
+/*Any nav that is an immediate child of .-masthead and follows another sibling nav should clear 
+  and be stacked right. */
+.-masthead>nav+nav {clear:right;}
+
+/*When wrapped add margin*/
+.-masthead>nav a.btn {margin-left:20px;}
+/*When not wrapped take away excess margin*/
+.-masthead>nav>a.btn {margin-left:0px;}
+/*when the nav items are not wrapped in a bar-style wrapper still make sure the alignment is consistent */
+.-masthead>nav>.navbar-search, .-masthead>nav>a.btn, nav>.navbar-search, nav>.btn-toolbar {margin-right:20px;}
+
+/*Ignore this -- only for demo & out of scope to -masthead*/
+.-demo {float: right; position: relative; top:-6px;}
+
+
+/* fixes situations when complex navigation alignment (right floating) breaks mobile nav linearization */
+
+@media (min-width: 0px) and (max-width: 979px) {
+	nav.pull-right, ul.-linklist.pull-right,
+	.-masthead>nav, .-masthead>nav .navbar-search {
+		float:none!important;
+		width:auto;
+		}
+		
+	.navbar-static-top {width:100%; margin-left: 0px; margin-right: 20px;}
+	.-masthead>nav, .-masthead>nav .navbar-search {margin-left:20px}
+	
+	.-masthead>nav:not(.hidden-desktop), .-masthead>nav .navbar-search {margin-right:20px}
+	
+	/*rare situation when both cases above are present in a set of nested divs and 
+	  then need to adjust the margins back */
+	.-masthead>nav>ul.-linklist.pull-right {margin-left:0;}
+}
+
+/******************************
+   Provide clearfix to the mobile menu toggle which is hidden in the desktop.
+   Bootstrap wraps the toggle in a .container to provide clearfixing help;
+   we just aplly these settings to the nav with the .hidden-desktop (the only nav element that is hidden at full screen).
+   .hidden-desktop helps keep the .nav container from showing up and adding extra height to the masthead
+   
+   better would be a .-mobile-toggle that pulls together these styles 
+   ****************************/
+   
+nav.hidden-desktop {
+  *zoom: 1;
+}
+
+nav.hidden-desktop:before,
+nav.hidden-desktop:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+nav.hidden-desktop:after {
+  clear: both;
+}
+
+/*help toggle align nicely to baseline with Branding when contained in masthead*/
+.-masthead nav.hidden-desktop {
+	margin-top:10px;
+	}
+
+/**********************************
+   Floated positioning begins to break down when 
+   layout techniques are heavily nested 
+   Complex edge cases should use relative/absolute positioning instead 
+***********************************/
+   
+/**************************************
+ Relative Parent > Absolute Child Positioning Technique: 
+ relative positioning tricks to tame the float madness for 
+ complex responsive layouts within the masthead 
+ *************************************/
+
+/*parent must be set to relative, first. */
+.-box-parent {position: relative;} 
+
+/*if entire masthead is using this technique, need to set a height to prevent collapsed background.
+  heiht is arbitrary to desired background height 
+  -- best make this a var that can be set explicitly by end-user 
+  */
+  
+.-full-height {min-height:120px;}
+
+/*children are controlled with pricision using absolute - since they are relative to parent (not) viewport 
+  pretty stable to the fluid grid */
+.-offset-child {position:absolute; width:50%;}
+.-box-parent>.-offset-child.-left {left:10px;}
+.-box-parent>.-offset-child.-right {right:10px;}
+
+/*overlays will need to use this technique for using z-indexing 
+  children elements are placed on seperate layers */
+.-background-child, .-overlay-child {position: absolute;} 
+.-background-child {width:80%; *zoom: 1; z-index: 1; top:0; left:5%;} 
+.-overlay-child {width:100%; *zoom: 1; z-index: 2; top:80px;} 
+
+/**************************************
+ Complex nav elements need extra help with positioning
+ These are edge case and don't have clear patterns; 
+ thus, best kept to semantic meaning, rather than layout technique
+ *************************************/
+ 
+.-box-parent>.nav-link {position:absolute; left:20px; top:14px;}
+
+/* A-Z Index needs its own styling to make consistent with other navigation elements
+   Bootstrap has .dl-horizontal but let's not use it since the indented purpose is 
+   different and too much changes are needed for practicality; better to write our own 
+   using the some borrowed bits */
+   
+.-nav-index {
+  	list-style: none;
+}
+
+/* create a horizontal li, dl for the A-Z index */
+.-nav-index>li>a, .-nav-index>dt, .-nav-index>dd>a {
+	text-decoration: none; 
+	float:left; 
+	margin-right:12px; 
+	display: inline-block;
+	}
+	
+.-nav-index>li>a:hover, .-nav-index>dd>a:hover {
+  	text-decoration: none;
+  	background-color: #eeeeee;
+}
+
+/* make ul and dl render consistently */
+   
+dl.-nav-index {margin-left:120px;}
+/* Get the dt placed just so but avoid positioning the dd to avoid breaking the float needed for horizontal index*/
+dl.-nav-index>dt {position:absolute; left:100px; top:14px;}
+
+ul.-nav-index {display: inline;}
+.-nav-index>li {margin-top:14px; margin-left:140px;}
+/* Target firefox to adjust for differences with rendering li to Webkit */
+@-moz-document url-prefix() { 
+  .-nav-index>li {
+     margin-top:-5px;
+  }
+}
+
+ul.-nav-index:before {
+	content: "Index:"; 
+	position:absolute; 
+	top:14px; left:110px;
+	}

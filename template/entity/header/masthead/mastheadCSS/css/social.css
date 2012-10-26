@@ -1,0 +1,37 @@
+/******************
+Custom Fonts:
+
+Below code must preceed all custom font declarations.
+******************/
+
+/* Custom Social Icons */
+
+@font-face {
+    font-family: 'Socialico';
+    src: url('../fonts/Socialico.eot');
+    src: url('../fonts/Socialico.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Socialico.woff') format('woff'),
+         url('../fonts/Socialico.ttf') format('truetype'),
+         url('../fonts/Socialico.svg#Socialico') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+/*****************
+Custom CSS3 Fonts for Social icons over-ride the base defaults.
+ *****************/
+
+body {} 
+
+.-social-icons {
+	font-family: 'Socialico';
+	font-size: 22px!important;
+}
+
+.btn.-social-icons {margin-left:2%; margin-right:2%;}
+.btn.-social-icons:last-child {margin-left:0;}
+.btn-toolbar > .-social-icons {margin-top:0;}

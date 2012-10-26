@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Nav Testing with Boostrap/Webblocks Custom Rewrites</title>
+<!-- Bootstrap -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/ModBootstrapNav.css" rel="stylesheet" />
+<link href="css/extra.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--
+Showing markup for the fixed-top bar class; commented out since it clashes with the top bar class.
+
+<nav class="-nav -bar -fixed-top">
+	<div class="container-fluid">
+	<ul class="-linklist">
+		<li><a href="#">Fixed Top</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+	</div>
+</nav>
+
+-->
+
+<nav class="-nav -bar -top">
+	<div class="container-fluid">
+		<ul class="-linklist">
+			<li><a href="#">Top</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+<div class="container-fluid">
+
+<!-- Just WebBlock Dev Notes -->
+<h2 class="-annotation">Navbar and Navigation Children Tests</h2>
+<ul>
+	<li>Nesting hierarchy and names changed to reflect WebBlocks markup requirements</li>
+	<li>See <a href="https://docs.google.com/spreadsheet/ccc?key=0ApkIxO4T08MNdFdpNnpLUE91MExIWWdWLWVRQ2FwaVE#gid=0">spreadsheet</a> for SASS mappings and name change details</li>
+	<li>WebBlocks names have a prefix dash: '-' ; Original Bootstrap Classes reflect dependencies - these names are 
+	    not part of the navbar scope so they have been left in original classnames for the sake of clarity -- they also show where classes
+	    need to be abstracted apart</li>
+	<li>Bootstrap responsive classes left in to show where needed in original context but have not been implemented since JS detection
+	    and default breakpoints will be implemented on the grid</li>
+	
+	<li>An explicit .-nav class is used to cover all cases of navigation (including minor nav that cannot use the html5
+	    nav entity -- such as footer navs</li>
+	<li>.-linklist is used to cover all cases where links are not part of navs (minor nav and in-page link lists)
+	    and to better manage specificity issues and (make inheritance chain more shallow). </li>
+</ul>
+<!-- end notes -->
+
+
+<header class="row-fluid -masthead">
+	<h1><a href="#">Site Branding</a></h1>
+	<!-- This is how Bootstrap creates thier mobile menu toggle; a good candidate for a mixin into something like .-menutoggle -->
+	<nav class="-nav -bar hidden-desktop">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    </a>
+	</nav>
+	<!--end toggle -->
+	<nav class="-nav -bar nav-collapse">
+		<ul class="-linklist">
+			<li><a href="#">Site List</a></li>
+			<li><a href="#">Find People</a></li>
+			<li><a href="#">MyUCMerced</a></li>
+		</ul>
+	</nav>
+	<nav class="-nav -bar">
+		<a href="#" class="btn">Info</a>
+		<a href="#" class="btn">Visit</a>
+		<a href="#" class="btn">Apply</a>
+		<form class="navbar-search">
+			<input type="text" class="search-query" placeholder="Search">
+		</form>
+	</nav>
+</header>
+
+<nav class="-nav -bar nav-collapse">
+	<ul class="-linklist">
+		<li><a href="#">Nav Item 1</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+</nav>
+
+
+<!-- Showing how linklist can be expanded to support both lists of links (on landing pages) & navigation 
+     Also showing how to use Grid Styles for body content rather than the custom layouts to avoid layout 
+     bugs and collisions with the Grid -->
+
+<section class="row">
+	<nav class="-nav span4">
+		<ul class="-linklist">
+			<li><a href="#">Nav Item 1</a></li>
+			<li><a href="#">Nav Item 2</a></li>
+			<li><a href="#">Nav Item 3</a></li>
+			<li><a href="#">Nav Item 4</a></li>
+			<li><a href="#">Nav Item 5</a></li>
+			<li><a href="#">Nav Item 6</a></li>
+			<li><a href="#">Nav Item 7</a></li>
+			<li><a href="#">Nav Item 8</a></li>
+			<li><a href="#">Nav Item 9</a></li>
+		</ul>
+	</nav>
+	
+	<div class="span4">
+		<ul class="-linklist">
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+		</ul>
+	</div>
+	
+	<div class="span4">
+		<ul class="-linklist">
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+			<li><a href="#">Not Nav: Body Linklist good for Landing Pages</a></li>
+		</ul>
+	</div>
+</section>
+
+</div><!-- End container -->
+
+<footer class="-nav -bar -fixed-bottom">
+	<div class="container-fluid">
+	<ul class="-linklist">
+		<li><a href="#">Fixed Bottom</a></li>
+		<li><a href="#">Nav Item 2</a></li>
+		<li><a href="#">Nav Item 3</a></li>
+		<li><a href="#">Nav Item 4</a></li>
+		<li><a href="#">Nav Item 5</a></li>
+		<li><a href="#">Nav Item 6</a></li>
+		<li><a href="#">Nav Item 7</a></li>
+		<li><a href="#">Nav Item 8</a></li>
+		<li><a href="#">Nav Item 9</a></li>
+	</ul>
+	</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+@mixin -entity-button-group {
+    
+    &:not(:first-child){
+        -webkit-border-top-left-radius: 0;
+        -moz-border-radius-topleft: 0;
+        border-top-left-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -moz-border-radius-bottomleft: 0;
+        border-bottom-left-radius: 0;
+        margin-left: 0;
+        border-left: none;
+    }
+    &:not(:last-child){
+        -webkit-border-top-right-radius: 0;
+        -moz-border-radius-topright: 0;
+        border-top-right-radius: 0;
+        -webkit-border-bottom-right-radius: 0;
+        -moz-border-radius-bottomright: 0;
+        border-bottom-right-radius: 0;
+        margin-right: 0;
+    }
+}

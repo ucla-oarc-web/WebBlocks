@@ -1,0 +1,9 @@
+@mixin -entity-button-group { 
+    &:not(:first-child){
+        margin-left: 0;
+        border-left: none;
+    }
+    &:not(:last-child){
+        margin-right: 0;
+    }
+}

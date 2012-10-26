@@ -20,7 +20,7 @@
         right: 0;
         left: 0;
         z-index: $zindexFixedNavbar;
-        margin-bottom: 0; // remove 18px margin for default navbar
+        margin-bottom: 0;
     }
     
     &.top {
@@ -43,7 +43,7 @@
         
         float: left;
         display: block;
-        padding: (($navbarHeight - $baseLineHeight) / 2) 15px (($navbarHeight - $baseLineHeight) / 2);
+        padding: (($navbarHeight - $baseLineHeight) / 2) 0 (($navbarHeight - $baseLineHeight) / 2);
         font-size: 20px;
         line-height: 1;
         margin: 0;
@@ -53,7 +53,7 @@
         }
     }
     
-    > ul:not(.dropdown) {
+    > ul:not(.dropdown), ol:not(.dropdown) {
         
         position: relative;
         left: 0;
@@ -85,7 +85,7 @@
                 
     }
     
-    > ul.dropdown, > .toggle {
+    > ul.dropdown, > ol.dropdown, > .toggle {
         display: none;
     }
     
@@ -117,7 +117,7 @@
             float: left;
         }
         
-        > ul {
+        > ul, > ol {
             
             display: none;
             
@@ -125,7 +125,7 @@
         
         &.active {
             
-            > ul.dropdown {
+            > ul.dropdown, > ol.dropdown {
                 clear: both;
                 display: block;
                 list-style: none;

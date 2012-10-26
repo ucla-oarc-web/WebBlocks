@@ -13,7 +13,7 @@
         $('nav.bar').each(function(){
             var $ul = $(this).find('ul:not(.dropdown)')
             if($(this).children('.toggle').length == 0){
-                $ul.after('<a target="#" class="toggle auto">'+($(this).hasClass('bottom') ? '&#x25BC;' : '&#x25B2;')+'</a>')
+                $ul.after('<a target="#" class="toggle auto">'+($(this).hasClass('bottom') ? '&#x25B2;' : '&#x25BC;')+'</a>')
             }
             if($ul.length > 0 && $(this).children('ul.dropdown').length == 0){
                 $ul.clone().attr('class','dropdown').appendTo(this);

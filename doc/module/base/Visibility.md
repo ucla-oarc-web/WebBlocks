@@ -25,7 +25,12 @@ specified as `$breakpoint-small` and `$breakpoint-medium`.
 
 ### Base/Visibility/Hide
 
-* `.hide` applies left-alignment to text
+* `.hide` hides the element on all devices
+
+### Base/Visibility/No_Media_Queries
+
+* `.hide-media-query` hides the element if the browser supports media queries.
+This is an analog to the `noscript` tag.
 
 ### Base/Visibility/Responsive/Hide
 

@@ -23,5 +23,17 @@
     @media screen and (max-width: $breakpoint-medium - 1) {
         display: none;  
     }
+
+    @media screen and (min-width: $breakpoint-large) {
+        display: none;  
+    }
+    
+}
+
+@mixin -base-visibility-show-exlarge {
+    
+    @media screen and (max-width: $breakpoint-large - 1) {
+        display: none;  
+    }
     
 }

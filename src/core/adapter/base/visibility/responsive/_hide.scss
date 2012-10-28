@@ -16,7 +16,15 @@
 
 @mixin -base-visibility-hide-large {
     
-    @media screen and (min-width: $breakpoint-medium) {
+    @media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 1) {
+        display: none;
+    }
+    
+}
+
+@mixin -base-visibility-hide-exlarge {
+    
+    @media screen and (min-width: $breakpoint-large) {
         display: none;
     }
     

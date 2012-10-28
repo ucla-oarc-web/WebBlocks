@@ -20,8 +20,9 @@ If the quoted material is located at an accessible URL, provide the URL within t
 element.
 
 By default, a blockquote will stretch to fit the full width of its container. However, the optional `callout` CSS
-class can be added to create a smaller, more compact style that will allow wrapped text for quotes that are intended
-to be "callout" quotes dropped throughout a body of text (see the second usage above).
+class can be added to create a alternate style that, combined with grid sizing classes and the float utility classes,
+will allow wrapped text for quotes that are intended to be "callout" quotes dropped throughout a body of text
+(see the second usage above).
 
 The `text-right` CSS class can be applied to the containing `figure` or `blockquote` element to the align the contents of the
 blockquote to the right.

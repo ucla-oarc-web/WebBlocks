@@ -29,3 +29,7 @@ ul.list.upper-roman, ol.list.upper-roman {
 ul.list.lower-roman, ol.list.lower-roman {
     @include -entity-list-lower-roman;
 }
+
+ul.outline, ol.outline {
+    @include -entity-list-outline;
+}

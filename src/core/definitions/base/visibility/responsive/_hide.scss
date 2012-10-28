@@ -9,3 +9,7 @@
 .hide-large {
     @include -base-visibility-hide-large;
 }
+
+.hide-exlarge {
+    @include -base-visibility-hide-exlarge;
+}

@@ -9,3 +9,7 @@
 .show-large {
     @include -base-visibility-show-large;
 }
+
+.show-exlarge {
+    @include -base-visibility-show-exlarge;
+}

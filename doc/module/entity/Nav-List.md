@@ -31,8 +31,8 @@ A `nav` element or a `li` element within the navigation can contain multiple `ul
 
 ### Navigation Headers
 
-A `span` or header (`h2`...`h6) element can be used to denote an item within the list that is not a link within the
-list, but rather a "header" for a set of links within the list. When using one of the hide/reveal effects described
+A header (`h1`...`h6`) element can be used to denote a "header" for a set of links within the list. This header element
+can be placed outside a list or within a list item. When using one of the hide/reveal effects described
 above, however, a parent link must be provided.
 
 ## Responsive Considerations

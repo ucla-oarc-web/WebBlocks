@@ -15,11 +15,11 @@ removing this class to change visibility. An alternative might be using the
 
 The `Base/Visibility/Responsive/Show` library provides helpers that set visibility
 to none for devices with viewport dimensions that **do** meet the breakpoints
-specified as `$breakpoint-small` and `$breakpoint-medium`.
+specified as `$breakpoint-small`, `$breakpoint-medium`, and `$breakpoint-large`.
 
 The `Base/Visibility/Responsive/Show` library provides helpers that set visibility
 to none for devices with viewport dimensions that **don't** meet the breakpoints
-specified as `$breakpoint-small` and `$breakpoint-medium`.
+specified as `$breakpoint-small`, `$breakpoint-medium` and `$breakpoint-large`.
 
 ## Features
 
@@ -38,8 +38,10 @@ This is an analog to the `noscript` tag.
 `$breakpoint-small`
 * `.hide-medium` hides the element on all devices smaller than 
 `$breakpoint-medium` and at least as large as `$breakpoint-small`
-* `.hide-large` hides the element on all devices at least as large as 
-`$breakpoint-medium`
+* `.hide-large` hides the element on all devices smaller than
+`$breakpoint-large` and at least as large as `$breakpoint-medium`
+* `.hide-exlarge` hides the element on all devices at least as large as 
+`$breakpoint-large`
 
 ### Base/Visibility/Responsive/Show
 
@@ -47,8 +49,10 @@ This is an analog to the `noscript` tag.
 `$breakpoint-small`
 * `.show-medium` shows the element on all devices smaller than 
 `$breakpoint-medium` and at least as large as `$breakpoint-small`
-* `.show-large` shows the element on all devices at least as large as 
-`$breakpoint-medium`
+* `.show-large` shows the element on all devices smaller than
+`$breakpoint-large` and at least as large as `$breakpoint-medium`
+* `.show-exlarge` shows the element on all devices at least as large as 
+`$breakpoint-large`
 
 ## Responsive Considerations
 

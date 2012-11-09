@@ -29,3 +29,19 @@
 @mixin -entity-list-lower-roman {
     list-style-type: lower-roman;
 }
+
+@mixin -entity-list-outline {
+	list-style-type: upper-roman;
+
+	> li > ol, > li > ul {
+		list-style-type: upper-alpha;
+
+		> li > ol, > li > ul {
+			list-style-type: decimal;
+
+			> li > ol, > li > ul {
+				list-style-type: lower-alpha;
+			}
+		}
+	}
+}

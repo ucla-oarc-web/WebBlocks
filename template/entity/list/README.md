@@ -1,4 +1,4 @@
-# List
+﻿# List
 
 ## Definition
 
@@ -17,6 +17,16 @@ lists will not be affected.
 
 The `.lower-roman`, `.upper-roman`, `.lower-alpha`, `.upper-alpha` classes can be added to the list to change the
 list style type.
+
+The `.outline` class can be added to the list to alter the list style type to match the format of alphanumeric outlines
+in academic papers:
+
+```
+I. Roman Numeral Header
+    A. Uppercase Letters
+        1. Arabic Numerals
+            a. Lowercase Letters
+```
 
 ## Responsive Considerations
 

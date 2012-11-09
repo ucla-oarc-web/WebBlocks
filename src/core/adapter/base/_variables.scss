@@ -56,8 +56,8 @@ $color-branding-tertiary-border:                    darken(darken(#ffc40d, 10%),
 
 $color-branding-neutral-background-text:            #eee !default;
 $color-branding-neutral-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
-$color-branding-neutral-background:                 #777 !default;
-$color-branding-neutral-background-shadow:          #555 !default;
+$color-branding-neutral-background:                 #999 !default;
+$color-branding-neutral-background-shadow:          #777 !default;
 $color-branding-neutral-border:                     darken(#777, 30%) !default;
 
 /** Light background colors */
@@ -68,19 +68,19 @@ $color-branding-default-background-light:               lighten($color-branding-
 $color-branding-default-background-light-shadow:        lighten($color-branding-default-background-shadow, 35%) !default;
 $color-branding-default-light-border:                   darken(lighten($color-branding-default-background, 35%), 30%) !default;
 
-$color-branding-primary-background-light-text:          #333;
+$color-branding-primary-background-light-text:          #1f4b61;
 $color-branding-primary-background-light-text-shadow:   $color-branding-primary-background-text-shadow !default;
 $color-branding-primary-background-light:               lighten($color-branding-primary-background, 55%) !default;
 $color-branding-primary-background-light-shadow:        lighten($color-branding-primary-background-shadow, 55%) !default;
 $color-branding-primary-light-border:                   darken(lighten($color-branding-primary-background, 35%), 30%) !default;
 
-$color-branding-secondary-background-light-text:        #333;
+$color-branding-secondary-background-light-text:        #4e676e;
 $color-branding-secondary-background-light-text-shadow: none !default;
 $color-branding-secondary-background-light:             lighten($color-branding-secondary-background, 35%) !default;
 $color-branding-secondary-background-light-shadow:      lighten($color-branding-secondary-background-shadow, 35%) !default;
 $color-branding-secondary-light-border:                 darken(lighten($color-branding-secondary-background, 35%), 30%) !default;
 
-$color-branding-tertiary-background-light-text:         #333;
+$color-branding-tertiary-background-light-text:         #6e664d;
 $color-branding-tertiary-background-light-text-shadow:  $color-branding-tertiary-background-text-shadow !default;
 $color-branding-tertiary-background-light:              lighten($color-branding-tertiary-background, 35%) !default;
 $color-branding-tertiary-background-light-shadow:       lighten($color-branding-tertiary-background-shadow, 35%) !default;
@@ -163,25 +163,25 @@ $color-mood-highlight-border:                   darken(#BBFFFF, 30%) !default;
 
 /** Light background colors */
 
-$color-mood-info-background-light-text:               #333;
+$color-mood-info-background-light-text:               #445e65;
 $color-mood-info-background-light-text-shadow:        none !default;
 $color-mood-info-background-light:                    lighten($color-mood-info-background, 35%) !default;
 $color-mood-info-background-light-shadow:             lighten($color-mood-info-background-shadow, 35%) !default;
 $color-mood-info-light-border:                        darken(lighten($color-mood-info-background, 35%), 60%) !default;
 
-$color-mood-success-background-light-text:            #333;
+$color-mood-success-background-light-text:            #2c3b2c;
 $color-mood-success-background-light-text-shadow:     none !default;
 $color-mood-success-background-light:                 lighten($color-mood-success-background, 35%) !default;
 $color-mood-success-background-light-shadow:          lighten($color-mood-success-background-shadow, 35%) !default;
 $color-mood-success-light-border:                     darken(lighten($color-mood-success-background, 35%), 60%) !default;
 
-$color-mood-warning-background-light-text:            #333;
+$color-mood-warning-background-light-text:            #744c14;
 $color-mood-warning-background-light-text-shadow:     none !default;
 $color-mood-warning-background-light:                 lighten($color-mood-warning-background, 35%) !default;
 $color-mood-warning-background-light-shadow:          lighten($color-mood-warning-background-shadow, 35%) !default;
 $color-mood-warning-light-border:                     darken(lighten($color-mood-warning-background, 35%), 60%) !default;
 
-$color-mood-danger-background-light-text:             #333;
+$color-mood-danger-background-light-text:             #653533;
 $color-mood-danger-background-light-text-shadow:      none !default;
 $color-mood-danger-background-light:                  lighten($color-mood-danger-background, 35%) !default;
 $color-mood-danger-background-light-shadow:           lighten($color-mood-danger-background-shadow, 35%) !default;
@@ -193,7 +193,7 @@ $color-mood-inverse-background-light:                 lighten($color-mood-invers
 $color-mood-inverse-background-light-shadow:          lighten($color-mood-inverse-background-shadow, 35%) !default;
 $color-mood-inverse-light-border:                     darken(lighten($color-mood-inverse-background, 35%), 50%) !default;
 
-$color-mood-important-background-light-text:          #333;
+$color-mood-important-background-light-text:          #653533;
 $color-mood-important-background-light-text-shadow:   none !default;
 $color-mood-important-background-light:               lighten($color-mood-important-background, 35%) !default;
 $color-mood-important-background-light-shadow:        lighten($color-mood-important-background-shadow, 35%) !default;

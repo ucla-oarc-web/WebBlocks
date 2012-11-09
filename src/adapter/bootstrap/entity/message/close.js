@@ -3,7 +3,7 @@ $(window).load(function(){
     if(typeof $.fn.alert != 'function')
         return;
     
-    $('.message').each(function(){
+    $('.message.closeable').each(function(){
         if($(this).find('.close').length > 0)
             return;
         

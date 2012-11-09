@@ -20,3 +20,19 @@ $btnInverseBackgroundHighlight:     $color-mood-inverse-background-shadow !defau
 $gridColumns:                       $structure-panels;
 $fluidGridColumnWidth:              $structure-panel-width;
 $fluidGridGutterWidth:              $structure-panel-gutter;
+
+$warningText:                       $color-mood-warning-background-light-text !default;
+$warningBackground:                 $color-mood-warning-background-light-shadow !default;
+$warningBorder:                     $color-mood-warning-light-border !default;
+
+$errorText:                         $color-mood-danger-background-light-text !default;
+$errorBackground:                   $color-mood-danger-background-light-shadow !default;
+$errorBorder:                       $color-mood-danger-light-border !default;
+
+$successText:                       $color-mood-success-background-light-text !default;
+$successBackground:                 $color-mood-success-background-light-shadow !default;
+$successBorder:                     $color-mood-success-light-border !default;
+
+$infoText:                          $color-mood-info-background-light-text !default;
+$infoBackground:                    $color-mood-info-background-light-shadow !default;
+$infoBorder:                        $color-mood-info-light-border !default;

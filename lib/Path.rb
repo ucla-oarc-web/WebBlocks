@@ -4,6 +4,14 @@ module WebBlocks
   
   module Path
     
+    module Sources
+      
+      def package_dir package
+        ::WebBlocks::Path.from_root_to config[:package][:dir], config[:package][package][:dir]
+      end
+      
+    end
+    
     def self.to *args
       ::WebBlocks::Path.from_arr_to(args)
     end

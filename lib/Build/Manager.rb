@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'extensions/kernel'
 require 'observer'
 require_relative 'WebBlocks'
 require_relative '../Path'

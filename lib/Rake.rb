@@ -31,14 +31,14 @@ module WebBlocks
     # include methods: observer, execute
     include ::WebBlocks::Build::Dispatcher
     
-    # include methods: observer, execute
+    # include methods: attach_packages, attach_adapters, attach_webblocks
     include ::WebBlocks::Build::Manager
     
     def run
       
-      attach_webblocks
       attach_packages
       attach_adapters
+      attach_webblocks
       
       define_tasks
       

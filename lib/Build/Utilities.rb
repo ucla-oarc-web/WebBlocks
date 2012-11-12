@@ -10,7 +10,7 @@ module WebBlocks
       
     module Utilities
       
-      def append src, dst
+      def append_file src, dst
         
         contents = File.read src
         File.open dst, "a" do |handle|

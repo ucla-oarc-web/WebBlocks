@@ -39,20 +39,34 @@ module WebBlocks
         
       end
       
-      def attach_adapter adapter
+      def attach_module namespace, mod
         
-        path = ::WebBlocks::Path.from_root_to "lib/Build/Adapter/#{adapter.to_s.downcase.capitalize}.rb"
+        mod = mod.to_s.downcase.capitalize
+        
+        path = ::WebBlocks::Path.from_root_to "lib/Build/#{namespace}/#{mod}.rb"
         if File.exists? path
           load path
           begin
-            observer(eval("::WebBlocks::Build::Adapter::#{adapter.to_s.capitalize}").new)
-            log.success "Adapter", "Attached adapter handler #{adapter}"
+            observer(eval("::WebBlocks::Build::#{namespace.capitalize}::#{mod}").new)
+            log.success namespace.capitalize, "Attached #{namespace} handler #{mod}"
           rescue
-            log.warning "Adapter", "Skipped adapter handler #{adapter} (undefined)"
+            log.warning namespace.capitalize, "Skipped #{namespace} handler #{mod} (undefined)"
           end
         else
-          log.warning "Adapter", "Skipped adapter handler #{adapter} (undefined)"
+          log.warning namespace.capitalize, "Skipped #{namespace} handler #{mod} (undefined)"
         end
+        
+      end
+      
+      def attach_core mod
+          
+        attach_module 'core', mod
+        
+      end
+      
+      def attach_adapter adapter
+        
+        attach_module 'adapter', adapter
         
       end
       
@@ -64,15 +78,16 @@ module WebBlocks
           adapters = config[:src][:adapter].respond_to?(:each) ? config[:src][:adapter] : [config[:src][:adapter]]
         end
         
-        attach_adapter 'core'
+        attach_core 'adapter'
         
         adapters.each do |adapter|
-          
-          next if adapter == 'core' # as already loaded
           
           attach_adapter adapter
           
         end
+        
+        attach_core 'extensions'
+        attach_core 'definitions'
         
       end
       

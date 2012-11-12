@@ -24,7 +24,7 @@ module WebBlocks
         
         def compile
           
-          append "#{package_dir :respond}/respond.src.js", tmp_js_build_file_ie
+          append_file "#{package_dir :respond}/respond.src.js", tmp_js_build_file_ie
           
         end
         

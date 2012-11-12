@@ -12,6 +12,12 @@ module WebBlocks
         
         include ::WebBlocks::Build::Submodule
         
+        def preprocess
+          
+          
+          
+        end
+        
       end
       
     end

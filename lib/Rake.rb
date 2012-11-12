@@ -22,7 +22,7 @@ module WebBlocks
     # include variable: config
     include ::WebBlocks::Config
     
-    # include variable: logger
+    # include variable: log
     include ::WebBlocks::Logger
     
     # include methods: define_task, define_tasks

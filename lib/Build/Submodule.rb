@@ -8,7 +8,7 @@ module WebBlocks
   
   module Build
     
-    module Package
+    module Submodule
       
       include ::WebBlocks::Path::Source
       
@@ -16,16 +16,16 @@ module WebBlocks
         
         stdout = ""
         
-        log.task "Package", "Initializing submodule #{name}" do
+        log.task "Submodule", "Initializing submodule #{name}" do
         
           status, stdout, stderr = systemu "#{config[:exec][:git]} submodule init #{package_dir name}"
 
           if stderr.length > 0
-            log.failure "Package: #{name}", "Initialization failed for submodule #{name}"
+            log.failure "Submodule: #{name}", "Initialization failed for submodule #{name}"
           elsif stdout.length > 0
-            log.success "Package: #{name}", "Initialized submodule #{name}"
+            log.success "Submodule: #{name}", "Initialized submodule #{name}"
           else
-            log.info "Package: #{name}", "Skipped as submodule #{name} is already initialized"
+            log.info "Submodule: #{name}", "Skipped as submodule #{name} is already initialized"
           end
         
         end
@@ -38,16 +38,16 @@ module WebBlocks
         
         stdout = ""
         
-        log.task "Package", "Updating submodule #{name}" do
+        log.task "Submodule", "Updating submodule #{name}" do
         
           status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update #{package_dir name}"
 
           if stderr.length > 0
-            log.failure "Package: #{name}", "Update failed for submodule #{name}"
+            log.failure "Submodule: #{name}", "Update failed for submodule #{name}"
           elsif stdout.length > 0
-            log.success "Package: #{name}", "Updated submodule #{name}"
+            log.success "Submodule: #{name}", "Updated submodule #{name}"
           else
-            log.info "Package: #{name}", "Skipped as submodule #{name} is already up to date"
+            log.info "Submodule: #{name}", "Skipped as submodule #{name} is already up to date"
           end
         
         end

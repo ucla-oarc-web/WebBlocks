@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'extensions/kernel'
-require_relative '../Package'
+require_relative '../Submodule'
 
 module WebBlocks
   
@@ -10,7 +10,7 @@ module WebBlocks
       
       class Jquery
         
-        include ::WebBlocks::Build::Package
+        include ::WebBlocks::Build::Submodule
         
         def preprocess
           
@@ -23,7 +23,7 @@ module WebBlocks
           unless File.exists?  "#{package_dir :jquery}/dist/jquery.js"
             
             log.task "Package: jQuery", "Compiling jQuery" do
-              Dir.chdir package_dir :jquery do
+              Dir.chdir package_dir 'jquery' do
                 log.failure "Builder: jQuery", "NPM execution failed" unless systemu "#{config[:exec][:npm]} install"
                 log.failure "Builder: jQuery", "Grunt execution failed" unless systemu "#{config[:exec][:grunt]}"
               end

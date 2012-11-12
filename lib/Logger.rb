@@ -4,9 +4,11 @@ module WebBlocks
     
     include ::WebBlocks::Config
     
+    @@log = false
+    
     def log
-      @log = ::WebBlocks::Logger::Logger.new config[:build][:log][:name] unless @log
-      @log
+      @@log = ::WebBlocks::Logger::Logger.new config[:build][:log][:name] unless @@log
+      @@log
     end
     
     class Logger

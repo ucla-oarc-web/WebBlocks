@@ -21,7 +21,7 @@ module WebBlocks
       
       def execute event
         
-        ["setup_#{event}", event, "teardown_#{event}"].each do |event|
+        ["before_#{event}", event, "after_#{event}"].each do |event|
           log.task 'Dispatcher', "Executing task: #{event}" do
             observers.each do |object|
                object.send(event) if object.respond_to? event

@@ -10,7 +10,7 @@ module WebBlocks
     
     module Package
       
-      include ::WebBlocks::Path::Sources
+      include ::WebBlocks::Path::Source
       
       def init_submodule name
         
@@ -54,6 +54,13 @@ module WebBlocks
 
         stdout.length > 0
         
+      end
+      
+      def preprocess_submodule name
+
+        init_submodule name
+        update_submodule name
+          
       end
       
       def reset_submodule name

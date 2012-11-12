@@ -11,12 +11,14 @@ module WebBlocks
       class Jquery
         
         include ::WebBlocks::Build::Package
-        include ::WebBlocks::Path::Sources
         
-        def setup_build
+        def preprocess
           
-          init_submodule :jquery
-          update_submodule :jquery
+          preprocess_submodule :jquery
+          
+        end
+        
+        def compile
           
           unless File.exists?  "#{package_dir :jquery}/dist/jquery.js"
             
@@ -28,12 +30,6 @@ module WebBlocks
             end
             
           end
-          
-        end
-        
-        def build
-          
-          # TODO
           
         end
         

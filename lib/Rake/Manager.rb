@@ -13,7 +13,9 @@ module WebBlocks
           Dir.chdir("Task") do
             Dir.entries(Dir.pwd).sort.each do |file|
               next if file[0,1] == '.'
-              require file
+              log.info "Loading task definition from #{file}" do
+                require file
+              end
             end
           end
         end

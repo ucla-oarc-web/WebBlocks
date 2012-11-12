@@ -35,7 +35,7 @@ module WebBlocks
             
           end
           
-          append "#{package_dir :jquery}/dist/jquery.js", tmp_js_build_file
+          append_file "#{package_dir :jquery}/dist/jquery.js", tmp_js_build_file
           
         end
         

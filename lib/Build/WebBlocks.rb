@@ -16,17 +16,25 @@ module WebBlocks
       
       def preprocess
         
-        FileUtils.rm_rf tmp_build_dir
-        FileUtils.mkdir_p tmp_build_dir
-        FileUtils.mkdir_p tmp_css_build_dir
-        FileUtils.mkdir_p tmp_img_build_dir
-        FileUtils.mkdir_p tmp_js_build_dir
-        FileUtils.mkdir_p tmp_js_build_script_dir
+        log.task "WebBlocks", "Set up temporary build directory #{tmp_build_dir}" do
         
-        File.open(tmp_css_build_file, "w") {}
-        File.open(tmp_css_build_file_ie, "w") {}
-        File.open(tmp_js_build_file, "w") {}
-        File.open(tmp_js_build_file_ie, "w") {}
+          FileUtils.rm_rf tmp_build_dir
+          FileUtils.mkdir_p tmp_build_dir
+          FileUtils.mkdir_p tmp_css_build_dir
+          FileUtils.mkdir_p tmp_img_build_dir
+          FileUtils.mkdir_p tmp_js_build_dir
+          FileUtils.mkdir_p tmp_js_build_script_dir
+
+          File.open(tmp_css_build_file, "w") {}
+          File.open(tmp_css_build_file_ie, "w") {}
+          File.open(tmp_js_build_file, "w") {}
+          File.open(tmp_js_build_file_ie, "w") {}
+          
+          FileUtils.mkdir_p tmp_sass_lib_dir
+          File.open(tmp_sass_lib_file, "w") {}
+          File.open(tmp_sass_lib_file_ie, "w") {}
+        
+        end
         
       end
       

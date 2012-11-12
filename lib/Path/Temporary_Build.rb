@@ -42,6 +42,18 @@ module WebBlocks
         from_tmp_build_dir_to config[:build][:js][:dir], config[:build][:js][:name_script_dir]
       end
       
+      def tmp_sass_lib_dir
+        from_tmp_build_dir_to 'sass'
+      end
+      
+      def tmp_sass_lib_file
+        from_tmp_build_dir_to 'sass', '_WebBlocks.scss'
+      end
+      
+      def tmp_sass_lib_file_ie
+        from_tmp_build_dir_to 'sass', '_WebBlocks-ie.scss'
+      end
+      
       def from_tmp_build_dir_to *args
         args.unshift tmp_build_dir
         ::WebBlocks::Path.from_arr_to(args)

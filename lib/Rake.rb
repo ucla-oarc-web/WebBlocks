@@ -36,11 +36,21 @@ module WebBlocks
     
     def run
       
-      attach_packages
-      attach_adapters
-      attach_webblocks
+      log.task "Rake", "Attach packages" do
+        attach_packages
+      end
       
-      define_tasks
+      log.task "Rake", "Attach adapters" do
+        attach_adapters
+      end
+        
+      log.task "Rake", "Attach WebBlocks composer" do
+        attach_webblocks
+      end
+      
+      log.task "Rake", "Load task definitions" do
+        define_tasks
+      end
       
     end
     

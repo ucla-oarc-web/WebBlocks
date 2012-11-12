@@ -8,29 +8,18 @@ module WebBlocks
   
   module Build
     
-    module Package
+    module Core
       
-      class Modernizr
+      class Adapter
         
+        include ::WebBlocks::Path::Source
         include ::WebBlocks::Path::Temporary_Build
         include ::WebBlocks::Build::Submodule
         include ::WebBlocks::Build::Utilities
         
-        def preprocess
+        def link
           
-          preprocess_submodule :modernizr
           
-        end
-        
-        def compile
-          
-          append_file "#{package_dir :modernizr}/modernizr.js", tmp_js_build_file
-          
-        end
-        
-        def reset_package
-          
-          reset_submodule :modernizr
           
         end
         

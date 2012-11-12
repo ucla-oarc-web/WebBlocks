@@ -24,7 +24,7 @@ module WebBlocks
         
         def compile
           
-          append "#{package_dir :selectivizr}/selectivizr.js", tmp_js_build_file_ie
+          append_file "#{package_dir :selectivizr}/selectivizr.js", tmp_js_build_file_ie
           
         end
         

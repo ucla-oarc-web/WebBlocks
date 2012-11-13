@@ -1,8 +1,7 @@
 require 'rubygems'
 require 'extensions/kernel'
 require_relative '../../Path'
-require_relative '../Submodule'
-require_relative '../Utilities'
+require_relative '../Module'
 
 module WebBlocks
   
@@ -13,13 +12,13 @@ module WebBlocks
       class Definitions
         
         include ::WebBlocks::Path::Source
-        include ::WebBlocks::Path::Temporary_Build
-        include ::WebBlocks::Build::Submodule
-        include ::WebBlocks::Build::Utilities
+        include ::WebBlocks::Build::Module
         
         def link
           
-          
+          log.task "Core", "Linking core definitions" do
+            link_sass_libs_for src_core_definitions_dir
+          end
           
         end
         

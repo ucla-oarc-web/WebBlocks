@@ -7,5 +7,6 @@ task :build_img => [:init] do
   execute "compile_img"
   execute "assemble_img"
   execute "package_img"
+  execute "postprocess_img"
   
 end

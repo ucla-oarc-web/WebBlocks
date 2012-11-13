@@ -19,4 +19,8 @@ task :build => [:init] do
   # WebBlocks =>  Copy temporary build files/directories to final build location
   execute "package"
   
+  # Packages  =>  Hook in after the build has been packaged
+  # Adapters  =>  Hook in after the build has been packaged
+  execute "postprocess"
+  
 end

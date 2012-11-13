@@ -7,5 +7,6 @@ task :build_js => [:init] do
   execute "compile_js"
   execute "assemble_js"
   execute "package_js"
+  execute "postprocess_js"
   
 end

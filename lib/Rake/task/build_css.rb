@@ -7,5 +7,6 @@ task :build_css => [:init] do
   execute "compile_css"
   execute "assemble_css"
   execute "package_css"
+  execute "postprocess_css"
   
 end

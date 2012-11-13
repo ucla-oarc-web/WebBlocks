@@ -1,4 +1,4 @@
-task :reset => [:init, :reset_packages] do
+task :reset => [:init, :clean_all, :reset_packages] do
   
   execute "reset"
   

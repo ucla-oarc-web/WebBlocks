@@ -142,6 +142,8 @@ module WebBlocks
       def assemble
         
         assemble_css
+        assemble_img
+        assemble_js
         
       end
       
@@ -166,6 +168,53 @@ module WebBlocks
           get_files(dir, 'css').each do |src|
             dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
             append_file src, dst
+          end
+          
+        end
+        
+      end
+      
+      # TODO: add file by file logging
+      def assemble_img
+        
+        # TODO
+        
+      end
+      
+      # TODO: add file by file logging
+      def assemble_js
+        
+        log.task "WebBlocks", "Assembling JS core sources into JS files" do
+          
+          dir = src_js_core_dir
+          
+          get_files(dir, 'js').each do |src|
+            dst = tmp_js_build_file
+            append_file src, dst
+          end
+          
+        end
+        
+        log.task "WebBlocks", "Assembling JS core-ie sources into JS files" do
+          
+          dir = src_js_core_ie_dir
+          
+          get_files(dir, 'js').each do |src|
+            dst = tmp_js_build_file_ie
+            append_file src, dst
+          end
+          
+        end
+        
+        log.task "WebBlocks", "Assembling JS script sources into JS scripts dir" do
+          
+          dir = src_js_script_dir
+          
+          get_files(dir, 'js').each do |src|
+            relname = src.gsub /^#{dir}\//, ''
+            dst = "#{tmp_js_build_script_dir}/#{relname}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp src, dst
           end
           
         end

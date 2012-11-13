@@ -22,8 +22,31 @@ module WebBlocks
         
         def link_css
           
-          log.task "Core", "Linking core definitions" do
+          log.task "Core: Definitions", "Linking core definitions" do
             link_sass_libs_for src_core_definitions_dir
+          end
+          
+        end
+        
+        def assemble
+          
+          assemble_img
+          assemble_js
+          
+        end
+        
+        def assemble_img
+          
+          log.task "Core: Definitions", "Copying images from core definitions" do
+            assemble_img_files_for src_core_definitions_dir
+          end
+          
+        end
+        
+        def assemble_js
+          
+          log.task "Core: Definitions", "Copying JS from core definitions" do
+            assemble_js_libs_for src_core_definitions_dir
           end
           
         end

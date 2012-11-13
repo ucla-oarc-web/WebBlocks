@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
 
     $('.list.accordion').on('click', 'a', function (event) {
         event.preventDefault();

@@ -48,7 +48,7 @@ module WebBlocks
           end
           File.open(tmp_sass_lib_file_ie, "w") do |file|
             file.puts "@import \"#{tmp_sass_lib_file_variables}\";"
-            #TODO: figure out what to do with this
+            # TODO figure out what to do with this
             #file.puts "@import \"#{tmp_sass_lib_file_require}\";"
           end
         
@@ -156,6 +156,7 @@ module WebBlocks
           
           get_files(dir, 'css').each do |src|
             dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
+            log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
             append_file src, dst
           end
           
@@ -167,6 +168,7 @@ module WebBlocks
           
           get_files(dir, 'css').each do |src|
             dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
+            log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
             append_file src, dst
           end
           
@@ -174,7 +176,6 @@ module WebBlocks
         
       end
       
-      # TODO: add file by file logging
       def assemble_img
         
         log.task "WebBlocks", "Assembling JS core sources into JS files" do
@@ -184,6 +185,7 @@ module WebBlocks
           get_files(dir, ['gif','jpg','jpeg','png','bmp']).each do |src|
             relname = src.gsub /^#{dir}\//, ''
             dst = "#{tmp_img_build_dir}/#{relname}"
+            log.debug "#{tmp_img_build_dir.gsub /^#{root_dir}\//, ''} <- #{src.gsub /^#{root_dir}\//, ''}"
             FileUtils.mkdir_p File.dirname(dst)
             FileUtils.cp src, dst
           end
@@ -192,7 +194,6 @@ module WebBlocks
         
       end
       
-      # TODO: add file by file logging
       def assemble_js
         
         log.task "WebBlocks", "Assembling JS core sources into JS files" do
@@ -201,6 +202,7 @@ module WebBlocks
           
           get_files(dir, 'js').each do |src|
             dst = tmp_js_build_file
+            log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
             append_file src, dst
           end
           
@@ -212,6 +214,7 @@ module WebBlocks
           
           get_files(dir, 'js').each do |src|
             dst = tmp_js_build_file_ie
+            log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
             append_file src, dst
           end
           
@@ -224,6 +227,7 @@ module WebBlocks
           get_files(dir, 'js').each do |src|
             relname = src.gsub /^#{dir}\//, ''
             dst = "#{tmp_js_build_script_dir}/#{relname}"
+            log.debug "#{tmp_js_build_script_dir.gsub /^#{root_dir}\//, ''} <- #{src.gsub /^#{root_dir}\//, ''}"
             FileUtils.mkdir_p File.dirname(dst)
             FileUtils.cp src, dst
           end

@@ -95,6 +95,64 @@ module WebBlocks
 
       end
       
+      def assemble_img_files_for base_dir
+        
+        get_files(base_dir, ['gif','jpg','jpeg','png','bmp']).each do |file|
+          
+          dst = "#{tmp_img_build_dir}/#{file.gsub /^#{base_dir}\//, ''}"
+          log.debug "#{tmp_img_build_dir.gsub /^#{root_dir}\//, ''} <- #{file.gsub /^#{root_dir}\//, ''}"
+          FileUtils.mkdir_p File.dirname(dst)
+          FileUtils.cp_r file, dst
+          
+        end
+        
+      end
+      
+      def assemble_js_libs_for base_dir
+        
+        files = [[],[]]
+        ie_files = [[],[]]
+
+        get_files(base_dir, 'js').sort.each do |file|
+
+          if file.match /\/_+namespaces.js$/
+            files[0] << file
+          elsif file.match /\/_+namespaces\-ie.js$/
+            ie_files[0] << file
+          end
+
+        end
+
+        modules.each do |dir|
+
+          dir = ::WebBlocks::Path.to base_dir, dir
+
+          get_files(dir, 'js').sort.each do |file|
+
+            next if file.match /\/_+namespaces.js$/ or file.match /\/_+namespaces\-ie.js$/
+
+            if file.match /\-ie.js$/
+              ie_files[1] << file
+            else
+              files[1] << file
+            end
+
+          end
+
+        end
+        
+        files.flatten.each do |file|
+          log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+          append_file file, tmp_js_build_file
+        end
+        
+        ie_files.flatten.each do |file|
+          log.debug "#{tmp_js_build_file_ie.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+          append_file file, tmp_js_build_file_ie
+        end
+        
+      end
+      
     end
     
   end

@@ -20,7 +20,7 @@ module WebBlocks
       # Determine if file ends with ext (string or array of strings).
       def file_ext? file, ext
         return true unless ext
-        ext = ext.join '|' if ext.respond_to? 'join'
+        ext = ext.join '|' if ext.respond_to? :join
         file.match(/.*\.(#{ext})$/)
       end
 

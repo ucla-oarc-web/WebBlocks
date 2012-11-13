@@ -177,7 +177,18 @@ module WebBlocks
       # TODO: add file by file logging
       def assemble_img
         
-        # TODO
+        log.task "WebBlocks", "Assembling JS core sources into JS files" do
+          
+          dir = src_img_dir
+          
+          get_files(dir, ['gif','jpg','jpeg','png','bmp']).each do |src|
+            relname = src.gsub /^#{dir}\//, ''
+            dst = "#{tmp_img_build_dir}/#{relname}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp src, dst
+          end
+          
+        end
         
       end
       

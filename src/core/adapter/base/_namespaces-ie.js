@@ -1,4 +1,4 @@
 if(typeof Blocks == 'undefined')
-    var Blocks = {}
+    var Blocks = {};
 
-Blocks.IE = {}
+Blocks.IE = {};

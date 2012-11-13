@@ -3,6 +3,7 @@ require 'extensions/kernel'
 require 'systemu'
 require 'fileutils'
 require_relative '../Path'
+require_relative 'Utilities'
 
 module WebBlocks
   
@@ -13,6 +14,7 @@ module WebBlocks
       include ::WebBlocks::Path::Source
       include ::WebBlocks::Path::Temporary_Build
       include ::WebBlocks::Path::Build
+      include ::WebBlocks::Build::Utilities
       
       def preprocess
         
@@ -34,14 +36,58 @@ module WebBlocks
           File.open(tmp_sass_lib_file_variables, "w") {}
           File.open(tmp_sass_lib_file_require, "w") {}
           File.open(tmp_sass_lib_file, "w") do |file|
-            file.puts "@import \"#{tmp_sass_lib_file_variables}\""
-            file.puts "@import \"#{tmp_sass_lib_file_require}\""
+            file.puts "@import \"#{tmp_sass_lib_file_variables}\";"
+            file.puts "@import \"#{tmp_sass_lib_file_require}\";"
           end
           File.open(tmp_sass_lib_file_ie, "w") do |file|
-            file.puts "@import \"#{tmp_sass_lib_file_variables}\""
-            file.puts "@import \"#{tmp_sass_lib_file_require}\""
+            file.puts "@import \"#{tmp_sass_lib_file_variables}\";"
+            #TODO: figure out what to do with this
+            #file.puts "@import \"#{tmp_sass_lib_file_require}\";"
           end
         
+        end
+        
+      end
+      
+      def link
+        
+        log.task "Core", "Linking source variables files" do
+          File.open tmp_sass_lib_file_variables, "a" do |variables_linker|
+            get_files(src_sass_dir, 'scss').each do |file|
+              next unless file.match /\/_+variables.scss$/
+              variables_linker << "@import \"#{file}\";\n"
+            end
+          end
+        end
+        
+      end
+      
+      def compile
+        
+        log.task "WebBlocks", "Run compass compiler" do
+          
+          success = true
+          environment = config[:build][:debug] ? "development" : "production"
+          
+          Dir.chdir tmp_build_dir do
+            
+            status, stdout, stderr = systemu "#{config[:exec][:compass]} compile -e #{environment} --boring --sass-dir #{src_sass_dir} --config \"#{src_core_compass_config_file}\""
+            
+            success = false if status != 0
+            if success
+              log.debug stdout
+            else
+              log.failure "Compiler", "Compass compile error: \n#{stdout}\n#{stderr}"
+            end
+            
+            # remove SASS includes directory if within compile directory
+            if src_sass_includes_dir and src_sass_includes_dir.match /^#{src_sass_dir}\//
+              relname = src_sass_includes_dir.sub /^#{src_sass_dir}\//, ''
+              FileUtils.rm_rf "#{tmp_css_build_dir}/compiled/#{relname}"
+            end
+            
+          end
+          
         end
         
       end

@@ -48,8 +48,6 @@ module WebBlocks
           end
           File.open(tmp_sass_lib_file_ie, "w") do |file|
             file.puts "@import \"#{tmp_sass_lib_file_variables}\";"
-            # TODO figure out what to do with this
-            #file.puts "@import \"#{tmp_sass_lib_file_require}\";"
           end
         
         end

@@ -63,6 +63,6 @@
     $(window).load(reflowNavbarOverflows);
     $(window).resize(reflowNavbarOverflows)
     
-})()
+})();
 
 

@@ -43,4 +43,13 @@
 }
 
 @mixin -entity-nav-list-accordion {
+	
+	ul ul, ul ol, ol ul, ol ol {
+		display: none;
+	}
+
+	.active>ul, .active>ol {
+		display: block;
+	}
+
 }

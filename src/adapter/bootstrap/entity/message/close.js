@@ -9,4 +9,4 @@ $(window).load(function(){
         
         $(this).prepend('<button type="button" class="close" data-dismiss="alert">×</button>')
     })
-})
+});

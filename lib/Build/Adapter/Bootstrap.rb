@@ -27,6 +27,12 @@ module WebBlocks
         
         def link
           
+          link_css
+          
+        end
+        
+        def link_css
+          
           log.task "Adapter", "Linking bootstrap adapter" do
             link_sass_libs_for src_adapter_dir :bootstrap
           end

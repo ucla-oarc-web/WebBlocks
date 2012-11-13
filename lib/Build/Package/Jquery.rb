@@ -18,11 +18,23 @@ module WebBlocks
         
         def preprocess
           
+          preprocess_js
+          
+        end
+        
+        def preprocess_js
+          
           preprocess_submodule :jquery
           
         end
         
         def compile
+          
+          compile_js
+          
+        end
+        
+        def compile_js
           
           unless File.exists? "#{package_dir :jquery}/dist/jquery.js"
             
@@ -35,7 +47,19 @@ module WebBlocks
             
           end
           
-          append_file "#{package_dir :jquery}/dist/jquery.js", tmp_js_build_file
+        end
+        
+        def assemble
+          
+          assemble_js
+          
+        end
+        
+        def assemble_js
+          
+          log.task "Package: jQuery", "Copying jQuery sources to JS build file" do
+            append_file "#{package_dir :jquery}/dist/jquery.js", tmp_js_build_file
+          end
           
         end
         

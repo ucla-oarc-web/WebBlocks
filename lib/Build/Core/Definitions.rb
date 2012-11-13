@@ -16,6 +16,12 @@ module WebBlocks
         
         def link
           
+          link_css
+          
+        end
+        
+        def link_css
+          
           log.task "Core", "Linking core definitions" do
             link_sass_libs_for src_core_definitions_dir
           end

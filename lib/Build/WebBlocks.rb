@@ -145,7 +145,6 @@ module WebBlocks
         
       end
       
-      # TODO: add file by file logging
       def assemble_css
         
         log.task "WebBlocks", "Assembling compiled sources into CSS files" do
@@ -254,11 +253,19 @@ module WebBlocks
         log.task "WebBlocks", "Packaging CSS build files" do
           
           log.info "Copying #{tmp_css_build_file} to #{css_build_file}" do
-            FileUtils.cp tmp_css_build_file, css_build_file
+            if config[:build][:debug]
+              FileUtils.cp tmp_css_build_file, css_build_file
+            else
+              Append.compressed_css_file tmp_css_build_file, css_build_file
+            end
           end
           
           log.info "Copying #{tmp_css_build_file_ie} to #{css_build_file_ie}" do
-            FileUtils.cp tmp_css_build_file_ie, css_build_file_ie
+            if config[:build][:debug]
+              FileUtils.cp tmp_css_build_file_ie, css_build_file_ie
+            else
+              Append.compressed_css_file tmp_css_build_file_ie, css_build_file_ie
+            end
           end
           
         end
@@ -289,11 +296,19 @@ module WebBlocks
         log.task "WebBlocks", "Packaging JS build files" do
           
           log.info "Copying #{tmp_js_build_file} to #{js_build_file}" do
-            FileUtils.cp tmp_js_build_file, js_build_file
+            if config[:build][:debug]
+              FileUtils.cp tmp_js_build_file, js_build_file
+            else
+              log.failure "Compression error encountered" unless Append.compressed_js_file tmp_js_build_file, js_build_file
+            end
           end
           
           log.info "Copying #{tmp_js_build_file_ie} to #{js_build_file_ie}" do
-            FileUtils.cp tmp_js_build_file_ie, js_build_file_ie
+            if config[:build][:debug]
+              FileUtils.cp tmp_js_build_file_ie, js_build_file_ie
+            else
+              log.failure "Compression error encountered" unless Append.compressed_js_file tmp_js_build_file_ie, js_build_file_ie
+            end
           end
           
           log.info "Copying #{tmp_js_build_script_dir} to #{js_build_script_dir}" do
@@ -311,6 +326,20 @@ module WebBlocks
           FileUtils.rm_rf build_dir
         end
         
+      end
+      
+      module Append
+
+        def self.compressed_css_file src, dst
+          status, stdout, stderr = systemu "#{config[:exec][:uglifycss]} \"#{src}\" > \"#{dst}\""
+          status == 0
+        end
+
+        def self.compressed_js_file src, dst
+          status, stdout, stderr = systemu "#{config[:exec][:uglifyjs]} --unsafe \"#{src}\" > \"#{dst}\""
+          status == 0
+        end
+      
       end
       
     end

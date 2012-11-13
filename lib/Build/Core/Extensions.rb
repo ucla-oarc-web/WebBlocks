@@ -46,7 +46,7 @@ module WebBlocks
                         
 
                         log.debug "#{File.basename target.path} <- #{file}"
-                        target << "@import \"#{file}\"\n"
+                        target << "@import \"#{file}\";\n"
 
                       end
                       

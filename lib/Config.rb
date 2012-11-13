@@ -89,7 +89,7 @@ module WebBlocks
     :sass     => {
       :dir => 'sass',
       :includes => {
-        :dir => 'blocks'
+        :dir => 'includes'
       }
     },
     :css      => {

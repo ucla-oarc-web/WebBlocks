@@ -58,6 +58,14 @@ module WebBlocks
         ::WebBlocks::Path.from_arr_to(args)
       end
       
+      def src_sass_dir
+        from_src_dir_to config[:src][:sass][:dir]
+      end
+      
+      def src_sass_includes_dir
+         from_src_dir_to config[:src][:sass][:dir], config[:src][:sass][:includes][:dir]
+      end
+      
     end
     
   end

@@ -73,7 +73,7 @@ module WebBlocks
                   end
 
                   log.debug "#{File.basename target.path} <- #{file}"
-                  target << "@import \"#{file}\"\n"
+                  target << "@import \"#{file}\";\n"
                   
                 end
 
@@ -88,7 +88,7 @@ module WebBlocks
 
           get_files(base_dir, 'scss').each do |file|
             next unless file.match /\/_+variables.scss$/
-            variables_linker << "@import \"#{file}\"\n"
+            variables_linker << "@import \"#{file}\";\n"
           end
 
         end

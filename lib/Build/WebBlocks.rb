@@ -245,7 +245,7 @@ module WebBlocks
         
       end
       
-      def package_css # TODO add minification
+      def package_css
         
         FileUtils.mkdir_p build_dir
         FileUtils.mkdir_p css_build_dir
@@ -288,7 +288,7 @@ module WebBlocks
         
       end
       
-      def package_js # TODO add minification
+      def package_js
         
         FileUtils.mkdir_p build_dir
         FileUtils.mkdir_p js_build_dir
@@ -299,7 +299,7 @@ module WebBlocks
             if config[:build][:debug]
               FileUtils.cp tmp_js_build_file, js_build_file
             else
-              log.failure "Compression error encountered" unless Append.compressed_js_file tmp_js_build_file, js_build_file
+              log.failure "Compression error encountered in #{tmp_js_build_file}" unless Append.compressed_js_file tmp_js_build_file, js_build_file
             end
           end
           
@@ -307,13 +307,24 @@ module WebBlocks
             if config[:build][:debug]
               FileUtils.cp tmp_js_build_file_ie, js_build_file_ie
             else
-              log.failure "Compression error encountered" unless Append.compressed_js_file tmp_js_build_file_ie, js_build_file_ie
+              log.failure "Compression error encountered in #{tmp_js_build_file_ie}" unless Append.compressed_js_file tmp_js_build_file_ie, js_build_file_ie
             end
           end
           
           log.info "Copying #{tmp_js_build_script_dir} to #{js_build_script_dir}" do
+            
             FileUtils.rm_rf js_build_script_dir
-            FileUtils.cp_r tmp_js_build_script_dir, js_build_script_dir
+            
+            if config[:build][:debug]
+              FileUtils.cp_r tmp_js_build_script_dir, js_build_script_dir
+            else
+              get_files(tmp_js_build_script_dir).each do |src|
+                dst = "#{js_build_script_dir}/#{src.gsub /^#{tmp_js_build_script_dir}\//, ''}"
+                FileUtils.mkdir_p File.dirname dst
+                log.failure "Compression error encountered in #{src}" unless Append.compressed_js_file src, dst
+              end
+            end
+            
           end
           
         end

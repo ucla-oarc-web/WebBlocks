@@ -145,13 +145,25 @@ module WebBlocks
         
       end
       
+      # TODO: add file by file logging
       def assemble_css
         
         log.task "WebBlocks", "Assembling compiled sources into CSS files" do
           
           dir = "#{tmp_css_build_dir}/compiled"
           
-          get_files(dir, 'css').sort.each do |src|
+          get_files(dir, 'css').each do |src|
+            dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
+            append_file src, dst
+          end
+          
+        end
+        
+        log.task "WebBlocks", "Assembling CSS sources into CSS files" do
+          
+          dir = src_css_dir
+          
+          get_files(dir, 'css').each do |src|
             dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
             append_file src, dst
           end

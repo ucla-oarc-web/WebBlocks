@@ -54,6 +54,14 @@ module WebBlocks
         from_tmp_build_dir_to 'sass', '_WebBlocks-ie.scss'
       end
       
+      def tmp_sass_lib_file_require
+        from_tmp_build_dir_to 'sass', '_WebBlocks-require.scss'
+      end
+      
+      def tmp_sass_lib_file_variables
+        from_tmp_build_dir_to 'sass', '_WebBlocks-variables.scss'
+      end
+      
       def from_tmp_build_dir_to *args
         args.unshift tmp_build_dir
         ::WebBlocks::Path.from_arr_to(args)

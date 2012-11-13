@@ -64,7 +64,7 @@ module WebBlocks
       
       def compile
         
-        log.task "WebBlocks", "Run compass compiler" do
+        log.task "WebBlocks", "Run Compass compiler" do
           
           success = true
           environment = config[:build][:debug] ? "development" : "production"
@@ -86,6 +86,21 @@ module WebBlocks
               FileUtils.rm_rf "#{tmp_css_build_dir}/compiled/#{relname}"
             end
             
+          end
+          
+        end
+        
+      end
+      
+      def assemble
+        
+        log.task "WebBlocks", "Assembling compiled sources into CSS files" do
+          
+          dir = "#{tmp_css_build_dir}/compiled"
+          
+          get_files(dir, 'css').sort.each do |src|
+            dst = src.match(/\-ie.css$/) ? tmp_css_build_file_ie : tmp_css_build_file
+            append_file src, dst
           end
           
         end

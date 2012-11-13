@@ -16,6 +16,12 @@ module WebBlocks
         
         def link
           
+          link_css
+          
+        end
+        
+        def link_css
+          
           return unless config[:src][:extensions]
           
           extensions = config[:src][:extensions].respond_to?(:each) ? config[:src][:extensions] : [config[:src][:extensions]]

@@ -18,19 +18,26 @@ module WebBlocks
       
       def preprocess
         
-        log.task "WebBlocks", "Set up temporary build directory #{tmp_build_dir}" do
+        log.task "WebBlocks", "Set up temporary build directory" do
         
-          FileUtils.rm_rf tmp_build_dir
+          preprocess_css
+          preprocess_img
+          preprocess_js
+        
+        end
+        
+      end
+      
+      def preprocess_css
+        
+        log.task "WebBlocks", "Set up CSS temporary build region" do
+        
           FileUtils.mkdir_p tmp_build_dir
+          FileUtils.rm_rf tmp_css_build_dir
           FileUtils.mkdir_p tmp_css_build_dir
-          FileUtils.mkdir_p tmp_img_build_dir
-          FileUtils.mkdir_p tmp_js_build_dir
-          FileUtils.mkdir_p tmp_js_build_script_dir
 
           File.open(tmp_css_build_file, "w") {}
           File.open(tmp_css_build_file_ie, "w") {}
-          File.open(tmp_js_build_file, "w") {}
-          File.open(tmp_js_build_file_ie, "w") {}
           
           FileUtils.mkdir_p tmp_sass_lib_dir
           File.open(tmp_sass_lib_file_variables, "w") {}
@@ -49,9 +56,43 @@ module WebBlocks
         
       end
       
+      def preprocess_img
+        
+        log.task "WebBlocks", "Set up image temporary build region" do
+        
+          FileUtils.mkdir_p tmp_build_dir
+          FileUtils.rm_rf tmp_img_build_dir
+          FileUtils.mkdir_p tmp_img_build_dir
+        
+        end
+        
+      end
+      
+      def preprocess_js
+        
+        log.task "WebBlocks", "Set up JS temporary build region" do
+        
+          FileUtils.mkdir_p tmp_build_dir
+          FileUtils.rm_rf tmp_js_build_dir
+          FileUtils.mkdir_p tmp_js_build_dir
+          FileUtils.mkdir_p tmp_js_build_script_dir
+          
+          File.open(tmp_js_build_file, "w") {}
+          File.open(tmp_js_build_file_ie, "w") {}
+          
+        end
+        
+      end
+      
       def link
         
-        log.task "Core", "Linking source variables files" do
+        link_css
+        
+      end
+      
+      def link_css
+        
+        log.task "WebBlocks", "Linking source variables files" do
           File.open tmp_sass_lib_file_variables, "a" do |variables_linker|
             get_files(src_sass_dir, 'scss').each do |file|
               next unless file.match /\/_+variables.scss$/
@@ -63,6 +104,12 @@ module WebBlocks
       end
       
       def compile
+        
+        compile_css
+        
+      end
+      
+      def compile_css
         
         log.task "WebBlocks", "Run Compass compiler" do
           
@@ -94,6 +141,12 @@ module WebBlocks
       
       def assemble
         
+        assemble_css
+        
+      end
+      
+      def assemble_css
+        
         log.task "WebBlocks", "Assembling compiled sources into CSS files" do
           
           dir = "#{tmp_css_build_dir}/compiled"
@@ -107,16 +160,24 @@ module WebBlocks
         
       end
       
-      def package # TODO add minification
+      def package
         
-        log.task "WebBlocks", "Packaging build files into #{build_dir}" do
+        log.task "WebBlocks", "Packaging build files" do
         
-          log.info "Creating build directories" do
-            FileUtils.mkdir_p build_dir
-            FileUtils.mkdir_p css_build_dir
-            FileUtils.mkdir_p img_build_dir
-            FileUtils.mkdir_p js_build_dir
-          end
+          package_css
+          package_img
+          package_js
+          
+        end
+        
+      end
+      
+      def package_css # TODO add minification
+        
+        FileUtils.mkdir_p build_dir
+        FileUtils.mkdir_p css_build_dir
+        
+        log.task "WebBlocks", "Packaging CSS build files" do
           
           log.info "Copying #{tmp_css_build_file} to #{css_build_file}" do
             FileUtils.cp tmp_css_build_file, css_build_file
@@ -126,10 +187,32 @@ module WebBlocks
             FileUtils.cp tmp_css_build_file_ie, css_build_file_ie
           end
           
+        end
+        
+      end
+      
+      def package_img
+        
+        FileUtils.mkdir_p build_dir
+        FileUtils.mkdir_p img_build_dir
+        
+        log.task "WebBlocks", "Packaging image build files" do
+          
           log.info "Copying #{tmp_img_build_dir} to #{img_build_dir}" do
             FileUtils.rm_rf img_build_dir
             FileUtils.cp_r tmp_img_build_dir, img_build_dir
           end
+          
+        end
+        
+      end
+      
+      def package_js # TODO add minification
+        
+        FileUtils.mkdir_p build_dir
+        FileUtils.mkdir_p js_build_dir
+        
+        log.task "WebBlocks", "Packaging JS build files" do
           
           log.info "Copying #{tmp_js_build_file} to #{js_build_file}" do
             FileUtils.cp tmp_js_build_file, js_build_file
@@ -150,7 +233,9 @@ module WebBlocks
       
       def clean
         
-        FileUtils.rm_rf build_dir
+        log.task "WebBlocks", "Removing build directory" do
+          FileUtils.rm_rf build_dir
+        end
         
       end
       

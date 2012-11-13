@@ -18,13 +18,27 @@ module WebBlocks
         
         def preprocess
           
+          preprocess_js
+          
+        end
+        
+        def preprocess_js
+          
           preprocess_submodule :selectivizr
           
         end
         
-        def compile
+        def assemble
           
-          append_file "#{package_dir :selectivizr}/selectivizr.js", tmp_js_build_file_ie
+          assemble_js
+          
+        end
+        
+        def assemble_js
+          
+          log.task "Package: Selectivizr", "Copying Selectivizr sources to IE JS build file" do
+            append_file "#{package_dir :selectivizr}/selectivizr.js", tmp_js_build_file_ie
+          end
           
         end
         

@@ -16,6 +16,14 @@ module WebBlocks
       include ::WebBlocks::Path::Build
       include ::WebBlocks::Build::Utilities
       
+      def init
+        
+        log.task "WebBlocks", "Initializing WebBlocks metadata" do
+          FileUtils.mkdir "#{root_dir}/.blocks" unless File.exists? "#{root_dir}/.blocks"
+        end
+        
+      end
+      
       def preprocess
         
         log.task "WebBlocks", "Set up temporary build directory" do
@@ -335,6 +343,14 @@ module WebBlocks
         
         log.task "WebBlocks", "Removing build directory" do
           FileUtils.rm_rf build_dir
+        end
+        
+      end
+      
+      def reset
+        
+        log.task "WebBlocks", "Removing WebBlocks metadata" do
+          FileUtils.rm_rf "#{root_dir}/.blocks"
         end
         
       end

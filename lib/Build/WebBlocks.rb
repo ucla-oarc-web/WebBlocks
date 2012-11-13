@@ -183,7 +183,7 @@ module WebBlocks
       
       def assemble_img
         
-        log.task "WebBlocks", "Assembling JS core sources into JS files" do
+        log.task "WebBlocks", "Assembling image sources into JS files" do
           
           dir = src_img_dir
           

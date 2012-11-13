@@ -11,12 +11,10 @@ module WebBlocks
     module Utilities
       
       def append_file src, dst
-        
         contents = File.read src
         File.open dst, "a" do |handle|
           handle.puts contents
         end
-        
       end
       
       # Determine if file ends with ext (string or array of strings).

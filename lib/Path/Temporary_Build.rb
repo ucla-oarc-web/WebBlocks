@@ -1,10 +1,16 @@
 # DO NOT INCLUDE DIRECTLY -- use /lib/Path instead
 
+require 'rubygems'
+require 'extensions/kernel'
+require_relative 'Root'
+
 module WebBlocks
   
   module Path
     
     module Temporary_Build
+      
+      include ::WebBlocks::Path::Root
       
       def tmp_build_dir
         ::WebBlocks::Path.from_root_to config[:build][:dir_tmp]

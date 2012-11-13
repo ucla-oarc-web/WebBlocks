@@ -1,10 +1,16 @@
 # DO NOT INCLUDE DIRECTLY -- use /lib/Path instead
 
+require 'rubygems'
+require 'extensions/kernel'
+require_relative 'Root'
+
 module WebBlocks
   
   module Path
     
     module Build
+      
+      include ::WebBlocks::Path::Root
       
       def css_build_dir
         from_build_dir_to config[:build][:css][:dir]

@@ -58,7 +58,9 @@ module WebBlocks
         def assemble_js
           
           log.task "Package: jQuery", "Copying jQuery sources to JS build file" do
-            append_file "#{package_dir :jquery}/dist/jquery.js", tmp_js_build_file
+            file = "#{package_dir :jquery}/dist/jquery.js"
+            log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+            append_file file, tmp_js_build_file
           end
           
         end

@@ -1,10 +1,16 @@
 # DO NOT INCLUDE DIRECTLY -- use /lib/Path instead
 
+require 'rubygems'
+require 'extensions/kernel'
+require_relative 'Root'
+
 module WebBlocks
   
   module Path
     
     module Source
+      
+      include ::WebBlocks::Path::Root
       
       def package_dir package
         ::WebBlocks::Path.from_root_to config[:package][:dir], config[:package][package][:dir]

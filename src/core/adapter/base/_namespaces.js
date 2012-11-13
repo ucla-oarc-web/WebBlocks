@@ -1,2 +1,2 @@
 if(typeof blocks == 'undefined')
-    var Blocks = {}
+    var Blocks = {};

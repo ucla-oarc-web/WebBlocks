@@ -22,10 +22,12 @@
             
         > input, > select, > textarea {
             
+            *max-width: 95%; /* hack because no border-box support */
             @include box-sizing(border-box);
             
             &.full {
                 width: 100%;
+                *width: 95%; /* hack because no border-box support */
             }
         }
     

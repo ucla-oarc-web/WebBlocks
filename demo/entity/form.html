@@ -2,7 +2,7 @@
 <html>
     
     <head>
-        <title>List</title>
+        <title>Form</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link rel="stylesheet" href="../../build/css/blocks.css">
@@ -23,38 +23,38 @@
             <form class="form horizontal">
 
                 <div class="control">
-                    <label for="in-1">Input</label>
-                    <input type="text" id="in-1">
-                    <p>Subtext</p>
+                    <label for="in-1">label[for='in-1']</label>
+                    <input type="text" id="in-1" aria-describedby="help-in-1" value="input#in-1[aria-describedby='hlp-in-1']">
+                    <p id="help-in-1">p#help-in-1</p>
                 </div>
 
                 <div class="control">
-                    <input type="text" id="in-2">
-                    <p>Unlabeled input</p>
+                    <input type="text" title="Implicit Label" id="in-2" aria-describedby="help-in-2" value="input#in-2[aria-describedby='hlp-in-2'][title='Implicit Label']">
+                    <p id="help-in-2">p#help-in-2 (unlabeled)</p>
                 </div>
 
                 <div class="control">
-                    <label for="in-3">Input long label that should overflow because it's way too long blah blah blah blah</label>
-                    <input type="text" id="in-3">
-                    <p>Subtext</p>
+                    <label for="in-3">label[for='in-2'] Very long label for the input which should be clearfixed</label>
+                    <input type="text" id="in-3" aria-describedby="help-in-3" value="input#in-3[aria-describedby='hlp-in-3']">
+                    <p id="help-in-3">p#help-in-3</p>
                 </div>
 
                 <div class="control">
-                    <label for="in-1">Full Width Input</label>
-                    <input type="text" id="in-1" class="full">
-                    <p>Subtext</p>
+                    <label for="in-4">Full Width Input</label>
+                    <input type="text" id="in-4" class="full" aria-describedby="help-in-4" value="input.full#in-4[aria-describedby='hlp-in-4']">
+                    <p id="help-in-4">p#help-in-4</p>
                 </div>
 
                 <div class="control">
-                    <label for="txt-1">Textarea</label>
-                    <textarea id="txt-1"></textarea>
-                    <p>Subtext</p>
+                    <label for="txt-1">label[for='txt-1']</label>
+                    <textarea id="txt-1" aria-describedby="help-txt-1">textarea#txt-1[aria-describedby='hlp-txt-1']</textarea>
+                    <p id="help-txt-1">p#help-txt-1</p>
                 </div>
 
                 <div class="control">
-                    <label for="txt-1">Textarea</label>
-                    <textarea id="txt-1" class="full"></textarea>
-                    <p>Subtext</p>
+                    <label for="txt-2">label[for='txt-2']</label>
+                    <textarea id="txt-2" class="full" aria-describedby="help-txt-2">textarea.full#txt-2[aria-describedby='hlp-txt-2']</textarea>
+                    <p id="help-txt-2" class="important text">p.important#help-txt-2</p>
                 </div>
 
                 <fieldset>
@@ -62,22 +62,15 @@
                     <legend>Fieldset Legend</legend>
 
                     <div class="control">
-                        <label for="in-f-1">Input</label>
-                        <input type="text" id="in-f-1">
-                        <p>Subtext</p>
+                        <label for="f-in-1">label[for='f-in-1']</label>
+                        <input type="text" id="f-in-1" aria-describedby="help-f-in-1" value="input#f-in-1[aria-describedby='hlp-f-in-1']">
+                        <p id="help-f-in-1">p#help-f-in-1</p>
                     </div>
-
+                    
                     <div class="control">
-                        <label for="in-f-2">Input long label that should overflow</label>
-                        <p>Subtext above</p>
-                        <input type="text" id="in-f-2">
-                        <p>Subtext below</p>
-                    </div>
-
-                    <div class="control">
-                        <label for="txt-f-1">Textarea</label>
-                        <textarea id="txt-f-1" class="full"></textarea>
-                        <p>Subtext</p>
+                        <label for="f-in-2">Full Width Input</label>
+                        <input type="text" id="f-in-2" class="full" aria-describedby="help-f-in-2" value="input.full#f-in-2[aria-describedby='hlp-f-in-2']">
+                        <p id="help-f-in-2">p#help-f-in-2</p>
                     </div>
 
                 </fieldset>

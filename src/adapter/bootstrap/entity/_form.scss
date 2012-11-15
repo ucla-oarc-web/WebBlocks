@@ -9,7 +9,8 @@
         }
         
         > p {
-            @extend .help-block;
+            color: lighten($textColor, 30%);
+            @extend .text;
         }
             
         > * {

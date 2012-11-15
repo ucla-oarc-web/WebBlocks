@@ -13,6 +13,37 @@
 
 module WebBlocks
   
+  module Config
+    
+    def config
+
+      # Get config custom settings if not already loaded
+      unless ::WebBlocks.config[:loaded]
+        
+        # Parse the --config option if specified
+        options = {}
+        OptionParser.new do |opts|
+          opts.banner = "Usage: rake [options]"
+          options[:config] = false
+          opts.on( '-c', '--config [OPT]', "Config file location (optional)" ) do |filename|
+            options[:config] = filename || false
+          end
+        end.parse!
+
+        # Load the configuration file, either Rakefile-config.rb or as specified by
+        # the command-line argument --config
+        load ::WebBlocks::Path.from_root_to options[:config] ? options[:config] : 'Rakefile-config.rb'
+        
+        ::WebBlocks.config[:loaded] = true
+      
+      end
+      
+      ::WebBlocks.config
+
+    end
+    
+  end
+  
   @config = Hash.new
   
   # build configuration
@@ -46,7 +77,6 @@ module WebBlocks
   
   @config[:build][:packages] = [
     :jquery,
-    :bootstrap,
     :modernizr,
     :respond,
     :selectivizr
@@ -59,7 +89,7 @@ module WebBlocks
     :sass     => {
       :dir => 'sass',
       :includes => {
-        :dir => 'blocks'
+        :dir => 'includes'
       }
     },
     :css      => {

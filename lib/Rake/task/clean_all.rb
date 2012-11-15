@@ -1,0 +1,1 @@
+task :clean_all => [:init, :clean, :clean_packages]

@@ -108,6 +108,42 @@ module WebBlocks
         
       end
       
+      def assemble_js_libs_into_file_for base_dir, target_absolute_name
+        
+        puts base_dir
+        puts target_absolute_name
+        
+        files = [[],[]]
+        
+        get_files(base_dir, 'js').sort.each do |file|
+
+          if file.match /\/_+namespaces.js$/ or file.match /\/_+namespaces\-ie.js$/
+            files[0] << file
+          end
+
+        end
+        
+        modules.each do |dir|
+
+          dir = ::WebBlocks::Path.to base_dir, dir
+
+          get_files(dir, 'js').sort.each do |file|
+
+            next if file.match /\/_+namespaces.js$/ or file.match /\/_+namespaces\-ie.js$/
+
+            files[1] << file
+
+          end
+
+        end
+        
+        files.flatten.each do |file|
+          log.debug "#{target_absolute_name.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+          append_file file, target_absolute_name
+        end
+        
+      end
+      
       def assemble_js_libs_for base_dir
         
         files = [[],[]]

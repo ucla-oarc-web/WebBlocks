@@ -10,7 +10,7 @@ rootdir = File.dirname(File.dirname(File.dirname(Pathname.new(__FILE__).realpath
 additional_import_paths = ["#{rootdir}/package", "sass"]
 
 http_path = "/"
-css_dir = "css"
+css_dir = "css/compiled"
 images_dir = "img"
 fonts_dir = "fonts"
 javascripts_dir = "js"

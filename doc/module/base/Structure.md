@@ -31,9 +31,12 @@ will not be optimal.
 
 ### Container
 
-The `.container` element offers a simple way to wrap main body content. It is
-not intended to be used as an interior element, nor is its behavior defined if
-a `.container` is placed within another `.container`.
+The `.container` element offers a simple way to wrap main body content. It can
+be applied to the `body` directly to contain the entire site contents, or it can
+be applied as a containing element over a subset of elements. It is not intended
+to be used as an interior element when another element has already contained the
+workspace below `$structure-container-width-max` (if set), nor is its behavior 
+defined if a `.container` is placed within another `.container`.
 
 The container has two configurable properties with the following defaults:
 

@@ -16,12 +16,12 @@ module WebBlocks
       def modules
         
         if config[:src][:modules] == :all
-          all_modules
-        elsif config[:src][:modules]
-          config[:src][:modules].respond_to?(:each) ? config[:src][:modules] : [config[:src][:modules]]
-        else
-          []
+          config[:src][:modules] = all_modules
+        elsif !config[:src][:modules].respond_to?(:each)
+          config[:src][:modules] = [config[:src][:modules]]
         end
+        
+        config[:src][:modules]
         
       end
       
@@ -38,59 +38,177 @@ module WebBlocks
         modules
         
       end
-    
-      def link_sass_libs_for base_dir
-
-        File.open tmp_sass_lib_file, "a" do |linker|
-          File.open tmp_sass_lib_file_ie, "a" do |ie_linker|
-            File.open tmp_sass_lib_file_require, "a" do |require_linker|
-
-              # Pull _require.scss file from root (special file)
-              get_files(base_dir, 'scss', false).sort.each do |file|
-                
-                next unless file.match /\/_+require.scss$/
-                
-                log.debug "#{File.basename require_linker.path} <- #{file}"
-                require_linker << "@import \"#{file}\"\n"
-                
-              end
-              
-              # For all modules, link files as standard, IE and require
-              modules.each do |dir|
-
-                dir = ::WebBlocks::Path.to base_dir, dir
-
-                get_files(dir, 'scss').sort.each do |file|
-
-                  next if file.match /\/_+variables.scss$/
-
-                  if file.match /\/_+require.scss$/
-                    target = require_linker
-                  elsif file.match /-ie.scss$/
-                    target = ie_linker
-                  else
-                    target = linker 
-                  end
-
-                  log.debug "#{File.basename target.path} <- #{file}"
-                  target << "@import \"#{file}\";\n"
-                  
-                end
-
-              end
-
-            end
-          end
+      
+      def sass_libs_for base_dir
+        
+        files = []
+        
+        get_files(base_dir, 'scss').each do |file|
+          files << file if file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
         end
 
-        # Link all variables files
-        File.open tmp_sass_lib_file_variables, "a" do |variables_linker|
+        get_files(base_dir, 'scss', false).each do |file|
+          files << file unless file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+        end
+        
+        modules.each do |dir|
+          
+          subpath = ''
+          
+          dir.split('/').each do |segment|
+            
+            subpath << '/' unless subpath.length == 0
+            subpath << segment
+            path = ::WebBlocks::Path.to base_dir, subpath
+            
+            if File.exists? "#{path}.scss"
+              files << "#{path}.scss"
+            end
 
-          get_files(base_dir, 'scss').each do |file|
-            next unless file.match /\/_+variables.scss$/
-            variables_linker << "@import \"#{file}\";\n"
+            if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}.scss"
+              files << "#{File.dirname(path)}/_#{File.basename(path)}.scss"
+            end
+
+            if File.exists? "#{dir}-ie.scss"
+              files << "#{dir}-ie.scss"
+            end
+
+            if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}-ie.scss"
+              files << "#{File.dirname(path)}/_#{File.basename(path)}-ie.scss"
+            end
+            
           end
+          
+          dir = ::WebBlocks::Path.to base_dir, dir
+          
+          get_files(dir, 'scss').sort.each do |file|
+            files << file unless file.match /\/_+variables.scss$/
+          end
+          
+        end
+        
+        traversed = []
+        if block_given?
+          files.each do |file|
+            next if traversed.include? file
+            yield file 
+            traversed << file
+          end
+        end
+        
+        files
+        
+      end
+      
+      def find_sass_dependencies base_dir
+        
+        dependencies = []
+        
+        sass_libs_for base_dir do |file|
+          
+          File.open file, "r" do |file|
+            
+            lines = file.grep /^\/\/\s*\!requires\s/
+            lines.each do |line|
+              line.gsub! /^\/\/\s*\!requires\s*/, ''
+              dependencies << line.split(/\s/)
+            end
+            
+          end
+          
+        end
+        
+        dependencies.flatten!
+        
+        normalize_sass_dependencies dependencies
+        
+      end
+      
+      def normalize_sass_dependencies dependencies
+        
+        normalized = []
+        
+        dependencies.each do |dependency|
+          
+          already_set = false
+          comparison = ''
+          
+          dependency.split(/\//).each do |segment|
+            
+            comparison << '/' unless comparison.length == 0
+            comparison << segment
+            
+            already_set = true if normalized.include? comparison
+            
+          end
+          
+          normalized << dependency unless already_set
+          
+        end
+        
+        normalized
+        
+      end
+      
+      def resolve_sass_dependencies base_dir
+        
+        modules
+        
+        for depth in 1..50 # TODO: this is a jank way of doing a loop protector
+        
+          initial = config[:src][:modules]
+          modules = find_sass_dependencies base_dir
 
+          initial.each do |initial_module|
+
+            already_set = false
+            comparison = ''
+
+            initial_module.split(/\//).each do |segment|
+              comparison << '/' unless comparison.length == 0
+              comparison << segment
+              already_set = true if modules.include? comparison
+            end
+
+            modules << initial_module unless already_set
+
+          end
+          
+          # exit if we've stabilized dependencies
+          return if config[:src][:modules].to_s == modules.to_s
+
+          # otherwise set config modules and loop again to try to stabilize
+          config[:src][:modules] = modules
+        
+        end
+        
+        log.warning "Dependencies did not stabilize because of loop"
+          
+      end
+      
+      def link_sass_lib file
+        
+        if file.match /\/_+variables.scss$/
+          target = tmp_sass_lib_file_variables
+        elsif file.match /\/_+require.scss$/
+          target = tmp_sass_lib_file_require
+        elsif file.match /-ie.scss$/
+          target = tmp_sass_lib_file_ie
+        else
+          target = tmp_sass_lib_file
+        end
+        
+        File.open target, "a" do |handle|
+          log.debug "#{File.basename target} <- #{file}"
+          handle.puts "@import \"#{file}\";"
+        end
+        
+      end
+    
+      def link_sass_libs_for base_dir
+        
+        sass_libs_for base_dir do |file|
+          link_sass_lib file
         end
 
       end
@@ -104,6 +222,55 @@ module WebBlocks
           FileUtils.mkdir_p File.dirname(dst)
           FileUtils.cp_r file, dst
           
+        end
+        
+      end
+      
+      def assemble_js_libs_into_file_for base_dir, target_absolute_name
+        
+        files = [[],[]]
+        
+        if File.exists? "#{base_dir}.js"
+          files[1] << "#{base_dir}.js"
+        end
+
+        if File.exists? "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}.js"
+          files[1] << "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}.js"
+        end
+        
+        if File.exists? "#{base_dir}-ie.js"
+          files[1] << "#{base_dir}-ie.js"
+        end
+
+        if File.exists? "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}-ie.js"
+          files[1] << "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}-ie.js"
+        end
+        
+        get_files(base_dir, 'js').sort.each do |file|
+
+          if file.match /\/_+namespaces.js$/ or file.match /\/_+namespaces\-ie.js$/
+            files[0] << file
+          end
+
+        end
+        
+        modules.each do |dir|
+
+          dir = ::WebBlocks::Path.to base_dir, dir
+
+          get_files(dir, 'js').sort.each do |file|
+
+            next if file.match /\/_+namespaces.js$/ or file.match /\/_+namespaces\-ie.js$/
+
+            files[1] << file
+
+          end
+
+        end
+        
+        files.flatten.each do |file|
+          log.debug "#{target_absolute_name.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+          append_file file, target_absolute_name
         end
         
       end
@@ -126,6 +293,22 @@ module WebBlocks
         modules.each do |dir|
 
           dir = ::WebBlocks::Path.to base_dir, dir
+          
+          if File.exists? "#{dir}.js"
+            files[1] << "#{dir}.js"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.js"
+            files[1] << "#{File.dirname(dir)}/_#{File.basename(dir)}.js"
+          end
+          
+          if File.exists? "#{dir}-ie.js"
+            ie_files[1] << "#{dir}-ie.js"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.js"
+            ie_files[1] << "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.js"
+          end
 
           get_files(dir, 'js').sort.each do |file|
 

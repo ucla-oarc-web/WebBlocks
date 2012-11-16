@@ -14,6 +14,8 @@ module WebBlocks
         include ::WebBlocks::Path::Source
         include ::WebBlocks::Build::Module
         
+        # TODO: support // @requires in extensions
+        
         def link
           
           link_css

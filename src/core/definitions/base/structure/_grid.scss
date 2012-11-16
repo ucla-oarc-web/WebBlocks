@@ -1,3 +1,6 @@
+//!requires base/structure/row
+//!requires base/structure/panel
+
 .row {
     @include -base-structure-grid-row;
 }

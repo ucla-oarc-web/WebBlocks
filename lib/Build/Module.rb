@@ -16,12 +16,12 @@ module WebBlocks
       def modules
         
         if config[:src][:modules] == :all
-          all_modules
-        elsif config[:src][:modules]
-          config[:src][:modules].respond_to?(:each) ? config[:src][:modules] : [config[:src][:modules]]
-        else
-          []
+          config[:src][:modules] = all_modules
+        elsif !config[:src][:modules].respond_to?(:each)
+          config[:src][:modules] = [config[:src][:modules]]
         end
+        
+        config[:src][:modules]
         
       end
       
@@ -151,6 +151,8 @@ module WebBlocks
       end
       
       def resolve_sass_dependencies base_dir
+        
+        modules
         
         for depth in 1..50 # TODO: this is a jank way of doing a loop protector
         

@@ -95,9 +95,9 @@ module WebBlocks
           
           File.open file, "r" do |file|
             
-            lines = file.grep /^\/\/\s*@requires\s/
+            lines = file.grep /^\/\/\s*\!requires\s/
             lines.each do |line|
-              line.gsub! /^\/\/\s*@requires\s*/, ''
+              line.gsub! /^\/\/\s*\!requires\s*/, ''
               dependencies << line.split(/\s/)
             end
             

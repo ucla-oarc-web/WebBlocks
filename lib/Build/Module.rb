@@ -39,6 +39,54 @@ module WebBlocks
         
       end
       
+      def sass_libs_for base_dir
+        
+        files = []
+        
+        get_files(base_dir, 'scss').each do |file|
+          files << file if file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+        end
+
+        get_files(base_dir, 'scss', false).each do |file|
+          files << file unless file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+        end
+        
+        modules.each do |dir|
+          
+          dir = ::WebBlocks::Path.to base_dir, dir
+          
+          if File.exists? "#{dir}.scss"
+            files << "#{dir}.scss"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
+            files << "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
+          end
+
+          if File.exists? "#{dir}-ie.scss"
+            files << "#{dir}-ie.scss"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+            files << "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+          end
+          
+          get_files(dir, 'scss').sort.each do |file|
+            files << file unless file.match /\/_+variables.scss$/
+          end
+          
+        end
+        
+        if block_given?
+          files.each do |file|
+            yield file
+          end
+        end
+        
+        files
+        
+      end
+      
       def link_sass_lib file
         
         if file.match /\/_+variables.scss$/
@@ -59,47 +107,9 @@ module WebBlocks
       end
     
       def link_sass_libs_for base_dir
-
-        get_files(base_dir, 'scss').each do |file|
-          if file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
-            link_sass_lib file
-          end
-        end
-
-        get_files(base_dir, 'scss', false).each do |file|
-          unless file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/ # as already included
-            link_sass_lib file
-          end
-        end
         
-        modules.each do |dir|
-          
-          dir = ::WebBlocks::Path.to base_dir, dir
-          
-          if File.exists? "#{dir}.scss"
-            link_sass_lib "#{dir}.scss"
-          end
-
-          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
-            link_sass_lib "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
-          end
-
-          if File.exists? "#{dir}-ie.scss"
-            link_sass_lib "#{dir}-ie.scss"
-          end
-
-          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
-            link_sass_lib "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
-          end
-          
-          get_files(dir, 'scss').sort.each do |file|
-
-            next if file.match /\/_+variables.scss$/
-
-            link_sass_lib file
-
-          end
-          
+        sass_libs_for base_dir do |file|
+          link_sass_lib file
         end
 
       end

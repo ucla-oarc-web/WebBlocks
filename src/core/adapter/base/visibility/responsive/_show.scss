@@ -30,7 +30,7 @@
     
 }
 
-@mixin -base-visibility-show-exlarge {
+@mixin -base-visibility-show-xlarge {
     
     @media screen and (max-width: $breakpoint-large - 1) {
         display: none;  

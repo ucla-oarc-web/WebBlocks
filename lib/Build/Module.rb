@@ -87,6 +87,84 @@ module WebBlocks
         
       end
       
+      def find_sass_dependencies base_dir
+        
+        dependencies = []
+        
+        sass_libs_for base_dir do |file|
+          
+          File.open file, "r" do |file|
+            
+            lines = file.grep /^\/\/\s*@requires\s/
+            lines.each do |line|
+              line.gsub! /^\/\/\s*@requires\s*/, ''
+              dependencies << line.split(/\s/)
+            end
+            
+          end
+          
+        end
+        
+        dependencies.flatten!
+        
+        normalize_sass_dependencies dependencies
+        
+      end
+      
+      def normalize_sass_dependencies dependencies
+        
+        normalized = []
+        
+        dependencies.each do |dependency|
+          
+          already_set = false
+          comparison = ''
+          
+          dependency.split(/\//).each do |segment|
+            
+            comparison << '/' unless comparison.length == 0
+            comparison << segment
+            
+            already_set = true if normalized.include? comparison
+            
+          end
+          
+          normalized << dependency unless already_set
+          
+        end
+        
+        normalized
+        
+      end
+      
+      def resolve_sass_dependencies base_dir
+        
+        for depth in 1..50 # TODO: this is a jank way of doing a loop protector
+        
+          initial = config[:src][:modules]
+          modules = find_sass_dependencies base_dir
+
+          initial.each do |initial_module|
+
+            already_set = false
+            comparison = ''
+
+            initial_module.split(/\//).each do |segment|
+              comparison << '/' unless comparison.length == 0
+              comparison << segment
+              already_set = true if modules.include? comparison
+            end
+
+            modules << initial_module unless already_set
+
+          end
+
+          config[:src][:modules] = modules
+        
+        end
+          
+      end
+      
       def link_sass_lib file
         
         if file.match /\/_+variables.scss$/

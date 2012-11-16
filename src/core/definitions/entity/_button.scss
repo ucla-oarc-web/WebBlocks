@@ -1,0 +1,15 @@
+@mixin -entity-button-styles {
+
+    &.mini {
+        @include -entity-button-mini;
+    }
+    
+    &.small {
+        @include -entity-button-small;
+    }
+    
+    &.large {
+        @include -entity-button-large;
+    } 
+    
+}

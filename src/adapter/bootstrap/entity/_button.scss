@@ -1,16 +1,18 @@
+//!requires base/color
+
+@mixin -entity-button-mini {
+    @extend .btn-mini;
+}
+
+@mixin -entity-button-small {
+    @extend .btn-small;
+}
+
+@mixin -entity-button-large {
+    @extend .btn-large;
+}
+
 @mixin -entity-button {
-    
-    &.mini {
-        @extend .btn-mini;
-    }
-    
-    &.small {
-        @extend .btn-small;
-    }
-    
-    &.large {
-        @extend .btn-large;
-    } 
     
     @extend .gradient;
 

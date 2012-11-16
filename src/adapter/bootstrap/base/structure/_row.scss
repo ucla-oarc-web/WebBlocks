@@ -1,4 +1,4 @@
-﻿@mixin -base-structure-grid-row {
+@mixin -base-structure-grid-row {
     &:not(.bootstrap){
         @extend .row-fluid;
         margin-left: 0;

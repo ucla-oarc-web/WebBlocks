@@ -1,3 +1,4 @@
 input[type="button"].button {
     @include -entity-button;
+    @include -entity-button-styles;
 }

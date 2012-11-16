@@ -22,6 +22,15 @@ module WebBlocks
         def preprocess
           
           preprocess_submodule :bootstrap
+          preprocess_css
+          
+        end
+        
+        def preprocess_css
+          
+          log.task "Adapter: Bootstrap", "Resolving SASS dependenties in Bootstrap adapter" do
+            resolve_sass_dependencies src_adapter_dir :bootstrap 
+          end
           
         end
         

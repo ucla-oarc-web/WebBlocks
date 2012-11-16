@@ -14,6 +14,20 @@ module WebBlocks
         include ::WebBlocks::Path::Source
         include ::WebBlocks::Build::Module
         
+        def preprocess
+          
+          preprocess_css
+          
+        end
+        
+        def preprocess_css
+          
+          log.task "Core: Definitions", "Resolving SASS dependenties in core definitions" do
+            resolve_sass_dependencies src_core_definitions_dir
+          end
+          
+        end
+        
         def link
           
           link_css

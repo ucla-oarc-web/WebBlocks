@@ -1,5 +1,9 @@
 //!requires base/color
 
+@import "compass/css3/border-radius";
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+
 @mixin -entity-button-mini {
     
 }
@@ -13,11 +17,141 @@
 }
 
 @mixin -entity-button { 
-    border: 1px solid;
-    padding: 2px 6px 3px;
-    font: inherit; /* overrides -webkit-small control */
+    
+    @extend .gradient;
+    
+    display: inline-block;
+    padding: 4px 14px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    @include border-radius(4px);
+    
+    /* IE7 hack for inline block */
+    *display: inline;
+    *zoom: 1;
+    
+    /* IE7 hack to prevent fix spacing on inline block */
+    *margin-left: .3em;
+      &:first-child {
+        *margin-left: 0;
+      }
+      
+    /* IE7 hack to prevent black border on input:focus */
+    *border: 0;
+      
+    /* WebKit hack to override -webkit-small */
+    font: inherit;
+    
+    &:hover {
+        text-decoration: none;
+        @include transition(background .1s linear);
+        @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+    }
+    
+    &:focus {
+        // Default
+        outline: thin dotted #333;
+        // Webkit
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    
     &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
         @extend .default;
     }
-    @extend .gradient;
+    
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
+        &:hover, &.active {
+            background: $color-branding-default-background-shadow;
+            *background: darken($color-branding-default-background-shadow, 5%);
+        }
+    }
+    
+    &.primary:not(.text) {
+        &:hover, &.active {
+            background: $color-branding-primary-background-shadow;
+            *background: darken($color-branding-primary-background-shadow, 5%);
+        }
+    }
+    
+    &.secondary:not(.text) {
+        &:hover, &.active {
+            background: $color-branding-secondary-background-shadow;
+            *background: darken($color-branding-secondary-background-shadow, 5%);
+        }
+    }
+    
+    &.tertiary:not(.text) {
+        &:hover, &.active {
+            background: $color-branding-tertiary-background-shadow;
+            *background: darken($color-branding-tertiary-background-shadow, 5%);
+        }
+    }
+    
+    &.neutral:not(.text) {
+        &:hover, &.active {
+            background: $color-branding-neutral-background-shadow;
+            *background: darken($color-branding-neutral-background-shadow, 5%);
+        }
+    }
+    
+    &.info:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-info-background-shadow;
+            *background: darken($color-mood-info-background-shadow, 5%);
+        }
+    }
+    
+    &.important:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-important-background-shadow;
+            *background: darken($color-mood-important-background-shadow, 5%);
+        }
+    }
+    
+    &.success:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-success-background-shadow;
+            *background: darken($color-mood-success-background-shadow, 5%);
+        }
+    }
+    
+    &.warning:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-warning-background-shadow;
+            *background: darken($color-mood-warning-background-shadow, 5%);
+        }
+    }
+    
+    &.danger:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-danger-background-shadow;
+            *background: darken($color-mood-danger-background-shadow, 5%);
+        }
+    }
+    
+    &.inverse:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-inverse-background-shadow;
+            *background: darken($color-mood-inverse-background-shadow, 5%);
+        }
+    }
+    
+    &.required:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-required-background-shadow;
+            *background: darken($color-mood-required-background-shadow, 5%);
+        }
+    }
+    
+    &.highlight:not(.text) {
+        &:hover, &.active {
+            background: $color-mood-highlight-background-shadow;
+            *background: darken($color-mood-highlight-background-shadow, 5%);
+        }
+    }
+    
 }

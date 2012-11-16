@@ -59,6 +59,22 @@ module WebBlocks
               modules.each do |dir|
 
                 dir = ::WebBlocks::Path.to base_dir, dir
+                
+                if File.exists? "#{dir}.scss"
+                  linker << "@import \"#{dir}.scss\";\n" 
+                end
+                
+                if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
+                  linker << "@import \"#{File.dirname(dir)}/_#{File.basename(dir)}.scss\";\n"
+                end
+                
+                if File.exists? "#{dir}-ie.scss"
+                  ie_linker << "@import \"#{dir}-ie.scss\";\n" 
+                end
+                
+                if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+                  ie_linker << "@import \"#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss\";\n"
+                end
 
                 get_files(dir, 'scss').sort.each do |file|
 
@@ -110,10 +126,23 @@ module WebBlocks
       
       def assemble_js_libs_into_file_for base_dir, target_absolute_name
         
-        puts base_dir
-        puts target_absolute_name
-        
         files = [[],[]]
+        
+        if File.exists? "#{base_dir}.js"
+          files[1] << "#{base_dir}.js"
+        end
+
+        if File.exists? "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}.js"
+          files[1] << "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}.js"
+        end
+        
+        if File.exists? "#{base_dir}-ie.js"
+          files[1] << "#{base_dir}-ie.js"
+        end
+
+        if File.exists? "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}-ie.js"
+          files[1] << "#{File.dirname(base_dir)}/_#{File.basename(base_dir)}-ie.js"
+        end
         
         get_files(base_dir, 'js').sort.each do |file|
 
@@ -162,6 +191,22 @@ module WebBlocks
         modules.each do |dir|
 
           dir = ::WebBlocks::Path.to base_dir, dir
+          
+          if File.exists? "#{dir}.js"
+            files[1] << "#{dir}.js"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.js"
+            files[1] << "#{File.dirname(dir)}/_#{File.basename(dir)}.js"
+          end
+          
+          if File.exists? "#{dir}-ie.js"
+            ie_files[1] << "#{dir}-ie.js"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.js"
+            ie_files[1] << "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.js"
+          end
 
           get_files(dir, 'js').sort.each do |file|
 

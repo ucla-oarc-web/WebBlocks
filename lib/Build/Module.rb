@@ -38,75 +38,68 @@ module WebBlocks
         modules
         
       end
+      
+      def link_sass_lib file
+        
+        if file.match /\/_+variables.scss$/
+          target = tmp_sass_lib_file_variables
+        elsif file.match /\/_+require.scss$/
+          target = tmp_sass_lib_file_require
+        elsif file.match /-ie.scss$/
+          target = tmp_sass_lib_file_ie
+        else
+          target = tmp_sass_lib_file
+        end
+        
+        File.open target, "a" do |handle|
+          log.debug "#{File.basename target} <- #{file}"
+          handle.puts "@import \"#{file}\";"
+        end
+        
+      end
     
       def link_sass_libs_for base_dir
 
-        File.open tmp_sass_lib_file, "a" do |linker|
-          File.open tmp_sass_lib_file_ie, "a" do |ie_linker|
-            File.open tmp_sass_lib_file_require, "a" do |require_linker|
-
-              # Pull _require.scss file from root (special file)
-              get_files(base_dir, 'scss', false).sort.each do |file|
-                
-                next unless file.match /\/_+require.scss$/
-                
-                log.debug "#{File.basename require_linker.path} <- #{file}"
-                require_linker << "@import \"#{file}\"\n"
-                
-              end
-              
-              # For all modules, link files as standard, IE and require
-              modules.each do |dir|
-
-                dir = ::WebBlocks::Path.to base_dir, dir
-                
-                if File.exists? "#{dir}.scss"
-                  linker << "@import \"#{dir}.scss\";\n" 
-                end
-                
-                if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
-                  linker << "@import \"#{File.dirname(dir)}/_#{File.basename(dir)}.scss\";\n"
-                end
-                
-                if File.exists? "#{dir}-ie.scss"
-                  ie_linker << "@import \"#{dir}-ie.scss\";\n" 
-                end
-                
-                if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
-                  ie_linker << "@import \"#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss\";\n"
-                end
-
-                get_files(dir, 'scss').sort.each do |file|
-
-                  next if file.match /\/_+variables.scss$/
-
-                  if file.match /\/_+require.scss$/
-                    target = require_linker
-                  elsif file.match /-ie.scss$/
-                    target = ie_linker
-                  else
-                    target = linker 
-                  end
-
-                  log.debug "#{File.basename target.path} <- #{file}"
-                  target << "@import \"#{file}\";\n"
-                  
-                end
-
-              end
-
-            end
+        get_files(base_dir, 'scss').each do |file|
+          if file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+            link_sass_lib file
           end
         end
 
-        # Link all variables files
-        File.open tmp_sass_lib_file_variables, "a" do |variables_linker|
-
-          get_files(base_dir, 'scss').each do |file|
-            next unless file.match /\/_+variables.scss$/
-            variables_linker << "@import \"#{file}\";\n"
+        get_files(base_dir, 'scss', false).each do |file|
+          unless file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/ # as already included
+            link_sass_lib file
+          end
+        end
+        
+        modules.each do |dir|
+          
+          dir = ::WebBlocks::Path.to base_dir, dir
+          
+          if File.exists? "#{dir}.scss"
+            link_sass_lib "#{dir}.scss"
           end
 
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
+            link_sass_lib "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
+          end
+
+          if File.exists? "#{dir}-ie.scss"
+            link_sass_lib "#{dir}-ie.scss"
+          end
+
+          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+            link_sass_lib "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+          end
+          
+          get_files(dir, 'scss').sort.each do |file|
+
+            next if file.match /\/_+variables.scss$/
+
+            link_sass_lib file
+
+          end
+          
         end
 
       end

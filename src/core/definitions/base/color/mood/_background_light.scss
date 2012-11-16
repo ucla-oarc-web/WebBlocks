@@ -1,50 +1,34 @@
 .light {
     
     &.info {
-        &:not(.text){
-            @include -base-color-mood-info-background-light;
-        }
+        @include -base-color-mood-info-background-light;
     }
     
     &.important {
-        &:not(.text){
-            @include -base-color-mood-important-background-light;
-        }
+        @include -base-color-mood-important-background-light;
     }
     
     &.success {
-        &:not(.text){
-            @include -base-color-mood-success-background-light;
-        }
+        @include -base-color-mood-success-background-light;
     }
     
     &.warning {
-        &:not(.text){
-            @include -base-color-mood-warning-background-light;
-        }
+        @include -base-color-mood-warning-background-light;
     }
     
     &.danger {
-        &:not(.text){
-            @include -base-color-mood-danger-background-light;
-        }
+        @include -base-color-mood-danger-background-light;
     }
     
     &.inverse {
-        &:not(.text){
-            @include -base-color-mood-inverse-background-light;
-        }
+        @include -base-color-mood-inverse-background-light;
     }
     
     &.highlight {
-        &:not(.text){
             @include -base-color-mood-highlight-background-light;
-        }
     }
     
     &.required {
-        &:not(.text){
-            @include -base-color-mood-required-background-light;
-        }
+        @include -base-color-mood-required-background-light;
     }
 }

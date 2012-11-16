@@ -3,51 +3,35 @@
 .gradient {
 
     &.info {
-        &:not(.text){
-            @include -base-color-mood-info-background-gradient;
-        }
+        @include -base-color-mood-info-background-gradient;
     }
 
     &.important {
-        &:not(.text){
-            @include -base-color-mood-important-background-gradient;
-        }
+        @include -base-color-mood-important-background-gradient;
     }
 
     &.success {
-        &:not(.text){
-            @include -base-color-mood-success-background-gradient;
-        }
+        @include -base-color-mood-success-background-gradient;
     }
 
     &.warning {
-        &:not(.text){
-            @include -base-color-mood-warning-background-gradient;
-        }
+        @include -base-color-mood-warning-background-gradient;
     }
 
     &.danger {
-        &:not(.text){
-            @include -base-color-mood-danger-background-gradient;
-        }
+        @include -base-color-mood-danger-background-gradient;
     }
 
     &.inverse {
-        &:not(.text){
-            @include -base-color-mood-inverse-background-gradient;
-        }
+        @include -base-color-mood-inverse-background-gradient;
     }
 
     &.highlight {
-        &:not(.text){
-            @include -base-color-mood-highlight-background-gradient;
-        }
+        @include -base-color-mood-highlight-background-gradient;
     }
 
     &.required {
-        &:not(.text){
-            @include -base-color-mood-required-background-gradient;
-        }
+        @include -base-color-mood-required-background-gradient;
     }
 
 }

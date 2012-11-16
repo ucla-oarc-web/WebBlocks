@@ -1,36 +1,52 @@
 @import "compass";
 
 @mixin -base-color-mood-info-background-light-gradient {
+    color: $color-mood-info-background-light-text;
+    text-shadow: $color-mood-info-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-info-background-light, 
                                               $color-mood-info-background-light-shadow));
 }
 
 @mixin -base-color-mood-important-background-light-gradient {
+    color: $color-mood-important-background-light-text;
+    text-shadow: $color-mood-important-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-important-background-light, 
                                               $color-mood-important-background-light-shadow));
 }
 
 @mixin -base-color-mood-success-background-light-gradient {
+    color: $color-mood-success-background-light-text;
+    text-shadow: $color-mood-success-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-success-background-light, 
                                               $color-mood-success-background-light-shadow));
 }
 
 @mixin -base-color-mood-warning-background-light-gradient {
+    color: $color-mood-warning-background-light-text;
+    text-shadow: $color-mood-warning-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-warning-background-light, $color-mood-warning-background-light-shadow));
 }
 
 @mixin -base-color-mood-danger-background-light-gradient {
+    color: $color-mood-danger-background-light-text;
+    text-shadow: $color-mood-danger-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-danger-background-light, $color-mood-danger-background-light-shadow));
 }
 
 @mixin -base-color-mood-inverse-background-light-gradient {
+    color: $color-mood-inverse-background-light-text;
+    text-shadow: $color-mood-inverse-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-inverse-background-light, $color-mood-inverse-background-light-shadow));
 }
 
 @mixin -base-color-mood-highlight-background-light-gradient {
+    color: $color-mood-highlight-background-light-text;
+    text-shadow: $color-mood-highlight-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-highlight-background-light, $color-mood-highlight-background-light-shadow));
 }
 
 @mixin -base-color-mood-required-background-light-gradient {
+    color: $color-mood-required-background-light-text;
+    text-shadow: $color-mood-required-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-required-background-light, $color-mood-required-background-light-shadow));
 }

@@ -171,7 +171,11 @@ module WebBlocks
             modules << initial_module unless already_set
 
           end
+          
+          # exit if we've stabilized dependencies
+          return if config[:src][:modules].to_s == modules.to_s
 
+          # otherwise set config modules and loop again to try to stabilize
           config[:src][:modules] = modules
         
         end

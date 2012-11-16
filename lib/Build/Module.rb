@@ -53,23 +53,33 @@ module WebBlocks
         
         modules.each do |dir|
           
-          dir = ::WebBlocks::Path.to base_dir, dir
+          subpath = ''
           
-          if File.exists? "#{dir}.scss"
-            files << "#{dir}.scss"
-          end
+          dir.split('/').each do |segment|
+            
+            subpath << '/' unless subpath.length == 0
+            subpath << segment
+            path = ::WebBlocks::Path.to base_dir, subpath
+            
+            if File.exists? "#{path}.scss"
+              files << "#{path}.scss"
+            end
 
-          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
-            files << "#{File.dirname(dir)}/_#{File.basename(dir)}.scss"
-          end
+            if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}.scss"
+              files << "#{File.dirname(path)}/_#{File.basename(path)}.scss"
+            end
 
-          if File.exists? "#{dir}-ie.scss"
-            files << "#{dir}-ie.scss"
-          end
+            if File.exists? "#{dir}-ie.scss"
+              files << "#{dir}-ie.scss"
+            end
 
-          if File.exists? "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
-            files << "#{File.dirname(dir)}/_#{File.basename(dir)}-ie.scss"
+            if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}-ie.scss"
+              files << "#{File.dirname(path)}/_#{File.basename(path)}-ie.scss"
+            end
+            
           end
+          
+          dir = ::WebBlocks::Path.to base_dir, dir
           
           get_files(dir, 'scss').sort.each do |file|
             files << file unless file.match /\/_+variables.scss$/
@@ -77,9 +87,12 @@ module WebBlocks
           
         end
         
+        traversed = []
         if block_given?
           files.each do |file|
-            yield file
+            next if traversed.include? file
+            yield file 
+            traversed << file
           end
         end
         

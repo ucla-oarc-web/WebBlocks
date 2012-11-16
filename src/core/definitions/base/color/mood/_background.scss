@@ -1,47 +1,31 @@
 .info {
-    &:not(.text){
-        @include -base-color-mood-info-background;
-    }
+    @include -base-color-mood-info-background;
 }
 
 .important {
-    &:not(.text){
-        @include -base-color-mood-important-background;
-    }
+    @include -base-color-mood-important-background;
 }
 
 .success {
-    &:not(.text){
-        @include -base-color-mood-success-background;
-    }
+    @include -base-color-mood-success-background;
 }
 
 .warning {
-    &:not(.text){
-        @include -base-color-mood-warning-background;
-    }
+    @include -base-color-mood-warning-background;
 }
 
 .danger {
-    &:not(.text){
-        @include -base-color-mood-danger-background;
-    }
+    @include -base-color-mood-danger-background;
 }
 
 .inverse {
-    &:not(.text){
-        @include -base-color-mood-inverse-background;
-    }
+    @include -base-color-mood-inverse-background;
 }
 
 .highlight {
-    &:not(.text){
-        @include -base-color-mood-highlight-background;
-    }
+    @include -base-color-mood-highlight-background;
 }
 
 .required {
-    &:not(.text){
-        @include -base-color-mood-required-background;
-    }
+    @include -base-color-mood-required-background;
 }

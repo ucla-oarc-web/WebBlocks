@@ -179,6 +179,8 @@ module WebBlocks
           config[:src][:modules] = modules
         
         end
+        
+        log.warning "Dependencies did not stabilize because of loop"
           
       end
       

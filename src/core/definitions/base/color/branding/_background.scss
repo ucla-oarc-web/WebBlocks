@@ -1,29 +1,19 @@
 .default {
-    &:not(.text){
-        @include -base-color-branding-default-background;
-    }
+    @include -base-color-branding-default-background;
 }
 
 .primary {
-    &:not(.text){
-        @include -base-color-branding-primary-background;
-    }
+    @include -base-color-branding-primary-background;
 }
 
 .secondary {
-    &:not(.text){
-        @include -base-color-branding-secondary-background;
-    }
+    @include -base-color-branding-secondary-background;
 }
 
 .tertiary {
-    &:not(.text){
-        @include -base-color-branding-tertiary-background;
-    }
+    @include -base-color-branding-tertiary-background;
 }
 
 .neutral {
-    &:not(.text){
-        @include -base-color-branding-neutral-background;
-    }
+    @include -base-color-branding-neutral-background;
 }

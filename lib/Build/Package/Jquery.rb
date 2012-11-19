@@ -25,6 +25,7 @@ module WebBlocks
         def preprocess_js
           
           preprocess_submodule :jquery
+          preprocess_submodule_submodules :jquery
           
         end
         

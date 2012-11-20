@@ -7,7 +7,7 @@
 
 @mixin -entity-form-control-mood-info {
     color: $color-mood-info-foreground-text;
-    p {
+    label {
         color: $color-mood-info-foreground-text;
     }
     input, select, textarea {
@@ -17,7 +17,7 @@
 
 @mixin -entity-form-control-mood-important {
     color: $color-mood-important-foreground-text;
-    p {
+    label {
         color: $color-mood-important-foreground-text;
     }
     input, select, textarea {
@@ -27,7 +27,7 @@
 
 @mixin -entity-form-control-mood-success {
     color: $color-mood-success-foreground-text;
-    p {
+    label {
         color: $color-mood-success-foreground-text;
     }
     input, select, textarea {
@@ -37,7 +37,7 @@
 
 @mixin -entity-form-control-mood-warning {
     color: $color-mood-warning-foreground-text;
-    p {
+    label {
         color: $color-mood-warning-foreground-text;
     }
     input, select, textarea {
@@ -47,7 +47,7 @@
 
 @mixin -entity-form-control-mood-danger {
     color: $color-mood-danger-foreground-text;
-    p {
+    label {
         color: $color-mood-danger-foreground-text;
     }
     input, select, textarea {
@@ -57,7 +57,7 @@
 
 @mixin -entity-form-control-mood-inverse {
     color: $color-mood-inverse-foreground-text;
-    p {
+    label {
         color: $color-mood-inverse-foreground-text;
     }
     input, select, textarea {
@@ -67,7 +67,7 @@
 
 @mixin -entity-form-control-mood-highlight {
     color: $color-mood-highlight-foreground-text;
-    p {
+    label {
         color: $color-mood-highlight-foreground-text;
     }
     input, select, textarea {
@@ -77,7 +77,7 @@
 
 @mixin -entity-form-control-mood-required {
     color: $color-mood-required-foreground-text;
-    p {
+    label {
         color: $color-mood-required-foreground-text;
     }
     input, select, textarea {

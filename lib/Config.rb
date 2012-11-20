@@ -79,7 +79,8 @@ module WebBlocks
     :jquery,
     :modernizr,
     :respond,
-    :selectivizr
+    :selectivizr,
+    :efx
   ]
   
   # src configuration
@@ -168,6 +169,10 @@ module WebBlocks
       'collapse',
       'alert'
     ]
+  }
+  
+  @config[:package][:efx] = {
+    :dir      => 'efx'
   }
   
   @config[:package][:jquery] = {

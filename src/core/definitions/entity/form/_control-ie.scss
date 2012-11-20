@@ -1,0 +1,7 @@
+form.form div.control {
+    @include -entity-form-control-ie;
+}
+
+form.form.horizontal div.control {
+    @include -entity-form-horizontal-control-ie;
+}

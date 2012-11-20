@@ -25,6 +25,12 @@
     > input, > select, > textarea {
 
         @include box-sizing(border-box);
+        
+        margin-right: 10px;
+        
+        &.last-child {
+            margin-right: 0;
+        }
     }
 
     > .inline {
@@ -41,7 +47,7 @@
 
         margin-bottom: 10px;
         padding-left: $horizontalComponentOffset;
-        overflow: auto;
+        overflow: hidden;
 
         > label:first-child {
             margin-left: -1 * $horizontalComponentOffset;

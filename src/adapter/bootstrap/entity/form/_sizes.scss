@@ -9,3 +9,8 @@
 @mixin -entity-form-size-large {
     @extend .input-large;
 }
+
+@mixin -entity-form-size-full {
+    width: 100%;
+    margin-right: 0;
+}

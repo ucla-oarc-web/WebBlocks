@@ -1,0 +1,59 @@
+//!requires base/color/branding/text
+//!requires base/color/mood/text
+
+@mixin -import-base-color-text {
+
+
+    &.default-text {
+        @extend .default-text;
+    }
+
+    &.primary-text {
+        @extend .primary-text;
+    }
+
+    &.secondary-text {
+        @extend .secondary-text;
+    }
+
+    &.tertiary-text {
+        @extend .tertiary-text;
+    }
+
+    &.neutral-text {
+        @extend .neutral-text;
+    }
+
+    &.info-text {
+        @extend .info-text;
+    }
+
+    &.important-text {
+        @extend .important-text;
+    }
+
+    &.success-text {
+        @extend .success-text;
+    }
+
+    &.danger-text {
+        @extend .danger-text;
+    }
+
+    &.warning-text {
+        @extend .warning-text;
+    }
+
+    &.inverse-text {
+        @extend .inverse-text;
+    }
+
+    &.highlight-text {
+        @extend .highlight-text;
+    }
+
+    &.required-text {
+        @extend .required-text;
+    }
+
+}

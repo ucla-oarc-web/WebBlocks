@@ -13,3 +13,6 @@
 [submodule "package/jquery"]
 	path = package/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "package/efx"]
+	path = package/efx
+	url = https://github.com/ebollens/efx.git

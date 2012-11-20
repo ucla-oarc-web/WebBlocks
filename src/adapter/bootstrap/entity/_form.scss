@@ -17,7 +17,7 @@
             max-width: 100%;
         }
         
-        > input, > select {  
+        > input, > select:not([multiple]) {  
             height: $baseLineHeight + 8px;
         }
         

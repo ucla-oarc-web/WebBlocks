@@ -1,33 +1,23 @@
 .light {
     
     &.default {
-        &:not(.text){
-            @include -base-color-branding-default-background-light;
-        }
+        @include -base-color-branding-default-background-light;
     }
     
     &.primary {
-        &:not(.text){
-            @include -base-color-branding-primary-background-light;
-        }
+        @include -base-color-branding-primary-background-light;
     }
     
     &.secondary {
-        &:not(.text){
-            @include -base-color-branding-secondary-background-light;
-        }
+        @include -base-color-branding-secondary-background-light;
     }
     
     &.tertiary {
-        &:not(.text){
-            @include -base-color-branding-tertiary-background-light;
-        }
+        @include -base-color-branding-tertiary-background-light;
     }
     
     &.neutral {
-        &:not(.text){
-            @include -base-color-branding-neutral-background-light;
-        }
+        @include -base-color-branding-neutral-background-light;
     }
     
 }

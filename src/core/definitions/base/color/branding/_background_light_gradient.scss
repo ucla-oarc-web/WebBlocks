@@ -3,33 +3,23 @@
 .gradient.light {
     
     &.default {
-        &:not(.text){
-            @include -base-color-branding-default-background-light-gradient;
-        }
+        @include -base-color-branding-default-background-light-gradient;
     }
     
     &.primary {
-        &:not(.text){
-            @include -base-color-branding-primary-background-light-gradient;
-        }
+        @include -base-color-branding-primary-background-light-gradient;
     }
     
     &.secondary {
-        &:not(.text){
-            @include -base-color-branding-secondary-background-light-gradient;
-        }
+        @include -base-color-branding-secondary-background-light-gradient;
     }
     
     &.tertiary {
-        &:not(.text){
-            @include -base-color-branding-tertiary-background-light-gradient;
-        }
+        @include -base-color-branding-tertiary-background-light-gradient;
     }
     
     &.neutral {
-        &:not(.text){
-            @include -base-color-branding-neutral-background-light-gradient;
-        }
+        @include -base-color-branding-neutral-background-light-gradient;
     }
     
 }

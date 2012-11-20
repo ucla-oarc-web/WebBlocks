@@ -1,6 +1,6 @@
 @mixin -entity-form {
         
-    input, select:not([multiple]) {  
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), select:not([multiple]) {  
         height: $baseLineHeight + 8px;
     }
     

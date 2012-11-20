@@ -139,9 +139,18 @@
                     <input type="text" class="full">
                 </div>
                 
+                <div class="control">
+                    <input type="submit" class="success button" value="Submit">
+                    <input type="reset" class="inverse button" value="Reset">
+                </div>
+                
             </form>
 
         </div>
+        
+        <script>
+            if($ !== undefined) $('form').submit(function(e){e.preventDefault()});
+        </script>
         
     </body>
     

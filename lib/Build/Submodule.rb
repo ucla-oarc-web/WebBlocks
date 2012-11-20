@@ -34,6 +34,30 @@ module WebBlocks
         
       end
       
+      def init_submodule_submodules name
+        
+        stdout = ""
+        
+        log.task "Submodule", "Updating submodules of submodule #{name}" do
+        
+          Dir.chdir(package_dir name) do
+          
+            status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update"
+
+            if stderr.length > 0
+              log.failure "Submodule: #{name}", "Update failed for submodules of submodule #{name}"
+            else
+              log.success "Submodule: #{name}", "Updated submodules of submodule #{name}"
+            end
+          
+          end
+        
+        end
+
+        stdout.length > 0
+        
+      end
+      
       def update_submodule name
         
         stdout = ""
@@ -56,11 +80,58 @@ module WebBlocks
         
       end
       
+      def update_submodule_submodules name
+        
+        stdout = ""
+        
+        log.task "Submodule", "Updating submodules of submodule #{name}" do
+        
+          Dir.chdir(package_dir name) do
+          
+            status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update"
+
+            if stderr.length > 0
+              log.failure "Submodule: #{name}", "Update failed for submodules of submodule #{name}"
+            else
+              log.success "Submodule: #{name}", "Updated submodules of submodule #{name}"
+            end
+          
+          end
+        
+        end
+
+        stdout.length > 0
+        
+      end
+      
       def preprocess_submodule name
 
         init_submodule name
         update_submodule name
           
+      end
+      
+      def preprocess_submodule_submodules name
+        
+        init_submodule_submodules name
+        update_submodule_submodules name
+        
+      end
+      
+      def preprocess_submodule_npm name
+        
+        log.task "Submodule", "Running npm for submodule #{name}" do
+        
+          Dir.chdir(package_dir name) do
+          
+            status, stdout, stderr = systemu "#{config[:exec][:npm]} install"
+            
+            log.success "Submodule: #{name}", "Ran NPM for submodule #{name}"
+            
+          end
+        
+        end
+        
       end
       
       def reset_submodule name

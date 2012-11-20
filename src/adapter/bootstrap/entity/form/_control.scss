@@ -1,14 +1,15 @@
 @mixin -entity-form-control {
     
     max-width: 100%;
+    
+    color: lighten($textColor, 30%);
+    
+    label {
+        color: $textColor;
+    }
         
     > label:not(:first-child), > * label {
         font-weight: normal;
-    }
-
-    > p {
-        color: lighten($textColor, 30%);
-        @include -import-base-color-text;
     }
 
     > * {

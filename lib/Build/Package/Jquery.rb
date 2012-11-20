@@ -26,6 +26,7 @@ module WebBlocks
           
           preprocess_submodule :jquery
           preprocess_submodule_submodules :jquery
+          preprocess_submodule_npm :jquery
           
         end
         

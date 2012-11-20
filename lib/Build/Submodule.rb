@@ -118,6 +118,22 @@ module WebBlocks
         
       end
       
+      def preprocess_submodule_npm name
+        
+        log.task "Submodule", "Running npm for submodule #{name}" do
+        
+          Dir.chdir(package_dir name) do
+          
+            status, stdout, stderr = systemu "#{config[:exec][:npm]} install"
+            
+            log.success "Submodule: #{name}", "Ran NPM for submodule #{name}"
+            
+          end
+        
+        end
+        
+      end
+      
       def reset_submodule name
         
         if File.exists? "#{package_dir name}"

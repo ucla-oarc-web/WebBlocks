@@ -1,78 +1,14 @@
 @mixin -entity-form {
+        
+    input, select:not([multiple]) {  
+        height: $baseLineHeight + 8px;
+    }
     
-    div.control {
-    
-        max-width: 100%;
-        
-        > label:first-child {
-            font-weight: bold;
-        }
-        
-        > p {
-            color: lighten($textColor, 30%);
-            @include -import-base-color-text;
-        }
-            
-        > * {
-            max-width: 100%;
-        }
-        
-        > input, > select:not([multiple]) {  
-            height: $baseLineHeight + 8px;
-        }
-        
-        label {
-            input[type="checkbox"], input[type="radio"] {
-               margin-top: -5px; 
-               margin-right: 5px;
-            }
-        }
-            
-        > input, > select, > textarea {
-            
-            @include box-sizing(border-box);
-            
-            &.full {
-                width: 100%;
-            }
-        }
-        
-        > .inline {
-            > * {
-                display: inline-block;
-                margin-left: 5px;
-            }
-        }
-    
+    label {
+        font-weight: bold;
     }
     
     legend + div.control {
         padding-top: 20px;
-    }
-}
-
-@mixin -entity-form-horizontal {
-
-    @media screen and (min-width: $breakpoint-small) {
-    
-        div.control {
-
-            margin-bottom: 10px;
-            padding-left: $horizontalComponentOffset;
-            overflow: auto;
-            
-            > label:first-child {
-                margin-left: -1 * $horizontalComponentOffset;
-                width: $horizontalComponentOffset - 20;
-                padding-top: 5px;
-                float: left;
-            }
-        
-            > label, > label + p, > p:first-child {
-                padding-top: 5px;
-            }
-
-        }
-    
     }
 }

@@ -29,3 +29,7 @@ input[type="reset"] {
 button {
     @extend button.button;
 }
+
+form {
+    @extend form.form; 
+}

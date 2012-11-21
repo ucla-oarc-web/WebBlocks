@@ -26,12 +26,12 @@ module WebBlocks
 
       # Determine if the file is an SCSS file.
       def file_scss? file
-        ext? file, 'scss'
+        file_ext? file, 'scss'
       end
 
       # Determine if the file is a JS file.
       def file_js? file
-        ext? file, 'js'
+        file_ext? file, 'js'
       end
 
       # Get a list of all files within the directory specified as dir. If ext is

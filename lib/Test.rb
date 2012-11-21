@@ -36,9 +36,9 @@ module WebBlocks
           
           ::WebBlocks.config[:loaded] = false
 
-          config[:build][:src] = "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/.build-test"
-          FileUtils.rm_rf config[:build][:src]
-          FileUtils.mkdir_p config[:build][:src]
+          config[:build][:dir] = "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/.build-test"
+          FileUtils.rm_rf config[:build][:dir]
+          FileUtils.mkdir_p config[:build][:dir]
 
           attach_packages
           attach_adapters

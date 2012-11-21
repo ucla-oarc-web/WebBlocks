@@ -4,6 +4,7 @@ require 'systemu'
 require 'fileutils'
 require_relative '../Path'
 require_relative 'Utilities'
+require_relative '../Logger'
 
 module WebBlocks
   
@@ -11,6 +12,7 @@ module WebBlocks
       
     class WebBlocks
       
+      include ::WebBlocks::Logger
       include ::WebBlocks::Path::Source
       include ::WebBlocks::Path::Temporary_Build
       include ::WebBlocks::Path::Build
@@ -356,6 +358,8 @@ module WebBlocks
       end
       
       module Append
+        
+        extend ::WebBlocks::Config
 
         def self.compressed_css_file src, dst
           status, stdout, stderr = systemu "#{config[:exec][:uglifycss]} \"#{src}\" > \"#{dst}\""

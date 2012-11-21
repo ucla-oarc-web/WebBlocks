@@ -1,0 +1,1 @@
+var src_js_core_2 = {}

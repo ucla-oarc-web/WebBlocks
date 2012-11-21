@@ -124,7 +124,7 @@ module WebBlocks
           
           Dir.chdir tmp_build_dir do
             
-            status, stdout, stderr = systemu "#{config[:exec][:compass]} compile -e #{environment} --boring --sass-dir #{src_sass_dir} --config \"#{src_core_compass_config_file}\""
+            status, stdout, stderr = systemu "#{config[:exec][:compass]} compile -e #{environment} --boring --sass-dir \"#{src_sass_dir}\" --config \"#{src_core_compass_config_file}\""
             
             success = false if status != 0
             if success

@@ -14,8 +14,6 @@ module WebBlocks
       
       module TestCase
         
-        @@index = false
-
         # include DSL: Rake
         include ::Rake::DSL
 
@@ -36,12 +34,11 @@ module WebBlocks
         
         def setup
           
-          @@index = 1 unless @@index
-          
           ::WebBlocks.config[:loaded] = false
 
-          config[:build][:src] = "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/.build-test/#{@@index}"
-          FileUtils.mkdir_p "#{config[:build][:src]}"
+          config[:build][:src] = "#{File.dirname(File.dirname(Pathname.new(__FILE__).realpath))}/.build-test"
+          FileUtils.rm_rf config[:build][:src]
+          FileUtils.mkdir_p config[:build][:src]
 
           attach_packages
           attach_adapters

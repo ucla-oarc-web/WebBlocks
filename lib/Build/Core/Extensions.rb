@@ -2,6 +2,7 @@ require 'rubygems'
 require 'extensions/kernel'
 require_relative '../../Path'
 require_relative '../Module'
+require_relative '../../Logger'
 
 module WebBlocks
   
@@ -11,6 +12,7 @@ module WebBlocks
       
       class Extensions
         
+        include ::WebBlocks::Logger
         include ::WebBlocks::Path::Source
         include ::WebBlocks::Build::Module
         

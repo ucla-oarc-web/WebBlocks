@@ -18,7 +18,7 @@ module WebBlocks
         
         log.task "Submodule", "Initializing submodule #{name}" do
         
-          status, stdout, stderr = systemu "#{config[:exec][:git]} submodule init #{package_dir name}"
+          status, stdout, stderr = systemu "#{config[:exec][:git]} submodule init \"#{package_dir name}\""
 
           if stderr.length > 0
             log.failure "Submodule: #{name}", "Initialization failed for submodule #{name}"
@@ -64,7 +64,7 @@ module WebBlocks
         
         log.task "Submodule", "Updating submodule #{name}" do
         
-          status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update #{package_dir name}"
+          status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update \"#{package_dir name}\""
 
           if stderr.length > 0
             log.failure "Submodule: #{name}", "Update failed for submodule #{name}"

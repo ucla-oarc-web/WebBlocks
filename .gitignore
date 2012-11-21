@@ -9,3 +9,4 @@ npm-debug.log
 /.blocks/
 /src/tmp
 /.build-test/
+/.blocks

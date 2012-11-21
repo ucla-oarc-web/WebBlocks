@@ -3,6 +3,7 @@ require 'extensions/kernel'
 require_relative '../../Path'
 require_relative '../Module'
 require_relative '../Utilities'
+require_relative '../../Logger'
 
 module WebBlocks
   
@@ -12,6 +13,7 @@ module WebBlocks
       
       class Adapter
         
+        include ::WebBlocks::Logger
         include ::WebBlocks::Path::Source
         include ::WebBlocks::Build::Module
         

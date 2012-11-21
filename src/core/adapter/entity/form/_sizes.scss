@@ -1,0 +1,35 @@
+@mixin -entity-form-size-mini {
+    
+}
+
+@mixin -entity-form-size-small {
+    
+}
+
+@mixin -entity-form-size-large {
+    
+}
+
+@mixin -entity-form-size-full {
+    width: 100%;
+}
+
+@mixin -entity-form-sizes {
+
+    &.mini {
+        @include -entity-form-size-mini;
+    }
+    
+    &.small {
+        @include -entity-form-size-small;
+    }
+    
+    &.large {
+        @include -entity-form-size-large;
+    } 
+    
+    &.full {
+        @include -entity-form-size-full;
+    }
+    
+}

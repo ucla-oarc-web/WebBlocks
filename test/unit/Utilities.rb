@@ -4,7 +4,7 @@ require 'fileutils'
 require_relative '../../lib/Test.rb'
 require_relative '../../lib/Build/Utilities.rb'
 
-class TestUnitPath < ::Test::Unit::TestCase 
+class TestUnitUtilities < ::Test::Unit::TestCase 
   
   include ::WebBlocks::Test::Unit::TestCase
   

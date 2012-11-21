@@ -35,7 +35,7 @@ class TestUnitRakeDSL < ::Test::Unit::TestCase
   
   def test_build_dispatcher
     
-    assert_methods_exist 'observers', 'observer', 'execute'
+    assert_methods_exist 'observers', 'reset_observers', 'observer', 'execute'
     
   end
   

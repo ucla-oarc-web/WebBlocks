@@ -267,53 +267,5 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
     assert_file_does_not_exist "#{root_dir}/.blocks", "Metadata directory removed by reset"
     
   end
-  
-  def assert_file_exists file, message = ''
-    
-    assert File.exists?(file), message
-    
-  end
-  
-  def assert_file_does_not_exist file, message = ''
-    
-    assert_equal false, File.exists?(file), message
-    
-  end
-  
-  def assert_file_has_pattern file, pattern, message = ''
-    
-    assert_not_nil (File.open(file, 'rb') { |f| f.read }).match(pattern), message
-    
-  end
-  
-  def assert_file_does_not_have_pattern file, pattern, message = ''
-    
-    assert_nil (File.open(file, 'rb') { |f| f.read }).match(pattern), message
-    
-  end
-  
-  def assert_file_has_css_selector file, selector, message = ''
-    
-    assert_file_has_pattern file, /#{Regexp.escape(selector)}\s*\{/, message
-    
-  end
-  
-  def assert_file_has_js_var file, variable, message = ''
-    
-    assert_file_has_pattern file, /var\s\s*#{Regexp.escape(variable)}\s*=/, message
-    
-  end
-  
-  def assert_file_does_not_have_js_var file, variable, message = ''
-    
-    assert_file_does_not_have_pattern file, /var\s\s*#{Regexp.escape(variable)}\s*=/, message
-    
-  end
-  
-  def assert_file_has_import_rule file, rule, message = ''
-    
-    assert_file_has_pattern file, /^\@import "#{Regexp.escape(rule)}";$/, message
-    
-  end
 
 end

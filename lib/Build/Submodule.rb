@@ -23,7 +23,7 @@ module WebBlocks
           if stderr.length > 0
             log.failure "Submodule: #{name}", "Initialization failed for submodule #{name}"
           elsif stdout.length > 0
-            log.success "Submodule: #{name}", "Initialized submodule #{name}"
+            log.info "Submodule: #{name}", "Initialized submodule #{name}"
           else
             log.info "Submodule: #{name}", "Skipped as submodule #{name} is already initialized"
           end
@@ -47,7 +47,7 @@ module WebBlocks
             if stderr.length > 0
               log.failure "Submodule: #{name}", "Update failed for submodules of submodule #{name}"
             else
-              log.success "Submodule: #{name}", "Updated submodules of submodule #{name}"
+              log.info "Submodule: #{name}", "Updated submodules of submodule #{name}"
             end
           
           end
@@ -69,7 +69,7 @@ module WebBlocks
           if stderr.length > 0
             log.failure "Submodule: #{name}", "Update failed for submodule #{name}"
           elsif stdout.length > 0
-            log.success "Submodule: #{name}", "Updated submodule #{name}"
+            log.info "Submodule: #{name}", "Updated submodule #{name}"
           else
             log.info "Submodule: #{name}", "Skipped as submodule #{name} is already up to date"
           end
@@ -93,7 +93,7 @@ module WebBlocks
             if stderr.length > 0
               log.failure "Submodule: #{name}", "Update failed for submodules of submodule #{name}"
             else
-              log.success "Submodule: #{name}", "Updated submodules of submodule #{name}"
+              log.info "Submodule: #{name}", "Updated submodules of submodule #{name}"
             end
           
           end

@@ -42,8 +42,10 @@ module WebBlocks
             
             log.task "Package: jQuery", "Compiling jQuery" do
               Dir.chdir package_dir :jquery do
-                log.failure "Builder: jQuery", "NPM execution failed" unless systemu "#{config[:exec][:npm]} install"
-                log.failure "Builder: jQuery", "Grunt execution failed" unless systemu "#{config[:exec][:grunt]}"
+                status, stdout, stderr = systemu "#{config[:exec][:npm]} install"
+                log.failure "Builder: jQuery", "NPM execution failed" if stderr.length > 0
+                status, stdout, stderr = systemu "#{config[:exec][:grunt]}"
+                log.failure "Builder: jQuery", "Grunt execution failed" if stderr.length > 0
               end
             end
             

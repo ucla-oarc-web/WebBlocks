@@ -1,0 +1,1 @@
+var core_adapter_m1_namespace = {}

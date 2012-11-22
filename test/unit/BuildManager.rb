@@ -2,13 +2,10 @@ require 'rubygems'
 require 'extensions/kernel'
 require 'fileutils'
 require_relative '../../lib/Test.rb'
-require_relative '../../lib/Build/Utilities.rb'
 
 class TestUnitBuildManager < ::Test::Unit::TestCase 
   
   include ::WebBlocks::Test::Unit::TestCase
-  
-  include ::WebBlocks::Build::Utilities
   
   def setup_test
     

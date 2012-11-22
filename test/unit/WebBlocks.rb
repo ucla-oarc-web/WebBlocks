@@ -66,7 +66,7 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_link_css
     
-    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/sass"
+    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/sass"
     
     execute 'preprocess_css'
     execute 'link_css'
@@ -81,7 +81,7 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_compile_css
     
-    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/sass"
+    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/sass"
     
     execute 'preprocess_css'
     execute 'link_css'
@@ -100,8 +100,8 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_assemble_css
     
-    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/sass"
-    config[:src][:css][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/css"
+    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/sass"
+    config[:src][:css][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/css"
     
     execute 'preprocess_css'
     execute 'link_css'
@@ -123,7 +123,7 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_assemble_img
     
-    config[:src][:img][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/img"
+    config[:src][:img][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/img"
     
     execute 'preprocess_img'
     execute 'assemble_img'
@@ -140,7 +140,7 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   def test_assemble_js
     
     config[:src][:js] = {
-      :dir  => "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/js",
+      :dir  => "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/js",
       :core => {:dir =>'core'},
       :core_ie => {:dir =>'core-ie'}, 
       :script => {:dir => 'script'}  
@@ -166,8 +166,8 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_package_css
     
-    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/sass"
-    config[:src][:css][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/css"
+    config[:src][:sass][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/sass"
+    config[:src][:css][:dir] = "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/css"
     
     execute 'preprocess_css'
     execute 'link_css'
@@ -217,7 +217,7 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   def test_package_js
     
     config[:src][:js] = {
-      :dir  => "#{File.dirname(Pathname.new(__FILE__).realpath)}/WebBlocks/src/js",
+      :dir  => "#{File.dirname(Pathname.new(__FILE__).realpath)}/Mock/src/js",
       :core => {:dir =>'core'},
       :core_ie => {:dir =>'core-ie'}, 
       :script => {:dir => 'script'}  

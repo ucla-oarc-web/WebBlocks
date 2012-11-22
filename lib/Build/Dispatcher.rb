@@ -13,6 +13,12 @@ module WebBlocks
         
       end
       
+      def reset_observers
+        
+        @observers = []
+        
+      end
+      
       def observer observer
         
         observers << observer

@@ -1,0 +1,1 @@
+var core_adapter_m3_sub1 = {};

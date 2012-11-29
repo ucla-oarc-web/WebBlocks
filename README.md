@@ -121,6 +121,46 @@ to specify this path:
 rake [command] -- --config=Rakefile-config.rb
 ```
 
+#### Testing WebBlocks
+
+##### Unit Tests
+
+WebBlocks provides a set of unit tests to ensure that compiler methods
+behave as intended.
+
+Unit tests are invoked as:
+
+```
+rake test TEST=test/unit/*.rb
+```
+
+These tests should be run whenever a change is made that affects the compiler.
+
+##### Build Tests
+
+WebBlocks provides a set of build tests that compile each WebBlocks module 
+and adapter individually to ensure that selective configurations do not crash
+the compiler because of issues like mismanaged dependencies.
+
+Build tests are invoked as:
+
+```
+rake test TEST=test/build/*.rb
+```
+
+These tests may take some time to run because the compiler is invoked for each 
+configuration permutation.
+
+##### Visual Inspection
+
+WebBlocks compiles its sources into a set of CSS, JS and other assets. Because 
+these are browser-side components, WebBlocks does not currently provide any 
+automated way to test presentation and behaviors of a compiled build. Instead, 
+visual inspection may be used of the demo files to ensure that all semantics  
+are styled as intended. 
+
+In the future, WebBlocks may include automated tests for this layer.
+
 ## Credits
 
 WebBlocks may leverage a number of external packages:

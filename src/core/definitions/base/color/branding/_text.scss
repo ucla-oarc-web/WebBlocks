@@ -1,19 +1,19 @@
-.text.default {
+.default-text {
     @include -base-color-branding-default-text;
 }
 
-.text.primary {
+.primary-text {
     @include -base-color-branding-primary-text;
 }
 
-.text.secondary {
+.secondary-text {
     @include -base-color-branding-secondary-text;
 }
 
-.text.tertiary {
+.tertiary-text {
     @include -base-color-branding-tertiary-text;
 }
 
-.text.neutral {
+.neutral-text {
     @include -base-color-branding-neutral-text;
 }

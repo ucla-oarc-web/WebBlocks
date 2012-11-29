@@ -3,6 +3,7 @@ require 'extensions/kernel'
 require_relative '../../Path'
 require_relative '../Submodule'
 require_relative '../Utilities'
+require_relative '../../Logger'
 
 module WebBlocks
   
@@ -12,6 +13,7 @@ module WebBlocks
       
       class Jquery
         
+        include ::WebBlocks::Logger
         include ::WebBlocks::Path::Temporary_Build
         include ::WebBlocks::Build::Submodule
         include ::WebBlocks::Build::Utilities
@@ -25,6 +27,8 @@ module WebBlocks
         def preprocess_js
           
           preprocess_submodule :jquery
+          preprocess_submodule_submodules :jquery
+          preprocess_submodule_npm :jquery
           
         end
         
@@ -40,8 +44,10 @@ module WebBlocks
             
             log.task "Package: jQuery", "Compiling jQuery" do
               Dir.chdir package_dir :jquery do
-                log.failure "Builder: jQuery", "NPM execution failed" unless systemu "#{config[:exec][:npm]} install"
-                log.failure "Builder: jQuery", "Grunt execution failed" unless systemu "#{config[:exec][:grunt]}"
+                status, stdout, stderr = systemu "#{config[:exec][:npm]} install"
+                log.failure "Builder: jQuery", "NPM execution failed" if stderr.length > 0
+                status, stdout, stderr = systemu "#{config[:exec][:grunt]}"
+                log.failure "Builder: jQuery", "Grunt execution failed" if stderr.length > 0
               end
             end
             

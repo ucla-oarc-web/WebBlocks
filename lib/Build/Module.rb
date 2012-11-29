@@ -17,11 +17,9 @@ module WebBlocks
         
         if config[:src][:modules] == :all
           config[:src][:modules] = all_modules
-        elsif !config[:src][:modules].respond_to?(:each)
-          config[:src][:modules] = [config[:src][:modules]]
         end
         
-        config[:src][:modules]
+        config[:src][:modules].is_a?(Array) ? config[:src][:modules] : [config[:src][:modules]]
         
       end
       
@@ -44,11 +42,11 @@ module WebBlocks
         files = []
         
         get_files(base_dir, 'scss').each do |file|
-          files << file if file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+          files << file if file.match /\/_+variables.scss$/
         end
 
         get_files(base_dir, 'scss', false).each do |file|
-          files << file unless file.match /\/_+require.scss$/ or file.match /\/_+variables.scss$/
+          files << file unless file.match /\/_+variables.scss$/
         end
         
         modules.each do |dir|
@@ -61,16 +59,32 @@ module WebBlocks
             subpath << segment
             path = ::WebBlocks::Path.to base_dir, subpath
             
+            if File.exists? "#{File.dirname(path)}/_require.scss"
+              files << "#{File.dirname(path)}/_require.scss" unless files.include? "#{File.dirname(path)}/_require.scss"
+            end
+            
+            if File.exists? "#{File.dirname(path)}/require.scss"
+              files << "#{File.dirname(path)}/require.scss" unless files.include? "#{File.dirname(path)}/require.scss"
+            end
+            
+            if File.exists? "#{path}/_require.scss"
+              files << "#{path}/_require.scss" unless files.include? "#{path}/_require.scss"
+            end
+            
+            if File.exists? "#{path}/require.scss"
+              files << "#{path}/require.scss" unless files.include? "#{path}/require.scss"
+            end
+            
             if File.exists? "#{path}.scss"
-              files << "#{path}.scss"
+              files << "#{path}.scss" unless files.include? "#{path}.scss"
             end
 
             if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}.scss"
-              files << "#{File.dirname(path)}/_#{File.basename(path)}.scss"
+              files << "#{File.dirname(path)}/_#{File.basename(path)}.scss" unless files.include? "#{File.dirname(path)}/_#{File.basename(path)}.scss"
             end
 
-            if File.exists? "#{dir}-ie.scss"
-              files << "#{dir}-ie.scss"
+            if File.exists? "#{path}-ie.scss"
+              files << "#{path}-ie.scss" unless files.include? "#{File.dirname(path)}/_#{File.basename(path)}.scss"
             end
 
             if File.exists? "#{File.dirname(path)}/_#{File.basename(path)}-ie.scss"
@@ -82,7 +96,7 @@ module WebBlocks
           dir = ::WebBlocks::Path.to base_dir, dir
           
           get_files(dir, 'scss').sort.each do |file|
-            files << file unless file.match /\/_+variables.scss$/
+            files << file unless file.match /\/_+variables.scss$/ or file.match /\/_+require.scss$/
           end
           
         end
@@ -108,9 +122,9 @@ module WebBlocks
           
           File.open file, "r" do |file|
             
-            lines = file.grep /^\/\/\s*\!requires\s/
+            lines = file.grep /^\/\/\!\s*requires\s/
             lines.each do |line|
-              line.gsub! /^\/\/\s*\!requires\s*/, ''
+              line.gsub! /^\/\/\!\s*requires\s*/, ''
               dependencies << line.split(/\s/)
             end
             

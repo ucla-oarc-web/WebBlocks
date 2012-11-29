@@ -2,25 +2,65 @@
     @include -base-structure-grid-row;
 }
 
-[class*="panel-"] {
+/**
+ * Widths are always available on panels for % width controls
+ */
+
+@mixin -base-structure-grid-panels-generate {
     
-    @media screen and (min-width: $breakpoint-small) {
-        @include -base-structure-grid-panel;
-    }
-    
-    @media screen and (max-width: $breakpoint-small - 1) {
-        @include -base-structure-grid-panel-collapsed;
+    $i: $structure-panels; @while $i > 0 {
+
+        .panel-#{$i} { 
+            @include -base-structure-grid-panel-fluid-span($i, $structure-panel-width, $structure-panel-gutter); 
+        }
+
+        $i: ($i - 1);
     }
     
 }
 
-$i: $structure-panels; @while $i > 0 {
+/**
+ * Default and .small-collapse behavior collapses at $breakpoint-small 
+ */
+
+.row.no-collapse .row,
+.row {
     
-    .panel-#{$i} { 
-        @media screen and (min-width: $breakpoint-small) {
-            @include -base-structure-grid-panel-fluid-span($i, $structure-panel-width, $structure-panel-gutter); 
+    &:not([class*="-collapse"]), &.small-collapse {  
+          
+        [class*="panel-"] {
+
+            @media screen and (min-width: $breakpoint-small) {
+                @include -base-structure-grid-panel;
+            }
+
+            @media screen and (max-width: $breakpoint-small - 1) {
+                @include -base-structure-grid-panel-collapsed;
+            }
+
         }
-    }
+        
+        @media screen and (min-width: $breakpoint-small) {
+                @include -base-structure-grid-panels-generate;
+                }
     
-    $i: ($i - 1);
+    }
+}
+
+/**
+ * .no-collapse behavior never collapses the row
+ */
+
+.row:not(.no-collapse) .row,
+.row {
+    
+    &.no-collapse {
+        
+        [class*="panel-"] {
+            @include -base-structure-grid-panel;
+        }
+        
+        @include -base-structure-grid-panels-generate;
+        
+    }
 }

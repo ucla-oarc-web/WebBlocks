@@ -51,7 +51,7 @@
  * Default and .small-collapse behavior collapses at $breakpoint-small 
  */
 
-.row.no-collapse .row,
+.row[class*="-collapse"] .row,
 .row {
     
     &.medium-collapse {  
@@ -69,6 +69,34 @@
         }
         
         @media screen and (min-width: $breakpoint-medium) {
+            @include -base-structure-grid-panels-generate;
+        }
+    
+    }
+}
+
+/**
+ * Default and .small-collapse behavior collapses at $breakpoint-small 
+ */
+
+.row[class*="-collapse"] .row,
+.row {
+    
+    &.large-collapse {  
+          
+        [class*="panel-"] {
+
+            @media screen and (min-width: $breakpoint-large) {
+                @include -base-structure-grid-panel;
+            }
+
+            @media screen and (max-width: $breakpoint-large - 1) {
+                @include -base-structure-grid-panel-collapsed;
+            }
+
+        }
+        
+        @media screen and (min-width: $breakpoint-large) {
             @include -base-structure-grid-panels-generate;
         }
     

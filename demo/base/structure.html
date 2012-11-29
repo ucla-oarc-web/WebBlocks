@@ -112,10 +112,10 @@
             
             <div class="row no-collapse">
                 <div class="panel-6">
-                    .panel-6
+                    .row.no-collapse .panel-6
                 </div>
                 <div class="panel-6">
-                    .panel-6
+                    .row.no-collapse .panel-6
                 </div>
             </div>
             
@@ -127,10 +127,10 @@
             
             <div class="row small-collapse">
                 <div class="panel-6">
-                    .panel-6
+                    .row.small-collapse .panel-6
                 </div>
                 <div class="panel-6">
-                    .panel-6
+                    .row.small-collapse .panel-6
                 </div>
             </div>
             
@@ -141,10 +141,24 @@
             
             <div class="row medium-collapse">
                 <div class="panel-6">
-                    .panel-6
+                    .row.medium-collapse .panel-6
                 </div>
                 <div class="panel-6">
-                    .panel-6
+                    .row.medium-collapse .panel-6
+                </div>
+            </div>
+            
+            <h4>Large Collapse</h4>
+            
+            <p>If the grid should collapse at <code>$breakpoint-large</code>, 
+            use <code>.row.large-collapse</code>:</p>
+            
+            <div class="row large-collapse">
+                <div class="panel-6">
+                    .row.large-collapse .panel-6
+                </div>
+                <div class="panel-6">
+                    .row.large-collapse .panel-6
                 </div>
             </div>
             
@@ -204,6 +218,23 @@
                 </div>
             </div>
             
+            <div class="row no-collapse">
+                <div class="panel-6">
+                    .row.no-collapse .panel-6
+                    <div class="row large-collapse">
+                        <div class="panel-6">.row.large-collapse .panel-6</div>
+                        <div class="panel-6">.row.large-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6">
+                    .row.no-collapse .panel-6
+                    <div class="row large-collapse">
+                        <div class="panel-6">.row.large-collapse .panel-6</div>
+                        <div class="panel-6">.row.large-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
             <h3>No Collapse within Collapse</h3>
             
             <p>Similarly, a collapsing row can have non-collapsing rows within 
@@ -253,6 +284,23 @@
                 </div>
                 <div class="panel-6">
                     .row.medium-collapse .panel-6
+                    <div class="row no-collapse">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row large-collapse">
+                <div class="panel-6">
+                    .row.large-collapse .panel-6
+                    <div class="row no-collapse">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6">
+                    .row.large-collapse .panel-6
                     <div class="row no-collapse">
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                         <div class="panel-6">.row.no-collapse .panel-6</div>

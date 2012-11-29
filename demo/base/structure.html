@@ -98,6 +98,105 @@
                     .panel-12
                 </div>
             </div>
+            
+            <h3>Grid System Collapse Controls</h3>
+            
+            <p>The default behavior for a <code>row</code> is that it collapses
+            at <code>$breakpoint-small</code>. However, this is not always
+            the intended behavior.</p>
+            
+            <h4>No Collapse</h4>
+            
+            <p>If the grid should never collapse, use 
+            <code>.row.no-collapse</code>:</p>
+            
+            <div class="row no-collapse">
+                <div class="panel-6">
+                    .panel-6
+                </div>
+                <div class="panel-6">
+                    .panel-6
+                </div>
+            </div>
+            
+            <h4>Collapse within No Collapse</h4>
+            
+            <p>A non-collapsing row can have rows within it that still do 
+            collapse:</p>
+            
+            <div class="row no-collapse">
+                <div class="panel-6 primary">
+                    .row.no-collapse .panel-6
+                    <div class="row secondary">
+                        <div class="panel-6">.row .panel-6</div>
+                        <div class="panel-6">.row .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6 primary">
+                    .row.no-collapse .panel-6
+                    <div class="row secondary">
+                        <div class="panel-6">.row .panel-6</div>
+                        <div class="panel-6">.row .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row no-collapse">
+                <div class="panel-6 primary">
+                    .row.no-collapse .panel-6
+                    <div class="row small-collapse secondary">
+                        <div class="panel-6">.row.small-collapse .panel-6</div>
+                        <div class="panel-6">.row.small-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6 primary">
+                    .row.no-collapse .panel-6
+                    <div class="row small-collapse secondary">
+                        <div class="panel-6">.row.small-collapse .panel-6</div>
+                        <div class="panel-6">.row.small-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>No Collapse within Collapse</h3>
+            
+            <p>Similarly, a collapsing row can have non-collapsing rows within 
+            it:</p>
+            
+            <div class="row">
+                <div class="panel-6 primary">
+                    .row .panel-6
+                    <div class="row no-collapse secondary">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6 primary">
+                    .row .panel-6
+                    <div class="row no-collapse secondary">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row small-collapse">
+                <div class="panel-6 primary">
+                    .row.small-collapse .panel-6
+                    <div class="row no-collapse secondary">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6 primary">
+                    .row.small-collapse .panel-6
+                    <div class="row no-collapse secondary">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         
     </body>

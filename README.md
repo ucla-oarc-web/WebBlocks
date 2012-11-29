@@ -125,6 +125,7 @@ rake [command] -- --config=Rakefile-config.rb
 
 WebBlocks may leverage a number of external packages:
 
+* Efx - BSD License - http://github.com/ebollens/efx
 * jQuery - MIT License - http://jquery.com
 * Modernizr - MIT or BSD License - http://modernizr.com
 * Respond.js - MIT or GPLv2 License - https://github.com/scottjehl/Respond

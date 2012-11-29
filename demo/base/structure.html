@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="panel-12 important">
+                <div class="panel-12">
                     .panel-12
                 </div>
             </div>
@@ -119,22 +119,51 @@
                 </div>
             </div>
             
+            <h4>Small Collapse</h4>
+            
+            <p>If the grid should collapse at <code>$breakpoint-small</code>, 
+            the use of <code>.row.small-collapse</code> is optional (this is 
+            the default collapse behavior):</p>
+            
+            <div class="row small-collapse">
+                <div class="panel-6">
+                    .panel-6
+                </div>
+                <div class="panel-6">
+                    .panel-6
+                </div>
+            </div>
+            
+            <h4>Medium Collapse</h4>
+            
+            <p>If the grid should collapse at <code>$breakpoint-medium</code>, 
+            use <code>.row.medium-collapse</code>:</p>
+            
+            <div class="row medium-collapse">
+                <div class="panel-6">
+                    .panel-6
+                </div>
+                <div class="panel-6">
+                    .panel-6
+                </div>
+            </div>
+            
             <h4>Collapse within No Collapse</h4>
             
             <p>A non-collapsing row can have rows within it that still do 
             collapse:</p>
             
             <div class="row no-collapse">
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.no-collapse .panel-6
-                    <div class="row secondary">
+                    <div class="row">
                         <div class="panel-6">.row .panel-6</div>
                         <div class="panel-6">.row .panel-6</div>
                     </div>
                 </div>
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.no-collapse .panel-6
-                    <div class="row secondary">
+                    <div class="row">
                         <div class="panel-6">.row .panel-6</div>
                         <div class="panel-6">.row .panel-6</div>
                     </div>
@@ -142,18 +171,35 @@
             </div>
             
             <div class="row no-collapse">
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.no-collapse .panel-6
-                    <div class="row small-collapse secondary">
+                    <div class="row small-collapse">
                         <div class="panel-6">.row.small-collapse .panel-6</div>
                         <div class="panel-6">.row.small-collapse .panel-6</div>
                     </div>
                 </div>
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.no-collapse .panel-6
-                    <div class="row small-collapse secondary">
+                    <div class="row small-collapse">
                         <div class="panel-6">.row.small-collapse .panel-6</div>
                         <div class="panel-6">.row.small-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row no-collapse">
+                <div class="panel-6">
+                    .row.no-collapse .panel-6
+                    <div class="row medium-collapse">
+                        <div class="panel-6">.row.medium-collapse .panel-6</div>
+                        <div class="panel-6">.row.medium-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6">
+                    .row.no-collapse .panel-6
+                    <div class="row medium-collapse">
+                        <div class="panel-6">.row.medium-collapse .panel-6</div>
+                        <div class="panel-6">.row.medium-collapse .panel-6</div>
                     </div>
                 </div>
             </div>
@@ -164,16 +210,16 @@
             it:</p>
             
             <div class="row">
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row .panel-6
-                    <div class="row no-collapse secondary">
+                    <div class="row no-collapse">
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                     </div>
                 </div>
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row .panel-6
-                    <div class="row no-collapse secondary">
+                    <div class="row no-collapse">
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                     </div>
@@ -181,16 +227,33 @@
             </div>
             
             <div class="row small-collapse">
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.small-collapse .panel-6
-                    <div class="row no-collapse secondary">
+                    <div class="row no-collapse">
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                     </div>
                 </div>
-                <div class="panel-6 primary">
+                <div class="panel-6">
                     .row.small-collapse .panel-6
-                    <div class="row no-collapse secondary">
+                    <div class="row no-collapse">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row medium-collapse">
+                <div class="panel-6">
+                    .row.medium-collapse .panel-6
+                    <div class="row no-collapse">
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                        <div class="panel-6">.row.no-collapse .panel-6</div>
+                    </div>
+                </div>
+                <div class="panel-6">
+                    .row.medium-collapse .panel-6
+                    <div class="row no-collapse">
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                         <div class="panel-6">.row.no-collapse .panel-6</div>
                     </div>
@@ -198,6 +261,22 @@
             </div>
             
         </div>
+        
+        <style>
+            .row {
+                margin-bottom: 1em;
+            }
+            .row .row {
+                margin-bottom: 0;
+            }
+            [class*="panel-"] {
+                background-color: #e4e4e4;
+            }
+            
+            [class*="panel-"] [class*="panel-"] { 
+                background-color: #ccc;
+            }
+        </style>
         
     </body>
     

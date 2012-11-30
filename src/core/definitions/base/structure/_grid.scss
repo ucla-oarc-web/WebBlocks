@@ -30,17 +30,17 @@
           
         [class*="panel-"] {
 
-            @media screen and (min-width: $breakpoint-small) {
+            @media screen and (min-width: $breakpoint-small+1) {
                 @include -base-structure-grid-panel;
             }
 
-            @media screen and (max-width: $breakpoint-small - 1) {
+            @media screen and (max-width: $breakpoint-small) {
                 @include -base-structure-grid-panel-collapsed;
             }
 
         }
         
-        @media screen and (min-width: $breakpoint-small) {
+        @media screen and (min-width: $breakpoint-small+1) {
             @include -base-structure-grid-panels-generate;
         }
     
@@ -58,17 +58,17 @@
           
         [class*="panel-"] {
 
-            @media screen and (min-width: $breakpoint-medium) {
+            @media screen and (min-width: $breakpoint-medium+1) {
                 @include -base-structure-grid-panel;
             }
 
-            @media screen and (max-width: $breakpoint-medium - 1) {
+            @media screen and (max-width: $breakpoint-medium) {
                 @include -base-structure-grid-panel-collapsed;
             }
 
         }
         
-        @media screen and (min-width: $breakpoint-medium) {
+        @media screen and (min-width: $breakpoint-medium+1) {
             @include -base-structure-grid-panels-generate;
         }
     
@@ -86,17 +86,17 @@
           
         [class*="panel-"] {
 
-            @media screen and (min-width: $breakpoint-large) {
+            @media screen and (min-width: $breakpoint-large+1) {
                 @include -base-structure-grid-panel;
             }
 
-            @media screen and (max-width: $breakpoint-large - 1) {
+            @media screen and (max-width: $breakpoint-large) {
                 @include -base-structure-grid-panel-collapsed;
             }
 
         }
         
-        @media screen and (min-width: $breakpoint-large) {
+        @media screen and (min-width: $breakpoint-large+1) {
             @include -base-structure-grid-panels-generate;
         }
     

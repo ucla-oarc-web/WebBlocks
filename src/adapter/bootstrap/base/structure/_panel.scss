@@ -1,6 +1,6 @@
 @mixin -base-structure-grid-panel {
     
-    @media screen and (min-width: $breakpoint-small) {
+    @media screen and (min-width: $breakpoint-small+1) {
     
         [class*="panel-"] {
             float: left;
@@ -19,7 +19,7 @@
     
     }
     
-    @media screen and (max-width: $breakpoint-small - 1) {
+    @media screen and (max-width: $breakpoint-small) {
         [class*="panel-"] {
             width: 100%;
         }

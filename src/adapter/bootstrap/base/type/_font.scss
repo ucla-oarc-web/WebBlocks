@@ -1,1 +1,9 @@
-@mixin -base-type-font { }
+@mixin -base-type-font {
+    
+    h1, h2, h3, h4, h5, h6 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    
+}

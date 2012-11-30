@@ -44,7 +44,7 @@
 
 @mixin -entity-form-horizontal-control {
     
-    @media screen and (min-width: $breakpoint-small) {
+    @media screen and (min-width: $breakpoint-small+1) {
 
         margin-bottom: 10px;
         padding-left: $horizontalComponentOffset;

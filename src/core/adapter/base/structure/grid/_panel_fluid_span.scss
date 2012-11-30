@@ -1,0 +1,3 @@
+@mixin -base-structure-grid-panel-fluid-span($columns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
+    width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+}

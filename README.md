@@ -94,19 +94,19 @@ The Rakefile includes a number of subtasks that may be invoked:
 
 * `rake build` compiles and builds WebBlocks
 * `rake build_all` compiles all third-party plugins and then compiles and builds WebBlocks
+* `rake build_css` compiles CSS only (!)
+* `rake build_img` assembles images only (!)
+* `rake build_js` compiles JS only (!)
 * `rake clean` removes the build directory for WebBlocks
 * `rake clean_packages` removes the build outputs of any packages that have a compilation step
 * `rake clean_all` removes the build directory for WebBlocks and the build outputs of any packages that have a compilation step
 * `rake reset_packages` removes all packages (will have to fetch again to build)
 * `rake reset` removes all packages (will have to fetch again to build) and resets WebBlocks state
 
-The following subtasks will be, but are not yet, available:
-
-* `rake check` check for prerequisites (requires commands in user search path)
-* `rake environment` display the environment configuration used by WebBlocks
-* `rake paths` display paths for compile/build as configured for WebBlocks
-* `rake packages` display external packages WebBlocks is configured to include
-* `rake includes` display sources WebBlocks is configured to include
+(!) The `build_css`, `build_img` and `build_js` tasks should be used with 
+caution, intended predominately just as a tool for during the development
+process. This is because built CSS may have dependencies on images and JS, 
+and build JS may have dependencies on CSS and images. Use with caution.
 
 The WebBlocks build process is highly configurable. By default, you may define
 configuration settings within `Rakefile-config.rb`. A full list of all 
@@ -121,10 +121,51 @@ to specify this path:
 rake [command] -- --config=Rakefile-config.rb
 ```
 
+#### Testing WebBlocks
+
+##### Unit Tests
+
+WebBlocks provides a set of unit tests to ensure that compiler methods
+behave as intended.
+
+Unit tests are invoked as:
+
+```
+rake test TEST=test/unit/*.rb
+```
+
+These tests should be run whenever a change is made that affects the compiler.
+
+##### Build Tests
+
+WebBlocks provides a set of build tests that compile each WebBlocks module 
+and adapter individually to ensure that selective configurations do not crash
+the compiler because of issues like mismanaged dependencies.
+
+Build tests are invoked as:
+
+```
+rake test TEST=test/build/*.rb
+```
+
+These tests may take some time to run because the compiler is invoked for each 
+configuration permutation.
+
+##### Visual Inspection
+
+WebBlocks compiles its sources into a set of CSS, JS and other assets. Because 
+these are browser-side components, WebBlocks does not currently provide any 
+automated way to test presentation and behaviors of a compiled build. Instead, 
+visual inspection may be used of the demo files to ensure that all semantics  
+are styled as intended. 
+
+In the future, WebBlocks may include automated tests for this layer.
+
 ## Credits
 
 WebBlocks may leverage a number of external packages:
 
+* Efx - BSD License - http://github.com/ebollens/efx
 * jQuery - MIT License - http://jquery.com
 * Modernizr - MIT or BSD License - http://modernizr.com
 * Respond.js - MIT or GPLv2 License - https://github.com/scottjehl/Respond

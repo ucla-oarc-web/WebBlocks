@@ -2,54 +2,46 @@
 
 ## Definition
 
-A button is a user interface element that a User can "press" to cause some action within the application.
+A message is a user interface element that stands out of the interface with 
+information pertinent to the user.
 
 ## Usages
 
-A button has many uses, including:
+A message has many use including:
 
-* Submit a form
-* Toggle state
-* Close a dialog
+* Notifications
+* Success messages
+* Error alerts
 
 ## Features
 
-A button can be created using three different HTML elements:
-
-1. `a`
-2. `button`
-3. `input` (with `type` equal to "submit", "button", or "reset")
-
-To style the element as a button, simply add the CSS class `button`. 
-
-In addition, you may attach any branding or mood color such as:
+A message is generally defined on a `div` element. However, it may be defined
+on any block-level element based on semantic purpose. To style the message,
+add the CSS class `button`, as well as any additional branding or mood
+styles such as:
 
 ```html
-<a href="#" class="button warning">Text</a>
+<div class="message primary">Message with primary branding</div>
+<div class="message secondary">Message with secondary branding</div>
+<div class="message danger">Message with danger mood like an error</div>
+<div class="message success">Message with success mood</div>
+<div class="message required">Message specifying required action</div>
 ```
 
-It is also possible to apply different sentiments to the button and the text:
+### Close Message
+
+Some adapters (such as Bootstrap) provide the ability to close the message by
+pressing a close button. This close button is laid in when the `closeable`
+class it attached. While a default button exists, it is also possible to
+specify a custom close button by defining an element with a `close` class (and
+the `data-dismiss="alert"` attribute in the case of Bootstrap).
 
 ```html
-<button type="button" class="button inverse">
-    <span class="highlight text">Text</span>
-</button>
+<div class="message warning closeable">Closeable message with warning mood</div>
 ```
-
-### Disabled State
-
-''TODO: Not yet available''
-
-You can indicate that a button is disabled by either adding the "disabled" CSS 
-class or adding the `disabled` attribute to the element. Although both methods 
-will work, adding the attribute should be preferred unless it is not possible 
-(as in the case of the `a` element).
-
-### Button Size
-
-Button size can be controlled via using one of the CSS utility classes 
-("large", "small", and "mini").
 
 ## Responsive Considerations
 
-The button should not require any responsive adaptation since it is more or less an inline element.
+The message is a block-level element that spans the width of its containing
+element. As such, responsive considerations do not apply directly to the 
+message but rather to the container.

@@ -2,14 +2,24 @@
 <html>
     
     <head>
-        <title>Button</title>
+        
+        <title>Entity/Button</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
         <link rel="stylesheet" href="../../build/css/blocks.css">
+        <script type="text/javascript" src="../../build/js/blocks.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="../../build/css/blocks-ie.css">
+        <script type="text/javascript" src="../../build/js/blocks-ie.js"></script>
+        <![endif]-->
+        
     </head>
     
-    <body>
+    <body class="container">
         
-        <h1>Button</h1>
+        <h1>Entity/Button</h1>
         
         <h2>Basic Styles</h2>
         
@@ -149,13 +159,13 @@
         
         <h3>Separate Moods on Text</h3>
         
-        <p>The <code>a.button</code> and <code>button.button</code> elements both support changing text of color by using an internal <code>span.text.{mood}</code> element. This is not possible with an <code>input</code> element.</p>
+        <p>The <code>a.button</code> and <code>button.button</code> elements both support changing text of color by using an <code>.text-{color}</code> element.</p>
         
         <p>
-        <a class="button"><span class="text danger">a.button .text.danger</span></a>
-        <button type="submit" class="button"><span class="text success">button.button .text.success</span></button>
-        <a class="button inverse"><span class="text highlight">button.inverse .text.highlight</span></a>
-        <button type="submit" class="button warning"><span class="text default">button.button.warning text.default</span></button>
+        <a class="button"><span class="text-danger">a.button .text-danger</span></a>
+        <button type="submit" class="button"><span class="text-success">button.button .text-success</span></button>
+        <a class="button inverse"><span class="text-highlight">button.inverse .text-highlight</span></a>
+        <button type="submit" class="button warning"><span class="text-default">button.button.warning .text-default</span></button>
         </p>
         
         <h3>Size Controls</h3>

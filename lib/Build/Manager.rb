@@ -42,6 +42,7 @@ module WebBlocks
       def attach_module namespace, mod
         
         mod = mod.to_s.downcase.capitalize
+        namespace = namespace.to_s.downcase.capitalize
         
         path = ::WebBlocks::Path.from_root_to "lib/Build/#{namespace}/#{mod}.rb"
         if File.exists? path

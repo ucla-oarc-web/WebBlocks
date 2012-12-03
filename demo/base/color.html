@@ -2,15 +2,31 @@
 <html>
     
     <head>
-        <title>Color</title>
+        
+        <title>Base/Color</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
         <link rel="stylesheet" href="../../build/css/blocks.css">
+        <script type="text/javascript" src="../../build/js/blocks.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="../../build/css/blocks-ie.css">
+        <script type="text/javascript" src="../../build/js/blocks-ie.js"></script>
+        <![endif]-->
+        
         <style>table { width: 100%; }</style>
+        
     </head>
     
-    <body>
+    <body class="container">
         
-        <h1>Color</h1>
+        <h1>Base/Color</h1>
+        
+        <p>The following is a palette of colors available in WebBlocks and the
+            classes used to invoke them. Note that some element may extend a 
+            subset of this palette, such as <strong>Entity/Button</strong>, 
+            which always applies the gradient color.</p>
         
         <table>
             <tr>
@@ -86,22 +102,22 @@
                 <td class="gradient light required">.light.gradient.required</td>
             </tr>
             <tr>
-                <td class="primary text">.primary.text</td>
-                <td class="secondary text">.secondary.text</td>
-                <td class="tertiary text">.tertiary.text</td>
-                <td class="neutral text">.neutral.text</td>
+                <td class="text-primary">.text-primary</td>
+                <td class="text-secondary">.text-secondary</td>
+                <td class="text-tertiary">.text-tertiary</td>
+                <td class="text-neutral">.text-neutral</td>
             </tr>
             <tr>
-                <td class="info text">.info.text</td>
-                <td class="important text">.important.text</td>
-                <td class="success text">.success.text</td>
-                <td class="danger text">.danger.text</td>
+                <td class="text-info">.text-info</td>
+                <td class="text-important">.text-important</td>
+                <td class="text-success">.text-success</td>
+                <td class="text-danger">.text-danger</td>
             </tr>
             <tr>
-                <td class="warning text">.warning.text</td>
-                <td class="inverse text">.inverse.text</td>
-                <td class="highlight text">.highlight.text</td>
-                <td class="required text">.required.text</td>
+                <td class="text-warning">.text-warning</td>
+                <td class="text-inverse">.text-inverse</td>
+                <td class="text-highlight">.text-highlight</td>
+                <td class="text-required">.text-required</td>
             </tr>
         </table>
         

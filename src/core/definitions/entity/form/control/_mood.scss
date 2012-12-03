@@ -1,0 +1,46 @@
+form.form div.control {
+    
+    &.info,
+    &.important,
+    &.success,
+    &.warning,
+    &.danger,
+    &.inverse,
+    &.highlight,
+    &.required {
+        @include -entity-form-control-mood;
+    }
+    
+    &.info {
+        @include -entity-form-control-mood-info;
+    }
+    
+    &.important {
+        @include -entity-form-control-mood-important;
+    }
+    
+    &.success {
+        @include -entity-form-control-mood-success;
+    }
+    
+    &.warning {
+        @include -entity-form-control-mood-warning;
+    }
+    
+    &.danger {
+        @include -entity-form-control-mood-danger;
+    }
+    
+    &.inverse {
+        @include -entity-form-control-mood-inverse;
+    }
+    
+    &.highlight {
+        @include -entity-form-control-mood-highlight;
+    }
+    
+    &.required {
+        @include -entity-form-control-mood-required;
+    }
+    
+}

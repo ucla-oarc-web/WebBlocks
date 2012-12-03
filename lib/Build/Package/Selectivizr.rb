@@ -3,6 +3,7 @@ require 'extensions/kernel'
 require_relative '../../Path'
 require_relative '../Submodule'
 require_relative '../Utilities'
+require_relative '../../Logger'
 
 module WebBlocks
   
@@ -12,6 +13,7 @@ module WebBlocks
       
       class Selectivizr
         
+        include ::WebBlocks::Logger
         include ::WebBlocks::Path::Temporary_Build
         include ::WebBlocks::Build::Submodule
         include ::WebBlocks::Build::Utilities

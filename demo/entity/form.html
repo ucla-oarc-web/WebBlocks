@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Form</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <link rel="stylesheet" href="../../build/css/blocks.css">
+        <script type="text/javascript" src="../../build/js/blocks.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="../../build/css/blocks-ie.css">
+        <script type="text/javascript" src="../../build/js/blocks-ie.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        
+        <div class="container">
+
+            <h1>Form</h1>
+            
+            <h2>Base Styles</h2>
+
+            <form class="form horizontal">
+
+                <fieldset>
+
+                    <legend>Fieldset Legend</legend>
+
+                    <div class="control">
+                        <label for="in-1">label[for='in-1']</label>
+                        <input type="text" id="in-1" aria-describedby="help-in-1" value="input#in-1[aria-describedby='hlp-in-1']"> with some inline text
+                        <p id="help-in-1">p#help-in-1</p>
+                    </div>
+
+                    <div class="control">
+                        <input type="text" title="Implicit Label" id="in-2" aria-describedby="help-in-2" value="input#in-2[aria-describedby='hlp-in-2'][title='Implicit Label']">
+                        <p id="help-in-2">p#help-in-2 (unlabeled)</p>
+                    </div>
+
+                    <div class="control">
+                        <label for="in-3">label[for='in-2'] Very long label for the input which should be clearfixed</label>
+                        <input type="text" id="in-3" aria-describedby="help-in-3" value="input#in-3[aria-describedby='hlp-in-3']">
+                        <p id="help-in-3">p#help-in-3</p>
+                    </div>
+
+                    <div class="control">
+                        <label for="in-4">Full Width Input</label>
+                        <input type="text" id="in-4" class="full" aria-describedby="help-in-4" value="input.full#in-4[aria-describedby='hlp-in-4']">
+                        <p id="help-in-4">p#help-in-4</p>
+                    </div>
+
+                    <div class="control">
+                        <label for="txt-1">label[for='txt-1']</label>
+                        <textarea id="txt-1" aria-describedby="help-txt-1">textarea#txt-1[aria-describedby='hlp-txt-1']</textarea>
+                        <p id="help-txt-1">p#help-txt-1</p>
+                    </div>
+
+                    <div class="control">
+                        <label for="txt-2">label[for='txt-2']</label>
+                        <textarea id="txt-2" class="full" aria-describedby="help-txt-2">textarea.full#txt-2[aria-describedby='hlp-txt-2']</textarea>
+                        <p id="help-txt-2" class="text-important">p.text-important#help-txt-2</p>
+                    </div>
+
+                    <div class="control">
+                        <label id="chk-set-1">label#chk-set-1</label>
+                        <label><input type="checkbox" aria-labelledby="chk-set-1"> label input[aria-labelledby="chk-set-1"]</label>
+                        <label><input type="checkbox" aria-labelledby="chk-set-1"> label input[aria-labelledby="chk-set-1"]</label>
+                    </div>
+
+                    <div class="control">
+                        <label id="chk-set-1">label#chk-set-2</label>
+                        <div class="inline">
+                            div.inline
+                            <label><input type="checkbox" aria-labelledby="chk-set-2"> label input[aria-labelledby="chk-set-2"]</label>
+                            <label><input type="checkbox" aria-labelledby="chk-set-2"> label input[aria-labelledby="chk-set-2"]</label>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <label id="rad-set-1">label#rad-set-1</label>
+                        <label><input type="radio" name="rad" aria-labelledby="rad-set-1"> label input[name="rad"][aria-labelledby="rad-set-1"]</label>
+                        <label><input type="radio" name="rad" aria-labelledby="rad-set-1"> label input[name="rad"][aria-labelledby="rad-set-1"]</label>
+                    </div>
+
+                    <div class="control">
+                        <label id="chk-set-1">label#rad-set-2</label>
+                        <div class="inline">
+                            div.inline
+                            <label><input type="radio" name="rad2" aria-labelledby="rad-set-2"> label input[name="rad2"][aria-labelledby="rad-set-2"]</label>
+                            <label><input type="radio" name="rad2" aria-labelledby="rad-set-2"> label input[name="rad2"][aria-labelledby="rad-set-2"]</label>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <label for="sel-1">label#sel-1</label>
+                        <select id="sel-1">
+                            <option>select#sel-1 option:first-child</option>
+                            <option>select#sel-1 option</option>
+                            <option>select#sel-1 option:last-child</option>
+                        </select>
+                    </div>
+
+                    <div class="control">
+                        <label for="msel-1">label#msel-1</label>
+                        <select id="msel-1" multiple="multiple">
+                            <option>select#msel-1 option:first-child</option>
+                            <option>select#msel-1 option</option>
+                            <option>select#msel-1 option:last-child</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+            </form>
+            
+            <h2>Control Sizes</h2>
+            
+            <form class="form horizontal">
+                
+                <div class="control">
+                    <label for="in-mini">input.mini</label>
+                    <input type="text" class="mini">
+                </div>
+                
+                <div class="control">
+                    <label for="in-small">input.small</label>
+                    <input type="text" class="small">
+                </div>
+                
+                <div class="control">
+                    <label for="in-large">input.large</label>
+                    <input type="text" class="large">
+                </div>
+                
+                <div class="control">
+                    <label for="in-full">input.full</label>
+                    <input type="text" class="full">
+                </div>
+                
+                <div class="control">
+                    <input type="submit" class="success button" value="Submit">
+                    <input type="reset" class="inverse button" value="Reset">
+                </div>
+                
+            </form>
+            
+            <h2>Control Moods</h2>
+            
+            <form class="form horizontal">
+                
+                <div class="control info">
+                    <label>Info</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control important">
+                    <label>Important</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control success">
+                    <label>Success</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control warning">
+                    <label>Warning</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control danger">
+                    <label>Danger</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control highlight">
+                    <label>Highlight</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+                <div class="control required">
+                    <label>Required</label>
+                    <input type="text">
+                    <p>This is a control with a mood on it</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <script>
+            if($ !== undefined) $('form').submit(function(e){e.preventDefault()});
+        </script>
+        
+    </body>
+    
+</html>

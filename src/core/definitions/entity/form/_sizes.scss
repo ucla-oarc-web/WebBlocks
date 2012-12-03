@@ -1,0 +1,3 @@
+form.form input, form.form select, form.form textarea {
+    @include -entity-form-sizes;
+}

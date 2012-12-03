@@ -1,33 +1,25 @@
+//!requires base/color/branding/background
+
 .gradient {
         
     &.default {
-        &:not(.text){
-            @include -base-color-branding-default-background-gradient;
-        }
+        @include -base-color-branding-default-background-gradient;
     }
         
     &.primary {
-        &:not(.text){
-            @include -base-color-branding-primary-background-gradient;
-        }
+        @include -base-color-branding-primary-background-gradient;
     }
         
     &.secondary {
-        &:not(.text){
-            @include -base-color-branding-secondary-background-gradient;
-        }
+        @include -base-color-branding-secondary-background-gradient;
     }
         
     &.tertiary {
-        &:not(.text){
-            @include -base-color-branding-tertiary-background-gradient;
-        }
+        @include -base-color-branding-tertiary-background-gradient;
     }
         
     &.neutral {
-        &:not(.text){
-            @include -base-color-branding-neutral-background-gradient;
-        }
+        @include -base-color-branding-neutral-background-gradient;
     }
 
 }

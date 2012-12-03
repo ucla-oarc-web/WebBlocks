@@ -59,6 +59,8 @@ module WebBlocks
             subpath << segment
             path = ::WebBlocks::Path.to base_dir, subpath
             
+            next unless path
+            
             if File.exists? "#{File.dirname(path)}/_require.scss"
               files << "#{File.dirname(path)}/_require.scss" unless files.include? "#{File.dirname(path)}/_require.scss"
             end
@@ -271,6 +273,8 @@ module WebBlocks
         modules.each do |dir|
 
           dir = ::WebBlocks::Path.to base_dir, dir
+          
+          next unless dir
 
           get_files(dir, 'js').sort.each do |file|
 
@@ -307,6 +311,8 @@ module WebBlocks
         modules.each do |dir|
 
           dir = ::WebBlocks::Path.to base_dir, dir
+          
+          next unless dir
           
           if File.exists? "#{dir}.js"
             files[1] << "#{dir}.js"

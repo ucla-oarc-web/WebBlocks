@@ -1,16 +1,18 @@
+//!requires base/color
+
+@mixin -entity-button-mini {
+    @extend .btn-mini;
+}
+
+@mixin -entity-button-small {
+    @extend .btn-small;
+}
+
+@mixin -entity-button-large {
+    @extend .btn-large;
+}
+
 @mixin -entity-button {
-    
-    &.mini {
-        @extend .btn-mini;
-    }
-    
-    &.small {
-        @extend .btn-small;
-    }
-    
-    &.large {
-        @extend .btn-large;
-    } 
     
     @extend .gradient;
 
@@ -45,7 +47,6 @@
 
     // Hover state
     &:hover {
-        color: $grayDark;
         text-decoration: none;
         background-position: 0 -15px;
         @include transition(background-position .1s linear);
@@ -73,84 +74,84 @@
         }
     }
     
-    &.primary:not(.text) {
+    &.primary {
         &:hover, &.active {
             background-color: $color-branding-primary-background-shadow;
             *background-color: darken($color-branding-primary-background-shadow, 5%);
         }
     }
     
-    &.secondary:not(.text) {
+    &.secondary {
         &:hover, &.active {
             background-color: $color-branding-secondary-background-shadow;
             *background-color: darken($color-branding-secondary-background-shadow, 5%);
         }
     }
     
-    &.tertiary:not(.text) {
+    &.tertiary {
         &:hover, &.active {
             background-color: $color-branding-tertiary-background-shadow;
             *background-color: darken($color-branding-tertiary-background-shadow, 5%);
         }
     }
     
-    &.neutral:not(.text) {
+    &.neutral {
         &:hover, &.active {
             background-color: $color-branding-neutral-background-shadow;
             *background-color: darken($color-branding-neutral-background-shadow, 5%);
         }
     }
     
-    &.info:not(.text) {
+    &.info {
         &:hover, &.active {
             background-color: $color-mood-info-background-shadow;
             *background-color: darken($color-mood-info-background-shadow, 5%);
         }
     }
     
-    &.important:not(.text) {
+    &.important {
         &:hover, &.active {
             background-color: $color-mood-important-background-shadow;
             *background-color: darken($color-mood-important-background-shadow, 5%);
         }
     }
     
-    &.success:not(.text) {
+    &.success {
         &:hover, &.active {
             background-color: $color-mood-success-background-shadow;
             *background-color: darken($color-mood-success-background-shadow, 5%);
         }
     }
     
-    &.warning:not(.text) {
+    &.warning {
         &:hover, &.active {
             background-color: $color-mood-warning-background-shadow;
             *background-color: darken($color-mood-warning-background-shadow, 5%);
         }
     }
     
-    &.danger:not(.text) {
+    &.danger {
         &:hover, &.active {
             background-color: $color-mood-danger-background-shadow;
             *background-color: darken($color-mood-danger-background-shadow, 5%);
         }
     }
     
-    &.inverse:not(.text) {
+    &.inverse {
         &:hover, &.active {
             background-color: $color-mood-inverse-background-shadow;
             *background-color: darken($color-mood-inverse-background-shadow, 5%);
         }
     }
     
-    &.required:not(.text) {
+    &.required {
         &:hover, &.active {
             background-color: $color-mood-required-background-shadow;
             *background-color: darken($color-mood-required-background-shadow, 5%);
         }
     }
     
-    &.highlight:not(.text) {
+    &.highlight {
         &:hover, &.active {
             background-color: $color-mood-highlight-background-shadow;
             *background-color: darken($color-mood-highlight-background-shadow, 5%);

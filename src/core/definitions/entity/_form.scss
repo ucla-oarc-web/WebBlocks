@@ -1,0 +1,7 @@
+form.form {
+    @include -entity-form;
+}
+
+form.form.horizontal {
+    @include -entity-form-horizontal;
+}

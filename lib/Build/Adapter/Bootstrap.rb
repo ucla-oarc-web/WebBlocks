@@ -4,6 +4,7 @@ require_relative '../../Path'
 require_relative '../Submodule'
 require_relative '../Utilities'
 require_relative '../Module'
+require_relative '../../Logger'
 
 module WebBlocks
   
@@ -13,6 +14,7 @@ module WebBlocks
       
       class Bootstrap
         
+        include ::WebBlocks::Logger
         include ::WebBlocks::Path::Source
         include ::WebBlocks::Path::Temporary_Build
         include ::WebBlocks::Build::Submodule

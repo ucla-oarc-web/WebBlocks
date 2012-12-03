@@ -1,3 +1,4 @@
 input[type="reset"].button {
     @include -entity-button;
+    @include -entity-button-styles;
 }

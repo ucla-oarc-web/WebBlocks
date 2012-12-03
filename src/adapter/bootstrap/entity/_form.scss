@@ -1,0 +1,14 @@
+@mixin -entity-form {
+        
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), select:not([multiple]) {  
+        height: $baseLineHeight + 8px;
+    }
+    
+    label {
+        font-weight: bold;
+    }
+    
+    legend + div.control {
+        padding-top: 20px;
+    }
+}

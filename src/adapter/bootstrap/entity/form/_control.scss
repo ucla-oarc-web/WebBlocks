@@ -1,0 +1,66 @@
+@mixin -entity-form-control {
+    
+    max-width: 100%;
+    
+    color: lighten($textColor, 30%);
+    
+    label {
+        color: $textColor;
+    }
+        
+    > label:not(:first-child), > * label {
+        font-weight: normal;
+    }
+
+    > * {
+        max-width: 100%;
+    }
+
+    label {
+        input[type="checkbox"], input[type="radio"] {
+           margin-top: -5px; 
+           margin-right: 5px;
+        }
+    }
+
+    > input, > select, > textarea {
+
+        @include box-sizing(border-box);
+        
+        margin-right: 10px;
+        
+        &.last-child {
+            margin-right: 0;
+        }
+    }
+
+    > .inline {
+        > * {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+}
+
+@mixin -entity-form-horizontal-control {
+    
+    @media screen and (min-width: $breakpoint-small+1) {
+
+        margin-bottom: 10px;
+        padding-left: $horizontalComponentOffset;
+        overflow: hidden;
+
+        > label:first-child {
+            margin-left: -1 * $horizontalComponentOffset;
+            width: $horizontalComponentOffset - 20;
+            padding-top: 5px;
+            float: left;
+        }
+
+        > label, > label + p, > p:first-child {
+            padding-top: 5px;
+        }
+    
+    }
+    
+}

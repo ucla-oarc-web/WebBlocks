@@ -4,6 +4,7 @@ require 'systemu'
 require 'fileutils'
 require_relative '../Path'
 require_relative 'Utilities'
+require_relative '../Logger'
 
 module WebBlocks
   
@@ -11,6 +12,7 @@ module WebBlocks
       
     class WebBlocks
       
+      include ::WebBlocks::Logger
       include ::WebBlocks::Path::Source
       include ::WebBlocks::Path::Temporary_Build
       include ::WebBlocks::Path::Build
@@ -124,7 +126,7 @@ module WebBlocks
           
           Dir.chdir tmp_build_dir do
             
-            status, stdout, stderr = systemu "#{config[:exec][:compass]} compile -e #{environment} --boring --sass-dir #{src_sass_dir} --config \"#{src_core_compass_config_file}\""
+            status, stdout, stderr = systemu "#{config[:exec][:compass]} compile -e #{environment} --boring --sass-dir \"#{src_sass_dir}\" --config \"#{src_core_compass_config_file}\""
             
             success = false if status != 0
             if success
@@ -356,6 +358,8 @@ module WebBlocks
       end
       
       module Append
+        
+        extend ::WebBlocks::Config
 
         def self.compressed_css_file src, dst
           status, stdout, stderr = systemu "#{config[:exec][:uglifycss]} \"#{src}\" > \"#{dst}\""

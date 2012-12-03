@@ -16,7 +16,7 @@ module WebBlocks
         ::WebBlocks::Path.from_root_to config[:package][:dir], config[:package][package][:dir]
       end
       
-      def src_dir *args
+      def src_dir
         ::WebBlocks::Path.from_root_to config[:src][:dir]
       end
       

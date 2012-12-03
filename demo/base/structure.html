@@ -2,16 +2,39 @@
 <html>
     
     <head>
-        <title>Grid</title>
+        
+        <title>Base/Structure</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
         <link rel="stylesheet" href="../../build/css/blocks.css">
+        <script type="text/javascript" src="../../build/js/blocks.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="../../build/css/blocks-ie.css">
+        <script type="text/javascript" src="../../build/js/blocks-ie.js"></script>
+        <![endif]-->
+        
     </head>
     
     <body>
         
-        <h1>Grid</h1>
-        
         <div class="container">
+        
+            <h1>Base/Structure</h1>
+            
+            <h2>Container</h2>
+            
+            <p>WebBlocks provides a fluid <code>container</code> class (which
+                is in use here). It can be applied to the <code>body</code>
+                to contain the entire page contents or to a smaller subset of
+                elements.</p>
+            
+            <h2>Grid System</h2>
+            
+            <p>WebBlocks provides a grid system through the use of the 
+                <code>row</code> and <code>panel-X</code> classes. By default
+                (and thus in this demo), a row is twelve panels wide.</p>
             
             <div class="row">
                 <div class="panel-1">

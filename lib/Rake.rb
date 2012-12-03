@@ -28,10 +28,11 @@ module WebBlocks
     # include methods: define_task, define_tasks
     include ::WebBlocks::Rake::Manager
     
-    # include methods: observer, execute
+    # include methods: observers, observer, execute
     include ::WebBlocks::Build::Dispatcher
     
     # include methods: attach_packages, attach_adapters, attach_webblocks
+    # and (sub)methods: attach_core, attach_adapter, attach_module
     include ::WebBlocks::Build::Manager
     
     def run

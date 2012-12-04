@@ -23,7 +23,7 @@ module WebBlocks
           if config[:src][:modules].kind_of?(Array)
             config[:src][:modules] << module_name unless config[:src][:modules].include? module_name
           else
-            config[:src][:modules] = [module_name]
+            config[:src][:modules] = [config[:src][:modules], module_name]
           end
         end
       end

@@ -1,17 +1,18 @@
 @mixin -entity-form-size-mini {
-    
+    width: $form-input-size-mini;
 }
 
 @mixin -entity-form-size-small {
-    
+    width: $form-input-size-small;
 }
 
 @mixin -entity-form-size-large {
-    
+    width: $form-input-size-large;
 }
 
 @mixin -entity-form-size-full {
     width: 100%;
+    margin-right: 0;
 }
 
 @mixin -entity-form-sizes {

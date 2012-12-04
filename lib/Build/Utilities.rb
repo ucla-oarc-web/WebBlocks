@@ -17,6 +17,17 @@ module WebBlocks
         end
       end
       
+      # TODO: unit test
+      def add_module module_name
+        unless config[:src][:modules] == :all
+          if config[:src][:modules].kind_of?(Array)
+            config[:src][:modules] << module_name unless config[:src][:modules].include? module_name
+          else
+            config[:src][:modules] = [config[:src][:modules], module_name]
+          end
+        end
+      end
+      
       # Determine if file ends with ext (string or array of strings).
       def file_ext? file, ext
         return true unless ext

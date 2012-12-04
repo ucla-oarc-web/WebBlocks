@@ -1,5 +1,8 @@
-﻿@mixin -base-structure-grid-panel {
+@mixin -base-structure-grid-panel {
     float: left;
+    &.float-right {
+        float: right;
+    }
     &:not(:first-child) {
         margin-left: $structure-panel-gutter;
     }

@@ -6,17 +6,21 @@
     }
     
     h1, h2, h3, h4, h5, h6 {
+        
         &:first-child {
             margin-top: 0;
         }
+        
         margin: (0.8*$type-line-spacing) 0 (0.6*$type-line-spacing);
         font-weight: bold;
         line-height: $type-line-height-heading;
         text-rendering: optimizelegibility;
+        
         small {
             font-weight: normal;
             line-height: 1;
         }
+        
     }
     
     p, li, address, blockquote {

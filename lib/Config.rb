@@ -179,6 +179,10 @@ module WebBlocks
     :dir      => 'jquery'
   }
   
+  @config[:package][:lettering] = {
+    :dir      => 'lettering'
+  }
+  
   @config[:package][:modernizr] = {
     :dir      => 'modernizr'
   }

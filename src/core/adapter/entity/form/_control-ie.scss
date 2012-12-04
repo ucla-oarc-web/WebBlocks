@@ -1,5 +1,14 @@
 @mixin -entity-form-control-ie {
     
+    > input, > select, > textarea {
+
+        *max-width: 95%; /* hack because no border-box support */
+
+        &.full {
+            *width: 95%; /* hack because no border-box support */
+        }
+    }
+    
 }
 
 @mixin -entity-form-horizontal-control-ie {

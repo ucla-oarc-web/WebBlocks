@@ -8,7 +8,7 @@
 
 @mixin -entity-table-caption {
     
-    color: $gray;
+    color: $table-caption-text-color;
     
     &.top {
         caption-side: top;

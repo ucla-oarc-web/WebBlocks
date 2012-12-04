@@ -1,17 +1,59 @@
-@mixin -entity-list-unordered { }
+@mixin -entity-list-unordered {
+    margin-left: 1.5em;
+    padding-left: 0.5em;
+    ul, ol {
+      margin-bottom: 0;
+    }
+}
 
-@mixin -entity-list-unordered-unstyled { }
+@mixin -entity-list-unordered-unstyled {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
 
-@mixin -entity-list-ordered { }
+@mixin -entity-list-ordered {
+    margin-left: 1.5em;
+    padding-left: 0.5em;
+    ul, ol {
+      margin-bottom: 0;
+    }
+}
 
-@mixin -entity-list-ordered-unstyled { }
+@mixin -entity-list-ordered-unstyled {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
 
-@mixin -entity-list-upper-alpha { }
+@mixin -entity-list-upper-alpha {
+    list-style-type: upper-alpha;
+}
 
-@mixin -entity-list-lower-alpha { }
+@mixin -entity-list-lower-alpha {
+    list-style-type: lower-alpha;
+}
 
-@mixin -entity-list-upper-roman { }
+@mixin -entity-list-upper-roman {
+    list-style-type: upper-roman;
+}
 
-@mixin -entity-list-lower-roman { }
+@mixin -entity-list-lower-roman {
+    list-style-type: lower-roman;
+}
 
-@mixin -entity-list-outline { }
+@mixin -entity-list-outline {
+	list-style-type: upper-roman;
+
+	> li > ol, > li > ul {
+		list-style-type: upper-alpha;
+
+		> li > ol, > li > ul {
+			list-style-type: decimal;
+
+			> li > ol, > li > ul {
+				list-style-type: lower-alpha;
+			}
+		}
+	}
+}

@@ -5,7 +5,7 @@
         for(var i in l){
             var $navbar = $('nav.bar.'+l[i])
             if($navbar.length > 0)
-                $('body').css('padding-'+l[i],$navbar.outerHeight(true))
+                $('body').css('padding-'+l[i],$navbar.outerHeight(true)+10)
         }
     }
     

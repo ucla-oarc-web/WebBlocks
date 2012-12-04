@@ -16,3 +16,6 @@
 [submodule "package/efx"]
 	path = package/efx
 	url = https://github.com/ebollens/efx.git
+[submodule "package/lettering"]
+	path = package/lettering
+	url = https://github.com/davatron5000/Lettering.js.git

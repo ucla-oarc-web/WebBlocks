@@ -21,6 +21,9 @@
     
     p, li, address, blockquote {
         line-height: $type-line-height;
+    }
+    
+    p, address, blockquote {
         margin: 0 0 0.5*$type-line-spacing;
     }
     

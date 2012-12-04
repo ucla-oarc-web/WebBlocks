@@ -11,7 +11,7 @@
         }
         margin: (0.8*$type-line-spacing) 0 (0.6*$type-line-spacing);
         font-weight: bold;
-        line-height: 1;
+        line-height: $type-line-height-heading;
         text-rendering: optimizelegibility;
         small {
             font-weight: normal;
@@ -20,7 +20,7 @@
     }
     
     p, li, address, blockquote {
-        line-height: 1.3;
+        line-height: $type-line-height;
         margin: 0 0 0.5*$type-line-spacing;
     }
     

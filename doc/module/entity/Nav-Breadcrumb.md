@@ -40,6 +40,63 @@ A breadcrumb can be styled using CSS, of course, but you can also use a simpler 
 each of the items within your breadcrumb trail by adding a `span` element with CSS class "divider" containing the
 divider glyph (a "/" or ":", for example).
 
+### Examples
+
+```html
+<ol class="breadcrumb">
+    <li>
+        <a href="#1">Item 1</a>
+        <span class="divider">></span>
+    </li>
+    <li>
+        <a href="#2">Item 2</a>
+        <span class="divider">></span>
+    </li>
+    <li>
+        <a href="#3">Item 3</a>
+    </li>
+</ol>
+```
+
+Plain text can be used instead of links:
+
+```html
+<ol class="breadcrumb">
+    <li>
+        <a href="#1">Item 1</a>
+        <span class="divider">/</span>
+    </li>
+    <li>
+        Plain Text Item
+        <span class="divider">/</span>
+    </li>
+    <li>
+        <a href="#1">Item 3</a>
+    </li>
+</ol>
+```
+
+Designate the "active" or currently selected item by adding the "active" CSS class to the `li` element
+containing the breadcrumb item:
+
+```html
+<ol class="breadcrumb">
+    <li>
+        <a href="#1">Item 1</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    <li>
+        <a href="#2">Item 2</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    <li class="active">
+        Active Item
+    </li>
+</ol>
+```
+
+As demonstrated in the examples above, a variety of different glyphs can be used as dividers.
+
 ## Responsive Considerations
 
 The breadcrumb should fit the full width of its container, shrinking with the container in smaller viewport width.

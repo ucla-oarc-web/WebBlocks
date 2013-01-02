@@ -354,6 +354,19 @@ module WebBlocks
           append_file file, tmp_js_build_file_ie
         end
         
+        [files,ie_files].flatten.each do |file|
+          File.open file, "r" do |file|
+            lines = file.grep /^\/\/\!\s*requires_package\s/
+            lines.each do |line|
+              line.gsub! /^\/\/\!\s*requires_package\s*/, ''
+              line.split(/\s/).each do |dependency|
+                log.warning "Package #{dependency} required and must be included external to WebBlocks" unless config[:build][:packages].include? dependency.to_sym
+              end
+            end
+          end
+          
+        end
+        
       end
       
     end

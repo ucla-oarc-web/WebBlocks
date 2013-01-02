@@ -1,5 +1,8 @@
 $(document).ready(function(){
     
+    if(!jQuery().lettering)
+        return;
+    
     var linesClass = 'text-split-lines',
         wordsClass = 'text-split-words',
         charsClass = 'text-split-chars'

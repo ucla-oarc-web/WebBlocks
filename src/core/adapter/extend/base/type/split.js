@@ -1,3 +1,5 @@
+//!requires_package lettering
+
 $(document).ready(function(){
     
     var linesClass = 'text-split-lines',

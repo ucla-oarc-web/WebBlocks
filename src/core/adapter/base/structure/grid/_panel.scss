@@ -1,5 +1,6 @@
 @mixin -base-structure-grid-panel {
     float: left;
+    min-height: 1px;
     &.float-right {
         float: right;
     }

@@ -23,6 +23,10 @@
     @include background-image(linear-gradient($color-mood-warning-background, $color-mood-warning-background-shadow));
 }
 
+@mixin -base-color-mood-error-background-gradient {
+    @include background-image(linear-gradient($color-mood-error-background, $color-mood-error-background-shadow));
+}
+
 @mixin -base-color-mood-danger-background-gradient {
     @include background-image(linear-gradient($color-mood-danger-background, $color-mood-danger-background-shadow));
 }

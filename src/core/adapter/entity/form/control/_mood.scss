@@ -45,6 +45,16 @@
     }
 }
 
+@mixin -entity-form-control-mood-error {
+    color: $color-mood-error-foreground-text;
+    label {
+        color: $color-mood-error-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-mood-error-foreground-text;
+    }
+}
+
 @mixin -entity-form-control-mood-danger {
     color: $color-mood-danger-foreground-text;
     label {

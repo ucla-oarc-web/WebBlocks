@@ -14,6 +14,10 @@
     color: $color-mood-warning-foreground-text;
 }
 
+@mixin -base-color-mood-error-text {
+    color: $color-mood-error-foreground-text;
+}
+
 @mixin -base-color-mood-danger-text {
     color: $color-mood-danger-foreground-text;
 }

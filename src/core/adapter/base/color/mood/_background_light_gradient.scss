@@ -27,6 +27,12 @@
     @include background-image(linear-gradient($color-mood-warning-background-light, $color-mood-warning-background-light-shadow));
 }
 
+@mixin -base-color-mood-error-background-light-gradient {
+    color: $color-mood-error-background-light-text;
+    text-shadow: $color-mood-error-background-light-text-shadow;
+    @include background-image(linear-gradient($color-mood-error-background-light, $color-mood-error-background-light-shadow));
+}
+
 @mixin -base-color-mood-danger-background-light-gradient {
     color: $color-mood-danger-background-light-text;
     text-shadow: $color-mood-danger-background-light-text-shadow;

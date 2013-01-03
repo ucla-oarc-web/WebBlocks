@@ -10,7 +10,7 @@
     padding-left: 20px;
     padding-right: 20px;
     
-    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.danger):not(.inverse):not(.highlight):not(.required){
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
         @extend .default;
     }
     

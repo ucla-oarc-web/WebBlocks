@@ -98,7 +98,30 @@ size of their containing element. As `.row` does not itself specify a width,
 this is often a proportion of `.container` if the `.row` that they reside within
 is child of a `.container` element.
 
+### Collapse Controls for Rows and Panels
+
+For some content, the default row collapse at `$breakpoint-small` is not ideal. 
+Instead, there is sometimes a need to have a row that will never collapse or a 
+row that collapses at some other breakpoint.
+
+As such, this library also provides a number of controls that may be applied 
+along with `.row`:
+
+* `.no-collapse` will prevent the row from collapsing at any size
+* `.xxsmall-collapse` will collapse the row at `$breakpoint-xxsmall`
+* `.xsmall-collapse` will collapse the row at `$breakpoint-xsmall`
+* `.small-collapse` will collapse the row at `$breakpoint-small` (default)
+* `.medium-small-collapse` will collapse the row at `$breakpoint-medium-small`
+* `.medium-collapse` will collapse the row at `$breakpoint-medium`
+* `.medium-large-collapse` will collapse the row at `$breakpoint-medium-large`
+* `.large-collapse` will collapse the row at `$breakpoint-large`
+
+When using any of these explicit collapse control classes, nesting is allowed 
+but all parent `.row` classes must also use an explicit collapse control.
+
 ### Example
+
+An example using the container and then two rows with default collapse:
 
 ```html
 <div class="container">
@@ -113,6 +136,37 @@ is child of a `.container` element.
 </div>
 ```
 
+An example where the row will never collapse:
+
+```html
+<div class="row no-collapse">
+    <div class="panel-6">1/2 width</div>
+    <div class="panel-6">1/2 width</div>
+</div>
+```
+
+An example using explicit collapse where four equal width panels will be 
+arranged above `$breakpoint-medium`, where two sets of two panels will be
+arranged above `$breakpoint-small`, and where all will be arranged vertically 
+inline below `$breakpoint-small`:
+
+```html
+<div class="row medium-collapse">
+    <div class="panel-6">
+        <div class="row small-collapse">
+            <div class="panel-6">Content</div>
+            <div class="panel-6">Content</div>
+        </div>
+    </div>
+    <div class="panel-6">
+        <div class="row small-collapse">
+            <div class="panel-6">Content</div>
+            <div class="panel-6">Content</div>
+        </div>
+    </div>
+</div>
+```
+
 ## Responsive Considerations
 
 While the `.container` provides a fixed max width (if configured as such), the 
@@ -122,7 +176,8 @@ such cases.
 
 The `.panel-X` classes are a proportional grid, but when the viewport is less
 than `$breakpoint-small`, all panel classes will arrange themselves as full 
-width elements extending down the page.
+width elements extending down the page. Collapse controls alter the breakpoint 
+at which the `.panel-X` classes will arrange themselves as full width elements.
 
 ## Compatibility Considerations
 

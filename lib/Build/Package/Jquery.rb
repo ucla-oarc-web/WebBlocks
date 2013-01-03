@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'extensions/kernel'
+require 'net/http'
 require_relative '../../Path'
 require_relative '../Submodule'
 require_relative '../Utilities'
@@ -13,24 +14,18 @@ module WebBlocks
       
       class Jquery
         
+        def domain
+          'code.jquery.com'
+        end
+        
+        def path
+          config[:build][:debug] ? '/jquery-1.8.3.js' : '/jquery-1.8.3.min.js'
+        end
+        
         include ::WebBlocks::Logger
         include ::WebBlocks::Path::Temporary_Build
         include ::WebBlocks::Build::Submodule
         include ::WebBlocks::Build::Utilities
-        
-        def preprocess
-          
-          preprocess_js
-          
-        end
-        
-        def preprocess_js
-          
-          preprocess_submodule :jquery
-          preprocess_submodule_submodules :jquery
-          preprocess_submodule_npm :jquery
-          
-        end
         
         def compile
           
@@ -40,15 +35,19 @@ module WebBlocks
         
         def compile_js
           
-          unless File.exists? "#{package_dir :jquery}/dist/jquery.js"
+          filename =  "#{package_dir :jquery}/dist/jquery.js"
+          
+          unless File.exists? filename
             
-            log.task "Package: jQuery", "Compiling jQuery" do
-              Dir.chdir package_dir :jquery do
-                status, stdout, stderr = systemu "#{config[:exec][:npm]} install"
-                log.failure "Builder: jQuery", "NPM execution failed" if stderr.length > 0
-                status, stdout, stderr = systemu "#{config[:exec][:grunt]}"
-                log.failure "Builder: jQuery", "Grunt execution failed" if stderr.length > 0
+            log.task "Package: jQuery", "Downloading compiled version of jQuery" do
+              Net::HTTP.start(domain) do |http|
+                resp = http.get(path)
+                FileUtils.mkdir_p File.dirname(filename)
+                open(filename, "w") do |file|
+                  file.write(resp.body)
+                end
               end
+              
             end
             
           end

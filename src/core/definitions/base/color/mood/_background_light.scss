@@ -16,6 +16,10 @@
         @include -base-color-mood-warning-background-light;
     }
     
+    &.error {
+        @include -base-color-mood-error-background-light;
+    }
+    
     &.danger {
         @include -base-color-mood-danger-background-light;
     }

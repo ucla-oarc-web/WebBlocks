@@ -27,6 +27,10 @@ form.form div.control {
         @include -entity-form-control-mood-warning;
     }
     
+    &.error {
+        @include -entity-form-control-mood-error;
+    }
+    
     &.danger {
         @include -entity-form-control-mood-danger;
     }

@@ -28,6 +28,13 @@
     text-shadow: $color-mood-warning-background-light-text-shadow;
 }
 
+@mixin -base-color-mood-error-background-light {
+    color: $color-mood-error-background-light-text;
+    background-color: $color-mood-error-background-light-shadow;
+    border-color: $color-mood-error-light-border;
+    text-shadow: $color-mood-error-background-light-text-shadow;
+}
+
 @mixin -base-color-mood-danger-background-light {
     color: $color-mood-danger-background-light-text;
     background-color: $color-mood-danger-background-light-shadow;

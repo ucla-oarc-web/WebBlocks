@@ -14,6 +14,10 @@
     @include -base-color-mood-warning-text;
 }
 
+.text-error {
+    @include -base-color-mood-error-text;
+}
+
 .text-danger {
     @include -base-color-mood-danger-text;
 }

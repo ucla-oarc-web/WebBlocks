@@ -36,6 +36,10 @@
         @extend .success-text;
     }
 
+    &.error-text {
+        @extend .error-text;
+    }
+
     &.danger-text {
         @extend .danger-text;
     }

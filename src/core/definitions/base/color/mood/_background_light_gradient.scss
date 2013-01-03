@@ -18,6 +18,10 @@
         @include -base-color-mood-warning-background-light-gradient;
     }
     
+    &.error {
+        @include -base-color-mood-error-background-light-gradient;
+    }
+    
     &.danger {
         @include -base-color-mood-danger-background-light-gradient;
     }

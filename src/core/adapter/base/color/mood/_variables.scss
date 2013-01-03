@@ -7,6 +7,7 @@
 $color-mood-info-foreground-text:               #2f96b4 !default;
 $color-mood-success-foreground-text:            #419341 !default;
 $color-mood-warning-foreground-text:            #f89406 !default;
+$color-mood-error-foreground-text:             #bd362f !default;
 $color-mood-danger-foreground-text:             #bd362f !default;
 $color-mood-inverse-foreground-text:            #ddd !default;
 $color-mood-important-foreground-text:          #bd362f !default;
@@ -32,6 +33,12 @@ $color-mood-warning-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !defaul
 $color-mood-warning-background:                 lighten(#f89406, 15%) !default;
 $color-mood-warning-background-shadow:          #f89406 !default;
 $color-mood-warning-border:                     darken(lighten(#f89406, 15%), 30%) !default;
+
+$color-mood-error-background-text:              #fff !default;
+$color-mood-error-background-text-shadow:       0 -1px 0 rgba(0,0,0,.25) !default;
+$color-mood-error-background:                   #ee5f5b !default;
+$color-mood-error-background-shadow:            #bd362f !default;
+$color-mood-error-border:                       darken(#ee5f5b, 30%) !default;
 
 $color-mood-danger-background-text:             #fff !default;
 $color-mood-danger-background-text-shadow:      0 -1px 0 rgba(0,0,0,.25) !default;
@@ -85,6 +92,12 @@ $color-mood-warning-background-light-text-shadow:     none !default;
 $color-mood-warning-background-light:                 lighten($color-mood-warning-background, 35%) !default;
 $color-mood-warning-background-light-shadow:          lighten($color-mood-warning-background-shadow, 35%) !default;
 $color-mood-warning-light-border:                     darken(lighten($color-mood-warning-background, 35%), 60%) !default;
+
+$color-mood-error-background-light-text:             #653533;
+$color-mood-error-background-light-text-shadow:      none !default;
+$color-mood-error-background-light:                  lighten($color-mood-error-background, 35%) !default;
+$color-mood-error-background-light-shadow:           lighten($color-mood-error-background-shadow, 35%) !default;
+$color-mood-error-light-border:                      darken(lighten($color-mood-error-background, 35%), 60%) !default;
 
 $color-mood-danger-background-light-text:             #653533;
 $color-mood-danger-background-light-text-shadow:      none !default;

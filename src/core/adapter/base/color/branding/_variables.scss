@@ -2,74 +2,179 @@
  * Branding Colors
  */
 
+// Brand Set:
+// Bring in the UCLA branding colors variables (as demo:from UCLA Brand Guide); set as vars {hex values are abstract and hard for designers to reference}
+// This set is only for documentation so other designers know what they are working with
+// Abstracting the brand vars from the actual theme palette vars makes it easier to work with different branding guides 
+// It would be better if these vars could be dynamically set when a user chooses a school (UCSD/UCSB,etc.) when config WebBlocks
+//________________________________________________________________________________________
+
+$ucla-primary: #3399cc; /*UCLA Blue*/
+$ucla-secondary-gold: #ffb300;
+$ucla-secondary-yellow: #ffe800;
+$ucla-secondary-dkblue: #0055a6;
+$ucla-secondary-ltblue: #00a5e5;
+$ucla-tertiary-neon-yellow: #ffff00;
+$ucla-tertiary-neon-green: #00ff87;
+$ucla-tertiary-neon-purple: #8237ff;
+$ucla-tertiary-magenta: #ff00a5;
+$ucla-tertiary-cyan: #00ffff;
+
+//Theme Recipe Set:
+// The recipe contains the core base colors and ratios that will be used to produce this
+// theme's palette -- it's an extra step in abstraction but this lets other designers
+// cleanly make changes to the theme by altering the base values
+// This would be better if end-users could select which brand colors they want to map; most brand guides have several Secondary and Tertiary Colors
+//________________________________________________________________________________________
+
+// Base colors: 
+// Abstract the colors to another set of vars so that a designer can swap color assignments out
+// Base colors are the vars used for building all tints/shades for the palette
+
+$primary-base: $ucla-primary;
+$secondary-base: $ucla-secondary-gold;
+$tertiary-base: $ucla-tertiary-neon-purple;
+$accent-base: $ucla-secondary-ltblue;
+$neutral-base: #666 !default;
+$behavior-base: $ucla-tertiary-neon-purple;
+$ui-base:#ccc !default;
+$content-text-base: #000 !default;
+$content-background-base: #fff !default;
+
+//Grade ratios: 
+// These vars control how much difference happens between each grade
+// This will always be a % value since we're using it as arguments passed to the darken/lighten/desaturate/saturate functions
+
+$grade-dk-1: 10%;
+$grade-dk-2: 20%;
+$grade-dk-3: 35%;
+$grade-dk-4: 55%;
+
+// this looks like duplication but its not; Having explicit vars for each one allows a designer
+// to make specific finer-grained tweaks based on what's needed for color contrast instead of a simple even ratio
+
+$grade-lt-1: 10%;
+$grade-lt-2: 20%;
+$grade-lt-3: 30%;
+$grade-lt-4: 40%;
+
+// Theme recipe palette vars:
+// Now we build the full palette as SASS Vars (our later assignments to content colors vars will be to these palette vars)
+// It would be nice to port some of these palette Vars as their own CSS class so that designers who don't use SASS have them handy as well
+// Usually just the branding colors and neutrals are handy to have as CSS
+//________________________________________________________________________________________
+
+$primary-darkest: darken($primary-base,$grade-dk-4);
+$primary-darker: darken($primary-base,$grade-dk-2);
+$primary-dark: darken($primary-base,$grade-dk-1);
+$primary-default: $primary-base;
+$primary-light: lighten($primary-base,$grade-lt-1);
+$primary-lighter: lighten($primary-base,$grade-lt-2);
+$primary-lightest: lighten($primary-base,$grade-lt-3);
+
+$secondary-darkest: darken($secondary-base,$grade-dk-4);
+$secondary-darker: darken($secondary-base,$grade-dk-2);
+$secondary-dark: darken($secondary-base,$grade-dk-1);
+$secondary-default: $secondary-base;
+$secondary-light: lighten($secondary-base,$grade-lt-1);
+$secondary-lighter: lighten($secondary-base,$grade-lt-2);
+$secondary-lightest: lighten($secondary-base,$grade-lt-3);
+
+$tertiary-darkest: darken($tertiary-base,$grade-dk-4);
+$tertiary-darker: darken($tertiary-base,$grade-dk-2);
+$tertiary-dark: darken($tertiary-base,$grade-dk-1);
+$tertiary-default: $tertiary-base;
+$tertiary-light: lighten($tertiary-base,$grade-lt-1);
+$tertiary-lighter: lighten($tertiary-base,$grade-lt-2);
+$tertiary-lightest: lighten($tertiary-base,$grade-lt-3);
+
+$ui-darkest: darken($ui-base,$grade-dk-4);
+$ui-darker: darken($ui-base,$grade-dk-2);
+$ui-dark: darken($ui-base,$grade-dk-1);
+$ui-default: $ui-base !default;
+$ui-light: lighten($ui-base,$grade-lt-1);
+$ui-lighter: lighten($ui-base,$grade-lt-2);
+$ui-lightest: lighten($ui-base,$grade-lt-3);
+
+// Here we're going to simply adopt the Bootstrap grey palette; its a decent neutral palette.
+// but another designer could easily just use the same method above with a neutral-base var they set.
+
+$neutral-darkest: #000 !default;
+$neutral-darker: #222 !default;
+$neutral-dark: #333 !default;
+$neutral-default: #555 !default;
+$neutral-light: #999 !default;
+$neutral-lighter: #eee !default;
+$neutral-lightest: #fff !default;
+
 /** Text Colors */
 
-$color-branding-default-foreground-text:            #333 !default;
-$color-branding-primary-foreground-text:            #08c !default;
-$color-branding-secondary-foreground-text:          #5bc0de !default;
-$color-branding-tertiary-foreground-text:           #ddb40a !default;
-$color-branding-neutral-foreground-text:            #777 !default;
+$color-branding-default-foreground-text:            $neutral-darkest !default;
+$color-branding-primary-foreground-text:            $primary-dark !default;
+$color-branding-secondary-foreground-text:          $secondary-dark !default;
+$color-branding-tertiary-foreground-text:           $tertiary-dark !default;
+$color-branding-neutral-foreground-text:            $neutral-darkest !default;
 
 /** Sharp Background Colors */
 
-$color-branding-default-background-text:            #555 !default;
-$color-branding-default-background-text-shadow:     none !default;
-$color-branding-default-background:                 darken(#fff, 10%) !default;
-$color-branding-default-background-shadow:          #fff !default;
-$color-branding-default-border:                     darken(#fff, 40%) !default;
+$color-branding-default-background-text:            $ui-darkest !default;
+$color-branding-default-background-text-shadow:     0 -1px 1px $ui-default !default;
+$color-branding-default-background:                 $ui-lighter !default;
+$color-branding-default-background-shadow:          $ui-light !default;
+$color-branding-default-border:                     $ui-default !default;
 
-$color-branding-primary-background-text:            #fff !default;
-$color-branding-primary-background-text-shadow:     none !default;
-$color-branding-primary-background:                 #08c !default;
-$color-branding-primary-background-shadow:          darken($color-branding-primary-background, 15%) !default;
-$color-branding-primary-border:                     darken(#08c, 60%) !default;
+$color-branding-primary-background-text:            $primary-darkest !default;
+$color-branding-primary-background-text-shadow:     0 -1px 1px $primary-default !default;
+$color-branding-primary-background:                 $primary-light !default;
+$color-branding-primary-background-shadow:          $primary-default !default;
+$color-branding-primary-border:                     $primary-dark !default;
 
-$color-branding-secondary-background-text:          #fff !default;
-$color-branding-secondary-background-text-shadow:   0 -1px 0 rgba(0,0,0,.25) !default;
-$color-branding-secondary-background:               #5bc0de !default;
-$color-branding-secondary-background-shadow:        #2f96b4 !default;
-$color-branding-secondary-border:                   darken(#5bc0de, 40%) !default;
+$color-branding-secondary-background-text:          $secondary-darkest !default;
+$color-branding-secondary-background-text-shadow:   0 -1px 1px $secondary-default !default;
+$color-branding-secondary-background:               $secondary-light !default;
+$color-branding-secondary-background-shadow:        $secondary-default !default;
+$color-branding-secondary-border:                   $secondary-dark !default;
 
-$color-branding-tertiary-background-text:           #222 !default;
-$color-branding-tertiary-background-text-shadow:    none !default;
-$color-branding-tertiary-background:                darken(#ffc40d, 10%)  !default;
-$color-branding-tertiary-background-shadow:         #ffc40d !default;
-$color-branding-tertiary-border:                    darken(darken(#ffc40d, 10%), 30%) !default;
+$color-branding-tertiary-background-text:           $tertiary-darkest !default;
+$color-branding-tertiary-background-text-shadow:    0 -1px 1px $tertiary-default !default;
+$color-branding-tertiary-background:                $tertiary-light !default;
+$color-branding-tertiary-background-shadow:         $tertiary-default !default;
+$color-branding-tertiary-border:                    $tertiary-dark !default;
 
-$color-branding-neutral-background-text:            #eee !default;
-$color-branding-neutral-background-text-shadow:     0 -1px 0 rgba(0,0,0,.25) !default;
-$color-branding-neutral-background:                 #999 !default;
-$color-branding-neutral-background-shadow:          #777 !default;
-$color-branding-neutral-border:                     darken(#777, 30%) !default;
+$color-branding-neutral-background-text:            $neutral-darker !default;
+$color-branding-neutral-background-text-shadow:     0 -1px 1px $neutral-dark !default;
+$color-branding-neutral-background:                 $neutral-lightest !default;
+$color-branding-neutral-background-shadow:          $neutral-lighter !default;
+$color-branding-neutral-border:                     $neutral-light !default;
 
 /** Light background colors */
 
-$color-branding-default-background-light-text:          #333;
-$color-branding-default-background-light-text-shadow:   $color-branding-default-background-text-shadow !default;
-$color-branding-default-background-light:               lighten($color-branding-default-background, 35%) !default;
-$color-branding-default-background-light-shadow:        lighten($color-branding-default-background-shadow, 35%) !default;
-$color-branding-default-light-border:                   darken(lighten($color-branding-default-background, 35%), 30%) !default;
+$color-branding-default-background-light-text:          $ui-darkest !default;
+$color-branding-default-background-light-text-shadow:   0 -1px 1px $ui-light !default;
+$color-branding-default-background-light:               $ui-lightest !default;
+$color-branding-default-background-light-shadow:        $ui-lighter !default;
+$color-branding-default-light-border:                   $ui-light !default;
 
-$color-branding-primary-background-light-text:          #1f4b61;
-$color-branding-primary-background-light-text-shadow:   $color-branding-primary-background-text-shadow !default;
-$color-branding-primary-background-light:               lighten($color-branding-primary-background, 55%) !default;
-$color-branding-primary-background-light-shadow:        lighten($color-branding-primary-background-shadow, 55%) !default;
-$color-branding-primary-light-border:                   darken(lighten($color-branding-primary-background, 35%), 30%) !default;
+$color-branding-primary-background-light-text:          $primary-darkest !default;
+$color-branding-primary-background-light-text-shadow:   0 -1px 1px $primary-light !default;
+$color-branding-primary-background-light:               $primary-lightest !default;
+$color-branding-primary-background-light-shadow:        $primary-lighter !default;
+$color-branding-primary-light-border:                   $primary-light !default;
 
-$color-branding-secondary-background-light-text:        #4e676e;
-$color-branding-secondary-background-light-text-shadow: none !default;
-$color-branding-secondary-background-light:             lighten($color-branding-secondary-background, 35%) !default;
-$color-branding-secondary-background-light-shadow:      lighten($color-branding-secondary-background-shadow, 35%) !default;
-$color-branding-secondary-light-border:                 darken(lighten($color-branding-secondary-background, 35%), 30%) !default;
+$color-branding-secondary-background-light-text:        $secondary-darkest !default;
+$color-branding-secondary-background-light-text-shadow: 0 -1px 1px $secondary-light !default;
+$color-branding-secondary-background-light:             $secondary-lightest !default;
+$color-branding-secondary-background-light-shadow:      $secondary-lighter !default;
+$color-branding-secondary-light-border:                 $secondary-light !default;
 
-$color-branding-tertiary-background-light-text:         #6e664d;
-$color-branding-tertiary-background-light-text-shadow:  $color-branding-tertiary-background-text-shadow !default;
-$color-branding-tertiary-background-light:              lighten($color-branding-tertiary-background, 35%) !default;
-$color-branding-tertiary-background-light-shadow:       lighten($color-branding-tertiary-background-shadow, 35%) !default;
-$color-branding-tertiary-light-border:                  darken(lighten($color-branding-tertiary-background, 35%), 30%) !default;
+$color-branding-tertiary-background-light-text:         $tertiary-darkest !default;
+$color-branding-tertiary-background-light-text-shadow:  0 -1px 1px $tertiary-light !default;
+$color-branding-tertiary-background-light:              $tertiary-lightest !default;
+$color-branding-tertiary-background-light-shadow:       $tertiary-lighter !default;
+$color-branding-tertiary-light-border:                  $tertiary-light !default;
 
-$color-branding-neutral-background-light-text:          #333;
-$color-branding-neutral-background-light-text-shadow:   none !default;
-$color-branding-neutral-background-light:               lighten($color-branding-neutral-background, 35%) !default;
-$color-branding-neutral-background-light-shadow:        lighten($color-branding-neutral-background-shadow, 35%) !default;
-$color-branding-neutral-light-border:                   darken(lighten($color-branding-neutral-background, 35%), 30%) !default;
+$color-branding-neutral-background-light-text:          $neutral-dark !default;
+$color-branding-neutral-background-light-text-shadow:   0 -1px 1px $neutral-default !default;
+$color-branding-neutral-background-light:               $neutral-lightest !default;
+$color-branding-neutral-background-light-shadow:        $neutral-lighter !default;
+$color-branding-neutral-light-border:                   $neutral-light !default;

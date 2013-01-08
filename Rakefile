@@ -16,7 +16,7 @@
 
 require 'rubygems'
 require 'bundler'
-require 'extensions/all'
+require 'extensions/kernel' if defined?(require_relative).nil?
 
 begin
   Bundler.setup(:default, :development)

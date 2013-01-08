@@ -172,7 +172,7 @@ module WebBlocks
         
         for depth in 1..50 # TODO: this is a jank way of doing a loop protector
         
-          initial = config[:src][:modules]
+          initial = config[:src][:modules].respond_to? :each ? config[:src][:modules] : [config[:src][:modules]]
           modules = find_sass_dependencies base_dir
 
           initial.each do |initial_module|

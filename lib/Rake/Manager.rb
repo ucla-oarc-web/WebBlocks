@@ -14,7 +14,7 @@ module WebBlocks
             Dir.entries(Dir.pwd).sort.each do |file|
               next if file[0,1] == '.'
               log.info "Loading task definition from #{file}" do
-                require file
+                require "#{Dir.pwd}/#{file}"
               end
             end
           end

@@ -16,6 +16,7 @@
 
 require 'rubygems'
 require 'bundler'
+require 'extensions/all'
 
 begin
   Bundler.setup(:default, :development)
@@ -25,7 +26,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require 'lib/Rake'
+require_relative 'lib/Rake'
 include WebBlocks::Rake
 run
 

@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require 'systemu'
 require 'fileutils'
 require_relative '../Path.rb'

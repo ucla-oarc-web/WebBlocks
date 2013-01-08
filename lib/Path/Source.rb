@@ -1,7 +1,7 @@
 # DO NOT INCLUDE DIRECTLY -- use /lib/Path instead
 
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require_relative 'Root'
 
 module WebBlocks

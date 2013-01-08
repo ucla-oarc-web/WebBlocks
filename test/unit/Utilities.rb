@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require 'fileutils'
 require_relative '../../lib/Test.rb'
 require_relative '../../lib/Build/Utilities.rb'

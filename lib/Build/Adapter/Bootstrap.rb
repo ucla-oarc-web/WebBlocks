@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require_relative '../../Path'
 require_relative '../Submodule'
 require_relative '../Utilities'

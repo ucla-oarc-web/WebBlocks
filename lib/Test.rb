@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require 'systemu'
 require 'test/unit'
 require 'pathname'
@@ -104,6 +104,12 @@ module WebBlocks
 
           assert_file_has_pattern file, /^\@import "#{Regexp.escape(rule)}";$/, message
 
+        end
+        
+        def assert_method_exists method, msg = ''
+          
+          assert respond_to?(method), msg
+          
         end
 
       end

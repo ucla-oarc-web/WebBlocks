@@ -99,10 +99,10 @@ module WebBlocks
           assert_file_does_not_have_pattern file, /var\s\s*#{Regexp.escape(variable)}\s*=/, message
 
         end
-
+        
         def assert_file_has_import_rule file, rule, message = ''
 
-          assert_file_has_pattern file, /^\@import "#{Regexp.escape(rule)}";$/, message
+          assert_file_has_pattern file, /\@import "#{Regexp.escape(rule)}";/, message
 
         end
         

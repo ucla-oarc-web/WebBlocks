@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 require 'fileutils'
 require_relative '../../lib/Test.rb'
 
@@ -17,32 +17,40 @@ class TestUnitRakeDSL < ::Test::Unit::TestCase
   
   def test_config
     
-    assert_methods_exist 'config'
+    assert_method_exists :config, 'Config includes config method in DSL'
     
   end
   
   def test_logger
     
-    assert_methods_exist 'log'
+    assert_method_exists :log, 'Logger includes log method in DSL'
     
   end
   
   def test_rake_manager
     
-    assert_methods_exist 'define_task', 'define_tasks'
+    assert_method_exists :define_task, 'Rake manager includes define_task method in DSL'
+    assert_method_exists :define_tasks, 'Rake manager includes define_tasks method in DSL'
     
   end
   
   def test_build_dispatcher
     
-    assert_methods_exist 'observers', 'reset_observers', 'observer', 'execute'
+    assert_method_exists :observers, 'Build dispatcher includes observers method in DSL'
+    assert_method_exists :reset_observers, 'Build dispatcher includes reset_observers method in DSL'
+    assert_method_exists :observer, 'Build dispatcher includes observer method in DSL'
+    assert_method_exists :execute, 'Build dispatcher includes execute method in DSL'
     
   end
   
   def test_build_manager
   
-    assert_methods_exist 'attach_packages', 'attach_adapters', 'attach_webblocks'
-    assert_methods_exist 'attach_core', 'attach_adapter', 'attach_module'
+    assert_method_exists :attach_packages, 'Build manager includes attach_packages method in DSL'
+    assert_method_exists :attach_adapters, 'Build manager includes attach_adapters method in DSL'
+    assert_method_exists :attach_webblocks, 'Build manager includes attach_webblocks method in DSL'
+    assert_method_exists :attach_core, 'Build manager includes attach_core method in DSL'
+    assert_method_exists :attach_adapter, 'Build manager includes attach_adapter method in DSL'
+    assert_method_exists :attach_module, 'Build manager includes attach_module method in DSL'
     
   end
 

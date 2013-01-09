@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rake'
-require 'extensions/kernel'
+require 'extensions/kernel' if defined?(require_relative).nil?
 
 require 'pathname'
 require 'fileutils'

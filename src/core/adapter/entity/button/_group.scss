@@ -1,10 +1,16 @@
+@import "compass/css3/border-radius";
+
 @mixin -entity-button-group {
     font-size: 16px;
     &:not(:first-child){
         margin-left: 0;
         border-left: none;
+        @include border-top-left-radius(0);
+        @include border-bottom-left-radius(0);
     }
     &:not(:last-child){
         margin-right: 0;
+        @include border-top-right-radius(0);
+        @include border-bottom-right-radius(0);
     }
 }

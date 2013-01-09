@@ -26,18 +26,18 @@ class TestUnitUtilities < ::Test::Unit::TestCase
   end
   
   def test_append_file
-    
+
     file_create "#{@dir}/1", "1"
     file_create "#{@dir}/2", "2"
-    
-    assert_file_has_pattern "#{@dir}/1", /^1$/, "Initial setup of file"
-    assert_file_has_pattern "#{@dir}/2", /^2$/, "Initial setup of file"
-    
+
+    assert_file_has_pattern "#{@dir}/1", /^1\s*$/, "Initial setup of file"
+    assert_file_has_pattern "#{@dir}/2", /^2\s*$/, "Initial setup of file"
+
     append_file "#{@dir}/2", "#{@dir}/1"
-    
-    assert_file_has_pattern "#{@dir}/1", /^1\s*2$/, "File appended"
-    assert_file_has_pattern "#{@dir}/2", /^2$/, "No side-effects during append"
-    
+
+    assert_file_has_pattern "#{@dir}/1", /^1\s*2\s*$/, "File appended"
+    assert_file_has_pattern "#{@dir}/2", /^2\s*$/, "No side-effects during append"
+
   end
   
   def test_file_ext?

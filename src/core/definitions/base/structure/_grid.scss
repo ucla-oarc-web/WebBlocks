@@ -40,6 +40,12 @@
 
         }
         
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-xxsmall+1) {
+                @include -base-structure-grid-panel-right;
+            }
+        }
+        
         @media screen and (min-width: $breakpoint-xxsmall+1) {
             @include -base-structure-grid-panels-generate;
         }
@@ -66,6 +72,12 @@
                 @include -base-structure-grid-panel-collapsed;
             }
 
+        }
+        
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-xsmall+1) {
+                @include -base-structure-grid-panel-right;
+            }
         }
         
         @media screen and (min-width: $breakpoint-xsmall+1) {
@@ -96,6 +108,12 @@
 
         }
         
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-small+1) {
+                @include -base-structure-grid-panel-right;
+            }
+        }
+        
         @media screen and (min-width: $breakpoint-small+1) {
             @include -base-structure-grid-panels-generate;
         }
@@ -122,6 +140,12 @@
                 @include -base-structure-grid-panel-collapsed;
             }
 
+        }
+        
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-medium-small+1) {
+                @include -base-structure-grid-panel-right;
+            }
         }
         
         @media screen and (min-width: $breakpoint-medium-small+1) {
@@ -152,6 +176,12 @@
 
         }
         
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-medium+1) {
+                @include -base-structure-grid-panel-right;
+            }
+        }
+        
         @media screen and (min-width: $breakpoint-medium+1) {
             @include -base-structure-grid-panels-generate;
         }
@@ -178,6 +208,12 @@
                 @include -base-structure-grid-panel-collapsed;
             }
 
+        }
+        
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-medium-large+1) {
+                @include -base-structure-grid-panel-right;
+            }
         }
         
         @media screen and (min-width: $breakpoint-medium-large+1) {
@@ -208,6 +244,12 @@
 
         }
         
+        &.right [class*="panel-"] {
+            @media screen and (min-width: $breakpoint-large+1) {
+                @include -base-structure-grid-panel-right;
+            }
+        }
+        
         @media screen and (min-width: $breakpoint-large+1) {
             @include -base-structure-grid-panels-generate;
         }
@@ -226,6 +268,10 @@
         
         [class*="panel-"] {
             @include -base-structure-grid-panel;
+        }
+        
+        &.right [class*="panel-"] {
+            @include -base-structure-grid-panel-right;
         }
         
         @include -base-structure-grid-panels-generate;

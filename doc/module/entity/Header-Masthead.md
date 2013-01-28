@@ -1,4 +1,4 @@
-# Header/Masthead
+# Entity/Header/Masthead
 
 ## Definition
 

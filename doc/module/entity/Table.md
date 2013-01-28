@@ -1,4 +1,4 @@
-# Table
+# Entity/Table
 
 ## Definition
 

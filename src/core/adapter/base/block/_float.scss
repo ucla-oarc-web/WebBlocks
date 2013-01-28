@@ -12,7 +12,7 @@
 
 @mixin -base-block-float-container {
     &:not(.clearfix) {
-        overflow: auto;
+        overflow: hidden;
     }
 }
 

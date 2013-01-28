@@ -1,4 +1,4 @@
-# Button
+# Entity/Message
 
 ## Definition
 

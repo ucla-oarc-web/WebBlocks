@@ -1,4 +1,4 @@
-# Nav/Breadcrumb
+# Entity/Nav/Breadcrumb
 
 ## Definition
 

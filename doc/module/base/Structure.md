@@ -101,6 +101,11 @@ is child of a `.container` element.
 It is also possible to orient a `.row` so that it collapses from the right 
 rather than the left by using `.row.right`.
 
+Note that some elements, such as a `ul`, `ol` or one explicitly set with a left 
+or right margin, are not suited for use as a `.panel-X` because of the way the 
+HTML box-model works. Instead, such elements should be wrapped inside of a 
+neutral element such as a `div`, `section`, `nav`, `header`, `footer`, etc.
+
 ### Collapse Controls for Rows and Panels
 
 For some content, the default row collapse at `$breakpoint-small` is not ideal. 

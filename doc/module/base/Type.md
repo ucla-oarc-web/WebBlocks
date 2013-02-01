@@ -1,4 +1,4 @@
-# Base/Block
+# Base/Type
 
 ## Definition
 

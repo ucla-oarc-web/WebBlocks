@@ -1,15 +1,27 @@
+.hide-xxsmall {
+    @include -base-visibility-hide-xxsmall;
+}
+
+.hide-xsmall {
+    @include -base-visibility-hide-xsmall;
+}
+
 .hide-small {
     @include -base-visibility-hide-small;
+}
+
+.hide-medium-small {
+    @include -base-visibility-hide-medium-small;
 }
 
 .hide-medium {
     @include -base-visibility-hide-medium;
 }
 
-.hide-large {
-    @include -base-visibility-hide-large;
+.hide-medium-large {
+    @include -base-visibility-hide-medium-large;
 }
 
-.hide-xlarge {
-    @include -base-visibility-hide-xlarge;
+.hide-large {
+    @include -base-visibility-hide-large;
 }

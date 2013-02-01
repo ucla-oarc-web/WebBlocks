@@ -1,4 +1,4 @@
-# Nav/List
+# Entity/Nav/List
 
 ## Definition
 

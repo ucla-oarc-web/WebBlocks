@@ -1,4 +1,4 @@
-# Nav/Bar
+# Entity/Nav/Bar
 
 ## Definition
 

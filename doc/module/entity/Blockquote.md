@@ -1,4 +1,4 @@
-# Blockquote
+# Entity/Blockquote
 
 ## Definition
 

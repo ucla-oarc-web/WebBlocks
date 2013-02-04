@@ -1,4 +1,4 @@
-﻿@mixin -entity-nav-list {
+@mixin -entity-nav-list {
 
 	ul, ol {
 		@extend .nav;
@@ -40,9 +40,6 @@
 }
 
 @mixin -entity-nav-list-flyout {
-}
-
-@mixin -entity-nav-list-accordion {
 	
 	ul ul, ul ol, ol ul, ol ol {
 		display: none;
@@ -50,6 +47,14 @@
 
 	.active>ul, .active>ol {
 		display: block;
+	}
+
+}
+
+@mixin -entity-nav-list-accordion {
+	
+	ul ul, ul ol, ol ul, ol ol {
+		display: none;
 	}
 
 }

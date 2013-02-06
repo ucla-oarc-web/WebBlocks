@@ -62,8 +62,8 @@ $color-mood-important-border:                   darken($color-mood-danger-backgr
 /* TODO: define real values */
 $color-mood-required-background-text:           #a00 !default;
 $color-mood-required-background-text-shadow:    none !default;
-$color-mood-required-background:                $color-branding-default-background !default;
-$color-mood-required-background-shadow:         $color-branding-default-background-shadow !default;
+$color-mood-required-background:                #ddd !default;
+$color-mood-required-background-shadow:         #ccc !default;
 $color-mood-required-border:                    darken(#a00, 30%) !default;
 
 /* TODO: define real values */

@@ -100,13 +100,18 @@ module WebBlocks
       
       def link_css
         
+        new_lines = ""
         log.task "WebBlocks", "Linking source variables files" do
-          File.open tmp_sass_lib_file_variables, "a" do |variables_linker|
-            get_files(src_sass_dir, 'scss').each do |file|
-              next unless file.match /\/_+variables.scss$/
-              variables_linker << "@import \"#{file}\";\n"
-            end
+          get_files(src_sass_dir, 'scss').each do |file|
+            next unless file.match /\/_+variables.scss$/
+            new_lines << "@import \"#{file}\";\n"
           end
+        end
+        
+        current_lines = File.read(tmp_sass_lib_file_variables)
+        File.open tmp_sass_lib_file_variables, "w" do |variables_linker|
+          variables_linker << new_lines
+          variables_linker << current_lines
         end
         
       end

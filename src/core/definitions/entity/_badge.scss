@@ -1,0 +1,11 @@
+.badge {
+    @include -entity-badge;
+}
+
+.badge.round {
+    @include -entity-badge-round;
+}
+
+.badge.square {
+    @include -entity-badge-square;
+}

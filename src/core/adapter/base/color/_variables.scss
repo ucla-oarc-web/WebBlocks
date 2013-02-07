@@ -6,16 +6,18 @@
     }
 }
 
-$color-grade-dk-1: 10% !default;
-$color-grade-dk-2: 20% !default;
-$color-grade-dk-3: 35% !default;
-$color-grade-dk-4: 65% !default;
-$color-grade-dk-text: 80% !default;
+@function -color-generate-with-lightness($color, $lightness){
+    @return hsl(hue($color), saturation($color), $lightness)
+}
 
-$color-grade-lt-1: 10% !default;
-$color-grade-lt-2: 20% !default;
-$color-grade-lt-3: 30% !default;
-$color-grade-lt-4: 40% !default;
+$color-grade-dk: 10% !default;
+$color-grade-lt: 10% !default;
+
+$color-background-light-brightness: 95% !default;
+$color-background-shadow-light-brightness: 85% !default;
+$color-light-border-brightness: 60% !default;
+
+$color-grade-dk-text: 80% !default;
 $color-grade-lt-text: 93% !default;
 
 $color-contrast-threshold: 65% !default;

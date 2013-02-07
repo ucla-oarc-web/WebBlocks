@@ -1,180 +1,318 @@
+@import "compass/utilities/color/contrast";
+
 /****************************************************************************
  * Branding Colors
  */
 
-// Brand Set:
-// Bring in the UCLA branding colors variables (as demo:from UCLA Brand Guide); set as vars {hex values are abstract and hard for designers to reference}
-// This set is only for documentation so other designers know what they are working with
-// Abstracting the brand vars from the actual theme palette vars makes it easier to work with different branding guides 
-// It would be better if these vars could be dynamically set when a user chooses a school (UCSD/UCSB,etc.) when config WebBlocks
-//________________________________________________________________________________________
+$color-branding-default: #eee !default;
+$color-branding-primary: #1133aa !default;
+$color-branding-secondary: #7bc0de !default;
+$color-branding-tertiary: #ffd44d !default;
+$color-branding-neutral: #bbb !default;
 
-$ucla-primary: #3399cc; /*UCLA Blue*/
-$ucla-secondary-gold: #ffb300;
-$ucla-secondary-yellow: #ffe800;
-$ucla-secondary-dkblue: #0055a6;
-$ucla-secondary-ltblue: #00a5e5;
-$ucla-tertiary-neon-yellow: #ffff00;
-$ucla-tertiary-neon-green: #00ff87;
-$ucla-tertiary-neon-purple: #8237ff;
-$ucla-tertiary-magenta: #ff00a5;
-$ucla-tertiary-cyan: #00ffff;
+$color-branding-default-dk: $color-grade-dk !default;
+$color-branding-default-lt: $color-grade-lt !default;
+$color-branding-default-background-light-brightness: $color-background-light-brightness !default;
+$color-branding-default-background-shadow-light-brightness: $color-background-shadow-light-brightness !default;
+$color-branding-default-light-border-brightness: $color-light-border-brightness !default;
+$color-branding-default-text-dark: shade($color-branding-primary, $color-grade-dk-text) !default;
+$color-branding-default-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
+$color-branding-default-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-default-contrast-threshold-light: $color-contrast-threshold !default;
 
-//Theme Recipe Set:
-// The recipe contains the core base colors and ratios that will be used to produce this
-// theme's palette -- it's an extra step in abstraction but this lets other designers
-// cleanly make changes to the theme by altering the base values
-// This would be better if end-users could select which brand colors they want to map; most brand guides have several Secondary and Tertiary Colors
-//________________________________________________________________________________________
+$color-branding-primary-dk: $color-grade-dk !default;
+$color-branding-primary-lt: $color-grade-lt !default;
+$color-branding-primary-background-light-brightness: $color-background-light-brightness !default;
+$color-branding-primary-background-shadow-light-brightness: $color-background-shadow-light-brightness !default;
+$color-branding-primary-light-border-brightness: $color-light-border-brightness !default;
+$color-branding-primary-text-dark: shade($color-branding-primary, $color-grade-dk-text) !default;
+$color-branding-primary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
+$color-branding-primary-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-primary-contrast-threshold-light: $color-contrast-threshold !default;
 
-// Base colors: 
-// Abstract the colors to another set of vars so that a designer can swap color assignments out
-// Base colors are the vars used for building all tints/shades for the palette
+$color-branding-secondary-dk: $color-grade-dk !default;
+$color-branding-secondary-lt: $color-grade-lt !default;
+$color-branding-secondary-background-light-brightness: $color-background-light-brightness !default;
+$color-branding-secondary-background-shadow-light-brightness: $color-background-shadow-light-brightness !default;
+$color-branding-secondary-light-border-brightness: $color-light-border-brightness !default;
+$color-branding-secondary-text-dark: shade($color-branding-primary, $color-grade-dk-text) !default;
+$color-branding-secondary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
+$color-branding-secondary-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-secondary-contrast-threshold-light: $color-contrast-threshold !default;
 
-$primary-base: $ucla-primary;
-$secondary-base: $ucla-secondary-gold;
-$tertiary-base: $ucla-tertiary-neon-purple;
-$accent-base: $ucla-secondary-ltblue;
-$neutral-base: #666 !default;
-$behavior-base: $ucla-tertiary-neon-purple;
-$ui-base:#ccc !default;
-$content-text-base: #000 !default;
-$content-background-base: #fff !default;
+$color-branding-tertiary-dk: $color-grade-dk !default;
+$color-branding-tertiary-lt: $color-grade-lt !default;
+$color-branding-tertiary-background-light-brightness: $color-background-light-brightness !default;
+$color-branding-tertiary-background-shadow-light-brightness: $color-background-shadow-light-brightness !default;
+$color-branding-tertiary-light-border-brightness: $color-light-border-brightness !default;
+$color-branding-tertiary-text-dark: shade($color-branding-primary, $color-grade-dk-text) !default;
+$color-branding-tertiary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
+$color-branding-tertiary-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-tertiary-contrast-threshold-light: $color-contrast-threshold !default;
 
-//Grade ratios: 
-// These vars control how much difference happens between each grade
-// This will always be a % value since we're using it as arguments passed to the darken/lighten/desaturate/saturate functions
+$color-branding-neutral-dk: $color-grade-dk !default;
+$color-branding-neutral-lt: $color-grade-lt !default;
+$color-branding-neutral-background-light-brightness: $color-background-light-brightness !default;
+$color-branding-neutral-background-shadow-light-brightness: $color-background-shadow-light-brightness !default;
+$color-branding-neutral-light-border-brightness: $color-light-border-brightness !default;
+$color-branding-neutral-text-dark: shade($color-branding-primary, $color-grade-dk-text) !default;
+$color-branding-neutral-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
+$color-branding-neutral-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-neutral-contrast-threshold-light: $color-contrast-threshold !default;
 
-$grade-dk-1: 10%;
-$grade-dk-2: 20%;
-$grade-dk-3: 35%;
-$grade-dk-4: 55%;
 
-// this looks like duplication but its not; Having explicit vars for each one allows a designer
-// to make specific finer-grained tweaks based on what's needed for color contrast instead of a simple even ratio
 
-$grade-lt-1: 10%;
-$grade-lt-2: 20%;
-$grade-lt-3: 30%;
-$grade-lt-4: 40%;
 
-// Theme recipe palette vars:
-// Now we build the full palette as SASS Vars (our later assignments to content colors vars will be to these palette vars)
-// It would be nice to port some of these palette Vars as their own CSS class so that designers who don't use SASS have them handy as well
-// Usually just the branding colors and neutrals are handy to have as CSS
-//________________________________________________________________________________________
 
-$primary-darkest: darken($primary-base,$grade-dk-4);
-$primary-darker: darken($primary-base,$grade-dk-2);
-$primary-dark: darken($primary-base,$grade-dk-1);
-$primary-default: $primary-base;
-$primary-light: lighten($primary-base,$grade-lt-1);
-$primary-lighter: lighten($primary-base,$grade-lt-2);
-$primary-lightest: lighten($primary-base,$grade-lt-3);
+/** 
+ * Text colors 
+ */
 
-$secondary-darkest: darken($secondary-base,$grade-dk-4);
-$secondary-darker: darken($secondary-base,$grade-dk-2);
-$secondary-dark: darken($secondary-base,$grade-dk-1);
-$secondary-default: $secondary-base;
-$secondary-light: lighten($secondary-base,$grade-lt-1);
-$secondary-lighter: lighten($secondary-base,$grade-lt-2);
-$secondary-lightest: lighten($secondary-base,$grade-lt-3);
+$color-branding-default-foreground-text:            $color-branding-default-text-dark !default;
+$color-branding-primary-foreground-text:            darken($color-branding-primary, $color-branding-default-dk) !default;
+$color-branding-secondary-foreground-text:          darken($color-branding-secondary, $color-branding-secondary-dk) !default;
+$color-branding-tertiary-foreground-text:           darken($color-branding-tertiary, $color-branding-tertiary-dk) !default;
+$color-branding-neutral-foreground-text:            darken($color-branding-neutral, $color-branding-neutral-dk) !default;
 
-$tertiary-darkest: darken($tertiary-base,$grade-dk-4);
-$tertiary-darker: darken($tertiary-base,$grade-dk-2);
-$tertiary-dark: darken($tertiary-base,$grade-dk-1);
-$tertiary-default: $tertiary-base;
-$tertiary-light: lighten($tertiary-base,$grade-lt-1);
-$tertiary-lighter: lighten($tertiary-base,$grade-lt-2);
-$tertiary-lightest: lighten($tertiary-base,$grade-lt-3);
 
-$ui-darkest: darken($ui-base,$grade-dk-4);
-$ui-darker: darken($ui-base,$grade-dk-2);
-$ui-dark: darken($ui-base,$grade-dk-1);
-$ui-default: $ui-base !default;
-$ui-light: lighten($ui-base,$grade-lt-1);
-$ui-lighter: lighten($ui-base,$grade-lt-2);
-$ui-lightest: lighten($ui-base,$grade-lt-3);
 
-// Here we're going to simply adopt the Bootstrap grey palette; its a decent neutral palette.
-// but another designer could easily just use the same method above with a neutral-base var they set.
 
-$neutral-darkest: #000 !default;
-$neutral-darker: #222 !default;
-$neutral-dark: #333 !default;
-$neutral-default: #555 !default;
-$neutral-light: #999 !default;
-$neutral-lighter: #eee !default;
-$neutral-lightest: #fff !default;
 
-/** Text Colors */
+/**
+ * Background colors 
+ */
 
-$color-branding-default-foreground-text:            $neutral-darkest !default;
-$color-branding-primary-foreground-text:            $primary-dark !default;
-$color-branding-secondary-foreground-text:          $secondary-dark !default;
-$color-branding-tertiary-foreground-text:           $tertiary-dark !default;
-$color-branding-neutral-foreground-text:            $neutral-darkest !default;
+$color-branding-default-background:                 lighten($color-branding-default, $color-branding-default-lt) !default;
+$color-branding-default-background-shadow:          $color-branding-default !default;
+$color-branding-default-border:                     darken($color-branding-default, $color-branding-default-dk) !default;
+$color-branding-default-background-text:            -color-select-contrast-text(
+                                                        $color-branding-default-background, 
+                                                        $color-branding-default-text-dark, 
+                                                        $color-branding-default-text-light, 
+                                                        $color-branding-default-contrast-threshold
+                                                    )  !default;
+$color-branding-default-background-text-shadow:     0 -1px 1px $color-branding-default-background !default;
 
-/** Sharp Background Colors */
+/* - - - - - - - - - - */
 
-$color-branding-default-background-text:            $ui-darkest !default;
-$color-branding-default-background-text-shadow:     0 -1px 1px $ui-default !default;
-$color-branding-default-background:                 $ui-lighter !default;
-$color-branding-default-background-shadow:          $ui-light !default;
-$color-branding-default-border:                     $ui-default !default;
+$color-branding-primary-background:                 lighten($color-branding-primary, $color-branding-primary-lt) !default;
+$color-branding-primary-background-shadow:          $color-branding-primary !default;
+$color-branding-primary-border:                     darken($color-branding-primary, $color-branding-primary-dk) !default;
+$color-branding-primary-background-text:            -color-select-contrast-text(
+                                                        $color-branding-primary-background, 
+                                                        $color-branding-primary-text-dark, 
+                                                        $color-branding-primary-text-light, 
+                                                        $color-branding-primary-contrast-threshold
+                                                    )  !default;
+$color-branding-primary-background-text-shadow:     0 -1px 1px $color-branding-primary-background !default;
 
-$color-branding-primary-background-text:            $primary-darkest !default;
-$color-branding-primary-background-text-shadow:     0 -1px 1px $primary-default !default;
-$color-branding-primary-background:                 $primary-light !default;
-$color-branding-primary-background-shadow:          $primary-default !default;
-$color-branding-primary-border:                     $primary-dark !default;
+/* - - - - - - - - - - */
 
-$color-branding-secondary-background-text:          $secondary-darkest !default;
-$color-branding-secondary-background-text-shadow:   0 -1px 1px $secondary-default !default;
-$color-branding-secondary-background:               $secondary-light !default;
-$color-branding-secondary-background-shadow:        $secondary-default !default;
-$color-branding-secondary-border:                   $secondary-dark !default;
+$color-branding-secondary-background:                 lighten($color-branding-secondary, $color-branding-secondary-lt) !default;
+$color-branding-secondary-background-shadow:          $color-branding-secondary !default;
+$color-branding-secondary-border:                     darken($color-branding-secondary, $color-branding-secondary-dk) !default;
+$color-branding-secondary-background-text:            -color-select-contrast-text(
+                                                        $color-branding-secondary-background, 
+                                                        $color-branding-secondary-text-dark, 
+                                                        $color-branding-secondary-text-light, 
+                                                        $color-branding-secondary-contrast-threshold
+                                                    )  !default;
+$color-branding-secondary-background-text-shadow:     0 -1px 1px $color-branding-secondary-background !default;
 
-$color-branding-tertiary-background-text:           $tertiary-darkest !default;
-$color-branding-tertiary-background-text-shadow:    0 -1px 1px $tertiary-default !default;
-$color-branding-tertiary-background:                $tertiary-light !default;
-$color-branding-tertiary-background-shadow:         $tertiary-default !default;
-$color-branding-tertiary-border:                    $tertiary-dark !default;
+/* - - - - - - - - - - */
 
-$color-branding-neutral-background-text:            $neutral-darker !default;
-$color-branding-neutral-background-text-shadow:     0 -1px 1px $neutral-dark !default;
-$color-branding-neutral-background:                 $neutral-lightest !default;
-$color-branding-neutral-background-shadow:          $neutral-lighter !default;
-$color-branding-neutral-border:                     $neutral-light !default;
+$color-branding-tertiary-background:                 lighten($color-branding-tertiary, $color-branding-tertiary-lt) !default;
+$color-branding-tertiary-background-shadow:          $color-branding-tertiary !default;
+$color-branding-tertiary-border:                     darken($color-branding-tertiary, $color-branding-tertiary-dk) !default;
+$color-branding-tertiary-background-text:            -color-select-contrast-text(
+                                                        $color-branding-tertiary-background, 
+                                                        $color-branding-tertiary-text-dark, 
+                                                        $color-branding-tertiary-text-light, 
+                                                        $color-branding-tertiary-contrast-threshold
+                                                    )  !default;
+$color-branding-tertiary-background-text-shadow:     0 -1px 1px $color-branding-tertiary-background !default;
 
-/** Light background colors */
+/* - - - - - - - - - - */
 
-$color-branding-default-background-light-text:          $ui-darkest !default;
-$color-branding-default-background-light-text-shadow:   0 -1px 1px $ui-light !default;
-$color-branding-default-background-light:               $ui-lightest !default;
-$color-branding-default-background-light-shadow:        $ui-lighter !default;
-$color-branding-default-light-border:                   $ui-light !default;
+$color-branding-neutral-background:                 lighten($color-branding-neutral, $color-branding-neutral-lt) !default;
+$color-branding-neutral-background-shadow:          $color-branding-neutral !default;
+$color-branding-neutral-border:                     darken($color-branding-neutral, $color-branding-neutral-dk) !default;
+$color-branding-neutral-background-text:            -color-select-contrast-text(
+                                                        $color-branding-neutral-background, 
+                                                        $color-branding-neutral-text-dark, 
+                                                        $color-branding-neutral-text-light, 
+                                                        $color-branding-neutral-contrast-threshold
+                                                    )  !default;
+$color-branding-neutral-background-text-shadow:     0 -1px 1px $color-branding-neutral-background !default;
 
-$color-branding-primary-background-light-text:          $primary-darkest !default;
-$color-branding-primary-background-light-text-shadow:   0 -1px 1px $primary-light !default;
-$color-branding-primary-background-light:               $primary-lightest !default;
-$color-branding-primary-background-light-shadow:        $primary-lighter !default;
-$color-branding-primary-light-border:                   $primary-light !default;
 
-$color-branding-secondary-background-light-text:        $secondary-darkest !default;
-$color-branding-secondary-background-light-text-shadow: 0 -1px 1px $secondary-light !default;
-$color-branding-secondary-background-light:             $secondary-lightest !default;
-$color-branding-secondary-background-light-shadow:      $secondary-lighter !default;
-$color-branding-secondary-light-border:                 $secondary-light !default;
 
-$color-branding-tertiary-background-light-text:         $tertiary-darkest !default;
-$color-branding-tertiary-background-light-text-shadow:  0 -1px 1px $tertiary-light !default;
-$color-branding-tertiary-background-light:              $tertiary-lightest !default;
-$color-branding-tertiary-background-light-shadow:       $tertiary-lighter !default;
-$color-branding-tertiary-light-border:                  $tertiary-light !default;
 
-$color-branding-neutral-background-light-text:          $neutral-dark !default;
-$color-branding-neutral-background-light-text-shadow:   0 -1px 1px $neutral-default !default;
-$color-branding-neutral-background-light:               $neutral-lightest !default;
-$color-branding-neutral-background-light-shadow:        $neutral-lighter !default;
-$color-branding-neutral-light-border:                   $neutral-light !default;
+
+/** 
+ * Light background colors 
+ */
+
+$color-branding-default-background-light:               -color-generate-with-lightness(
+                                                                $color-branding-default,
+                                                                $color-branding-default-background-light-brightness
+                                                        ) !default;
+$color-branding-default-background-light-shadow:        -color-generate-with-lightness(
+                                                                $color-branding-default,
+                                                                $color-branding-default-background-shadow-light-brightness
+                                                        ) !default;
+$color-branding-default-light-border:                   -color-generate-with-lightness(
+                                                                $color-branding-default,
+                                                                $color-branding-default-light-border-brightness
+                                                        ) !default;
+$color-branding-default-background-light-text:          -color-select-contrast-text(
+                                                                $color-branding-default-background-light, 
+                                                                $color-branding-default-text-dark, 
+                                                                $color-branding-default-text-light, 
+                                                                $color-branding-default-contrast-threshold-light
+                                                        )  !default;
+$color-branding-default-background-light-text-shadow:   0 -1px 1px $color-branding-default-background-light !default;
+
+/* - - - - - - - - - - */
+
+$color-branding-primary-background-light:               -color-generate-with-lightness(
+                                                                $color-branding-primary,
+                                                                $color-branding-primary-background-light-brightness
+                                                        ) !default;
+$color-branding-primary-background-light-shadow:        -color-generate-with-lightness(
+                                                                $color-branding-primary,
+                                                                $color-branding-primary-background-shadow-light-brightness
+                                                        ) !default;
+$color-branding-primary-light-border:                   -color-generate-with-lightness(
+                                                                $color-branding-primary,
+                                                                $color-branding-primary-light-border-brightness
+                                                        ) !default;
+$color-branding-primary-background-light-text:          -color-select-contrast-text(
+                                                                $color-branding-primary-background-light, 
+                                                                $color-branding-primary-text-dark, 
+                                                                $color-branding-primary-text-light, 
+                                                                $color-branding-primary-contrast-threshold-light
+                                                        )  !default;
+$color-branding-primary-background-light-text-shadow:   0 -1px 1px $color-branding-primary-background-light !default;
+
+/* - - - - - - - - - - */
+
+$color-branding-secondary-background-light:               -color-generate-with-lightness(
+                                                                $color-branding-secondary,
+                                                                $color-branding-secondary-background-light-brightness
+                                                        ) !default;
+$color-branding-secondary-background-light-shadow:        -color-generate-with-lightness(
+                                                                $color-branding-secondary,
+                                                                $color-branding-secondary-background-shadow-light-brightness
+                                                        ) !default;
+$color-branding-secondary-light-border:                   -color-generate-with-lightness(
+                                                                $color-branding-secondary,
+                                                                $color-branding-secondary-light-border-brightness
+                                                        ) !default;
+$color-branding-secondary-background-light-text:          -color-select-contrast-text(
+                                                                $color-branding-secondary-background-light, 
+                                                                $color-branding-secondary-text-dark, 
+                                                                $color-branding-secondary-text-light, 
+                                                                $color-branding-secondary-contrast-threshold-light
+                                                        )  !default;
+$color-branding-secondary-background-light-text-shadow: 0 -1px 1px $color-branding-secondary-background-light !default;
+
+/* - - - - - - - - - - */
+
+$color-branding-tertiary-background-light:              -color-generate-with-lightness(
+                                                                $color-branding-tertiary,
+                                                                $color-branding-tertiary-background-light-brightness
+                                                        ) !default;
+$color-branding-tertiary-background-light-shadow:       -color-generate-with-lightness(
+                                                                $color-branding-tertiary,
+                                                                $color-branding-tertiary-background-shadow-light-brightness
+                                                        ) !default;
+$color-branding-tertiary-light-border:                  -color-generate-with-lightness(
+                                                                $color-branding-tertiary,
+                                                                $color-branding-tertiary-light-border-brightness
+                                                        ) !default;
+$color-branding-tertiary-background-light-text:         -color-select-contrast-text(
+                                                                $color-branding-tertiary-background-light, 
+                                                                $color-branding-tertiary-text-dark, 
+                                                                $color-branding-tertiary-text-light, 
+                                                                $color-branding-tertiary-contrast-threshold-light
+                                                        )  !default;
+$color-branding-tertiary-background-light-text-shadow:  0 -1px 1px $color-branding-tertiary-background-light !default;
+
+/* - - - - - - - - - - */
+
+$color-branding-neutral-background-light:               -color-generate-with-lightness(
+                                                                $color-branding-neutral,
+                                                                $color-branding-neutral-background-light-brightness
+                                                        ) !default;
+$color-branding-neutral-background-light-shadow:        -color-generate-with-lightness(
+                                                                $color-branding-neutral,
+                                                                $color-branding-neutral-background-shadow-light-brightness
+                                                        ) !default;
+$color-branding-neutral-light-border:                   -color-generate-with-lightness(
+                                                                $color-branding-neutral,
+                                                                $color-branding-neutral-light-border-brightness
+                                                        ) !default;
+$color-branding-neutral-background-light-text:          -color-select-contrast-text(
+                                                                $color-branding-neutral-background-light, 
+                                                                $color-branding-neutral-text-dark, 
+                                                                $color-branding-neutral-text-light, 
+                                                                $color-branding-neutral-contrast-threshold-light
+                                                        )  !default;
+$color-branding-neutral-background-light-text-shadow:   0 -1px 1px $color-branding-neutral-background-light !default;
+
+
+
+
+
+/** Alternative Approach
+
+$color-grade-dk-1: 10% !default;
+$color-grade-dk-2: 20% !default;
+$color-grade-dk-3: 35% !default;
+$color-grade-dk-4: 65% !default;
+$color-grade-dk-text: 80% !default;
+
+$color-grade-lt-1: 10% !default;
+$color-grade-lt-2: 20% !default;
+$color-grade-lt-3: 30% !default;
+$color-grade-lt-4: 40% !default;
+$color-grade-lt-text: 93% !default;
+
+$color-contrast-threshold: 65% !default;
+
+$color-branding-tertiary-darkest: darken($color-branding-tertiary,$color-grade-dk-4) !default;
+$color-branding-tertiary-darker: darken($color-branding-tertiary,$color-grade-dk-2) !default;
+$color-branding-tertiary-dark: darken($color-branding-tertiary,$color-grade-dk-1) !default;
+$color-branding-tertiary-default: $color-branding-tertiary !default;
+$color-branding-tertiary-light: lighten($color-branding-tertiary,$color-grade-lt-1) !default;
+$color-branding-tertiary-lighter: lighten($color-branding-tertiary,$color-grade-lt-2) !default;
+$color-branding-tertiary-lightest: lighten($color-branding-tertiary,$color-grade-lt-3) !default;
+$color-branding-tertiary-text-dark: shade($color-branding-tertiary, $color-grade-dk-text) !default;
+$color-branding-tertiary-text-light: tint($color-branding-tertiary, $color-grade-lt-text) !default;
+$color-branding-tertiary-contrast-threshold: $color-contrast-threshold !default;
+$color-branding-tertiary-contrast-threshold-light: $color-contrast-threshold !default;
+
+$color-branding-tertiary-background:                $color-branding-tertiary-light !default;
+$color-branding-tertiary-background-shadow:         $color-branding-tertiary-default !default;
+$color-branding-tertiary-border:                    $color-branding-tertiary-dark !default;
+$color-branding-tertiary-background-text:           -color-select-contrast-text(
+                                                        $color-branding-tertiary-background, 
+                                                        $color-branding-tertiary-text-dark, 
+                                                        $color-branding-tertiary-text-light, 
+                                                        $color-branding-tertiary-contrast-threshold
+                                                    )  !default;
+$color-branding-tertiary-background-text-shadow:    0 -1px 1px $color-branding-tertiary-background !default;
+
+$color-branding-tertiary-background-light:              $color-branding-tertiary-lightest !default;
+$color-branding-tertiary-background-light-shadow:       $color-branding-tertiary-lighter !default;
+$color-branding-tertiary-light-border:                  $color-branding-tertiary-light !default;
+$color-branding-tertiary-background-light-text:         -color-select-contrast-text(
+                                                                $color-branding-tertiary-background-light, 
+                                                                $color-branding-tertiary-text-dark, 
+                                                                $color-branding-tertiary-text-light, 
+                                                                $color-branding-tertiary-contrast-threshold-light
+                                                        )  !default;
+$color-branding-tertiary-background-light-text-shadow:  0 -1px 1px $color-branding-tertiary-background-light !default;
+
+*/

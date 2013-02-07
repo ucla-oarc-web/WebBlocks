@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        
+        <title>WebBlocks: index</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <link rel="stylesheet" href="asset/build/css/blocks.css">
+        <script type="text/javascript" src="asset/build/js/blocks.js"></script>
+        
+        <script type="text/javascript" src="asset/ejs.js"></script>
+        <script type="text/javascript" src="asset/ejs_views.js"></script>
+        <script type="text/javascript" src="asset/jquery.ba-hashchange.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="asset/build/css/blocks-ie.css">
+        <script type="text/javascript" src="asset/build/js/blocks-ie.js"></script>
+        <![endif]-->
+        
+    </head>
+    
+    <body>
+            
+        <nav class="primary bar" id="menu">
+            <h1>WebBlocks Documentation</h1>
+            <ul>
+                <li><a href="#Start">Home</a></li>
+                <li><a href="#API">API</a></li>
+                <li><a href="#Configuration">Configure</a></li>
+                <li><a href="#Recipes">Recipes</a></li>
+                <li><a href="#Development">Development</a></li>
+            </ul>
+        </nav>
+        
+        <div class="container">
+            
+            <div id="content" class="row"></div>
+            
+        </div>
+        
+        <script type="text/javascript">
+        (function(){
+            
+            var DOC = {
+                'menu':['api','configuration','recipes','development'],
+                'go':function(name){
+                    name = name.toLowerCase()
+                    $('#content').html('')
+                    var page;
+                    try{
+                        page = new EJS({url: 'page/'+name+'.ejs'})
+                    }catch(e){
+                        page = new EJS({url: 'page/construction.ejs'})
+                    }
+                    if($.inArray(name.split('/')[0], DOC.menu) < 0){
+                        $('#content').append('<div class="panel-12">'+page.render(DOC)+'</div>')
+                    }else{
+                        var menu = new EJS({url: 'component/menu/'+name.split('/')[0]+'.ejs'})
+                        $('#content').append('<div class="panel-3">'+menu.render(DOC)+'</div>')
+                        $('#content').append('<div class="panel-9">'+page.render(DOC)+'</div>')
+                    }
+                    
+                    
+                    
+                }
+            }
+            
+            DOC.go('start')
+            
+            $(window).hashchange( function(){
+                
+                var hash = location.hash,
+                    page = hash.substring(1)
+                DOC.go(page)
+                document.title = 'WebBlocks: '+page
+                $('#menu a').each(function(){
+                    var that = $(this);
+                    that[ that.attr( 'href' ) === hash.split('/')[0] ? 'addClass' : 'removeClass' ]('active');
+                });
+            })
+
+            $(window).hashchange();
+            
+        })()
+        </script>
+        
+    </body>
+    
+</html>

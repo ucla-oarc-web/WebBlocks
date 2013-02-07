@@ -1,0 +1,17 @@
+@mixin -entity-badge {
+    @extend .default;
+    font-size: 0.83em;
+    font-weight: bold;
+    padding: 0.2em 0.75em;
+    vertical-align: baseline;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+@mixin -entity-badge-round {
+    border-radius: 0.8em;
+}
+
+@mixin -entity-badge-square {
+    border-radius: 0;
+}

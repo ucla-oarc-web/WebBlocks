@@ -10,3 +10,4 @@ npm-debug.log
 /src/tmp
 /.build-test/
 /.blocks
+/package/jquery

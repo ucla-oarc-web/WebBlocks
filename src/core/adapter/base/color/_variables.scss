@@ -21,3 +21,21 @@ $color-grade-dk-text: 80% !default;
 $color-grade-lt-text: 93% !default;
 
 $color-contrast-threshold: 65% !default;
+
+$color-mood-inverse-background-light-brightness: 40% !default;
+$color-mood-inverse-background-shadow-light-brightness: 30% !default;
+$color-mood-inverse-light-border-brightness: 30% !default;
+
+$color-mood-required: #a00 !default;
+$color-mood-required-background-light-brightness: $color-background-light-brightness !default;
+$color-mood-required-text-dark: $color-mood-required !default;
+$color-mood-required-text-light: -color-generate-with-lightness(
+                                        $color-mood-required,
+                                        $color-mood-required-background-light-brightness
+                                 ) !default;
+$color-mood-required-background-light-brightness: 100% !default;
+$color-mood-required-background-shadow-light-brightness: 95% !default;
+$color-mood-required: #d8d8d8;
+
+
+

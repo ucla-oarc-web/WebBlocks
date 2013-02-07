@@ -84,7 +84,7 @@ $color-branding-neutral-foreground-text:            darken($color-branding-neutr
 
 $color-branding-default-background:                 lighten($color-branding-default, $color-branding-default-lt) !default;
 $color-branding-default-background-shadow:          $color-branding-default !default;
-$color-branding-default-border:                     darken($color-branding-primary, $color-branding-default-dk) !default;
+$color-branding-default-border:                     darken($color-branding-default, $color-branding-default-dk) !default;
 $color-branding-default-background-text:            -color-select-contrast-text(
                                                         $color-branding-default-background, 
                                                         $color-branding-default-text-dark, 

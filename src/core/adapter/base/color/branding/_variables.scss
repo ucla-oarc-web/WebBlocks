@@ -19,6 +19,7 @@ $color-branding-default-text-dark: shade($color-branding-primary, $color-grade-d
 $color-branding-default-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
 $color-branding-default-contrast-threshold: $color-contrast-threshold !default;
 $color-branding-default-contrast-threshold-light: $color-contrast-threshold !default;
+$color-branding-default-text-brightness: $color-text-brightness !default;
 
 $color-branding-primary-dk: $color-grade-dk !default;
 $color-branding-primary-lt: $color-grade-lt !default;
@@ -29,6 +30,7 @@ $color-branding-primary-text-dark: shade($color-branding-primary, $color-grade-d
 $color-branding-primary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
 $color-branding-primary-contrast-threshold: $color-contrast-threshold !default;
 $color-branding-primary-contrast-threshold-light: $color-contrast-threshold !default;
+$color-branding-primary-text-brightness: $color-text-brightness !default;
 
 $color-branding-secondary-dk: $color-grade-dk !default;
 $color-branding-secondary-lt: $color-grade-lt !default;
@@ -39,6 +41,7 @@ $color-branding-secondary-text-dark: shade($color-branding-primary, $color-grade
 $color-branding-secondary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
 $color-branding-secondary-contrast-threshold: $color-contrast-threshold !default;
 $color-branding-secondary-contrast-threshold-light: $color-contrast-threshold !default;
+$color-branding-secondary-text-brightness: $color-text-brightness !default;
 
 $color-branding-tertiary-dk: $color-grade-dk !default;
 $color-branding-tertiary-lt: $color-grade-lt !default;
@@ -49,6 +52,7 @@ $color-branding-tertiary-text-dark: shade($color-branding-primary, $color-grade-
 $color-branding-tertiary-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
 $color-branding-tertiary-contrast-threshold: $color-contrast-threshold !default;
 $color-branding-tertiary-contrast-threshold-light: $color-contrast-threshold !default;
+$color-branding-tertiary-text-brightness: $color-text-brightness !default;
 
 $color-branding-neutral-dk: $color-grade-dk !default;
 $color-branding-neutral-lt: $color-grade-lt !default;
@@ -59,6 +63,7 @@ $color-branding-neutral-text-dark: shade($color-branding-primary, $color-grade-d
 $color-branding-neutral-text-light: tint($color-branding-primary, $color-grade-lt-text) !default;
 $color-branding-neutral-contrast-threshold: $color-contrast-threshold !default;
 $color-branding-neutral-contrast-threshold-light: $color-contrast-threshold !default;
+$color-branding-neutral-text-brightness: $color-text-brightness !default;
 
 
 
@@ -68,11 +73,26 @@ $color-branding-neutral-contrast-threshold-light: $color-contrast-threshold !def
  * Text colors 
  */
 
-$color-branding-default-foreground-text:            $color-branding-default-text-dark !default;
-$color-branding-primary-foreground-text:            darken($color-branding-primary, $color-branding-default-dk) !default;
-$color-branding-secondary-foreground-text:          darken($color-branding-secondary, $color-branding-secondary-dk) !default;
-$color-branding-tertiary-foreground-text:           darken($color-branding-tertiary, $color-branding-tertiary-dk) !default;
-$color-branding-neutral-foreground-text:            darken($color-branding-neutral, $color-branding-neutral-dk) !default;
+$color-branding-default-foreground-text:            -color-generate-with-lightness(
+                                                        $color-branding-default, 
+                                                        $color-branding-default-text-brightness
+                                                    ) !default;
+$color-branding-primary-foreground-text:            -color-generate-with-lightness(
+                                                        $color-branding-primary, 
+                                                        $color-branding-primary-text-brightness
+                                                    ) !default;
+$color-branding-secondary-foreground-text:          -color-generate-with-lightness(
+                                                        $color-branding-secondary, 
+                                                        $color-branding-secondary-text-brightness
+                                                    ) !default;
+$color-branding-tertiary-foreground-text:           -color-generate-with-lightness(
+                                                        $color-branding-tertiary, 
+                                                        $color-branding-tertiary-text-brightness
+                                                    ) !default;
+$color-branding-neutral-foreground-text:            -color-generate-with-lightness(
+                                                        $color-branding-neutral, 
+                                                        $color-branding-neutral-text-brightness
+                                                    ) !default;
 
 
 

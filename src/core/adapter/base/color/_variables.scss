@@ -1,3 +1,7 @@
+/**
+ * Helper functions for color variables
+ */
+
 @function -color-select-contrast-text($bg, $dark, $light, $threshold){
     @if( ( red($bg)*299 + green($bg)*587 + blue($bg)*114 ) / 1000 >= ($threshold/100%)*255 ) {
         @return $dark;
@@ -10,17 +14,25 @@
     @return hsl(hue($color), saturation($color), $lightness)
 }
 
+/**
+ * Basic color contrast and shading variables
+ */
+
 $color-grade-dk: 10% !default;
 $color-grade-lt: 10% !default;
-
+$color-grade-dk-text: 80% !default;
+$color-grade-lt-text: 93% !default;
+$color-text-brightness: 40% !default;
 $color-background-light-brightness: 95% !default;
 $color-background-shadow-light-brightness: 85% !default;
 $color-light-border-brightness: 60% !default;
-
-$color-grade-dk-text: 80% !default;
-$color-grade-lt-text: 93% !default;
-
 $color-contrast-threshold: 65% !default;
+
+/**
+ * Specialized tweaks for particular brandings and moods
+ */
+
+$color-branding-default-text-brightness: 5% !default;
 
 $color-mood-inverse-background-light-brightness: 40% !default;
 $color-mood-inverse-background-shadow-light-brightness: 30% !default;
@@ -35,6 +47,10 @@ $color-mood-required-text-light: -color-generate-with-lightness(
                                  ) !default;
 $color-mood-required-background-light-brightness: 100% !default;
 $color-mood-required-background-shadow-light-brightness: 95% !default;
+$color-mood-required-foreground-text:    -color-generate-with-lightness(
+                                                $color-mood-required, 
+                                                $color-text-brightness
+                                        ) !default;
 $color-mood-required: #d8d8d8;
 
 

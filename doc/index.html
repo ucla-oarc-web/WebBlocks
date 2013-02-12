@@ -11,14 +11,19 @@
         <link rel="stylesheet" href="asset/build/css/blocks.css">
         <script type="text/javascript" src="asset/build/js/blocks.js"></script>
         
-        <script type="text/javascript" src="asset/ejs.js"></script>
-        <script type="text/javascript" src="asset/ejs_views.js"></script>
-        <script type="text/javascript" src="asset/jquery.ba-hashchange.js"></script>
-        
         <!--[if lte IE 9]>
         <link rel="stylesheet" href="asset/build/css/blocks-ie.css">
         <script type="text/javascript" src="asset/build/js/blocks-ie.js"></script>
         <![endif]-->
+        
+        <script type="text/javascript" src="asset/ejs.js"></script>
+        <script type="text/javascript" src="asset/ejs_views.js"></script>
+        <script type="text/javascript" src="asset/jquery.ba-hashchange.js"></script>
+        
+        <link rel="stylesheet" href="asset/prettify/prettify.css">
+        <script type="text/javascript" src="asset/prettify/prettify.js"></script>
+        
+        <link rel="stylesheet" href="asset/custom.css">
         
     </head>
     
@@ -46,42 +51,57 @@
             
             var DOC = {
                 'menu':['api','configuration','recipe','development'],
-                'go':function(name){
+                'go':function(name, fade){
+                    
+                    var page,
+                        fadeTime = typeof fade == 'undefined' ? 400 : parseInt(fade);
                     name = name.toLowerCase()
-                    $('#content').html('')
-                    var page;
-                    try{
-                        page = new EJS({url: 'page/'+name+'.ejs'})
-                    }catch(e){
-                        page = new EJS({url: 'page/construction.ejs'})
-                    }
-                    if($.inArray(name.split('/')[0], DOC.menu) < 0){
-                        $('#content').append('<div class="panel-12">'+page.render(DOC)+'</div>')
-                    }else{
-                        var menu = new EJS({url: 'component/menu/'+name.split('/')[0]+'.ejs'})
-                        $('#content').append('<div class="panel-3">'+menu.render(DOC)+'</div>')
-                        $('#content').append('<div class="panel-9">'+page.render(DOC)+'</div>')
-                    }
                     
-                    
+                    $('#content').fadeOut(fadeTime, function(){
+                        
+                        $('#content').html('')
+                        try{
+                            page = new EJS({url: 'page/'+name+'.ejs'})
+                        }catch(e){
+                            page = new EJS({url: 'page/construction.ejs'})
+                        }
+                        if($.inArray(name.split('/')[0], DOC.menu) < 0){
+                            $('#content').append('<div class="panel-12">'+page.render(DOC)+'</div>')
+                        }else{
+                            var menu = new EJS({url: 'component/menu/'+name.split('/')[0]+'.ejs'})
+                            $('#content').append('<div class="panel-3">'+menu.render(DOC)+'</div>')
+                            $('#content').append('<div class="panel-9">'+page.render(DOC)+'</div>')
+                        }
+                        
+                        $('#content').fadeIn(fadeTime)
+                        
+                    })
                     
                 }
             }
-            
-            DOC.go('start')
             
             $(window).hashchange( function(){
                 
                 var hash = location.hash,
                     page = hash.substring(1)
-                DOC.go(page)
+                
+                if(hash == '')
+                    page = 'Start'
+                
+                DOC.go(page, loaded ? 400 : 0)
+                loaded = true
                 document.title = 'WebBlocks: '+page
+                
                 $('#menu a').each(function(){
                     var that = $(this);
                     that[ that.attr( 'href' ) === hash.split('/')[0] ? 'addClass' : 'removeClass' ]('active');
-                });
+                })
+                
+                $('#content').efx()
+                prettyPrint()
             })
 
+            var loaded = false
             $(window).hashchange();
             
         })()

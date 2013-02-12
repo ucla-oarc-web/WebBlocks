@@ -1,0 +1,297 @@
+<h2>Structure</h2>
+
+<p>WebBlocks provides two modules for defining the structure of a page:</p>
+
+<ul>
+    <li><strong>Base/Structure/Grid</strong> defines a set of classes including <code>.row</code>, <code>.panel-X</code> and <code>.Y-collapse</code>. These may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row collapses to a vertically-oriented set of elements.</li>
+    <li><strong>Base/Structure/Container</strong> defines the <code>.container</code> class. This class may be used on an element to define a maximum size it may grow to in large viewports, as well as ensure padding of the content on small viewports.</li>
+</ul>
+
+<nav class="tabs">
+    <ul>
+        <li><a data-target="grid">Grid</a></li>
+        <li><a data-target="container">Container</a></li>
+    </ul>
+</nav>
+
+<div data-effect="tabs" data-tabs="fade">
+    
+    <section id="grid" data-tabs="show">
+        
+        <h3>Grid</h3>
+        
+        <p>The <code>.row</code> element contains a set of direct-child <code>.panel-X</code> elements. Above some breakpoint, the <code>.panel-X</code> elements are arranged horizontally with proportional widths. Below the collapse breakpoint, meanwhile, they collapse to orient inline vertically.</p>
+        
+        <p>The width of each panel is defined as a proportion of the total number of panels in a row: <code>X/$structure-panels</code>. By default, the value of <code>$structure-panels</code> is <code>12</code>, but this may be changed when compiling WebBlocks. Any value of <code>X</code> up to <code>$structure-panel</code> may be used, except that the total of all panels in a row should not exceed <code>$structure-panel</code>.</p>
+        
+        <p>By default, panels are arranged from left-to-right. However, in some cases, the desired outcome is that, when the panels collapse, the right-most panel comes first. As such, <code>.row.right</code> may be used to orient panels in right-to-left order.</p>
+        
+        <p>The default behavior for a row is that it collapses at <code>$breakpoint-small</code>. However, this is not always the intended behavior. Therefore, a row may be defined as <code>.row.Y-collapse</code> where <code>Y</code> is a breakpoint (<code>xxsmall</code>, <code>xsmall</code>, <code>small</code>, <code>medium-small</code>, <code>medium</code>, <code>medium-large</code>, <code>large</code>) or <code>no</code> to ensure it never collapses.</p>
+        
+        <h4>Basic Proportional Grid</h4>
+        
+        <p>The following is a basic example of the proportional grid, collapsing at the default breakpoint, which is <code>$breakpoint-small</code>:</p>
+
+        <pre class="prettyprint">&lt;div class="row"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-2"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-1"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <p>The panels render as columns above <code>$breakpoint-small</code> and as a vertically-oriented set below <code>$breakpoint-small</code>:</p>
+        
+        <div class="row">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-3 secondary">&nbsp;</div>
+            <div class="panel-2 tertiary">&nbsp;</div>
+            <div class="panel-1 neutral">&nbsp;</div>
+        </div>
+        
+        <h4>Right-oriented Panels</h4>
+        
+        <p>A row may be oriented from right-to-left as <code>.row.right</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row right"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- right content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- left content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <p>The panels render as columns, oriented from right-to-left, above <code>$breakpoint-small</code> and as a vertically-oriented set starting with the right-most column below <code>$breakpoint-small</code>:</p>
+        
+        <div class="row right">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <h4>Collapse Controls on Grid</h4>
+        
+        <p>The following <code>.Y-collapse</code> classes may be used on a <code>.row</code>:</p>
+        
+        <ul>
+            <li><code>.no-collapse</code></li>
+            <li><code>.xxsmall-collapse</code></li>
+            <li><code>.xsmall-collapse</code></li>
+            <li><code>.small-collapse</code></li>
+            <li><code>.medium-small-collapse</code></li>
+            <li><code>.medium-collapse</code></li>
+            <li><code>.medium-large-collapse</code></li>
+            <li><code>.large-collapse</code></li>
+        </ul>
+        
+        <h5>No Collapse</h5>
+        
+        <pre class="prettyprint">&lt;div class="row no-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <p>A row with the <code>.no-collapse</code> class never collapses:</p>
+        
+        <div class="row no-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <h5>Explicit Collapse</h5>
+        
+        <p>A row with the <code>.xxsmall-collapse</code> class collapses at <code>$breakpoint-xxsmall</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row xxsmall-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+            
+        <div class="row xxsmall-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.xsmall-collapse</code> class collapses at <code>$breakpoint-xsmall</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row xsmall-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row xsmall-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.small-collapse</code> class collapses at <code>$breakpoint-small</code>. This is the default behavior for <code>.row</code>, although <code>.small-collapse</code> must be defined explicitly if it contains any child rows that explicitly define a collapse size:</p>
+        
+        <pre class="prettyprint">&lt;div class="row small-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- .. --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row small-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.medium-small-collapse</code> class collapses at <code>$breakpoint-medium-small</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row medium-small-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row medium-small-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.medium-collapse</code> class collapses at <code>$breakpoint-medium</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row medium-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row medium-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.medium-large-collapse</code> class collapses at <code>$breakpoint-medium-large</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row medium-large-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row medium-large-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <p>A row with the <code>.large-collapse</code> class collapses at <code>$breakpoint-large</code>:</p>
+        
+        <pre class="prettyprint">&lt;div class="row large-collapse"&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <div class="row large-collapse">
+            <div class="panel-6 primary">&nbsp;</div>
+            <div class="panel-6 secondary">&nbsp;</div>
+        </div>
+        
+        <h4>Nested Rows</h4>
+        
+        <p>A <code>.row</code> may be nested within a <code>.panel-X</code> of another <code>.row</code>. This is very useful for constructing content arrangements that collapse partially at sizes:</p>
+        
+        <pre class="prettyprint">&lt;div class="row medium-collapse"&gt;
+    &lt;div class="panel-6"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- A --&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- B --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-6"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- C --&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- D --&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        
+        <p>In the above example, above the <code>$breakpoint-medium</code>, all four panels will appear inline as though they are a single grid. However, between <code>$breakpoint-medium</code> and <code>$breakpoint-small</code>, the "A" and "B" panels will appear in one row and the "C" and "D" panels will appear in another, as the outer row will have collapsed but the inner row won't have yet. Finally, below <code>$breakpoint-small</code>, all four will appear collapsed.</p>
+        
+        <div class="row medium-collapse">
+            <div class="panel-6">
+                <div class="row small-collapse">
+                    <div class="panel-6 primary">&nbsp;</div>
+                    <div class="panel-6 secondary">&nbsp;</div>
+                </div>
+            </div>
+            <div class="panel-6">
+                <div class="row small-collapse">
+                    <div class="panel-6 tertiary">&nbsp;</div>
+                    <div class="panel-6 neutral">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Configuration</h4>
+
+        <ul class="configuration">
+            <li>
+                <code>$structure-panels</code> defines number of panels in a row
+                <br><strong>default</strong> <code>12</code>
+                <br><strong>type</strong> <code>integer</code>
+            </li>
+            <li>
+                <code>$structure-panel-gutter</code> defines spacing between panels
+                <br><strong>default</strong> <code>2.5641%</code>
+                <br><strong>type</strong> <code>percentage</code>
+            </li>
+        </ul>
+        
+    </section>
+
+    <section id="container">
+        
+        <h3>Container</h3>
+
+        <p>The <code>.container</code> element offers a simple way to wrap main body content. It can be applied to the body directly to contain the entire site contents, or it can be applied as a containing element over a subset of elements. It is not intended to be used as an interior element when another element has already contained the workspace below <code>$structure-container-width-max</code> (if set), nor is its behavior defined if a <code>.container</code> is placed within another <code>.container</code>.</p>
+        
+        <h4>Example</h4>
+
+        <p>Use of the container is of the form:</p>
+
+        <pre class="prettyprint">&lt;div class="container"&gt;
+    &lt;!-- contained content --&gt;
+&lt;/div&gt;</pre>
+
+        <p>The documentation presented here (including the side menu) is wrapped within a <code>.container</code> object.</p>
+
+        <h4>Behavior</h4>
+
+        <p>The behavior of the container is defined as follows:</p>
+
+        <ul>
+            <li>Below <code>$breakpoint-small</code>, it will have a fixed padding equal to the percentage specified by <code>$structure-container-gutter</code> when the container is of a total width equal to <code>$breakpoint-small</code>. This ensures that the gutter will never completely vanish.</li>
+            <li>Between <code>$breakpoint-small</code> and <code>$structure-container-width-max</code>, it will be the width of its containing element (usually the window width) with the exception of padding on both the right and left sides equal to the gutter percentage specified as <code>$structure-container-gutter</code>.</li>
+            <li>If <code>$structure-container-max-width</code> is not false, then the container will not grow to beyond the maximum pixel width (gutters included in this width) as specified by this variable. When the container hits this limit, it is aligned in the center, holding this maximum width.</li>
+        </ul>
+
+        <h4>Configuration</h4>
+
+        <ul class="configuration">
+            <li>
+                <code>$structure-container-gutter</code> defines padding around the container
+                <br><strong>default</strong> <code>2%</code>
+                <br><strong>type</strong> <code>percentage</code>
+            </li>
+            <li>
+                <code>$structure-container-width-max</code> defines the maximum size of the container
+                <br><strong>default</strong> <code>1024px</code>
+                <br><strong>type</strong> <code>pixels</code> or <code>false</code>
+            </li>
+        </ul>
+
+    </section>
+        
+</div>
+
+<style>
+    #grid .row {
+        margin-bottom: 20px; /* for presentation of rows in this example */
+    }
+    
+    #grid .row .row {
+        margin-bottom: 0;
+    }
+</style>

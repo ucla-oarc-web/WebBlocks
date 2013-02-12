@@ -1,0 +1,177 @@
+<h2>Visibility</h2>
+
+<p>This library provides several modules related to visibility of content:</p>
+
+<ul>
+    <li><strong>Base/Visibility/Hide</strong> defines a <code>.hide</code> class for hiding content universally</li>
+    <li><strong>Base/Visibility/Media_Query/Hide</strong> defines a <code>.hide-media-query</code> class to hide content when media queries are available.</li>
+    <li><strong>Base/Visibility/Responsive/Hide</strong> defines a set of <code>.hide-X</code> classes that set content to be hidden at and below a particular breakpoint <code>X</code> between <code>xxsmall</code> and <code>large</code>.</li>
+    <li><strong>Base/Visibility/Responsive/Hide_Above</strong> defines a set of <code>.hide-above-X</code> classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint <code>X</code> between <code>xxsmall</code> and <code>large</code>.</li>
+</ul>
+
+<h3>Examples</h3>
+
+<h4>Basic Visibility</h4>
+
+<p>The <code>.hide</code> class hides content from view and screenreaders. Applying the <code>.hide</code> class on an element is similar to calling <code>$(ele).hide()</code> in jQuery. Both are just slightly shorthand for the style property <code>display:none</code>.</p>
+
+<pre class="prettyprint">&lt;div class="hide"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
+<h4>Visibility based on Media Query Support</h4>
+
+<p>The <code>.hide-media-query</code> class may be used to define an element that will only show if media queries <em>are not supported</em> by the browser. This class is thus similar to the <code>noscript</code> tag used to show content when Javascript isn't available.</p>
+
+<pre class="prettyprint">&lt;div class="hide"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
+<h4>Visibility based on Viewport Size</h4>
+
+<p>Generally, responsive designs should try to avoid coding explicitly for different screen sizes, but in some cases, this is necessary. WebBlocks thus provides a set of classes <code>.hide-X</code> and <code>.hide-above-X</code> that allows one to define the viewport sizes in which a given element is shown.</p>
+
+<p class="text-danger">It should be noted that these classes should not be used with elements that have styles assigned by nth-child selectors, such as <code>.panel-X</code>.</p>
+
+<p>An element with <code>.hide-xxsmall</code> will appear above <code>$breakpoint-xxsmall</code>, whereas an element <code>.hide-above-xxsmall</code> will only appear below <code>$breakpoint-xxsmall</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-xxsmall"&gt;
+    &lt;!-- show above xxsmall --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-xxsmall"&gt;
+    &lt;!-- show at and below xxsmall --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-xxsmall">
+    <div class="success panel-6">.hide-xxsmall</div>
+    <div class="danger panel-6">.hide-above-xxsmall</div>
+</div>
+<div class="example row hide-above-xxsmall">
+    <div class="danger panel-6">.hide-xxsmall</div>
+    <div class="success panel-6">.hide-above-xxsmall</div>
+</div>
+
+<p>An element with <code>.hide-xsmall</code> will appear above <code>$breakpoint-xsmall</code>, whereas an element <code>.hide-above-xsmall</code> will only appear below <code>$breakpoint-xsmall</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-xsmall"&gt;
+    &lt;!-- show above xsmall --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-xsmall"&gt;
+    &lt;!-- show at and below xsmall --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-xsmall">
+    <div class="success panel-6">.hide-xsmall</div>
+    <div class="danger panel-6">.hide-above-xsmall</div>
+</div>
+<div class="example row hide-above-xsmall">
+    <div class="danger panel-6">.hide-xsmall</div>
+    <div class="success panel-6">.hide-above-xsmall</div>
+</div>
+
+<p>An element with <code>.hide-small</code> will appear above <code>$breakpoint-small</code>, whereas an element <code>.hide-above-small</code> will only appear below <code>$breakpoint-small</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-small"&gt;
+    &lt;!-- show above small --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-small"&gt;
+    &lt;!-- show at and below small --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-small">
+    <div class="success panel-6">.hide-small</div>
+    <div class="danger panel-6">.hide-above-small</div>
+</div>
+<div class="example row hide-above-small">
+    <div class="danger panel-6">.hide-small</div>
+    <div class="success panel-6">.hide-above-small</div>
+</div>
+
+<p>An element with <code>.hide-medium-small</code> will appear above <code>$breakpoint-medium-small</code>, whereas an element <code>.hide-above-medium-small</code> will only appear below <code>$breakpoint-medium-small</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-medium-small"&gt;
+    &lt;!-- show above medium-small --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-medium-small"&gt;
+    &lt;!-- show at and below medium-small --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-medium-small">
+    <div class="success panel-6">.hide-medium-small</div>
+    <div class="danger panel-6">.hide-above-medium-small</div>
+</div>
+<div class="example row hide-above-medium-small">
+    <div class="danger panel-6">.hide-medium-small</div>
+    <div class="success panel-6">.hide-above-medium-small</div>
+</div>
+
+<p>An element with <code>.hide-medium</code> will appear above <code>$breakpoint-medium</code>, whereas an element <code>.hide-above-medium</code> will only appear below <code>$breakpoint-medium</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-medium"&gt;
+    &lt;!-- show above medium --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-medium"&gt;
+    &lt;!-- show at and below medium --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-medium">
+    <div class="success panel-6">.hide-medium</div>
+    <div class="danger panel-6">.hide-above-medium</div>
+</div>
+<div class="example row hide-above-medium">
+    <div class="danger panel-6">.hide-medium</div>
+    <div class="success panel-6">.hide-above-medium</div>
+</div>
+
+<p>An element with <code>.hide-medium-large</code> will appear above <code>$breakpoint-medium-large</code>, whereas an element <code>.hide-above-medium-large</code> will only appear below <code>$breakpoint-medium-large</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-medium-large"&gt;
+    &lt;!-- show above medium-large --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-medium-large"&gt;
+    &lt;!-- show at and below medium-large --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-medium-large">
+    <div class="success panel-6">.hide-medium-large</div>
+    <div class="danger panel-6">.hide-above-medium-large</div>
+</div>
+<div class="example row hide-above-medium-large">
+    <div class="danger panel-6">.hide-medium-large</div>
+    <div class="success panel-6">.hide-above-medium-large</div>
+</div>
+
+<p>An element with <code>.hide-large</code> will appear above <code>$breakpoint-large</code>, whereas an element <code>.hide-above-large</code> will only appear below <code>$breakpoint-large</code>:</p>
+
+<pre class="prettyprint">&lt;div class="hide-large"&gt;
+    &lt;!-- show above large --&gt;
+&lt;/div&gt;
+&lt;div class="hide-above-large"&gt;
+    &lt;!-- show at and below large --&gt;
+&lt;/div&gt;</pre>
+
+<div class="example row hide-large">
+    <div class="success panel-6">.hide-large</div>
+    <div class="danger panel-6">.hide-above-large</div>
+</div>
+<div class="example row hide-above-large">
+    <div class="danger panel-6">.hide-large</div>
+    <div class="success panel-6">.hide-above-large</div>
+</div>
+
+<h3>Configuration</h3>
+
+<ul class="configuration">
+    <li><%= vars.sass.render('breakpoint-xxsmall') %></li>
+    <li><%= vars.sass.render('breakpoint-xsmall') %></li>
+    <li><%= vars.sass.render('breakpoint-small') %></li>
+    <li><%= vars.sass.render('breakpoint-medium-small') %></li>
+    <li><%= vars.sass.render('breakpoint-medium') %></li>
+    <li><%= vars.sass.render('breakpoint-medium-large') %></li>
+    <li><%= vars.sass.render('breakpoint-large') %></li>
+</ul>
+
+
+<style>
+    div.example .panel-6 {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+</style>

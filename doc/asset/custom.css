@@ -19,6 +19,14 @@ pre.prettyprint {
     margin-bottom: 10px;
 }
 
+.configuration {
+    list-style-type: circle;
+}
+
+.configuration li {
+    margin-bottom: 1em;
+}
+
 /* polyfill for a coming feature in WebBlocks */
 
 .tabs {

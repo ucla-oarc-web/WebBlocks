@@ -19,17 +19,39 @@ pre.prettyprint {
     margin-bottom: 10px;
 }
 
-.configuration {
+.configuration, .modules {
     list-style-type: circle;
 }
 
-.configuration li {
+.configuration li, .modules li {
     margin-bottom: 1em;
 }
 
-/* polyfill for a coming feature in WebBlocks */
+a {
+    text-decoration: none;
+}
 
-.tabs {
+a, a:visited, a:active {
+    color: #1042bc;
+}
+
+a:hover {
+    color: #006ecc;
+}
+
+/* polyfills for a coming feature in WebBlocks */
+
+nav.list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.list h1 {
+    font-size: 1.2em;
+}
+
+nav.tabs {
     padding-left: 10px;
     display: block;
     overflow: hidden;
@@ -38,20 +60,20 @@ pre.prettyprint {
     margin-bottom: 15px;
 }
 
-.tabs > *, .tabs li {
+nav.tabs > *, .tabs li {
     display: block;
     float: left;
     line-height: 1;
 }
 
-.tabs > * {
+nav.tabs > * {
     margin-bottom: 0;
     margin-left: 0;
     padding-left: 0;
     padding-right: 10px;
 }
 
-.tabs li {
+nav.tabs li {
     padding: 8px 16px 8px 16px;
     margin-right: 10px;
     border: 1px solid #ccc;
@@ -67,11 +89,11 @@ pre.prettyprint {
     display: block;
 }
 
-.tabs a {
+nav.tabs a {
     cursor: pointer;
 }
 
-.tabs h3 {
+nav.tabs h3 {
     padding-top: 8px;
     margin: 0;
     font-size: 1em;

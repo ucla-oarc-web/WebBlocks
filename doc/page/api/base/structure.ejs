@@ -225,18 +225,10 @@
         </div>
 
         <h4>Configuration</h4>
-
+        
         <ul class="configuration">
-            <li>
-                <code>$structure-panels</code> defines number of panels in a row
-                <br><strong>default</strong> <code>12</code>
-                <br><strong>type</strong> <code>integer</code>
-            </li>
-            <li>
-                <code>$structure-panel-gutter</code> defines spacing between panels
-                <br><strong>default</strong> <code>2.5641%</code>
-                <br><strong>type</strong> <code>percentage</code>
-            </li>
+            <li><%= vars.sass.render('structure-panels') %></li>
+            <li><%= vars.sass.render('structure-panel-gutter') %></li>
         </ul>
         
     </section>
@@ -270,16 +262,15 @@
         <h4>Configuration</h4>
 
         <ul class="configuration">
-            <li>
-                <code>$structure-container-gutter</code> defines padding around the container
-                <br><strong>default</strong> <code>2%</code>
-                <br><strong>type</strong> <code>percentage</code>
-            </li>
-            <li>
-                <code>$structure-container-width-max</code> defines the maximum size of the container
-                <br><strong>default</strong> <code>1024px</code>
-                <br><strong>type</strong> <code>pixels, false</code>
-            </li>
+            <li><%= vars.sass.render('structure-container-gutter') %></li>
+            <li><%= vars.sass.render('structure-container-width-max') %></li>
+            <li><%= vars.sass.render('breakpoint-xxsmall') %></li>
+            <li><%= vars.sass.render('breakpoint-xsmall') %></li>
+            <li><%= vars.sass.render('breakpoint-small') %></li>
+            <li><%= vars.sass.render('breakpoint-medium-small') %></li>
+            <li><%= vars.sass.render('breakpoint-medium') %></li>
+            <li><%= vars.sass.render('breakpoint-medium-large') %></li>
+            <li><%= vars.sass.render('breakpoint-large') %></li>
         </ul>
 
     </section>

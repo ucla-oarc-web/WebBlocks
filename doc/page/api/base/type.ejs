@@ -1,0 +1,166 @@
+<h2>Type</h2>
+
+<p>This library provides several helper utilities related to text styling. </p>
+
+<ul>
+    <li><strong>Base/Type/Align</strong> provides classes that modify the alignment of type within contained elements.</li>
+    <li><strong>Base/Type/Font</strong> provides a basic set of font styles.</li>
+</ul>
+
+<h3>Align</h3>
+
+<p>This module provides four text alignment helpers:</p>
+
+<ul>
+    <li><code>.text-left</code></li>
+    <li><code>.text-center</code></li>
+    <li><code>.text-right</code></li>
+    <li><code>.text-justify</code></li>
+</ul>
+
+<p>These classes may be applied to any element and will style contained textual content accordingly, including inheriting into all children except where the HTML specification does not allow inheritance from parent elements.</p>
+
+<pre class="prettyprint">&lt;p class="text-left"&gt;.text-left&lt;/p&gt;
+&lt;p class="text-center"&gt;.text-center&lt;/p&gt;
+&lt;p class="text-right"&gt;.text-right&lt;/p&gt;
+&lt;p class="text-justify"&gt;.text-justify&lt;/p&gt;</pre>
+
+<p class="text-left primary">.text-left</p>
+<p class="text-center secondary">.text-center</p>
+<p class="text-right tertiary">.text-right</p>
+<p class="text-justify neutral">.text-justify</p>
+
+<h3>Font</h3>
+
+<p>This module defines a number of base styles:</p>
+
+<ul>
+    <li>Font size and family for the body</li>
+    <li>Font sizes, margins, line heights and margins for the header, paragraph and list item tags</li>
+    <li>Styling for <code>abbr[title]</code>, <code>address</code>, <code>blockquote</code>, <code>cite</code> and <code>hr</code> tags</li>
+</ul>
+
+<h4>Examples</h4>
+
+<p>The following shows much of the styling applied by this module:</p>
+
+<div class="text-examples">
+    <h1>Header 1<br><small>with small tag</small></h1>
+    <h2>Header 2<br><small>with small tag</small></h2>
+    <h3>Header 3<br><small>with small tag</small></h3>
+    <h4>Header 4<br><small>with small tag</small></h4>
+    <h5>Header 5<br><small>with small tag</small></h5>
+    <h6>Header 6<br><small>with small tag</small></h6>
+    <p>Paragraph text<br><small>with small tag</small></p>
+    <ul>
+        <li>List item text</li>
+    </ul>
+</div>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li>
+        <code>$type-font-family</code> defines the body font family
+        <br><strong>default</strong> <code>"Helvetica Neue", Helvetica, Arial, sans-serif;</code>
+        <br><strong>type</strong> <code>font-family</code> (list)
+    </li>
+    <li>
+        <code>$type-font-size</code> defines the body font size
+        <br><strong>default</strong> <code>0.93em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-small</code> defines <code>small</code> font size
+        <br><strong>default</strong> <code>0.93em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h1</code> defines <code>h1</code> font size
+        <br><strong>default</strong> <code>2.5em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h2</code> defines <code>h2</code> font size
+        <br><strong>default</strong> <code>2.2em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h3</code> defines <code>h3</code> font size
+        <br><strong>default</strong> <code>1.75em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h4</code> defines <code>h4</code> font size
+        <br><strong>default</strong> <code>1.5em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h5</code> defines <code>h5</code> font size
+        <br><strong>default</strong> <code>1.25em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h6</code> defines <code>h6</code> font size
+        <br><strong>default</strong> <code>1.1em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h1-small</code> defines <code>h1 small</code> font size
+        <br><strong>default</strong> <code>0.6em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h2-small</code> defines <code>h2 small</code> font size
+        <br><strong>default</strong> <code>0.65em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h3-small</code> defines <code>h3 small</code> font size
+        <br><strong>default</strong> <code>0.7em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h4-small</code> defines <code>h4 small</code> font size
+        <br><strong>default</strong> <code>0.8em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h5-small</code> defines <code>h5 small</code> font size
+        <br><strong>default</strong> <code>0.9em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-font-size-h6-small</code> defines <code>h6 small</code> font size
+        <br><strong>default</strong> <code>0.9em</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-line-spacing</code> defines the spacing between lines
+        <br><strong>default</strong> <code>20px</code>
+        <br><strong>type</strong> <code>px (recommended), em</code>
+        <br><span class="text-neutral">prefers <code>px</code> to <code>em</code> for uniform spacing</span>
+    </li>
+    <li>
+        <code>$type-line-height</code> defines <code>p, li, address, blockquote</code> line height
+        <br><strong>default</strong> <code>1</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+    <li>
+        <code>$type-line-height-heading</code> defines header line heights
+        <br><strong>default</strong> <code>1.4</code>
+        <br><strong>type</strong> <code>em (recommended), px</code>
+    </li>
+</ul>
+
+<p>It is worth note that some components, such as the Bootstrap adapter, may internally override the values assigned by this module.</p>
+
+<style>
+    p[class*="text-"] {
+        padding: 5px;
+    }
+    .text-examples {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+    }
+</style>

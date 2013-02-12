@@ -1,0 +1,74 @@
+<h2>Block</h2>
+
+<p>This library includes modules related to block-level elements. At the current time, it includes just a single module:</p>
+<ul>
+    <li><strong>Base/Block/Float</strong> provides utility classes that can apply a float, clear a float, or wrap floated element(s) within a container so that elements positioned later in the DOM will be flowed below all of the contained elements.</li>
+</ul>
+
+<h3>Float</h3>
+
+<p>The <code>.float-left</code> and <code>.float-right</code> classes allow one to set a left or right float on any block level element. In addition, a <code>.float-clear</code> class allows one to clear existing floats.</p>
+
+<pre class="prettyprint">&lt;div class="float-left"&gt;.float-left&lt;/div&gt;
+&lt;div class="float-right"&gt;.float-right&lt;/div&gt;
+&lt;div class="float-clear"&gt;.float-clear&lt;/div&gt;</pre>
+
+<div class="example">
+    <div class="float-left primary">.float-left</div>
+    <div class="float-right secondary">.float-right</div>
+    <div class="float-clear tertiary">.float-clear</div>
+</div>
+
+<p>In many cases, however, explicitly clearing a float is cumbersome. Therefore, WebBlocks provides two float-containing classes. These can be used to wrap floated elements so that elements later in the DOM will be flowed below the contained elements. The <code>.float-container</code> class uses the CSS overflow property to contain floats, and it works in the majority of cases. A more advanced <code>.clearfix</code> class is also provided in scenarios when <code>.float-container</code> is ineffective.</p>
+
+<p>The following example shows the problem that <code>.float-container</code> solves:</p>
+
+<pre class="prettyprint">&lt;div&gt;
+    &lt;div class="float-right"&gt;.float-right&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;Content to appear after float&lt;/div&gt;
+</pre>
+
+<p>In this scenario without the container, it renders with the float to the right of the content intended to be below:</p>
+
+<div class="example">
+    <div>
+        <div class="float-left primary">.float-left</div>
+    </div>
+    <div class="secondary">Content to appear after float</div>
+
+    <div class="float-clear"></div>
+</div>
+
+<p>The fix is to use the <code>.float-container</code> class:</p>
+
+<pre class="prettyprint">&lt;div class="float-container"&gt;
+    &lt;div class="float-right"&gt;.float-right&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;Content to appear after float&lt;/div&gt;
+</pre>
+
+<p>It then renders properly as:</p>
+
+<div class="example">
+    <div class="float-container">
+        <div class="float-left primary">.float-left</div>
+    </div>
+    <div class="secondary">Content to appear after float</div>
+</div>
+
+<p>The <code>.float-container</code> class is preferred for most float containment scenarios. However, there are a couple conditions where .clearfix is required:</p>
+
+<ul>
+    <li>Avoid hidden content on containers with text that overflows due to a container's height declaration</li>
+    <li>Avoid hiding content when floated elements have negative margin or negative x/y positioning</li>
+</ul>
+
+<style>
+    .example {
+        margin-bottom: 10px;
+    }
+    .primary, .secondary, .tertiary {
+        padding: 5px;
+    }
+</style>

@@ -2,6 +2,8 @@ code {
     background: none;
     border: none;
     color: #777;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 pre.prettyprint {
@@ -25,7 +27,7 @@ pre.prettyprint {
     overflow: hidden;
     padding-top: 10px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .tabs > *, .tabs li {

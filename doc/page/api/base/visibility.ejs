@@ -2,11 +2,11 @@
 
 <p>This library provides several modules related to visibility of content:</p>
 
-<ul>
-    <li><strong>Base/Visibility/Hide</strong> defines a <code>.hide</code> class for hiding content universally</li>
-    <li><strong>Base/Visibility/Media_Query/Hide</strong> defines a <code>.hide-media-query</code> class to hide content when media queries are available.</li>
-    <li><strong>Base/Visibility/Responsive/Hide</strong> defines a set of <code>.hide-X</code> classes that set content to be hidden at and below a particular breakpoint <code>X</code> between <code>xxsmall</code> and <code>large</code>.</li>
-    <li><strong>Base/Visibility/Responsive/Hide_Above</strong> defines a set of <code>.hide-above-X</code> classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint <code>X</code> between <code>xxsmall</code> and <code>large</code>.</li>
+<ul class="modules">
+    <li><%= DOC.modules.render('Base/Visibility/Hide') %></li>
+    <li><%= DOC.modules.render('Base/Visibility/Media_Query/Hide') %></li>
+    <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide') %></li>
+    <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide_Above') %></li>
 </ul>
 
 <h3>Examples</h3>

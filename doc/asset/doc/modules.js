@@ -128,18 +128,77 @@
                 'breakpoint-medium-large',
                 'breakpoint-large'
             ]
+        },
+        'Entity/Button': {
+            description:'Defines a button user interface class, along with supporting styling classes, that present an element can be pressed to cause some action within the application.',
+            defines: {
+                'a.button':'Styles <code>a</code> tag as button',
+                'button.button':'Styles <code>a</code> tag as button',
+                'input[type="button"].button':'Styles <code>a</code> tag as button',
+                'input[type="reset"].button':'Styles <code>a</code> tag as button',
+                'input[type="submit"].button':'Styles <code>a</code> tag as button',
+                '.button.mini':'Mini version of the button element',
+                '.button.small':'Small version of the button element',
+                '.button.large':'Large version of the button element'
+            },
+            submodules: {
+                'Entity/Button/A_Button':'defines classes for <code>a</code> tag',
+                'Entity/Button/Button':'defines classes for <code>button</code> tag',
+                'Entity/Button/Input_Button':'defines classes for button <code>input</code> tag',
+                'Entity/Button/Input_Reset':'defines classes for reset <code>input</code> tag',
+                'Entity/Button/Input_Submit':'defines classes for submit <code>input</code> tag'
+            },
+            supports: [
+                '.primary',
+                '.secondary',
+                '.tertiary',
+                '.neutral',
+                '.info',
+                '.success',
+                '.warning',
+                '.danger',
+                '.important',
+                '.inverse',
+                '.required',
+                '.highlight'
+            ]
+        },
+        'Entity/Button/Group': {
+            description:'Defines a class that can be used to group buttons. The <code>.group</code> class itself is part of a meta-pattern used by several modules to bind common elements.',
+            defines: {
+                '.group > .button':'Component of a button group'
+            },
+            submodules: {
+                'Entity/Button/Group/A_Button':'defines group class for <code>a</code> tag',
+                'Entity/Button/Group/Button':'defines group class for <code>button</code> tag',
+                'Entity/Button/Group/Input_Button':'defines group class for button <code>input</code> tag',
+                'Entity/Button/Group/Input_Reset':'defines group class for reset <code>input</code> tag',
+                'Entity/Button/Group/Input_Submit':'defines group class for submit <code>input</code> tag'
+            }
         }
     }
 
     DOC.modules.render = function(name){
         var view = new EJS({url: 'component/module/basic.ejs'}), 
-            data = modules[name]
+            data = $.extend(true, {}, modules[name])
         data.name = name
         if(data.defines){
             var definitions = []
             for(var i in data.defines)
                 definitions.push(i)
             data.definitions = definitions.join(', ')
+        }
+        if(data.submodules){
+            var submodules_list = []
+            for(var i in data.submodules)
+                submodules_list.push(i)
+            data.submodules = submodules_list.join(', ')
+        }
+        if(data.supports){
+            var supported_classes = []
+            for(var i in data.supports)
+                supported_classes.push(data.supports[i])
+            data.supports = supported_classes.join(', ')
         }
         return view.render(data)
     }

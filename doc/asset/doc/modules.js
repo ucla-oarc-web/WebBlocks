@@ -177,9 +177,31 @@
             }
         },
         'Entity/Message': {
-            description:'Defines a message user interface class that can be used on a block-level element to mark a set of text as a highlighted based on a branding or mood color.',
+            description:'Defines a user interface class that can be used on a block-level element to display it as a message box, optionally with a branding or mood color.',
             defines: {
                 '.message':'Styles a block as a message'
+            },
+            supports: [
+                '.primary',
+                '.secondary',
+                '.tertiary',
+                '.neutral',
+                '.info',
+                '.success',
+                '.warning',
+                '.danger',
+                '.important',
+                '.inverse',
+                '.required',
+                '.highlight'
+            ]
+        },
+        'Entity/Badge': {
+            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
+            defines: {
+                '.badge':'Styles an inline element as a badge',
+                '.badge.round':'Styles an inline element as a pill-shaped badge',
+                '.badge.square':'Styles an inline element as a square badge'
             },
             supports: [
                 '.primary',

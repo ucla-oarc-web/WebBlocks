@@ -242,6 +242,39 @@
                 'ol.list.upper-alpha':'An ordered list with lower alpha numbering',
                 'ol.list.outline':'An ordered list with sublists using alternating list numberings'
             }
+        },
+        'Entity/Table': {
+            description:'Defines a user interface class that can be used to style a table, representing tabular data.',
+            defines: {
+                '.table':'',
+                '.table.hover':'',
+                '.table.striped':'',
+                '.table.bordered':'',
+                '.table.condensed':''
+            },
+            supports: [
+                '.primary',
+                '.secondary',
+                '.tertiary',
+                '.neutral',
+                '.info',
+                '.success',
+                '.warning',
+                '.danger',
+                '.important',
+                '.inverse',
+                '.required',
+                '.highlight'
+            ],
+            uses:[
+                'table-caption-text-color',
+                'table-border-color',
+                'table-cell-padding',
+                'table-condensed-cell-padding',
+                'table-hover-background-color',
+                'table-striped-background-color',
+                'table-bordered-border-radius'
+            ]
         }
     }
 

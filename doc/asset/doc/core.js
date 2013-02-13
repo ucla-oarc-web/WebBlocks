@@ -29,6 +29,7 @@ var DOC = {
             }
             
             $('#content').efx()
+            prettyPrint()
 
             $('#content').fadeIn(fadeTime)
 

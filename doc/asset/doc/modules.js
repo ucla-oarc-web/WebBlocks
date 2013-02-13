@@ -12,6 +12,122 @@
                 '.clearfix':'Container for floats using a clearfixing method'
             }
         },
+        'Base/Color/Branding/Background': {
+            description:'Defines a set of color classes that may be used for brand-related background colors.',
+            defines:{
+                '.primary':'Primary brand background color',
+                '.secondary':'Secondary brand background color',
+                '.tertiary':'Tertiary brand background color',
+                '.neutral':'Neutral brand background color',
+                '.gradient':'Applies gradient to brand background color'
+            }
+        },
+        'Base/Color/Branding/Background_Gradient': {
+            description:'Defines a set of gradient color classes that may be used for brand-related background colors.',
+            defines:{
+                '.primary.gradient':'Primary gradient brand background color',
+                '.secondary.gradient':'Secondary gradient brand background color',
+                '.tertiary.gradient':'Tertiary gradient brand background color',
+                '.neutral.gradient':'Neutral gradient brand background color'
+            }
+        },
+        'Base/Color/Branding/Background_Light': {
+            description:'Defines a set of light color classes that may be used for brand-related background colors.',
+            defines:{
+                '.primary.light':'Light primary brand background color',
+                '.secondary.light':'Light secondary brand background color',
+                '.tertiary.light':'Light tertiary brand background color',
+                '.neutral.light':'Light neutral brand background color'
+            }
+        },
+        'Base/Color/Branding/Background_Light_Gradient': {
+            description:'Defines a set of light gradient color classes that may be used for brand-related background colors.',
+            defines:{
+                '.primary.light.gradient':'Light primary gradient brand background color',
+                '.secondary.light.gradient':'Light secondary gradient brand background color',
+                '.tertiary.light.gradient':'Light tertiary gradient brand background color',
+                '.neutral.light.gradient':'Light neutral gradient brand background color'
+            }
+        },
+        'Base/Color/Branding/Text': {
+            description:'Defines a set of color classes that may be used for brand-related text colors.',
+            defines:{
+                '.text-primary':'Primary brand text color',
+                '.text-secondary':'Secondary brand text color',
+                '.text-tertiary':'Tertiary brand text color',
+                '.text-neutral':'Neutral brand text color'
+            }
+        },
+        'Base/Color/Mood/Background': {
+            description:'Defines a set of color classes that may be used for mood-related background colors.',
+            defines:{
+                '.info':'Info mood background color',
+                '.success':'Success mood background color',
+                '.warning':'Warning mood background color',
+                '.error':'Error mood background color',
+                '.danger':'Danger mood background color',
+                '.important':'Important mood background color',
+                '.inverse':'Inverse mood background color',
+                '.required':'Required mood background color',
+                '.highlight':'Highlight mood background color'
+            }
+        },
+        'Base/Color/Mood/Background_Gradient': {
+            description:'Defines a set of gradient color classes that may be used for mood-related background colors.',
+            defines:{
+                '.info.gradient':'Info gradient mood background color',
+                '.success.gradient':'Success gradient mood background color',
+                '.warning.gradient':'Warning gradient mood background color',
+                '.error.gradient':'Error gradient mood background color',
+                '.danger.gradient':'Danger gradient mood background color',
+                '.important.gradient':'Important gradient mood background color',
+                '.inverse.gradient':'Inverse gradient mood background color',
+                '.required.gradient':'Required gradient mood background color',
+                '.highlight.gradient':'Highlight gradient mood background color'
+            }
+        },
+        'Base/Color/Mood/Background_Light': {
+            description:'Defines a set of light color classes that may be used for mood-related background colors.',
+            defines:{
+                '.info.light':'Light info mood background color',
+                '.success.light':'Light success mood background color',
+                '.warning.light':'Light warning mood background color',
+                '.error.light':'Light error mood background color',
+                '.danger.light':'Light danger mood background color',
+                '.important.light':'Light important mood background color',
+                '.inverse.light':'Light inverse mood background color',
+                '.required.light':'Light required mood background color',
+                '.highlight.light':'Light highlight mood background color'
+            }
+        },
+        'Base/Color/Mood/Background_Light_Gradient': {
+            description:'Defines a set of light gradient color classes that may be used for mood-related background colors.',
+            defines:{
+                '.info.light.gradient':'Light info gradient mood background color',
+                '.success.light.gradient':'Light success gradient mood background color',
+                '.warning.light.gradient':'Light warning gradient mood background color',
+                '.error.light.gradient':'Light error gradient mood background color',
+                '.danger.light.gradient':'Light danger gradient mood background color',
+                '.important.light.gradient':'Light important gradient mood background color',
+                '.inverse.light.gradient':'Light inverse gradient mood background color',
+                '.required.light.gradient':'Light required gradient mood background color',
+                '.highlight.light.gradient':'Light highlight gradient mood background color'
+            }
+        },
+        'Base/Color/Mood/Text': {
+            description:'Defines a set of color classes that may be used for mood-related text colors.',
+            defines:{
+                '.text-info':'Info mood text color',
+                '.text-success':'Success mood text color',
+                '.text-warning':'Warning mood text color',
+                '.text-error':'Error mood text color',
+                '.text-danger':'Danger mood text color',
+                '.text-important':'Important mood text color',
+                '.text-inverse':'Inverse mood text color',
+                '.text-required':'Required mood text color',
+                '.text-highlight':'Highlight mood text color'
+            }
+        },
         'Base/Structure/Grid': {
             description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
             defines:{
@@ -286,6 +402,25 @@
             for(var i in data.defines)
                 definitions.push(i)
             data.definitions = definitions.join(', ')
+        }
+        return view.render(data)
+    }
+
+    DOC.modules.render_details = function(name){
+        var view = new EJS({url: 'component/module/details.ejs'}), 
+            data = $.extend(true, {}, modules[name])
+        data.name = name
+        if(data.defines){
+            var definitions = []
+            for(var i in data.defines)
+                definitions.push(i)
+            data.definitions = definitions.join(', ')
+        }
+        if(data.uses){
+            var uses_variables = []
+            for(var i in data.uses)
+                uses_variables.push(data.uses[i])
+            data.uses = uses_variables.join(', ')
         }
         if(data.submodules){
             var submodules_list = []

@@ -1,0 +1,16 @@
+<code class="text-primary"><b><%= name %></b></code>
+<small>
+<br><%= description %>
+<% if(typeof definitions !== 'undefined'){ %>
+    <br><span class="text-info">defines</span> <code><%= definitions %></code>
+<% } %>
+<% if(typeof uses !== 'undefined'){ %>
+    <br><span class="text-info">uses</span> <code><%= uses %></code>
+<% } %>
+<% if(typeof supports !== 'undefined'){ %>
+    <br><span class="text-info">supports</span> <code><%= supports %></code>
+<% } %>
+<% if(typeof submodules !== 'undefined'){ %>
+    <br><span class="text-info">submodules</span> <code><%= submodules %></code>
+<% } %>
+</small>

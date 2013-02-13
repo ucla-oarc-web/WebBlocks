@@ -181,6 +181,121 @@
             description:'defines radius of a bordered table',
             default_value:'4px',
             type:'px'
+        },
+        'color-branding-default': {
+            description:'defines base for default color',
+            default_value:'#eee',
+            type:'color'
+        },
+        'color-branding-primary': {
+            description:'defines base for primary color',
+            default_value:'#0a2a77',
+            type:'color'
+        },
+        'color-branding-secondary': {
+            description:'defines base for secondary color',
+            default_value:'#7bc0de',
+            type:'color'
+        },
+        'color-branding-tertiary': {
+            description:'defines base for tertiary color',
+            default_value:'#ffd44d',
+            type:'color'
+        },
+        'color-branding-neutral': {
+            description:'defines base for neutral color',
+            default_value:'#bbb',
+            type:'color'
+        },
+        'color-mood-info': {
+            description:'defines base for info color',
+            default_value:'#2f96b4',
+            type:'color'
+        },
+        'color-mood-success': {
+            description:'defines base for success color',
+            default_value:'#51a351',
+            type:'color'
+        },
+        'color-mood-warning': {
+            description:'defines base for warning color',
+            default_value:'#c86d04',
+            type:'color'
+        },
+        'color-mood-error': {
+            description:'defines base for error color',
+            default_value:'#bd362f',
+            type:'color'
+        },
+        'color-mood-danger': {
+            description:'defines base for danger color',
+            default_value:'#bd362f',
+            type:'color'
+        },
+        'color-mood-inverse': {
+            description:'defines base for inverse color',
+            default_value:'#222',
+            type:'color'
+        },
+        'color-mood-important': {
+            description:'defines base for important color',
+            default_value:'#bd362f',
+            type:'color'
+        },
+        'color-mood-required': {
+            description:'defines base for required color',
+            default_value:'#a00',
+            type:'color'
+        },
+        'color-mood-highlight': {
+            description:'defines base for highlight color',
+            default_value:'#97E0E0',
+            type:'color'
+        },
+        'color-grade-lt': {
+            description:'percentage color is lightened for gradient',
+            default_value:'10%',
+            type:'percent'
+        },
+        'color-grade-dk': {
+            description:'percentage color is darkened for border',
+            default_value:'10%',
+            type:'percent'
+        },
+        'color-grade-dk-text': {
+            description:'percentage text is darkened when background below <code>$color-light-border-brightness</code> brightness',
+            default_value:'80%',
+            type:'percent'
+        },
+        'color-grade-lt-text': {
+            description:'percentage text is lightened when background above <code>$color-light-border-brightness</code> brightness',
+            default_value:'93%',
+            type:'percent'
+        },
+        'color-text-brightness': {
+            description:'brightness percentage for <code>text-</code> classes',
+            default_value:'40%',
+            type:'percent'
+        },
+        'color-background-light-brightness': {
+            description:'brightness percentage for <code>.light</code> background color',
+            default_value:'95%',
+            type:'percent'
+        },
+        'color-background-shadow-light-brightness': {
+            description:'brightness percentage for <code>.gradient</code> shadow color',
+            default_value:'85%',
+            type:'percent'
+        },
+        'color-light-border-brightness': {
+            description:'brightness percentage for light border',
+            default_value:'60%',
+            type:'percent'
+        },
+        'color-contrast-threshold': {
+            description:'generic threshold used to select light instead of dark color',
+            default_value:'65%',
+            type:'percent'
         }
     }
 

@@ -1,7 +1,7 @@
-form.form div.control {
+form.form div.control, form.form li.control {
     @include -entity-form-control;
 }
 
-form.form.horizontal div.control {
+form.form.horizontal div.control, form.form.horizontal li.control {
     @include -entity-form-horizontal-control;
 }

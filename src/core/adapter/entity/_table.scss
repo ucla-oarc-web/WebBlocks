@@ -7,6 +7,7 @@
     border-spacing: 0;
     width: 100%;
     margin-bottom: $type-line-height;
+    border-bottom: 1px solid $table-border-color;
     
     th,
     td {
@@ -51,6 +52,7 @@
 @mixin -entity-table-caption {
     
     color: $table-caption-text-color;
+    padding: 5px;
     
     &.top {
         caption-side: top;

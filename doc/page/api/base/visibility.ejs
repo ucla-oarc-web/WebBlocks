@@ -158,13 +158,7 @@
 <h3>Configuration</h3>
 
 <ul class="configuration">
-    <li><%= vars.sass.render('breakpoint-xxsmall') %></li>
-    <li><%= vars.sass.render('breakpoint-xsmall') %></li>
-    <li><%= vars.sass.render('breakpoint-small') %></li>
-    <li><%= vars.sass.render('breakpoint-medium-small') %></li>
-    <li><%= vars.sass.render('breakpoint-medium') %></li>
-    <li><%= vars.sass.render('breakpoint-medium-large') %></li>
-    <li><%= vars.sass.render('breakpoint-large') %></li>
+    <li><%= DOC.modules.render_variables('Base/Visibility/Responsive/Hide').join('</li><li>') %></li>
 </ul>
 
 

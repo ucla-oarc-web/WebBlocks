@@ -2,6 +2,16 @@
     
     var modules = {
         
+        'Base/Block/Float': {
+            description:'Provides utility classes that can apply a float, clear a float, or wrap floated element(s) within a container so that elements positioned later in the DOM will be flowed below all of the contained elements.',
+            defines:{
+                '.float-left':'Float a block-level element to the left',
+                '.float-right':'Float a block-level element to the right',
+                '.float-clear':'Clear floated elements',
+                '.float-container':'Container for floats using <code>overflow:hidden</code>',
+                '.clearfix':'Container for floats using a clearfixing method'
+            }
+        },
         'Base/Structure/Grid': {
             description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
             defines:{
@@ -31,17 +41,6 @@
                 'structure-container-gutter',
                 'structure-container-width-max'
             ]
-        },
-        
-        'Base/Block/Float': {
-            description:'Provides utility classes that can apply a float, clear a float, or wrap floated element(s) within a container so that elements positioned later in the DOM will be flowed below all of the contained elements.',
-            defines:{
-                '.float-left':'Float a block-level element to the left',
-                '.float-right':'Float a block-level element to the right',
-                '.float-clear':'Clear floated elements',
-                '.float-container':'Container for floats using <code>overflow:hidden</code>',
-                '.clearfix':'Container for floats using a clearfixing method'
-            }
         },
         'Base/Type/Align': {
             description:'Provides classes that modify the alignment of type within contained elements.',
@@ -129,6 +128,39 @@
                 'breakpoint-large'
             ]
         },
+        'Entity/Badge': {
+            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
+            defines: {
+                '.badge':'Styles an inline element as a badge',
+                '.badge.round':'Styles an inline element as a pill-shaped badge',
+                '.badge.square':'Styles an inline element as a square badge'
+            },
+            supports: [
+                '.primary',
+                '.secondary',
+                '.tertiary',
+                '.neutral',
+                '.info',
+                '.success',
+                '.warning',
+                '.danger',
+                '.important',
+                '.inverse',
+                '.required',
+                '.highlight'
+            ]
+        },
+        'Entity/Blockquote': {
+            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
+            defines: {
+                'blockquote.blockquote':'Styles a blockquote element, optionally containing a <code>cite</code> element',
+                'figure.blockquote':'Styles a figure as an HTML5 blockquote containing a <code>blockquote</code> element and optionally a <code>figcaption</code> element',
+                '.blockquote.callout':'Styles a quote that is called out of the flow rather than presented as a full-width block element.'
+            },
+            supports: [
+                '.text-right'
+            ]
+        },
         'Entity/Button': {
             description:'Defines a button user interface class, along with supporting styling classes, that present an element can be pressed to cause some action within the application.',
             defines: {
@@ -176,6 +208,20 @@
                 'Entity/Button/Group/Input_Submit':'defines group class for submit <code>input</code> tag'
             }
         },
+        'Entity/List': {
+            description:'Defines classes that can be used to style ordered and unordered lists.',
+            defines: {
+                'ul.list':'Basic unordered list styling',
+                'ol.list':'Basic ordered list styling',
+                'ul.list.unstyled':'Unordered list without styles or padding',
+                'ul.list.unstyled':'Ordered list without styles or padding',
+                'ol.list.lower-roman':'An ordered list with upper Roman numbering',
+                'ol.list.upper-roman':'An ordered list with lower Roman numbering',
+                'ol.list.lower-alpha':'An ordered list with upper alpha numbering',
+                'ol.list.upper-alpha':'An ordered list with lower alpha numbering',
+                'ol.list.outline':'An ordered list with sublists using alternating list numberings'
+            }
+        },
         'Entity/Message': {
             description:'Defines a user interface class that can be used on a block-level element to display it as a message box, optionally with a branding or mood color.',
             defines: {
@@ -195,53 +241,6 @@
                 '.required',
                 '.highlight'
             ]
-        },
-        'Entity/Badge': {
-            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
-            defines: {
-                '.badge':'Styles an inline element as a badge',
-                '.badge.round':'Styles an inline element as a pill-shaped badge',
-                '.badge.square':'Styles an inline element as a square badge'
-            },
-            supports: [
-                '.primary',
-                '.secondary',
-                '.tertiary',
-                '.neutral',
-                '.info',
-                '.success',
-                '.warning',
-                '.danger',
-                '.important',
-                '.inverse',
-                '.required',
-                '.highlight'
-            ]
-        },
-        'Entity/Blockquote': {
-            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
-            defines: {
-                'blockquote.blockquote':'Styles a blockquote element, optionally containing a <code>cite</code> element',
-                'figure.blockquote':'Styles a figure as an HTML5 blockquote containing a <code>blockquote</code> element and optionally a <code>figcaption</code> element',
-                '.blockquote.callout':'Styles a quote that is called out of the flow rather than presented as a full-width block element.'
-            },
-            supports: [
-                '.text-right'
-            ]
-        },
-        'Entity/List': {
-            description:'Defines classes that can be used to style ordered and unordered lists.',
-            defines: {
-                'ul.list':'Basic unordered list styling',
-                'ol.list':'Basic ordered list styling',
-                'ul.list.unstyled':'Unordered list without styles or padding',
-                'ul.list.unstyled':'Ordered list without styles or padding',
-                'ol.list.lower-roman':'An ordered list with upper Roman numbering',
-                'ol.list.upper-roman':'An ordered list with lower Roman numbering',
-                'ol.list.lower-alpha':'An ordered list with upper alpha numbering',
-                'ol.list.upper-alpha':'An ordered list with lower alpha numbering',
-                'ol.list.outline':'An ordered list with sublists using alternating list numberings'
-            }
         },
         'Entity/Table': {
             description:'Defines a user interface class that can be used to style a table, representing tabular data.',

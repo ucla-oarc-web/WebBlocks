@@ -175,6 +175,26 @@
                 'Entity/Button/Group/Input_Reset':'defines group class for reset <code>input</code> tag',
                 'Entity/Button/Group/Input_Submit':'defines group class for submit <code>input</code> tag'
             }
+        },
+        'Entity/Message': {
+            description:'Defines a message user interface class that can be used on a block-level element to mark a set of text as a highlighted based on a branding or mood color.',
+            defines: {
+                '.message':'Styles a block as a message'
+            },
+            supports: [
+                '.primary',
+                '.secondary',
+                '.tertiary',
+                '.neutral',
+                '.info',
+                '.success',
+                '.warning',
+                '.danger',
+                '.important',
+                '.inverse',
+                '.required',
+                '.highlight'
+            ]
         }
     }
 

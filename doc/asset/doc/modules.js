@@ -7,7 +7,7 @@
             defines:{
                 '.row':'Container for a set of panels', 
                 '.panel-X':'Panels arranged proportionally as <code>X/$structure-panels</code>',
-                '.Y-collapse':'Explicitly define when the panels in a row collapse to vertical inline'
+                '.row.Y-collapse':'Explicitly define when the panels in a row collapse to vertical inline'
             },
             uses:[
                 'structure-panels',
@@ -217,7 +217,19 @@
                 '.required',
                 '.highlight'
             ]
+        },
+        'Entity/Blockquote': {
+            description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
+            defines: {
+                'blockquote.blockquote':'Styles a blockquote element, optionally containing a <code>cite</code> element',
+                'figure.blockquote':'Styles a figure as an HTML5 blockquote containing a <code>blockquote</code> element and optionally a <code>figcaption</code> element',
+                '.blockquote.callout':'Styles a '
+            },
+            supports: [
+                '.text-right'
+            ]
         }
+        //A blockquote represents quoted content that is semantically offset from the rest of the content on a page. The content is generally offset due to length or significance.
     }
 
     DOC.modules.render = function(name){

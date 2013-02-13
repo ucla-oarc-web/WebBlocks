@@ -1,0 +1,121 @@
+<h2>Button</h2>
+
+<p>This library includes modules related to the button user element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Button') %></li>
+    <li><%= DOC.modules.render('Entity/Button/Group') %></li>
+</ul>
+
+<h3>Button</h3>
+
+<p>The <code>a</code>, submit/reset/button <code>input</code>, and <code>button</code> tags are the elements semantically best suited to be used as a button. To apply button, simply use the <code>.button</code> class on the element:</p>
+
+<pre class="prettyprint">&lt;a class="button"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button">Button Text</a></p>
+
+<pre class="prettyprint">&lt;button class="button"&gt;&lt;!-- Button Text --&gt;&lt;/button&gt;</pre>
+<p><button class="button">Button Text</button></p>
+
+<pre class="prettyprint">&lt;input type="submit" class="button" value="Button Text"&gt;</pre>
+<p><input type="submit" class="button" value="Button"></p>
+
+<pre class="prettyprint">&lt;input type="reset" class="button" value="Button Text"&gt;</pre>
+<p><input type="reset" class="button" value="Button"></p>
+
+<pre class="prettyprint">&lt;input type="button" class="button" value="Button Text"&gt;</pre>
+<p><input type="button" class="button" value="Button"></p>
+
+<h4>Button Sizes</h4>
+
+<p>Three size modifiers <code>.mini</code>, <code>.small</code> and <code>.large</code> may be used upon the button class:</p>
+
+<pre class="prettyprint">&lt;a class="button mini"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button mini">Mini Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button small"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button small">Small Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button large"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button large">Large Button</a></p>
+
+<h4>Button Colors</h4>
+
+<p>The <code>.button</code> classes supports the <a href="#API/Base/Color">Base/Color</a> modules:</p>
+
+<h5>Branded Buttons</h5>
+
+<pre class="prettyprint">&lt;a class="button primary"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button primary">Primary Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button secondary"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button secondary">Secondary Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button tertiary"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button tertiary">Tertiary Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button neutral"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button neutral">Neutral Button</a></p>
+
+<h5>Mood Buttons</h5>
+
+<pre class="prettyprint">&lt;a class="button info"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button info">Info Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button success"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button success">Success Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button warning"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button warning">Warning Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button error"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button error">Error Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button danger"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button danger">Danger Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button important"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button important">Important Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button inverse"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button inverse">Inverse Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button required"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button required">Required Button</a></p>
+
+<pre class="prettyprint">&lt;a class="button highlight"&gt;&lt;!-- Button Text --&gt;&lt;/a&gt;</pre>
+<p><a class="button highlight">Highlight Button</a></p>
+
+<h3>Button Groups</h3>
+
+<p>Buttons can be grouped by surrounding a set of <code>.button</code> elements with an element with a <code>.group</code> class:</p>
+
+<pre class="prettyprint">&lt;span class="group"&gt;
+    &lt;a class="button"&gt;&lt;!-- 1 --&gt;&lt;/a&gt;
+    &lt;a class="button"&gt;&lt;!-- 2 --&gt;&lt;/a&gt;
+    &lt;a class="button"&gt;&lt;!-- 3 --&gt;&lt;/a&gt;
+&lt;/span&gt;</pre>
+
+<p>
+    <span class="group">
+        <a class="button">1</a>
+        <a class="button">2</a>
+        <a class="button">3</a>
+    </span>
+</p>
+
+<p>These buttons may also be colored:</p>
+
+<pre class="prettyprint">&lt;span class="group"&gt;
+    &lt;a class="button primary"&gt;&lt;!-- 1 --&gt;&lt;/a&gt;
+    &lt;a class="button secondary"&gt;&lt;!-- 2 --&gt;&lt;/a&gt;
+    &lt;a class="button tertiary"&gt;&lt;!-- 3 --&gt;&lt;/a&gt;
+&lt;/span&gt;</pre>
+
+<p>
+    <span class="group">
+        <a class="button primary">1</a>
+        <a class="button secondary">2</a>
+        <a class="button tertiary">3</a>
+    </span>
+</p>

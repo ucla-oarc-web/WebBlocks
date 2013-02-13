@@ -4,6 +4,7 @@ code {
     color: #777;
     padding-left: 1px;
     padding-right: 1px;
+    font-size: 0.93em;
 }
 
 pre.prettyprint {
@@ -35,7 +36,7 @@ a, a:visited, a:active {
     color: #1042bc;
 }
 
-a:hover {
+a:hover:not(.button) {
     color: #006ecc;
 }
 

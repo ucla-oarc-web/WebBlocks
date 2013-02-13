@@ -223,13 +223,26 @@
             defines: {
                 'blockquote.blockquote':'Styles a blockquote element, optionally containing a <code>cite</code> element',
                 'figure.blockquote':'Styles a figure as an HTML5 blockquote containing a <code>blockquote</code> element and optionally a <code>figcaption</code> element',
-                '.blockquote.callout':'Styles a '
+                '.blockquote.callout':'Styles a quote that is called out of the flow rather than presented as a full-width block element.'
             },
             supports: [
                 '.text-right'
             ]
+        },
+        'Entity/List': {
+            description:'Defines classes that can be used to style ordered and unordered lists.',
+            defines: {
+                'ul.list':'Basic unordered list styling',
+                'ol.list':'Basic ordered list styling',
+                'ul.list.unstyled':'Unordered list without styles or padding',
+                'ul.list.unstyled':'Ordered list without styles or padding',
+                'ol.list.lower-roman':'An ordered list with upper Roman numbering',
+                'ol.list.upper-roman':'An ordered list with lower Roman numbering',
+                'ol.list.lower-alpha':'An ordered list with upper alpha numbering',
+                'ol.list.upper-alpha':'An ordered list with lower alpha numbering',
+                'ol.list.outline':'An ordered list with sublists using alternating list numberings'
+            }
         }
-        //A blockquote represents quoted content that is semantically offset from the rest of the content on a page. The content is generally offset due to length or significance.
     }
 
     DOC.modules.render = function(name){

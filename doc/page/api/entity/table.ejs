@@ -1,0 +1,200 @@
+<h2>Table</h2>
+
+<p>This library includes modules related to the table user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Table') %></li>
+</ul>
+
+<h3>Usage</h3>
+
+<h4>Basic Table</h4>
+
+<p>While some frameworks automatically style the table elements, WebBlocks does not so as to not negatively affect existing websites. As such, to use the WebBlocks table style, apply the <code>.table</code> class to an element.</p>
+
+<pre class="prettyprint">&lt;table class="table"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table">
+    <tr>
+        <td>Row 1 Col 1</td>
+        <td>Row 1 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Col 1</td>
+        <td>Row 2 Col 2</td>
+    </tr>
+</table>
+
+<h4>Table Variations</h4>
+
+<h5>Bordered</h5>
+
+<p>A bordermay be added with <code>.bordered</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table bordered"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table bordered">
+    <tr>
+        <td>Row 1 Col 1</td>
+        <td>Row 1 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Col 1</td>
+        <td>Row 2 Col 2</td>
+    </tr>
+</table>
+
+<h5>Hover</h5>
+
+<p>A hover highlight may be added with <code>.hover</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table hover"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table hover">
+    <tr>
+        <td>Row 1 Col 1</td>
+        <td>Row 1 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Col 1</td>
+        <td>Row 2 Col 2</td>
+    </tr>
+</table>
+
+<h5>Striped</h5>
+
+<p>A hover highlight may be added with <code>.striped</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table striped"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 3 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 3 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 4 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 4 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table striped">
+    <tr>
+        <td>Row 1 Col 1</td>
+        <td>Row 1 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Col 1</td>
+        <td>Row 2 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 3 Col 1</td>
+        <td>Row 3 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 4 Col 1</td>
+        <td>Row 4 Col 2</td>
+    </tr>
+</table>
+
+<h5>Condensed</h5>
+
+<p>A hover highlight may be added with <code>.condensed</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table condensed"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 1 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Row 2 Col 2 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table condensed">
+    <tr>
+        <td>Row 1 Col 1</td>
+        <td>Row 1 Col 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Col 1</td>
+        <td>Row 2 Col 2</td>
+    </tr>
+</table>
+
+<h4>Table Caption</h4>
+
+<p>The <code>.table</code> element has built-in support for <code>caption</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table"&gt;
+    &lt;caption&gt;&lt;!-- Caption Text --&gt;&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Col 2 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Col 3 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table bordered">
+    <caption>Caption Text</caption>
+    <tr>
+        <td>Col 1</td>
+        <td>Col 2</td>
+        <td>Col 3</td>
+    </tr>
+</table>
+
+<h5>Bottom Caption</h5>
+
+<p>The <code>caption</code> element supports bottom positioning as <code>caption.bottom</code>:</p>
+
+<pre class="prettyprint">&lt;table class="table"&gt;
+    &lt;caption class="bottom"&gt;&lt;!-- Caption Text --&gt;&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;!-- Col 1 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Col 2 --&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;!-- Col 3 --&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+<table class="table bordered">
+    <caption class="bottom">Caption Text</caption>
+    <tr>
+        <td>Col 1</td>
+        <td>Col 2</td>
+        <td>Col 3</td>
+    </tr>
+</table>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Entity/Table').join('</li><li>') %></li>
+</ul>

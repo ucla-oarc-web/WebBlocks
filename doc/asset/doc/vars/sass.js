@@ -146,6 +146,41 @@
             description:'defines header line heights',
             default_value:'1.4',
             type:'em (recommended), px'
+        },
+        'table-caption-text-color': {
+            description:'defines the color of table caption text',
+            default_value:'#777',
+            type:'color'
+        },
+        'table-border-color': {
+            description:'defines the color of the table border',
+            default_value:'#ddd',
+            type:'color'
+        },
+        'table-cell-padding': {
+            description:'defines cell padding for table',
+            default_value:'8px',
+            type:'px (set)'
+        },
+        'table-condensed-cell-padding': {
+            description:'defines cell padding for condensed table',
+            default_value:'4px 5px',
+            type:'px (set)'
+        },
+        'table-hover-background-color': {
+            description:'defines background color for table on hover',
+            default_value:'#f5f5f5',
+            type:'color'
+        },
+        'table-striped-background-color': {
+            description:'defines background color for stripped table row',
+            default_value:'#f9f9f9',
+            type:'color'
+        },
+        'table-bordered-border-radius': {
+            description:'defines radius of a bordered table',
+            default_value:'4px',
+            type:'px'
         }
     }
 

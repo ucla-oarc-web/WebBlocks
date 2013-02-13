@@ -227,8 +227,7 @@
         <h4>Configuration</h4>
         
         <ul class="configuration">
-            <li><%= vars.sass.render('structure-panels') %></li>
-            <li><%= vars.sass.render('structure-panel-gutter') %></li>
+            <li><%= DOC.modules.render_variables('Base/Structure/Grid').join('</li><li>') %></li>
         </ul>
         
     </section>
@@ -262,15 +261,7 @@
         <h4>Configuration</h4>
 
         <ul class="configuration">
-            <li><%= vars.sass.render('structure-container-gutter') %></li>
-            <li><%= vars.sass.render('structure-container-width-max') %></li>
-            <li><%= vars.sass.render('breakpoint-xxsmall') %></li>
-            <li><%= vars.sass.render('breakpoint-xsmall') %></li>
-            <li><%= vars.sass.render('breakpoint-small') %></li>
-            <li><%= vars.sass.render('breakpoint-medium-small') %></li>
-            <li><%= vars.sass.render('breakpoint-medium') %></li>
-            <li><%= vars.sass.render('breakpoint-medium-large') %></li>
-            <li><%= vars.sass.render('breakpoint-large') %></li>
+            <li><%= DOC.modules.render_variables('Base/Structure/Container').join('</li><li>') %></li>
         </ul>
 
     </section>

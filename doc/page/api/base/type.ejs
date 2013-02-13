@@ -60,24 +60,7 @@
 <h4>Configuration</h4>
 
 <ul class="configuration">
-    <li><%= vars.sass.render('type-font-family') %></li>
-    <li><%= vars.sass.render('type-font-size') %></li>
-    <li><%= vars.sass.render('type-font-size-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h1') %></li>
-    <li><%= vars.sass.render('type-font-size-h2') %></li>
-    <li><%= vars.sass.render('type-font-size-h3') %></li>
-    <li><%= vars.sass.render('type-font-size-h4') %></li>
-    <li><%= vars.sass.render('type-font-size-h5') %></li>
-    <li><%= vars.sass.render('type-font-size-h6') %></li>
-    <li><%= vars.sass.render('type-font-size-h1-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h2-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h3-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h4-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h5-small') %></li>
-    <li><%= vars.sass.render('type-font-size-h6-small') %></li>
-    <li><%= vars.sass.render('type-line-spacing') %></li>
-    <li><%= vars.sass.render('type-line-height') %></li>
-    <li><%= vars.sass.render('type-line-height-heading') %></li>
+    <li><%= DOC.modules.render_variables('Base/Type/Font').join('</li><li>') %></li>
 </ul>
 
 <p>It is worth note that some components, such as the Bootstrap adapter, may internally override the values assigned by this module.</p>

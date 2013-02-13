@@ -28,7 +28,7 @@
     
     &.xxsmall-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-xxsmall+1) {
                 @include -base-structure-grid-panel;
@@ -40,7 +40,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-xxsmall+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -62,7 +62,7 @@
     
     &.xsmall-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-xsmall+1) {
                 @include -base-structure-grid-panel;
@@ -74,7 +74,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-xsmall+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -96,7 +96,7 @@
     
     &:not([class*="-collapse"]), &.small-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-small+1) {
                 @include -base-structure-grid-panel;
@@ -108,7 +108,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-small+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -130,7 +130,7 @@
     
     &.medium-small-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-medium-small+1) {
                 @include -base-structure-grid-panel;
@@ -142,7 +142,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-medium-small+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -164,7 +164,7 @@
     
     &.medium-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-medium+1) {
                 @include -base-structure-grid-panel;
@@ -176,7 +176,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-medium+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -198,7 +198,7 @@
     
     &.medium-large-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-medium-large+1) {
                 @include -base-structure-grid-panel;
@@ -210,7 +210,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-medium-large+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -232,7 +232,7 @@
     
     &.large-collapse {  
           
-        [class*="panel-"] {
+        > [class*="panel-"] {
 
             @media screen and (min-width: $breakpoint-large+1) {
                 @include -base-structure-grid-panel;
@@ -244,7 +244,7 @@
 
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @media screen and (min-width: $breakpoint-large+1) {
                 @include -base-structure-grid-panel-right;
             }
@@ -266,11 +266,11 @@
     
     &.no-collapse {
         
-        [class*="panel-"] {
+        > [class*="panel-"] {
             @include -base-structure-grid-panel;
         }
         
-        &.right [class*="panel-"] {
+        &.right > [class*="panel-"] {
             @include -base-structure-grid-panel-right;
         }
         

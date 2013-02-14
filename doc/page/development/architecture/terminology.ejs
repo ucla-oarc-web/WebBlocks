@@ -1,0 +1,95 @@
+<h2>Terminology</h2>
+
+<p>This page establishes some general terminology useful throughout the architecture documentation.</p>
+
+<h3>Package</h3>
+
+<p>A third-party extension checked out as a git submodule within the <code>/package</code> directory.</p>
+
+<p>Each third-party package includes a "builder" with several responsibilities:</p>
+
+<ul>
+    <li>Managing the Git submodule</li>
+    <li>Building the package if it does not come pre-built</li>
+    <li>Copying its build files into the WebBlocks temporary build region</li>
+</ul>
+
+<p>Builder classes are located in <code>/lib/Build/Package</code> and contained within the <code>WebBlocks::Build::Package</code> namespace.</p>
+
+<p>A number of packages are included by default:</p>
+
+<ul>
+    <li>jQuery</li>
+    <li>Modernizr</li>
+    <li>Respond.js</li>
+    <li>Selectivizr</li>
+    <li>efx</li>
+</ul>
+
+<p>When building WebBlocks via <code>rake</code>, one may modify the packages to be included by modifying <code>Rakefile-config.rb</code>. For example, to only include Modernizr, Respond.js and Selectivizr, the build configuration could be set as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] = []
+WebBlocks.config[:build][:packages] << :modernizr
+WebBlocks.config[:build][:packages] << :respond
+WebBlocks.config[:build][:packages] << :selectivizr</pre>
+
+<h3>Module</h3>
+
+<p>A module is a definition (or set of definitions) as they reside within <code>/src/core/definitions</code>.</p>
+
+<p>For example, to build WebBlocks with just the <code>Base</code> and <code>Entity/Form</code> modules, set the following in <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = []
+WebBlocks.config[:src][:modules] << 'base'
+WebBlocks.config[:src][:modules] << 'entity/form'</pre>
+
+<p>This will load everything under <code>/src/core/definitions/base</code>. This can be done at any granularity and the array may define as many entities as desired. Note that this is additive, so including <code>base/block</code> on top of <code>base</code> would be superfluous since <code>base</code> includes <code>base/block</code>.</p>
+
+<h3>Core Definitions</h3>
+
+<p>This is where all of the actual WebBlocks components are defined, and it defines the modular structure for <code>WebBlocks.config[:src][:modules]</code> where whatever is set for that variable is what is included (as well as all subdirectories underneath).</p>
+
+<p>The handler for the core definitions resides within <code>/lib/Build/Core/Definitions.rb</code>.</p>
+
+<h3>Adapter</h3>
+
+<p>An adapter is a set of SASS that links WebBlocks definitions to a framework by defining mixins, generally defined as a subdirectory within <code>/src/adapter</code>. Definitions are organized based on module, in the same scheme as core definitions and the core adapter.</p>
+
+<p>The default adapter is <code>bootstrap</code>, and currently WebBlocks can only be compiled with either the <code>bootstrap</code> adapter or no adapter at all. However, other adapters may be written to integrate WebBlocks with other frameworks.</p>
+
+<p>The <code>bootstrap</code> adapter can be disabled and WebBlocks compiled without Bootstrap:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = false</pre>
+
+<p>In addition to SASS files, adapters may also include Javascript. Javascript files are also organized into modules, just like SASS files, and they are packaged directly into the CSS core and IE build files. Image files are also organized by modules, and they are packaged into the image directories relative to their path within the adapter (their module namespace).</p>
+
+<p>The handlers for building adapters (beyond the rules described above) resides within <code>/lib/Build/Adapter</code> with the same name as the adapter itself.</p>
+
+<p><span class="badge info">NOTE</span> Adapters are module-sensitive meaning that they should replicate the structure of the core definitions. For example, if you set <code>WebBlocks.config[:src][:modules] = ['base']</code>, adapter definitions under entity would not be loaded. To set up a definition that is always loaded regardless of module-sensitivity, it should be added to the <code>_require.scss</code> file within the adapter.</p>
+
+<p><span class="badge info">NOTE</span> In some cases, a builder may move images and Javascript into the build directory in other ways, such as the Bootstrap adapter, which moves the glyphicons images in separately from the adapter. Such operations should be handled by the adapter build class defined in <code>/lib/Build/Adapter</code> with the same name as the adapter itself.</p>
+
+<h3>Core Adapter</h3>
+
+<p>The core adapter is a base set of definitions of mixins used by the core definitions, as defined in <code>/src/core/adapter</code>. The mechanics of the core adapter are identical to those of a third-party adapter, except that any definition not made in a third-party adapter is fulfilled by the core adapter.</p>
+
+<p>When creating a new adapter, it is recommended that <code>/src/core/adapter</code> be copied into a subdirectory of <code>/src/adapter</code> and then, any unmodified mixins should be deleted, thus overriding only those definitions which must be integrated with the third-party adapter.</p>
+
+<p>The handler for the core adapter resides within <code>/lib/Build/Core/Adapter.rb</code>.</p>
+
+<h3>Extension</h3>
+
+<p>An extension is a set of SASS that is loaded in that may change the behavior of mixins or specify additional CSS definitions, generally defined as a directory within <code>/src/extension</code>.</p>
+
+<p>Extensions may also include Javascript, which is packaged directly into the CSS core and IE build files, as well as images, which are stored in the images directory relative to their path within the adapter.</p>
+
+<p>Extensions are like adapters in the way they change behavior. However, instead of bridging framework to WebBlocks, they are intended to modify WebBlocks such as applying a theme or altering behaviors in some more macro way. For example, if one wanted to bind WebBlocks semantics to base HTML elements, they might create <code>/src/extension/implicit-html</code>.</p>
+
+<p>An extension may be included in a WebBlocks build by setting <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] = []
+WebBlocks.config[:src][:extensions] << 'implicit-html'</pre>
+
+<p>The handler for building extensions resides within lib/Build/Core/Extensions.rb.</p>
+
+<p><span class="badge info">NOTE</span> Extensions are not module-sensitive. All SASS, JS and images are loaded regardless of a module structure.</p>

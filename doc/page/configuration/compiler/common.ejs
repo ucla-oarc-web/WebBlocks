@@ -1,0 +1,137 @@
+<h2>Common Configuration Variables</h2>
+
+<p>When building a custom version of WebBlocks, there are several commonly-used settings for <code>Rakefile-config.rb</code>.</p>
+
+<h3>Customizing Components</h3>
+
+<h4>Modules</h4>
+
+<p>By default, all modules are included in the WebBlocks compile:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = :all</pre>
+
+<p>However, besides the <code>:all</code> keyword, <code>WebBlocks.config[:src][:modules]</code> may also be an array of individual modules and/or namespaces of modules:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = []
+WebBlocks.config[:src][:modules] << 'base'
+WebBlocks.config[:src][:modules] << 'entity/form'</pre>
+
+<p>This example would include all modules within the <code>Base</code> namespace (such as <code>Base/Color</code> and <code>Base/Structure</code>), as well as the <code>Entity/Form</code> module. It should be noted that, if a module has dependencies, these dependencies will also be included.</p>
+
+<h4>Adapters</h4>
+
+<p>By default, the <code>bootstrap</code> adapter is compiled with WebBlocks:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = 'bootstrap'</pre>
+
+<p>While adapters provide a binding between WebBlocks and another framework, and they take advantage of framework definitions to implement the WebBlocks semantics, WebBlocks may be compiled without an adapter:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = false</pre>
+
+<p>While WebBlocks currently only provides a <code>bootstrap</code> adapter, other custom adapters may also be used. See <a href="#Development/Architecture/Adapter">Creating an Adapter</a> for more information. This configuration setting, in addition to accepting a string name for an adapter, also supports using multiple adapters:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = ['bootstrap','custom']</pre>
+
+<h4>Extensions</h4>
+
+<p>By default, no extensions are compiled with WebBlocks:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] = false</pre>
+
+<p>WebBlocks does include an <code>implicit-html</code> extension which binds semantics like <code>table.table</code> directly to <code>table</code> so that the class is not required to style a <code>table</code>. This may be included as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] = 'implicit-html'</pre>
+
+<p>This configuration setting, in addition to accepting a string name for an extension, also supports using multiple extensions:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] = ['implicit-html','custom']</pre>
+
+<h4>Packages</h4>
+
+<p>By default, several packages are compiled with WebBlocks:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] = [
+    :jquery,
+    :modernizr,
+    :respond,
+    :selectivizr,
+    :efx
+  ]</pre>
+
+<p>A package can be removed as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages].delete :jquery</pre>
+
+<p>This is useful, for example, if jQuery is already being included in another <code>script</code> tag in the application where WebBlocks will be used.</p>
+
+<p>An additional package can be added as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :lettering</pre>
+
+<p>The package set compiled with WebBlocks can also be completely redefined such as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] = []
+WebBlocks.config[:build][:packages] << :modernizr
+WebBlocks.config[:build][:packages] << :respond
+WebBlocks.config[:build][:packages] << :selectivizr</pre>
+
+<h3>Customizing Build Output</h3>
+
+<h4>Build Directory</h4>
+
+<p>By default, the WebBlocks build products are placed in <code>/build</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir] = 'build'</pre>
+
+<p>The directory specified by this configuration setting is relative to the WebBlocks root. It also accepts absolute paths, in the event that the build is intended to be placed in some other location:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir] = '/var/www/html/blocks'</pre>
+
+<h4>Build Files</h4>
+
+<p>In addition to customizing the build directory, one may also explicitly define the individual CSS, JS and image build products. By default, these are <code>css</code>, <code>js</code> and <code>img</code> within the build directory:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:css][:dir] = 'css'
+WebBlocks.config[:build][:img][:dir] = 'img'
+WebBlocks.config[:build][:js][:dir] = 'js'
+</pre
+
+<p>These configuration settings are relative to the build directory, although they may be set as absolute paths if the CSS, JS and image products are intended to be produced into different locations.</p>
+
+<p>The individual files and directories produced may also be set explicitly. By default, they are:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:css][:name] = 'blocks.css'
+WebBlocks.config[:build][:css][:name_ie] = 'blocks-ie.css'
+WebBlocks.config[:build][:js][:name] = 'blocks.js'
+WebBlocks.config[:build][:js][:name_ie] = 'blocks-ie.js'
+WebBlocks.config[:build][:js][:name_script_dir] = 'script'</pre>
+
+<p>These settings, in combination, produce:</p>
+
+<ol class="list outline">
+    <li>
+        <code>build/</code>
+        <ol>
+            <li>
+                <code>css/</code>
+                <ol>
+                    <li><code>blocks.css</code></li>
+                    <li><code>blocks-ie.css</code></li>
+                </ol>
+            </li>
+            <li>
+                <code>img/</code>
+            </li>
+            <li>
+                <code>js/</code>
+                <ol>
+                    <li><code>blocks.js</code></li>
+                    <li><code>blocks-ie.js</code></li>
+                    <li><code>script/</code></li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<p>These file names are relative to the CSS and JS directories, although they may also be set as explicit paths.</p>

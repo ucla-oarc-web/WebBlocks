@@ -2,15 +2,15 @@
 <small>
 <br><%= description %>
 <% if(typeof definitions !== 'undefined'){ %>
-    <br><span class="text-info">defines</span> <code><%= definitions %></code>
+    <br><strong class="text-success">defines</strong> <code><%= definitions %></code>
 <% } %>
 <% if(typeof uses !== 'undefined'){ %>
-    <br><span class="text-info">uses</span> <code><%= uses %></code>
+    <br><strong class="text-important">uses</strong> <code><%= uses %></code>
 <% } %>
 <% if(typeof supports !== 'undefined'){ %>
-    <br><span class="text-info">supports</span> <code><%= supports %></code>
+    <br><strong class="text-tertiary">supports</strong> <code><%= supports %></code>
 <% } %>
 <% if(typeof submodules !== 'undefined'){ %>
-    <br><span class="text-info">submodules</span> <code><%= submodules %></code>
+    <br><strong class="text-info">submodules</strong> <code><%= submodules %></code>
 <% } %>
 </small>

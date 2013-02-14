@@ -297,18 +297,18 @@
                 'Entity/Button/Input_Submit':'defines classes for submit <code>input</code> tag'
             },
             supports: [
-                '.primary',
-                '.secondary',
-                '.tertiary',
-                '.neutral',
-                '.info',
-                '.success',
-                '.warning',
-                '.danger',
-                '.important',
-                '.inverse',
-                '.required',
-                '.highlight'
+                '.button.primary',
+                '.button.secondary',
+                '.button.tertiary',
+                '.button.neutral',
+                '.button.info',
+                '.button.success',
+                '.button.warning',
+                '.button.danger',
+                '.button.important',
+                '.button.inverse',
+                '.button.required',
+                '.button.highlight'
             ]
         },
         'Entity/Button/Group': {
@@ -323,6 +323,47 @@
                 'Entity/Button/Group/Input_Reset':'defines group class for reset <code>input</code> tag',
                 'Entity/Button/Group/Input_Submit':'defines group class for submit <code>input</code> tag'
             }
+        },
+        'Entity/Form': {
+            description:'Defines a class that can be used to style a form and its controls, as well as an optional class to arrange the form horizontally.',
+            defines: {
+                'form.form':'Styles a form with labels, controls and text',
+                'form.form.horizontal':'Style variation for a two column form with labels on left and controls & text on right that collapses below <code>$breakpoint-small</code>',
+                'form.form div.control':'A form control (<code>input</code>, <code>select</code>, <code>textarea</code>) with optional mood color classes and contained label and help text elements',
+                'form.form .uneditable-input':'Style for an uneditable form control',
+                'form.form [input|textarea|select].mini':'Mini size form control',
+                'form.form [input|textarea|select].small':'Small size form control',
+                'form.form [input|textarea|select].large':'Large size form control'
+            },
+            uses:[
+                'form-horizontal-offset',
+                'form-legend-border-color',
+                'form-legend-color',
+                'form-legend-small-color',
+                'form-input-size-mini',
+                'form-input-size-small',
+                'form-input-size',
+                'form-input-size-large',
+                'form-input-background-color',
+                'form-input-text-color',
+                'form-input-border-radius',
+                'form-input-border-color',
+                'form-input-padding',
+                'form-input-uneditable-text-color',
+                'form-input-uneditable-background-color',
+                'form-input-uneditable-border-color',
+                'form-placeholder-text-color'
+            ],
+            supports: [
+                '.control.info',
+                '.control.success',
+                '.control.warning',
+                '.control.danger',
+                '.control.important',
+                '.control.inverse',
+                '.control.required',
+                '.control.highlight'
+            ]
         },
         'Entity/List': {
             description:'Defines classes that can be used to style ordered and unordered lists.',
@@ -344,19 +385,49 @@
                 '.message':'Styles a block as a message'
             },
             supports: [
-                '.primary',
-                '.secondary',
-                '.tertiary',
-                '.neutral',
-                '.info',
-                '.success',
-                '.warning',
-                '.danger',
-                '.important',
-                '.inverse',
-                '.required',
-                '.highlight'
+                '.message.primary',
+                '.message.secondary',
+                '.message.tertiary',
+                '.message.neutral',
+                '.message.info',
+                '.message.success',
+                '.message.warning',
+                '.message.danger',
+                '.message.important',
+                '.message.inverse',
+                '.message.required',
+                '.message.highlight'
             ]
+        },
+        'Entity/Nav/Bar': {
+            description: 'Defines a user interface class that provides a horizontal navigational menu bar, generally located in the header of the page or the header of some ancillary section.',
+            defines: {
+                'nav.bar':'Styles a nav element with internal list and optional header as a navbar',
+                'nav.bar.top':'Fixes navbar to the top of the screen',
+                'nav.bar.bottom':'Fixes navbar to the bottom of the screen'
+            },
+            supports: [
+                'nav.bar.primary',
+                'nav.bar.secondary',
+                'nav.bar.tertiary',
+                'nav.bar.neutral',
+                'nav.bar.info',
+                'nav.bar.success',
+                'nav.bar.warning',
+                'nav.bar.danger',
+                'nav.bar.important',
+                'nav.bar.inverse',
+                'nav.bar.required',
+                'nav.bar.highlight'
+            ]
+        },
+        'Entity/Nav/List': {
+            description: 'Defines a user interface class that provides a stacked list of navigation elements, including support for nested lists and headers.',
+            defines: {
+                'nav.list':'Styles a nav element with an internal set of lists and optional sublists and headers.',
+                'nav.list.accordion':'Styles a nav list where child lists are hidden, revealed only when parent link is selected.',
+                'nav.list.flyout':'Styles a nav list where child lists appear next to their parent link' 
+            }
         },
         'Entity/Table': {
             description:'Defines a user interface class that can be used to style a table, representing tabular data.',
@@ -368,18 +439,18 @@
                 '.table.condensed':''
             },
             supports: [
-                '.primary',
-                '.secondary',
-                '.tertiary',
-                '.neutral',
-                '.info',
-                '.success',
-                '.warning',
-                '.danger',
-                '.important',
-                '.inverse',
-                '.required',
-                '.highlight'
+                '[table|tr|th|td].primary',
+                '[table|tr|th|td].secondary',
+                '[table|tr|th|td].tertiary',
+                '[table|tr|th|td].neutral',
+                '[table|tr|th|td].info',
+                '[table|tr|th|td].success',
+                '[table|tr|th|td].warning',
+                '[table|tr|th|td].danger',
+                '[table|tr|th|td].important',
+                '[table|tr|th|td].inverse',
+                '[table|tr|th|td].required',
+                '[table|tr|th|td].highlight'
             ],
             uses:[
                 'table-caption-text-color',
@@ -420,7 +491,7 @@
             var uses_variables = []
             for(var i in data.uses)
                 uses_variables.push(data.uses[i])
-            data.uses = uses_variables.join(', ')
+            data.uses = '$'+uses_variables.join(', $')
         }
         if(data.submodules){
             var submodules_list = []

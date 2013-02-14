@@ -4,12 +4,12 @@
         'structure-container-gutter': {
             description:'defines padding around the container',
             default_value:'2%',
-            type:'percentage'
+            type:'percent'
         },
         'structure-container-width-max': {
             description:'defines the maximum size of the container',
             default_value:'1024px',
-            type:'pixels, false'
+            type:'px, false'
         },
         'breakpoint-xxsmall': {
             description:'defines breakpoint used by <code>.hide-xxsmall, .hide-above-xxsmall, .row.xxsmall-collapse</code>',
@@ -296,6 +296,91 @@
             description:'generic threshold used to select light instead of dark color',
             default_value:'65%',
             type:'percent'
+        },
+        'form-horizontal-offset': {
+            description:'width of labels column in <code>form.form.horizontal</code>',
+            default_value:'180px',
+            type:'px, percent'
+        },
+        'form-legend-border-color': {
+            description:'color of the line displayed below a <code>legend</code> within <code>form.form fieldset</code>',
+            default_value:'#eee',
+            type:'color'
+        },
+        'form-legend-color': {
+            description:'color of the text of a <code>legend</code> within <code>form.form fieldset</code>',
+            default_value:'#111',
+            type:'color'
+        },
+        'form-legend-small-color': {
+            description:'color of the text of a <code>legend small</code> within <code>form.form fieldset</code>',
+            default_value:'#666',
+            type:'color'
+        },
+        'form-input-size-mini': {
+            description:'size of an <code>input.mini</code> within <code>form.form</code>',
+            default_value:'60px',
+            type:'px, percent'
+        },
+        'form-input-size-small': {
+            description:'size of an <code>input.small</code> within <code>form.form</code>',
+            default_value:'90px',
+            type:'px, percent'
+        },
+        'form-input-size': {
+            description:'size of an <code>input</code> within <code>form.form</code>',
+            default_value:'210px',
+            type:'px, percent'
+        },
+        'form-input-size-large': {
+            description:'size of an <code>input.large</code> within <code>form.form</code>',
+            default_value:'240px',
+            type:'px, percent'
+        },
+        'form-input-background-color': {
+            description:'background color of <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'#fff',
+            type:'color'
+        },
+        'form-input-text-color': {
+            description:'text color of <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'#444',
+            type:'color'
+        },
+        'form-input-border-radius': {
+            description:'border radius of <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'4px',
+            type:'px'
+        },
+        'form-input-border-color': {
+            description:'border color of <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'#ddd',
+            type:'color'
+        },
+        'form-input-padding': {
+            description:'internal padding for <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'4px 6px',
+            type:'px (set)'
+        },
+        'form-input-uneditable-text-color': {
+            description:'text color for <code>.uneditable-input</code> within <code>form.form</code>',
+            default_value:'lighten($form-input-text-color, 20%)',
+            type:'color'
+        },
+        'form-input-uneditable-background-color': {
+            description:'background color for <code>.uneditable-input</code> within <code>form.form</code>',
+            default_value:'$form-input-background-color',
+            type:'color'
+        },
+        'form-input-uneditable-border-color': {
+            description:'border color for <code>.uneditable-input</code> within <code>form.form</code>',
+            default_value:'$color-branding-default-border',
+            type:'color'
+        },
+        'form-placeholder-text-color': {
+            description:'text color for placeholder text of <code>input, textarea, select</code> within <code>form.form</code>',
+            default_value:'lighten($form-input-text-color, 40%)',
+            type:'color'
         }
     }
 

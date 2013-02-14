@@ -5,9 +5,9 @@
 <p>On the whole, it's configuration options come in three veins:</p>
 
 <ul>
-    <li>Adding your own SASS and Javascript sources</li>
-    <li>Modifying SASS variables to affect the way entities render</li>
-    <li>Setting compiler configuration options to modify the compiler's behavior</li>
+    <li><strong>Adding your own SASS and Javascript sources.</strong> CSS (and SASS) may be added to <code>src/sass/blocks.scss</code> and <code>src/sass/blocks-ie.scss</code> or as SCSS files in <code>src/sass/blocks</code>, those for the IE CSS build suffixed with <code>-ie</code>.</li>
+    <li><strong>Modifying SASS variables to affect the way entities render.</strong> These variables should be specified in <code>src/sass/_variables.scss</code>. A full list of variables may be found in <a href="#API/Variables">API/Variables</a> and more specified details are explained in the "SASS Variables" portion of this section.</li>
+    <li><strong>Setting compiler configuration options to modify the compiler's behavior.</strong> These options are defined in <code>Rakefile-config.rb</code>. Explanations of the various options are explained in the "Compiler portion of this section.</li>
 </ul>
 
 <p>To get started, make sure you've got your enviromnent set up correctly as described in <a href="#Configuration/Environment">Environment</a>. Going a step further, explore <a href="#Configuration/Compiler">Compiler Tasks</a> to check out different tasks the compiler will perform. Finally, explore the sources, sass variables and compiler sections for more specific details on various configuration mechanisms.</p>

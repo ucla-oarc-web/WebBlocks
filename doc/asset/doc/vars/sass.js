@@ -383,6 +383,18 @@
             type:'color'
         }
     }
+    
+    DOC.vars.sass.render_all = function(name){
+        var vars = $.extend(true, {}, sass_vars),
+            vars_list = [],
+            vars_rendered = []
+        for(var i in vars)
+            vars_list.push(i)
+        vars_list.sort()
+        for(var i in vars_list)
+            vars_rendered.push(DOC.vars.sass.render(vars_list[i]))
+        return vars_rendered
+    }
 
     DOC.vars.sass.render = function(name){
         var variableView = new EJS({url: 'component/variable.ejs'}), 

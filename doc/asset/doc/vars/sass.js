@@ -283,7 +283,7 @@
             type:'percent'
         },
         'color-background-shadow-light-brightness': {
-            description:'brightness percentage for <code>.gradient</code> shadow color',
+            description:'brightness percentage for <code>.light.gradient</code> shadow color',
             default_value:'85%',
             type:'percent'
         },

@@ -1,0 +1,41 @@
+<h2>Advanced Configuration</h2>
+
+<p>The WebBlocks compiler provides additional configuration options that may be used in certain niche situations.</p>
+
+<h3>Execution Paths</h3>
+
+<p>WebBlocks uses a number of utilities during the compile process:</p>
+
+<ul>
+    <li><code>git</code> for fetching packages</li>
+    <li><code>npm</code> for dependency management of node packages</li>
+    <li><code>compass</code> for compiling SASS files</li>
+    <li><code>uglifycss</code> for compression of CSS files</li>
+    <li><code>uglifyjs</code> for compression of JS files</li>
+</ul>
+
+<p>By default, WebBlocks assumes that <code>git</code>, <code>npm</code> and <code>compass</code> are installed within the user path so that they can be called directly by name:</p>
+
+<pre class="prettyprint">WebBlocks.config[:exec][:git] = 'git'
+WebBlocks.config[:exec][:npm] = 'npm'
+WebBlocks.config[:exec][:compass] = 'compass'</pre>
+
+<p>If this is not the case, then these may be modified to include an absolute path to their corresponding binaries.</p>
+
+<p>Similarly, it assumes that <code>node</code> is in your user path and that <code>npm</code> is run locally and will install <code>uglifycss</code> and <code>uglifyjs</code> within a <code>node_modules</code> directory under your WebBlocks root:</p>
+
+<pre class="prettyprint">WebBlocks.config[:exec][:uglifycss] = 'node ./node_modules/uglifycss/uglifycss'
+WebBlocks.config[:exec][:uglifyjs] = 'node ./node_modules/uglify-js/bin/uglifyjs'</pre>
+
+<p>These may be modified to refer to another path, if a different one is used. A common practice might be to install these utilities globally, in which one might simply refer to them by name rather than running them through <code>node</code> with a relative path.</p>
+
+<h3>WebBlocks Special Directories</h3>
+
+<p>WebBlocks establishes a metadata folder (reserved for later use) and a temporary build folder (where assets are assembled before being copied into the final build directory - in case a build failes). By default, these are <code>.blocks</code> and <code>.build-tmp</code>, located directly under the WebBlocks root as hidden folders:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir_tmp] = '.build-tmp'
+WebBlocks.config[:build][:dir_metadata] = '.blocks'</pre>
+
+<p>These may be modified to another relative path under WebBlocks or an absolute path elsewhere. A common practice, for instance, might be to use <code>/tmp</code> as the location for the temporary build:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir_tmp] = '/tmp/blocks'</pre>

@@ -2,6 +2,12 @@
 
 <p>By default, WebBlocks builds its assets into a <code>/build</code> folder. However, to enable the use of WebBlocks in other environments, one may modify <code>Rakefile-config.rb</code> to customize where the build assets are placed.</p>
 
+<h3>Debug Output</h3>
+
+<p>By default, WebBlocks assets are produced in a compressed and uncommented form. However, this is not always beneficial if one is seeking to understand the outputs for debugging purposes. Debug output may thus be turned on as follows:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:debug] = false</pre>
+
 <h3>Build Directory</h3>
 
 <p>By default, the WebBlocks build products are placed in <code>/build</code>:</p>

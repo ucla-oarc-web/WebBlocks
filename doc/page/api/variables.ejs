@@ -1,0 +1,22 @@
+<h2>Variables</h2>
+
+<p>WebBlocks elements may be customized by modifying variables and then rebuilding it.</p>
+
+<h3>Specifying Variables for Build</h3>
+
+<p>All variables have default values. However, they may be modified by defining them explicitly in <code>src/sass/_variables.scss</code> and then rebuilding WebBlocks through <code>rake</code>.</p>
+
+<p>As an example, this will modify the primary and secondary colors:</p>
+
+<pre class="prettyprint">$color-branding-primary: #3399cc;
+$color-branding-secondary: #ffb300;
+$color-branding-tertiary: #8237ff;</pre>
+
+<h3>Variables List</h3>
+
+<p>The following is a list of all variables.</p>
+
+<ul>
+    <li><%= DOC.vars.sass.render_all().join('</li><li>') %></li>
+</ul>
+

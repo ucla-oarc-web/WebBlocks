@@ -8,7 +8,16 @@
         font-weight: bold;
     }
     
-    legend + div.control {
+    legend + div.control, legend + ul, legend + ol {
         padding-top: 20px;
     }
+
+	ul, ol {
+		list-style: none;
+		margin: 0;
+	}
+
+	li.control {
+		display: block;
+	}
 }

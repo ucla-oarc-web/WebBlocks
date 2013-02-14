@@ -143,8 +143,14 @@
             description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
             defines:{
                 '.row':'Container for a set of panels', 
-                '.panel-X':'Panels arranged proportionally as <code>X/$structure-panels</code>',
-                '.row.Y-collapse':'Explicitly define when the panels in a row collapse to vertical inline'
+                '.row > .panel-X':'Panels arranged proportionally as <code>X/$structure-panels</code>',
+                '.row.xxsmall-collapse':'Explicitly set row to collapse at <code>$breakpoint-xxsmall</code>',
+                '.row.xsmall-collapse':'Explicitly set row to collapse at <code>$breakpoint-xsmall</code>',
+                '.row.small-collapse':'Explicitly set row to collapse at <code>$breakpoint-small</code>',
+                '.row.medium-small-collapse':'Explicitly set row to collapse at <code>$breakpoint-medium-small</code>',
+                '.row.medium-collapse':'Explicitly set row to collapse at <code>$breakpoint-medium</code>',
+                '.row.medium-large-collapse':'Explicitly set row to collapse at <code>$breakpoint-medium-large</code>',
+                '.row.large-collapse':'Explicitly set row to collapse at <code>$breakpoint-large</code>'
             },
             uses:[
                 'structure-panels',
@@ -460,11 +466,11 @@
         'Entity/Table': {
             description:'Defines a user interface class that can be used to style a table, representing tabular data.',
             defines: {
-                '.table':'Styles <code>table</code> element',
-                '.table.hover':'Styles <code>table</code> so that, on hover, row is highlighted',
-                '.table.striped':'Styles <code>table</code> so that rows have alternating background colors (zebra style)',
-                '.table.bordered':'Styles <code>table</code> with a border',
-                '.table.condensed':'Styles <code>table</code> cells to have minimal padding'
+                'table.table':'Styles <code>table</code> element',
+                'table.table.hover':'Styles <code>table</code> so that, on hover, row is highlighted',
+                'table.table.striped':'Styles <code>table</code> so that rows have alternating background colors (zebra style)',
+                'table.table.bordered':'Styles <code>table</code> with a border',
+                'table.table.condensed':'Styles <code>table</code> cells to have minimal padding'
             },
             supports: [
                 '[table|tr|th|td].primary',

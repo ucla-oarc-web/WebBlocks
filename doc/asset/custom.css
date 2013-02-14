@@ -42,16 +42,6 @@ a:hover:not(.button) {
 
 /* polyfills for a coming feature in WebBlocks */
 
-nav.list ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav.list h1 {
-    font-size: 1.2em;
-}
-
 nav.tabs {
     padding-left: 10px;
     display: block;

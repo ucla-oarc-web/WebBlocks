@@ -10,7 +10,8 @@
                 '.float-clear':'Clear floated elements',
                 '.float-container':'Container for floats using <code>overflow:hidden</code>',
                 '.clearfix':'Container for floats using a clearfixing method'
-            }
+            },
+            api:'Base/Block'
         },
         'Base/Color/Branding/Background': {
             description:'Defines a set of color classes that may be used for brand-related background colors.',
@@ -20,7 +21,8 @@
                 '.tertiary':'Tertiary brand background color',
                 '.neutral':'Neutral brand background color',
                 '.gradient':'Applies gradient to brand background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Branding/Background_Gradient': {
             description:'Defines a set of gradient color classes that may be used for brand-related background colors.',
@@ -29,7 +31,8 @@
                 '.secondary.gradient':'Secondary gradient brand background color',
                 '.tertiary.gradient':'Tertiary gradient brand background color',
                 '.neutral.gradient':'Neutral gradient brand background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Branding/Background_Light': {
             description:'Defines a set of light color classes that may be used for brand-related background colors.',
@@ -38,7 +41,8 @@
                 '.secondary.light':'Light secondary brand background color',
                 '.tertiary.light':'Light tertiary brand background color',
                 '.neutral.light':'Light neutral brand background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Branding/Background_Light_Gradient': {
             description:'Defines a set of light gradient color classes that may be used for brand-related background colors.',
@@ -47,7 +51,8 @@
                 '.secondary.light.gradient':'Light secondary gradient brand background color',
                 '.tertiary.light.gradient':'Light tertiary gradient brand background color',
                 '.neutral.light.gradient':'Light neutral gradient brand background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Branding/Text': {
             description:'Defines a set of color classes that may be used for brand-related text colors.',
@@ -56,7 +61,8 @@
                 '.text-secondary':'Secondary brand text color',
                 '.text-tertiary':'Tertiary brand text color',
                 '.text-neutral':'Neutral brand text color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Mood/Background': {
             description:'Defines a set of color classes that may be used for mood-related background colors.',
@@ -70,7 +76,8 @@
                 '.inverse':'Inverse mood background color',
                 '.required':'Required mood background color',
                 '.highlight':'Highlight mood background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Mood/Background_Gradient': {
             description:'Defines a set of gradient color classes that may be used for mood-related background colors.',
@@ -84,7 +91,8 @@
                 '.inverse.gradient':'Inverse gradient mood background color',
                 '.required.gradient':'Required gradient mood background color',
                 '.highlight.gradient':'Highlight gradient mood background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Mood/Background_Light': {
             description:'Defines a set of light color classes that may be used for mood-related background colors.',
@@ -98,7 +106,8 @@
                 '.inverse.light':'Light inverse mood background color',
                 '.required.light':'Light required mood background color',
                 '.highlight.light':'Light highlight mood background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Mood/Background_Light_Gradient': {
             description:'Defines a set of light gradient color classes that may be used for mood-related background colors.',
@@ -112,7 +121,8 @@
                 '.inverse.light.gradient':'Light inverse gradient mood background color',
                 '.required.light.gradient':'Light required gradient mood background color',
                 '.highlight.light.gradient':'Light highlight gradient mood background color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Color/Mood/Text': {
             description:'Defines a set of color classes that may be used for mood-related text colors.',
@@ -126,7 +136,8 @@
                 '.text-inverse':'Inverse mood text color',
                 '.text-required':'Required mood text color',
                 '.text-highlight':'Highlight mood text color'
-            }
+            },
+            api:'Base/Color'
         },
         'Base/Structure/Grid': {
             description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
@@ -145,7 +156,8 @@
                 'breakpoint-medium',
                 'breakpoint-medium-large',
                 'breakpoint-large'
-            ]
+            ],
+            api:'Base/Structure'
         }, 
         
         'Base/Structure/Container': {
@@ -156,7 +168,8 @@
             uses:[
                 'structure-container-gutter',
                 'structure-container-width-max'
-            ]
+            ],
+            api:'Base/Structure'
         },
         'Base/Type/Align': {
             description:'Provides classes that modify the alignment of type within contained elements.',
@@ -165,7 +178,8 @@
                 '.text-center':'Center text',
                 '.text-right':'Right-align text',
                 '.text-justify':'Justify text',
-            }
+            },
+            api:'Base/Type'
         },
         'Base/Type/Font': {
             description:'Provides a basic set of font styles.',
@@ -188,19 +202,22 @@
                 'type-line-spacing',
                 'type-line-height',
                 'type-line-height-heading'
-            ]
+            ],
+            api:'Base/Type'
         },
         'Base/Visibility/Hide': {
             description:'Defines a class for hiding content universally',
             defines:{
                 '.hide':'Universally hide content'
-            }
+            },
+            api:'Base/Visibility'
         },
         'Base/Visibility/Media_Query/Hide': {
             description:'Defines a class to hide content when media queries are available.',
             defines:{
                 '.hide-media-query':'Hide content if media query support exists'
-            }
+            },
+            api:'Base/Visibility'
         },
         'Base/Visibility/Responsive/Hide': {
             description:'Defines a set of classes that set content to be hidden at and below a particular breakpoint.',
@@ -221,7 +238,8 @@
                 'breakpoint-medium',
                 'breakpoint-medium-large',
                 'breakpoint-large'
-            ]
+            ],
+            api:'Base/Visibility'
         },
         'Base/Visibility/Responsive/Hide_Above': {
             description:'Defines a set of classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint.',
@@ -242,7 +260,8 @@
                 'breakpoint-medium',
                 'breakpoint-medium-large',
                 'breakpoint-large'
-            ]
+            ],
+            api:'Base/Visibility'
         },
         'Entity/Badge': {
             description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
@@ -264,7 +283,8 @@
                 '.inverse',
                 '.required',
                 '.highlight'
-            ]
+            ],
+            api:'Entity/Badge'
         },
         'Entity/Blockquote': {
             description:'Defines a user interface class that can be used on an inline element to highlighted a set of text as a badge (sometimes alternatively referred to as a label), optionally with a branding or mood color and other stylistic attributes.',
@@ -275,7 +295,8 @@
             },
             supports: [
                 '.text-right'
-            ]
+            ],
+            api:'Entity/Blockquote'
         },
         'Entity/Button': {
             description:'Defines a button user interface class, along with supporting styling classes, that present an element can be pressed to cause some action within the application.',
@@ -309,7 +330,8 @@
                 '.button.inverse',
                 '.button.required',
                 '.button.highlight'
-            ]
+            ],
+            api:'Entity/Button'
         },
         'Entity/Button/Group': {
             description:'Defines a class that can be used to group buttons. The <code>.group</code> class itself is part of a meta-pattern used by several modules to bind common elements.',
@@ -322,7 +344,8 @@
                 'Entity/Button/Group/Input_Button':'defines group class for button <code>input</code> tag',
                 'Entity/Button/Group/Input_Reset':'defines group class for reset <code>input</code> tag',
                 'Entity/Button/Group/Input_Submit':'defines group class for submit <code>input</code> tag'
-            }
+            },
+            api:'Entity/Button'
         },
         'Entity/Form': {
             description:'Defines a class that can be used to style a form and its controls, as well as an optional class to arrange the form horizontally.',
@@ -363,7 +386,8 @@
                 '.control.inverse',
                 '.control.required',
                 '.control.highlight'
-            ]
+            ],
+            api:'Entity/Form'
         },
         'Entity/List': {
             description:'Defines classes that can be used to style ordered and unordered lists.',
@@ -377,7 +401,8 @@
                 'ol.list.lower-alpha':'An ordered list with upper alpha numbering',
                 'ol.list.upper-alpha':'An ordered list with lower alpha numbering',
                 'ol.list.outline':'An ordered list with sublists using alternating list numberings'
-            }
+            },
+            api:'Entity/List'
         },
         'Entity/Message': {
             description:'Defines a user interface class that can be used on a block-level element to display it as a message box, optionally with a branding or mood color.',
@@ -397,7 +422,8 @@
                 '.message.inverse',
                 '.message.required',
                 '.message.highlight'
-            ]
+            ],
+            api:'Entity/Message'
         },
         'Entity/Nav/Bar': {
             description: 'Defines a user interface class that provides a horizontal navigational menu bar, generally located in the header of the page or the header of some ancillary section.',
@@ -419,7 +445,8 @@
                 'nav.bar.inverse',
                 'nav.bar.required',
                 'nav.bar.highlight'
-            ]
+            ],
+            api:'Entity/Nav/Bar'
         },
         'Entity/Nav/List': {
             description: 'Defines a user interface class that provides a stacked list of navigation elements, including support for nested lists and headers.',
@@ -427,16 +454,17 @@
                 'nav.list':'Styles a nav element with an internal set of lists and optional sublists and headers.',
                 'nav.list.accordion':'Styles a nav list where child lists are hidden, revealed only when parent link is selected.',
                 'nav.list.flyout':'Styles a nav list where child lists appear next to their parent link' 
-            }
+            },
+            api:'Entity/Nav/List'
         },
         'Entity/Table': {
             description:'Defines a user interface class that can be used to style a table, representing tabular data.',
             defines: {
-                '.table':'',
-                '.table.hover':'',
-                '.table.striped':'',
-                '.table.bordered':'',
-                '.table.condensed':''
+                '.table':'Styles <code>table</code> element',
+                '.table.hover':'Styles <code>table</code> so that, on hover, row is highlighted',
+                '.table.striped':'Styles <code>table</code> so that rows have alternating background colors (zebra style)',
+                '.table.bordered':'Styles <code>table</code> with a border',
+                '.table.condensed':'Styles <code>table</code> cells to have minimal padding'
             },
             supports: [
                 '[table|tr|th|td].primary',
@@ -460,7 +488,8 @@
                 'table-hover-background-color',
                 'table-striped-background-color',
                 'table-bordered-border-radius'
-            ]
+            ],
+            api:'Entity/Table'
         }
     }
 
@@ -506,6 +535,22 @@
             data.supports = supported_classes.join(', ')
         }
         return view.render(data)
+    }
+    
+    DOC.modules.get_classes = function(){
+        var classes = {}, module, class_description
+        for(var module_name in modules){
+            module = modules[module_name]
+            for(var class_name in module.defines){
+                class_description = module.defines[class_name]
+                classes[class_name] = {
+                    description: class_description,
+                    module: module_name,
+                    module_api: module.api
+                }
+            }
+        }
+        return classes
     }
     
     DOC.modules.render_variables = function(name){

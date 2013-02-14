@@ -1,0 +1,114 @@
+<h2>Build Process</h2>
+
+<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Development/Architecture/Terminology">Terminology</a> section.</p>
+
+<p>The build process is extremely modular. One may invoke not just <code>rake</code> or <code>rake build</code> to build all WebBlocks assets, but also <code>rake build_css</code>, <code>rake build_js</code> and <code>rake build_img</code> to build just CSS, JS or images. Generally, these functions should only be invokved if <code>rake</code> or <code>rake build</code> has already been called, useful for rebuilding just what was changed, as it will execute more quickly than re-running <code>rake</code> or <code>rake build</code> in its entirety.</p>
+
+<h3>Build Execution Steps</h3>
+
+<p>The build task itself executes several phases. The handlers for packages, the core adapter, user-defined adapters, extensions and core definitions all listen for these events and fire their method by the name of the event (if defined). For example, when the <code>precompile</code> event occurs, if a handler has a <code>def precompile</code>, then it will be invoked.</p>
+
+<p>For a given task such as compile, one may also hook in before any handler executes the step with a <code>before_</code> method such as <code>before_compile</code> or after all handlers have executed the step with an <code>after_</code> method such as <code>after_compile</code>.</p>
+
+<h4>preprocess</h4>
+
+<p>Packages and adapters set up Git submodules as needed.</p>
+
+<p>WebBlocks defines the temporary build directory and creates a set of linkage files including:</p>
+
+<ul>
+    <li><code>WebBlocks</code> which imports <code>WebBlocks-variables</code> and <code>WebBlocks-require</code></li>
+    <li><code>WebBlocks-ie</code> which imports <code>WebBlocks-variables</code></li>
+    <li><code>WebBlocks-variables</code></li>
+    <li><code>WebBlocks-require</code></li>
+</ul>
+
+<p>The <code>WebBlocks</code> file should be imported by the build file (by default <code>/src/sass/blocks.scss</code>):</p>
+
+<pre class="prettyprint">@import "WebBlocks";</pre>
+    
+<p>The <code>WebBlocks-ie</code> file should be imported by the IE build file (by default <code>/src/sass/blocks-ie.scss</code>):</p>
+
+<pre class="prettyprint">@import "WebBlocks-ie";</pre>
+
+<p>In both cases, they may be included by file name, so <code>@import "WebBlocks";</code> and <code>@import "WebBlocks-ie";</code>, rather than by absolute path. The <code>WebBlocks-variables</code> file, which contains all variable definitions, is made available through both of these.</p>
+
+<h4>link</h4>
+
+<p>Adapters define <code>@import</code> rules the linkage files <code>WebBlocks</code>, <code>WebBlocks-ie</code>, <code>WebBlocks-require</code> and <code>WebBlocks-variables</code>.</p>
+
+<h4>compile</h4>
+
+<p>Packages and adapters compile any sources that do not come precompiled in their Git submodules.</p>
+
+<p>WebBlocks executes the Compass/SASS compiler with the linkage files <code>WebBlocks</code>, <code>WebBlocks-ie</code>, <code>WebBlocks-require</code> and <code>WebBlocks-variables</code> as library files directly in its namespace.</p>
+
+<h4>assemble</h4>
+
+<p>As needed, packages and adapters append Javascript and CSS into the temporary JS and CSS build files and copy images into the temporary image build directory.</p>
+
+<p>WebBlocks then copies the CSS files from the compile step into the temporary CSS build files.</p>
+
+<h4>package</h4>
+
+<p>WebBlocks copies the temporary build files and directories into the final build location, minifying the CSS and Javascript if <code>WebBlocks.config[:build][:debug] = false</code> or if it is not set.</p>
+
+<h4>postprocess</h4>
+
+<p>A hook step in the event that any package or adapter wishes to act after WebBlocks has been packaged into the <code>/build</code> folder (such as running an optimizer package on the CSS).</p>
+
+<h3>Build Stack</h3>
+
+<p>All tasks (both the ones listed in build and the ones in all other Rake tasks) are delegated to handlers in the following order:</p>
+
+<ul>
+    <li>Packages (see <code>/lib/Build/Packages</code>)</li>
+    <li>Core Adapter (see <code>/lib/Build/Core/Adapter.rb</code>)</li>
+    <li>User-defined Adapters (see <code>/lib/Build/Adapter</code>)</li>
+    <li>Extensions (see <code>/lib/Build/Core/Extensions.rb</code>)</li>
+    <li>Core Definitions (see <code>/lib/Build/Core/Definitions.rb</code>)</li>
+    <li>WebBlocks (see <code>/lib/Build/WebBlocks.rb</code>)</li>
+</ul>
+
+<p>This order is important to understand as it pertains to the order in which handlers execute for all execution setps.</p>
+
+<p>This order is defined in <code>/lib/Rake.rb</code> (and handlers 2-5 further within <code>/lib/Build/Manager.rb</code>) when run is invoked within the <code>::WebBlocks::Rake</code> DSL.</p>
+
+<h3>SASS Includes Stack</h3>
+
+<p>Among the build processes, the most complex portion is building the SASS includes stack.</p>
+
+<p>In src/sass/blocks.scss, the following rule is defined:</p>
+
+<pre class="prettyprint">@import "WebBlocks";</pre>
+
+<p>Similarly, in src/sass/blocks-ie.scss, the following rule is defined:</p>
+
+<pre class="prettyprint">@import "WebBlocks-ie";</pre>
+
+<p>During the link build execution step, these files are composed so that they include all necessary SASS files based on the configuration of modules, adapters and extensions.</p>
+
+<p>Generally (except if packages intervene), the order followed is:</p>
+
+<ul>
+    <li>Core Adapter <code>src/core/adapter</code></li>
+    <li>User-Configured Adapters <code>src/adapter/<span class="text-highlight">name</span></code> from <code>WebBlocks.config[:src][:adapter]</code></li>
+    <li>User-Configured Extensions <code>src/extension/<span class="text-highlight">name</span></code> from <code>WebBlocks.config[:src][:extensions]</code></li>
+    <li>Core Definitions <code>src/core/definitions</code></li>
+</ul>
+
+<p>For this order, there are actually three phases:</p>
+
+<ul>
+    <li>All files with the name <code>_variables.scss</code></li>
+    <li>All files with the name <code>_require.scss</code> in the module namespaces defined by <code>Rakefile-config.rb</code></li>
+    <li>All other <code>.scss</code> files specified in the module namespaces defined by <code>Rakefile-config.rb</code></li>
+</ul>
+
+<p>Among each phase, all files are loaded in breadth-first order by each handler, meaning that if an entity extends another entity, then the entity it extends should be defined in an outer directory. Among files within the same directory, there is no guaranteed load order, so there should not be definitions that require each other located within the same directory.</p>
+
+<p><span class="badge info">NOTE</span> It may be possible to define module inclusion rules that cause the compile to fail because an inner entity was included that requires an outer mixin that was not also included, so caution should be used with <code>WebBlocks.config[:src][:modules]</code>.</p>
+
+<h3>Images and Script Sources</h3>
+
+<p>Images and script sources (defined in <code>src/img</code> and <code>src/js/script</code>) are copied into <code>build/img</code> and <code>build/js/script</code> based on relative pathing within their respective directories. For Javascript, this behavior is notably different than sources in <code>js/core</code> and <code>js/core-ie</code>, which are appended into <code>blocks.js</code> and <code>blocks-ie.js</code> respectively. If debug is not turned on, then all Javascript sources will be minified during the package stage.</p>

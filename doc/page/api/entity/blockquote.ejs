@@ -1,0 +1,92 @@
+<h2>Blockquote</h2>
+
+<p>This library includes modules related to the blockquote user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Blockquote') %></li>
+</ul>
+
+<h3>Usage</h3>
+
+<h4>Simple Blockquote</h4>
+
+<p>The <code>blockquote.blockquote</code> element may be used on its own for a simple quote without attribution:</p>
+
+<pre class="prettyprint">&lt;blockquote class="blockquote"&gt;
+    &lt;!-- Blockquote Text --&gt;
+&lt;/blockquote&gt;</pre>
+<blockquote class="blockquote">
+    Blockquote Text
+</blockquote>
+
+<h4>Blockquote with Attribution</h4>
+
+<p>The <code>figure.blockquote</code> element should be used when seeking to provide an attribution:</p>
+
+<pre class="prettyprint">&lt;figure class="blockquote"&gt;
+    &lt;blockquote&gt;
+        &lt;!-- Blockquote Text --&gt;
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;!-- Blockquote Attribution --&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
+<figure class="blockquote">
+    <blockquote>
+        Blockquote Text
+    </blockquote>
+    <figcaption>
+        Blockquote Attribution
+    </figcaption>
+</figure>
+
+<h4>Alternate Blockquote with Attribution<br><small><small><span class="badge warning">non-standard</span></small></small></h4>
+
+<p>While the "Blockquote with Attribution" approach should be used, as it is what is defined by the HTML 5 specification, this module also provides styling for a non-conforming, but common, use of blockquote:</p>
+
+<pre class="prettyprint">&lt;blockquote class="blockquote"&gt;
+    &lt;!-- Blockquote Text --&gt;
+    &lt;cite&gt;
+        &lt;!-- Blockquote Attribution --&gt;
+    &lt;/cite&gt;
+&lt;/figure&gt;</pre>
+<blockquote class="blockquote">
+    Blockquote Text
+    <cite>
+        Blockquote Attribution
+    </cite>
+</blockquote>
+
+<p class="text-warning">Note: This approach does not conform to the HTML 5 specification.</p>
+
+<h4>Callout</h4>
+
+<p>An optional <code>.callout</code> class can be added to create a alternate style that, combined with grid sizing classes and the float utility classes, will allow wrapped text for quotes that are intended to be "callout" quotes dropped throughout a body of text (see the second usage above).</p>
+
+<pre class="prettyprint">&lt;figure class="blockquote callout float-right panel-6"&gt;
+    &lt;blockquote&gt;
+        Blockquote Text
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        Blockquote Attribution
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;!-- some other content --&gt;</pre>
+
+<div class="float-container">
+    <figure class="blockquote callout float-right panel-6">
+        <blockquote>
+            Blockquote Text
+        </blockquote>
+        <figcaption>
+            Blockquote Attribution
+        </figcaption>
+    </figure>
+    <p>Some other content</p>
+</div>
+
+<style>
+    blockquote.blockquote, figure.blockquote {
+        margin-bottom: 10px;
+    }
+</style>

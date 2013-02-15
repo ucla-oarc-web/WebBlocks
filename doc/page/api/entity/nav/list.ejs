@@ -1,0 +1,380 @@
+<h2>Navigation List</h2>
+
+<p>This library includes a module for a navigation list user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Nav/List') %></li>
+</ul>
+
+<div class="examples">
+
+    <h3>Basic Nav Lists</h3>
+
+    <h4>Simple List</h4>
+
+    <p>A navigation list is minimally a <code>nav</code> tag that contains a <code>ul</code> or <code>ol</code>:</p>
+
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <p>This renders as a set of list items with padding and a hover:</p>
+
+    <nav class="list">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <p>This class also supports the use of a header tag (<code>h1</code>-<code>h6</code>) for a list title:</p>
+
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <p>The title is styled to fit with the list:</p>
+
+    <nav class="list">
+        <h1>Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <h4>Multiple Lists</h4>
+
+    <p>Multiple lists may be included within a single <code>nav.list</code> to separate content. Each list may include its own header:</p>
+
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;h1&gt;Title 1&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h1&gt;Title 2&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <p>The title is styled to fit with the list:</p>
+
+    <nav class="list">
+        <h1>Title 1</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <h1>Title 2</h1>
+        <ul>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+    
+    <p>A dividing line from the previous list may be defined with <code>nav.list ul.divider</code>:</p>
+    
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="divider"&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <p>The title is styled to fit with the list:</p>
+
+    <nav class="list">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <ul class="divider">
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+    
+    <h4>Hierarchical List</h4>
+    
+    <p>A <code>nav.list</code> may include sub-lists to establish hierarchy in the menu:</p>
+    
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;h1&gt;List Header&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;
+            &lt;h2&gt;Sub-List Header&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul class="divider"&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 4&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <p>Sublists render as indented and they support the same features as the parent list such as headers and separators:</p>
+    
+    <nav class="list">
+        <h1>List Header</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li>
+                <h2>Sub-List Header</h2>
+                <ul>
+                    <li><a>Item 2 Sub 1</a></li>
+                    <li><a>Item 2 Sub 2</a></li>
+                </ul>
+                <ul class="divider">
+                    <li><a>Item 2 Sub 3</a></li>
+                    <li><a>Item 2 Sub 4</a></li>
+                </ul>
+            </li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <h3>List Effects</h3>
+    
+    <h4>Accordion List</h4>
+    
+    <p>The <code>.accordion</code> class may be added to a hierarchical <code>nav.list</code>. This will cause the child lists to be hidden and revealed underneath their parent link only when the link is clicked:</p>
+    
+    <pre class="prettyprint">&lt;nav class="list accordion"&gt;
+    &lt;h2&gt;List Header&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 1 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 1 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 1 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 2 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 3 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 3 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 3 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <nav class="list accordion">
+        <h2>List Header</h2>
+        <ul>
+            <li>
+                <a>Item 1 with Sub-list</a>
+                <ul>
+                    <li><a>Item 1 Sub 1</a></li>
+                    <li><a>Item 1 Sub 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Item 2 with Sub-list</a>
+                <ul>
+                    <li><a>Item 2 Sub 1</a></li>
+                    <li><a>Item 2 Sub 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Item 3 with Sub-list</a>
+                <ul>
+                    <li><a>Item 3 Sub 1</a></li>
+                    <li><a>Item 3 Sub 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <h5>Nested Sub-lists</h5>
+    
+    <p>The <code>nav.list.accordion</code> may have nested sub-lists, in which cases a nav list extends only when the containing link is clicked:</p>
+    
+    <pre class="prettyprint">&lt;nav class="list accordion"&gt;
+        &lt;h2&gt;List Header&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a&gt;Item with Nested Sub-List&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a&gt;Item with Sub-List&lt;/a&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;</pre>
+    
+    <nav class="list accordion">
+        <h2>List Header</h2>
+        <ul>
+            <li>
+                <a>Item with Nested Sub-List</a>
+                <ul>
+                    <li><a>Simple Item</a></li>
+                    <li>
+                        <a>Item with Sub-List</a>
+                        <ul>
+                            <li><a>Simple Item</a></li>
+                            <li><a>Simple Item</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Simple Item</a></li>
+                </ul>
+            </li>
+            <li><a>Simple Item</a></li>
+        </ul>
+    </nav>
+    
+    <h4>Flyout List</h4>
+    
+    <p>The <code>.accordion</code> class may be added to a hierarchical <code>nav.list</code>. This will cause the child lists to appear next to their parent link when hovered over:</p>
+    
+    <pre class="prettyprint">&lt;nav class="list flyout"&gt;
+    &lt;h2&gt;List Header&lt;/h2&gt;
+    &lt;ul class="panel-3"&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 1 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 1 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 1 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 2 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 2 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item 3 with Sub-list&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Item 3 Sub 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Item 3 Sub 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <p>It should be noted that some sort of width control must be specified on the <code>nav.list.flyout > ul</code>. Otherwise, the first level menu will expand to be <code>100%</code> of the container area and the flyout will be overlayed to the right of the container.</p>
+    
+    <nav class="list flyout">
+        <h2>List Header</h2>
+        <ul class="panel-3">
+            <li>
+                <a>Item 1 with Sub-list</a>
+                <ul>
+                    <li><a>Item 1 Sub 1</a></li>
+                    <li><a>Item 1 Sub 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Item 2 with Sub-list</a>
+                <ul>
+                    <li><a>Item 2 Sub 1</a></li>
+                    <li><a>Item 2 Sub 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Item 3 with Sub-list</a>
+                <ul>
+                    <li><a>Item 3 Sub 1</a></li>
+                    <li><a>Item 3 Sub 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <h5>Nested Sub-lists</h5>
+    
+    <p>The <code>nav.list.flyout</code> also supports multiple nested sub-lists</p>
+    
+    <pre class="prettyprint">&lt;nav class="list flyout"&gt;
+    &lt;h2&gt;List Header&lt;/h2&gt;
+    &lt;ul class="panel-3"&gt;
+        &lt;li&gt;
+            &lt;a&gt;Item with Nested Sub-List&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a&gt;Item with Sub-List&lt;/a&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Simple Item&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <nav class="list flyout">
+        <h2>List Header</h2>
+        <ul class="panel-3">
+            <li>
+                <a>Item with Nested Sub-List</a>
+                <ul>
+                    <li><a>Simple Item</a></li>
+                    <li>
+                        <a>Item with Sub-List</a>
+                        <ul>
+                            <li><a>Simple Item</a></li>
+                            <li><a>Simple Item</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Simple Item</a></li>
+                </ul>
+            </li>
+            <li><a>Simple Item</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<style>
+    .examples nav.list a {
+        cursor: pointer; /* since we're not using href value on a tag */
+    }
+    .examples nav.list {
+        margin-bottom: 10px;
+    }
+</style>

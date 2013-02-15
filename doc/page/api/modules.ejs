@@ -1,0 +1,57 @@
+<h2>Modules</h2>
+
+<p>WebBlocks elements are organized into modules.</p>
+
+<h3>Specifying Modules for Build</h3>
+
+<p>By default, all modules in the <code>Base</code> and <code>Entity</code> namespaces are included in the WebBlocks build. However, one may specify only particular namespaces to include through the <code>WebBlocks.config[:src][:modules]</code> directive in <code>Rakefile-config.rb</code>.</p>
+
+<p>As an example, this will include all <code>Base</code> modules and the <code>Entity/Form</code> module:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = []
+WebBlocks.config[:src][:modules] << 'base'
+WebBlocks.config[:src][:modules] << 'entity/form'</pre>
+
+<h3>Module List</h3>
+
+<p>The following is a list of all modules.</p>
+
+<h4>Base Modules</h4>
+
+<ul class="modules">
+    <li><%= DOC.modules.render_details('Base/Block/Float') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Branding/Background') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Branding/Background_Gradient') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Branding/Background_Light') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Branding/Background_Light_Gradient') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Branding/Text') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Mood/Background') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Mood/Background_Gradient') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Mood/Background_Light') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Mood/Background_Light_Gradient') %></li>
+    <li><%= DOC.modules.render_details('Base/Color/Mood/Text') %></li>
+    <li><%= DOC.modules.render_details('Base/Structure/Container') %></li>
+    <li><%= DOC.modules.render_details('Base/Structure/Grid') %></li>
+    <li><%= DOC.modules.render_details('Base/Type/Align') %></li>
+    <li><%= DOC.modules.render_details('Base/Type/Font') %></li>
+    <li><%= DOC.modules.render_details('Base/Visibility/Hide') %></li>
+    <li><%= DOC.modules.render_details('Base/Visibility/Media_Query/Hide') %></li>
+    <li><%= DOC.modules.render_details('Base/Visibility/Responsive/Hide') %></li>
+    <li><%= DOC.modules.render_details('Base/Visibility/Responsive/Hide_Above') %></li>
+</ul>
+
+<h4>Entity Modules</h4>
+
+<ul class="modules">
+    <li><%= DOC.modules.render_details('Entity/Badge') %></li>
+    <li><%= DOC.modules.render_details('Entity/Blockquote') %></li>
+    <li><%= DOC.modules.render_details('Entity/Button') %></li>
+    <li><%= DOC.modules.render_details('Entity/Button/Group') %></li>
+    <li><%= DOC.modules.render_details('Entity/Form') %></li>
+    <li><%= DOC.modules.render_details('Entity/List') %></li>
+    <li><%= DOC.modules.render_details('Entity/Message') %></li>
+    <li><%= DOC.modules.render_details('Entity/Nav/Bar') %></li>
+    <li><%= DOC.modules.render_details('Entity/Nav/List') %></li>
+    <li><%= DOC.modules.render_details('Entity/Table') %></li>
+</ul>
+

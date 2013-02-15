@@ -1,0 +1,76 @@
+<h2>Type</h2>
+
+<p>This library provides several helper utilities related to text styling:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Base/Type/Align') %></li>
+    <li><%= DOC.modules.render('Base/Type/Font') %></li>
+</ul>
+
+<h3>Align</h3>
+
+<p>This module provides four text alignment helpers:</p>
+
+<ul>
+    <li><code>.text-left</code></li>
+    <li><code>.text-center</code></li>
+    <li><code>.text-right</code></li>
+    <li><code>.text-justify</code></li>
+</ul>
+
+<p>These classes may be applied to any element and will style contained textual content accordingly, including inheriting into all children except where the HTML specification does not allow inheritance from parent elements.</p>
+
+<pre class="prettyprint">&lt;p class="text-left"&gt;.text-left&lt;/p&gt;
+&lt;p class="text-center"&gt;.text-center&lt;/p&gt;
+&lt;p class="text-right"&gt;.text-right&lt;/p&gt;
+&lt;p class="text-justify"&gt;.text-justify&lt;/p&gt;</pre>
+
+<p class="text-left primary">.text-left</p>
+<p class="text-center secondary">.text-center</p>
+<p class="text-right tertiary">.text-right</p>
+<p class="text-justify neutral">.text-justify</p>
+
+<h3>Font</h3>
+
+<p>This module defines a number of base styles:</p>
+
+<ul>
+    <li>Font size and family for the body</li>
+    <li>Font sizes, margins, line heights and margins for the header, paragraph and list item tags</li>
+    <li>Styling for <code>abbr[title]</code>, <code>address</code>, <code>blockquote</code>, <code>cite</code> and <code>hr</code> tags</li>
+</ul>
+
+<h4>Examples</h4>
+
+<p>The following shows much of the styling applied by this module:</p>
+
+<div class="text-examples">
+    <h1>Header 1<br><small>with small tag</small></h1>
+    <h2>Header 2<br><small>with small tag</small></h2>
+    <h3>Header 3<br><small>with small tag</small></h3>
+    <h4>Header 4<br><small>with small tag</small></h4>
+    <h5>Header 5<br><small>with small tag</small></h5>
+    <h6>Header 6<br><small>with small tag</small></h6>
+    <p>Paragraph text<br><small>with small tag</small></p>
+    <ul>
+        <li>List item text</li>
+    </ul>
+</div>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Base/Type/Font').join('</li><li>') %></li>
+</ul>
+
+<p>It is worth note that some components, such as the Bootstrap adapter, may internally override the values assigned by this module.</p>
+
+<style>
+    p[class*="text-"] {
+        padding: 5px;
+    }
+    .text-examples {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+    }
+</style>

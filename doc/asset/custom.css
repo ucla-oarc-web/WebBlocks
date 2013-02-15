@@ -1,0 +1,92 @@
+code {
+    background: none;
+    border: none;
+    color: #777;
+    padding-left: 1px;
+    padding-right: 1px;
+    font-size: 0.93em;
+}
+
+pre, pre.prettyprint {
+    font-size: 0.85em;
+    padding: 5px 10px;
+    display: block;
+    background-color: #f9f9f9;
+    border-color: #ddd;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    margin-bottom: 16px;
+}
+
+.configuration, .modules {
+    list-style-type: circle;
+}
+
+.configuration li, .modules li {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, a:visited, a:active {
+    color: #1042bc;
+}
+
+a:hover:not(.button) {
+    color: #006ecc;
+}
+
+/* polyfills for a coming feature in WebBlocks */
+
+nav.tabs {
+    padding-left: 10px;
+    display: block;
+    overflow: hidden;
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+nav.tabs > *, .tabs li {
+    display: block;
+    float: left;
+    line-height: 1;
+}
+
+nav.tabs > * {
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+nav.tabs li {
+    padding: 8px 16px 8px 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 8px;
+        -webkit-border-top-left-radius: 8px;
+        -moz-border-top-left-radius: 8px;
+        -o-border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+        -webkit-border-top-right-radius: 8px;
+        -moz-border-top-right-radius: 8px;
+        -o-border-top-right-radius: 8px;
+    border-bottom: 0px;
+    display: block;
+}
+
+nav.tabs a {
+    cursor: pointer;
+}
+
+nav.tabs h3 {
+    padding-top: 8px;
+    margin: 0;
+    font-size: 1em;
+    color: #999;
+}

@@ -1,0 +1,109 @@
+<h2>Environment</h2>
+
+<p>This section explains what is needed to run the WebBlocks compiler. This environment is not required to simply leverage the WebBlocks build products, as they are simply static CSS, JS and other web assets.</p>
+
+<h3>Required Software</h3>
+
+<p>The WebBlocks compiler leverages <code>rake</code>, a Ruby equivalent of GNU <code>make</code>. It also takes advantage of several other tools, such as <code>git</code>, <code>compass</code>, <code>npm</code>, <code>uglifycss</code> and <code>uglifyjs</code>. As such, the following are required:</p>
+
+<ul>
+    <li><strong><a href="https://rubygems.org" target="_blank">Ruby</a></strong> (v1.8 or v1.9)</li>
+    <li><strong><a href="https://rubygems.org" target="_blank">RubyGems</strong></li>
+    <li><strong><a href="http://gembundler.com" target="_blank">Bundler</a></strong></li>
+    <li><strong><a href="http://nodejs.org" target="_blank">Node.js</a></strong></li>
+    <li><strong><a href="https://npmjs.org" target="_blank">NPM</a></strong></li>
+    <li><strong><a href="http://git-scm.com" target="_blank">Git</a></strong></li>
+</ul>
+
+<div data-effect="toggle" data-toggle="show slide" class="install-instructions">
+    
+    <button data-target=".install-instructions" class="button secondary small">Show Requisite Installation Instructions</button>
+    
+</div>
+
+<div data-effect="toggle" data-toggle="slide" class="install-instructions">
+    
+    <h3>Requisite Installation Instructions</h3>
+    
+    <p>These instructions are meant as a guide, but they are neither inclusive of all ways to install the requisite packages, nor will they necessarily remain the correct way to perform these installs over time.</p>
+    
+    <h4>Ruby and RubyGems</h4>
+    
+    <h5>Mac OS X</h5>
+    
+    <p>Ruby 1.8.7 and Rubygems are pre-installed in OS X</p>
+
+    <h5>Windows</h5>
+
+    <p>Go to <a href="http://rubyinstaller.org" target="_blank">http://rubyinstaller.org</a> and select the RubyInstaller for 1.8.7</p>
+
+    <p>Check the box for: <code>Add Ruby executable for your path</code>.</p>
+
+    <h5>Enterprise Linux (Redhat/Centos) and Fedora</h5>
+
+    <pre class="prettyprint">yum install ruby rubygems</pre>
+    
+    <h5>Debian/Ubuntu</h5>
+
+    <pre class="prettyprint">apt-get install ruby rubygems</pre>
+    
+    <h4>Bundler</h4>
+    
+    <p>Bundler is the Ruby package management system. Once you have RubyGems installed, you can simply call gem to install it:</p>
+
+    <pre class="prettyprint">gem install bundler</pre>
+    
+    <h4>Node.js and NPM</h4>
+    
+    <h5>Mac OS X</h5>
+
+    <p>Go to <a href="http://www.nodejs.org/download/" target="_blank">http://www.nodejs.org/download/</a></p>
+
+    <h5>Windows</h5>
+
+    <p>Go to <a href="http://www.nodejs.org/download/" target="_blank">http://www.nodejs.org/download/</a></p>
+
+    <h5>Enterprise Linux (Redhat/Centos)</h5>
+
+    <pre class="prettyprint">yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/el/nodejs-stable-release.noarch.rpm
+yum install nodejs-compat-symlinks npm</pre>
+
+    <h5>Fedora</h5>
+
+    <pre class="prettyprint">sudo yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/fedora/nodejs-stable-release.noarch.rpm
+sudo yum install nodejs</pre>
+    
+    <h5>Debian</h5>
+
+    <pre class="prettyprint">apt-get install python g++ make
+mkdir ~/nodejs && cd $_
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz && cd `ls -rd node-v*`
+./configure
+make install</pre>
+    
+    <h5>Ubuntu</h5>
+
+    <pre class="prettyprint">apt-get install python-software-properties
+add-apt-repository ppa:chris-lea/node.js
+apt-get update
+apt-get install nodejs npm</pre>
+    
+</div>
+
+<h3>Installing Packages</h3>
+
+<p>Once the items in "Required Software" have been installed, the rest of the packages used by WebBlocks may be installed via <code>git</code>, <code>bundle</code> and <code>npm</code>:</p>
+
+<pre class="prettyprint">git submodule init
+git submodule update
+bundle
+npm install</pre>
+
+<h3>Running Rake</h3>
+
+<p>The WebBlocks compile, once the environment has been configured, is as simple as running <code>rake</code>:</p>
+
+<pre class="prettyprint">rake</pre>
+
+<p>For a description of different rake tasks and options, check out <a href="#Configuration/Compiler">Compiler Tasks</a>.</p>

@@ -359,10 +359,12 @@
                 'form.form':'Styles a form with labels, controls and text',
                 'form.form.horizontal':'Style variation for a two column form with labels on left and controls & text on right that collapses below <code>$breakpoint-small</code>',
                 'form.form div.control':'A form control (<code>input</code>, <code>select</code>, <code>textarea</code>) with optional mood color classes and contained label and help text elements',
+                'form.form div.control div.inline': 'A set of form controls such as checkboxes or radio buttons that are aligned inline together',
                 'form.form .uneditable-input':'Style for an uneditable form control',
                 'form.form [input|textarea|select].mini':'Mini size form control',
                 'form.form [input|textarea|select].small':'Small size form control',
-                'form.form [input|textarea|select].large':'Large size form control'
+                'form.form [input|textarea|select].large':'Large size form control',
+                'form.form [input|textarea|select].full':'Full width form control'
             },
             uses:[
                 'form-horizontal-offset',

@@ -1,0 +1,97 @@
+<h2>Customizing Components</h2>
+
+<p>The WebBlocks compiler is designed to integrate with application development workflows to allow one to specify their own custom extensions and source files. Consequently, the <code>Rakefile-config.rb</code> file may be used to specify where sources to be compiled reside.</p>
+
+<p>While this page provides basics about customizing the location of your sources folder, see the Integration articles within <a href="#Recipe">Recipes</a> (such as <a href="#Recipe/Integration/Submodule">Recipe/Integration/Submodule</a> for more details about particular integration strategies.</p>
+
+<h3>Source Directory</h3>
+
+<p>The source directory is where the WebBlocks core, adapters, SASS, JS and images all reside. By default, this is the <code>src</code> folder within WebBlocks itself:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:dir] = 'src'</pre>
+
+<p>For an application, this source folder might exist somewhere else:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:dir] = '/your/app/path'</pre>
+
+<p>Generally, this is an absolute path, or it may be specified as a path relative to the WebBlocks root directory.</p>
+
+<h3>Core and Adapter Source Directories</h3>
+
+<p>When setting a different WebBlocks source directory, WebBlocks will attempt to use this directory for its core and adapters, as well as your SASS, JS and images. By default, it assumes that the core, adapter and extension directories reside within the source folder:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapters][:dir] = 'adapter'
+WebBlocks.config[:src][:core][:dir] = 'core'
+WebBlocks.config[:src][:extension][:dir] = 'extension'</pre>
+
+<p>Suppose that an application establishes a custom path for the WebBlocks sources, but it seeks to use the adapter, core and extension source directories within WebBlocks itself (this is usually the case). To configure this as such, modify these three directives:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapters][:dir] = '/path/to/webblocks/adapter'
+WebBlocks.config[:src][:core][:dir] = '/path/to/webblocks/core'
+WebBlocks.config[:src][:extension][:dir] = '/path/to/webblocks/extension'</pre>
+
+<p>If <code>Rakefile-config.rb</code> still resides within the WebBlocks root, then this could be done programatically (as <code>Rakefile-config.rb</code> is a full-blown Ruby file):</p>
+
+<pre class="prettyprint">require 'pathname'
+rootdir = File.dirname(Pathname.new(__FILE__).realpath)
+WebBlocks.config[:src][:adapters][:dir] = '#{rootdir}/src/adapter'
+WebBlocks.config[:src][:core][:dir] = '#{rootdir}/src/core'
+WebBlocks.config[:src][:extension][:dir] = '#{rootdir}/src/extension'</pre>
+
+<p>It should be noted that, even when setting <code>WebBlocks.config[:src][:extension][:dir]</code> somewhere, one may still specify extensions by absolute path to reference extensions in other locations.</p>
+
+<p>The <a href="#Recipe/Integration/Submodule">Recipe/Integration/Submodule</a> article explores the use of these configuration details more fully to demonstrate how one may create sources and a <code>Rakefile-config.rb</code> elsewhere that leverage the WebBlocks builder and its core and adapter sources while using source files from elsewhere.</p>
+
+<h3>Other Source Directories and Files</h3>
+
+<p>WebBlocks generally encourages that the SASS, JS and image sources are included directly under wherever <code>WebBlocks.config[:src][:dir]</code> specifies as the location of the source directory. However, it does provide configuration options to customize these.</p>
+
+<h4>SASS Sources Directory</h4>
+
+<p>The <code>sass</code> directory containing <code>blocks.scss</code>, <code>blocks-ie.scss</code> and <code>_variables.scss</code> usually resides under <code>src</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:sass][:dir] = 'sass'</pre>
+
+<p>This may be changed to be a different directory relative to <code>src</code>, or it may use an absolute path to specify a different location for the SASS directory.</p>
+
+<h4>SASS Includes Sources Directory</h4>
+
+<p>The SASS includes directory is a directory that one may use to specify a set of SASS files that should be automatically included within WebBlocks when its included into <code>blocks.scss</code>. This SASS includes directory <code>blocks</code> usually resides under <code>src/sass</code> (or, if <code>WebBlocks.config[:src][:sass][:dir]</code> has been changed, then wherever this directory is):</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:sass][:includes][:dir] = 'blocks'</pre>
+
+<p>This may be changed to be a different directory relative to the SASS sources directory, or it may use an absolute path to specify a different location for the SASS includes directory.</p>
+
+<h4>JS Sources Directory</h4>
+
+<p>The <code>js</code> directory contains three subfolders: <code>core</code>, <code>core-ie</code> and <code>script</code>. When the compiler runs, Javascript assets in <code>core</code> are compiled into <code>js/blocks.js</code>, Javascript assets in <code>core-ie</code> are compiled into <code>js/blocks-ie.js</code>, and Javascript assets in <code>script</code> are copied into the <code>js/script</code> folder.</p>
+
+<p>This directory is traditionally <code>js</code> under the sources directory:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:js][:dir] = 'js'</pre>
+
+<p>This may be changed to be a different directory relative to <code>src</code>, or it may use an absolute path to specify a different location for the SASS directory.</p>
+
+<h4>Images Sources Directory</h4>
+
+<p>The <code>img</code> directory contains a set of images that are copied into the <code>img</code> build folder based on their relative path within this directory. This directory is traditionally <code>js</code> under the sources directory:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:img][:dir] = 'img'</pre>
+
+<p>This may be changed to be a different directory relative to <code>src</code>, or it may use an absolute path to specify a different location for the SASS directory.</p>
+
+<h4>Core Configuration Paths</h4>
+
+<p>The <code>WebBlocks.config[:src][:core][:dir]</code> directive specifies where core assets reside.</p>
+
+<p>Although rarely used, one may specify a different path for core definitions:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:core][:definitions][:dir] = 'definitions'</pre>
+
+<p>Generally, this should not be done however, as core definitions are intrinsic to the WebBlocks semantics themselves. The only case where this would seem to fit would be if someone is simply using the architecture but seeks to produce a completely different set of semantics, thus defining their own definitions folder.</p>
+
+<p>Similarly, one may also specify a different path for the core adapter:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:core][:adapter][:dir] = 'adapter'</pre>
+
+<p>Again, this should most often not be used, since the core adapter can be overridden in its entirety by a third party module, meaning that one can instead simply introduce a new third-party adapter that makes the intended overrides.</p>

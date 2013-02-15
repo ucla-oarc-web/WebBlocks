@@ -1,0 +1,37 @@
+<h2>Classes</h2>
+
+<ul class="variables-list">
+<% 
+var classes = DOC.modules.get_classes()
+
+var classes_keys = []
+for(var class_name in classes)
+    classes_keys.push(class_name)
+classes_keys.sort()
+
+for(var i in classes_keys){
+    var class_name = classes_keys[i],
+        class_details = classes[class_name];
+%>
+    <li>
+        <code><b><%= class_name %></b></code>
+        <small>
+            <br>
+            <em><%= class_details.description %></em>
+            <br>
+            <strong class="text-secondary">Module</strong> 
+            <a href="#API/<%= class_details.module_api %>">
+                <%= class_details.module %>
+            </a>
+        </small>
+    </li>
+<%
+}
+%>
+</ul>
+
+<style>
+    .variables-list li {
+        margin-bottom: 10px;
+    }
+</style>

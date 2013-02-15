@@ -1,0 +1,223 @@
+<h2>Troubleshooting</h2>
+
+<p>This section includes a number of common issues encountered with the WebBlocks compiler. It is intended to be a first step in diagnosing issues related to the WebBlocks compile process.</p>
+
+<p>If an issue is not resolved after reviewing these items, additional support avenues exist:</p>
+
+<ul>
+    <li><a href="https://github.com/ucla/WebBlocks/issues" target="_blank">Issue Tracker</a></li>
+    <li><a href="http://lists.ucla.edu/cgi-bin/mailman/listinfo/webblocks" target="_blank">Mailing List</a></li>
+    <li><a href="https://github.com/ucla/WebBlocks/wiki/Meeting-Agendas-%26-Notes" target="_blank">Weekly Meetings</a></li>
+</ul>
+
+<h3>Common Errors</h3>
+
+<div id="troubleshooting-list">
+    
+    <article>
+
+        <h5>Could not find rake or other package</h5>
+
+        <div>
+            
+            <p>When invoking <code>rake</code>, an error may be thrown immediately about rake:</p>
+            
+            <pre>$ rake [task]
+Could not find rake-10.0.3 in any of the sources
+Run `bundle install` to install missing gems</pre>
+            
+            <p>If <code>rake</code> is installed but another package in <code>Gemfile</code> is not, a similar message will be presented for another package:</p>
+            
+            <pre>$ rake [task]
+Could not find ... in any of the sources
+Run `bundle install` to install missing gems</pre>
+            
+            <p>These errors indicates that <code>bundle install</code> has not been run to download the additional software packages needed for WebBlocks. To resolve this, run <code>bundle install</code> from the WebBlocks root directory:</p>
+            
+            <pre>bundle install</pre>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
+        <h5>Rake fails immediately upon invocation</h5>
+        
+        <div>
+            
+            <p>Several errors that indicate <code>Rakefile-config.rb</code> has a syntax error:</p>
+            
+            <pre>$ rake [task]
+rake aborted!
+/.../WebBlocks/Rakefile-config.rb:# ...</pre>
+            
+            <pre>rake [task]
+rake aborted!
+undefined local variable or method `...' for main:Object
+/.../WebBlocks/Rakefile-config.rb:# ...</pre>
+            
+            <p>Such issues may be resolved by fixing the error in <code>Rakefile-config.rb</code>.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
+        <h5>Rake fails with a Compass compile error</h5>
+        
+        <div>
+            
+            <p>The following error indicates a problem with one of the SASS files:</p>
+            
+            <pre>$ rake [task]
+...
+[WebBlocks] Run Compass compiler
+[Compiler] Compass compile error: </pre>
+            
+            <p>This error is followed by a set of debug output such as:</p>
+            
+            <pre>error blocks-ie.scss (Line 1 of _variables.scss: Invalid CSS after "...": expected "{", was "")
+Sass::SyntaxError on line ["1"] of /.../WebBlocks/src/sass/_variables.scss: Invalid CSS after "...": expected "{", was ""
+</pre>
+            
+            <p>This error output comes directly from the Compass compiler leveraged by the WebBlocks compiler. It includes references to two files. One will be <code>blocks.scss</code> or <code>blocks-ie.scss</code> and should be ignored; the other, which is another file and line number in the system such as <code>_variables.scss</code>, indicates where the issue occurred.</p>
+            
+            <p>If the error is <code>undefined operation</code> or <code>is not a [type-name]</code>, this indicates that some variable is set to the wrong type. Please consult <a href="#API/Variables">API/Variables</a> to ensure any variables in <code>src/sass/_variables.scss</code> are of the proper type. If any extensions are used, confirm the same in the extension <code>_variables.scss</code> file or report the issue back to the extension developer. Finally, if the issue is in neither location, then report it on the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks issue tracker</a>.</p>
+            
+            <p>For most other errors, if the error is in <code>src/core/adapter</code>, <code>src/core/definitions</code> or <code>src/adapter/bootstrap</code>, then it should be reported to the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks issue tracker</a>. Otherwise, the error stems from an issue in either the <code>src/sass</code> files or an extension and should be handled as such.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+
+        <h5>Rake fails while packaging JS build files</h5>
+
+        <div>
+
+            <pre>$ rake [task]
+...
+[WebBlocks] Packaging JS build files
+rake aborted!
+Compression error encountered in /.../WebBlocks/.build-tmp/js/blocks.js</pre>
+
+            <p>This error indicates one of two problems: either <code>uglifyjs</code> is not installed or there is a Javascript syntax error in your Javascript sources.</p>
+
+            <p>Unless <code>WebBlocks.config[:exec][:uglifyjs]</code> is set, then invoke <code>npm install</code> from the WebBlocks root directory to install the Node.js module:</p>
+
+            <pre>npm install</pre>
+
+            <p>If <code>WebBlocks.config[:exec][:uglifyjs]</code> is explicitly set in <code>Rakefile-config.rb</code>, then ensure that it is installed correctly by invoking the command line set for it.</p>
+
+            <p>Suppose that is set as:</p>
+
+            <pre>node ./node_modules/uglify-js/bin/uglifyjs</pre>
+
+            <p>Then confirm that this works correctly as:</p>
+
+            <pre>echo "(function(){})();" | node ./node_modules/uglify-js/bin/uglifyjs</pre>
+
+            <p>If this works correctly, then the error is within the Javascript sources in <code>src/js</code>.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
+        <h5>Build does not include expected adapter</h5>
+        
+        <div>
+            
+            <p>When compiling WebBlocks, the compiler may end up not including an adapter specified in <code>Rakefile-config.rb</code>.</p>
+            
+            <p>An adapter is regarded by WebBlocks as existing if and only if its handler exists in <code>lib/Build/Adapter</code>. The first step in troubleshooting this is to confirm the handler exists, as well as the adapter directory within <code>src/adapter</code>.</p>
+            
+            <p>It should be noted that the paths for adapters is affected by:</p>
+            
+            <ul>
+                <li><code>WebBlocks.config[:src][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:adapters][:dir]</code></li>
+            </ul>
+            
+            <p>If either of these are set in <code>Rakefile-config.rb</code>, ensure that the adapter directory exists in the specified locations. More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
+        <h5>Build does not include expected extension</h5>
+        
+        <div>
+            
+            <p>When compiling WebBlocks, the compiler may end up not including an extension specified in <code>Rakefile-config.rb</code>.</p>
+            
+            <p>An extension is regarded by WebBlocks as existing if and only if the extension directory exists. If the extension is specified by a relative path, then it is relative to <code>src/extension</code> (unless the source directory or extension source directory has been changed in <code>Rakefile-config.rb</code>). Meanwhile, if the extension is specified by an absolute path, then that directory must exist.</p>
+            
+            <p>It should be noted that the paths for relative-pathed extensions is affected by:</p>
+            
+            <ul>
+                <li><code>WebBlocks.config[:src][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:extension][:dir]</code></li>
+            </ul>
+            
+            <p>If either of these are set in <code>Rakefile-config.rb</code>, ensure that the extension directory exists in the specified locations. More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
+        <h5>Build does not include expected modules</h5>
+        
+        <div>
+            
+            <p>When compiling WebBlocks, the compiler may end up not including a module specified in <code>Rakefile-config.rb</code>.</p>
+            
+            <p>A module is regarded by WebBlocks as existing if and only if it is a path within <code>src/core/definitions</code>. This could resolve to a directory, in which case it includes all of the SASS sources underneath, or it could resolve to a file name of sorts, in which case it includes the <code>_</code> and non-<code>_</code> variants of the <code>.scss</code> file, as well as the ones suffixed by <code>-ie</code>, if they exist.</p>
+            
+            <p>It is usually safe to assume that modules to be set should come from <a href="#API/Modules">API/Modules</a>, although additional ones may be added as explained in <a href="#Development/Architecture/Module">Development/Architecture/Module</a>.</p>
+            
+            <p>It should be noted that module definitions are affected by:</p>
+            
+            <ul>
+                <li><code>WebBlocks.config[:src][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:core][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:core][:adapter][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:core][:definitions][:dir]</code></li>
+            </ul>
+            
+            <p>More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
+            
+        </div>
+        
+    </article>
+
+</div>
+
+<script>
+    $('#troubleshooting-list article').each(function(){
+        $(this).children(':not(h5)').hide()
+        $(this).children('h5').each(function(){
+            var contents = $(this).html()
+            $(this).html('<a>'+contents+'</a>')
+            $(this).find('a').click(function(){
+                var ele = $(this).closest('article')
+                ele.children(':not(h5)').slideToggle();
+                ele.siblings().children(':not(h5)').slideUp();
+            })
+        })
+    })
+</script>
+
+<style>
+    article a {
+        cursor: pointer;
+    }
+</style>

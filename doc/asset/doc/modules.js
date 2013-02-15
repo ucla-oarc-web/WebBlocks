@@ -459,7 +459,8 @@
             defines: {
                 'nav.list':'Styles a nav element with an internal set of lists and optional sublists and headers.',
                 'nav.list.accordion':'Styles a nav list where child lists are hidden, revealed only when parent link is selected.',
-                'nav.list.flyout':'Styles a nav list where child lists appear next to their parent link' 
+                'nav.list.flyout':'Styles a nav list where child lists appear next to their parent link',
+                'nav.list ul.divider':'A list in the nav list with a divider bar before it'
             },
             api:'Entity/Nav/List'
         },

@@ -439,6 +439,7 @@
                 'nav.bar.bottom':'Fixes navbar to the bottom of the screen'
             },
             supports: [
+                'nav.bar h1.float-right',
                 'nav.bar.primary',
                 'nav.bar.secondary',
                 'nav.bar.tertiary',

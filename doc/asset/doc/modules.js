@@ -436,7 +436,9 @@
             defines: {
                 'nav.bar':'Styles a nav element with internal list and optional header as a navbar',
                 'nav.bar.top':'Fixes navbar to the top of the screen',
-                'nav.bar.bottom':'Fixes navbar to the bottom of the screen'
+                'nav.bar.bottom':'Fixes navbar to the bottom of the screen',
+                'nav.bar .toggle':'Custom toggle when menu is collapsed',
+                'nav.bar ul.dropdown':'Custom dropdown for collapsed variant of menu'
             },
             supports: [
                 'nav.bar h1.float-right',

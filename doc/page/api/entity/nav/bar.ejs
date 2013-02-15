@@ -1,0 +1,492 @@
+<h2>Navigation Bar</h2>
+
+<p>This library includes a module for a navigation bar user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Nav/Bar') %></li>
+</ul>
+
+<div class="examples">
+
+    <h3>Basic Usage</h3>
+
+    <p>The minimal definition is simply a <code>nav.bar</code> containing a <code>ul</code> or <code>ol</code>.</p>
+
+    <pre class="prettyprint">&lt;nav class="bar"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <p>The nav bar renders as a full-width bar within its container. So long as the elements haven't overflowed, they will be listed from left to right across the bar.</p>
+
+    <nav class="bar">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <p>If they have overflowed, meanwhile, they will vanish and an icon will appear that causes the menu to drop down when pressed:</p>
+
+    <nav class="bar">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+            <li><a>Item 5</a></li>
+            <li><a>Item 6</a></li>
+            <li><a>Item 7</a></li>
+            <li><a>Item 8</a></li>
+            <li><a>Item 9</a></li>
+            <li><a>Item 10</a></li>
+            <li><a>Item 11</a></li>
+            <li><a>Item 12</a></li>
+        </ul>
+    </nav>
+    
+    <p>A header element (<code>h1</code>-<code>h6</code>) may be added as the <em>first</em> child of <code>nav.bar</code> to display a title for the bar:</p>
+    
+    <pre class="prettyprint">&lt;nav class="bar"&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="bar">
+        <h1>Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <p>The header should always be the first child of <code>nav.bar</code>, but the <code>.float-right</code> class may be applied to it to position it on the right side of the bar.</p>
+    
+    <pre class="prettyprint">&lt;nav class="bar"&gt;
+    &lt;h1 class="float-right"&gt;Title&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="bar">
+        <h1 class="float-right">Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <h3>Colored Bar</h3>
+    
+    <p>The <code>nav.bar</code> supports any of the branding and mood colors detailed in <a href="#API/Base/Color">API/Base/Color</a>. It will always use the <code>.gradient</code> variation, but <code>.light</code> may be applied to use the light flavor of the color:</p>
+    
+<pre class="prettyprint">&lt;nav class="bar primary"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="bar primary">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <pre class="prettyprint">&lt;nav class="bar primary"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="bar primary light">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <p>A full list of hues:</p>
+    
+    <nav class="bar primary">
+        <h1>.primary</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar primary light">
+        <h1>.primary.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar secondary">
+        <h1>.secondary</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar secondary light">
+        <h1>.secondary.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar tertiary">
+        <h1>.tertiary</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar tertiary light">
+        <h1>.tertiary.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar neutral">
+        <h1>.neutral</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar neutral light">
+        <h1>.neutral.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar default">
+        <h1>.default</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar default light">
+        <h1>.default.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar info">
+        <h1>.info</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar info light">
+        <h1>.info.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar success">
+        <h1>.success</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar success light">
+        <h1>.success.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar warning">
+        <h1>.warning</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar warning light">
+        <h1>.warning.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar error">
+        <h1>.error</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar error light">
+        <h1>.error.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar danger">
+        <h1>.danger</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar danger light">
+        <h1>.danger.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar important">
+        <h1>.important</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar important light">
+        <h1>.important.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar inverse">
+        <h1>.inverse</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar inverse light">
+        <h1>.inverse.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar required">
+        <h1>.required</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar required light">
+        <h1>.required.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <nav class="bar highlight">
+        <h1>.highlight</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <nav class="bar highlight light">
+        <h1>.highlight.light</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+    
+    <h3>Positioning Controls</h3>
+    
+    <p>The <code>nav.bar</code> usually places itself as a full-width block based on its position in the DOM. However, the <code>.top</code> and <code>.bottom</code> classes can be added to the <code>nav.bar</code> to create a menu that is fixed either to the top or bottom of the viewport. When a user scrolls, a menu with the class top or bottom will stay in its original location.</p>
+    
+    <p>The classes <code>.top</code> and <code>.bottom</code> may not be used at the same time.</p>
+    
+    <p>A Javascript utility also ensures that there is adequate padding to the document body so that these elements do not obscure any site content. This means that you do not need to explicitly pad the body.</p>
+    
+    <h3>Responsive Behavior</h3>
+    
+    <h4>Overflow-Based Responsiveness</h4>
+
+    <p>Typical nav bar menus in most frameworks collapse at some fixed breakpoint. In the case of many menus, this behavior is non-ideal because the collapse either happens unnecessarily early or far after the elements have overflowed onto multiple lines.</p>
+
+    <p>This implementation takes a different approach, hiding menu items and showing a dropdown button only when an overflow actually occurs. This is accomplished through Javascript, and this collapse handling is done both at page load and any time the window is resized.</p>
+    
+    <p><span class="badge info">NOTE</span> Reside this documentation to see how the navbars collapse on overflow.</p>
+
+    <h4>Custom Collapse Toggle and Menu</h4>
+
+    <p>The typical configuration of nav.bar includes just an optional heading element and a list. However, it is possible to set a custom collapse toggle that one clicks on to have the menu drop down while in responsive mode, as well as a custom menu that drops down.</p>
+
+    <p>To set a the custom toggle, just add a child with the class <code>toggle</code>. This can be any image, text, etc., although this particular example just uses a bit of text for simplicity:</p>
+    
+    <pre class="prettyprint">&lt;nav class="bar primary"&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+            &lt;!-- more list items... --&gt;
+        &lt;/ul&gt;
+        &lt;p class="toggle" style="padding-top:10px;cursor:pointer;"&gt;MENU&lt;/p&gt;
+    &lt;/nav&gt;</pre>
+    
+    <nav class="bar primary">
+        <h1>Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+            <li><a>Item 5</a></li>
+            <li><a>Item 6</a></li>
+            <li><a>Item 7</a></li>
+            <li><a>Item 8</a></li>
+            <li><a>Item 9</a></li>
+            <li><a>Item 10</a></li>
+            <li><a>Item 11</a></li>
+            <li><a>Item 12</a></li>
+        </ul>
+        <button class="toggle button mini secondary" style="margin-top:6px;">MENU</button>
+    </nav>
+    
+    <p>To set a custom dropdown, add a child with the class <code>.dropdown</code>:</p>
+    
+    <pre class="prettyprint">&lt;nav class="bar primary"&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+            &lt;!-- more list items... --&gt;
+        &lt;/ul&gt;
+        &lt;p class="toggle" style="padding-top:10px;cursor:pointer;"&gt;MENU&lt;/p&gt;
+        &lt;ul class="dropdown"&gt;
+            &lt;li&gt;&lt;a&gt;Responsive Item 1&lt;/a&gt;&lt;/li&gt;
+            &lt;!-- more list items... --&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;</pre>
+
+    <nav class="bar primary">
+        <h1>Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+        <button class="toggle button mini secondary" style="margin-top:6px;">MENU</button>
+        <ul class="dropdown">
+        <li><a href="#1">Responsive Item 1</a></li>
+        <li><a href="#2">Responsive Item 2</a></li>
+        <li><a href="#3">Responsive Item 3</a></li>
+    </ul>
+    </nav>
+    
+    <nav class="bar primary">
+        <h1>Title</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+            <li><a>Item 5</a></li>
+            <li><a>Item 6</a></li>
+            <li><a>Item 7</a></li>
+            <li><a>Item 8</a></li>
+            <li><a>Item 9</a></li>
+            <li><a>Item 10</a></li>
+            <li><a>Item 11</a></li>
+            <li><a>Item 12</a></li>
+        </ul>
+        <button class="toggle button mini secondary" style="margin-top:6px;">MENU</button>
+        <ul class="dropdown">
+        <li><a href="#1">Responsive Item 1</a></li>
+        <li><a href="#2">Responsive Item 2</a></li>
+        <li><a href="#3">Responsive Item 3</a></li>
+    </ul>
+    </nav>
+
+</div>
+    
+<style>
+    .examples nav.bar li a {
+        cursor: pointer; /* since we're not using href value on a tag */
+    }
+    .examples nav.bar {
+        margin-bottom: 10px;
+    }
+</style>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        
+        <title>WebBlocks: Start</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <!--
+        <link rel="stylesheet" href="asset/build/css/blocks.css">
+        <script type="text/javascript" src="asset/build/js/blocks.js"></script>
+        
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="asset/build/css/blocks-ie.css">
+        <script type="text/javascript" src="asset/build/js/blocks-ie.js"></script>
+        <![endif]-->
+        
+        <link rel="stylesheet" href="asset/build/css/blocks.css">
+        <script type="text/javascript" src="asset/build/js/blocks.js"></script>
+        
+        <script type="text/javascript" src="asset/ejs.js"></script>
+        <script type="text/javascript" src="asset/ejs_views.js"></script>
+        <script type="text/javascript" src="asset/jquery.ba-hashchange.js"></script>
+        
+        <link rel="stylesheet" href="asset/prettify/prettify.css">
+        <script type="text/javascript" src="asset/prettify/prettify.js"></script>
+        
+        <link rel="stylesheet" href="asset/custom.css">
+        
+        <script type="text/javascript" src="asset/doc/core.js"></script>
+        <script type="text/javascript" src="asset/doc/vars/sass.js"></script>
+        <script type="text/javascript" src="asset/doc/modules.js"></script>
+        
+    </head>
+    
+    <body>
+            
+        <nav class="primary bar" id="menu">
+            <h1>WebBlocks Documentation</h1>
+            <ul>
+                <li><a href="#Start">Home</a></li>
+                <li><a href="#API">API</a></li>
+                <li><a href="#Configuration">Configure</a></li>
+                <li><a href="#Recipe">Recipes</a></li>
+                <li><a href="#Development">Development</a></li>
+            </ul>
+        </nav>
+        
+        <div class="container">
+            
+            <div id="content" class="row"></div>
+            
+        </div>
+        
+        <script type="text/javascript">
+            
+            $(window).hashchange( function(){
+                
+                var hash = location.hash,
+                    page = hash.substring(1)
+                
+                if(hash == '')
+                    page = 'Start'
+                
+                DOC.go(page, loaded ? 200 : 0)
+                loaded = true
+                document.title = 'WebBlocks: '+page
+                
+                $('#menu a').each(function(){
+                    var that = $(this);
+                    that[ that.attr( 'href' ) === hash.split('/')[0] ? 'addClass' : 'removeClass' ]('active');
+                })
+            })
+
+            var loaded = false
+            $(window).hashchange();
+            
+        </script>
+        
+    </body>
+    
+</html>

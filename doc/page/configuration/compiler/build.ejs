@@ -1,0 +1,68 @@
+<h2>Customizing Build Output</h2>
+
+<p>By default, WebBlocks builds its assets into a <code>/build</code> folder. However, to enable the use of WebBlocks in other environments, one may modify <code>Rakefile-config.rb</code> to customize where the build assets are placed.</p>
+
+<h3>Debug Output</h3>
+
+<p>By default, WebBlocks assets are produced in a compressed and uncommented form. However, this is not always beneficial if one is seeking to understand the outputs for debugging purposes. Debug output may thus be turned on as follows:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:debug] = false</pre>
+
+<h3>Build Directory</h3>
+
+<p>By default, the WebBlocks build products are placed in <code>/build</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir] = 'build'</pre>
+
+<p>The directory specified by this configuration setting is relative to the WebBlocks root. It also accepts absolute paths, in the event that the build is intended to be placed in some other location:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:dir] = '/var/www/html/blocks'</pre>
+
+<h3>Build Files</h3>
+
+<p>In addition to customizing the build directory, one may also explicitly define the individual CSS, JS and image build products. By default, these are <code>css</code>, <code>js</code> and <code>img</code> within the build directory:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:css][:dir] = 'css'
+WebBlocks.config[:build][:img][:dir] = 'img'
+WebBlocks.config[:build][:js][:dir] = 'js'
+</pre
+
+<p>These configuration settings are relative to the build directory, although they may be set as absolute paths if the CSS, JS and image products are intended to be produced into different locations.</p>
+
+<p>The individual files and directories produced may also be set explicitly. By default, they are:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:css][:name] = 'blocks.css'
+WebBlocks.config[:build][:css][:name_ie] = 'blocks-ie.css'
+WebBlocks.config[:build][:js][:name] = 'blocks.js'
+WebBlocks.config[:build][:js][:name_ie] = 'blocks-ie.js'
+WebBlocks.config[:build][:js][:name_script_dir] = 'script'</pre>
+
+<p>These settings, in combination, produce:</p>
+
+<ol class="list outline">
+    <li>
+        <code>build/</code>
+        <ol>
+            <li>
+                <code>css/</code>
+                <ol>
+                    <li><code>blocks.css</code></li>
+                    <li><code>blocks-ie.css</code></li>
+                </ol>
+            </li>
+            <li>
+                <code>img/</code>
+            </li>
+            <li>
+                <code>js/</code>
+                <ol>
+                    <li><code>blocks.js</code></li>
+                    <li><code>blocks-ie.js</code></li>
+                    <li><code>script/</code></li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<p>These file names are relative to the CSS and JS directories, although they may also be set as explicit paths.</p>

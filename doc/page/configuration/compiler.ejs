@@ -1,0 +1,98 @@
+<h2>Compiler</h2>
+
+<p>WebBlocks is compiled through the use of <code>rake</code> from the root of the WebBlocks directory, invoking the <code>Rakefile</code>.</p>
+
+<pre class="prettyprint">rake [task]</pre>
+
+<p>By default, this uses the <code>Rakefile-config.rb</code> file to define the compiler configuration. However, one may specify a different configuration file when invoking rake:</p>
+
+<pre class="prettyprint">rake [task] -- --config=[config-file-path]</pre>
+
+<p>This section describes the various tasks that may be used with <code>rake</code>. The <code>--config</code> option is not mentioned explicitly below, but this option is available for all tasks and, when using a non-standard configuration, it should always be specified. Details about how this can be simplified may be found in the discussion of a call-forward in the <a href="#Recipe/Integration/Submodule">Submodule Integration Recipe</a>.</p>
+
+<h3>Standard Build Rake Task</h3>
+
+<p>The standard WebBlocks build may be invoked from the WebBlocks root as:</p>
+
+<pre class="prettyprint">rake</pre>
+
+<p>This is equivalent to the <code>build</code> task:</p>
+
+<pre class="prettyprint">rake build</pre>
+
+<p>This process assemble all CSS, Javascript and image assets.</p>
+
+<p>If one is using a Git clone of the repository and updates have been made to the third-party package list, then simply rebuilding with <code>build</code> is not enough, since the Git submodules will not be updated. One approach for updating these modules is:</p>
+
+<pre class="prettyprint">git submodule init
+git submodule update</pre>
+
+<p>WebBlocks then provides a special <code>build_all</code> task that will recompile any third-party packages that have been updated. This should be used instead of the <code>build</code> task the first time after submodules are updated:</p>
+
+<pre class="prettyprint">rake build_all</pre>
+
+<p>Following the use of this task, one may then simply use the <code>build</code> task.</p>
+
+<h3>Partial Build Rake Tasks</h3>
+
+<p>The <code>build</code> task compiles all assets. However, during development, often times tweaks are made only to a single component. As such, WebBlocks provides a set of partial build tasks that can be used to rebuild only CSS, JS or images.</p>
+
+<div class="message warning"><strong>WARNING</strong> The <code>build</code> task must be used at least once to compile all assets before partial build tasks are used.</div>
+
+<p>The <code>build_css</code> directive will recompile the SASS sources:</p>
+
+<pre class="prettyprint">rake build_css</pre>
+
+<p>This is useful when new modules have been added to <code>Rakefile-config.rb</code> or when modifying SASS variables or definitions. Until either this or <code>build</code> is run after making the changes, they will not be reflected in the build products.</p>
+
+<p>Similarly, the <code>build_js</code> directive will recompile the JS sources:</p>
+
+<pre class="prettyprint">rake build_js</pre>
+
+<p>This is useful when new JS sources have been added to <code>src/js/core</code>, <code>src/js/core-ie</code> or <code>src/js/script</code>.</p>
+
+<p>Finally, the <code>build_img</code> directive will recompile the image sources:</p>
+
+<pre class="prettyprint">rake build_img</pre>
+
+<h3>Other Rake Tasks</h3>
+
+<p>The <code>clean</code> task removes the build directory:</p>
+
+<pre class="prettyprint">rake clean</pre>
+
+<p>Some third-party packages used in the compile process include a compile step. The contents generated in these compiles are cached so that they do not have to be recompiled each time. However, in the event that one of these packages is updated, either the <code>build_all</code> task (see above) should be used or the old package compiled contents may be cleared through:</p>
+
+<pre class="prettyprint">rake clean_packages</pre>
+
+<p>To clean both the build contents and packages, a <code>clean_all</code> task is also available:</p>
+
+<pre class="prettyprint">rake clean_all</pre>
+
+<p>In some cases when working with WebBlocks as a Git checkout, an update may end up in a broken state regarding it's packages, which are checked out as Git submodules. This issue can be resolved by running the <code>reset_packages</code> task, which will remove all package submodules so that they can be re-fetched:</p>
+
+<pre class="prettyprint">rake reset_packages</pre>
+
+<p>WebBlocks also provides a complete reset that will revert it to its initial state:</p>
+
+<pre class="prettyprint">rake reset</pre>
+
+<h3>Testing Rake Task</h3>
+
+<p>To ensure that WebBlocks is operating properly, it includes a set of unit tests for the compiler to ensure that its methods behave as intended and integration tests for the SASS modules to ensure that they do not have any missing dependency declarations.</p>
+
+<div class="message warning"><strong>WARNING</strong> Unit and integration tests currently leverage the build directory. As such, do not run tests to build into a production build location. Similarly, if running them in a development environment, after tests are run, one should invoke the <code>build</code> task again in order to generate the actual build assets.</div>
+    
+<p>Compiler unit tests are invoked as:</p>
+
+<pre class="prettyprint">rake test TEST=test/unit/*.rb</pre>
+
+<p>These tests should be run whenever a change is made that affects the compiler itself. Any contribution made to WebBlocks must pass these unit tests before it is accepted. See <a href="#Development/Contribute/Submit">Development Contribution Submission Process</a> for more details about this process.</p>
+
+<p>Integration tests for SASS modules are invoked as:</p>
+
+<pre class="prettyprint">rake test TEST=test/build/*.rb</pre>
+
+<p>It should be further noted that these tests only ensure that WebBlocks will be built accurately. However, because the outcome of the compiler is a browser-side set of styles and interactions, WebBlocks does not currently provide an automated way to test presentation and behaviors.</p>
+
+<p>To ensure that the build outcome is as intended, visual inspection is recommended. These documentation files provide a good way to perform such an inspection, as the <a href="#API">API</a> section provides demos of the various WebBlocks elements. In the future, WebBlocks may provide an automated way to test this.</p>

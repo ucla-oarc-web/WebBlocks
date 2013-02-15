@@ -1,0 +1,169 @@
+<h2>List</h2>
+
+<p>This library includes modules related to the list user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/List') %></li>
+</ul>
+
+<h3>Usage</h3>
+
+<h4>Simple Lists</h4>
+
+<p>While some frameworks automatically style the list elements, WebBlocks does not so as to not negatively affect existing websites. As such, to use the WebBlocks list style, apply the <code>.list</code> class to an element.</p>
+
+<pre class="prettyprint">&lt;ul class="list"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<ul class="list">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ul>
+
+<pre class="prettyprint">&lt;ol class="list"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<h4>Unstyled Lists</h4>
+
+<p>All styling on a list may be removed by using <code>.list.unstyled</code> on an ordered or unordered list:</p>
+
+<pre class="prettyprint">&lt;ul class="list unstyled"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<ul class="list unstyled">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ul>
+
+<pre class="prettyprint">&lt;ol class="list unstyled"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list unstyled">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<h4>Ordered Listing Numbering Helpers</h4>
+
+<p>The <code>ol.list.lower-roman</code> uses lower-case Roman numbering:</p>
+
+<pre class="prettyprint">&lt;ol class="list lower-roman"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list lower-roman">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<p>The <code>ol.list.upper-roman</code> uses upper-case Roman numbering:</p>
+
+<pre class="prettyprint">&lt;ol class="list upper-roman"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list upper-roman">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<p>The <code>ol.list.lower-alpha</code> uses lower-case alpha numbering:</p>
+
+<pre class="prettyprint">&lt;ol class="list lower-alpha"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list lower-alpha">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<p>The <code>ol.list.upper-alpha</code> uses upper-case alpha numbering:</p>
+
+<pre class="prettyprint">&lt;ol class="list upper-alpha"&gt;
+    &lt;li&gt;&lt;!-- List Item 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 2 --&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;!-- List Item 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list upper-alpha">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+</ol>
+
+<h4>Outline List</h4>
+<pre class="prettyprint">&lt;ol class="list outline"&gt;
+    &lt;li&gt;&lt;!-- 1 --&gt;&lt;/li&gt;
+    &lt;li&gt;
+        &lt;!-- 2 --&gt;
+            &lt;ol&gt;
+                &lt;li&gt;&lt;!-- 2.1 --&gt;&lt;/li&gt;
+                &lt;li&gt;
+                    &lt;!-- 2.2 --&gt;
+                    &lt;ol&gt;
+                        &lt;li&gt;&lt;!-- 2.2.1 --&gt;&lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;!-- 2.2.2 --&gt;
+                                &lt;ol&gt;
+                                    &lt;li&gt;&lt;!-- 2.2.2.1 --&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;!-- 2.2.2.2 --&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;!-- 2.2.2.3 --&gt;&lt;/li&gt;
+                                &lt;/ol&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;&lt;!-- 2.2.3 --&gt;&lt;/li&gt;
+                    &lt;/ol&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;!-- 2.3 --&gt;&lt;/li&gt;
+            &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;!-- 3 --&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<ol class="list outline">
+    <li>List Item 1</li>
+    <li>
+        List Item 2
+            <ol>
+                <li>List Item 2.1</li>
+                <li>
+                    List Item 2.2
+                    <ol>
+                        <li>List Item 2.2.1</li>
+                        <li>
+                            List Item 2.2.2
+                                <ol>
+                                    <li>List Item 2.2.2.1</li>
+                                    <li>List Item 2.2.2.2</li>
+                                    <li>List Item 2.2.2.3</li>
+                                </ol>
+                        </li>
+                        <li>List Item 2.2.3</li>
+                    </ol>
+                </li>
+                <li>List Item 2.3</li>
+            </ol>
+    </li>
+    <li>List Item 3</li>
+</ol>

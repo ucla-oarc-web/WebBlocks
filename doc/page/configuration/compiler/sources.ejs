@@ -18,22 +18,27 @@
 
 <h3>Core and Adapter Source Directories</h3>
 
-<p>When setting a different WebBlocks source directory, WebBlocks will attempt to use this directory for its core and adapters, as well as your SASS, JS and images. By default, it assumes that the core and adapter definition directories reside within the source folder:</p>
+<p>When setting a different WebBlocks source directory, WebBlocks will attempt to use this directory for its core and adapters, as well as your SASS, JS and images. By default, it assumes that the core, adapter and extension directories reside within the source folder:</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapters][:dir] = 'adapter'
-WebBlocks.config[:src][:core][:dir] = 'core'</pre>
+WebBlocks.config[:src][:core][:dir] = 'core'
+WebBlocks.config[:src][:extension][:dir] = 'extension'</pre>
 
-<p>Suppose that an application establishes a custom path for the WebBlocks sources, but it seeks to use the adapter and core source directories within WebBlocks itself (this is usually the case). To configure this as such, modify these two directives:</p>
+<p>Suppose that an application establishes a custom path for the WebBlocks sources, but it seeks to use the adapter, core and extension source directories within WebBlocks itself (this is usually the case). To configure this as such, modify these three directives:</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapters][:dir] = '/path/to/webblocks/adapter'
-WebBlocks.config[:src][:core][:dir] = '/path/to/webblocks/core'</pre>
+WebBlocks.config[:src][:core][:dir] = '/path/to/webblocks/core'
+WebBlocks.config[:src][:extension][:dir] = '/path/to/webblocks/extension'</pre>
 
 <p>If <code>Rakefile-config.rb</code> still resides within the WebBlocks root, then this could be done programatically (as <code>Rakefile-config.rb</code> is a full-blown Ruby file):</p>
 
 <pre class="prettyprint">require 'pathname'
 rootdir = File.dirname(Pathname.new(__FILE__).realpath)
 WebBlocks.config[:src][:adapters][:dir] = '#{rootdir}/src/adapter'
-WebBlocks.config[:src][:core][:dir] = '#{rootdir}/src/core'</pre>
+WebBlocks.config[:src][:core][:dir] = '#{rootdir}/src/core'
+WebBlocks.config[:src][:extension][:dir] = '#{rootdir}/src/extension'</pre>
+
+<p>It should be noted that, even when setting <code>WebBlocks.config[:src][:extension][:dir]</code> somewhere, one may still specify extensions by absolute path to reference extensions in other locations.</p>
 
 <p>The <a href="#Recipe/Integration/Submodule">Recipe/Integration/Submodule</a> article explores the use of these configuration details more fully to demonstrate how one may create sources and a <code>Rakefile-config.rb</code> elsewhere that leverage the WebBlocks builder and its core and adapter sources while using source files from elsewhere.</p>
 

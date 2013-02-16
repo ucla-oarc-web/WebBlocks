@@ -9,7 +9,7 @@
     <li><code>Packages</code> are third-party components packaged with WebBlocks</li>
 </ul>
 
-<p>The default values of these, as well as how to customize them, is explained below. For a deeper understanding of what these components do, see <a href="#Development/Architecture/Terminology">Development/Architecture/Terminology</a>.</p>
+<p>The default values of these, as well as how to customize them, is explained below. For a deeper understanding of what these components do, see <a href="#Core/Architecture/Terminology">Development/Architecture/Terminology</a>.</p>
 
 <h4>Modules</h4>
 
@@ -35,7 +35,7 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapter] = false</pre>
 
-<p>While WebBlocks currently only provides a <code>bootstrap</code> adapter, other custom adapters may also be used. See <a href="#Development/Architecture/Adapter">Creating an Adapter</a> for more information. This configuration setting, in addition to accepting a string name for an adapter, also supports using multiple adapters:</p>
+<p>While WebBlocks currently only provides a <code>bootstrap</code> adapter, other custom adapters may also be used. See <a href="#Core/Architecture/Adapter">Creating an Adapter</a> for more information. This configuration setting, in addition to accepting a string name for an adapter, also supports using multiple adapters:</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapter] = ['bootstrap','custom']</pre>
 

@@ -1,0 +1,67 @@
+<h2>Planned Features</h2>
+
+<p>WebBlocks is currently <span class="badge important">BETA</span></p>
+
+<p>Consequently, some issues are known to still exist with the system, and there are a number of planned elements and features. This section documents these. The <a href="https://github.com/ucla/WebBlocks/issues">WebBlocks Issue Tracker</a> is the best place to look to learn more about the status of these, as well as to contribute thoughts or code for them.</p>
+
+<h3>Known Issues</h3>
+
+<ul class="unstyled">
+    
+    <li><p><strong>Internet Explorer Compatibility</strong> currently, several WebBlocks entities such as <code>Entity/Nav/Bar</code> are known to not work correctly. Resolving this issue is considered a high priority for the WebBlocks development team. Polyfills will eventually also be made available for missing support such as <code>max-width</code>.</p></li>
+    
+    <li><p><strong>Mood Color Overrides</strong> the <code>.required</code> and <code>.inverse</code> are currently implemented such that changing the <code>$color-mood-[name]</code> variable does not adjust the computed values as intended. Until this is resolved, coloring the <code>.light.inverse</code> and <code>.required</code> cannot be done via color computation but rather only explicit value (see <a href="#API/Base/Color">API/Base/Color</a> Configuration: Individual Color Values).</p></li>
+    
+    <li><p><strong>Presentational Styles</strong> several elements, such as the non-horizontal form control and gradient-applied messages, are known to render in non-optimal ways. Such issues, if not already on the issue tracker, should be reported.</p></li>
+    
+</ul>
+
+<h3>Planned Elements</h3>
+
+<ul class="unstyled">
+    
+    <li><p><strong>Entity/Badge/Group</strong> meta-pattern support for grouping inputs similar to <code>Entity/Button/Group</code>.</p></li>
+    
+    <li><p><strong>Entity/Billboard</strong> image featured prominently with a title and caption.</p></li>
+    
+    <li><p><strong>Entity/Gallery</strong> set of images featuring one prominently at a time.</p></li>
+
+    <li><p><strong>Entity/Header/Masthead</strong> customizable header that can be used as the masthead at the top of a page. This will integrate with navigational elements such as <code>Entity/Nav/Bar</code> and <code>Entity/Nav/Mega</code>, as well as <code>Entity/Form</code> in the case that an interactive element is desired in this space.</p></li>
+    
+    <li><p><strong>Entity/Img/Icon</strong> classes for icons from an icon set.</p></li>
+    
+    <li><p><strong>Entity/Input/Group</strong> meta-pattern support for grouping inputs similar to <code>Entity/Button/Group</code>.</p></li>
+    
+    <li><p><strong>Entity/Nav/Breadcrumbs</strong> navigation menu of breadcrumbs for the current page context (partial support currently).</p></li>
+
+    <li><p><strong>Entity/Nav/Mega</strong> multi-layer navigational menu that presents itself in a condensed space and supports dropdowns to access sub-elements, often used in conjunction with <code>Entity/Header/Masthead</code>.</p></li>
+    
+    <li><p><strong>Entity/Nav/Tabs</strong> navigation menu arranged as a set of tabs across a container.</p></li>
+    
+    <li><p><strong>Extend/Button/Dropdown</strong> button that displays dropdown options when clicked.</p></li>
+    
+    <li><p><strong>Extend/Form</strong> set of layouts for common form compositions like a search box.</p></li>
+    
+    <li><p><strong>Extend/Message/Close</strong> lay in a close box to dismiss a message</p></li>
+    
+    <li><p><strong>Extend/Nav/Dropdown</strong> navigation menu that is accessed by clicking a dropdown (partial support currently within Bootstrap adapter).</p></li>
+
+    <li><p><strong>Extend/Table/Scrollable</strong> scrollable table that deals with deficits in using tables as part of a responsive design.</p></li>
+    
+    <li><p><strong>Extend/Table/Linearized</strong> table that collapses below a breakpoint, just like grid panels.</p></li>
+
+</ul>
+
+<h3>Planned Packages</h3>
+
+<ul class="unstyled">
+
+    <li><p><strong>Syntax Highlighting</strong> display code from common languages</p></li>
+
+    <li><p><strong>Image Compression</strong> reduce the size of an image to exactly that needed for a device viewport rather than always transferring a full-size image.</p></li>
+
+    <li><p><strong>Responsive Images</strong> addition of an element that can be used to designate multiple images on a per-breakpoint basis.</p></li>
+    
+    <li><p><strong>Responsive Video</strong> known as a significant challenge in responsive designs for mobile devices, the debate remains open if <code>max-width:100%</code> style approaches are adequate or whether compression options should be investigated.</p></li>
+
+</ul>

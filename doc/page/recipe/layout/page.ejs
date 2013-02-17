@@ -1,18 +1,20 @@
 <h2>Page Layouts</h2>
 
-<p>The WebBlocks <a href="#API/Base/Structure">grid system</a> provides all the primitives necessary to generate multi-column layouts that collapse such that the columns are oriented in the desired order.</p>
+<p>The WebBlocks <a href="#API/Base/Structure">grid system</a> provides all the primitives necessary to generate multi-column layouts that collapse such that the columns are arranged vertically in the desired order.</p>
 
-<p>These recipes rely on <code>.row</code> and its variant <code>.row-right</code>, and, in the case of three-column layouts, a row is nested within another row to control the desired collapse. While these recipes do not explore four or more column layouts, the principles for managing the order of collapse remains the same.</p>
+<p>These recipes rely on <code>.row</code> and its variant <code>.row-right</code> (which orders the panels above the collapse breakpoint from right-to-left rather than left-to-right). In the case of three-column layouts, a row is also nested within another row to control the order of collapse. While these recipes do not explore four or more column layouts, the principles for managing the collapse order remains the same.</p>
+
+<p><span class="badge warning">WARNING</span> Layout rendition examples on this page will not collapse at any breakpoint, because otherwise a small viewport device would not be able to see the column layout. As such, please use the the code examples shown here, not the actual code that powers the layout previews.</p>
 
 <h3>Two-Column Layouts</h3>
 
 <p>Many page layouts involve a content area and a navigation menu arranged as two adjacent columns. In responsive design, there are four possible arrangements of these two columns:</p>
 
 <ul>
-    <li>Menu Left, Before Content on Collapse</li>
-    <li>Menu Right, Before Content on Collapse</li>
-    <li>Menu Left, After Content on Collapse</li>
-    <li>Menu Right, After Content on Collapse</li>
+    <li>Left menu that is shown before content when below breakpoint</li>
+    <li>Right menu that is shown before content when below breakpoint</li>
+    <li>Left menu that is shown after content when below breakpoint</li>
+    <li>Right menu that is shown after content when below breakpoint</li>
 </ul>
 
 <p>These layouts and responsive collapse outcomes can be achieved using solely the <code>Base/Structure/Grid</code> module, namely through the use of <code>.row</code>, <code>.row.right</code> and <code>.panel-X</code>.</p>
@@ -31,8 +33,8 @@
 <div class="example-large">
     
     <div class="row no-collapse">
-        <div class="panel-3"><strong>Menu</strong><br><code>.panel-3</code></div>
-        <div class="panel-9"><strong>Content</strong><br><code>.panel-9</code></div>
+        <div class="panel-3"><strong>Menu</strong></div>
+        <div class="panel-9"><strong>Content</strong></div>
     </div>
     
 </div>
@@ -41,8 +43,8 @@
 
 <div class="example-small">
     
-    <div class="short"><strong>Menu</strong><br><code>.panel-3</code></div>
-    <div><strong>Content</strong><br><code>.panel-9</code></div>
+    <div class="short"><strong>Menu</strong></div>
+    <div><strong>Content</strong></div>
     
 </div>
 
@@ -60,8 +62,8 @@
 <div class="example-large">
     
     <div class="row right no-collapse">
-        <div class="panel-3"><strong>Menu</strong><br><code>.panel-3</code></div>
-        <div class="panel-9"><strong>Content</strong><br><code>.panel-9</code></div>
+        <div class="panel-3"><strong>Menu</strong></div>
+        <div class="panel-9"><strong>Content</strong></div>
     </div>
     
 </div>
@@ -70,8 +72,8 @@
 
 <div class="example-small">
     
-    <div class="short"><strong>Menu</strong><br><code>.panel-3</code></div>
-    <div><strong>Content</strong><br><code>.panel-9</code></div>
+    <div class="short"><strong>Menu</strong></div>
+    <div><strong>Content</strong></div>
     
 </div>
 
@@ -87,8 +89,8 @@
 <div class="example-large">
     
     <div class="row right no-collapse">
-        <div class="panel-9"><strong>Content</strong><br><code>.panel-9</code></div>
-        <div class="panel-3"><strong>Menu</strong><br><code>.panel-3</code></div>
+        <div class="panel-9"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Menu</strong></div>
     </div>
     
 </div>
@@ -97,8 +99,8 @@
 
 <div class="example-small">
     
-    <div><strong>Content</strong><br><code>.panel-9</code></div>
-    <div class="short"><strong>Menu</strong><br><code>.panel-3</code></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Menu</strong></div>
     
 </div>
 
@@ -114,8 +116,8 @@
 <div class="example-large">
     
     <div class="row no-collapse">
-        <div class="panel-9"><strong>Content</strong><br><code>.panel-9</code></div>
-        <div class="panel-3"><strong>Menu</strong><br><code>.panel-3</code></div>
+        <div class="panel-9"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Menu</strong></div>
     </div>
     
 </div>
@@ -124,8 +126,8 @@
 
 <div class="example-small">
     
-    <div><strong>Content</strong><br><code>.panel-9</code></div>
-    <div class="short"><strong>Menu</strong><br><code>.panel-3</code></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Menu</strong></div>
     
 </div>
 
@@ -146,9 +148,9 @@
 <div class="example-large">
     
     <div class="row no-collapse">
-        <div class="panel-3"><strong>Left Menu</strong><br><code>.panel-3</code></div>
-        <div class="panel-6"><strong>Content</strong><br><code>.panel-6</code></div>
-        <div class="panel-3"><strong>Right Menu</strong><br><code>.panel-3</code></div>
+        <div class="panel-3"><strong>Left Menu</strong></div>
+        <div class="panel-6"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Right Menu</strong></div>
     </div>
     
 </div>
@@ -157,9 +159,9 @@
 
 <div class="example-small">
     
-    <div class="short"><strong>Left Menu</strong><br><code>.panel-3</code></div>
-    <div><strong>Content</strong><br><code>.panel-6</code></div>
-    <div class="short"><strong>Right Menu</strong><br><code>.panel-3</code></div>
+    <div class="short"><strong>Left Menu</strong></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
     
 </div>
 
@@ -184,11 +186,11 @@
 <div class="example-large">
     
     <div class="row no-collapse">
-        <div class="panel-3"><strong>Left Menu</strong><br><code>.panel-3</code></div>
+        <div class="panel-3"><strong>Left Menu</strong></div>
         <div class="panel-9 no-bg">
             <div class="row right no-collapse">
-                <div class="panel-4"><strong>Right Menu</strong><br><code>.panel-3</code></div>
-                <div class="panel-8"><strong>Content</strong><br><code>.panel-9</code></div>
+                <div class="panel-4"><strong>Right Menu</strong></div>
+                <div class="panel-8"><strong>Content</strong></div>
             </div>
         </div>
     </div>
@@ -199,9 +201,9 @@
 
 <div class="example-small">
     
-    <div class="short"><strong>Left Menu</strong><br><code>.panel-3</code></div>
-    <div class="short"><strong>Right Menu</strong><br><code>.panel-3</code></div>
-    <div><strong>Content</strong><br><code>.panel-6</code></div>
+    <div class="short"><strong>Left Menu</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
+    <div><strong>Content</strong></div>
     
 </div>
 
@@ -223,12 +225,12 @@
     
     <div class="row right no-collapse">
         
-        <div class="panel-3"><strong>Right Menu</strong><br><code>.panel-3</code></div>
+        <div class="panel-3"><strong>Right Menu</strong></div>
         
         <div class="panel-9 no-bg">
             <div class="row no-collapse">
-                <div class="panel-4"><strong>Left Menu</strong><br><code>.panel-3</code></div>
-                <div class="panel-8"><strong>Content</strong><br><code>.panel-9</code></div>
+                <div class="panel-4"><strong>Left Menu</strong></div>
+                <div class="panel-8"><strong>Content</strong></div>
             </div>
         </div>
         
@@ -240,9 +242,9 @@
 
 <div class="example-small">
     
-    <div class="short"><strong>Left Menu</strong><br><code>.panel-3</code></div>
-    <div><strong>Content</strong><br><code>.panel-6</code></div>
-    <div class="short"><strong>Right Menu</strong><br><code>.panel-3</code></div>
+    <div class="short"><strong>Left Menu</strong></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
     
 </div>
 
@@ -251,7 +253,8 @@
         font-size: 0.83em;
     }
     .example-large [class*="panel-"] {
-        padding: 40px 0;
+        padding: 50px 0 0;
+        height: 70px;
         text-align: center;
         background-color: #f2f2fa;
     }
@@ -266,10 +269,10 @@
         padding: 0 !important;
     }
     .example-small .short {
-        padding: 5px 0;
+        padding: 10px 0;
     }
     .example-small > div {
-        padding: 25px 0;
+        padding: 35px 0;
         text-align: center;
         background-color: #f2f2fa;
         margin-bottom: 12px;

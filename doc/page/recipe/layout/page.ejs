@@ -23,12 +23,14 @@
 
 <p>This is the simplest two-column grid example: simply set a <code>.row</code> with two <code>.panel-X</code> classes (that add up to <code>$structure-panels</code>, default <code>12</code>). The first panel will be the menu and the second will be the content. Above the collapse breakpoint, the menu will be to the left of the grid, and below the collapse breakpoint, the menu will appear beforehand.</p>
 
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row"&gt;
     &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
     &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -39,7 +41,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -52,12 +54,14 @@
 
 <p>The <code>.row</code> class supports an additional modifier class <code>.right</code>. When <code>.row.right</code> is used, elements will be arranged right-to-left rather than left-to-right when the viewport is above the collapse breakpoint. This means that the menu in this example will be displayed to the right of the content. Below the collapse breakpoint, elements will still be arranged in DOM order, meaning that the menu will come before the content.</p>
 
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row right"&gt;
     &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
     &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -68,7 +72,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -79,12 +83,16 @@
 
 <h4>Left Menu, After Content on Collapse</h4>
 
+<p>Since collapse is guided by DOM order, to set a left menu that renders after content, it must be placed after the content in the DOM. The <code>.row.right</code> class orders columns right-to-left, which thus accomplishes setting the menu to the left while collapsing it below the content area.</p>
+
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row right"&gt;
     &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
     &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -95,7 +103,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -106,12 +114,16 @@
 
 <h4>Right Menu, After Content on Collapse</h4>
 
+<p>A right menu that collapses below content, just like a left menu that collapses before content, is simply a row collapsing in DOM order, so simply use <code>.row</code>.</p>
+
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row"&gt;
     &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
     &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -122,7 +134,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -137,13 +149,15 @@
 
 <p>Because the panels in a <code>.row</code> collapse in DOM order, when a three column layout collapses, by default it will collapse such that there is the left menu, then the content and then the right menu.</p>
 
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row right"&gt;
     &lt;div class="panel-3"&gt;&lt;!-- left menu --&gt;&lt;/div&gt;
     &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
     &lt;div class="panel-3"&gt;&lt;!-- right menu --&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -155,7 +169,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -171,6 +185,8 @@
 
 <p>One may generate a three column grid where the collapse first includes the left menu, then the right menu, and finally the content area. To accomplish this, the outer column includes two panels, first the left menu and then the other panel. This second panel has a nested <code>.row.right</code> so that the right menu collapses under the left menu and before the content area.</p>
 
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row"&gt;
     &lt;div class="panel-3"&gt;&lt;!-- left menu --&gt;&lt;/div&gt;
     &lt;div class="panel-9"&gt;
@@ -181,7 +197,7 @@
     &lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -197,7 +213,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     
@@ -209,6 +225,8 @@
 
 <p>With a slight alteration, using <code>.row.right</code> on the outer panel, one can achieve a collapse where the right menu is shown before the left menu, and then the content area is shown after both:</p>
 
+<h5>Markup</h5>
+
 <pre class="prettyprint">&lt;div class="row right"&gt;
     &lt;div class="panel-3"&gt;&lt;!-- right menu --&gt;&lt;/div&gt;
     &lt;div class="panel-9"&gt;
@@ -219,7 +237,7 @@
     &lt;/div&gt;
 &lt;/div&gt;</pre>
 
-<p>Above the collapse point:</p>
+<h5>Column Output</h5>
 
 <div class="example-large">
     
@@ -238,7 +256,7 @@
     
 </div>
 
-<p>Below the collapse point:</p>
+<h5>Collapsed Output</h5>
 
 <div class="example-small">
     

@@ -9,21 +9,33 @@
     <li><code>Packages</code> are third-party components packaged with WebBlocks</li>
 </ul>
 
-<p>The default values of these, as well as how to customize them, is explained below. For a deeper understanding of what these components do, see <a href="#Development/Architecture/Terminology">Development/Architecture/Terminology</a>.</p>
+<p>The default values of these, as well as how to customize them, is explained below. For a deeper understanding of what these components do, see <a href="#Core/Architecture/Terminology">Development/Architecture/Terminology</a>.</p>
 
 <h4>Modules</h4>
 
-<p>By default, all modules are included in the WebBlocks compile:</p>
+<p>By default, all <code>Base</code> and <code>Entity</code> modules are included in the WebBlocks compile:</p>
 
-<pre class="prettyprint">WebBlocks.config[:src][:modules] = :all</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = ['base','entity']</pre>
 
-<p>However, besides the <code>:all</code> keyword, <code>WebBlocks.config[:src][:modules]</code> may also be an array of individual modules and/or namespaces of modules:</p>
+<p>A default module may be removed as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules].delete 'entity'</pre>
+
+<p>One may also add a module such as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] << 'extend'</pre>
+
+<p>One may also completely redefine what modules are included, where <code>WebBlocks.config[:src][:modules]</code> is an array of individual modules and/or namespaces of modules:</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:modules] = []
 WebBlocks.config[:src][:modules] << 'base'
 WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <p>This example would include all modules within the <code>Base</code> namespace (such as <code>Base/Color</code> and <code>Base/Structure</code>), as well as the <code>Entity/Form</code> module. It should be noted that, if a module has dependencies, these dependencies will also be included.</p>
+
+<p>To include all modules, use the <code>:all</code> keyword:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = :all</pre>
 
 <h4>Adapters</h4>
 
@@ -35,7 +47,7 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapter] = false</pre>
 
-<p>While WebBlocks currently only provides a <code>bootstrap</code> adapter, other custom adapters may also be used. See <a href="#Development/Architecture/Adapter">Creating an Adapter</a> for more information. This configuration setting, in addition to accepting a string name for an adapter, also supports using multiple adapters:</p>
+<p>While WebBlocks currently only provides a <code>bootstrap</code> adapter, other custom adapters may also be used. See <a href="#Core/Architecture/Adapter">Creating an Adapter</a> for more information. This configuration setting, in addition to accepting a string name for an adapter, also supports using multiple adapters:</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:adapter] = ['bootstrap','custom']</pre>
 
@@ -43,15 +55,13 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <p>By default, no extensions are compiled with WebBlocks:</p>
 
-<pre class="prettyprint">WebBlocks.config[:src][:extensions] = false</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] = []</pre>
 
 <p>WebBlocks does include an <code>implicit-html</code> extension which binds semantics like <code>table.table</code> directly to <code>table</code> so that the class is not required to style a <code>table</code>. This may be included as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:src][:extensions] = 'implicit-html'</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] << 'implicit-html'</pre>
 
-<p>This configuration setting, in addition to accepting a string name for an extension, also supports using multiple extensions:</p>
-
-<pre class="prettyprint">WebBlocks.config[:src][:extensions] = ['implicit-html','custom']</pre>
+<p>Any path containing an extension of SASS, JS and image files may be added to the array.</p>
 
 <h4>Packages</h4>
 
@@ -69,7 +79,7 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <pre class="prettyprint">WebBlocks.config[:build][:packages].delete :jquery</pre>
 
-<p>This is useful, for example, if jQuery is already being included in another <code>script</code> tag in the application where WebBlocks will be used.</p>
+<p>This is useful, for example, if jQuery is already being included by another <code>script</code> tag within the application where WebBlocks will be used.</p>
 
 <p>An additional package can be added as:</p>
 

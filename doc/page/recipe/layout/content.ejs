@@ -1,0 +1,239 @@
+<h2>Content Layouts</h2>
+
+<p>Extending on the examples provided in <a href="#Recipe/Layout/Page">Recipe/Layout/Page</a>, this set of recipes explores how one may use the <code>.X-collapse</code> controls to create responsive content arrangements that reflow at multiple breakpoints.</p>
+
+<p><span class="badge info">NOTE</span> Examples provided here each use particular collapse controls. However, any collapse control may be used, depending on which breakpoint the content should reflow at.</p>
+
+<p><span class="badge warning">WARNING</span> Layout rendition examples on this page will not collapse at any breakpoint, because otherwise one could not see all renditions. As such, please use the the code examples shown here, not the actual code that powers the layout previews.</p>
+
+<h3>Four-Two-One</h3>
+
+<p>A very common pattern arranges four content blocks (such as news items) in a row. However, when a viewport collapses to a particular point, a four column arrangement is no longer optimal. Using a single row would mean that, at this point, the content blocks would collapse into four vertically-oriented blocks. However, for mid-size devices, it may be preferable to show two sets of two panels.</p>
+
+<p>If articles are arranged in descending priority, one should define two <code>.row .panel-6 .row</code> rows, each with two panels. The outer <code>.row</code> should be set to a larger breakpoint collapse than the inner <code>.row .panel-6 .row</code> rows.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row medium-collapse"&gt;
+    &lt;div class="panel-6"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;&lt;!-- 1 --&gt;&lt;/div&gt;
+            &lt;div class="panel-6"&gt;&lt;!-- 2 --&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-6"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;&lt;!-- 3 --&gt;&lt;/div&gt;
+            &lt;div class="panel-6"&gt;&lt;!-- 4 --&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Large Rendition</h5>
+
+<div class="example-large">
+
+    <div class="row no-collapse">
+        <div class="panel-3">1</div>
+        <div class="panel-3">2</div>
+        <div class="panel-3">3</div>
+        <div class="panel-3">4</div>
+    </div>
+    
+</div>
+
+<h5>Medium Rendition</h5>
+
+<div class="example-medium">
+
+    <div class="row no-collapse">
+        <div class="panel-6">1</div>
+        <div class="panel-6">2</div>
+    </div>
+    <div class="row no-collapse">
+        <div class="panel-6">3</div>
+        <div class="panel-6">4</div>
+    </div>
+    
+</div>
+
+<h5>Small Rendition</h5>
+
+<div class="example-small">
+    
+    <div class="panel-12">1</div>
+    <div class="panel-12">2</div>
+    <div class="panel-12">3</div>
+    <div class="panel-12">4</div>
+    
+</div>
+
+<h3>Three-Two-One with Emphasis</h3>
+
+<p>Another common pattern is where one has an item that should be emphasized beyond others when the viewport is reduced below a size where all content can be rendered reasonably.</p>
+
+<h4>Three-Two-One Basic Pattern</h4>
+
+<p>This example is similar to the four-two-one pattern except that the middle rendition presents the featured item as full width.</p>
+
+<pre class="prettyprint">&lt;div class="row medium-collapse"&gt;
+    &lt;div class="panel-4"&gt;
+        &lt;!-- Feature Heading --&gt;
+        &lt;div&gt;
+            &lt;!-- Feature Text --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-8"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class="hide-medium"&gt;
+                    &lt;!-- Text --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class="hide-medium"&gt;
+                    &lt;!-- Text --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Large Rendition</h5>
+
+<p>On the large device, all three items are shown as columns with both their primary and additional text.</p>
+
+<div class="example-large">
+
+    <div class="row no-collapse">
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+    </div>
+    
+</div>
+
+<h5>Medium Rendition</h5>
+
+<p>For mid-size rendition of this grid below <code>$breakpoint-medium</code> and above <code>$breakpoint-small</code>, the outer <code>.row.medium-collapse</code> collapses. This leads to the highlighted content area taking up its own row. The two secondary content areas remain oriented as columns, given that they're panels within a nested <code>.row.small-collapse</code>.</p>
+
+<div class="example-medium">
+
+    <div class="panel-12"><strong>Main</strong><br>and more</div>
+    
+    <div class="row no-collapse">
+        <div class="panel-6"><strong>Main</strong><br>and more</div>
+        <div class="panel-6"><strong>Main</strong><br>and more</div>
+    </div>
+    
+</div>
+
+<h5>Small Rendition</h5>
+
+<p>Finally, below <code>$breakpoint-small</code>, the nested <code>.row.small-collapse</code> also collapses, leading to all three content areas being presented as full width.</p>
+
+<div class="example-small">
+    
+    <div class="panel-12"><strong>Main</strong><br>and more</div>
+    <div class="panel-12"><strong>Main</strong><br>and more</div>
+    <div class="panel-12"><strong>Main</strong><br>and more</div>
+    
+</div>
+
+<h4>Three-Two-One with Visibility Controls</h4>
+
+<p>Presenting all of the details of each content item may not be reasonable when viewing them in a collapsed form, as this may lead to the three items taking up too much vertical space on smaller viewports. The <code>.hide-X</code> classes allow one to reduce the content shown in such contexts.</p>
+
+<pre class="prettyprint">&lt;div class="row medium-collapse"&gt;
+    &lt;div class="panel-4"&gt;
+        &lt;!-- Feature Heading --&gt;
+        &lt;div class="hide-small"&gt;
+            &lt;!-- Feature Text --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-8"&gt;
+        &lt;div class="row small-collapse"&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class="hide-medium"&gt;
+                    &lt;!-- Text --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-6"&gt;
+                &lt;!-- Heading --&gt;
+                &lt;div class="hide-medium"&gt;
+                    &lt;!-- Text --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Large Rendition</h5>
+
+<p>On devices above <code>$breakpoint-medium</code>, the presentation of this grid remains the same as the previous example. All three items are shown as columns with both their primary and additional text.</p>
+
+<div class="example-large">
+
+    <div class="row no-collapse">
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+        <div class="panel-4"><strong>Main</strong><br>and more</div>
+    </div>
+    
+</div>
+
+<h5>Medium Rendition</h5>
+
+<p>Below <code>$breakpoint-medium</code>, the grid collapses such that the highlight content is shown as its own row whereas the two additional content items are shown as columns. This collapse behavior is the same as the previous example. However, in this example, the <code>.hide-medium</code> class is used on the secondary text of the two additional content items so that their additional content is no longer shown.</p>
+
+<div class="example-medium">
+
+    <div class="panel-12"><strong>Main</strong><br>and more</div>
+    
+    <div class="row no-collapse">
+        <div class="panel-6"><strong>Main</strong><br></div>
+        <div class="panel-6"><strong>Main</strong><br></div>
+    </div>
+    
+</div>
+
+<h5>Small Rendition</h5>
+
+<p>In its most reduced form below <code>$breakpoint-small</code>, the grid collapses further so that all three items are shown as full-width boxes. This is on account of the fact that the nested <code>.row</code> containing the two additional content areas has the <code>.small-collapse</code> collapse control on it. To avoid taking up too much vertical space, the <code>.hide-small</code> class on the highlighted item's secondary text makes it vanish as well.</p>
+
+<div class="example-small">
+    
+    <div class="panel-12"><strong>Main</strong></div>
+    <div class="panel-12"><strong>Main</strong></div>
+    <div class="panel-12"><strong>Main</strong></div>
+    
+</div>
+
+<style>
+    .example-large, .example-medium, .example-small {
+        font-size: 0.83em;
+    }
+    .example-large .row, .example-medium .row, .example-small .row, .example-small .panel-12, .example-medium .panel-12 {
+        margin-bottom: 16px;
+    }
+    .example-large [class*="panel-"], .example-medium [class*="panel-"], .example-small [class*="panel-"] {
+        text-align: center;
+        background-color: #f2f2fa;
+    }
+    .example-large [class*="panel-"] {
+        padding: 30px 0;
+    }
+    .example-medium [class*="panel-"] {
+        padding: 15px 0;
+    }
+    .example-small [class*="panel-"], .example-medium .panel-12 {
+        padding: 10px 0;
+    }
+    .no-bg {
+        background-color: inherit !important;
+        padding: 0 !important;
+    }
+</style>

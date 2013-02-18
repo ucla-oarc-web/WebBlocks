@@ -1,0 +1,291 @@
+<h2>Use WebBlocks as a Submodule</h2>
+
+<p>While one may <a href="#Recipe/Integration/Use">use WebBlocks directly</a> or <a href="#Recipe/Integration/Fork">use a fork</a> that customizes WebBlocks specifically for the application, it is also possible to more tightly couple WebBlocks to an application by using it as a Git submodule.</p>
+
+<p>This recipe is based on an application versioned under Git that contains:</p>
+
+<ul>
+    <li>WebBlocks checked out as a Git submodule.</li>
+    <li><code>Rakefile-config.rb</code> specifying the build configuration.</li>
+    <li>SASS, JS, etc. source files used in the WebBlocks compile.</li>
+</ul>
+
+<p>Because of how a Git submodule works, the idea is to version all source files under the application's repository. The <code>Rakefile-config.rb</code> file, also within the application's repository, defines where application source files reside, as well as any other configuration settings such as which modules and packages to include.</p>
+
+<h3>Basic Implementation</h3>
+
+<h4>Directory Structure</h4>
+
+<p>This recipe establishes a structure as follows:</p>
+
+<ul>
+    <li><code>blocks</code> is WebBlocks checked out as a Git submodule.</li>
+    <li><code>Rakefile-config.rb</code> specifies the compile configuration.</li>
+    <li><code>src</code> contains the WebBlocks source files.</li>
+    <li><code>assets</code> is where the WebBlocks compile is generated.</li>
+</ul>
+
+<h4>Setting up the Structure</h4>
+
+<p>If your application is not already initialized under Git:</p>
+
+<pre>git init</pre>
+
+<p>The next step is to define WebBlocks as a submodule:</p>
+
+<pre>git submodule add https://github.com/ucla/WebBlocks.git blocks
+git submodule init
+git submodule update</pre>
+
+<p>Instead of <code>https://github.com/ucla/WebBlocks.git</code>, one may also use the path to a fork of WebBlocks. All principles described within this recipe will work exactly the same, except that any changes made in the fork will apply.</p>
+
+<p>The next step is to define the <code>src</code> directory, subdirectories and files:</p>
+
+<pre>mkdir src
+mkdir src/img src/js src/sass
+mkdir src/js/core src/js/core-ie src/js/script
+touch src/sass/_variables.scss src/sass/blocks-ie.scss
+echo '@import "WebBlocks";' > src/sass/blocks.scss</pre>
+
+<h4>Setting up the Structure</h4>
+
+<p>With the directory structure established, <code>Rakefile-config.rb</code> must be configured to use <code>/assets</code> as the build location, <code>/src</code> for SASS, JS and image source folders, and the WebBlocks core and adapters within the submodule <code>/blocks</code>:</p>
+
+<pre class="prettyprint">require 'pathname'
+rootdir = File.dirname(Pathname.new(__FILE__).realpath)
+
+# The directory into which WebBlocks is built
+WebBlocks.config[:build][:dir] = "#{rootdir}/assets"
+
+# The directory where sources for the build are located
+WebBlocks.config[:src][:dir] = "#{rootdir}/src"
+
+# Location of WebBlocks core components (config.rb, definitions, core adapter)
+WebBlocks.config[:src][:core][:dir] = "#{rootdir}/blocks/src/core"
+
+# Location of WebBlocks adapters
+WebBlocks.config[:src][:adapters][:dir] = "#{rootdir}/blocks/src/adapter"</pre>
+
+<p>This configuration file may also include other directives, such as enabling and disabling modules, adding extensions by absolute path, etc.</p>
+
+<p>A WebBlocks extension within the submodule might be included by adding:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] << "#{rootdir}/blocks/src/extension/implicit-html"</pre>
+
+<p>One might also add an application-specific extension.</p>
+
+<p>First, one would need to add the extension directory:</p>
+
+<pre>mkdir src/extension</pre>
+
+<p>Then, specify the path within <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] << "#{rootdir}/src/extension"</pre>
+
+<p>Any path to an extension could be used.</p>
+
+<p>See <a href="#Configuration">Configure</a></p> for more options, both that can be set in <code>Rakefile-config.rb</code> (Compiler section) and that can be set in <code>src/sass/_variables.scss</code>.</p>
+
+<h4>Compiling WebBlocks for Application</h4>
+
+<p>The WebBlocks compiler from within the submodule will be used: <code>/blocks/Rakefile</code>. However, instead of using the default configuration file, the <code>--config</code> variable should be passed the <code>/Rakefile-config.rb</code> file within the application repository. One should also invoke the <code>git submodule</code>, <code>bundle</code> and <code>npm install</code> commands from within WebBlocks to ensure the presence of required packages.</p>
+
+<pre>cd blocks
+git submodule init
+git submodule update
+bundle
+npm install
+rake [task] -- --config=../Rakefile-config.rb</pre>
+
+<p>The <code>[task]</code> value may be omitted for the default <code>build</code> task or use any of the tasks specified in <a href="#Configuration/Compiler">Configuration/Compiler</a>.</p>
+
+<p>This will produce the WebBlocks build into <code>/assets</code> within the application repository. It will include the source assets in the application's <code>/src</code> folder.</p>
+
+<h3>Rake Call-forward</h3>
+
+<p>The fact that one must change directory to <code>/blocks</code> every time they wish to build WebBlocks may seem a bit cumbersome. Consequently, one can add a <code>Rakefile</code> to their application repository that calls forward to the WebBlocks <code>rake</code> with the application's <code>Rakefile-config.rb</code>.</p>
+
+<h4>Call-forward Class</h4>
+
+<p>The call-forward itself can be handled through a class:</p>
+
+<pre class="prettyprint">require 'pathname'
+rootdir = File.dirname(Pathname.new(__FILE__).realpath)
+
+class WebBlocks
+  attr_accessor :path
+  def initialize(path)
+    @path = path
+  end
+  def rake(command = '')
+    Dir.chdir @path do
+        sh "rake #{command} -- --config=#{rootdir}/Rakefile-config.rb"
+    end
+  end
+end</pre>
+
+<p>This class can be initialized to point at wherever WebBlocks resides. In the recipe described here, this is <code>/blocks</code>:</p>
+
+<pre class="prettyprint">blocks = WebBlocks.new('blocks')</pre>
+
+<p>In the event that <code>rake</code> is already used by the application, this class may be laid directly into the <code>Rakefile</code>. This approach can integrate WebBlocks into the application's existing build process. However, for the sake of this example, we'll assume that <code>rake</code> is only being used to call forward to the WebBlocks <code>rake</code>.</p>
+
+<h4>Mapping Tasks</h4>
+
+<p>WebBlocks includes a number of build tasks. These should be mapped from this call-forward:</p>
+
+<pre class="prettyprint">include Rake::DSL
+task :default do
+  blocks.rake
+end
+task :init do
+  blocks.rake 'init'
+end
+task :build do
+  blocks.rake 'build'
+end
+task :build_all do
+  blocks.rake 'build_all'
+end
+task :build_css do
+  blocks.rake 'build_css'
+end
+task :build_img do
+  blocks.rake 'build_img'
+end
+task :build_js do
+  blocks.rake 'build_js'
+end
+task :clean do
+  blocks.rake 'clean'
+end
+task :clean_packages do
+  blocks.rake 'clean_packages'
+end
+task :clean_all do
+  blocks.rake 'clean_all'
+end
+task :reset_packages do
+  blocks.rake 'reset_packages'
+end
+task :reset do
+  blocks.rake 'reset'
+end</pre>
+
+<h4>Managing Submodules and Dependencies</h4>
+
+<p>Thus far, we have not dealt with the fact that WebBlocks still needs its Git submodules initialized and updated and dependencies installed through <code>bundle</code> and <code>npm install</code>. We can add an additional Rake task that all other tasks depend on which does this:</p>
+
+<pre class="prettyprint">task :_init do
+  IO.popen("git rev-parse --show-toplevel") do |io|
+    Dir.chdir(io.gets.strip) do
+      sh "git submodule init"
+      sh "git submodule update"
+    end
+  end
+  Dir.chdir('blocks') do
+    sh "bundle"
+    sh "npm install"
+  end
+end</pre>
+
+<p>The tasks should then be updated to depend on this, such as:</p>
+
+<pre class="prettyprint">task :default => [:_init] do
+  blocks.rake
+end
+task :init => [:_init] do
+  blocks.rake 'init'
+end
+task :build => [:_init] do
+  blocks.rake 'build'
+end
+# and so on...</pre>
+
+<h4>Putting It All Together</h4>
+
+<p>For a <code>Rakefile</code> that just calls forward to the WebBlocks compiler, we can put this all together:</p>
+
+<pre class="prettyprint"># # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Utility class that calls forward to WebBlocks rake
+
+require 'pathname'
+rootdir = File.dirname(Pathname.new(__FILE__).realpath)
+
+class WebBlocks
+  attr_accessor :path
+  def initialize(path)
+    @path = path
+  end
+  def rake(command = '')
+    Dir.chdir @path do
+        sh "rake #{command} -- --config=#{rootdir}/Rakefile-config.rb"
+    end
+  end
+end
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Set path to WebBlocks
+
+blocks = WebBlocks.new('blocks')
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Define the valid Rake tasks that will be call-forwarded
+
+include Rake::DSL
+task :default => [:_init] do
+  blocks.rake
+end
+task :init => [:_init] do
+  blocks.rake 'init'
+end
+task :build => [:_init] do
+  blocks.rake 'build'
+end
+task :build_all => [:_init] do
+  blocks.rake 'build_all'
+end
+task :build_css => [:_init] do
+  blocks.rake 'build_css'
+end
+task :build_img => [:_init] do
+  blocks.rake 'build_img'
+end
+task :build_js => [:_init] do
+  blocks.rake 'build_js'
+end
+task :clean => [:_init] do
+  blocks.rake 'clean'
+end
+task :clean_packages => [:_init] do
+  blocks.rake 'clean_packages'
+end
+task :clean_all => [:_init] do
+  blocks.rake 'clean_all'
+end
+task :reset_packages => [:_init] do
+  blocks.rake 'reset_packages'
+end
+task :reset => [:_init] do
+  blocks.rake 'reset'
+end
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Specialized task that pre-initializes
+
+task :_init do
+  IO.popen("git rev-parse --show-toplevel") do |io|
+    Dir.chdir(io.gets.strip) do
+      sh "git submodule init"
+      sh "git submodule update"
+    end
+  end
+  Dir.chdir('blocks') do
+    sh "bundle"
+    sh "npm install"
+  end
+end</pre>
+
+<h3>Integrating with Other Build Tools</h3>
+
+<p>In the same way that the "Rake Call-forward" section details how to add a <code>Rakefile</code> that calls forward to the WebBlocks compiler, one may employ a similar mechanism to integrate with other build tools such as <code>ant</code> or <code>make</code>.</p>

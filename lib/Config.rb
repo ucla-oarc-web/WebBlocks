@@ -135,11 +135,11 @@ module WebBlocks
     
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
     
-    :modules  => :all,                # array of directories in /src/core/definitions
+    :modules  => ['base', 'entity'],  # array of directories in /src/core/definitions
                                       # or false if no modules to include
                                       # or :all to include all modules
                                       
-    :extensions => false              # array of additional directories in /src
+    :extensions => []                 # array of additional directories in /src
                                       # or false if no additional directories to include
   }
 

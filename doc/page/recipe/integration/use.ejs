@@ -1,0 +1,215 @@
+<h2>Using WebBlocks Directly</h2>
+
+<p>At the most basic level, WebBlocks is designed to be plug-and-play. Simply drop in the stylesheet and Javascript files and start using its elements and libraries. However, WebBlocks also includes a compiler and a modular architecture which allows one to customize it to particular uses cases. For example, if an application is built using Twitter Bootstrap, one may compile with the Bootstrap adapter and then seamlessly replace the Bootstrap's CSS and Javascript with WebBlocks.</p>
+
+<p>This recipe explains how to get started using WebBlocks directly and then how to make some basic customizations to fit your use case.</p>
+
+<h3>Add WebBlocks to a Site</h3>
+
+<p>WebBlocks uses HTML 5. Consequently, before the <code>html</code> tag, the HTML 5 <code>doctype</code> should be set:</p>
+
+<pre class="prettyprint">&lt;!DOCTYPE html&gt;</pre>
+
+<p>WebBlocks itself is defined by a set of CSS and Javascript included in the <code>head</code> with <code>link</code> and <code>script</code> tags:</p>
+
+<pre class="prettyprint">&lt;link rel="stylesheet" href="css/blocks.css"&gt;
+&lt;script type="text/javascript" src="js/blocks.js"&gt;&lt;/script&gt;</pre>
+
+<p>For compatibility with Internet Explorer versions 8 and below, additionally one should include the <code>-ie</code> variants of the CSS and Javascript within a conditional statement in the <code>head</code>:</p>
+
+<pre class="prettyprint">&lt;!--[if lte IE 9]&gt;
+&lt;link rel="stylesheet" href="css/blocks-ie.css"&gt;
+&lt;script type="text/javascript" src="js/blocks-ie.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;</pre>
+
+<p>Finally, to facilitate responsive design, it is also recommended that a <code>viewport</code> meta tag be included:</p>
+
+<pre class="prettyprint">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</pre>
+
+<p>Putting this altogether, the template for a WebBlocks page is roughly:</p>
+
+<pre class="prettyprint">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;&lt;!-- title --&gt;&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+        &lt;link rel="stylesheet" href="css/blocks.css"&gt;
+        &lt;script type="text/javascript" src="js/blocks.js"&gt;&lt;/script&gt;
+        &lt;!--[if lte IE 9]&gt;
+        &lt;link rel="stylesheet" href="css/blocks-ie.css"&gt;
+        &lt;script type="text/javascript" src="js/blocks-ie.js"&gt;&lt;/script&gt;
+        &lt;![endif]--&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;!-- more head content... --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- page content... --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>One this is done, the WebBlocks build is ready to use. By default, this includes all of the <code>Base</code> and <code>Entity</code> elements described in the <a href="#API">API documentation</a>.</p>
+
+<p><span class="badge info">NOTE</span> <em>The CSS and Javascript links in this example assume that WebBlocks exists within <code>css</code> and <code>js</code> folders under the root. However, any URL may be used, including a copy of WebBlocks hosted elsewhere.</em></p>
+
+<h3>Customize Your WebBlocks Build</h3>
+
+<p>WebBlocks supports a vast array of configuration options, and a compiler which rebuilds the CSS, Javascript and other assets based on these settings.</p>
+
+<p>On the whole, it's configuration options come in three veins:</p>
+
+<ul>
+    <li><strong>Setting compiler configuration options to modify the compiler's behavior.</strong> These options are defined in Rakefile-config.rb. Explanations of the various options are explained in the "Compiler portion of this section.</li>
+    <li><strong>Modifying SASS variables to affect the way entities render.</strong> These variables should be specified in src/sass/_variables.scss. A full list of variables may be found in API/Variables and more specified details are explained in the "SASS Variables" portion of this section.</li>
+    <li><strong>Adding your own SASS and Javascript sources.</strong> CSS (and SASS) may be added to src/sass/blocks.scss and src/sass/blocks-ie.scss or as SCSS files in src/sass/blocks, those for the IE CSS build suffixed with -ie.</li>
+</ul>
+
+<p>This section includes some common configuration examples to demonstrate how WebBlocks can be configured. However, for a full set, please see the <a href="#Configuration">Configuration</a> documentation.</p>
+
+<h4>The WebBlocks Compiler</h4>
+
+<p>As formerly mentioned, in order for configuration settings to be applied, WebBlocks must be recompiled.</p>
+
+<p>The WebBlocks compiler requires:</p>
+
+<ul>
+    <li>Ruby, RubyGems and Bundler</li>
+    <li>Node.js and NPM</li>
+    <li>Git</li>
+</ul>
+
+<p>Installation instructions for the environment may be found in <a href="#Configuration/Environment">Configuration/Environment</a>.</p>
+
+<p>Once these are installed, the first step is to pull down a copy of the Git repository:</p>
+
+<pre>git clone https://github.com/ucla/WebBlocks.git WebBlocks</pre>
+
+<p>WebBlocks' dependencies may be initialized as follows:</p>
+
+<pre>cd WebBlocks
+git submodule init
+git submodule update
+bundle
+npm install</pre>
+
+<p>The WebBlocks compiler can then be called as:</p>
+
+<pre>rake</pre>
+
+<p>The compiler supports a number of tasks detailed in <a href="#Configuration/Compiler">Configuration/Compiler</a>.</p>
+
+<h4>Setting an Adapter</h4>
+
+<p>In some cases, an application may already be using an existing framework such as Twitter Bootstrap. As such, one of the simplest configuration options available is to compile WebBlocks with an adapter. The concept of an adapter is to lay in the other framework and connect it to WebBlocks all within a single set of assets. If, for example, one compiles with the Bootstrap adapter, then </p>
+
+<p>As an example, to compile with the Bootstrap adapter, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = bootstrap</pre>
+
+<p><span class="badge info">NOTE</span> <em>The default WebBlocks build actually includes the Bootstrap adapter.</em>
+    
+<p>To compile WebBlocks in its own right without an adapter, set the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = false</pre>
+
+<h4>Selectively Enabling Modules</h4>
+
+<p>WebBlocks includes a plethora of elements by default. However, in cases where only some parts of WebBlocks are desired, one can selectively choose which modules to include by modifying <code>Rakefile-config.rb</code>. This can be used to reduce the file size of WebBlocks (especially when compiling without an adapter):</p>
+
+<p>This example selectively includes only the grid, colors, buttons and forms:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] = []
+WebBlocks.config[:src][:modules] << 'base/structure/grid'
+WebBlocks.config[:src][:modules] << 'base/color'
+WebBlocks.config[:src][:modules] << 'entity/button'
+WebBlocks.config[:src][:modules] << 'entity/form'</pre>
+
+<p>While some modules have dependencies on others, one should feel safe including just the modules they intend to use, as the WebBlocks compiler includes a dependency manager that will resolve any additional modules that must be included.</p>
+
+<h4>Modifying SASS Variables</h4>
+
+<p>In addition to compiler settings that influence what gets built, WebBlocks also allows you to customize how the build actually looks. To this end, it provides an extensive set of variables that can be set within the <code>src/sass/_variables.scss</code> file. Each element in the API documentation lists the variables that influence it, and in addition, a full list of variabes may be found in <a href="#API/Variables">API/Variables</a>.</p>
+
+<p>A simple example of influencing the presentation of WebBlocks is customizing its <a href="#API/Base/Color">colors</a>. One may add the following to <code>src/sass/_variables.scss</code> and then recompiling WebBlocks:</p>
+
+<pre class="prettyprint">$color-branding-primary: #/*hex*/;
+$color-branding-secondary: #/*hex*/;
+$color-branding-tertiary: #/*hex*/;
+$color-branding-neutral: #/*hex*/;
+$color-branding-default: #/*hex*/;
+$color-mood-info: #/*hex*/;
+$color-mood-success: #/*hex*/;
+$color-mood-warning: #/*hex*/;
+$color-mood-error: #/*hex*/;
+$color-mood-danger: #/*hex*/;
+$color-mood-important: #/*hex*/;
+$color-mood-inverse: #/*hex*/;
+$color-mood-required: #/*hex*/;
+$color-mood-highlight: #/*hex*/;</pre>
+
+<p>However, with colors, there's actually a much finer-grain set of detail that one can go to in terms of configuration. See <a href="#API/Base/Color">API/Base/Color</a> for more information.</p>
+
+<p>There are a wide range of other configurable settings available as well.</p>
+
+<p>One can set breakpoints as:</p>
+
+<pre class="prettyprint">$breakpoint-xxsmall: /*#*/px;
+$breakpoint-xsmall: /*#*/px;
+$breakpoint-small: /*#*/px;
+$breakpoint-medium-small: /*#*/px;
+$breakpoint-medium: /*#*/px;
+$breakpoint-medium-large: /*#*/px;
+$breakpoint-large: /*#*/px;</pre>
+
+<p>These settings influence all sorts of behaviors within WebBlocks from the <code>.hide-X</code> and <code>.hide-above-X</code> <a href="#API/Base/Visibility">visibility</a> classes to the <code>.Y-collapse</code> <a href="#API/Base/Structure">grid collapse control</a> classes.</p>
+
+<p>In a similar vein, one may define the number of <a href="#API/Base/Structure">panels in the grid</a>:</p>
+
+<pre class="prettyprint">$structure-panels: /*#*/;</pre>
+
+<p>This is intended just to provide a snapshot of how one can add variables to <code>src/sass/_variables.scss</code>. The full list of options is available in <a href="#API/Variables">API/Variables</a>.</p>
+
+<h4>Adding Styles</h4>
+
+<p>Beyond configuring existing WebBlocks entities, WebBlocks also provides <code>src/sass/blocks.scss</code> where you can add your own additional CSS/SASS. At the most basic level, this is similar to adding another stylesheet. However, because it's compiled with WebBlocks, it can also take advantage of more advanced features.</p>
+
+<p>Suppose it is decided that all forms should be styled with <code>.form</code>, all tables with <code>.table</code> and all buttons with <code>.button</code>. Rather than copying the <code>.form</code>, <code>.table</code> and <code>.button</code> definitions into a new sheet, one can take advantage of the <code>@extend</code> SASS keyword in <code>src/sass/blocks.scss</code>:</p>
+
+<pre class="prettyprint">form {
+    @extend form.form; 
+}
+
+table {
+    @extend .table;
+}
+
+input[type="button"] {
+    @extend input[type="button"].button;
+}
+
+input[type="submit"] {
+    @extend input[type="submit"].button;
+}
+
+input[type="reset"] {
+    @extend input[type="reset"].button;
+}
+
+button {
+    @extend button.button;
+}</pre>
+
+<p>The <code>blocks.scss</code> and <code>blocks-ie.scss</code> files are compiled using Compass and SASS, meaning that you can place CSS or SASS in them, and further you can include any Compass library. For more information on SASS, see <a href="http://sass-lang.com" target="_blank">sass-lang.com</a>, and for more information on Compass libraries, see <a href="http://compass-style.org" target="_blank">compass-style.org</a>.</p>
+
+<h4>Adding Javascript</h4>
+
+<p>WebBlocks compiles Javascript from packages that are enabled as part of the build. However, to simplify the task for developers who wish to include their own Javascript in a minified form as part of <code>js/blocks.js</code> and <code>js/blocks-ie.js</code>, it provides two folders: <code>src/js/core</code> and <code>src/js/core-ie</code>. Drop a Javascript file into either of these, and it will be automatically minified and added to <code>js/blocks.js</code> or <code>js/blocks-ie.js</code>.</p>
+
+<p>WebBlocks also provides another directory <code>src/js/script</code>. Files placed in this directory will be minified but not added to the WebBlocks Javascript. Instead, the minified versions of these files will be placed in <code>js/script</code> for inclusion on individual pages as needed.</p>
+
+<h3>Going Further</h3>
+
+<p>If you're building a custom version of WebBlocks, you may want to look further than the recipes described here.</p>
+
+<p>Since your version of WebBlocks is checked out from Git, one option is to <a href="#Recipe/Integration/Fork">create a fork</a>. This is great if you've configured WebBlocks and added assets that you will use on your own projects that include your brand, styles, Javascript libraries, etc.</p>
+
+<p>If you're building a custom version of WebBlocks for a single application, another option is to <a href="#Recipe/Integration/Submodule">use WebBlocks as a submodule</a>. This approach allows you to version your <code>src</code> files and <code>Rakefile-config.rb</code> as part of the application yet still use the WebBlocks repository itself in an unmodified form.</p>

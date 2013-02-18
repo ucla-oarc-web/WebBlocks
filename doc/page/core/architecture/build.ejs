@@ -1,6 +1,6 @@
 <h2>Build Process</h2>
 
-<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Development/Architecture/Terminology">Terminology</a> section.</p>
+<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Core/Architecture/Terminology">Terminology</a> section.</p>
 
 <p>The build process is extremely modular. One may invoke not just <code>rake</code> or <code>rake build</code> to build all WebBlocks assets, but also <code>rake build_css</code>, <code>rake build_js</code> and <code>rake build_img</code> to build just CSS, JS or images. Generally, these functions should only be invokved if <code>rake</code> or <code>rake build</code> has already been called, useful for rebuilding just what was changed, as it will execute more quickly than re-running <code>rake</code> or <code>rake build</code> in its entirety.</p>
 

@@ -1,0 +1,138 @@
+<h2>Colors</h2>
+
+<p>WebBlocks supports using <a href="#API/Base/Color">color classes</a> on any element in the system. This set of recipes is intended to provide an example of some uses.</p>
+
+<h3>Standard Elements</h3>
+
+<p>Any inline element may have a branding or mood color applied to it:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="primary"&gt;.primary&lt;/span&gt;</pre>
+    <p><span class="primary">.primary</span></p>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="danger"&gt;.primary&lt;/span&gt;</pre>
+    <p><span class="danger">.danger</span></p>
+</div>
+
+<p>Explicit padding improves the way this manifests:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="primary" style="padding:5px;"&gt;.primary&lt;/span&gt;</pre>
+    <p><span class="primary" style="padding:5px;">.primary</span></p>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="danger" style="padding:5px;"&gt;.danger&lt;/span&gt;</pre>
+    <p><span class="danger" style="padding:5px;">.danger</span></p>
+</div>
+
+<p>All block elements may also have a branding or mood applied to them:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="primary"&gt;.primary&lt;/div&gt;</pre>
+    <div class="primary" style="padding:5px;margin-bottom:12px;">.primary</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger"&gt;.danger&lt;/div&gt;</pre>
+    <div class="danger" style="padding:5px;margin-bottom:12px;">.danger</div>
+</div>
+
+<p>The <code>.gradient</code> and <code>.light</code> modifiers may be used with any inline or block element:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger gradient"&gt;.danger.gradient&lt;/div&gt;</pre>
+    <div class="danger gradient" style="padding:5px;margin-bottom:12px;">.danger.gradient</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger light"&gt;.danger.light&lt;/div&gt;</pre>
+    <div class="danger light" style="padding:5px;margin-bottom:12px;">.danger.light</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger light gradient"&gt;.danger.light.gradient&lt;/div&gt;</pre>
+    <div class="danger light gradient" style="padding:5px;margin-bottom:12px;">.danger.light.gradient</div>
+</div>
+    
+<h3>Special Elements</h3>
+
+<p>Some WebBlocks elements have special behaviors when a color is applied.</p>
+
+<h4>Badge</h4>
+
+<p>The badge provides a styled version of an inline element:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="badge primary"&gt;.badge.primary&lt;/span&gt;</pre>
+    <p><span class="badge primary">.badge.primary</span></p>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;span class="badge danger"&gt;.badge.danger&lt;/span&gt;</pre>
+    <p><span class="badge danger">.badge.danger</span></p>
+</div>
+
+<h4>Button</h4>
+
+<p>The <a href="#API/Entity/Button">button element</a> automatically applies the <code>.gradient</code> modifier:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;button class="button primary"&gt;.button.primary&lt;/button&gt;</pre>
+    <p><button class="button primary">.button.primary</button></p>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;button class="button danger"&gt;.button.danger&lt;/button&gt;</pre>
+    <p><button class="button danger">.button.danger</button></p>
+</div>
+
+<h4>Message</h4>
+
+<p>The <a href="#API/Entity/Message">message element</a> automatically applies the <code>.light</code> modifier:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="message primary"&gt;.message.primary&lt;/div&gt;</pre>
+    <div class="message primary">.message.primary</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="message danger"&gt;.message.danger&lt;/div&gt;</pre>
+    <div class="message danger">.message.danger</div>
+</div>
+
+<h4>Form Controls</h4>
+
+<p>The <a href="#API/Entity/Form">form element</a> supports mood colors applied to its <code>.control</code> elements. When this is done, it will color the control's label, input and help text:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;form class="form horizontal"&gt;
+    &lt;div class="control danger"&gt;
+        &lt;label for="in"&gt;&lt;!-- label text --&gt;&lt;/label&gt;
+        &lt;input type="text" id="in" aria-describedby="in-help-1 in-help-2"&gt;
+        &lt;span id="in-help-1"&gt;&lt;!-- help text --&gt;&lt;/span&gt;
+        &lt;p id="in-help-2"&gt;&lt;!-- more help text --&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+    <form class="form horizontal">
+        <div class="control danger">
+            <label for="in">.control.danger</label>
+            <input type="text" id="in" aria-describedby="in-help-1 in-help-2">
+            <span id="in-help-1">inline help text</span>
+            <p id="in-help-2">and a block of help text</p>
+        </div>
+    </form>
+</div>
+
+<p><span class="badge warning">WARNING</span> Form controls <em>do not</em> support branding colors.</p>
+
+<style>
+    .example pre {
+        margin-bottom:8px;
+    }
+    .example {
+        margin-bottom:16px;
+    }
+</style>

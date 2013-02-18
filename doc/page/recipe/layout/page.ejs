@@ -1,0 +1,298 @@
+<h2>Page Layouts</h2>
+
+<p>The WebBlocks <a href="#API/Base/Structure">grid system</a> provides all the primitives necessary to generate multi-column layouts that collapse such that the columns are arranged vertically in the desired order.</p>
+
+<p>These recipes rely on <code>.row</code> and its variant <code>.row-right</code> (which orders the panels above the collapse breakpoint from right-to-left rather than left-to-right). In the case of three-column layouts, a row is also nested within another row to control the order of collapse. While these recipes do not explore four or more column layouts, the principles for managing the collapse order remains the same.</p>
+
+<p><span class="badge warning">WARNING</span> Layout rendition examples on this page will not collapse at any breakpoint, because otherwise a small viewport device would not be able to see the column layout. As such, please use the the code examples shown here, not the actual code that powers the layout previews.</p>
+
+<h3>Two-Column Layouts</h3>
+
+<p>Many page layouts involve a content area and a navigation menu arranged as two adjacent columns. In responsive design, there are four possible arrangements of these two columns:</p>
+
+<ul>
+    <li>Left menu that is shown before content when below breakpoint</li>
+    <li>Right menu that is shown before content when below breakpoint</li>
+    <li>Left menu that is shown after content when below breakpoint</li>
+    <li>Right menu that is shown after content when below breakpoint</li>
+</ul>
+
+<p>These layouts and responsive collapse outcomes can be achieved using solely the <code>Base/Structure/Grid</code> module, namely through the use of <code>.row</code>, <code>.row.right</code> and <code>.panel-X</code>.</p>
+
+<h4>Left Menu, Before Content on Collapse</h4>
+
+<p>This is the simplest two-column grid example: simply set a <code>.row</code> with two <code>.panel-X</code> classes (that add up to <code>$structure-panels</code>, default <code>12</code>). The first panel will be the menu and the second will be the content. Above the collapse breakpoint, the menu will be to the left of the grid, and below the collapse breakpoint, the menu will appear beforehand.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row"&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
+    &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row no-collapse">
+        <div class="panel-3"><strong>Menu</strong></div>
+        <div class="panel-9"><strong>Content</strong></div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div class="short"><strong>Menu</strong></div>
+    <div><strong>Content</strong></div>
+    
+</div>
+
+<h4>Right Menu, Before Content on Collapse</h4>
+
+<p>The <code>.row</code> class supports an additional modifier class <code>.right</code>. When <code>.row.right</code> is used, elements will be arranged right-to-left rather than left-to-right when the viewport is above the collapse breakpoint. This means that the menu in this example will be displayed to the right of the content. Below the collapse breakpoint, elements will still be arranged in DOM order, meaning that the menu will come before the content.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row right"&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
+    &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row right no-collapse">
+        <div class="panel-3"><strong>Menu</strong></div>
+        <div class="panel-9"><strong>Content</strong></div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div class="short"><strong>Menu</strong></div>
+    <div><strong>Content</strong></div>
+    
+</div>
+
+<h4>Left Menu, After Content on Collapse</h4>
+
+<p>Since collapse is guided by DOM order, to set a left menu that renders after content, it must be placed after the content in the DOM. The <code>.row.right</code> class orders columns right-to-left, which thus accomplishes setting the menu to the left while collapsing it below the content area.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row right"&gt;
+    &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row right no-collapse">
+        <div class="panel-9"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Menu</strong></div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Menu</strong></div>
+    
+</div>
+
+<h4>Right Menu, After Content on Collapse</h4>
+
+<p>A right menu that collapses below content, just like a left menu that collapses before content, is simply a row collapsing in DOM order, so simply use <code>.row</code>.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row"&gt;
+    &lt;div class="panel-9"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- menu --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row no-collapse">
+        <div class="panel-9"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Menu</strong></div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Menu</strong></div>
+    
+</div>
+
+<h3>Three Column Layouts</h3>
+
+<h4>Left and Right Menus, Default Collapse Behavior</h4>
+
+<p>Because the panels in a <code>.row</code> collapse in DOM order, when a three column layout collapses, by default it will collapse such that there is the left menu, then the content and then the right menu.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row right"&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- left menu --&gt;&lt;/div&gt;
+    &lt;div class="panel-6"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- right menu --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row no-collapse">
+        <div class="panel-3"><strong>Left Menu</strong></div>
+        <div class="panel-6"><strong>Content</strong></div>
+        <div class="panel-3"><strong>Right Menu</strong></div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div class="short"><strong>Left Menu</strong></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
+    
+</div>
+
+<h4>Left and Right Menus, Both Before Content on Collapse</h4>
+
+<p>In some cases, the default collapse behavior is not desired. One may accomplish other collapse behaviors by using a row nested within another row.</p>
+
+<p>One may generate a three column grid where the collapse first includes the left menu, then the right menu, and finally the content area. To accomplish this, the outer column includes two panels, first the left menu and then the other panel. This second panel has a nested <code>.row.right</code> so that the right menu collapses under the left menu and before the content area.</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row"&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- left menu --&gt;&lt;/div&gt;
+    &lt;div class="panel-9"&gt;
+        &lt;div class="row right"&gt;
+            &lt;div class="panel-4"&gt;&lt;!-- right menu --&gt;&lt;/div&gt;
+            &lt;div class="panel-8"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row no-collapse">
+        <div class="panel-3"><strong>Left Menu</strong></div>
+        <div class="panel-9 no-bg">
+            <div class="row right no-collapse">
+                <div class="panel-4"><strong>Right Menu</strong></div>
+                <div class="panel-8"><strong>Content</strong></div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div class="short"><strong>Left Menu</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
+    <div><strong>Content</strong></div>
+    
+</div>
+
+<p>With a slight alteration, using <code>.row.right</code> on the outer panel, one can achieve a collapse where the right menu is shown before the left menu, and then the content area is shown after both:</p>
+
+<h5>Markup</h5>
+
+<pre class="prettyprint">&lt;div class="row right"&gt;
+    &lt;div class="panel-3"&gt;&lt;!-- right menu --&gt;&lt;/div&gt;
+    &lt;div class="panel-9"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="panel-4"&gt;&lt;!-- left menu --&gt;&lt;/div&gt;
+            &lt;div class="panel-8"&gt;&lt;!-- content --&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h5>Column Output</h5>
+
+<div class="example-large">
+    
+    <div class="row right no-collapse">
+        
+        <div class="panel-3"><strong>Right Menu</strong></div>
+        
+        <div class="panel-9 no-bg">
+            <div class="row no-collapse">
+                <div class="panel-4"><strong>Left Menu</strong></div>
+                <div class="panel-8"><strong>Content</strong></div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<h5>Collapsed Output</h5>
+
+<div class="example-small">
+    
+    <div class="short"><strong>Left Menu</strong></div>
+    <div><strong>Content</strong></div>
+    <div class="short"><strong>Right Menu</strong></div>
+    
+</div>
+
+<style>
+    .example-large, .example-small {
+        font-size: 0.83em;
+    }
+    .example-large [class*="panel-"] {
+        padding: 50px 0 0;
+        height: 70px;
+        text-align: center;
+        background-color: #f2f2fa;
+    }
+    .example-large .short {
+        padding: 20px 0;
+    }
+    .example-large .row {
+        margin-bottom: 12px;
+    }
+    .no-bg {
+        background-color: inherit !important;
+        padding: 0 !important;
+    }
+    .example-small .short {
+        padding: 10px 0;
+    }
+    .example-small > div {
+        padding: 35px 0;
+        text-align: center;
+        background-color: #f2f2fa;
+        margin-bottom: 12px;
+    }
+</style>

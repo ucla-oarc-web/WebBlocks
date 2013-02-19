@@ -2,178 +2,50 @@
 
 ## Overview
 
-WebBlocks is a toolkit that facilitates the rapid development of responsive,
-aesthetic and modern web applications. This framework integrates a number of
-existing web packages and extends them with additional functionality.
+Out of the box, WebBlocks is a platform based on modern web technologies for 
+building full-featured, responsive sites suited for all viewports including 
+desktops, tablets and mobile devices. It leverages existing best-in-breed web 
+tools, defines semantics based on modern web standards and includes a large 
+suite of UI elements and Javascript interactivity libraries. However, WebBlocks 
+is a lot more than just a set of semantics, elements and libraries. At it's 
+core, it is a highly modular toolkit that can be customized to meet business 
+needs, fitted to different development paradigms and integrated into existing 
+web solutions.
+
+Documentation for WebBlocks is available within the `doc` folder or online at:
+http://ucla.github.com/WebBlocks/doc
+
+## Status
+
+WebBlocks is currently in `BETA`.
+
+This designation signifies that the overall architecture and semantics of 
+WebBlocks will be preserved moving forward, meaning that future updates will be 
+backwards-compatible. That said, there are several outstanding issues that 
+exist such as IE compatibility and the presentation of some WebBlocks 
+elements.
+
+For a complete list of known problems and planned features, as well as to 
+report any issues with WebBlocks, please see the issue tracker:
+https://github.com/ucla/WebBlocks/issues
+
+## License
 
 WebBlocks is open-source software licensed under the BSD 3-clause license. The 
 full text of the license may be found in the `LICENSE` file.
 
-## Build
-
-#### Prerequisites
-
-WebBlocks is built via `rake`, a Ruby build utility similar to GNU `make`. As 
-such, the following are required to use WebBlocks:
-
-* Ruby
-* RubyGems
-* Bundler
-* Rake
-
-The rake build file (Rakefile) also requires several tools:
-
-* Git
-* Node.js
-* NPM
-* SASS
-* Compass
-* rb-fsevent
-* systemu
-* uglifycss
-* uglifyjs
-
-These tools are all written in either Ruby or Node.js, and as such, both are
-required (see ''Installing Prerequisites'' below). However, don't fret on this
-long list of packages. Instead, simply jump down to ''Installing Prerequisites''
-to see how to most easily get going with WebBlocks.
-
-By default, the Rakefile executes these tools as though they are within the user
-search path. In the event that they reside elsewhere in the file system, the 
-invoking commands should be specified within `Rakefile-configure.rb`.
-
-#### Installing Prerequisites
-
-To install Ruby, please visit:
-
-    http://www.ruby-lang.org/en/downloads/
-
-If the installed package does not install RubyGems, please install it from here:
-
-    http://rubygems.org/pages/download
-
-With Ruby and RubyGems installed, one must then install Bundler:
-
-```
-gem install bundler
-```
-
-One you have Bundler installed, use it to install the required Ruby packages
-simply by invoking `bundle` from the WebBlocks root directory:
-
-```
-bundle          # from within WebBlocks root directory
-```
-
-Several required tools are also written in Node.js. To install it, please visit:
-
-    http://nodejs.org/
-
-With Node.js installed, use NPM to install the required Node.js packages:
-
-```
-npm install     # from within WebBlocks root directory
-```
-
-Some or all of these installations may require superuser privileges (`sudo`).
-
-#### Building WebBlocks
-
-WebBlocks can be built simply by invoking `rake`.
-
-In some environments, one may need to call the following before `rake`:
-
-```
-git submodule init
-git submodule update
-```
-
-The entire process from checkout to completed build is as follows:
-
-```
-git clone git@github.com:ucla/WebBlocks.git
-cd WebBlocks
-bundle
-npm install
-git submodule init
-git submodule update
-rake
-```
-
-This assumes that you have installed Ruby, RubyGems, Bundler, node.js and npm.
-
-The Rakefile includes a number of subtasks that may be invoked:
-
-* `rake build` compiles and builds WebBlocks
-* `rake build_all` compiles all third-party plugins and then compiles and builds WebBlocks
-* `rake build_css` compiles CSS only (!)
-* `rake build_img` assembles images only (!)
-* `rake build_js` compiles JS only (!)
-* `rake clean` removes the build directory for WebBlocks
-* `rake clean_packages` removes the build outputs of any packages that have a compilation step
-* `rake clean_all` removes the build directory for WebBlocks and the build outputs of any packages that have a compilation step
-* `rake reset_packages` removes all packages (will have to fetch again to build)
-* `rake reset` removes all packages (will have to fetch again to build) and resets WebBlocks state
-
-(!) The `build_css`, `build_img` and `build_js` tasks should be used with 
-caution, intended predominately just as a tool for during the development
-process. This is because built CSS may have dependencies on images and JS, 
-and build JS may have dependencies on CSS and images. Use with caution.
-
-The WebBlocks build process is highly configurable. By default, you may define
-configuration settings within `Rakefile-config.rb`. A full list of all 
-properties and their default values is available within `rake/config.rb`.
-
-In some cases, it may make sense to specify a configuration file in a different
-location, such as when WebBlocks is checked out as a submodule of a larger 
-project. Under these conditions, a command line argument `config` is available
-to specify this path:
-
-```
-rake [command] -- --config=Rakefile-config.rb
-```
-
-#### Testing WebBlocks
-
-##### Unit Tests
-
-WebBlocks provides a set of unit tests to ensure that compiler methods
-behave as intended.
-
-Unit tests are invoked as:
-
-```
-rake test TEST=test/unit/*.rb
-```
-
-These tests should be run whenever a change is made that affects the compiler.
-
-##### Build Tests
-
-WebBlocks provides a set of build tests that compile each WebBlocks module 
-and adapter individually to ensure that selective configurations do not crash
-the compiler because of issues like mismanaged dependencies.
-
-Build tests are invoked as:
-
-```
-rake test TEST=test/build/*.rb
-```
-
-These tests may take some time to run because the compiler is invoked for each 
-configuration permutation.
-
-##### Visual Inspection
-
-WebBlocks compiles its sources into a set of CSS, JS and other assets. Because 
-these are browser-side components, WebBlocks does not currently provide any 
-automated way to test presentation and behaviors of a compiled build. Instead, 
-visual inspection may be used of the demo files to ensure that all semantics  
-are styled as intended. 
-
-In the future, WebBlocks may include automated tests for this layer.
-
 ## Credits
+
+### Collaboration
+
+WebBlocks is a collaborative project involving the University of California, 
+the Mobile Web Framework community, and others. The toolkit is a product of 
+its collaborators, both those who have participated in discussion and those 
+who have contributed code.
+
+The integration manager for WebBlocks is Eric Bollens <ebollens@ucla.edu>.
+
+### Third-Party Packages and Software
 
 WebBlocks may leverage a number of external packages:
 
@@ -199,4 +71,4 @@ WebBlocks also uses the following software directly within its build process:
 * uglifycss - https://npmjs.org/package/uglifycss
 * uglify-js - https://npmjs.org/package/uglify-js
 
-A sincere thanks to all of these authors for making their fine work available!
+A sincere thanks to all of these authors for making their fine work available.

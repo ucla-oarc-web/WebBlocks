@@ -31,7 +31,7 @@ var DOC = {
                     menuSet = '<div class="hide-small">'
                                 +menuContents
                                 +'</div>'
-                                +'<div class="show-small" style="margin-bottom:10px;">'
+                                +'<div class="hide-above-small" style="margin-bottom:10px;">'
                                     +'<div data-effect="toggle" data-toggle="show slide" data-target=".menu-show"'
                                         +' class="menu-show text-center"'
                                         +' style="padding:8px;background-color:#f2f2f2;color:#1042bc;cursor:pointer;border-radius:8px">'

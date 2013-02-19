@@ -15,6 +15,9 @@ var DOC = {
         $('#content').fadeOut(fadeTime, function(){
 
             $('#content').html('')
+            if($('#menu.active').length > 0)
+            $('#menu .toggle').click()
+            $('body').scrollTop(0)
             try{
                 page = new EJS({url: 'page/'+name+'.ejs'})
             }catch(e){

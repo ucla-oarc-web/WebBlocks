@@ -6,6 +6,9 @@ WebBlocks is a toolkit that facilitates the rapid development of responsive,
 aesthetic and modern web applications. This framework integrates a number of
 existing web packages and extends them with additional functionality.
 
+WebBlocks is open-source software licensed under the BSD 3-clause license. The 
+full text of the license may be found in the `LICENSE` file.
+
 ## Build
 
 #### Prerequisites

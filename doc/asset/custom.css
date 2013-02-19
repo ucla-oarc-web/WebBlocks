@@ -42,6 +42,19 @@ a:hover:not(.button) {
 
 /* polyfills for a coming feature in WebBlocks */
 
+nav.bar.overflow.active ul.dropdown {
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+
+nav.bar.overflow.active ul.dropdown li a {
+    font-weight: bold;
+    display: block;
+    padding: 6px 0;
+    font-size: 1.1em;
+    
+}
+
 nav.tabs {
     padding-left: 10px;
     display: block;

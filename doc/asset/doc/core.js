@@ -1,6 +1,6 @@
 var DOC = {
     
-    'menu':['api','configuration','recipe','development'],
+    'menu':['api','configuration','recipe','core'],
     
     'vars':{sass:{},rake:{}},
     

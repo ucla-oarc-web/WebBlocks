@@ -1,0 +1,178 @@
+<h2>Use WebBlocks as a Fork</h2>
+
+<p>In <a href="#Recipe/Integration/Use">Recipe/Integration/Use</a>, it was shown how one can check out WebBlocks from Git, customize it for a particular use case and then recompile it. However, rather than just working locally on a custom build, a couple options exist for going further:</p>
+
+<ul>
+    <li><strong>Create a fork</strong> if the changes are related to a brand or shared libraries and styles across your organization.</li>
+    <li><strong>Use WebBlocks as a submodule</strong> if the changes are specific to a single application.</li>
+</ul>
+    
+<p>This recipe focuses on the forking approach, while <a href="#Recipe/Integration/Submodule">Recipe/Integration/Submodule</a> explains the submodule approach.</p>
+
+<h3>Setting Up a Fork</h3>
+
+<p>A fork is a repository that extends the base repository and then adds in its own changes. For WebBlocks, these changes may include things such as:</p>
+
+<ul>
+    <li>the compiler configuration <code>Rakefile-config.rb</code></li>
+    <li>the SASS configuration <code>src/sass/_variables.scss</code></li>
+    <li>the SASS source files <code>src/sass/blocks.scss</code> and <code>src/sass/blocks-ie.scss</code></li>
+    <li>the Javascript files in <code>src/js</code></li>
+    <li>the addition of new extensions in <code>src/extension</code></li>
+</ul>
+
+<p>Details about modifying customizing your WebBlocks build may be found in <a href="#Recipe/Integration/Use">Recipe/Integration/Use</a> and <a href="#Configuration">Configuration</a>. This section will not reiterate all of the details contained therein. Instead, it focuses on the Git workflows and mechanics to lay out a fork.</p>
+
+<h4>Git Remotes</h4>
+
+<p>Git is a distributed version control system. This means that the clone on your machine, as well as on any other machine, is a full repository. Generally, one hosted copy is regarded as the "canonical remote". In the case of WebBlocks, this is:</p>
+
+<pre>https://github.com/ucla/WebBlocks.git</pre>
+    
+<p>In centralized version control scheme, this would be where all local work is committed. However, Git is more flexible. One may create a "remote fork" where they push all changes specific to themselves or their organization while still pulling updates from the canonical remote.</p>
+
+<p>If you're starting fresh, the first thing to do is initialize a local working copy:</p>
+
+<pre>mkdir WebBlocks
+cd WebBlocks
+git init</pre>
+
+<p>The next step is to pull the WebBlocks canonical master:</p>
+
+<pre>git remote add upstream https://github.com/ucla/WebBlocks.git
+git pull upstream master</pre>
+
+<p>Finally, push this to the remote fork:</p>
+
+<pre>git remote add origin [fork-repository-url]
+git push -u origin master</pre>
+
+<p>This creates a layout where WebBlocks itself comes from the canonical repository, yet organization/personal work is pushed to a separate repository, denoted in this case by <code>[fork-repository-url]</code>. More information on remotes may be found in <a href="http://git-scm.com/book/en/Git-Basics-Working-with-Remotes" target="_blank">Git Basics - Working with Remotes</a>.</p>
+
+<h4>Fork through GitHub</h4>
+
+<p>GitHub provides a method in it's user interface through which one may create a fork. Instead of using remotes to set up the fork, simply go to the WebBlocks repository and press the "fork" button. Once this is done, simply clone the fork and start working with it.</p>
+
+<p>In order to ensure you have a remote reference to the WebBlocks canonical repository (later sections of this article assume its existance), add the remote as follows:</p>
+
+<pre>git remote add upstream https://github.com/ucla/WebBlocks.git</pre>
+
+<p>A GitHub fork has a number of advantages:</p>
+
+<ul>
+    <li>It is its own Git repository with an issue tracker, wiki, etc.</li>
+    <li>It enables collaboration through code visibility and sharing.</li>
+    <li>It provides a "Pull Request" feature to share a code change upstream.</li>
+    <li>A fork does not count against your organization's repository limit.</li>
+</ul>
+
+<p>The only real negative to using the GitHub model is if, for some reason, you wish to limit access to your repository. A GitHub fork has the same permissions as the repository it originated from, meaning that, since the WebBlocks canonical remote is public, so too will be a GitHub-based fork. The same is not true for a fork managed manually via remotes.</p>
+
+<p>For more information on forking with GitHub, see <a href="https://help.github.com/articles/fork-a-repo">this page</a>.</p>
+
+<h3>Updating a Fork</h3>
+
+<p>The following explains how <code>git pull</code> and <code>git merge</code> may be used to upgrade a Git-versioned copy of WebBlocks, such as a fork. These examples focus on upgrading the <code>master</code> branch, but they may be applied to any branch.</p>
+
+<h4>Pulling from Master</h4>
+
+<p>One of the biggest improvements of using Git rather than as a direct download is that Git makes upgrades relatively seamless. Assuming the existence of an <code>upstream</code> remote that references ucla/WebBlocks.git, one may update a local working copy to the latest version of <code>master</code> as:</p>
+
+<pre>git checkout master
+git pull upstream master</pre>
+
+<p>The update changes must then be pushed to the remote fork:</p>
+
+<pre>git push origin master</pre>
+
+<p>Because of the way the WebBlocks file structure is laid out, there will rarely be conflicts during an update: WebBlocks updates will predominately modify <code>/doc</code>, <code>/lib</code>, <code>/src/adapter</code> and <code>/src/core</code>, whereas developers generally work with <code>Rakefile-config.rb</code>, <code>/src/sass</code>, <code>/src/js</code>, <code>/src/img</code> and <code>/src/extension</code>. If there are conflicts, though, you'll need to manually resolve them and then add the merged files. More on Git conflict resolution may be found in the <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging" target="_blank">Git Branching - Basic Branching and Merging</a>.</p>
+
+<h4>Merging a Version Tag</h4>
+
+<p>While the WebBlocks <code>master</code> branch is regarded as stable, the project does release periodic versions. These versions exist within Git as tags. It is recommended that these are used rather than just pulling from <code>master</code>. To fetch all tags from the canonical remote:</p>
+
+<pre>git fetch --tags upstream</pre>
+
+<p>One may then update to a tag by merging it:</p>
+
+<pre>git merge --no-ff [tag-name]</pre>
+
+<p>This will apply the tag to the current branch. It can then be pushed back to the remote fork.</p>
+
+<h3>Federated Support</h3>
+
+<p>Thus far, the focus has been on constructing the following:</p>
+
+<ul>
+    <li><strong>Local working copy</strong> where development is done</li>
+    <li><strong>Remote fork</strong> where the local working copy is pushed to</li>
+    <li><strong>Canonical remote</strong> where WebBlocks is pulled from</li>
+</ul>
+
+<p>However, this model is conducive to federation where the "canonical remote" does not actually need to be <code>ucla/WebBlocks.git</code> but may actually be a fork itself. Why would you desire this? Because, in some cases, a company may want to modify WebBlocks to meet their own brand identity, but then individual groups or applications may desire further changes.</p>
+
+<h4>Forking a Fork</h4>
+
+<p>Suppose a central IT unit on the campus maintains a repository <code>org/WebBlocks.git</code>. In this repository, they set things like color variables, modules for inclusion, etc. Now, an individual group wants to customize this further in their own <code>org-group/WebBlocks.git</code> fork.</p>
+
+<p>Assuming <code>org/WebBlocks.git</code> already exists, the "Git Remotes" approach is as:</p>
+
+<pre>mkdir WebBlocks
+cd WebBlocks
+git init
+git remote add upstream https://github.com/<span class="text-highlight">org</span>/WebBlocks.git
+git pull upstream master
+git remote add origin https://github.com/<span class="text-highlight">org-group</span>/WebBlocks.git
+git push -u origin master</pre>
+
+<p>The development process is then the same as working with any other fork, except that when an update is made from <code>upstream</code>, it comes from the <code>org/WebBlocks.git</code> repository instead of <code>ucla/WebBlocks.git</code>. This means that the maintainer of <code>org/WebBlocks.git</code> is responsible for upgrading WebBlocks from <code>ucla/WebBlocks.git</code>, and the fork of the work simply uses whatever version of WebBlocks the fork it is derived from.</p>
+
+<h4>Using Extensions</h4>
+
+<p>When working with a fork of a fork, one may encounter version conflicts if both the organization and group maintainers are making changes to the same files such as <code>/src/sass/_variables.scss</code> and <code>/src/sass/_blocks.scss</code>. The way to avoid this is through the use of an extension. Extensions are covered fully in <a href="#Configuration/Compiler/Components">Configuration/Compiler/Components</a>, but this recipe will explain how to use them to avoid merge conflicts.</p>
+
+<p>Instead of modifying <code>/src/sass/_variables.scss</code> and <code>/src/sass/blocks.scss</code>, the organization may create an extension:</p>
+
+<pre>mkdir src/extension/<span class="text-highlight">org</span>
+touch src/extension/<span class="text-highlight">org</span>/_variables.scss
+touch src/extension/<span class="text-highlight">org</span>/blocks.scss
+touch src/extension/<span class="text-highlight">org</span>/blocks-ie.scss</pre>
+
+<p>Once this is done, organization-level code may be placed within the extension rather than <code>src/sass</code>. Javascript files and images placed in the extension folder will also be packaged into <code>js/blocks.js</code>, <code>js/blocks-ie.js</code> and <code>img</code>.</p>
+
+<p>To use this extension, update <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] << 'org'</pre>
+
+<p>When a group forks the organization's repository, they will inherit all of the variables and definitions defined in the organization's extension (so long as it is set in <code>Rakefile-config.rb</code>). The developer for the fork of the fork can now work with <code>/src/sass/_variables.scss</code>, <code>/src/sass/_blocks.scss</code> and <code>/src/sass/_blocks-ie.scss</code> without fear of version conflicts when updating to the latest version of the organization's fork.</p>
+
+<h4>Using Extensions as Submodules</h4>
+
+<p>In some cases, an extension may be packaged as its own repository rather than as part of a fork. This has two advantages: (1) it is not bound to a particular version of WebBlocks, and (2) it can be used by groups without requiring them to directly fork the extension developer's version of the repository.</p>
+
+<p>An extension as its own repository can be created as:</p>
+
+<pre>mkdir <span class="text-highlight">org</span>
+cd <span class="text-highlight">org</span>
+git init
+touch _variables.scss
+touch blocks.scss
+touch blocks-ie.scss
+git add .
+git remote add origin [extension-git-repository-url]
+git push -u origin master</pre>
+
+<p>Within a WebBlocks fork, this extension may be added as:</p>
+
+<pre>git submodule add src/extension/<span class="text-highlight">org</span> [extension-git-repository-url]</pre>
+
+<p>The submodule must be initialized and updated for any clone where it is to be used:</p>
+
+<pre>git submodule init
+git submodule update</pre>
+
+<p>It must then be added to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:extensions] << 'org'</pre>
+
+

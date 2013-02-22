@@ -3,6 +3,8 @@
 @mixin -entity-form-control {
     
     max-width: 100%;
+    margin-bottom: 0.3*$type-line-spacing;
+    overflow: hidden;
     
     color: lighten($color-branding-default-foreground-text, 30%);
     
@@ -30,6 +32,7 @@
         @include box-sizing(border-box);
         
         margin-right: 10px;
+        margin-bottom: 0.5*$type-line-spacing;
         
         &.last-child {
             margin-right: 0;
@@ -49,9 +52,7 @@
     
      @media screen and (min-width: $breakpoint-small+1) {
 
-        margin-bottom: 10px;
         padding-left: $form-horizontal-offset;
-        overflow: hidden;
 
         > label:first-child {
             margin-left: -1 * $form-horizontal-offset;

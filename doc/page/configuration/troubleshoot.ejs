@@ -128,6 +128,29 @@ Compression error encountered in /.../WebBlocks/.build-tmp/js/blocks.js</pre>
     
     <article>
         
+        <h5>Rake fails because extension does not exist</h5>
+        
+        <div>
+            
+            <p>When compiling WebBlocks, the compiler will crash if an extension specified in <code>Rakefile-config.rb</code> does not exist.</p>
+            
+            <p>An extension is regarded by WebBlocks as existing if and only if the extension directory exists. If the extension is specified by a relative path, then it is relative to <code>src/extension</code> (unless the source directory or extension source directory has been changed in <code>Rakefile-config.rb</code>). Meanwhile, if the extension is specified by an absolute path, then that directory must exist.</p>
+            
+            <p>It should be noted that the paths for relative-pathed extensions is affected by:</p>
+            
+            <ul>
+                <li><code>WebBlocks.config[:src][:dir]</code></li>
+                <li><code>WebBlocks.config[:src][:extension][:dir]</code></li>
+            </ul>
+            
+            <p>If either of these are set in <code>Rakefile-config.rb</code>, ensure that the extension directory exists in the specified locations. More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
+            
+        </div>
+        
+    </article>
+    
+    <article>
+        
         <h5>Build does not include expected adapter</h5>
         
         <div>
@@ -144,29 +167,6 @@ Compression error encountered in /.../WebBlocks/.build-tmp/js/blocks.js</pre>
             </ul>
             
             <p>If either of these are set in <code>Rakefile-config.rb</code>, ensure that the adapter directory exists in the specified locations. More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
-            
-        </div>
-        
-    </article>
-    
-    <article>
-        
-        <h5>Build does not include expected extension</h5>
-        
-        <div>
-            
-            <p>When compiling WebBlocks, the compiler may end up not including an extension specified in <code>Rakefile-config.rb</code>.</p>
-            
-            <p>An extension is regarded by WebBlocks as existing if and only if the extension directory exists. If the extension is specified by a relative path, then it is relative to <code>src/extension</code> (unless the source directory or extension source directory has been changed in <code>Rakefile-config.rb</code>). Meanwhile, if the extension is specified by an absolute path, then that directory must exist.</p>
-            
-            <p>It should be noted that the paths for relative-pathed extensions is affected by:</p>
-            
-            <ul>
-                <li><code>WebBlocks.config[:src][:dir]</code></li>
-                <li><code>WebBlocks.config[:src][:extension][:dir]</code></li>
-            </ul>
-            
-            <p>If either of these are set in <code>Rakefile-config.rb</code>, ensure that the extension directory exists in the specified locations. More on the mechanics of these configuration variables may be found in <a href="#Configuration/Compiler/Sources">Configuration/Compiler/Sources</a>.</p>
             
         </div>
         

@@ -75,7 +75,7 @@ module WebBlocks
       def write type, category, message = false
         text = message ? "[#{category}] #{message}" : "#{category}"
         text = "#{'  ' * @scope}#{text}".gsub "\n", "\n#{'  ' * @scope}"
-        puts text if @types_to_print.include? type
+        puts text if @types_to_print.include? type unless ::WebBlocks.config[:options][:silent]
         @file_handle.puts text if @types_to_file.include? type
       end
 

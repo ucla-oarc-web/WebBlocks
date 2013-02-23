@@ -110,7 +110,6 @@ rake [task] -- --config=../Rakefile-config.rb</pre>
 <p>The call-forward itself can be handled through a class:</p>
 
 <pre class="prettyprint">require 'pathname'
-rootdir = File.dirname(Pathname.new(__FILE__).realpath)
 
 class WebBlocks
   attr_accessor :path
@@ -119,6 +118,7 @@ class WebBlocks
   end
   def rake(command = '')
     Dir.chdir @path do
+        rootdir = File.dirname(Pathname.new(__FILE__).realpath)
         sh "rake #{command} -- --config=#{rootdir}/Rakefile-config.rb"
     end
   end
@@ -210,7 +210,6 @@ end
 # Utility class that calls forward to WebBlocks rake
 
 require 'pathname'
-rootdir = File.dirname(Pathname.new(__FILE__).realpath)
 
 class WebBlocks
   attr_accessor :path
@@ -219,6 +218,7 @@ class WebBlocks
   end
   def rake(command = '')
     Dir.chdir @path do
+        rootdir = File.dirname(Pathname.new(__FILE__).realpath)
         sh "rake #{command} -- --config=#{rootdir}/Rakefile-config.rb"
     end
   end

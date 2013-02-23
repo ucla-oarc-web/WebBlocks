@@ -28,6 +28,10 @@ module WebBlocks
           opts.on( '-c', '--config [OPT]', "Config file location (optional)" ) do |filename|
             options[:config] = filename || false
           end
+          options[:offline] = false
+          opts.on('--offline', '--offline', 'Offline mode for fast recompile (optional)') do
+            options[:offline] = true
+          end
         end.parse!
 
         # Load the configuration file, either Rakefile-config.rb or as specified by
@@ -35,6 +39,7 @@ module WebBlocks
         load ::WebBlocks::Path.from_root_to options[:config] ? options[:config] : 'Rakefile-config.rb'
         
         ::WebBlocks.config[:loaded] = true
+        ::WebBlocks.config[:options] = options
       
       end
       

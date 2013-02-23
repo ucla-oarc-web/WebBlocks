@@ -36,7 +36,7 @@ module WebBlocks
       def execute event
         
         ["before_#{event}", event, "after_#{event}"].each do |event|
-          log.task 'Dispatcher', "Executing task: #{event}" do
+          log.system 'Dispatcher', "Executing task: #{event}" do
             happened = false
             t1 = Time.now.to_f
             observers.each do |object|

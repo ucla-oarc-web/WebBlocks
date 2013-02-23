@@ -21,7 +21,11 @@ module WebBlocks
         @scope = 0
         @types = [:system, :task, :failure, :success, :warning, :info, :debug]
         @type = :system
-        @types_to_print = [:system, :task, :failure, :success, :warning]
+        if ::WebBlocks.config[:options][:details]
+          @types_to_print = [:system, :task, :failure, :success, :warning]
+        else
+          @types_to_print = [:system]
+        end
         @types_to_file = [:system, :task, :failure, :success, :warning, :info, :debug]
       end
 
@@ -33,6 +37,12 @@ module WebBlocks
       def types_to_file arr
         arr = @types if arr == :all
         @types_to_file = arr
+      end
+
+      def system category, message = false
+        scope :system, category, message do
+          yield if block_given?
+        end
       end
 
       def task category, message = false

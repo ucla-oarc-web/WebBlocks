@@ -17,35 +17,35 @@ module WebBlocks
       end
       
       def tmp_css_build_dir
-        from_tmp_build_dir_to config[:build][:css][:dir]
+        from_tmp_build_dir_to 'css'
       end
       
       def tmp_css_build_file
-        from_tmp_build_dir_to config[:build][:css][:dir], config[:build][:css][:name]
+        from_tmp_build_dir_to 'css', 'blocks.css'
       end
       
       def tmp_css_build_file_ie
-        from_tmp_build_dir_to config[:build][:css][:dir], config[:build][:css][:name_ie]
+        from_tmp_build_dir_to 'css', 'blocks-ie.css'
       end
       
       def tmp_img_build_dir
-        from_tmp_build_dir_to config[:build][:img][:dir]
+        from_tmp_build_dir_to 'img'
       end
       
       def tmp_js_build_dir
-        from_tmp_build_dir_to config[:build][:js][:dir]
+        from_tmp_build_dir_to 'js'
       end
       
       def tmp_js_build_file
-        from_tmp_build_dir_to config[:build][:js][:dir], config[:build][:js][:name]
+        from_tmp_build_dir_to 'js', 'blocks.js'
       end
       
       def tmp_js_build_file_ie
-        from_tmp_build_dir_to config[:build][:js][:dir], config[:build][:js][:name_ie]
+        from_tmp_build_dir_to 'js', 'blocks-ie.js'
       end
       
       def tmp_js_build_script_dir
-        from_tmp_build_dir_to config[:build][:js][:dir], config[:build][:js][:name_script_dir]
+        from_tmp_build_dir_to 'js', 'script'
       end
       
       def tmp_sass_lib_dir

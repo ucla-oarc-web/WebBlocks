@@ -42,6 +42,10 @@ module WebBlocks
                   log.task "Core: Extensions", "Linking extension #{extension}" do
 
                     dir = from_src_extensions_dir_to extension
+                    
+                    unless dir and File.exists? dir
+                      log.failure "Extension #{extension} does not exist"
+                    end
 
                     get_files(dir, 'scss').sort.each do |file|
 

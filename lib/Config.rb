@@ -25,8 +25,24 @@ module WebBlocks
         OptionParser.new do |opts|
           opts.banner = "Usage: rake [options]"
           options[:config] = false
-          opts.on( '-c', '--config [OPT]', "Config file location (optional)" ) do |filename|
+          opts.on( '-c', '--config [OPT]', "Config file location" ) do |filename|
             options[:config] = filename || false
+          end
+          options[:offline] = false
+          opts.on('--offline', '--offline', 'Offline mode for fast recompile') do
+            options[:offline] = true
+          end
+          options[:silent] = false
+          opts.on('--silent', '--silent', 'Print no output except errors during compile') do
+            options[:silent] = true
+          end
+          options[:details] = false
+          opts.on('--details', '--details', 'Show compile process details') do
+            options[:details] = true unless options[:silent]
+          end
+          options[:timing] = false
+          opts.on('--timing', '--timing', 'Show compile timing telemetry') do
+            options[:timing] = true unless options[:silent]
           end
         end.parse!
 
@@ -35,6 +51,7 @@ module WebBlocks
         load ::WebBlocks::Path.from_root_to options[:config] ? options[:config] : 'Rakefile-config.rb'
         
         ::WebBlocks.config[:loaded] = true
+        ::WebBlocks.config[:options] = options
       
       end
       

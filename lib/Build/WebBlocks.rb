@@ -348,8 +348,18 @@ module WebBlocks
       
       def clean
         
-        log.task "WebBlocks", "Removing build directory" do
-          FileUtils.rm_rf build_dir
+        log.task "WebBlocks", "Removing build products" do
+          
+          files = [css_build_file, css_build_file_ie, js_build_file, js_build_file_ie]
+          files.each do |file|
+            log.info "Removed #{file}" do
+              FileUtils.rm_rf file
+            end
+          end
+          
+          log.warning "This task does not clean JS scripts directory"
+          log.warning "This task does not clean img directory"
+          
         end
         
       end

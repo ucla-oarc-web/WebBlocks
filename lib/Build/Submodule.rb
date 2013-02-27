@@ -14,6 +14,11 @@ module WebBlocks
       
       def init_submodule name
         
+        if ::WebBlocks.config[:options][:offline]
+          log.info "Submodule", "Skipped initializing submodule #{name} (offline mode)"
+          return
+        end
+        
         stdout = ""
         
         log.task "Submodule", "Initializing submodule #{name}" do
@@ -35,6 +40,11 @@ module WebBlocks
       end
       
       def init_submodule_submodules name
+        
+        if ::WebBlocks.config[:options][:offline]
+          log.info "Submodule", "Skipped updating submodules of submodule #{name} (offline mode)"
+          return
+        end
         
         stdout = ""
         
@@ -59,6 +69,11 @@ module WebBlocks
       end
       
       def update_submodule name
+        
+        if ::WebBlocks.config[:options][:offline]
+          log.info "Submodule", "Skipped updating submodule #{name} (offline mode)"
+          return
+        end
         
         stdout = ""
         

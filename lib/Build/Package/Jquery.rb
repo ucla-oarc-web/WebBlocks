@@ -39,6 +39,10 @@ module WebBlocks
           
           unless File.exists? filename
             
+            if ::WebBlocks.config[:options][:offline]
+              log.failure "Submodule", "Cannot download compiled version of jQuery in offline mode\nMust call rake the first time without --offline flag"
+            end
+            
             log.task "Package: jQuery", "Downloading compiled version of jQuery" do
               Net::HTTP.start(domain) do |http|
                 resp = http.get(path)

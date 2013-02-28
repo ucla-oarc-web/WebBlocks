@@ -140,12 +140,12 @@
         'type-line-height': {
             description:'defines <code>p, li, address, blockquote</code> line height',
             default_value:'1',
-            type:'em (recommended), px'
+            type:'integer'
         },
         'type-line-height-heading': {
             description:'defines header line heights',
             default_value:'1.4',
-            type:'em (recommended), px'
+            type:'integer'
         },
         'table-caption-text-color': {
             description:'defines the color of table caption text',

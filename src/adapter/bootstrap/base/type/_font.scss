@@ -1,9 +1,108 @@
 @mixin -base-type-font {
     
+    body {
+        font-family: $type-font-family;
+        font-size: $type-font-size;
+    }
+    
     h1, h2, h3, h4, h5, h6 {
+        
         &:first-child {
             margin-top: 0;
         }
+        
+        margin: (0.8*$type-line-spacing) 0 (0.6*$type-line-spacing);
+        font-weight: bold;
+        line-height: $type-line-height-heading;
+        text-rendering: optimizelegibility;
+        
+        small {
+            font-weight: normal;
+            line-height: 1;
+        }
+        
+    }
+    
+    p, li, address, blockquote {
+        line-height: $type-line-height;
+    }
+    
+    p, address, blockquote {
+        margin: 0 0 0.5*$type-line-spacing;
+    }
+    
+    h1 {
+        font-size: $type-font-size-h1;
+        small {
+            font-size: $type-font-size-h1-small;
+        }
+    }
+    
+    h2 {
+        font-size: $type-font-size-h2;
+        small {
+            font-size: $type-font-size-h2-small;
+        }
+    }
+    
+    h3 {
+        font-size: $type-font-size-h3;
+        small {
+            font-size: $type-font-size-h3-small;
+        }
+    }
+    
+    h4 {
+        font-size: $type-font-size-h4;
+        small {
+            font-size: $type-font-size-h4-small;
+        }
+    }
+    
+    h5 {
+        font-size: $type-font-size-h5;
+        small {
+            font-size: $type-font-size-h5-small;
+        }
+    }
+    
+    h6 {
+        font-size: $type-font-size-h6;
+        small {
+            font-size: $type-font-size-h6-small;
+        }
+    }
+    
+    small {
+        font-size: $type-font-size-small;
+    }
+    
+    cite {
+        font-style: normal;
+    }
+    
+    address {
+        display: block;
+        font-style: normal;
+    }
+    
+    abbr[title] {
+        cursor: help;
+        border-bottom: 1px dotted $color-branding-default-light-border;
+    }
+    
+    hr {
+        margin: $type-line-spacing 0;
+        border: 0;
+        border-top: 1px solid $color-branding-default-light-border;
+    }
+    
+    blockquote {
+        
+        margin: 0 0 0 0.3em;
+        padding: 0 0 0 15px;
+        border-left: 5px solid #eee;
+        
     }
     
 }

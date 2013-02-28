@@ -250,11 +250,17 @@ class TestUnitWebBlocks < ::Test::Unit::TestCase
   
   def test_clean
     
-    FileUtils.mkdir_p build_dir
+    execute 'preprocess'
+    execute 'link'
+    execute 'compile'
+    execute 'assemble'
+    execute 'package'
     
     execute 'clean'
     
-    assert_file_does_not_exist build_dir, "Build directory removed by clean"
+    assert_file_does_not_exist css_build_file_ie, "CSS IE build file removed by clean"
+    assert_file_does_not_exist js_build_file, "JS build file removed by clean"
+    assert_file_does_not_exist js_build_file_ie, "JS IE build file removed by clean"
     
   end
   

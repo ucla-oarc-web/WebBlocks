@@ -139,6 +139,9 @@
             },
             api:'Base/Color'
         },
+        'Base/Normalize': {
+            description: 'Normalizes user agent stylesheets to reduce browser discrepancies and estabish a style baseline'
+        },
         'Base/Structure/Grid': {
             description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
             defines:{

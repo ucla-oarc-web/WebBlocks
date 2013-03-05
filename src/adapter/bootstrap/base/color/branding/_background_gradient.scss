@@ -1,5 +1,5 @@
 @mixin -base-color-branding-default-background-gradient {
-    @include gradientBar($color-branding-default-background, 
+    @include gradientBarSimple($color-branding-default-background, 
                          $color-branding-default-background-shadow, 
                          $color-branding-default-background-text, 
                          $color-branding-default-background-text-shadow);
@@ -8,7 +8,7 @@
 }
 
 @mixin -base-color-branding-primary-background-gradient {
-    @include gradientBar($color-branding-primary-background, 
+    @include gradientBarSimple($color-branding-primary-background, 
                          $color-branding-primary-background-shadow, 
                          $color-branding-primary-background-text, 
                          $color-branding-primary-background-text-shadow);
@@ -17,7 +17,7 @@
 }
 
 @mixin -base-color-branding-secondary-background-gradient {
-    @include gradientBar($color-branding-secondary-background, 
+    @include gradientBarSimple($color-branding-secondary-background, 
                          $color-branding-secondary-background-shadow, 
                          $color-branding-secondary-background-text, 
                          $color-branding-secondary-background-text-shadow);
@@ -26,7 +26,7 @@
 }
 
 @mixin -base-color-branding-tertiary-background-gradient {
-    @include gradientBar($color-branding-tertiary-background, 
+    @include gradientBarSimple($color-branding-tertiary-background, 
                          $color-branding-tertiary-background-shadow, 
                          $color-branding-tertiary-background-text, 
                          $color-branding-tertiary-background-text-shadow);
@@ -35,7 +35,7 @@
 }
 
 @mixin -base-color-branding-neutral-background-gradient {
-    @include gradientBar($color-branding-neutral-background, 
+    @include gradientBarSimple($color-branding-neutral-background, 
                          $color-branding-neutral-background-shadow, 
                          $color-branding-neutral-background-text, 
                          $color-branding-neutral-background-text-shadow);

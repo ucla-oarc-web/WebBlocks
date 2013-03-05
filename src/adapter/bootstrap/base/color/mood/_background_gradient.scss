@@ -1,5 +1,5 @@
 @mixin -base-color-mood-info-background-gradient {
-    @include gradientBar($color-mood-info-background, 
+    @include gradientBarSimple($color-mood-info-background, 
                          $color-mood-info-background-shadow, 
                          $color-mood-info-background-text, 
                          $color-mood-info-background-text-shadow);
@@ -8,7 +8,7 @@
 }
 
 @mixin -base-color-mood-important-background-gradient {
-    @include gradientBar($color-mood-important-background, 
+    @include gradientBarSimple($color-mood-important-background, 
                          $color-mood-important-background-shadow, 
                          $color-mood-important-background-text, 
                          $color-mood-important-background-text-shadow);
@@ -17,7 +17,7 @@
 }
 
 @mixin -base-color-mood-success-background-gradient {
-    @include gradientBar($color-mood-success-background, 
+    @include gradientBarSimple($color-mood-success-background, 
                          $color-mood-success-background-shadow, 
                          $color-mood-success-background-text, 
                          $color-mood-success-background-text-shadow);
@@ -26,7 +26,7 @@
 }
 
 @mixin -base-color-mood-warning-background-gradient {
-    @include gradientBar($color-mood-warning-background, 
+    @include gradientBarSimple($color-mood-warning-background, 
                          $color-mood-warning-background-shadow, 
                          $color-mood-warning-background-text, 
                          $color-mood-warning-background-text-shadow);
@@ -35,7 +35,7 @@
 }
 
 @mixin -base-color-mood-danger-background-gradient {
-    @include gradientBar($color-mood-danger-background, 
+    @include gradientBarSimple($color-mood-danger-background, 
                          $color-mood-danger-background-shadow, 
                          $color-mood-danger-background-text, 
                          $color-mood-danger-background-text-shadow);
@@ -44,7 +44,7 @@
 }
 
 @mixin -base-color-mood-inverse-background-gradient {
-    @include gradientBar($color-mood-inverse-background, 
+    @include gradientBarSimple($color-mood-inverse-background, 
                          $color-mood-inverse-background-shadow, 
                          $color-mood-inverse-background-text, 
                          $color-mood-inverse-background-text-shadow);
@@ -53,7 +53,7 @@
 }
 
 @mixin -base-color-mood-highlight-background-gradient {
-    @include gradientBar($color-mood-highlight-background, 
+    @include gradientBarSimple($color-mood-highlight-background, 
                          $color-mood-highlight-background-shadow, 
                          $color-mood-highlight-background-text, 
                          $color-mood-highlight-background-text-shadow);
@@ -62,7 +62,7 @@
 }
 
 @mixin -base-color-mood-required-background-gradient {
-    @include gradientBar($color-mood-required-background, 
+    @include gradientBarSimple($color-mood-required-background, 
                          $color-mood-required-background-shadow, 
                          $color-mood-required-background-text, 
                          $color-mood-required-background-text-shadow);

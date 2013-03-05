@@ -24,6 +24,8 @@
         
         <p>The width of each panel is defined as a proportion of the total number of panels in a row: <code>X/$structure-panels</code>. By default, the value of <code>$structure-panels</code> is <code>12</code>, but this may be changed when compiling WebBlocks. Any value of <code>X</code> up to <code>$structure-panel</code> may be used, except that the total of all panels in a row should not exceed <code>$structure-panel</code>.</p>
         
+        <p><span class="warning badge">WARNING</span> For maximum compatibility, one should <em>not</em> apply a border, left/right padding or left/right margins to the <code>.panel</code>. However, as <code>box-sizing:border-box</code> is used for <code>.panel</code>, one many use padding and border if only targeting IE 8+ and the other modern web browsers.</p>
+        
         <p>By default, panels are arranged from left-to-right. However, in some cases, the desired outcome is that, when the panels collapse, the right-most panel comes first. As such, <code>.row.right</code> may be used to orient panels in right-to-left order.</p>
         
         <p>The default behavior for a row is that it collapses at <code>$breakpoint-small</code>. However, this is not always the intended behavior. Therefore, a row may be defined as <code>.row.Y-collapse</code> where <code>Y</code> is a breakpoint (<code>xxsmall</code>, <code>xsmall</code>, <code>small</code>, <code>medium-small</code>, <code>medium</code>, <code>medium-large</code>, <code>large</code>) or <code>no</code> to ensure it never collapses.</p>

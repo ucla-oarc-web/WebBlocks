@@ -23,7 +23,7 @@
         },
         'breakpoint-small': {
             description:'defines breakpoint used by <code>.hide-small, .hide-above-small, .row.small-collapse</code>',
-            default_value:'600px',
+            default_value:'640px',
             type:'px'
         },
         'breakpoint-medium-small': {

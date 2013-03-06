@@ -1,6 +1,7 @@
 @mixin -base-structure-grid-panel {
     float: left;
     min-height: 1px;
+    box-sizing: border-box;
     &:not(:first-child) {
         margin-left: $structure-panel-gutter;
     }

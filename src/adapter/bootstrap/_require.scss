@@ -14,3 +14,12 @@
 @import "sass-twitter-bootstrap/lib/responsive-768px-979px";
 @import "sass-twitter-bootstrap/lib/responsive-767px-max";
 @import "sass-twitter-bootstrap/lib/responsive-navbar";
+
+/**
+ * Version of @mixin gradientBar without border tweaks
+ */
+@mixin gradientBarSimple($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: $textColor;
+  text-shadow: $textShadow;
+  @include gradient-vertical($primaryColor, $secondaryColor);
+}

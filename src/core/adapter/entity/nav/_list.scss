@@ -1,15 +1,88 @@
-﻿@mixin -entity-nav-list {}
+//!requires base/color
 
-@mixin -entity-nav-list-header {}
+@mixin -entity-nav-list {
+    
+    ul {
+        @extend ul.unstyled;
+    }
+    
+    ol {
+        @extend ol.unstyled;
+    }
+    
+    ul, ol {
+        margin: 0 0 0.5*$type-line-spacing;
+    }
+    
+    ul ul:last-child, ol ol:last-child {
+        margin-bottom: 0;
+    }
+    
+}
 
-@mixin -entity-nav-list-divider {}
+@mixin -entity-nav-list-header {
+    margin: 0 0 0.5*$type-line-spacing;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    font-size: 1em;
+    font-weight: bold;
+    
+    @extend .text-neutral;
+}
 
-@mixin -entity-nav-list-item {}
+@mixin -entity-nav-list-divider {
+    border-bottom-width: 0;
+    border-top: 1px solid $nav-list-divider-color;
+    height: auto;
+    overflow: visible;
+    padding-top: 9px;
+    width: auto;
+}
 
-@mixin -entity-nav-list-item-active {}
+@mixin -entity-nav-list-item {
+    
+    h1, h2, h3, h4, h5, h6, ul, ol {
+        &:first-child {
+            margin-top: 0.5*$type-line-spacing;
+        }
+        
+        margin-left: $nav-list-item-margin-left;
+    }
+    
+    > a {
 
-@mixin -entity-nav-list-link {}
+        display: block;
+        text-shadow: 0 1px 0 rgba(255,255,255,.5);
+        padding: 3px 15px;
 
-@mixin -entity-nav-list-flyout {}
+        &:hover {
+            text-decoration: none;
+        }
 
-@mixin -entity-nav-list-accordion {}
+    }
+}
+
+@mixin -entity-nav-list-link {
+}
+
+@mixin -entity-nav-list-item-active {
+}
+
+@mixin -entity-nav-list-flyout {
+	
+    ul ul, ul ol, ol ul, ol ol {
+        display: none;
+    }
+
+    .active>ul, .active>ol {
+        display: block;
+    }
+
+}
+
+@mixin -entity-nav-list-accordion {
+	
+    ul ul, ul ol, ol ul, ol ol {
+        display: none;
+    }
+
+}

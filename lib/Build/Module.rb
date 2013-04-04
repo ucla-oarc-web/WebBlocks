@@ -19,7 +19,9 @@ module WebBlocks
           config[:src][:modules] = all_modules
         end
         
-        config[:src][:modules].is_a?(Array) ? config[:src][:modules] : [config[:src][:modules]]
+        config[:src][:modules] = [config[:src][:modules]] unless config[:src][:modules].is_a?(Array)
+        
+        config[:src][:modules].map { |mod| mod.downcase } 
         
       end
       

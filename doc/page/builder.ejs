@@ -1,5 +1,19 @@
 <h2>WebBlocks Builder</h2>
 
+<p>This tool will help generate a compiler configuration file.</p>
+
+<p>Once this is done, simply copy it into <code>Rakefile-config.rb</code> and then <a href="#Configuration/Compiler" target="_blank">compile WebBlocks</a>:</p>
+
+<pre class="prettyprint">git submodule init
+git submodule update
+bundle
+npm install
+rake</pre>
+
+<p>This assumes that your <a href="#Configuration/Environment">environment</a> is already set up to compile WebBlocks.</p>
+
+<p><span class="badge important">COMING SOON</span> This build tool will soon include a generator for <code>src/sass/variables.scss</code> and the ability to call out to a remote build server so that you do not need to set up an entire WebBlocks compilation environment on your local machine.</p>
+
 <form class="form" id="builder-form">
 
 	<fieldset id="modules">
@@ -175,9 +189,11 @@
 			<textarea class="full" id="ruby" style="height:6em"></textarea>
 		</div>
 
+        <!--
 		<div class="control">
 			<textarea class="full" id="json" style="height:6em"></textarea>
 		</div>
+        -->
 	
 	</div>
 

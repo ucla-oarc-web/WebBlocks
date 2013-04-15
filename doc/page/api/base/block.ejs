@@ -1,12 +1,14 @@
 <h2>Block</h2>
 
-<p>This library includes modules related to block-level elements. At the current time, it includes just a single module:</p>
+<p>This library includes modules related to block-level elements. At the current time, it includes:</p>
 
 <ul class="modules">
     <li><%= DOC.modules.render('Base/Block/Float') %></li>
+    <li><%= DOC.modules.render('Base/Block/Float/Responsive') %></li>
+    <li><%= DOC.modules.render('Base/Block/Float/Responsive_Above') %></li>
 </ul>
 
-<h3>Float</h3>
+<h3>Basic Usage</h3>
 
 <p>The <code>.float-left</code> and <code>.float-right</code> classes allow one to set a left or right float on any block level element. In addition, a <code>.float-clear</code> class allows one to clear existing floats.</p>
 
@@ -19,6 +21,62 @@
     <div class="float-right secondary">.float-right</div>
     <div class="float-clear tertiary">.float-clear</div>
 </div>
+
+<h3>Responsive Usage</h3>
+
+<p>WebBlocks provides a set of classes that allow a user to float content at or below a breakpoint, whereas above the breakpoint, the element is rendered without the float:</p>
+
+<ul>
+    <li><code>.float-left-xxsmall</code></li>
+    <li><code>.float-right-xxsmall</code></li>
+    <li><code>.float-left-xsmall</code></li>
+    <li><code>.float-right-xsmall</code></li>
+    <li><code>.float-left-small</code></li>
+    <li><code>.float-right-small</code></li>
+    <li><code>.float-left-medium-small</code></li>
+    <li><code>.float-right-medium-small</code></li>
+    <li><code>.float-left-medium</code></li>
+    <li><code>.float-right-medium</code></li>
+    <li><code>.float-left-medium-large</code></li>
+    <li><code>.float-right-medium-large</code></li>
+    <li><code>.float-left-large</code></li>
+    <li><code>.float-right-large</code></li>
+</ul>
+
+<p>Similarly, WebBlocks also provides a set of classes that allow a user to float content above a breakpoint, whereas at or below the breakpoint, the element will be rendered without the float:
+
+<ul>
+    <li><code>.float-left-above-xxsmall</code></li>
+    <li><code>.float-right-above-xxsmall</code></li>
+    <li><code>.float-left-above-xsmall</code></li>
+    <li><code>.float-right-above-xsmall</code></li>
+    <li><code>.float-left-above-small</code></li>
+    <li><code>.float-right-above-small</code></li>
+    <li><code>.float-left-above-medium-small</code></li>
+    <li><code>.float-right-above-medium-small</code></li>
+    <li><code>.float-left-above-medium</code></li>
+    <li><code>.float-right-above-medium</code></li>
+    <li><code>.float-left-above-medium-large</code></li>
+    <li><code>.float-right-above-medium-large</code></li>
+    <li><code>.float-left-above-large</code></li>
+    <li><code>.float-right-above-large</code></li>
+</ul>
+
+<p>An element with <code>.float-right-medium</code> will float right at or below <code>$breakpoint-medium</code>, whereas an element <code>.float-right-above-medium</code> will only float right above <code>$breakpoint-medium</code>:</p>
+
+<pre class="prettyprint">&lt;div class="float-right-medium"&gt;
+    &lt;!-- float right at or below medium breakpoint --&gt;
+&lt;/div&gt;
+&lt;div class="float-right-above-medium"&gt;
+    &lt;!-- float right above medium breakpoint --&gt;
+&lt;/div&gt;</pre>
+
+<div class="primary float-right-medium">.float-right-medium</div>
+<br class="float-clear hide-above-medium">
+<div class="secondary float-right-above-medium">.float-right-above-medium</div>
+<br class="float-clear">
+
+<h3>Float Containers</h3>
 
 <p>In many cases, however, explicitly clearing a float is cumbersome. Therefore, WebBlocks provides two float-containing classes. These can be used to wrap floated elements so that elements later in the DOM will be flowed below the contained elements. The <code>.float-container</code> class uses the CSS overflow property to contain floats, and it works in the majority of cases. A more advanced <code>.clearfix</code> class is also provided in scenarios when <code>.float-container</code> is ineffective.</p>
 

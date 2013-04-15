@@ -1,5 +1,3 @@
-//!requires base/color
-
 @mixin -entity-nav-list {
     
     ul {
@@ -28,6 +26,8 @@
     
     @extend .text-neutral;
 }
+
+@mixin -entity-nav-list-header-divider { }
 
 @mixin -entity-nav-list-divider {
     border-bottom-width: 0;

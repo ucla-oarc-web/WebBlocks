@@ -1,0 +1,47 @@
+<h2>Structure/Container</h2>
+
+<p>This library provides a module for defining a page container:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Base/Structure/Container') %></li>
+</ul>
+
+<h3>Usage</h3>
+
+<p>The <code>.container</code> element offers a simple way to wrap main body content. It can be applied to the body directly to contain the entire site contents, or it can be applied as a containing element over a subset of elements. It is not intended to be used as an interior element when another element has already contained the workspace below <code>$structure-container-width-max</code> (if set), nor is its behavior defined if a <code>.container</code> is placed within another <code>.container</code>.</p>
+
+<h4>Example</h4>
+
+<p>Use of the container is of the form:</p>
+
+<pre class="prettyprint">&lt;div class="container"&gt;
+&lt;!-- contained content --&gt;
+&lt;/div&gt;</pre>
+
+<p>The documentation presented here (including the side menu) is wrapped within a <code>.container</code> object.</p>
+
+<h4>Behavior</h4>
+
+<p>The behavior of the container is defined as follows:</p>
+
+<ul>
+    <li>Below <code>$breakpoint-small</code>, it will have a fixed padding equal to the percentage specified by <code>$structure-container-gutter</code> when the container is of a total width equal to <code>$breakpoint-small</code>. This ensures that the gutter will never completely vanish.</li>
+    <li>Between <code>$breakpoint-small</code> and <code>$structure-container-width-max</code>, it will be the width of its containing element (usually the window width) with the exception of padding on both the right and left sides equal to the gutter percentage specified as <code>$structure-container-gutter</code>.</li>
+    <li>If <code>$structure-container-max-width</code> is not false, then the container will not grow to beyond the maximum pixel width (gutters included in this width) as specified by this variable. When the container hits this limit, it is aligned in the center, holding this maximum width.</li>
+</ul>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Base/Structure/Container').join('</li><li>') %></li>
+</ul>
+
+<style>
+    #grid .row {
+        margin-bottom: 20px; /* for presentation of rows in this example */
+    }
+    
+    #grid .row .row {
+        margin-bottom: 0;
+    }
+</style>

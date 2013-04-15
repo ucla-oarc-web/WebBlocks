@@ -21,6 +21,64 @@
 				},
 				api:'Base/Block'
 			},
+			'Base/Block/Float/Responsive': {
+				description:'Defines a set of classes that set content to be floated at and below a particular breakpoint.',
+				defines: {
+					'.float-left-xxsmall':'Float content left at and below <code>$beakpoint-xxsmall</code>',
+					'.float-left-xsmall':'Float content left at and below <code>$beakpoint-xsmall</code>',
+					'.float-left-small':'Float content left at and below <code>$beakpoint-small</code>',
+					'.float-left-medium-small':'Float content left at and below <code>$beakpoint-medium-small</code>',
+					'.float-left-medium':'Float content left at and below <code>$beakpoint-medium</code>',
+					'.float-left-medium-large':'Float content left at and below <code>$beakpoint-medium-large</code>',
+					'.float-left-large':'Float content left at and below <code>$beakpoint-large</code>',
+                    '.float-right-xxsmall':'Float content right at and below <code>$beakpoint-xxsmall</code>',
+					'.float-right-xsmall':'Float content right at and below <code>$beakpoint-xsmall</code>',
+					'.float-right-small':'Float content right at and below <code>$beakpoint-small</code>',
+					'.float-right-medium-small':'Float content right at and below <code>$beakpoint-medium-small</code>',
+					'.float-right-medium':'Float content right at and below <code>$beakpoint-medium</code>',
+					'.float-right-medium-large':'Float content right at and below <code>$beakpoint-medium-large</code>',
+					'.float-right-large':'Float content right at and below <code>$beakpoint-large</code>'
+				},
+				uses:[
+					'breakpoint-xxsmall',
+					'breakpoint-xsmall',
+					'breakpoint-small',
+					'breakpoint-medium-small',
+					'breakpoint-medium',
+					'breakpoint-medium-large',
+					'breakpoint-large'
+				],
+				api:'Base/Block/Float'
+			},
+			'Base/Block/Float/Responsive_Above': {
+				description:'Defines a set of classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint.',
+				defines: {
+					'.float-left-above-xxsmall':'Float content left above <code>$beakpoint-xxsmall</code>',
+					'.float-left-above-xsmall':'Float content left above <code>$beakpoint-xsmall</code>',
+					'.float-left-above-small':'Float content left above <code>$beakpoint-small</code>',
+					'.float-left-above-medium-small':'Float content left above <code>$beakpoint-medium-small</code>',
+					'.float-left-above-medium':'Float content left above <code>$beakpoint-medium</code>',
+					'.float-left-above-medium-large':'Float content left above <code>$beakpoint-medium-large</code>',
+					'.float-left-above-large':'Float content left above <code>$beakpoint-large</code>',
+                    '.float-right-above-xxsmall':'Float content right above <code>$beakpoint-xxsmall</code>',
+					'.float-right-above-xsmall':'Float content right above <code>$beakpoint-xsmall</code>',
+					'.float-right-above-small':'Float content right above <code>$beakpoint-small</code>',
+					'.float-right-above-medium-small':'Float content right above <code>$beakpoint-medium-small</code>',
+					'.float-right-above-medium':'Float content right above <code>$beakpoint-medium</code>',
+					'.float-right-above-medium-large':'Float content right above <code>$beakpoint-medium-large</code>',
+					'.float-right-above-large':'Float content right above <code>$beakpoint-large</code>'
+				},
+				uses:[
+					'breakpoint-xxsmall',
+					'breakpoint-xsmall',
+					'breakpoint-small',
+					'breakpoint-medium-small',
+					'breakpoint-medium',
+					'breakpoint-medium-large',
+					'breakpoint-large'
+				],
+				api:'Base/Block/Float'
+			},
 			'Base/Color': {
 				description:'Defines a set of brand-related and mood-related colors for text and backgrounds'
 			},
@@ -180,7 +238,7 @@
 				description: 'Normalizes user agent stylesheets to reduce browser discrepancies and estabish a style baseline'
 			},
 			'Base/Structure': {
-				description:'Defines structural classes including a fluid grid and container.'
+				description:'Defines structural classes including a fluid grid, container and constrained content.'
 			},
 			'Base/Structure/Grid': {
 				description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
@@ -206,7 +264,7 @@
 					'breakpoint-medium-large',
 					'breakpoint-large'
 				],
-				api:'Base/Structure'
+				api:'Base/Structure/Grid'
 			}, 
 			'Base/Structure/Container': {
 				description:'Defines a container class may be used on an element to define a maximum size it may grow to in large viewports, as well as ensure padding of the content on small viewports.',
@@ -217,7 +275,14 @@
 					'structure-container-gutter',
 					'structure-container-width-max'
 				],
-				api:'Base/Structure'
+				api:'Base/Structure/Container'
+			},
+			'Base/Structure/Constrained': {
+				description:'Defines a helper class which constrains the max-width of the element to no greater than 100% of the size of the parent element.',
+				defines:{
+					'.constrained':'Element is constrained to 100% the max-width of the container'
+				},
+				api:'Base/Structure/Constrained'
 			},
 			'Base/Type': {
 				description:'Defines typographical utility classes.'
@@ -230,6 +295,92 @@
 					'.text-right':'Right-align text',
 					'.text-justify':'Justify text',
 				},
+				api:'Base/Type'
+			},
+			'Base/Type/Align/Responsive': {
+				description:'Defines a set of classes that set text to be aligned at and below a particular breakpoint.',
+				defines: {
+					'.text-left-xxsmall':'Left-align text at and below <code>$beakpoint-xxsmall</code>',
+					'.text-left-xsmall':'Left-align text at and below <code>$beakpoint-xsmall</code>',
+					'.text-left-small':'Left-align text at and below <code>$beakpoint-small</code>',
+					'.text-left-medium-small':'Left-align text at and below <code>$beakpoint-medium-small</code>',
+					'.text-left-medium':'Left-align text at and below <code>$beakpoint-medium</code>',
+					'.text-left-medium-large':'Left-align text at and below <code>$beakpoint-medium-large</code>',
+					'.text-left-large':'Left-align text at and below <code>$beakpoint-large</code>',
+                    '.text-center-xxsmall':'Center-align text at and below <code>$beakpoint-xxsmall</code>',
+					'.text-center-xsmall':'Center-align text at and below <code>$beakpoint-xsmall</code>',
+					'.text-center-small':'Center-align text at and below <code>$beakpoint-small</code>',
+					'.text-center-medium-small':'Center-align text at and below <code>$beakpoint-medium-small</code>',
+					'.text-center-medium':'Center-align text at and below <code>$beakpoint-medium</code>',
+					'.text-center-medium-large':'Center-align text at and below <code>$beakpoint-medium-large</code>',
+					'.text-center-large':'Center-align text at and below <code>$beakpoint-large</code>',
+					'.text-right-xxsmall':'Right-align text at and below <code>$beakpoint-xxsmall</code>',
+					'.text-right-xsmall':'Right-align text at and below <code>$beakpoint-xsmall</code>',
+					'.text-right-small':'Right-align text at and below <code>$beakpoint-small</code>',
+					'.text-right-medium-small':'Right-align text at and below <code>$beakpoint-medium-small</code>',
+					'.text-right-medium':'Right-align text at and below <code>$beakpoint-medium</code>',
+					'.text-right-medium-large':'Right-align text at and below <code>$beakpoint-medium-large</code>',
+					'.text-right-large':'Right-align text at and below <code>$beakpoint-large</code>',
+                    '.text-justify-xxsmall':'Justify text at and below <code>$beakpoint-xxsmall</code>',
+					'.text-justify-xsmall':'Justify text at and below <code>$beakpoint-xsmall</code>',
+					'.text-justify-small':'Justify text at and below <code>$beakpoint-small</code>',
+					'.text-justify-medium-small':'Justify text at and below <code>$beakpoint-medium-small</code>',
+					'.text-justify-medium':'Justify text at and below <code>$beakpoint-medium</code>',
+					'.text-justify-medium-large':'Justify text at and below <code>$beakpoint-medium-large</code>',
+					'.text-justify-large':'Justify text at and below <code>$beakpoint-large</code>'
+				},
+				uses:[
+					'breakpoint-xxsmall',
+					'breakpoint-xsmall',
+					'breakpoint-small',
+					'breakpoint-medium-small',
+					'breakpoint-medium',
+					'breakpoint-medium-large',
+					'breakpoint-large'
+				],
+				api:'Base/Type'
+			},
+			'Base/Type/Align/Responsive_Above': {
+				description:'Defines a set of classes that set text to be aligned when viewport is <em>larger</em> than a particular breakpoint.',
+				defines: {
+					'.text-left-above-xxsmall':'Left-align text above <code>$beakpoint-xxsmall</code>',
+					'.text-left-above-xsmall':'Left-align text above <code>$beakpoint-xsmall</code>',
+					'.text-left-above-small':'Left-align text above <code>$beakpoint-small</code>',
+					'.text-left-above-medium-small':'Left-align text above <code>$beakpoint-medium-small</code>',
+					'.text-left-above-medium':'Left-align text above <code>$beakpoint-medium</code>',
+					'.text-left-above-medium-large':'Left-align text above <code>$beakpoint-medium-large</code>',
+					'.text-left-above-large':'Left-align text above <code>$beakpoint-large</code>',
+                    '.text-center-above-xxsmall':'Center-align text above <code>$beakpoint-xxsmall</code>',
+					'.text-center-above-xsmall':'Center-align text above <code>$beakpoint-xsmall</code>',
+					'.text-center-above-small':'Center-align text above <code>$beakpoint-small</code>',
+					'.text-center-above-medium-small':'Center-align text above <code>$beakpoint-medium-small</code>',
+					'.text-center-above-medium':'Center-align text above <code>$beakpoint-medium</code>',
+					'.text-center-above-medium-large':'Center-align text above <code>$beakpoint-medium-large</code>',
+					'.text-center-above-large':'Center-align text above <code>$beakpoint-large</code>',
+                    '.text-right-above-xxsmall':'Right-align text above <code>$beakpoint-xxsmall</code>',
+					'.text-right-above-xsmall':'Right-align text above <code>$beakpoint-xsmall</code>',
+					'.text-right-above-small':'Right-align text above <code>$beakpoint-small</code>',
+					'.text-right-above-medium-small':'Right-align text above <code>$beakpoint-medium-small</code>',
+					'.text-right-above-medium':'Right-align text above <code>$beakpoint-medium</code>',
+					'.text-right-above-medium-large':'Right-align text above <code>$beakpoint-medium-large</code>',
+					'.text-right-above-large':'Right-align text above <code>$beakpoint-large</code>',
+                    '.text-justify-above-xxsmall':'Justify text above <code>$beakpoint-xxsmall</code>',
+					'.text-justify-above-xsmall':'Justify text above <code>$beakpoint-xsmall</code>',
+					'.text-justify-above-small':'Justify text above <code>$beakpoint-small</code>',
+					'.text-justify-above-medium-small':'Justify text above <code>$beakpoint-medium-small</code>',
+					'.text-justify-above-medium':'Justify text above <code>$beakpoint-medium</code>',
+					'.text-justify-above-medium-large':'Justify text above <code>$beakpoint-medium-large</code>',
+					'.text-justify-above-large':'Justify text above <code>$beakpoint-large</code>'
+				},
+				uses:[
+					'breakpoint-xxsmall',
+					'breakpoint-xsmall',
+					'breakpoint-small',
+					'breakpoint-medium-small',
+					'breakpoint-medium',
+					'breakpoint-medium-large',
+					'breakpoint-large'
+				],
 				api:'Base/Type'
 			},
 			'Base/Type/Font': {

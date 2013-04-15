@@ -1,0 +1,111 @@
+@mixin -base-block-float-left-responsive-xxsmall {
+    
+    @media screen and (max-width: $breakpoint-xxsmall) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-xsmall {
+    
+    @media screen and (max-width: $breakpoint-xsmall) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-small {
+    
+    @media screen and (max-width: $breakpoint-small) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-medium-small {
+    
+    @media screen and (max-width: $breakpoint-medium-small) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-medium {
+    
+    @media screen and (max-width: $breakpoint-medium) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-medium-large {
+    
+    @media screen and (max-width: $breakpoint-medium-large) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-left-responsive-large {
+    
+    @media screen and (max-width: $breakpoint-large) {
+        float: left;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-xxsmall {
+    
+    @media screen and (max-width: $breakpoint-xxsmall) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-xsmall {
+    
+    @media screen and (max-width: $breakpoint-xsmall) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-small {
+    
+    @media screen and (max-width: $breakpoint-small) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-medium-small {
+    
+    @media screen and (max-width: $breakpoint-medium-small) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-medium {
+    
+    @media screen and (max-width: $breakpoint-medium) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-medium-large {
+    
+    @media screen and (max-width: $breakpoint-medium-large) {
+        float: right;
+    }
+    
+}
+
+@mixin -base-block-float-right-responsive-large {
+    
+    @media screen and (max-width: $breakpoint-large) {
+        float: right;
+    }
+    
+}

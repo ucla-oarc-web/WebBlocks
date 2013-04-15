@@ -1,0 +1,55 @@
+.float-left-above-xxsmall {
+    @include -base-block-float-left-responsive-above-xxsmall;
+}
+
+.float-left-above-xsmall {
+    @include -base-block-float-left-responsive-above-xsmall;
+}
+
+.float-left-above-small {
+    @include -base-block-float-left-responsive-above-small;
+}
+
+.float-left-above-medium-small {
+    @include -base-block-float-left-responsive-above-medium-small;
+}
+
+.float-left-above-medium {
+    @include -base-block-float-left-responsive-above-medium;
+}
+
+.float-left-above-medium-large {
+    @include -base-block-float-left-responsive-above-medium-large;
+}
+
+.float-left-above-large {
+    @include -base-block-float-left-responsive-above-large;
+}
+
+.float-right-above-xxsmall {
+    @include -base-block-float-right-responsive-above-xxsmall;
+}
+
+.float-right-above-xsmall {
+    @include -base-block-float-right-responsive-above-xsmall;
+}
+
+.float-right-above-small {
+    @include -base-block-float-right-responsive-above-small;
+}
+
+.float-right-above-medium-small {
+    @include -base-block-float-right-responsive-above-medium-small;
+}
+
+.float-right-above-medium {
+    @include -base-block-float-right-responsive-above-medium;
+}
+
+.float-right-above-medium-large {
+    @include -base-block-float-right-responsive-above-medium-large;
+}
+
+.float-right-above-large {
+    @include -base-block-float-right-responsive-above-large;
+}

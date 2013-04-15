@@ -1,0 +1,55 @@
+.float-left-xxsmall {
+    @include -base-block-float-left-responsive-xxsmall;
+}
+
+.float-left-xsmall {
+    @include -base-block-float-left-responsive-xsmall;
+}
+
+.float-left-small {
+    @include -base-block-float-left-responsive-small;
+}
+
+.float-left-medium-small {
+    @include -base-block-float-left-responsive-medium-small;
+}
+
+.float-left-medium {
+    @include -base-block-float-left-responsive-medium;
+}
+
+.float-left-medium-large {
+    @include -base-block-float-left-responsive-medium-large;
+}
+
+.float-left-large {
+    @include -base-block-float-left-responsive-large;
+}
+
+.float-right-xxsmall {
+    @include -base-block-float-right-responsive-xxsmall;
+}
+
+.float-right-xsmall {
+    @include -base-block-float-right-responsive-xsmall;
+}
+
+.float-right-small {
+    @include -base-block-float-right-responsive-small;
+}
+
+.float-right-medium-small {
+    @include -base-block-float-right-responsive-medium-small;
+}
+
+.float-right-medium {
+    @include -base-block-float-right-responsive-medium;
+}
+
+.float-right-medium-large {
+    @include -base-block-float-right-responsive-medium-large;
+}
+
+.float-right-large {
+    @include -base-block-float-right-responsive-large;
+}

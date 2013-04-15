@@ -238,7 +238,7 @@
 				description: 'Normalizes user agent stylesheets to reduce browser discrepancies and estabish a style baseline'
 			},
 			'Base/Structure': {
-				description:'Defines structural classes including a fluid grid and container.'
+				description:'Defines structural classes including a fluid grid, container and constrained content.'
 			},
 			'Base/Structure/Grid': {
 				description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
@@ -264,7 +264,7 @@
 					'breakpoint-medium-large',
 					'breakpoint-large'
 				],
-				api:'Base/Structure'
+				api:'Base/Structure/Grid'
 			}, 
 			'Base/Structure/Container': {
 				description:'Defines a container class may be used on an element to define a maximum size it may grow to in large viewports, as well as ensure padding of the content on small viewports.',
@@ -275,7 +275,14 @@
 					'structure-container-gutter',
 					'structure-container-width-max'
 				],
-				api:'Base/Structure'
+				api:'Base/Structure/Container'
+			},
+			'Base/Structure/Constrained': {
+				description:'Defines a helper class which constrains the max-width of the element to no greater than 100% of the size of the parent element.',
+				defines:{
+					'.constrained':'Element is constrained to 100% the max-width of the container'
+				},
+				api:'Base/Structure/Constrained'
 			},
 			'Base/Type': {
 				description:'Defines typographical utility classes.'

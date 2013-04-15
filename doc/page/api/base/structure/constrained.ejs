@@ -1,0 +1,31 @@
+<h2>Structure/Constrained</h2>
+
+<p>This library provides a module with a utility helper for constraining max-width</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Base/Structure/Constrained') %></li>
+</ul>
+
+
+<h3>Constrained Content</h3>
+
+<p>The <code>.constrained</code> helper class constrains the <code>max-width</code> of the applied element to no greater than <code>100%</code> of the size of the parent element.</p>
+
+<h4>Example</h4>
+
+<p>Use of the <code>.constrained</code> class is of the form:</p>
+
+<pre class="prettyprint">&lt;div class="panel-4"&gt;
+    &lt;img class="constrained" ..&gt;
+&lt;/div&gt;</pre>
+
+
+<style>
+    #grid .row {
+        margin-bottom: 20px; /* for presentation of rows in this example */
+    }
+    
+    #grid .row .row {
+        margin-bottom: 0;
+    }
+</style>

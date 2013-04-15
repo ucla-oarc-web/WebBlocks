@@ -27,6 +27,8 @@
     @extend .text-neutral;
 }
 
+@mixin -entity-nav-list-header-divider { }
+
 @mixin -entity-nav-list-divider {
     border-bottom-width: 0;
     border-top: 1px solid $nav-list-divider-color;

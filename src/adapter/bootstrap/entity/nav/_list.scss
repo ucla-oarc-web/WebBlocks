@@ -15,6 +15,10 @@
 	margin-bottom: 3px;
 }
 
+@mixin -entity-nav-list-header-divider {
+	padding: 9px 0 0;
+}
+
 @mixin -entity-nav-list-divider {
 	background-color: transparent;
 	border-bottom-width: 0;

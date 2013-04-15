@@ -1,0 +1,223 @@
+@mixin -base-type-align-left-responsive-above-xxsmall {
+    
+    @media screen and (min-width: $breakpoint-xxsmall+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-xsmall {
+    
+    @media screen and (min-width: $breakpoint-xsmall+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-small {
+    
+    @media screen and (min-width: $breakpoint-small+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-medium-small {
+    
+    @media screen and (min-width: $breakpoint-medium-small+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-medium {
+    
+    @media screen and (min-width: $breakpoint-medium+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-medium-large {
+    
+    @media screen and (min-width: $breakpoint-medium-large+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-left-responsive-above-large {
+    
+    @media screen and (min-width: $breakpoint-large+1) {
+        text-align: left;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-xxsmall {
+    
+    @media screen and (min-width: $breakpoint-xxsmall+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-xsmall {
+    
+    @media screen and (min-width: $breakpoint-xsmall+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-small {
+    
+    @media screen and (min-width: $breakpoint-small+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-medium-small {
+    
+    @media screen and (min-width: $breakpoint-medium-small+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-medium {
+    
+    @media screen and (min-width: $breakpoint-medium) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-medium-large {
+    
+    @media screen and (min-width: $breakpoint-medium-large+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-center-responsive-above-large {
+    
+    @media screen and (min-width: $breakpoint-large+1) {
+        text-align: center;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-xxsmall {
+    
+    @media screen and (min-width: $breakpoint-xxsmall+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-xsmall {
+    
+    @media screen and (min-width: $breakpoint-xsmall+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-small {
+    
+    @media screen and (min-width: $breakpoint-small+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-medium-small {
+    
+    @media screen and (min-width: $breakpoint-medium-small+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-medium {
+    
+    @media screen and (min-width: $breakpoint-medium+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-medium-large {
+    
+    @media screen and (min-width: $breakpoint-medium-large+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-right-responsive-above-large {
+    
+    @media screen and (min-width: $breakpoint-large+1) {
+        text-align: right;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-xxsmall {
+    
+    @media screen and (min-width: $breakpoint-xxsmall+1) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-xsmall {
+    
+    @media screen and (min-width: $breakpoint-xsmall+1) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-small {
+    
+    @media screen and (min-width: $breakpoint-small+1) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-medium-small {
+    
+    @media screen and (min-width: $breakpoint-medium-small+1) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-medium {
+    
+    @media screen and (min-width: $breakpoint-medium) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-medium-large {
+    
+    @media screen and (min-width: $breakpoint-medium-large+1) {
+        text-align: justify;
+    }
+    
+}
+
+@mixin -base-type-align-justify-responsive-above-large {
+    
+    @media screen and (min-width: $breakpoint-large+1) {
+        text-align: justify;
+    }
+    
+}

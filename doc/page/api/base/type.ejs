@@ -4,10 +4,12 @@
 
 <ul class="modules">
     <li><%= DOC.modules.render('Base/Type/Align') %></li>
+    <li><%= DOC.modules.render('Base/Type/Align/Responsive') %></li>
+    <li><%= DOC.modules.render('Base/Type/Align/Responsive_Above') %></li>
     <li><%= DOC.modules.render('Base/Type/Font') %></li>
 </ul>
 
-<h3>Align</h3>
+<h3>Basic Alignment</h3>
 
 <p>This module provides four text alignment helpers:</p>
 
@@ -29,6 +31,137 @@
 <p class="text-center secondary">.text-center</p>
 <p class="text-right tertiary">.text-right</p>
 <p class="text-justify neutral">.text-justify</p>
+
+<h3>Responsive Alignment</h3>
+
+<p>WebBlocks provides a set of classes that allow a user to align text at or below a breakpoint, whereas above the breakpoint, the element is rendered without the alignment:</p>
+
+<div class="row medium-small-collapse">
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-left-xxsmall</code></li>
+            <li><code>.text-left-xsmall</code></li>
+            <li><code>.text-left-small</code></li>
+            <li><code>.text-left-medium-small</code></li>
+            <li><code>.text-left-medium</code></li>
+            <li><code>.text-left-medium-large</code></li>
+            <li><code>.text-left-large</code></li>
+        </ul>
+    </div>
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-center-xxsmall</code></li>
+            <li><code>.text-center-xsmall</code></li>
+            <li><code>.text-center-small</code></li>
+            <li><code>.text-center-medium-small</code></li>
+            <li><code>.text-center-medium</code></li>
+            <li><code>.text-center-medium-large</code></li>
+            <li><code>.text-center-large</code></li>
+        </ul>
+    </div>
+</div>
+<div class="row medium-small-collapse">
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-right-xxsmall</code></li>
+            <li><code>.text-right-xsmall</code></li>
+            <li><code>.text-right-small</code></li>
+            <li><code>.text-right-medium-small</code></li>
+            <li><code>.text-right-medium</code></li>
+            <li><code>.text-right-medium-large</code></li>
+            <li><code>.text-right-large</code></li>
+        </ul>
+    </div>
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-justify-xxsmall</code></li>
+            <li><code>.text-justify-xsmall</code></li>
+            <li><code>.text-justify-small</code></li>
+            <li><code>.text-justify-medium-small</code></li>
+            <li><code>.text-justify-medium</code></li>
+            <li><code>.text-justify-medium-large</code></li>
+            <li><code>.text-justify-large</code></li>
+        </ul>
+    </div>
+</div>
+
+<p>Similarly, WebBlocks also provides a set of classes that allow a user to align text above a breakpoint, whereas at or below the breakpoint, the element will be rendered without the alignment:
+
+<div class="row medium-small-collapse">
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-left-above-xxsmall</code></li>
+            <li><code>.text-left-above-xsmall</code></li>
+            <li><code>.text-left-above-small</code></li>
+            <li><code>.text-left-above-medium-small</code></li>
+            <li><code>.text-left-above-medium</code></li>
+            <li><code>.text-left-above-medium-large</code></li>
+            <li><code>.text-left-above-large</code></li>
+        </ul>
+    </div>
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-center-above-xxsmall</code></li>
+            <li><code>.text-center-above-xsmall</code></li>
+            <li><code>.text-center-above-small</code></li>
+            <li><code>.text-center-above-medium-small</code></li>
+            <li><code>.text-center-above-medium</code></li>
+            <li><code>.text-center-above-medium-large</code></li>
+            <li><code>.text-center-above-large</code></li>
+        </ul>
+    </div>
+</div>
+<div class="row medium-small-collapse">
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-right-above-xxsmall</code></li>
+            <li><code>.text-right-above-xsmall</code></li>
+            <li><code>.text-right-above-small</code></li>
+            <li><code>.text-right-above-medium-small</code></li>
+            <li><code>.text-right-above-medium</code></li>
+            <li><code>.text-right-above-medium-large</code></li>
+            <li><code>.text-right-above-large</code></li>
+        </ul>
+    </div>
+    <div class="panel-6">
+        <ul class="unstyled list">
+            <li><code>.text-justify-above-xxsmall</code></li>
+            <li><code>.text-justify-above-xsmall</code></li>
+            <li><code>.text-justify-above-small</code></li>
+            <li><code>.text-justify-above-medium-small</code></li>
+            <li><code>.text-justify-above-medium</code></li>
+            <li><code>.text-justify-above-medium-large</code></li>
+            <li><code>.text-justify-above-large</code></li>
+        </ul>
+    </div>
+</div>
+
+<p>An element with <code>.text-center-medium</code> will be aligned to the center at or below <code>$breakpoint-medium</code>, whereas an element <code>.text-right-above-medium</code> will be aligned to the right above <code>$breakpoint-medium</code>:</p>
+
+<pre class="prettyprint">&lt;div class="text-center-medium"&gt;
+    &lt;!-- center-aligned at or below medium breakpoint --&gt;
+&lt;/div&gt;
+&lt;div class="text-right-above-medium"&gt;
+    &lt;!-- right-aligned above medium breakpoint --&gt;
+&lt;/div&gt;</pre>
+
+<div class="text-center-medium">
+    .text-center-medium
+</div>
+<div class="text-right-above-medium">
+    .text-right-above-medium
+</div>
+
+<p>These can be mixed and matched to define alignments besides the container alignment both above and below a breakpoint as follows:</p>
+
+<pre class="prettyprint">&lt;div class="text-center-medium text-right-above-medium"&gt;
+    &lt;!-- center-aligned at or below medium breakpoint, 
+          or right-aligned above medium breakpoint --&gt;
+&lt;/div&gt;</pre>
+
+<div class="text-center-medium text-right-above-medium">
+    .text-center-medium.text-right-above-medium
+</div>
 
 <h3>Font</h3>
 

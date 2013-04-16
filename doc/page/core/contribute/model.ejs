@@ -1,0 +1,203 @@
+<h2>Contribution Model</h2>
+
+<p>WebBlocks is an open-source collaborative project that is the sum of its contributors. There are a number of different ways to get involved. At the most basic level, simply providing bug reports or proposing specifications for new features is something much appreciated. However, for those that want to go further, the WebBlocks core team is also more than happy to accept pull requests for features developed by users, so long as quality assurance is met.</p>
+
+<h3>Reporting a Bug</h3>
+
+<p>All bugs should be reported on the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. When reporting a bug, the following should be provided:</p>
+
+<ol>
+    <li>Basic description of the issue</li>
+    <li>If non-obvious, an explanation as to why it's an issue</li>
+    <li>Any browser, OS or WebBlocks details that may relate</li>
+</ol>
+
+<p>If the bug relates to the compiler, before reporting the bug, please confirm that invoking <code>rake</code> on a clean copy of WebBlocks works and that all the tests pass by invoking <code>rake test</code>. If these fail, please refer to <a href="#Configuration/Troubleshoot" target="_blank">Troubleshooting</a>; if your issue is not listed there, then feel free to report it as such.</p>
+
+<h3>Proposing a Feature</h3>
+
+<p>All feature proposals should start by creating an issue on the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. Within the issue, also provide a description with the following:</p>
+
+<ul>
+    <li>Basic description of the feature</li>
+    <li>Motivation and/or usages</li>
+    <li>Specific features and options</li>
+    <li>Any pertinent edge cases (such as responsive considerations for new elements)</li>
+</ul>
+
+<p>When proposing a new element, we ask that a generic template of the entity ("prototype") be provided for the feature, adhering to the following standards:</p>
+
+<ul>
+    <li>Only include the HTML required for the element (do not include the html element, for example)</li>
+    <li>Use HTML comments before an element to specify multiplicity (how many of an element)</li>
+    <li>Use the pipe/or (|) character to signify multiple possible values</li>
+    <li>Replace parameterized values with a description enclosed in curly brackets ({})</li>
+    <li>Include additional comments for further explanation</li>
+</ul>
+
+<p>For example, here's a possible prototype for the gallery entity:</p>
+
+<pre class="prettyprint">&lt;figure&gt;
+  &lt;!-- 1..* --&gt;
+  &lt;ul|ol class="gallery"&gt;
+    &lt;!-- 1..* --&gt;
+      &lt;li&gt;
+        &lt;!-- 1 --&gt;
+          &lt;a href="{Image 1 URL}"&gt;
+        &lt;img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/figure&gt;</pre>
+
+<p>When specifying multiplicity, use the following guide:</p>
+
+<ul>
+    <li><code>0</code> zero exactly</li>
+    <li><code>0..1</code> zero or one</li>
+    <li><code>0..*</code> zero or more</li>
+    <li><code>1..*</code> one or more</li>
+    <li><code>1</code> one exactly</li>
+</ul>
+
+<p>To reference another Web Blocks component from within a prototype, use the following syntax:</p>
+
+<pre class="prettyprint">&lt;!-- [[ComponentName]] --&gt;</pre>
+
+<p>For example, if you were referencing <code>Entity/Blockquote</code> from within another prototype:</p>
+
+<pre class="prettyprint">&lt;div class="example-component"&gt;
+	
+	&lt;!-- 0..1 --&gt;
+	&lt;!-- [[Entity/Nav/Blockquote]] --&gt;
+
+&lt;/div&gt;</pre>
+
+<p>Once the issue is up on GitHub, it will undergo discussion. If you're satisfied with the outcome of the discussion and willing to implement the change, volunteering is appreciated. However, otherwise it will be moved into a queue based on the varying priorities of other open issues.</p>
+
+<h3>Contributing Code</h3>
+
+<p>WebBlocks uses a version of the <strong>pull request model</strong> for all code submissions. Summarized briefly, the process is roughly as follows:</p>
+
+<ol class="list upper-roman">
+    <li>Fork WebBlocks.</li>
+    <li>Create an issue on the WebBlocks issue tracker, whereby:
+        <ol class="list lower-roman">
+            <li>If the issue is a bug, explain what caused the bug.</li>
+            <li>If the issue is a new feature, explain the motivation for it.</li>
+        </ol>
+    </li>
+    <li>Create a branch on your fork with commits to address the issue.</li>
+    <li>Issue a pull request from the branch when it's done, including:
+        <ol class="list lower-roman">
+            <li>Code changes necessary to resolve the issue.</li>
+            <li>Additions/updates to the documentation for the change.</li>
+            <li>If the code modifies the compiler, unit tests for the change.</li>
+        </ol>
+    </li>
+    <li>The pull request will be reviewed, including:
+        <ol class="list lower-roman">
+            <li>Review of the code, documentation and tests.</li>
+            <li>Unit and build tests must pass.</li>
+        </ol>
+    </li>
+    <li>If everything checks out, the pull request will be merged by an integration manager.</li>
+</ol>
+
+<h4>Forking WebBlocks</h4>
+
+<p>The first step for contributing is to create a fork of WebBlocks. This can be done by going to the <a href="https://github.com/ucla/WebBlocks">WebBlocks Repository</a> on GitHub, while logged in, and pressing the "Fork" button</p>
+
+<p>Once you have your fork set up, you need to clone it as a local repository on your computer:</p>
+
+<pre>git clone https://[ACCOUNT-NAME]@github.com/[ACCOUNT-NAME]/WebBlocks.git [DIRECTORY-NAME]</pre>
+
+<p>This will automatically set up a remote called <code>origin</code> that refers to the repository that you cloned and checks out the default branch (usually master).</p>
+
+<p>Because this is a fork of the canonical repository, you need to make sure that you can also pull commits from that repository as well. As such, you should establish a second remote:</p>
+
+<pre>git remote add upstream https://[ACCOUNT-NAME]@github.com/ucla/WebBlocks.git</pre>
+
+<p>To update the <code>master</code> branch on your fork to the latest version of WebBlocks:</p>
+
+<pre>git checkout master
+git pull upstream master</pre>
+
+<p>When you do this, you should also make sure to update your remote:</p>
+
+<pre>git push upstream master</pre>
+
+<h4>Detailing the Feature</h4>
+
+<p>The WebBlocks contribution process requires that any feature being contributed <strong>must</strong> have a ticket first created for it in the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. This ensures that discussion on an issue begins <em>early</em> in the process. Please refer to earlier sections regarding details that should be provided in an issue relating to a bug or new feature.</p>
+
+<h4>Developing the Feature</h4>
+
+<p>While <code>master</code> is where you update to the latest version of WebBlocks, it is not recommended that you develop any contributions on <code>master</code>. Instead, whenever working on a feature, it should be created on it's own branch such that you can issue a pull request on the branch to submit that change back to the WebBlocks project.</p>
+
+<p>Before starting a branch, ensure that your <code>master</code> branch is up to date:</p>
+
+<pre>git checkout master             # switch to the master branch
+git pull origin master          # for good measure as this should already align with origin
+git pull upstream master        # to fetch the latest set of changes from the canonical remote
+git push origin master          # update the remote fork with the latest changes from the canonical remote</pre>
+
+<p>Then, to create a new branch, issue:</p>
+
+<pre>git checkout -b [BRANCH-NAME] master</pre>
+
+<p>This command says to create a new branch named <code>[BRANCH-NAME]</code> that starts out identical to the <code>master</code> branch. For organization, the WebBlocks team recommends using <code>fix/[ISSUE-NUM]</code> or <code>feature/[ISSUE-NUM]</code> for your branch names, to make it easy to determine what issue the branch relates to, but this is not required.</p>
+
+<p>Once you've got a branch, you can start making changes. Simply edit files as usual and test on your local copy. When you're ready to designate a file to be committed, you need to add the files:
+
+<pre>git add [FILE-NAME]</pre>
+
+<p>This command will add files to a staging area to wait for commit. Files in this staging area are not monitored for changes. If you change the file, you must run the command again to add the changes.</p>
+
+<p>The <code>[FILE-NAME]</code> value can be a file or directory. Further, if you use * as the file name, then you will add all changed files in your local copy. Use this with caution if you have configuration files that are not in your <code>.gitignore</code> file. You can also specify multiple files/directories as a set of space-separated paths. All paths are local to your current working directory.</p>
+
+<p>When you've got all files added for a commit, issue the following:</p>
+
+<pre>git commit -m "#[ISSUE-NUM] - [COMMIT-MESSAGE]"</pre>
+
+<p>The first segment of the commit message (before the hyphen) is used to "link" the commit to an issue on GitHub. For instance, if a commit related to issue #200, then the commit message would be:</p>
+
+<pre>git commit -m "#200 - [COMMIT-MESSAGE]"</pre>
+
+<p>The [COMMIT-MESSAGE] should have a first line that is 60 characters or less in length. If your commit has additional details, enter an empty line and then additional lines, each no more than 72 characters in length. This is to ensure proper formatting when viewing commits in GitHub and through the terminal.</p>
+
+<p>A long commit message might be as follows:</p>
+
+<pre>git commit -m "[SHORT-DESCRIPTION]
+
+[LONGER-DESCRIPTION...
+...
+...]"</pre>
+
+<h4>Contributing the Feature</h4>
+
+<p>Once you've done the necessary commits and you're ready to contribute the branch containing the feature, you need to expose it through your remote fork:</p>
+
+<pre>git push origin [BRANCH-NAME]</pre>
+
+<p>It is common during development on a branch to push multiple times. This ensures that your collaborators can see what you're working on and also that you've got a remote backup in case your local copy is somehow rendered inoperable. However, this guide is simply exploring the minimal case.</p>
+
+<p>With the branch now in your remote fork, you can issue a pull request to WebBlocks for it:</p>
+
+<ol>
+    <li>Go to your remote fork on GitHub</li>
+    <li>Select your branch from the dropdown to the left of the "Files" tab</li>
+    <li>Press the "Pull Request" button</li>
+    <li>Ensure that the proper branches and repositories are selected</li>
+    <li>Enter details about the pull request and assign it to the integration manager</li>
+</ol>
+
+<p>In the description for the pull request, please include:</p>
+
+<ul>
+    <li>Code changes necessary to resolve the issue.</li>
+    <li>Additions/updates to the documentation for the change.</li>
+    <li>If the code modifies the compiler, unit tests for the change.</li>
+</ul>
+
+<p>The pull request will then be reviewed, meaning a thorough review of the code, documentation and tests. Interested parties are encouraged to weigh in both during the initial creation of the issue and during the pull request review stage. Any issues found may require additional work on the branch, which should then be pushed up to the remote fork (and will be automatically reflected in the pull request). Once any issues from the review are resolved, and the unit and build tests pass, then pull request will then be merged into the canonical <code>master</code> and the issue closed.</p>

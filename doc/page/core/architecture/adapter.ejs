@@ -1,0 +1,240 @@
+<h2>Adapter</h2>
+
+<p>Adapters provide a way to bind between WebBlocks and a third-party UI framework. Their mechanics build upon the functionality provided by package handler, but they are more far-reaching as they do not simply lay in third-party code but actually have the ability to modify implementations of WebBlocks modules. This culminates in the fact that they have a set of SASS, JS and image sources in <code>src/adapter</code> in addition to sources in the <code>package</code>. </p>
+
+<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Core/Architecture/Module">Module</a> and <a href="#Core/Architecture/Package">Package</a> sections.</p>
+
+<h3>The Structure of an Adapter</h3>
+
+<p>An adapter is defined by:</p>
+
+<ul>
+    <li><strong>Adapter Directory</strong> that contains adapter sources.</li>
+    <li><strong>Adapter Handler</strong> that dictates how adapter operates (optional).</li>
+</ul>
+
+<p>An adapter is included such as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:adapter] = 'bootstrap'</pre>
+
+<p>This informs WebBlocks to load the adapter handler in <code>lib/Build/Adapter/Bootstrap.rb</code> by the name <code>WebBlocks::Build::Adapter::Bootstrap</code>, if one exists. If not, it will use the default <code>WebBlocks::Build::Core::Adapter</code> object in <code>lib/Build/Core/Adapter.rb</code>. This is often sufficient.</p>
+
+<p>By convention, the adapter directory is usually the same as the symbol name. However, in the case of Twitter bootstrap, it is actually a bit different because of the name of the Git repository that houses the SASS fork of Bootstrap:</p>
+
+<pre class="prettyprint">WebBlocks.config[:package][:bootstrap][:dir] = 'sass-twitter-bootstrap'</pre>
+
+<p>This defines the package directory as residing at <code>package/sass-twitter-bootstrap</code> and, if using the <code>WebBlocks::Build::Submodule</code> helpers, it is required that this configuration setting be defined.</p>
+
+<h3>Example</h3>
+
+<p>The Bootstrap adapter is currently the only adapter provided with WebBlocks. However, over time, it is the hope of the WebBlocks initiative that more adapters will be written. The goal of an adapter is to bind the WebBlocks semantics with the semantics of another framework, so that there's a zero switching cost way of laying WebBlocks in place of the old framework, taking advantage of the best of both worlds. This example explains the implementation of the Bootstrap adapter.</p>
+
+<h4>Adapter Sources</h4>
+
+<p>The Bootstrap submodule is checked out within <code>package/sass-twitter-bootstrap</code>, as specified by <code>WebBlocks.config[:package][:bootstrap][:dir]</code>. However, it cannot simply be appended to the sources as with packages, as the goal is to allow tight bindings between Bootstrap and WebBlocks semantics that can only be achieved in SASS before the compiler is run.</p>
+
+<p>The first thing that is set up is a <code>src/adapter/bootstrap</code> directory.</p>
+
+<h5>Requiring Assets</h5>
+
+<p>Bootstrap establishes a number of semantics. As we want to make sure these are available in our adapter, we need to inform the linker to load them first. This is achieved through a special file placed in the root of <code>src/adapter/bootstrap</code> called <code>_require.scss</code>. When the compiler runs, it will first link the variables, then the <code>_require.scss</code> file, and only after that the core adapter, adapter overrides and core definitions.</p>
+
+<p>This <code>src/adapter/bootstrap/_require.scss</code> file includes the following:</p>
+
+<pre class="prettyprint">// Requisites for the Bootstrap adapter
+
+@import "sass-twitter-bootstrap/lib/bootstrap";
+
+// removed the following line because it duplicates imports of "mixins"
+// which include css definitions:
+//
+//      @import "sass-twitter-bootstrap/lib/responsive";
+// 
+// workaround is instead to import each responsive file individually
+
+@import "sass-twitter-bootstrap/lib/responsive-utilities";
+@import "sass-twitter-bootstrap/lib/responsive-1200px-min";
+@import "sass-twitter-bootstrap/lib/responsive-768px-979px";
+@import "sass-twitter-bootstrap/lib/responsive-767px-max";
+@import "sass-twitter-bootstrap/lib/responsive-navbar";
+
+/**
+ * Version of @mixin gradientBar without border tweaks
+ */
+@mixin gradientBarSimple($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  color: $textColor;
+  text-shadow: $textShadow;
+  @include gradient-vertical($primaryColor, $secondaryColor);
+}</pre>
+
+<p>In some cases, the <code>_require.scss</code> file will be simpler, just including a single SCSS file from the third-party adapter. However, in the case of Bootstrap, since WebBlocks uses a port from LESS, it includes a couple hacks to deal with a bug in utilities and to fix an issue with the Bootstrap mixin <code>gradientBarSimple</code>. Generally, the concept of <code>_require.scss</code> is to load those assets which define the third-party code itself but not the WebBlocks bindings.</p>
+
+<h5>Variables</h5>
+
+<p>WebBlocks loads <code>_variables.scss</code> files before it loads anything else, including <code>_require.scss</code> files. This means that we can use the <code>src/adapter/bootstrap/_variables.scss</code> file to set variables for both WebBlocks <em>and</em> Bootstrap. In the case of Bootstrap, the predominant use of this file is to define Bootstrap settings so they function smoothly with the WebBlocks settings:</p>
+
+<pre class="prettyprint">$horizontalComponentOffset:         $form-horizontal-offset;
+
+$btnBackground:                     $color-branding-default-background;
+$btnBackgroundHighlight:            $color-branding-default-background-shadow;
+$btnBorder:                         #bbb;
+
+$btnInfoBackground:                 $color-mood-info-background;
+$btnInfoBackgroundHighlight:        $color-mood-info-background-shadow;
+
+$btnSuccessBackground:              $color-mood-success-background;
+$btnSuccessBackgroundHighlight:     $color-mood-success-background-shadow;
+
+$btnWarningBackground:              $color-mood-warning-background;
+$btnWarningBackgroundHighlight:     $color-mood-warning-background-shadow;
+
+$btnDangerBackground:               $color-mood-danger-background;
+$btnDangerBackgroundHighlight:      $color-mood-danger-background-shadow;
+
+$btnInverseBackground:              $color-mood-inverse-background;
+$btnInverseBackgroundHighlight:     $color-mood-inverse-background-shadow;
+
+$gridColumns:                       $structure-panels;
+$fluidGridColumnWidth:              $structure-panel-width;
+$fluidGridGutterWidth:              $structure-panel-gutter;
+
+$warningText:                       $color-mood-warning-background-light-text;
+$warningBackground:                 $color-mood-warning-background-light-shadow;
+$warningBorder:                     $color-mood-warning-light-border;
+
+$errorText:                         $color-mood-danger-background-light-text;
+$errorBackground:                   $color-mood-danger-background-light-shadow;
+$errorBorder:                       $color-mood-danger-light-border;
+
+$successText:                       $color-mood-success-background-light-text;
+$successBackground:                 $color-mood-success-background-light-shadow;
+$successBorder:                     $color-mood-success-light-border;
+
+$infoText:                          $color-mood-info-background-light-text;
+$infoBackground:                    $color-mood-info-background-light-shadow;
+$infoBorder:                        $color-mood-info-light-border;
+
+$tableBackgroundHover:              $table-hover-background-color;
+$tableBackgroundAccent:             $table-striped-background-color;
+$tableBorder:                       $table-border-color;</pre>
+
+<p>While semantics load in the order <code>core adapter -> third-party adapter -> core definitions -> extensions -> user-defined files</code>, variables load in the reverse order (to ensure accurate overriding properties), meaning that by the time the <code>_variables.scss</code> file is reached for the Bootstrap adapter, all of the WebBlocks variables will have already been loaded, which is why this is possible.</p>
+
+<h5>Overriding Mixins</h5>
+
+<p>The key role of an adapter is to override default mixins with those that bind the third-party framework to WebBlocks. Adapters should use the same directory structure for their mixins as the core adapter does, namely using the directory structure to define the module layout (for more information on this, see <a href="#Core/Architecture/Module">Module</a>).</p>
+
+<p>Working from the example in the <a href="#Core/Architecture/Module">Module</a> section regarding <code>Base/Type/Align</code>, Bootstrap provides two alignment classes synonymous to WebBlocks alignment classes:</p>
+
+<ul>
+    <li><code>.pagination-centered</code></li>
+    <li><code>.pagination-right</code></li>
+</ul>
+
+<p>To explicitly bind these two classes, the file <code>src/adapter/bootstrap/base/type/_align.scss</code> may redefine the mixins that power both of these definitions:</p>
+
+<pre class="prettyprint">@mixin -base-type-align-center {
+    @extend .pagination-centered;
+}
+
+@mixin -base-type-align-right {
+    @extend .pagination-right;
+}</pre>
+
+<p>Because the adapter mixins override the core mixins (and adapter mixins earlier in the adapter queue), this means that these mixins will override the core mixins such that final output of the <code>Base/Type/Align</code> module will end up as:</p>
+
+<pre class="prettyprint">/* .. */
+.pagination-centered, .text-center { /* bootstrap implementation */ }
+.pagination-right, .text-right { /* bootstrap implementation */ }
+/* .. */
+.text-left { text-align: left; }
+.text-justify { text-align: justify; }
+/* .. */</pre>
+
+<p>While mixins may be as simple as an <code>@extend</code>, in reality, one can do just about anything with one.</p>
+
+<p>For example, Bootstrap has separate classes for <code>.badge</code> and <code>.label</code>, whereas WebBlocks avoids the class <code>.label</code> because it is a namespace conflict with the <code>label</code> element and instead provides style modifiers on <code>.badge</code>. Consequently, the default badge in WebBlocks has slightly rounded corners, synonymous to the label in Bootstrap. To rectify this discrepancy, the Bootstrap adapter can use it's existing <code>.badge</code> implementation (which propagates through that sheet's including via <code>_require.scss</code>) and then it just uses the mixin to make a minor tweak:</p>
+
+<pre class="prettyprint">@mixin -entity-badge {
+    border-radius: 4px;
+}</pre>
+
+<p>A more advanced example comes from <code>Entity/Message</code>. Bootstrap provides an <code>.alert</code> class that has some of the functionality of the WebBlocks <code>.message</code> class, but the WebBlock's class has additional aspects such as it's handling of color. The implementation in <code>src/adapter/bootstrap/entity/_message.scss</code> is thus:</p>
+
+<pre class="prettyprint">//!requires base/color
+
+@mixin -entity-message {
+    @extend .alert;
+    @extend .light;
+    
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
+        @extend .light.default;
+    }
+}</pre>
+
+<p>The pre-compiler directive <code>//!requires</code> is explained in <a href="#Core/Architecture/Module">Module</a>.
+
+<h4>Adapter Handler</h4>
+
+<p>The adapter handler is very synonymous to the package handler, in that it is responsible for managing the third-party module and assembling the necessary assets. However, it does have a few key differences:</p>
+
+<ul>
+    <li>An adapter handler <em>does not</em> necessarily need to be specified. If it is built using the conventional layout of an adapter and it does not assemble additional assets, and no adapter handler exists, WebBlocks will fall back to using the <code>WebBlocks::Build::Core::Adapter</code> handler. However, in the case of Bootstrap, since it also includes Javascript assets, the handler is explicitly defined.</li>
+    <li>Adapter handlers reside in <code>lib/Build/Adapter/[name].rb</code> by the object name <code>WebBlocks::Build::Adapter::[name]</code>.</li>
+    <li>Adapter handlers should invoke the <code>resolve_sass_dependencies</code> method in their <code>preprocess_css</code> method. This allows the dependency manager to process all <code>//!requires</code> pre-compiler directives specified within the adapter sources.</li>
+    <li>Adapter handlers should invoke the <code>link_sass_libs_for</code> method in their <code>compile_css</code> method. This allows the linker to add SASS sources from the adapter directory into the build at the correct point in precedence order.</li>
+</ul>
+
+<p>This section does not replicate the explanation of methods provided in <a href="#Core/Architecture/Module">Module</a> but instead focuses only on the key differences from the way the module handler works.</p>
+
+<p>The <code>preprocess_css</code> step should minimally resolve SASS dependencies:</p>
+
+<pre class="prettyprint">        def preprocess_css
+          log.task "Adapter: Bootstrap", "Resolving SASS dependenties in Bootstrap adapter" do
+            resolve_sass_dependencies src_adapter_dir :bootstrap 
+          end
+        end</pre>
+
+<p>The <code>link_css</code> step should minimally link SASS libraries:</p>
+
+<pre class="prettyprint">        def link_css
+          log.task "Adapter: Bootstrap", "Linking bootstrap adapter" do
+            link_sass_libs_for src_adapter_dir :bootstrap
+          end
+        end</pre>
+
+<p>Both of these steps are <em>module-aware</em>, meaning that they will only resolve dependencies and link modules that are actually specified for inclusion by the compiler.</p>
+
+<p>As mentioned above, adapters do not actually need an adapter handler in all cases. If they just include SASS sources and use the correct directory and configuration layout, they may simply use the default adapter handler <code>WebBlocks::Build::Core::Adapter</code>. However, the steps that require a custom adapter for Bootstrap are related to the fact that Bootstrap includes image and JS assets as well:</p>
+
+<pre class="prettyprint">        def assemble_img
+          dir = "#{package_dir :bootstrap}/img"
+          log.task "Adapter: Bootstrap", "Copying images from Bootstrap package" do
+            get_files(dir).each do |file|
+              log.debug "#{tmp_img_build_dir.gsub /^#{root_dir}\//, ''} <- #{file.gsub /^#{root_dir}\//, ''}"
+              FileUtils.cp_r file, "#{tmp_img_build_dir}/#{file.gsub /^#{dir}\//, ''}"
+            end
+          end
+          log.task "Adapter: Bootstrap", "Copying images from Bootstrap adapter" do
+            assemble_img_files_for src_adapter_dir :bootstrap
+          end
+        end
+        
+        def assemble_js
+          base = "#{package_dir :bootstrap}/js/bootstrap"
+          log.task "Adapter: Bootstrap", "Copying JS from Bootstrap package" do
+            scripts = config[:package][:bootstrap][:scripts] ? config[:package][:bootstrap][:scripts] : []
+            scripts.each do |script|
+              file = "#{base}-#{script}.js"
+              if File.exists? file
+                log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+                append_file file, tmp_js_build_file
+              end
+            end
+          end
+          log.task "Adapter: Bootstrap", "Copying JS from Bootstrap adapter" do
+            assemble_js_libs_for src_adapter_dir :bootstrap
+          end
+        end</pre>
+
+<p>Not all third-party adapters will require these extra steps, hence why in some cases an adapter handler is not necessary.</p>

@@ -4,13 +4,78 @@
 
 <pre class="prettyprint">rake [task]</pre>
 
-<p>By default, this uses the <code>Rakefile-config.rb</code> file to define the compiler configuration. However, one may specify a different configuration file when invoking rake:</p>
+<h3>Compiler Configuration</h3>
+
+<p>The compiler includes a number of configuration options that modify its behavior:</p>
+
+<ul>
+    <li>
+        <a href="#Configuration/Compiler/Components"><strong>Components</strong></a>
+        <ul>
+            <li><code>Modules</code> define WebBlocks elements</li>
+            <li><code>Adapters</code> bind WebBlocks to existing frameworks</li>
+            <li><code>Extensions</code> tweak WebBlocks definitions</li>
+            <li><code>Packages</code> are third-party components packaged with WebBlocks</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Build"><strong>Build Output</strong></a>
+        <ul>
+            <li><code>Debug Output</code> define whether the build is compressed or expanded</li>
+            <li><code>Build Directories</code> define to where WebBlocks assets are built</li>
+            <li><code>Build Files</code> define the names of WebBlocks built assets</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Sources"><strong>Sources</strong></a>
+        <ul>
+            <li><code>Source Directory</code> define location of WebBlocks sources</li>
+            <li><code>Core Directories</code> define location of WebBlocks core sources</li>
+            <li><code>Adapter Directories</code> define location of WebBlocks core sources</li>
+            <li><code>SASS Sources Directory</code> define location of user-defined SASS files</li>
+            <li><code>JS Sources Directory</code> define location of user-defined JS files</li>
+            <li><code>Image Sources Directory</code> define location of user-defined image files</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Advanced"><strong>Advanced</strong></a>
+        <ul>
+            <li><code>Execution Paths</code> define execution paths of required packages</li>
+            <li><code>Special Directories</code> define WebBlocks temporary and metadata directories</li>
+        </ul>
+    </li>
+</ul>
+
+<p>By default, the compiler uses <code>Rakefile-config.rb</code> for these options.</p>
+
+<p>One may specify a different configuration file via a command-line options:</p>
 
 <pre class="prettyprint">rake [task] -- --config=[config-file-path]</pre>
 
-<p>This section describes the various tasks that may be used with <code>rake</code>. The <code>--config</code> option is not mentioned explicitly below, but this option is available for all tasks and, when using a non-standard configuration, it should always be specified. Details about how this can be simplified may be found in the discussion of a call-forward in the <a href="#Recipe/Integration/Submodule">Submodule Integration Recipe</a>.</p>
+<h3>Compiler Command-line Options</h3>
+
+<p>Command-line options are specified following an empty <code>--</code>, such as the <code>--config</code> option mentioned formerly:</p>
+
+<pre class="prettyprint">rake [task] -- --config=[config-file-path]</pre>
+
+<p>The following options are available:</p>
+
+<ul>
+    <li><code>--config=[FILENAME]</code> specifies location of a <code>Rakefile-config.rb</code> file</li>
+    <li><code>--silent</code> compiler will run silently (without output) unless an error if encountered</li>
+    <li><code>--details</code> compiler will show verbose details about its operations</li>
+    <li><code>--timing</code> compiler will provide information about execution times in each stage</li>
+</ul>
+
+<p>These flags may be mixed and matched. For example, if one wants detailed output with timing and has a custom <code>Rakefile-config.rb</code> file:</p>
+
+<pre class="prettyprint">rake [task] -- --config=[config-file-path] --details --timing</pre>
+
+<p>However, it is worth note that the <code>--silent</code> flag will override the <code>--details</code> and <code>--timing</code> flags. Detailed output when running in silent mode is still available in <code>build.log</code>.</p>
 
 <h3>Standard Build Rake Task</h3>
+
+<p>In addition to specifying compiler configuration options and running with command-line options, the compiler also includes a number of tasks for performing particular operations.</p>
 
 <p>The standard WebBlocks build may be invoked from the WebBlocks root as:</p>
 
@@ -57,7 +122,7 @@ git submodule update</pre>
 
 <h3>Other Rake Tasks</h3>
 
-<p>The <code>clean</code> task removes the build directory:</p>
+<p>The <code>clean</code> task removes the <code>blocks[-ie].(js|css)</code> files:</p>
 
 <pre class="prettyprint">rake clean</pre>
 

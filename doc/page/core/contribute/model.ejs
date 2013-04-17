@@ -1,0 +1,111 @@
+<h2>Contribution Model</h2>
+
+<p>WebBlocks is an open-source collaborative project that is the sum of its contributors. There are a number of different ways to get involved.</p>
+
+<p>At the most basic level, simply providing bug reports or proposing specifications for new features is something much appreciated. Any feedback on open issues or pull requests can also help ensure that bugs are addressed expediently and new features meet with user needs.</p>
+
+<p>For those so inclined, the WebBlocks core team highly encourages developer to submit pull requests for bug fixes and features that impact them.</p>
+
+<h3>Reporting a Bug</h3>
+
+<p>All bugs should be reported on the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. When reporting a bug, the following should be provided:</p>
+
+<ol>
+    <li>Basic description of the issue</li>
+    <li>If non-obvious, an explanation as to why it's an issue</li>
+    <li>Any browser, OS or WebBlocks details that may relate</li>
+</ol>
+
+<p>If the bug relates to the compiler, before reporting the bug, please confirm that invoking <code>rake</code> on a clean copy of WebBlocks works and that all the tests pass by invoking <code>rake test</code>. If these fail, please refer to <a href="#Configuration/Troubleshoot" target="_blank">Troubleshooting</a>; if your issue is not listed there, then feel free to report it as such.</p>
+
+<h3>Proposing a Feature</h3>
+
+<p>All feature proposals should start by creating an issue on the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. Within the issue, also provide a description with the following:</p>
+
+<ul>
+    <li>Basic description of the feature</li>
+    <li>Motivation and/or usages</li>
+    <li>Specific features and options</li>
+    <li>Any pertinent edge cases (such as responsive considerations for new elements)</li>
+</ul>
+
+<p>When proposing a new element, we ask that a generic template of the entity ("prototype") be provided for the feature, adhering to the following standards:</p>
+
+<ul>
+    <li>Only include the HTML required for the element (do not include the html element, for example)</li>
+    <li>Use HTML comments before an element to specify multiplicity (how many of an element)</li>
+    <li>Use the pipe/or (|) character to signify multiple possible values</li>
+    <li>Replace parameterized values with a description enclosed in curly brackets ({})</li>
+    <li>Include additional comments for further explanation</li>
+</ul>
+
+<p>For example, here's a possible prototype for the gallery entity:</p>
+
+<pre class="prettyprint">&lt;figure&gt;
+  &lt;!-- 1..* --&gt;
+  &lt;ul|ol class="gallery"&gt;
+    &lt;!-- 1..* --&gt;
+      &lt;li&gt;
+        &lt;!-- 1 --&gt;
+          &lt;a href="{Image 1 URL}"&gt;
+        &lt;img src="{Image 1 Thumbnail URL}" alt="{Image 1 Alt Text}" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/figure&gt;</pre>
+
+<p>When specifying multiplicity, use the following guide:</p>
+
+<ul>
+    <li><code>0</code> zero exactly</li>
+    <li><code>0..1</code> zero or one</li>
+    <li><code>0..*</code> zero or more</li>
+    <li><code>1..*</code> one or more</li>
+    <li><code>1</code> one exactly</li>
+</ul>
+
+<p>To reference another Web Blocks component from within a prototype, use the following syntax:</p>
+
+<pre class="prettyprint">&lt;!-- [[ComponentName]] --&gt;</pre>
+
+<p>For example, if you were referencing <code>Entity/Blockquote</code> from within another prototype:</p>
+
+<pre class="prettyprint">&lt;div class="example-component"&gt;
+	
+	&lt;!-- 0..1 --&gt;
+	&lt;!-- [[Entity/Nav/Blockquote]] --&gt;
+
+&lt;/div&gt;</pre>
+
+<p>Once the issue is up on GitHub, it will undergo discussion. If you're satisfied with the outcome of the discussion and willing to implement the change, volunteering is appreciated. However, otherwise it will be moved into a queue based on the varying priorities of other open issues.</p>
+
+<h3>Contributing Code</h3>
+
+<p>WebBlocks uses a version of the <strong>pull request model</strong> for all code submissions. Summarized briefly, the process is roughly as follows:</p>
+
+<ol class="list upper-roman">
+    <li>Fork WebBlocks.</li>
+    <li>Create an issue on the WebBlocks issue tracker, whereby:
+        <ol class="list lower-roman">
+            <li>If the issue is a bug, explain what caused the bug.</li>
+            <li>If the issue is a new feature, explain the motivation for it.</li>
+        </ol>
+    </li>
+    <li>Create a branch on your fork with commits to address the issue.</li>
+    <li>Issue a pull request from the branch when it's done, including:
+        <ol class="list lower-roman">
+            <li>Code changes necessary to resolve the issue.</li>
+            <li>Additions/updates to the documentation for the change.</li>
+            <li>If the code modifies the compiler, unit tests for the change.</li>
+        </ol>
+    </li>
+    <li>The pull request will be reviewed, including:
+        <ol class="list lower-roman">
+            <li>Review of the code, documentation and tests.</li>
+            <li>Unit and build tests must pass.</li>
+        </ol>
+    </li>
+    <li>If everything checks out, the pull request will be merged by an integration manager.</li>
+</ol>
+
+<p>Details around the mechanics of code contribution may be found in <a href="#Core/Contribute/Submit">Submission Process</a>.</p>

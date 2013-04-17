@@ -1,0 +1,302 @@
+<h2>Package</h2>
+
+<p>Packages provide a way to load in a third-party module. Traditionally, they are checked out as Git submodules, although WebBlocks leaves the exact mechanics for retrieving and maintaining the third-party code to the package handler.</p> 
+
+<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Core/Architecture/Terminology">Terminology</a> and <a href="#Core/Architecture/Build">Build Process</a> sections.</p>
+
+<h3>The Structure of a Package</h3>
+
+<p>A package is minimally defined by:</p>
+
+<ul>
+    <li><strong>Package Directory</strong> that contains third-party assets.</li>
+    <li><strong>Package Handler</strong> that dictates how package is assembled.</li>
+</ul>
+
+<p>A package is included such as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :respond</pre>
+
+<p>This informs WebBlocks to load the package handler in <code>lib/Build/Package/Respond.rb</code> by the name <code>WebBlocks::Build::Package::Respond</code>.</p>
+
+<p>By convention, the package directory is usually the same as the symbol name:</p>
+
+<pre class="prettyprint">WebBlocks.config[:package][:respond][:dir] = 'respond'</pre>
+
+<p>This defines the package directory as residing at <code>package/respond</code> and, if using the <code>WebBlocks::Build::Submodule</code> helpers, it is required that this configuration setting be defined.</p>
+
+<h3>Basic Package</h3>
+
+<p>The simplest type of package is one that can be checked out as a Git submodule and then it's sources simply appended to the CSS and JS build files. An example of this is the <code>respond</code> package, which polyfills CSS 3 <code>@media</code> selectors for IE 6-8.</p>
+
+<h4>Package Directory</h4>
+
+<p>In the case of <code>Respond.js</code>, the package is a submodule in <code>package/respond</code>.</p>
+
+<p>When developed, this submodule was set up as:</p>
+
+<pre>git submodule add https://github.com/scottjehl/Respond.git package/respond</pre>
+
+<p>When a user clones the WebBlocks Git repository, this is pulled in via:</p>
+
+<pre>git submodule init
+git submodule update</pre>
+
+<p>In the event that this is not done, the package handler attempts to handle it internally.</p>
+
+<h4>Package Handler</h4>
+
+<p>When <code>respond</code> is set in <code>WebBlocks.config[:src][:packages]</code> (by default, it's enabled, or when included as <code>WebBlocks.config[:src][:packages] << :respond</code>), the package handler is attached to the <a href="#Core/Architecture/Build">build process</a>. This means that, as the compiler executes a stage, if the handler implements a particular method, it will be invoked.</p>
+
+<p>In the case of <code>respond</code>, the code is purely Javascript, so the events that we clearly want to respond to are:</p>
+
+<ul>
+    <li><code>preprocess_js</code></li>
+    <li><code>assemble_js</code></li>
+</ul>
+
+<p>In addition, we also need to respond to the non-<code>_js</code> equivalents, since WebBlocks does not automatically dispatch <code>build</code> requests to <code>build_js</code> (as there might be reasons that the two processes are not the same). Consequently, this handler must also respond to:</p>
+
+<ul>
+    <li><code>preprocess</code></li>
+    <li><code>assemble</code></li>
+</ul>
+
+<p>Finally, since this module involves pulling down third-party components, it should also respond to:</p>
+
+<ul>
+    <li><code>reset_package</code></li>
+</ul>
+
+<p>The implementation for this resides in <code>lib/Build/Package/Respond.rb</code>:</p>
+
+<pre class="prettyprint">require 'rubygems'
+require 'extensions/kernel' if defined?(require_relative).nil?
+require_relative '../../Path'
+require_relative '../Submodule'
+require_relative '../Utilities'
+require_relative '../../Logger'
+
+module WebBlocks
+  module Build
+    module Package
+      class Respond
+        
+        include ::WebBlocks::Logger
+        include ::WebBlocks::Path::Temporary_Build
+        include ::WebBlocks::Build::Submodule
+        include ::WebBlocks::Build::Utilities
+        
+        def preprocess
+          # call-forward
+          preprocess_js
+        end
+        
+        def preprocess_js
+          # git submodule init + update
+          preprocess_submodule :respond
+        end
+        
+        def assemble
+          # callforward
+          assemble_js
+        end
+        
+        def assemble_js
+          # initiate a task within logger scope
+          log.task "Package: Respond", "Copying Respond sources to IE JS build file" do
+            # append respond's respond.src.js file to tmp_js_build_file_ie
+            file = "#{package_dir :respond}/respond.src.js"
+            log.debug "#{tmp_js_build_file_ie.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+            append_file file, tmp_js_build_file_ie
+          end
+        end
+        
+        def reset_package
+          # delete submodule contents
+          reset_submodule :respond
+        end
+        
+      end
+    end
+  end
+end</pre>
+
+<p>The functions <code>preprocess_submodule</code> and <code>reset_submodule</code> are helpers that, based on <code>WebBlocks.config[:package][:respond][:dir]</code>, will perform submodule maintenance. The former will do a <code>git submodule init</code> and <code>git submodule update</code> on the package directory, whereas the latter will delete the package directory.</p>
+
+<p>The function <code>log.task</code> is one of the functions defined in <code>WebBlocks::Logger</code> that defines the scope of a series of events at the log level of <code>task</code>. In addition to task, the logger exposes a number of other levels including <code>system</code>, <code>failure</code>, <code>success</code>, <code>warning</code>, <code>info</code>, and <code>debug</code>.</p>
+
+<p>The implementations of <code>preprocess</code> and <code>assemble</code>, true to as mentioned above, are simply call-forwards respectively to <code>preprocess_js</code> and <code>assemble_js</code>.
+
+<p>Finally, the actual action performed here (besides submodule maintenance in <code>preprocess_js</code> and <code>reset_package</code>) is done in <code>assemble_js</code>, whereby this particular module simply appends the contents of the <code>respond.src.js</code> file into the <code>tmp_js_build_file_ie</code>. In addition to appending to this file, one can also append to a number of other files defined in <code>lib/Path/Temporary_Build.rb</code>.</p>
+
+<h3>Basic Package with Custom Assembly</h3>
+
+<p>The <code>efx</code> package is roughly synonymous to <code>respond</code>, with the caveat that it comes as an unassembled set of Javascript files. For this reason, the <code>assemble_js</code> method has to do a bit more work.</p>
+
+<p>The handler in <code>lib/Build/Package/Efx.rb</code> is thus a bit more complex:</p>
+
+<pre class="prettyprint">require 'rubygems'
+require 'extensions/kernel' if defined?(require_relative).nil?
+require_relative '../../Path'
+require_relative '../Submodule'
+require_relative '../Utilities'
+require_relative '../../Logger'
+
+module WebBlocks
+  module Build
+    module Package
+      class Efx
+        
+        include ::WebBlocks::Logger
+        include ::WebBlocks::Path::Temporary_Build
+        include ::WebBlocks::Build::Submodule
+        include ::WebBlocks::Build::Utilities
+        
+        def preprocess
+          # call-forward
+          preprocess_js
+        end
+        
+        def preprocess_js
+          # git submodule init + update
+          preprocess_submodule :efx
+        end
+        
+        def assemble
+          # call-forward
+          assemble_js
+        end
+        
+        def assemble_js
+          
+          # initiate a task within logger scope
+          log.task "Package: Efx", "Copying Efx engine to JS build file" do
+            # append efx's src/engine.js file to tmp_js_build_file
+            file = "#{package_dir :efx}/src/engine.js"
+            log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+            append_file file, tmp_js_build_file
+          end
+          
+          # initiate a task within logger scope
+          log.task "Package: Efx", "Copying Efx drivers to CSS/JS build file" do
+            # append all files in efx's src/driver directory to tmp_js_build_file
+            dir = "#{package_dir :efx}/src/driver"
+            Dir.entries(dir).each do |file|
+              next if file[0,1] == '.'
+              src = "#{dir}/#{file}"
+              dst = false
+              if file.match /\.css$/
+                dst = tmp_css_build_file
+              elsif file.match /\.js$/
+                dst = tmp_js_build_file
+              end
+              log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
+              append_file src, dst if dst
+            end
+          end
+          
+        end
+        
+        def reset_package
+          # delete submodule contents
+          reset_submodule :efx
+        end
+        
+      end
+    end
+  end
+end</pre>
+
+<p>Package handlers have complete control over the way in which they load packages. The example of <code>efx</code> shows how a package handler can be used to roll up a larger set of assets rather than just a single file. Of course, in addition to doing this directly, a package handler also has the ability to invoke a compiler to build a package (if it comes equipped with its own compiler).</p>
+
+<h3>Package without Submodule</h3>
+
+<p>The above example showed how one can compile assets directly, and it suggested that one could also invoke a third-party compiler or other process to handle building the assets before appending them. However, in the case of <code>jquery</code>, the WebBlocks team has had some issues getting its <code>grunt</code> process to reliably create a build on all environments. Consequently, the <code>jquery</code> handler actually takes a totally different route: instead of using a submodule, during the compile step, it instead goes to the web and fetches a copy of the jQuery compiled source file.</p>
+
+<p>The <code>jquery</code> package handler may be found in <code>lib/Build/Package/Jquery.rb</code>:</p>
+
+<pre class="prettyprint">require 'rubygems'
+require 'extensions/kernel' if defined?(require_relative).nil?
+require 'net/http'
+require_relative '../../Path'
+require_relative '../Submodule'
+require_relative '../Utilities'
+require_relative '../../Logger'
+
+module WebBlocks
+  module Build
+    module Package
+      class Jquery
+        
+        def domain
+          'code.jquery.com'
+        end
+        
+        def path
+          config[:build][:debug] ? '/jquery-1.8.3.js' : '/jquery-1.8.3.min.js'
+        end
+        
+        include ::WebBlocks::Logger
+        include ::WebBlocks::Path::Temporary_Build
+        include ::WebBlocks::Build::Submodule
+        include ::WebBlocks::Build::Utilities
+        
+        def compile
+          # call-forward
+          compile_js
+        end
+        
+        def compile_js
+          # fetch a compiled version of jQuery
+          filename =  "#{package_dir :jquery}/dist/jquery.js"
+          unless File.exists? filename
+            # ensure that the --offline flag was not set
+            if ::WebBlocks.config[:options][:offline]
+              log.failure "Submodule", "Cannot download compiled version of jQuery in offline mode\nMust call rake the first time without --offline flag"
+            end
+            # initiate a task within logger scope
+            log.task "Package: jQuery", "Downloading compiled version of jQuery" do
+              # download a copy of jQuery and save it to the jQuery package dir
+              Net::HTTP.start(domain) do |http|
+                resp = http.get(path)
+                FileUtils.mkdir_p File.dirname(filename)
+                open(filename, "w") do |file|
+                  file.write(resp.body)
+                end
+              end
+            end
+          end
+        end
+        
+        def assemble
+          # call-forward
+          assemble_js
+        end
+        
+        def assemble_js
+          # initiate a task within logger scope
+          log.task "Package: jQuery", "Copying jQuery sources to JS build file" do
+            # append jQuery's jquery.js file to tmp_js_build_file
+            file = "#{package_dir :jquery}/dist/jquery.js"
+            log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
+            append_file file, tmp_js_build_file
+          end
+        end
+        
+        def clean_package
+          # clear out the compiled version of jquery
+          FileUtils.rm_rf "#{package_dir :jquery}/dist" if File.exists? "#{package_dir :jquery}/dist"
+        end
+        
+        def reset_package
+          # delete submodule contents
+          reset_submodule :jquery
+        end
+        
+      end
+    end
+  end
+end</pre>
+
+<p>In this case, the package handler foregoes the traditional <code>preprocess</code> step, as it is going to instead fetch a copy of the jQuery sources from the web. Further, for semantic purposes, it uses the <code>compile</code> stage to actually retrieve the assets from the web, given that this simulates an actual compile of jQuery. The rest of the process is roughly synonymous to the earlier examples.</p>

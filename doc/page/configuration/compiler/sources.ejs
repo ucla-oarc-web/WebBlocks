@@ -56,7 +56,9 @@ WebBlocks.config[:src][:extension][:dir] = '#{rootdir}/src/extension'</pre>
 
 <h4>SASS Includes Sources Directory</h4>
 
-<p>The SASS includes directory is a directory that one may use to specify a set of SASS files that should be automatically included within WebBlocks when its included into <code>blocks.scss</code>. This SASS includes directory <code>blocks</code> usually resides under <code>src/sass</code> (or, if <code>WebBlocks.config[:src][:sass][:dir]</code> has been changed, then wherever this directory is):</p>
+<p>By default, all files will be automatically appended to <code>blocks.css</code> with two exceptions: those that begin with an underscore (the SASS partials scheme) and those that reside within the explicit includes directory. These latter two sets, meanwhile, may be included explicitly with the <code>@import</code> directive, allowing control over build order and the conditional addition of assets.</p>
+
+<p>This SASS includes directory <code>blocks</code> usually resides under <code>src/sass</code> (or, if <code>WebBlocks.config[:src][:sass][:dir]</code> has been changed, then wherever this directory is):</p>
 
 <pre class="prettyprint">WebBlocks.config[:src][:sass][:includes][:dir] = 'blocks'</pre>
 

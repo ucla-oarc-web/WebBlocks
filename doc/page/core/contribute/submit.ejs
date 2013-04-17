@@ -1,0 +1,101 @@
+<h2>Submission Process</h2>
+
+<p>This document details the submission process for contributing fixes and new features to WebBlocks through the <strong>pull request model</strong>. For an overview of the contribution process, please see <a href="#Core/Contribute/Model">Contribution Model</a>.
+
+<h3>Forking WebBlocks</h3>
+
+<p>The first step for contributing is to create a fork of WebBlocks. This can be done by going to the <a href="https://github.com/ucla/WebBlocks">WebBlocks Repository</a> on GitHub, while logged in, and pressing the "Fork" button</p>
+
+<p>Once you have your fork set up, you need to clone it as a local repository on your computer:</p>
+
+<pre>git clone https://[ACCOUNT-NAME]@github.com/[ACCOUNT-NAME]/WebBlocks.git [DIRECTORY-NAME]</pre>
+
+<p>This will automatically set up a remote called <code>origin</code> that refers to the repository that you cloned and checks out the default branch (usually master).</p>
+
+<p>Because this is a fork of the canonical repository, you need to make sure that you can also pull commits from that repository as well. As such, you should establish a second remote:</p>
+
+<pre>git remote add upstream https://[ACCOUNT-NAME]@github.com/ucla/WebBlocks.git</pre>
+
+<p>To update the <code>master</code> branch on your fork to the latest version of WebBlocks:</p>
+
+<pre>git checkout master
+git pull upstream master</pre>
+
+<p>When you do this, you should also make sure to update your remote:</p>
+
+<pre>git push upstream master</pre>
+
+<h3>Detailing the Feature</h3>
+
+<p>The WebBlocks contribution process requires that any feature being contributed <strong>must</strong> have a ticket first created for it in the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>. This ensures that discussion on an issue begins <em>early</em> in the process. Please refer to earlier sections regarding details that should be provided in an issue relating to a bug or new feature.</p>
+
+<h3>Developing the Feature</h3>
+
+<p>While <code>master</code> is where you update to the latest version of WebBlocks, it is not recommended that you develop any contributions on <code>master</code>. Instead, whenever working on a feature, it should be created on it's own branch such that you can issue a pull request on the branch to submit that change back to the WebBlocks project.</p>
+
+<p>Before starting a branch, ensure that your <code>master</code> branch is up to date:</p>
+
+<pre>git checkout master             # switch to the master branch
+git pull origin master          # for good measure as this should already align with origin
+git pull upstream master        # to fetch the latest set of changes from the canonical remote
+git push origin master          # update the remote fork with the latest changes from the canonical remote</pre>
+
+<p>Then, to create a new branch, issue:</p>
+
+<pre>git checkout -b [BRANCH-NAME] master</pre>
+
+<p>This command says to create a new branch named <code>[BRANCH-NAME]</code> that starts out identical to the <code>master</code> branch. For organization, the WebBlocks team recommends using <code>fix/[ISSUE-NUM]</code> or <code>feature/[ISSUE-NUM]</code> for your branch names, to make it easy to determine what issue the branch relates to, but this is not required.</p>
+
+<p>Once you've got a branch, you can start making changes. Simply edit files as usual and test on your local copy. When you're ready to designate a file to be committed, you need to add the files:
+
+<pre>git add [FILE-NAME]</pre>
+
+<p>This command will add files to a staging area to wait for commit. Files in this staging area are not monitored for changes. If you change the file, you must run the command again to add the changes.</p>
+
+<p>The <code>[FILE-NAME]</code> value can be a file or directory. Further, if you use * as the file name, then you will add all changed files in your local copy. Use this with caution if you have configuration files that are not in your <code>.gitignore</code> file. You can also specify multiple files/directories as a set of space-separated paths. All paths are local to your current working directory.</p>
+
+<p>When you've got all files added for a commit, issue the following:</p>
+
+<pre>git commit -m "#[ISSUE-NUM] - [COMMIT-MESSAGE]"</pre>
+
+<p>The first segment of the commit message (before the hyphen) is used to "link" the commit to an issue on GitHub. For instance, if a commit related to issue #200, then the commit message would be:</p>
+
+<pre>git commit -m "#200 - [COMMIT-MESSAGE]"</pre>
+
+<p>The [COMMIT-MESSAGE] should have a first line that is 60 characters or less in length. If your commit has additional details, enter an empty line and then additional lines, each no more than 72 characters in length. This is to ensure proper formatting when viewing commits in GitHub and through the terminal.</p>
+
+<p>A long commit message might be as follows:</p>
+
+<pre>git commit -m "[SHORT-DESCRIPTION]
+
+[LONGER-DESCRIPTION...
+...
+...]"</pre>
+
+<h3>Contributing the Feature</h3>
+
+<p>Once you've done the necessary commits and you're ready to contribute the branch containing the feature, you need to expose it through your remote fork:</p>
+
+<pre>git push origin [BRANCH-NAME]</pre>
+
+<p>It is common during development on a branch to push multiple times. This ensures that your collaborators can see what you're working on and also that you've got a remote backup in case your local copy is somehow rendered inoperable. However, this guide is simply exploring the minimal case.</p>
+
+<p>With the branch now in your remote fork, you can issue a pull request to WebBlocks for it:</p>
+
+<ol>
+    <li>Go to your remote fork on GitHub</li>
+    <li>Select your branch from the dropdown to the left of the "Files" tab</li>
+    <li>Press the "Pull Request" button</li>
+    <li>Ensure that the proper branches and repositories are selected</li>
+    <li>Enter details about the pull request and assign it to the integration manager</li>
+</ol>
+
+<p>In the description for the pull request, please include:</p>
+
+<ul>
+    <li>Code changes necessary to resolve the issue.</li>
+    <li>Additions/updates to the documentation for the change.</li>
+    <li>If the code modifies the compiler, unit tests for the change.</li>
+</ul>
+
+<p>The pull request will then be reviewed, meaning a thorough review of the code, documentation and tests. Interested parties are encouraged to weigh in both during the initial creation of the issue and during the pull request review stage. Any issues found may require additional work on the branch, which should then be pushed up to the remote fork (and will be automatically reflected in the pull request). Once any issues from the review are resolved, and the unit and build tests pass, then pull request will then be merged into the canonical <code>master</code> and the issue closed.</p>

@@ -1,13 +1,110 @@
 <h2>Configuration</h2>
 
-<p>While WebBlocks may be used as a pre-built set of CSS, Javascript and images, it also includes powerful mechanisms for customization. One may modify everything from colors and the number of panels in the grid all the way down to where WebBlocks sources reside and it's build output is generated.</p>
+<p>While WebBlocks may be used as a pre-built set of CSS, Javascript and images, it also includes powerful mechanisms for customization via an easy-to-use compiler. One may modify everything from colors and the number of panels in the grid all the way down to where WebBlocks sources reside and it's build output is generated.</p>
 
-<p>On the whole, it's configuration options come in three veins:</p>
+<h3>Environment</h3>
+
+<p>The WebBlocks compiler leverages <code>rake</code>, a Ruby equivalent of GNU <code>make</code>. It also takes advantage of several other tools, such as <code>git</code>, <code>compass</code>, <code>npm</code>, <code>uglifycss</code> and <code>uglifyjs</code>. As such, the following are required:</p>
 
 <ul>
-    <li><strong>Adding your own SASS and Javascript sources.</strong> CSS (and SASS) may be added to <code>src/sass/blocks.scss</code> and <code>src/sass/blocks-ie.scss</code> or as SCSS files in <code>src/sass/blocks</code>, those for the IE CSS build suffixed with <code>-ie</code>.</li>
-    <li><strong>Modifying SASS variables to affect the way entities render.</strong> These variables should be specified in <code>src/sass/_variables.scss</code>. A full list of variables may be found in <a href="#API/Variables">API/Variables</a> and more specified details are explained in the "SASS Variables" portion of this section.</li>
-    <li><strong>Setting compiler configuration options to modify the compiler's behavior.</strong> These options are defined in <code>Rakefile-config.rb</code>. Explanations of the various options are explained in the "Compiler portion of this section.</li>
+    <li><strong><a href="https://rubygems.org" target="_blank">Ruby</a></strong> (v1.8, v1.9, v2.0), <strong><a href="https://rubygems.org" target="_blank">RubyGems</a></strong> and <strong><a href="http://gembundler.com" target="_blank">Bundler</a></strong></li>
+    <li><strong><a href="http://nodejs.org" target="_blank">Node.js</a></strong> and <strong><a href="https://npmjs.org" target="_blank">NPM</a></strong></li>
+    <li><strong><a href="http://git-scm.com" target="_blank">Git</a></strong></li>
 </ul>
 
-<p>To get started, make sure you've got your enviromnent set up correctly as described in <a href="#Configuration/Environment">Environment</a>. Going a step further, explore <a href="#Configuration/Compiler">Compiler Tasks</a> to check out different tasks the compiler will perform. Finally, explore the sources, sass variables and compiler sections for more specific details on various configuration mechanisms.</p>
+<p>With these installed, the rest of the packages used by WebBlocks may be installed via <code>git</code>, <code>bundle</code> and <code>npm</code>:</p>
+
+<pre class="prettyprint">git submodule init
+git submodule update
+bundle
+npm install</pre>
+
+<p>The WebBlocks compile, once the environment has been configured, is as simple as running <code>rake</code>:</p>
+
+<pre class="prettyprint">rake</pre>
+
+<p>More detailed installation instructions may be found in <a href="#Configuration/Environment">Environment</a>. For a description of different rake tasks and options, check out <a href="#Configuration/Compiler">Compiler Tasks</a>.</p>
+
+<h3>Configuring the Compiler</h3>
+
+<p>The compiler includes a number of configuration options that modify its behavior:</p>
+
+<ul>
+    <li>
+        <a href="#Configuration/Compiler/Components"><strong>Components</strong></a>
+        <ul>
+            <li><code>Modules</code> define WebBlocks elements</li>
+            <li><code>Adapters</code> bind WebBlocks to existing frameworks</li>
+            <li><code>Extensions</code> tweak WebBlocks definitions</li>
+            <li><code>Packages</code> are third-party components packaged with WebBlocks</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Build"><strong>Build Output</strong></a>
+        <ul>
+            <li><code>Debug Output</code> define whether the build is compressed or expanded</li>
+            <li><code>Build Directories</code> define to where WebBlocks assets are built</li>
+            <li><code>Build Files</code> define the names of WebBlocks built assets</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Sources"><strong>Sources</strong></a>
+        <ul>
+            <li><code>Source Directory</code> define location of WebBlocks sources</li>
+            <li><code>Core Directories</code> define location of WebBlocks core sources</li>
+            <li><code>Adapter Directories</code> define location of WebBlocks core sources</li>
+            <li><code>SASS Sources Directory</code> define location of user-defined SASS files</li>
+            <li><code>JS Sources Directory</code> define location of user-defined JS files</li>
+            <li><code>Image Sources Directory</code> define location of user-defined image files</li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Configuration/Compiler/Advanced"><strong>Advanced</strong></a>
+        <ul>
+            <li><code>Execution Paths</code> define execution paths of required packages</li>
+            <li><code>Special Directories</code> define WebBlocks temporary and metadata directories</li>
+        </ul>
+    </li>
+</ul>
+
+<p>By default, the compiler uses <code>Rakefile-config.rb</code> for these options.</p>
+
+<p>One may specify a different configuration file via a command-line option:</p>
+
+<pre class="prettyprint">rake [task] -- --config=[config-file-path]</pre>
+
+<h3>Modifying SASS Variables</h3>
+
+<p>WebBlocks elements are set up to be highlight configurable.</p>
+
+<p>If one wishes to modify the base color used for the <code>.primary</code> branding color and it's sub-classes, the change can be made as simply as:</p>
+
+<pre class="prettyprint">$color-branding-primary: #0a2a77;</pre>
+
+<p>This line, along with any other variable definitions, should be specified in <code>src/sass/_variables.scss</code>.</p>
+
+<p>A full list of variables may be found in <a href="#API/Variables">API/Variables</a>.</p>
+
+<h3>Adding New Sources</h3>
+
+<p>Beyond WebBlocks elements, one may also add their own sources, and WebBlocks provides several ways to do this.</p>
+
+<p>To add new SASS/CSS, one may insert it into <code>src/sass/blocks.scss</code>. If one wishes for it only to load for IE6-8, then instead insert it into <code>src/sass/blocks-ie.scss</code>.</p>
+
+<p>However, placing all SASS/CSS within a single pair of files is not always reasonable. As such, WebBlocks provides several alternatives for organizing your definitions:</p>
+
+<ul>
+    <li>WebBlocks assumes that all <code>.scss</code> files within <code>src/sass</code> (except in <code>src/sass/includes</code>) are to be appended to the end of <code>blocks.scss</code> and <code>blocks-ie.scss</code> (the suffix <code>-ie</code> on a file specifying that it should go into the IE-specific sheet).</li>
+    <li>When working with additional sheets, WebBlocks variables are not automatically available, as they are compiled as separate sheets and then concatenated together. As such, variables may be loaded with <code>@import "WebBlocks-variables";</code>.</code>
+    <li>In some cases, one may wish to explicitly define load order. This may be accomplished either by prepending an <code>_</code> to a file name or placing it in the <code>src/sass/includes</code> folder, which is the only folder in <code>src/sass</code> that will not be automatically added to the build file.</li>
+</ul>
+
+<p>The rules for Javascript sources are simpler:</p>
+
+<ul>
+    <li>Place a file in <code>src/js/core</code> to have it appended to <code>blocks.js</code></li>
+    <li>Place a file in <code>src/js/core-ie</code> to have it appended to <code>blocks-ie.js</code></li>
+    <li>Place a file in <code>src/js/script</code> to have it added to the <code>script</code> build folder with a path derived from its relative orientation to <code>src/js/script</code></li>
+</ul>
+
+<p>Image assets may also be added to <code>src/img</code>, and these assets will be added to the <code>img</code> build folder with a path derived from its relative orientation to <code>src/img</code>.

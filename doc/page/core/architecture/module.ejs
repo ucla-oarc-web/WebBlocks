@@ -1,0 +1,292 @@
+<h2>Module</h2>
+
+<p>Modules provide a structure for WebBlocks definitions. A module may be a leaf node, defining a single set of semantics, or a namespace containing multiple submodules. For instance, the <code>Entity/Form</code> module contains all of the semantic structures defined for forms, while the <code>Base/Structure</code> module actually contains several submodules including <a href="#API/Base/Structure/Container">Base/Structure/Container</a>, <a href="#API/Base/Structure/Grid">Base/Structure/Grid</a> and <a href="#API/Base/Structure/Constrained">Base/Structure/Constrained</a>.</p>
+
+<p>This section uses the <code>Base/Type/Align</code> module to explain how a module is implemented.</p>
+
+<p><span class="badge warning">NOTE</span> This document assumes familiarity with the <a href="#Core/Architecture/Terminology">Terminology</a> section.</p>
+
+<h3>The Structure of a Module</h3>
+
+<p>A module is minimally defined by two files:</p>
+
+<ul>
+    <li><strong>Core Definition</strong> that defines the interface.</li>
+    <li><strong>Core Adapter</strong> that defines the default implementation.</li>
+</ul>
+
+<p>Additionally, a module may be modified by an <strong>Adapter</strong> when WebBlocks is compiled with that adapter.</p>
+
+<p>The name of a module is defined by it's pathing. The <code>Base/Type/Align</code> module is found in <code>base/type/_align.scss</code> <i>relative</i> to the core definition, core adapter and adapter directories.</p>
+
+<h4>Core Definition File</h4>
+
+<p>The <code>Base/Type/Align</code> module includes four classes:</p>
+
+<ul>
+    <li><code>.text-left</code></li>
+    <li><code>.text-center</code></li>
+    <li><code>.text-right</code></li>
+    <li><code>.text-justify</code></li>
+</ul>
+
+<p>The core definition in <code>src/core/definition/base/type/_align.scss</code> is thus:</p>
+
+<pre class="prettyprint">.text-left {
+    @include -base-type-align-left;
+}
+
+.text-center {
+    @include -base-type-align-center;
+}
+
+.text-right {
+    @include -base-type-align-right;
+}
+
+.text-justify {
+    @include -base-type-align-justify;
+}</pre>
+
+<p>It is worth note that this definition file <em>does not</em> include the actual CSS. Instead, it invokes SASS mixins via <code>@include</code>. The reason for this is that, by using a mixin, the actual definition may come either from the core adapter or from another adapter that overrides the behavior of the class.</p>
+
+<h4>Core Adapter File</h4>
+
+<p>The core adapter specified the default implementation (unless the mixin is overridden by an adapter).</p>
+
+<p>As stipulated by the core definition, the core adapter must specify four mixins:</p>
+
+<ul>
+    <li><code>-base-type-align-left</code></li>
+    <li><code>-base-type-align-center</code></li>
+    <li><code>-base-type-align-right</code></li>
+    <li><code>-base-type-align-justify</code></li>
+</ul>
+
+<p>The core adapter mixins definitions in <code>src/core/adapter/base/type/_align.scss</code> are thus:</p>
+
+<pre class="prettyprint">@mixin -base-type-align-left {
+    text-align: left;
+}
+
+@mixin -base-type-align-center {
+    text-align: center;
+}
+
+@mixin -base-type-align-right {
+    text-align: right;
+}
+
+@mixin -base-type-align-justify {
+    text-align: justify;
+}</pre>
+
+<p>By convention, the mixins should always begin with the module namespace (using hyphens instead of slashes for pathing, as slashes are not an allowed character in SASS mixin names).</p>
+
+<h4>Assembling the Core</h4>
+
+<p>When the compiler runs, figuring that there are no overrides in any adapters it includes, it will first load the core adapter and then the core definition:</p>
+
+<pre class="prettyprint">/* .. */
+@import "[base-path]/src/core/adapter/base/type/_align.scss";
+/* .. */
+@import "[base-path]/src/core/definition/base/type/_align.scss";
+/* .. */</pre>
+
+<p>Expanded, this becomes:</p>
+
+<pre class="prettyprint">/* .. */
+@mixin -base-type-align-left { text-align: left; }
+@mixin -base-type-align-center { text-align: center; }
+@mixin -base-type-align-right { text-align: right; }
+@mixin -base-type-align-justify { text-align: justify; }
+/* .. */
+.text-left { @include -base-type-align-left; }
+.text-center { @include -base-type-align-center; }
+.text-right { @include -base-type-align-right; }
+.text-justify { @include -base-type-align-justify; }
+/* .. */</pre>
+
+<p>Compiled, the final result is:</p>
+
+<pre class="prettyprint">/* .. */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+/* .. */</pre>
+
+<h4>Adapter Overrides</h4>
+
+<p>The reason that interface and implementation are separated is because of the power WebBlocks gives to adapters. Adapters, simply put, provide a way to bridge a third-party package with WebBlocks, using implementation from the package to implement components of WebBlocks for a smoother experience.</p>
+
+<h5>Adapter Implementation File</h5>
+
+<p>In the case of Twitter Bootstrap, it provides two alignment classes:</p>
+
+<ul>
+    <li><code>.pagination-centered</code></li>
+    <li><code>.pagination-right</code></li>
+</ul>
+
+<p>To leverage these two classes, the Bootstrap adapter overrides two of the mixins for type alignment in the file <code>src/adapter/bootstrap/base/type/_align.scss</code>:</p>
+
+<pre class="prettyprint">@mixin -base-type-align-center {
+    @extend .pagination-centered;
+}
+
+@mixin -base-type-align-right {
+    @extend .pagination-right;
+}</pre>
+
+<p>While <code>@extend</code> is used in both of these overrides, any SASS/CSS may be used including <code>@include</code> or standard CSS.</p>
+
+<h5>Assembling with an Adapter</h5>
+
+<p>When the compiler runs with an adapter specifying overrides, it will first load the core adapter, then the other adapters (in FIFO order) and finally the core definition:</p>
+
+<pre class="prettyprint">/* .. */
+@import "[base-path]/src/core/adapter/base/type/_align.scss";
+/* .. */
+@import "[base-path]/src/adapter/bootstrap/base/type/_align.scss";
+/* .. */
+@import "[base-path]/src/core/definition/base/type/_align.scss";
+/* .. */</pre>
+
+<p>Expanded, this becomes:</p>
+
+<pre class="prettyprint">/* .. */
+@mixin -base-type-align-left { text-align: left; }
+@mixin -base-type-align-center { text-align: center; }
+@mixin -base-type-align-right { text-align: right; }
+@mixin -base-type-align-justify { text-align: justify; }
+/* .. */
+@mixin -base-type-align-center { @extend .pagination-centered; }
+@mixin -base-type-align-right { @extend .pagination-right; }
+/* .. */
+.text-left { @include -base-type-align-left; }
+.text-center { @include -base-type-align-center; }
+.text-right { @include -base-type-align-right; }
+.text-justify { @include -base-type-align-justify; }
+/* .. */</pre>
+
+<p>Removing the overridden mixins, this becomes:</p>
+
+<pre class="prettyprint">/* .. */
+@mixin -base-type-align-left { text-align: left; }
+@mixin -base-type-align-justify { text-align: justify; }
+/* .. */
+@mixin -base-type-align-center { @extend .pagination-centered; }
+@mixin -base-type-align-right { @extend .pagination-right; }
+/* .. */
+.text-left { @include -base-type-align-left; }
+.text-center { @include -base-type-align-center; }
+.text-right { @include -base-type-align-right; }
+.text-justify { @include -base-type-align-justify; }
+/* .. */</pre>
+
+<p>Compiled, the final result is:</p>
+
+<pre class="prettyprint">/* .. */
+.pagination-centered, .text-center { /* bootstrap implementation */ }
+.pagination-right, .text-right { /* bootstrap implementation */ }
+/* .. */
+.text-left { text-align: left; }
+.text-justify { text-align: justify; }
+/* .. */</pre>
+
+<h3>Submodules</h3>
+
+<p>When working with <code>Rakefile-config.rb</code>, one often takes advantage of the implicit way in which WebBlocks supports submodules. Essentially, when a module is loaded, WebBlocks seeks out SASS files bearing the name of the module, as well as within a directory by the module's name.</p>
+
+<p>The <code>Base/Type/Align</code> module happens to actually have submodules. When the module <code>Base/Type/Align</code> is specified, WebBlocks seeks out the following paths (relative to the core definition, core adapter and third-party adapter directories):
+
+<ul>
+    <li><code>base/type/_align.scss</code></li>
+    <li><code>base/type/align/*.scss</code></li>
+    <li><code>base/type/align/*/*.scss</code></li>
+</ul>
+
+<p>In the case of <code>Base/Type/Align</code>, WebBlocks will resolve three paths:</p>
+
+<ul>
+    <li><code>base/type/_align.scss</code></li>
+    <li><code>base/type/align/_responsive.scss</code></li>
+    <li><code>base/type/align/_responsive_above.scss</code></li>
+</ul>
+
+<p>The has the result of actually loading three leaf nodes:</p>
+
+<ul>
+    <li><code>Base/Type/Align</code></li>
+    <li><code>Base/Type/Align/Responsive</code></li>
+    <li><code>Base/Type/Align/Responsive_Above</code></li>
+</ul>
+
+<h3>Variables</h3>
+
+<p>Arguably, the usefulness of a module stems from the ability to configure it fully. As such, modules are encouraged to use variables and define a default set in a <code>_variables.scss</code> file.</p>
+
+<p>By convention, <code>_variables.scss</code> files should not include anything except variables, and therefore WebBlocks is a little lighter on the way in which it seeks out variables. Essentially, for a module, it will load all <code>_variables.scss</code> files for both containing namespaces and contained submodules.</p>
+
+<p>The <code>Base/Type/Align/Responsive</code> and <code>Base/Type/Align/Responsive_Above</code> submodules both use a number of variables, namely <code>$breakpoint-xxsmall</code>, <code>$breakpoint-xsmall</code>, <code>$breakpoint-small</code>, etc. When loading <code>Base/Type/Align</code> (and thus the submodules that need variables), WebBlocks will include variables files (if they exist) from:</p>
+
+<ul>
+    <li><code>./_variables.scss</code></li>
+    <li><code>./base/_variables.scss</code></li>
+    <li><code>./base/type/_variables.scss</code></li>
+    <li><code>./base/type/align/_variables.scss</code></li>
+    <li><code>./base/type/align/*/_variables.scss</code></li>
+</ul>
+
+<p>These paths are relative to <code>src/core/definition</code>, <code>src/core/adapter</code>, and any third-party module included in the compile.</p>
+
+<h3>Dependencies</h3>
+
+<p>In some cases, a module may depend on another module. SASS does not have a concept of this, and we cannot use <code>@import</code> because of the fact WebBlocks loads a variable set of files based on adapters. As such, WebBlocks introduces a <strong>pre-compiler directive</strong> to stipulate this requisite:</p>
+
+<pre class="prettyprint">//!requires [MODULENAME]</pre>
+
+<p>The <code>Base/Type/Align</code> module does not have any requisites, so instead our example here shall refer to the <code>Base/Color/Branding/Background_Gradient</code> module. Essentially, this module defines a <code>.gradient</code> semantic that can be applied to a branding color such as <code>.primary</code>. However, since the <code>Base/Color/Branding/Background_Gradient</code> module does not actually define the <code>.primary</code> semantic, instead it must define a dependency in <code>src/definitions/base/color/branding/_background_gradient.scss</code>:</p>
+
+<pre class="prettyprint">//!requires base/color/branding/background
+
+.gradient {
+        
+    &.default {
+        @include -base-color-branding-default-background-gradient;
+    }
+        
+    &.primary {
+        @include -base-color-branding-primary-background-gradient;
+    }
+        
+    &.secondary {
+        @include -base-color-branding-secondary-background-gradient;
+    }
+        
+    &.tertiary {
+        @include -base-color-branding-tertiary-background-gradient;
+    }
+        
+    &.neutral {
+        @include -base-color-branding-neutral-background-gradient;
+    }
+
+}</pre>
+
+<p>In some cases, a dependency may stem, not from a semantic requirement (such as <code>.primary</code> needed for <code>.primary.gradient</code>) but instead from an implementation requirement. In such a case, the requires pre-compiler directive should be stated in the implementation file. For example, the <code>Entity/Button</code> implementation in <code>src/core/adapter/entity/_button.scss</code> is as follows (with unrelated code removed for brevity):</p>
+
+<pre class="prettyprint">//!requires base/color
+
+/* .. */
+
+@mixin -entity-button { 
+    
+    @extend .gradient;
+
+    /* .. */
+
+}</pre>
+
+<p>The compiler includes a dependency resolver that will load all required modules before the modules that require them. In the event that a cyclical dependency is encountered (one where two modules require each other), the compiler will throw a warning. When crafting modules, one should work hard to avoid creating such cycles.</p>

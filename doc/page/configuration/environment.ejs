@@ -21,59 +21,61 @@
     
 </div>
 
-<div data-effect="toggle" data-toggle="slide" class="install-instructions">
+<div data-effect="toggle" data-toggle="slide" class="install-instructions" style="margin-left: 40px; margin-right: 40px; padding: 10px; border: 1px solid #ccc; text-align:justify;">
+
+    <div class="float-right"><a href="#Configuration/Environment" data-target=".install-instructions">[Close]</a></div>
     
-    <h3>Requisite Installation Instructions</h3>
+    <h4>Requisite Installation Instructions</h4>
     
     <p>These instructions are meant as a guide, but they are neither inclusive of all ways to install the requisite packages, nor will they necessarily remain the correct way to perform these installs over time.</p>
     
-    <h4>Ruby and RubyGems</h4>
+    <h5>Ruby and RubyGems</h5>
     
-    <h5>Mac OS X</h5>
+    <h6>Mac OS X</h6>
     
     <p>Ruby 1.8.7 and Rubygems are pre-installed in OS X</p>
 
-    <h5>Windows</h5>
+    <h6>Windows</h6>
 
     <p>Go to <a href="http://rubyinstaller.org" target="_blank">http://rubyinstaller.org</a> and select the RubyInstaller for 1.8.7</p>
 
     <p>Check the box for: <code>Add Ruby executable for your path</code>.</p>
 
-    <h5>Enterprise Linux (Redhat/Centos) and Fedora</h5>
+    <h6>Enterprise Linux (Redhat/Centos) and Fedora</h6>
 
     <pre class="prettyprint">yum install ruby rubygems</pre>
     
-    <h5>Debian/Ubuntu</h5>
+    <h6>Debian/Ubuntu</h6>
 
     <pre class="prettyprint">apt-get install ruby rubygems</pre>
     
-    <h4>Bundler</h4>
+    <h5>Bundler</h5>
     
     <p>Bundler is the Ruby package management system. Once you have RubyGems installed, you can simply call gem to install it:</p>
 
     <pre class="prettyprint">gem install bundler</pre>
     
-    <h4>Node.js and NPM</h4>
+    <h5>Node.js and NPM</h5>
     
-    <h5>Mac OS X</h5>
+    <h6>Mac OS X</h6>
 
     <p>Go to <a href="http://www.nodejs.org/download/" target="_blank">http://www.nodejs.org/download/</a></p>
 
-    <h5>Windows</h5>
+    <h6>Windows</h6>
 
     <p>Go to <a href="http://www.nodejs.org/download/" target="_blank">http://www.nodejs.org/download/</a></p>
 
-    <h5>Enterprise Linux (Redhat/Centos)</h5>
+    <h6>Enterprise Linux (Redhat/Centos)</h6>
 
     <pre class="prettyprint">yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/el/nodejs-stable-release.noarch.rpm
 yum install nodejs-compat-symlinks npm</pre>
 
-    <h5>Fedora</h5>
+    <h6>Fedora</h6>
 
     <pre class="prettyprint">sudo yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/fedora/nodejs-stable-release.noarch.rpm
 sudo yum install nodejs</pre>
     
-    <h5>Debian</h5>
+    <h6>Debian</h6>
 
     <pre class="prettyprint">apt-get install python g++ make
 mkdir ~/nodejs && cd $_
@@ -82,7 +84,7 @@ tar xzvf node-latest.tar.gz && cd `ls -rd node-v*`
 ./configure
 make install</pre>
     
-    <h5>Ubuntu</h5>
+    <h6>Ubuntu</h6>
 
     <pre class="prettyprint">apt-get install python-software-properties
 add-apt-repository ppa:chris-lea/node.js

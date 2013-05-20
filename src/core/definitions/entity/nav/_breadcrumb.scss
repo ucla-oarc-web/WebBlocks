@@ -2,14 +2,14 @@
     @include -entity-breadcrumb;
 }
 
-.breadcrumb > ol > li, .breadcrumb > ul > li {
+.breadcrumb > ol > li, .breadcrumb > ul > li, .breadcrumb > li {
     @include -entity-breadcrumb-item;
 }
 
-.breadcrumb > ol > li.active, .breadcrumb > ul > li.active {
+.breadcrumb > ol > li.active, .breadcrumb > ul > li.active, .breadcrumb > li.active {
     @include -entity-breadcrumb-item-active;
 }
 
-.breadcrumb > ol > li > .divider, .breadcrumb > ul > li > .divider {
+.breadcrumb > ol > li > .divider, .breadcrumb > ul > li > .divider, .breadcrumb > li > .divider {
     @include -entity-breadcrumb-divider;
 }

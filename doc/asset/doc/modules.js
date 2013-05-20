@@ -687,6 +687,15 @@
 				},
 				api:'Entity/Nav/List'
 			},
+			'Entity/Nav/Breadcrumb': {
+			    description: 'Defines a user interface class that provides a breadcrumb-style navigation menu.',
+			    defines: {
+			        'nav.breadcrumb': 'Styles a nav element with an internal list of links.',
+			        'nav.breadcrumb .active': 'An item styled as the "active" or "current" item within the breadcrumb list.',
+			        'nav.breadcrumb .divider': 'A divider glyph used to visually demarcate items within the breadcrumb list.'
+			    },
+			    api: 'Entity/Nav/Breadcrumb'
+		    },
 			'Entity/Table': {
 				description:'Defines a user interface class that can be used to style a table, representing tabular data.',
 				defines: {

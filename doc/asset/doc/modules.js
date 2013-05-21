@@ -694,6 +694,14 @@
 			        'nav.breadcrumb .active': 'An item styled as the "active" or "current" item within the breadcrumb list.',
 			        'nav.breadcrumb .divider': 'A divider glyph used to visually demarcate items within the breadcrumb list.'
 			    },
+			    uses: [
+			        'nav-breadcrumb-background-color',
+			        'nav-breadcrumb-border-radius',
+			        'nav-breadcrumb-item-link-color',
+			        'nav-breadcrumb-item-shadow-color',
+			        'nav-breadcrumb-active-color',
+			        'nav-breadcrumb-divider-color'
+			    ],
 			    api: 'Entity/Nav/Breadcrumb'
 		    },
 			'Entity/Table': {

@@ -381,6 +381,36 @@
             description:'text color for placeholder text of <code>input, textarea, select</code> within <code>form.form</code>',
             default_value:'lighten($form-input-text-color, 40%)',
             type:'color'
+        },
+        'nav-breadcrumb-background-color': {
+            description: 'color used for the background of the element containing the breadcrumb navigation items',
+            default_value: '#F5F5F5',
+            type: 'color'
+        },
+        'nav-breadcrumb-border-radius': {
+            description: 'border radius of the element containing the breadcrumb navigation items',
+            default_value: '4px',
+            type: 'px'
+        },
+        'nav-breadcrumb-item-link-color': {
+            description: 'color of the links within the breadcrumb navigation',
+            default_value: '#08C',
+            type: 'color'
+        },
+        'nav-breadcrumb-item-shadow-color': {
+            description: 'color of the text shadow on the breadcrumb navigation item text',
+            default_value: '#FFF',
+            type: 'color'
+        },
+        'nav-breadcrumb-active-color': {
+            description: 'text color of the active breadcrumb navigation item',
+            default_value: '#333',
+            type: 'color'
+        },
+        'nav-breadcrumb-divider-color': {
+            description: 'text color of the dividers within breadcrumb navigation',
+            default_value: '#CCC',
+            type: 'color'
         }
     }
     

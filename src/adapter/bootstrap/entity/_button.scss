@@ -68,6 +68,10 @@
     }
     
     &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
+        @extend .default;
+    }
+    
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
         &:hover, &.active {
             background-color: $color-branding-default-background-shadow;
             *background-color: darken($color-branding-default-background-shadow, 5%);    

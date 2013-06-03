@@ -1,0 +1,7 @@
+.hide-accessible {
+    @include -base-visibility-hide-accessible;
+}
+
+.hide-accessible.focusable {
+    @include -base-visibility-hide-accessible-focusable;
+}

@@ -484,7 +484,30 @@
 					'breakpoint-large'
 				],
 				api:'Base/Visibility'
+			},     
+			'Compatibility': {
+				description:'Defines a set of compatibility features such as IE hacks.'
 			},
+			'Compatibility/Image': {
+				description:'Defines a set of compatibility features for images.'
+			},
+			'Compatibility/Image/Scaling': {
+				description:'Adds bicubic scaling for IE 7 and below.',
+				api:'Compatibility'
+			},
+            'Compatibility/CSS': {
+				description:'Defines a set of compatibility features for CSS effects.'
+            },
+            'Compatibility/CSS/Filter': {
+				description:'Defines a set of compatibility features for CSS filter effect.'
+            },
+            'Compatibility/CSS/Filter/Border_Radius': {
+                description:'Defines a method for transparently bypassing the fact that the filter property overrides border-radius.',
+				api:'Compatibility',
+                definesJS: {
+					'Blocks.IE.css.filter.borderRadius()':'Generates a wrapper element inside of the targetted element and moves the filter to it to avoid overriding border-radius.'
+                }
+            },
 			'Entity': {
 				description:'Defines a base set of classes for marking up elements.'
 			},
@@ -772,6 +795,12 @@
                 definitions.push(i)
             data.definitions = definitions.join(', ')
         }
+        if(data.definesJS){
+            var definitions_js = []
+            for(var i in data.definesJS)
+                definitions_js.push(i)
+            data.definitions_js = definitions_js.join(', ')
+        }
         return view.render(data)
     }
 
@@ -785,6 +814,12 @@
             for(var i in data.defines)
                 definitions.push(i)
             data.definitions = definitions.join(', ')
+        }
+        if(data.definesJS){
+            var definitions_js = []
+            for(var i in data.definesJS)
+                definitions_js.push(i)
+            data.definitions_js = definitions_js.join(', ')
         }
         if(data.uses){
             var uses_variables = []

@@ -1,3 +1,3 @@
 $(window).load(function(){
-    Blocks.IE.fixRadiusGradient('nav.bar')
+    Blocks.IE.css.filter.borderRadius('nav.bar')
 });

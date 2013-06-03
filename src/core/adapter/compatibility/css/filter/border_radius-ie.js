@@ -1,4 +1,6 @@
-Blocks.IE.fixRadiusGradient = function(ele){
+//!requires_package jquery
+
+Blocks.IE.css.filter.borderRadius = function(ele){
     $(ele).each(function(){
 
         var y=['top','bottom'],

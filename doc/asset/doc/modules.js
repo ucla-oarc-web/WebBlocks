@@ -417,6 +417,17 @@
 				},
 				api:'Base/Visibility'
 			},
+			'Base/Visibility/Accessible': {
+				description:'Defines visibility control classes for accessibility tools.'
+			},
+			'Base/Visibility/Accessible/Hide': {
+				description:'Defines a class to hide content visually but not for accessibility tools',
+				defines:{
+					'.hide-accessible':'Hide content except for accessibility tools',
+					'.hide-accessible.focusable':'Hide content except for accessibility tools or when focus is applied'
+				},
+				api:'Base/Visibility'
+			},
 			'Base/Visibility/Media_Query': {
 				description:'Defines visibility control classes for media queries.'
 			},

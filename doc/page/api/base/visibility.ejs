@@ -4,6 +4,7 @@
 
 <ul class="modules">
     <li><%= DOC.modules.render('Base/Visibility/Hide') %></li>
+    <li><%= DOC.modules.render('Base/Visibility/Accessible/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Media_Query/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide_Above') %></li>
@@ -16,6 +17,16 @@
 <p>The <code>.hide</code> class hides content from view and screenreaders. Applying the <code>.hide</code> class on an element is similar to calling <code>$(ele).hide()</code> in jQuery. Both are just slightly shorthand for the style property <code>display:none</code>.</p>
 
 <pre class="prettyprint">&lt;div class="hide"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
+<h4>Visibility for Accessibility Tools Only</h4>
+
+<p>The <code>.hide-accessible</code> class may be used to define an element that will only show with accessibility tools such as screen readers.</p>
+
+<pre class="prettyprint">&lt;div class="hide-accessible"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
+<p>The <code>.focusable</code> class may be used in addition to the <code>.hide-accessible</code> class in cases where, in addition to accessibility tools, if one applies focus on the element, it will become visible.</p>
+
+<pre class="prettyprint">&lt;div class="hide-accessible focusable"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
 
 <h4>Visibility based on Media Query Support</h4>
 

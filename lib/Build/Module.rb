@@ -79,6 +79,22 @@ module WebBlocks
               files << "#{path}/require.scss" unless files.include? "#{path}/require.scss"
             end
             
+            if File.exists? "#{File.dirname(path)}/_require-ie.scss"
+              files << "#{File.dirname(path)}/_require-ie.scss" unless files.include? "#{File.dirname(path)}/_require-ie.scss"
+            end
+            
+            if File.exists? "#{File.dirname(path)}/require-ie.scss"
+              files << "#{File.dirname(path)}/require-ie.scss" unless files.include? "#{File.dirname(path)}/require-ie.scss"
+            end
+            
+            if File.exists? "#{path}/_require-ie.scss"
+              files << "#{path}/_require-ie.scss" unless files.include? "#{path}/_require-ie.scss"
+            end
+            
+            if File.exists? "#{path}/require-ie.scss"
+              files << "#{path}/require-ie.scss" unless files.include? "#{path}/require-ie.scss"
+            end
+            
             if File.exists? "#{path}.scss"
               files << "#{path}.scss" unless files.include? "#{path}.scss"
             end
@@ -204,12 +220,14 @@ module WebBlocks
           
       end
       
-      def link_sass_lib file
+      def link_sass_lib file, additionally_to_ie = true
         
         if file.match /\/_+variables.scss$/
           target = tmp_sass_lib_file_variables
         elsif file.match /\/_+require.scss$/
           target = tmp_sass_lib_file_require
+        elsif file.match /\/_+require-ie.scss$/
+          target = tmp_sass_lib_file_require_ie
         elsif file.match /-ie.scss$/
           target = tmp_sass_lib_file_ie
         else
@@ -221,12 +239,22 @@ module WebBlocks
           handle.puts "@import \"#{file}\";"
         end
         
+        if additionally_to_ie and target == tmp_sass_lib_file
+          
+          target = tmp_sass_lib_file_ie
+          File.open target, "a" do |handle|
+            log.debug "#{File.basename target} <- #{file}"
+            handle.puts "@import \"#{file}\";"
+          end
+          
+        end
+        
       end
     
-      def link_sass_libs_for base_dir
+      def link_sass_libs_for base_dir, additionally_to_ie = true
         
         sass_libs_for base_dir do |file|
-          link_sass_lib file
+          link_sass_lib file, additionally_to_ie
         end
 
       end

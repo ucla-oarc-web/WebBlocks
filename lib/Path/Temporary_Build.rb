@@ -64,6 +64,10 @@ module WebBlocks
         from_tmp_build_dir_to 'sass', '_WebBlocks-require.scss'
       end
       
+      def tmp_sass_lib_file_require_ie
+        from_tmp_build_dir_to 'sass', '_WebBlocks-require-ie.scss'
+      end
+      
       def tmp_sass_lib_file_variables
         from_tmp_build_dir_to 'sass', '_WebBlocks-variables.scss'
       end

@@ -39,7 +39,7 @@ module WebBlocks
         def link_css
           
           log.task "Core: Definitions", "Linking core definitions" do
-            link_sass_libs_for src_core_definitions_dir
+            link_sass_libs_for src_core_definitions_dir, false
           end
           
         end

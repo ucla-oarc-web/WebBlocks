@@ -1,0 +1,34 @@
+@mixin -base-color-branding-default-background-light-gradient {
+    @include gradientBarSimple($color-branding-default-background-light, 
+                         $color-branding-default-background-light-shadow, 
+                         $color-branding-default-background-light-text, 
+                         $color-branding-default-background-light-text-shadow);
+}
+
+@mixin -base-color-branding-primary-background-light-gradient {
+    @include gradientBarSimple($color-branding-primary-background-light, 
+                         $color-branding-primary-background-light-shadow, 
+                         $color-branding-primary-background-light-text, 
+                         $color-branding-primary-background-light-text-shadow);
+}
+
+@mixin -base-color-branding-secondary-background-light-gradient {
+    @include gradientBarSimple($color-branding-secondary-background-light, 
+                         $color-branding-secondary-background-light-shadow, 
+                         $color-branding-secondary-background-light-text, 
+                         $color-branding-secondary-background-light-text-shadow);
+}
+
+@mixin -base-color-branding-tertiary-background-light-gradient {
+    @include gradientBarSimple($color-branding-tertiary-background-light, 
+                         $color-branding-tertiary-background-light-shadow, 
+                         $color-branding-tertiary-background-light-text, 
+                         $color-branding-tertiary-background-light-text-shadow);
+}
+
+@mixin -base-color-branding-neutral-background-light-gradient {
+    @include gradientBarSimple($color-branding-neutral-background-light, 
+                         $color-branding-neutral-background-light-shadow, 
+                         $color-branding-neutral-background-light-text, 
+                         $color-branding-neutral-background-light-text-shadow);
+}

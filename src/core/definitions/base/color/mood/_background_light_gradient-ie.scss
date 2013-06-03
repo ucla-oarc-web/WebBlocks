@@ -1,0 +1,41 @@
+//!requires base/color/mood/background
+
+.gradient.light {
+
+    &.info {
+        @include -base-color-mood-info-background-light-gradient-ie;
+    }
+
+    &.important {
+        @include -base-color-mood-important-background-light-gradient-ie;
+    }
+
+    &.success {
+        @include -base-color-mood-success-background-light-gradient-ie;
+    }
+
+    &.warning {
+        @include -base-color-mood-warning-background-light-gradient-ie;
+    }
+
+    &.error {
+        @include -base-color-mood-error-background-light-gradient-ie;
+    }
+
+    &.danger {
+        @include -base-color-mood-danger-background-light-gradient-ie;
+    }
+
+    &.inverse {
+        @include -base-color-mood-inverse-background-light-gradient-ie;
+    }
+
+    &.highlight {
+        @include -base-color-mood-highlight-background-light-gradient-ie;
+    }
+
+    &.required {
+        @include -base-color-mood-required-background-light-gradient-ie;
+    }
+
+}

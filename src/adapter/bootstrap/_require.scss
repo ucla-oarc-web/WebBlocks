@@ -16,10 +16,17 @@
 @import "sass-twitter-bootstrap/lib/responsive-navbar";
 
 /**
- * Version of @mixin gradientBar without border tweaks
+ * Version of @mixin gradientBar without border tweaks or filter but with SVG
  */
 @mixin gradientBarSimple($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+  $experimental-support-for-svg: true;
   color: $textColor;
   text-shadow: $textShadow;
-  @include gradient-vertical($primaryColor, $secondaryColor);
+  background-color: mix($primaryColor, $secondaryColor, 62.5%);
+  background-image: -moz-linear-gradient(top, $primaryColor, $secondaryColor);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($primaryColor), to($secondaryColor));
+  background-image: -webkit-linear-gradient(top, $primaryColor, $secondaryColor);
+  background-image: -o-linear-gradient(top, $primaryColor, $secondaryColor);
+  background-image: linear-gradient(to bottom, $primaryColor, $secondaryColor);
+  background-repeat: repeat-x;
 }

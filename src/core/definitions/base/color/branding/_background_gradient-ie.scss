@@ -1,0 +1,25 @@
+//!requires base/color/branding/background
+
+.gradient {
+        
+    &.default {
+        @include -base-color-branding-default-background-gradient-ie;
+    }
+        
+    &.primary {
+        @include -base-color-branding-primary-background-gradient-ie;
+    }
+        
+    &.secondary {
+        @include -base-color-branding-secondary-background-gradient-ie;
+    }
+        
+    &.tertiary {
+        @include -base-color-branding-tertiary-background-gradient-ie;
+    }
+        
+    &.neutral {
+        @include -base-color-branding-neutral-background-gradient-ie;
+    }
+
+}

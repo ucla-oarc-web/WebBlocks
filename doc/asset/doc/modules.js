@@ -473,6 +473,16 @@
 					'breakpoint-large'
 				],
 				api:'Base/Visibility'
+			},     
+			'Compatibility': {
+				description:'Defines a set of compatibility classes such as IE hacks.'
+			},
+			'Compatibility/Image': {
+				description:'Defines a set of compatibility classes for images.'
+			},
+			'Compatibility/Image/Scaling': {
+				description:'Adds bicubic scaling for IE 7 and below.',
+				api:'Compatibility'
 			},
 			'Entity': {
 				description:'Defines a base set of classes for marking up elements.'

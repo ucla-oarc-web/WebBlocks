@@ -52,6 +52,7 @@ module WebBlocks
           FileUtils.mkdir_p tmp_sass_lib_dir
           File.open(tmp_sass_lib_file_variables, "w") {}
           File.open(tmp_sass_lib_file_require, "w") {}
+          File.open(tmp_sass_lib_file_require_ie, "w") {}
           File.open(tmp_sass_lib_file, "w") do |file|
             file.puts "@import \"#{tmp_sass_lib_file_variables}\";"
             file.puts "@import \"#{tmp_sass_lib_file_require}\";"

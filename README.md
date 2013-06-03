@@ -13,7 +13,7 @@ needs, fitted to different development paradigms and integrated into existing
 web solutions.
 
 Documentation for WebBlocks is available within the `doc` folder or online at:
-http://ucla.github.com/WebBlocks/doc
+http://ucla.github.io/WebBlocks/doc
 
 ## Status
 

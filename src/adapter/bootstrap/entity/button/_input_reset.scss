@@ -1,8 +1,0 @@
-//!requires base/color
-
-input[type="reset"].button {
-    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
-        @include -base-color-branding-default-background;
-        @include -base-color-branding-default-background-gradient;
-    }
-}

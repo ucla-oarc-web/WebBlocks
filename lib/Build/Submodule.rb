@@ -42,22 +42,22 @@ module WebBlocks
       def init_submodule_submodules name
         
         if ::WebBlocks.config[:options][:offline]
-          log.info "Submodule", "Skipped updating submodules of submodule #{name} (offline mode)"
+          log.info "Submodule", "Skipped initializing submodules of submodule #{name} (offline mode)"
           return
         end
         
         stdout = ""
         
-        log.task "Submodule", "Updating submodules of submodule #{name}" do
+        log.task "Submodule", "Initializing submodules of submodule #{name}" do
         
           Dir.chdir(package_dir name) do
           
-            status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update"
+            status, stdout, stderr = systemu "#{config[:exec][:git]} submodule init"
 
             if stderr.length > 0
-              log.failure "Submodule: #{name}", "Update failed for submodules of submodule #{name}"
+              log.failure "Submodule: #{name}", "Initialization failed for submodules of submodule #{name}"
             else
-              log.info "Submodule: #{name}", "Updated submodules of submodule #{name}"
+              log.info "Submodule: #{name}", "Initialized submodules of submodule #{name}"
             end
           
           end

@@ -1,0 +1,25 @@
+$button-font-size-mini:                 0.73em !default;
+$button-font-size-small:                0.9em !default;
+$button-font-size-default:              1.0em !default;
+$button-font-size-large:                1.1em !default;
+
+$button-padding-multiplier-vertical:            0.3 !default;
+$button-padding-multiplier-horizontal:          1 !default;
+
+$button-padding-multiplier-mini-vertical:       $button-padding-multiplier-vertical !default;
+$button-padding-multiplier-mini-horizontal:     $button-padding-multiplier-horizontal !default;
+$button-padding-multiplier-small-vertical:      $button-padding-multiplier-vertical !default;
+$button-padding-multiplier-small-horizontal:    $button-padding-multiplier-horizontal !default;
+$button-padding-multiplier-default-vertical:    $button-padding-multiplier-vertical !default;
+$button-padding-multiplier-default-horizontal:  $button-padding-multiplier-horizontal !default;
+$button-padding-multiplier-large-vertical:      $button-padding-multiplier-vertical !default;
+$button-padding-multiplier-large-horizontal:    $button-padding-multiplier-horizontal !default;
+
+$button-border-radius-multiplier:               0.4 !default;
+
+$button-border-radius-multiplier-mini:          $button-border-radius-multiplier !default;
+$button-border-radius-multiplier-small:         $button-border-radius-multiplier !default;
+$button-border-radius-multiplier-default:       $button-border-radius-multiplier !default;
+$button-border-radius-multiplier-large:         $button-border-radius-multiplier !default;
+
+$button-cursor:     pointer !default;

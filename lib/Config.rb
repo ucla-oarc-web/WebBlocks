@@ -97,7 +97,8 @@ module WebBlocks
     :modernizr,
     :respond,
     :selectivizr,
-    :efx
+    :efx,
+  # :opticss, # experimental: use with caution
   ]
   
   # src configuration
@@ -169,7 +170,8 @@ module WebBlocks
     :sass       => 'sass',
     :uglifycss  => 'node ./node_modules/uglifycss/uglifycss',
     :uglifyjs   => 'node ./node_modules/uglify-js/bin/uglifyjs',
-    :compass    => 'compass'
+    :compass    => 'compass',
+    :bundler    => 'bundle'
   }
   
   # package configuration
@@ -210,6 +212,12 @@ module WebBlocks
   
   @config[:package][:selectivizr] = {
     :dir      => 'selectivizr'
+  }
+  
+  @config[:package][:opticss] = {
+    :dir         => 'opticss',
+    :commands    => "split_save [[save_file]]",
+    :commands_ie => "split_save [[save_file]]"
   }
 
   # advanced configuration

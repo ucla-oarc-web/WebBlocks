@@ -334,7 +334,7 @@
         },
         'form-input-size-large': {
             description:'size of an <code>input.large</code> within <code>form.form</code>',
-            default_value:'240px',
+            default_value:'300px',
             type:'px, percent'
         },
         'form-input-background-color': {

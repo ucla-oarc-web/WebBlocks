@@ -16,3 +16,6 @@
 [submodule "package/lettering"]
 	path = package/lettering
 	url = https://github.com/davatron5000/Lettering.js.git
+[submodule "package/OptiCSS"]
+	path = package/OptiCSS
+	url = https://github.com/ebollens/OptiCSS.git

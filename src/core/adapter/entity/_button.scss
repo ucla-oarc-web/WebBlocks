@@ -5,29 +5,36 @@
 @import "compass/css3/box-shadow";
 
 @mixin -entity-button-mini {
-    
+    padding: $button-font-size-mini*$button-padding-multiplier-mini-vertical $button-font-size-mini*$button-padding-multiplier-mini-horizontal;
+    font-size: $button-font-size-mini;
+    @include border-radius($button-border-radius-multiplier-mini*1em);
 }
 
 @mixin -entity-button-small {
-    
+    padding: $button-font-size-small*$button-padding-multiplier-small-vertical $button-font-size-small*$button-padding-multiplier-small-horizontal;
+    font-size: $button-font-size-small;
+    @include border-radius($button-border-radius-multiplier-small*1em);
 }
 
 @mixin -entity-button-large {
-    
+    padding: $button-font-size-large*$button-padding-multiplier-large-vertical $button-font-size-large*$button-padding-multiplier-large-horizontal;
+    font-size: $button-font-size-large;
+    @include border-radius($button-border-radius-multiplier-large*1em);
 }
 
 @mixin -entity-button { 
     
     @extend .gradient;
     
+    font-size: $button-font-size-default;
     display: inline-block;
-    padding: 4px 14px;
+    padding: 1em*$button-padding-multiplier-default-vertical 1em*$button-padding-multiplier-default-horizontal;
     text-align: center;
     vertical-align: middle;
-    cursor: pointer;
+    cursor: $button-cursor;
     border-style: solid;
     border-width: 1px;
-    @include border-radius(4px);
+    @include border-radius($button-border-radius-multiplier-default*1em);
     
     /* IE7 hack for inline block */
     *display: inline;

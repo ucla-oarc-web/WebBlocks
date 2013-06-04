@@ -182,6 +182,106 @@
             default_value:'4px',
             type:'px'
         },
+        'button-font-size-mini': {
+            description:'defines the font size of .button.mini',
+            default_value:'0.73em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-small': {
+            description:'defines the font size of .button.small',
+            default_value:'0.9em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-default': {
+            description:'defines the font size of .button (without size qualifier)',
+            default_value:'1.0em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-large': {
+            description:'defines the font size of .button.large',
+            default_value:'1.1em',
+            type:'em (recommended), px'
+        },
+        'button-padding-multiplier-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-mini-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.mini, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-mini-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.mini, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-small-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.small, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-small-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.small, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-default-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button (without size qualifier), overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-default-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button (without size qualifier), overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-large-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.large, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-large-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.large, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier': {
+            description:'defines a multiplier against 1em for vertical padding of .button',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-mini': {
+            description:'defines a multiplier against 1em for vertical padding of .button.mini, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-small': {
+            description:'defines a multiplier against 1em for vertical padding of .button.small, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-default': {
+            description:'defines a multiplier against 1em for vertical padding of .button (without size qualifier), overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-large': {
+            description:'defines a multiplier against 1em for vertical padding of .button.large, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-cursor': {
+            description:'defines the cursor shown when hovered over the button',
+            default_value:'pointer',
+            type:'string'
+        },
         'color-branding-default': {
             description:'defines base for default color',
             default_value:'#eee',
@@ -334,7 +434,7 @@
         },
         'form-input-size-large': {
             description:'size of an <code>input.large</code> within <code>form.form</code>',
-            default_value:'240px',
+            default_value:'300px',
             type:'px, percent'
         },
         'form-input-background-color': {

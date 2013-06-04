@@ -568,6 +568,28 @@
 				requires: [
 					'Base/Color'
 				],
+				uses:[
+					'button-border-radius-multiplier',
+					'button-border-radius-multiplier-default',
+					'button-border-radius-multiplier-large',
+					'button-border-radius-multiplier-mini',
+					'button-border-radius-multiplier-small',
+                    'button-cursor',
+                    'button-font-size-default',
+                    'button-font-size-large',
+                    'button-font-size-mini',
+                    'button-font-size-small',
+                    'button-padding-multiplier-default-horizontal',
+                    'button-padding-multiplier-default-vertical',
+                    'button-padding-multiplier-horizontal',
+                    'button-padding-multiplier-large-horizontal',
+                    'button-padding-multiplier-large-vertical',
+                    'button-padding-multiplier-mini-horizontal',
+                    'button-padding-multiplier-mini-vertical',
+                    'button-padding-multiplier-small-horizontal',
+                    'button-padding-multiplier-small-vertical',
+                    'button-padding-multiplier-vertical'
+				],
 				supports: [
 					'.button.primary',
 					'.button.secondary',

@@ -352,8 +352,10 @@ module WebBlocks
           
           files = [css_build_file, css_build_file_ie, js_build_file, js_build_file_ie]
           files.each do |file|
-            log.info "Removed #{file}" do
-              FileUtils.rm_rf file
+            if file and File.exists? file
+              log.info "Removed #{file}" do
+                FileUtils.rm_rf file
+              end
             end
           end
           

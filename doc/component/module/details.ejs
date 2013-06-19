@@ -1,6 +1,8 @@
 <code class="text-primary"><b><%= name %></b></code>
 <small>
-<br><%= description %>
+<% if(typeof description !== 'undefined'){ %>
+    <br><%= description %>
+<% } %>
 <% if(typeof definitions !== 'undefined'){ %>
     <br><strong class="text-success">defines</strong> <code><%= definitions %></code>
 <% } %>

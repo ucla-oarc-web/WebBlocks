@@ -486,28 +486,55 @@
 				api:'Base/Visibility'
 			},     
 			'Compatibility': {
-				description:'Defines a set of compatibility features such as IE hacks.'
+				description:'Defines a set of compatibility features.'
 			},
-			'Compatibility/Image': {
-				description:'Defines a set of compatibility features for images.'
+			'Compatibility/IE': {
+				description:'Defines a set of IE compatibility features.'
 			},
-			'Compatibility/Image/Scaling': {
+			'Compatibility/IE/Image': {
+				description:'Defines a set of IE compatibility features for images.'
+			},
+			'Compatibility/IE/Image/Scaling': {
 				description:'Adds bicubic scaling for IE 7 and below.',
 				api:'Compatibility'
 			},
-            'Compatibility/CSS': {
+            'Compatibility/IE/CSS': {
 				description:'Defines a set of compatibility features for CSS effects.'
             },
-            'Compatibility/CSS/Filter': {
+            'Compatibility/IE/CSS/Filter': {
 				description:'Defines a set of compatibility features for CSS filter effect.'
             },
-            'Compatibility/CSS/Filter/Border_Radius': {
+            'Compatibility/IE/CSS/Filter/Border_Radius': {
                 description:'Defines a method for transparently bypassing the fact that the filter property overrides border-radius.',
 				api:'Compatibility',
                 definesJS: {
 					'Blocks.IE.css.filter.borderRadius()':'Generates a wrapper element inside of the targetted element and moves the filter to it to avoid overriding border-radius.'
                 }
             },
+			'Compatibility/Support': {
+				description:'Defines a set of methods (and properties on Modernizr) for detecting whether or not WebBlocks features are supported by the browser.',
+				api:'Compatibility',
+                definesJS: {
+					'Blocks.support.required()':'Browser supports all features required for WebBlocks',
+					'Blocks.support.full()':'Browser supports all features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/CSS': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports CSS features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_css_required':'Browser supports all CSS features required for WebBlocks',
+					'Modernizr.blocks_css_full':'Browser supports all CSS features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/HTML': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports HTML features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_html_required':'Browser supports all HTML APIs required for WebBlocks',
+					'Modernizr.blocks_html_full':'Browser supports all HTML APIs recommended for WebBlocks',
+                }
+			},
 			'Entity': {
 				description:'Defines a base set of classes for marking up elements.'
 			},

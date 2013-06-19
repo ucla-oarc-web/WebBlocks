@@ -94,9 +94,9 @@ module WebBlocks
   
   @config[:build][:packages] = [
     :jquery,
-    :modernizr,
     :respond,
     :selectivizr,
+    :modernizr,
     :efx,
   # :opticss, # experimental: use with caution
   ]

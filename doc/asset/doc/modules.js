@@ -486,22 +486,25 @@
 				api:'Base/Visibility'
 			},     
 			'Compatibility': {
-				description:'Defines a set of compatibility features such as IE hacks.'
+				description:'Defines a set of compatibility features.'
 			},
-			'Compatibility/Image': {
-				description:'Defines a set of compatibility features for images.'
+			'Compatibility/IE': {
+				description:'Defines a set of IE compatibility features.'
 			},
-			'Compatibility/Image/Scaling': {
+			'Compatibility/IE/Image': {
+				description:'Defines a set of IE compatibility features for images.'
+			},
+			'Compatibility/IE/Image/Scaling': {
 				description:'Adds bicubic scaling for IE 7 and below.',
 				api:'Compatibility'
 			},
-            'Compatibility/CSS': {
+            'Compatibility/IE/CSS': {
 				description:'Defines a set of compatibility features for CSS effects.'
             },
-            'Compatibility/CSS/Filter': {
+            'Compatibility/IE/CSS/Filter': {
 				description:'Defines a set of compatibility features for CSS filter effect.'
             },
-            'Compatibility/CSS/Filter/Border_Radius': {
+            'Compatibility/IE/CSS/Filter/Border_Radius': {
                 description:'Defines a method for transparently bypassing the fact that the filter property overrides border-radius.',
 				api:'Compatibility',
                 definesJS: {

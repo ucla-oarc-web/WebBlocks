@@ -525,12 +525,36 @@
             vars_rendered.push(DOC.vars.sass.render(vars_list[i]))
         return vars_rendered
     }
+    
+    DOC.vars.sass.get_all = function(){
+        return $.extend(true, {}, sass_vars)
+    }
+    
+    DOC.vars.sass.get = function(name){
+        return $.extend(true, {}, sass_vars[name])
+    }
 
     DOC.vars.sass.render = function(name){
         var variableView = new EJS({url: 'component/variable.ejs'}), 
             data = sass_vars[name]
         data.name = name
         return variableView.render(data)
+    }
+    
+    DOC.vars.sass.render_control = function(name){
+        var controlView = new EJS({url: 'component/control.ejs'}), 
+            data = {}
+        data.label_text = name
+        data.input_type = 'text'
+        data.input_name = name
+        data.input_id = name
+        data.input_value = typeof sass_vars[name]['default_value'] != 'undefined'
+                           ? sass_vars[name]['default_value']
+                           : ''
+        data.help_text = sass_vars[name].description;
+        if(typeof sass_vars[name]['default_value'] != 'undefined')
+            data.help_text += ' [default: '+sass_vars[name]['default_value']+']'
+        return controlView.render(data)
     }
     
 })();

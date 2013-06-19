@@ -7,7 +7,7 @@
 <p>These modules are loaded into the <code>blocks-ie.css</code> build file and targeted at IE7 specifically:</p>
 
 <ul class="modules">
-    <li><%= DOC.modules.render('Compatibility/Image/Scaling') %></li>
+    <li><%= DOC.modules.render('Compatibility/IE/Image/Scaling') %></li>
 </ul>
 
 <h3>IE8 and Below Compatibility</h3>
@@ -15,5 +15,15 @@
 <p>These modules are loaded into the <code>blocks-ie.css</code> build file and thus target IE8 and below:</p>
 
 <ul class="modules">
-    <li><%= DOC.modules.render('Compatibility/CSS/Filter/Border_Radius') %></li>
+    <li><%= DOC.modules.render('Compatibility/IE/CSS/Filter/Border_Radius') %></li>
+</ul>
+
+<h3>Capability Testing</h3>
+
+<p>These modules provide Javascript functions and properties that allow one to test whether or not a browser supports all WebBlocks required or recommended features:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render_details('Compatibility/Support') %></li>
+    <li><%= DOC.modules.render_details('Compatibility/Support/CSS') %></li>
+    <li><%= DOC.modules.render_details('Compatibility/Support/HTML') %></li>
 </ul>

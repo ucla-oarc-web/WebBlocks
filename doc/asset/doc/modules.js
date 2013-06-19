@@ -511,6 +511,30 @@
 					'Blocks.IE.css.filter.borderRadius()':'Generates a wrapper element inside of the targetted element and moves the filter to it to avoid overriding border-radius.'
                 }
             },
+			'Compatibility/Support': {
+				description:'Defines a set of methods (and properties on Modernizr) for detecting whether or not WebBlocks features are supported by the browser.',
+				api:'Compatibility',
+                definesJS: {
+					'Blocks.support.required()':'Browser supports all features required for WebBlocks',
+					'Blocks.support.full()':'Browser supports all features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/CSS': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports CSS features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_css_required':'Browser supports all CSS features required for WebBlocks',
+					'Modernizr.blocks_css_full':'Browser supports all CSS features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/HTML': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports HTML features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_html_required':'Browser supports all HTML APIs required for WebBlocks',
+					'Modernizr.blocks_html_full':'Browser supports all HTML APIs recommended for WebBlocks',
+                }
+			},
 			'Entity': {
 				description:'Defines a base set of classes for marking up elements.'
 			},

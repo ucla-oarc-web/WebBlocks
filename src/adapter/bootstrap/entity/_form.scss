@@ -1,5 +1,184 @@
 @mixin -entity-form {
         
+    label, legend {
+        font-weight: bold;
+        display: block;
+    }
+
+    legend {
+        
+        width: 100%;
+        padding: 0;
+        margin-bottom: $type-line-spacing;
+        font-size: $type-font-size * 1.5;
+        line-height: $type-line-spacing * 2;
+        color: $form-legend-color;
+        border: 0;
+        border-bottom: 1px solid $form-legend-border-color;
+
+        small {
+            color: $form-legend-small-color;
+        }
+        
+    }
+    
+    legend + div.control {
+        padding-top: 20px;
+    }
+    
+    fieldset {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    label,
+    input,
+    button,
+    select,
+    textarea {
+        font-size: $type-font-size;
+        line-height: $type-line-height;
+    }
+    
+    input,
+    button,
+    select,
+    textarea {
+        font-weight: normal;
+        font-family: $type-font-family;
+    }
+
+    label {
+        margin: 0 0 0.5*$type-line-spacing;
+    }
+
+    select,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    .uneditable-input {
+        display: inline-block;
+        height: $type-line-height;
+        padding: $form-input-padding;
+        margin-bottom: 0.5*$type-line-spacing;
+        font-size: $type-font-size;
+        line-height: $type-line-height;
+        color: $form-input-text-color;
+        @include border-radius($form-input-border-radius);
+    }
+
+    input,
+    textarea,
+    .uneditable-input {
+        width: $form-input-size;
+    }
+    
+    textarea {
+        height: auto;
+    }
+    
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    .uneditable-input {
+        
+        background-color: $form-input-background-color;
+        border: 1px solid $form-input-border-color;
+        @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+        @include transition(background .2s linear);
+
+        &:focus {
+            border-color: rgba(82,168,236,.8);
+            outline: 0;
+            outline: thin dotted \9;
+            @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+        }
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        line-height: normal;
+        cursor: pointer;
+    }
+
+    input[type="file"],
+    input[type="image"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: auto;
+    }
+
+    select,
+    input[type="file"] {
+        height: 2em;
+        *margin-top: 4px;
+        line-height: 2em;
+    }
+
+    // Make select elements obey height by applying a border
+    select {
+        width: $form-input-size;
+        border: 1px solid $form-input-border-color;
+        background-color: $form-input-background-color;
+    }
+
+    // Make multiple select elements height not fixed
+    select[multiple],
+    select[size] {
+        height: auto;
+    }
+
+    // Focus for select, file, radio, and checkbox
+    select:focus,
+    input[type="file"]:focus,
+    input[type="radio"]:focus,
+    input[type="checkbox"]:focus {
+          outline: thin dotted #333;
+          outline: 5px auto -webkit-focus-ring-color;
+          outline-offset: -2px;
+    }
+
+    input,
+    textarea {
+        &:-moz-placeholder {
+            color: $form-placeholder-text-color;
+        }
+        &:-ms-input-placeholder {
+            color: $form-placeholder-text-color;
+        }
+        &::-webkit-input-placeholder {
+            color: $form-placeholder-text-color;
+        }
+    }
+    
     input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), select:not([multiple]) {  
         height: $baseLineHeight + 8px;
     }
@@ -20,4 +199,5 @@
 	li.control {
 		display: block;
 	}
+
 }

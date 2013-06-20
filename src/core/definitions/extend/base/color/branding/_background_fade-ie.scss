@@ -1,0 +1,52 @@
+//!requires base/color/branding/background_light_gradient
+//!requires base/color/branding/background_dark_gradient
+
+.fade {
+    
+    @if $color-body-light {
+        
+        &.default {
+            @extend .light.default;
+        }
+
+        &.primary {
+            @extend .light.primary;
+        }
+
+        &.secondary {
+            @extend .light.secondary;
+        }
+
+        &.tertiary {
+            @extend .light.tertiary;
+        }
+
+        &.neutral {
+            @extend .light.neutral;
+        }
+        
+    } @else {
+        
+        &.default {
+            @extend .dark.default;
+        }
+
+        &.primary {
+            @extend .dark.primary;
+        }
+
+        &.secondary {
+            @extend .dark.secondary;
+        }
+
+        &.tertiary {
+            @extend .dark.tertiary;
+        }
+
+        &.neutral {
+            @extend .dark.neutral;
+        }
+        
+    }
+    
+}

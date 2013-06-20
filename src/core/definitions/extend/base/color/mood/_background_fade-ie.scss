@@ -1,0 +1,84 @@
+//!requires base/color/mood/background_light_gradient
+//!requires base/color/mood/background_dark_gradient
+
+.fade {
+    
+    @if $color-body-light {
+        
+        &.info {
+            @extend .light.info;
+        }
+
+        &.success {
+            @extend .light.success;
+        }
+
+        &.warning {
+            @extend .light.warning;
+        }
+
+        &.error {
+            @extend .light.error;
+        }
+
+        &.danger {
+            @extend .light.danger;
+        }
+
+        &.important {
+            @extend .light.important;
+        }
+
+        &.inverse {
+            @extend .light.inverse;
+        }
+
+        &.required {
+            @extend .light.required;
+        }
+
+        &.highlight {
+            @extend .light.highlight;
+        }
+        
+    } @else {
+        
+        &.info {
+            @extend .dark.info;
+        }
+
+        &.success {
+            @extend .dark.success;
+        }
+
+        &.warning {
+            @extend .dark.warning;
+        }
+
+        &.error {
+            @extend .dark.error;
+        }
+
+        &.danger {
+            @extend .dark.danger;
+        }
+
+        &.important {
+            @extend .dark.important;
+        }
+
+        &.inverse {
+            @extend .dark.inverse;
+        }
+
+        &.required {
+            @extend .dark.required;
+        }
+
+        &.highlight {
+            @extend .dark.highlight;
+        }
+        
+    }
+    
+}

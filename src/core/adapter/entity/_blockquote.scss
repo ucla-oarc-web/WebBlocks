@@ -2,7 +2,7 @@
 
     padding: 0 0 0 15px;
     margin: 0;
-    border-left: 5px solid #eee;
+    border-left: 5px solid $blockquote-border-color;
     margin: 0 0 0 0.3em;
     
     p {
@@ -11,7 +11,7 @@
 
     small {
         display: block;
-        color: #777;
+        color: $blockquote-small-color;
         &:before {
             content: '\2014 \00A0';
         }
@@ -34,7 +34,7 @@
 
 @mixin -entity-blockquote-callout {
 
-    border: 5px solid #EEE;
+    border: 5px solid $blockquote-small-color;
     border-width: 5px 0;
     margin: 0.4em 0.8em;
     padding: 10px 0;

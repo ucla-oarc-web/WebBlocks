@@ -307,6 +307,16 @@
             default_value:'#bbb',
             type:'color'
         },
+        'color-body-background': {
+            description:'defines body background color',
+            default_value:'#fff',
+            type:'color'
+        },
+        'color-body-background-text': {
+            description:'defines body text color',
+            default_value:'#323232',
+            type:'color'
+        },
         'color-mood-info': {
             description:'defines base for info color',
             default_value:'#2f96b4',
@@ -363,12 +373,22 @@
             type:'percent'
         },
         'color-grade-dk-text': {
-            description:'percentage text is darkened when background below <code>$color-light-border-brightness</code> brightness',
+            description:'percentage text is darkened when background below <code>$color-contrast-threshold[-light|-dark]</code> brightness',
             default_value:'80%',
             type:'percent'
         },
         'color-grade-lt-text': {
-            description:'percentage text is lightened when background above <code>$color-light-border-brightness</code> brightness',
+            description:'percentage text is lightened when background above <code>$color-contrast-threshold[-light|-dark]</code> brightness',
+            default_value:'93%',
+            type:'percent'
+        },
+        'color-grade-dk-text-body': {
+            description:'percentage body text is darkened when background below <code>$color-contrast-threshold-body</code> brightness',
+            default_value:'80%',
+            type:'percent'
+        },
+        'color-grade-lt-text-body': {
+            description:'percentage body text is lightened when background above <code>$color-contrast-threshold-body</code> brightness',
             default_value:'93%',
             type:'percent'
         },
@@ -384,12 +404,12 @@
         },
         'color-background-shadow-light-brightness': {
             description:'brightness percentage for <code>.light.gradient</code> shadow color',
-            default_value:'83%',
+            default_value:'85%',
             type:'percent'
         },
         'color-light-border-brightness': {
             description:'brightness percentage for light border',
-            default_value:'60%',
+            default_value:'70%',
             type:'percent'
         },
         'color-background-dark-brightness': {
@@ -409,17 +429,27 @@
         },
         'color-contrast-threshold': {
             description:'generic threshold used to select light instead of dark color',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-threshold-light': {
             description:'generic threshold used to select light instead of dark color for light variant',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-threshold-dark': {
             description:'generic threshold used to select light instead of dark color for dark variant',
-            default_value:'65%',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-threshold-body': {
+            description:'generic threshold used to select light instead of dark color for body text',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-body': {
+            description:'true if color is above <code>$color-constrast-threshold-body</code>; can be set explicitly to true to force light as the basis for fade or false to force dark as the basis for fade',
+            default_value:'true',
             type:'percent'
         },
         'form-horizontal-offset': {
@@ -535,6 +565,16 @@
         'nav-breadcrumb-divider-color': {
             description: 'text color of the dividers within breadcrumb navigation',
             default_value: '#CCC',
+            type: 'color'
+        },
+        'blockquote-small-color': {
+            description: 'color of text in blockquote wrapped by &lt;small&gt; tags',
+            default_value: '#666',
+            type: 'color'
+        },
+        'blockquote-border-color': {
+            description: 'text color of the dividers within breadcrumb navigation',
+            default_value: '#b3b3b3',
             type: 'color'
         }
     }

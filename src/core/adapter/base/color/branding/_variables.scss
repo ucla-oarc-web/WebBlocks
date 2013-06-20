@@ -4,9 +4,9 @@
  * Branding Colors
  */
 
-$color-branding-default: #eee !default;
+$color-branding-default: -color-select-first-if-light(#eee, #444) !default;
 $color-branding-primary: #1b3d90 !default;
-$color-branding-secondary: #7bc0de !default;
+$color-branding-secondary: -color-select-first-if-light(#7bc0de, #4f7296) !default;
 $color-branding-tertiary: #ffd44d !default;
 $color-branding-neutral: #bbb !default;
 
@@ -127,9 +127,9 @@ $color-branding-neutral-foreground-text:            -color-generate-with-lightne
  * Background colors 
  */
 
-$color-branding-default-background:                 lighten($color-branding-default, $color-branding-default-lt) !default;
+$color-branding-default-background:                 -lighten-if-light-or-else-darken($color-branding-default, $color-branding-default-lt) !default;
 $color-branding-default-background-shadow:          $color-branding-default !default;
-$color-branding-default-border:                     darken($color-branding-default, $color-branding-default-dk) !default;
+$color-branding-default-border:                     -darken-if-light-or-else-lighten($color-branding-default, $color-branding-default-dk) !default;
 $color-branding-default-background-text:            -color-select-contrast-text(
                                                         $color-branding-default-background, 
                                                         $color-branding-default-text-dark, 
@@ -140,9 +140,9 @@ $color-branding-default-background-text-shadow:     0 -1px 1px $color-branding-d
 
 /* - - - - - - - - - - */
 
-$color-branding-primary-background:                 lighten($color-branding-primary, $color-branding-primary-lt) !default;
+$color-branding-primary-background:                 -lighten-if-light-or-else-darken($color-branding-primary, $color-branding-primary-lt) !default;
 $color-branding-primary-background-shadow:          $color-branding-primary !default;
-$color-branding-primary-border:                     darken($color-branding-primary, $color-branding-primary-dk) !default;
+$color-branding-primary-border:                     -darken-if-light-or-else-lighten($color-branding-primary, $color-branding-primary-dk) !default;
 $color-branding-primary-background-text:            -color-select-contrast-text(
                                                         $color-branding-primary-background, 
                                                         $color-branding-primary-text-dark, 
@@ -153,9 +153,9 @@ $color-branding-primary-background-text-shadow:     0 -1px 1px $color-branding-p
 
 /* - - - - - - - - - - */
 
-$color-branding-secondary-background:                 lighten($color-branding-secondary, $color-branding-secondary-lt) !default;
+$color-branding-secondary-background:                 -lighten-if-light-or-else-darken($color-branding-secondary, $color-branding-secondary-lt) !default;
 $color-branding-secondary-background-shadow:          $color-branding-secondary !default;
-$color-branding-secondary-border:                     darken($color-branding-secondary, $color-branding-secondary-dk) !default;
+$color-branding-secondary-border:                     -darken-if-light-or-else-lighten($color-branding-secondary, $color-branding-secondary-dk) !default;
 $color-branding-secondary-background-text:            -color-select-contrast-text(
                                                         $color-branding-secondary-background, 
                                                         $color-branding-secondary-text-dark, 
@@ -166,9 +166,9 @@ $color-branding-secondary-background-text-shadow:     0 -1px 1px $color-branding
 
 /* - - - - - - - - - - */
 
-$color-branding-tertiary-background:                 lighten($color-branding-tertiary, $color-branding-tertiary-lt) !default;
+$color-branding-tertiary-background:                 -lighten-if-light-or-else-darken($color-branding-tertiary, $color-branding-tertiary-lt) !default;
 $color-branding-tertiary-background-shadow:          $color-branding-tertiary !default;
-$color-branding-tertiary-border:                     darken($color-branding-tertiary, $color-branding-tertiary-dk) !default;
+$color-branding-tertiary-border:                     -darken-if-light-or-else-lighten($color-branding-tertiary, $color-branding-tertiary-dk) !default;
 $color-branding-tertiary-background-text:            -color-select-contrast-text(
                                                         $color-branding-tertiary-background, 
                                                         $color-branding-tertiary-text-dark, 
@@ -179,9 +179,9 @@ $color-branding-tertiary-background-text-shadow:     0 -1px 1px $color-branding-
 
 /* - - - - - - - - - - */
 
-$color-branding-neutral-background:                 lighten($color-branding-neutral, $color-branding-neutral-lt) !default;
+$color-branding-neutral-background:                 -lighten-if-light-or-else-darken($color-branding-neutral, $color-branding-neutral-lt) !default;
 $color-branding-neutral-background-shadow:          $color-branding-neutral !default;
-$color-branding-neutral-border:                     darken($color-branding-neutral, $color-branding-neutral-dk) !default;
+$color-branding-neutral-border:                     -darken-if-light-or-else-lighten($color-branding-neutral, $color-branding-neutral-dk) !default;
 $color-branding-neutral-background-text:            -color-select-contrast-text(
                                                         $color-branding-neutral-background, 
                                                         $color-branding-neutral-text-dark, 

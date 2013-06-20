@@ -106,6 +106,8 @@
             
             <div class="panel-8" style="display:none">
                 
+                <%= DOC.vars.sass.render_control('color-body-background') %>
+                <%= DOC.vars.sass.render_control('color-body-background-text') %>
                 <%= DOC.vars.sass.render_control('color-branding-default') %>
                 <%= DOC.vars.sass.render_control('color-branding-primary') %>
                 <%= DOC.vars.sass.render_control('color-branding-secondary') %>
@@ -120,15 +122,23 @@
                 <%= DOC.vars.sass.render_control('color-mood-inverse') %>
                 <%= DOC.vars.sass.render_control('color-mood-required') %>
                 <%= DOC.vars.sass.render_control('color-mood-highlight') %>
-                <%= DOC.vars.sass.render_control('color-background-light-brightness') %>
-                <%= DOC.vars.sass.render_control('color-background-shadow-light-brightness') %>
-                <%= DOC.vars.sass.render_control('color-light-border-brightness') %>
-                <%= DOC.vars.sass.render_control('color-contrast-threshold') %>
-                <%= DOC.vars.sass.render_control('color-grade-dk') %>
-                <%= DOC.vars.sass.render_control('color-grade-dk-text') %>
-                <%= DOC.vars.sass.render_control('color-grade-lt') %>
-                <%= DOC.vars.sass.render_control('color-grade-lt-text') %>
                 <%= DOC.vars.sass.render_control('color-text-brightness') %>
+                <%= DOC.vars.sass.render_control('color-contrast-body') %>
+                <%= DOC.vars.sass.render_control('color-background-light-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-dark-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-shadow-light-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-shadow-dark-brightness') %>
+                <%= DOC.vars.sass.render_control('color-light-border-brightness') %>
+                <%= DOC.vars.sass.render_control('color-dark-border-brightness') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt-text') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk-text') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt-text-body') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk-text-body') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold-light') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold-dark') %>
                 
                 <p class="text-warning">NOTE: This configuration tool not include the "Individual Color Computation" or "Individual Color Values" variables, given the enormity of the set. To customize the individual values of individual colors at this granularity, please see <a href="#API/Base/Color" target="_blank">API/Base/Color</a>.</p>
                 
@@ -228,6 +238,26 @@
                 <%= DOC.vars.sass.render_control('table-condensed-cell-padding') %>
                 <%= DOC.vars.sass.render_control('table-hover-background-color') %>
                 <%= DOC.vars.sass.render_control('table-striped-background-color') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Blockquote</label>
+                    <p>Variables that define blockquote presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('blockquote-small-color') %>
+                <%= DOC.vars.sass.render_control('blockquote-border-color') %>
                 
             </div>
                 

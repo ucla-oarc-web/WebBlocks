@@ -289,7 +289,7 @@
         },
         'color-branding-primary': {
             description:'defines base for primary color',
-            default_value:'#0a2a77',
+            default_value:'#1b3d90',
             type:'color'
         },
         'color-branding-secondary': {
@@ -379,12 +379,12 @@
         },
         'color-background-light-brightness': {
             description:'brightness percentage for <code>.light</code> background color',
-            default_value:'95%',
+            default_value:'92%',
             type:'percent'
         },
         'color-background-shadow-light-brightness': {
             description:'brightness percentage for <code>.light.gradient</code> shadow color',
-            default_value:'85%',
+            default_value:'83%',
             type:'percent'
         },
         'color-light-border-brightness': {
@@ -392,8 +392,33 @@
             default_value:'60%',
             type:'percent'
         },
+        'color-background-dark-brightness': {
+            description:'brightness percentage for <code>.dark</code> background color',
+            default_value:'14%',
+            type:'percent'
+        },
+        'color-background-shadow-dark-brightness': {
+            description:'brightness percentage for <code>.dark.gradient</code> shadow color',
+            default_value:'40%',
+            type:'percent'
+        },
+        'color-dark-border-brightness': {
+            description:'brightness percentage for light border',
+            default_value:'60%',
+            type:'percent'
+        },
         'color-contrast-threshold': {
             description:'generic threshold used to select light instead of dark color',
+            default_value:'65%',
+            type:'percent'
+        },
+        'color-contrast-threshold-light': {
+            description:'generic threshold used to select light instead of dark color for light variant',
+            default_value:'65%',
+            type:'percent'
+        },
+        'color-contrast-threshold-dark': {
+            description:'generic threshold used to select light instead of dark color for dark variant',
             default_value:'65%',
             type:'percent'
         },

@@ -20,8 +20,13 @@ $color-mood-info-light-border-brightness: $color-light-border-brightness !defaul
 $color-mood-info-text-dark: shade($color-mood-info, $color-grade-dk-text) !default;
 $color-mood-info-text-light: tint($color-mood-info, $color-grade-lt-text) !default;
 $color-mood-info-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-info-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-info-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-info-text-brightness: $color-text-brightness !default;
+
+$color-mood-info-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-info-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-info-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-info-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-success-dk: $color-grade-dk !default;
 $color-mood-success-lt: $color-grade-lt !default;
@@ -31,8 +36,14 @@ $color-mood-success-light-border-brightness: $color-light-border-brightness !def
 $color-mood-success-text-dark: shade($color-mood-success, $color-grade-dk-text) !default;
 $color-mood-success-text-light: tint($color-mood-success, $color-grade-lt-text) !default;
 $color-mood-success-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-success-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-success-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-success-text-brightness: $color-text-brightness !default;
+
+$color-mood-success-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-success-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-success-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-success-contrast-threshold-dark: $color-contrast-threshold-dark !default;
+
 
 $color-mood-warning-dk: $color-grade-dk !default;
 $color-mood-warning-lt: $color-grade-lt !default;
@@ -42,8 +53,13 @@ $color-mood-warning-light-border-brightness: $color-light-border-brightness !def
 $color-mood-warning-text-dark: shade($color-mood-warning, $color-grade-dk-text) !default;
 $color-mood-warning-text-light: tint($color-mood-warning, $color-grade-lt-text) !default;
 $color-mood-warning-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-warning-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-warning-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-warning-text-brightness: $color-text-brightness !default;
+
+$color-mood-warning-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-warning-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-warning-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-warning-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-error-dk: $color-grade-dk !default;
 $color-mood-error-lt: $color-grade-lt !default;
@@ -53,8 +69,13 @@ $color-mood-error-light-border-brightness: $color-light-border-brightness !defau
 $color-mood-error-text-dark: shade($color-mood-error, $color-grade-dk-text) !default;
 $color-mood-error-text-light: tint($color-mood-error, $color-grade-lt-text) !default;
 $color-mood-error-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-error-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-error-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-error-text-brightness: $color-text-brightness !default;
+
+$color-mood-error-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-error-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-error-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-error-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-danger-dk: $color-grade-dk !default;
 $color-mood-danger-lt: $color-grade-lt !default;
@@ -64,8 +85,13 @@ $color-mood-danger-light-border-brightness: $color-light-border-brightness !defa
 $color-mood-danger-text-dark: shade($color-mood-danger, $color-grade-dk-text) !default;
 $color-mood-danger-text-light: tint($color-mood-danger, $color-grade-lt-text) !default;
 $color-mood-danger-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-danger-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-danger-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-danger-text-brightness: $color-text-brightness !default;
+
+$color-mood-danger-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-danger-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-danger-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-danger-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-inverse-dk: $color-grade-dk !default;
 $color-mood-inverse-lt: $color-grade-lt !default;
@@ -75,8 +101,13 @@ $color-mood-inverse-light-border-brightness: $color-light-border-brightness !def
 $color-mood-inverse-text-dark: shade($color-mood-inverse, $color-grade-dk-text) !default;
 $color-mood-inverse-text-light: tint($color-mood-inverse, $color-grade-lt-text) !default;
 $color-mood-inverse-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-inverse-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-inverse-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-inverse-text-brightness: $color-text-brightness !default;
+
+$color-mood-inverse-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-inverse-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-inverse-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-inverse-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-important-dk: $color-grade-dk !default;
 $color-mood-important-lt: $color-grade-lt !default;
@@ -86,8 +117,13 @@ $color-mood-important-light-border-brightness: $color-light-border-brightness !d
 $color-mood-important-text-dark: shade($color-mood-important, $color-grade-dk-text) !default;
 $color-mood-important-text-light: tint($color-mood-important, $color-grade-lt-text) !default;
 $color-mood-important-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-important-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-important-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-important-text-brightness: $color-text-brightness !default;
+
+$color-mood-important-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-important-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-important-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-important-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-required-dk: $color-grade-dk !default;
 $color-mood-required-lt: $color-grade-lt !default;
@@ -97,8 +133,13 @@ $color-mood-required-light-border-brightness: $color-light-border-brightness !de
 $color-mood-required-text-dark: shade($color-mood-required, $color-grade-dk-text) !default;
 $color-mood-required-text-light: tint($color-mood-required, $color-grade-lt-text) !default;
 $color-mood-required-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-required-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-required-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-required-text-brightness: $color-text-brightness !default;
+
+$color-mood-required-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-required-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-required-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-required-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 $color-mood-highlight-dk: $color-grade-dk !default;
 $color-mood-highlight-lt: $color-grade-lt !default;
@@ -108,8 +149,13 @@ $color-mood-highlight-light-border-brightness: $color-light-border-brightness !d
 $color-mood-highlight-text-dark: shade($color-mood-highlight, $color-grade-dk-text) !default;
 $color-mood-highlight-text-light: tint($color-mood-highlight, $color-grade-lt-text) !default;
 $color-mood-highlight-contrast-threshold: $color-contrast-threshold !default;
-$color-mood-highlight-contrast-threshold-light: $color-contrast-threshold !default;
+$color-mood-highlight-contrast-threshold-light: $color-contrast-threshold-light !default;
 $color-mood-highlight-text-brightness: $color-text-brightness !default;
+
+$color-mood-highlight-background-dark-brightness: $color-background-dark-brightness !default;
+$color-mood-highlight-background-shadow-dark-brightness: $color-background-shadow-dark-brightness !default;
+$color-mood-highlight-dark-border-brightness: $color-dark-border-brightness !default;
+$color-mood-highlight-contrast-threshold-dark: $color-contrast-threshold-dark !default;
 
 
 /** 
@@ -304,7 +350,7 @@ $color-mood-info-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-info-text-light, 
                                                                 $color-mood-info-contrast-threshold-light
                                                         )  !default;
-$color-mood-info-background-light-text-shadow:   0 -1px 1px $color-mood-info-background-light !default;
+$color-mood-info-background-light-text-shadow:   0 -1px 1px $color-mood-info-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -326,7 +372,7 @@ $color-mood-success-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-success-text-light, 
                                                                 $color-mood-success-contrast-threshold-light
                                                         )  !default;
-$color-mood-success-background-light-text-shadow:   0 -1px 1px $color-mood-success-background-light !default;
+$color-mood-success-background-light-text-shadow:   0 -1px 1px $color-mood-success-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -348,7 +394,7 @@ $color-mood-warning-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-warning-text-light, 
                                                                 $color-mood-warning-contrast-threshold-light
                                                         )  !default;
-$color-mood-warning-background-light-text-shadow:   0 -1px 1px $color-mood-warning-background-light !default;
+$color-mood-warning-background-light-text-shadow:   0 -1px 1px $color-mood-warning-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -370,7 +416,7 @@ $color-mood-error-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-error-text-light, 
                                                                 $color-mood-error-contrast-threshold-light
                                                         )  !default;
-$color-mood-error-background-light-text-shadow:   0 -1px 1px $color-mood-error-background-light !default;
+$color-mood-error-background-light-text-shadow:   0 -1px 1px $color-mood-error-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -392,7 +438,7 @@ $color-mood-danger-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-danger-text-light, 
                                                                 $color-mood-danger-contrast-threshold-light
                                                         )  !default;
-$color-mood-danger-background-light-text-shadow:   0 -1px 1px $color-mood-danger-background-light !default;
+$color-mood-danger-background-light-text-shadow:   0 -1px 1px $color-mood-danger-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -414,7 +460,7 @@ $color-mood-important-background-light-text:          -color-select-contrast-tex
                                                                 $color-mood-important-text-light, 
                                                                 $color-mood-important-contrast-threshold-light
                                                         )  !default;
-$color-mood-important-background-light-text-shadow:   0 -1px 1px $color-mood-important-background-light !default;
+$color-mood-important-background-light-text-shadow:   0 -1px 1px $color-mood-important-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -436,7 +482,7 @@ $color-mood-inverse-background-light-text:          -color-select-contrast-text(
                                                                 $color-mood-inverse-text-light, 
                                                                 $color-mood-inverse-contrast-threshold-light
                                                         )  !default;
-$color-mood-inverse-background-light-text-shadow:   0 -1px 1px $color-mood-inverse-background-light !default;
+$color-mood-inverse-background-light-text-shadow:   0 -1px 1px $color-mood-inverse-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -458,7 +504,7 @@ $color-mood-required-background-light-text:          -color-select-contrast-text
                                                                 $color-mood-required-text-light, 
                                                                 $color-mood-required-contrast-threshold-light
                                                         )  !default;
-$color-mood-required-background-light-text-shadow:   0 -1px 1px $color-mood-required-background-light !default;
+$color-mood-required-background-light-text-shadow:   0 -1px 1px $color-mood-required-background-light-shadow !default;
 
 /* - - - - - - - - - - */
 
@@ -480,7 +526,242 @@ $color-mood-highlight-background-light-text:          -color-select-contrast-tex
                                                                 $color-mood-highlight-text-light, 
                                                                 $color-mood-highlight-contrast-threshold-light
                                                         )  !default;
-$color-mood-highlight-background-light-text-shadow:   0 -1px 1px $color-mood-highlight-background-light !default;
+$color-mood-highlight-background-light-text-shadow:   0 -1px 1px $color-mood-highlight-background-light-shadow !default;
 
 /* - - - - - - - - - - */
+
+
+
+
+/** 
+ * Dark background colors 
+ */
+
+$color-mood-info-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-info,
+                                                                $color-mood-info-background-dark-brightness
+                                                        ) !default;
+$color-mood-info-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-info,
+                                                                $color-mood-info-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-info-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-info,
+                                                                $color-mood-info-dark-border-brightness
+                                                        ) !default;
+$color-mood-info-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-info-background-dark, 
+                                                                $color-mood-info-text-dark, 
+                                                                $color-mood-info-text-light, 
+                                                                $color-mood-info-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-info-background-dark-text-shadow:   0 -1px 1px $color-mood-info-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-success-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-success,
+                                                                $color-mood-success-background-dark-brightness
+                                                        ) !default;
+$color-mood-success-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-success,
+                                                                $color-mood-success-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-success-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-success,
+                                                                $color-mood-success-dark-border-brightness
+                                                        ) !default;
+$color-mood-success-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-success-background-dark, 
+                                                                $color-mood-success-text-dark, 
+                                                                $color-mood-success-text-light, 
+                                                                $color-mood-success-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-success-background-dark-text-shadow:   0 -1px 1px $color-mood-success-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-warning-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-warning,
+                                                                $color-mood-warning-background-dark-brightness
+                                                        ) !default;
+$color-mood-warning-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-warning,
+                                                                $color-mood-warning-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-warning-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-warning,
+                                                                $color-mood-warning-dark-border-brightness
+                                                        ) !default;
+$color-mood-warning-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-warning-background-dark, 
+                                                                $color-mood-warning-text-dark, 
+                                                                $color-mood-warning-text-light, 
+                                                                $color-mood-warning-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-warning-background-dark-text-shadow:   0 -1px 1px $color-mood-warning-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-error-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-error,
+                                                                $color-mood-error-background-dark-brightness
+                                                        ) !default;
+$color-mood-error-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-error,
+                                                                $color-mood-error-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-error-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-error,
+                                                                $color-mood-error-dark-border-brightness
+                                                        ) !default;
+$color-mood-error-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-error-background-dark, 
+                                                                $color-mood-error-text-dark, 
+                                                                $color-mood-error-text-light, 
+                                                                $color-mood-error-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-error-background-dark-text-shadow:   0 -1px 1px $color-mood-error-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-danger-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-danger,
+                                                                $color-mood-danger-background-dark-brightness
+                                                        ) !default;
+$color-mood-danger-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-danger,
+                                                                $color-mood-danger-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-danger-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-danger,
+                                                                $color-mood-danger-dark-border-brightness
+                                                        ) !default;
+$color-mood-danger-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-danger-background-dark, 
+                                                                $color-mood-danger-text-dark, 
+                                                                $color-mood-danger-text-light, 
+                                                                $color-mood-danger-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-danger-background-dark-text-shadow:   0 -1px 1px $color-mood-danger-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-important-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-important,
+                                                                $color-mood-important-background-dark-brightness
+                                                        ) !default;
+$color-mood-important-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-important,
+                                                                $color-mood-important-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-important-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-important,
+                                                                $color-mood-important-dark-border-brightness
+                                                        ) !default;
+$color-mood-important-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-important-background-dark, 
+                                                                $color-mood-important-text-dark, 
+                                                                $color-mood-important-text-light, 
+                                                                $color-mood-important-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-important-background-dark-text-shadow:   0 -1px 1px $color-mood-important-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-inverse-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-inverse,
+                                                                $color-mood-inverse-background-dark-brightness
+                                                        ) !default;
+$color-mood-inverse-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-inverse,
+                                                                $color-mood-inverse-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-inverse-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-inverse,
+                                                                $color-mood-inverse-dark-border-brightness
+                                                        ) !default;
+$color-mood-inverse-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-inverse-background-dark, 
+                                                                $color-mood-inverse-text-dark, 
+                                                                $color-mood-inverse-text-light, 
+                                                                $color-mood-inverse-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-inverse-background-dark-text-shadow:   0 -1px 1px $color-mood-inverse-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-required-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-required,
+                                                                $color-mood-required-background-dark-brightness
+                                                        ) !default;
+$color-mood-required-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-required,
+                                                                $color-mood-required-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-required-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-required,
+                                                                $color-mood-required-dark-border-brightness
+                                                        ) !default;
+$color-mood-required-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-required-background-dark, 
+                                                                $color-mood-required-text-dark, 
+                                                                $color-mood-required-text-light, 
+                                                                $color-mood-required-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-required-background-dark-text-shadow:   0 -1px 1px $color-mood-required-background-dark !default;
+
+
+
+
+
+
+
+$color-mood-highlight-background-dark:               -color-generate-with-lightness(
+                                                                $color-mood-highlight,
+                                                                $color-mood-highlight-background-dark-brightness
+                                                        ) !default;
+$color-mood-highlight-background-dark-shadow:        -color-generate-with-lightness(
+                                                                $color-mood-highlight,
+                                                                $color-mood-highlight-background-shadow-dark-brightness
+                                                        ) !default;
+$color-mood-highlight-dark-border:                   -color-generate-with-lightness(
+                                                                $color-mood-highlight,
+                                                                $color-mood-highlight-dark-border-brightness
+                                                        ) !default;
+$color-mood-highlight-background-dark-text:          -color-select-contrast-text(
+                                                                $color-mood-highlight-background-dark, 
+                                                                $color-mood-highlight-text-dark, 
+                                                                $color-mood-highlight-text-light, 
+                                                                $color-mood-highlight-contrast-threshold-dark
+                                                        )  !default;
+$color-mood-highlight-background-dark-text-shadow:   0 -1px 1px $color-mood-highlight-background-dark !default;
 

@@ -1,0 +1,64 @@
+@import "compass";
+
+@mixin -base-color-mood-info-background-dark {
+    color: $color-mood-info-background-dark-text;
+    background-color: $color-mood-info-background-dark-shadow;
+    border-color: $color-mood-info-dark-border;
+    text-shadow: $color-mood-info-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-important-background-dark {
+    color: $color-mood-important-background-dark-text;
+    background-color: $color-mood-important-background-dark-shadow;
+    border-color: $color-mood-important-dark-border;
+    text-shadow: $color-mood-important-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-success-background-dark {
+    color: $color-mood-success-background-dark-text;
+    background-color: $color-mood-success-background-dark-shadow;
+    border-color: $color-mood-success-dark-border;
+    text-shadow: $color-mood-success-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-warning-background-dark {
+    color: $color-mood-warning-background-dark-text;
+    background-color: $color-mood-warning-background-dark-shadow;
+    border-color: $color-mood-warning-dark-border;
+    text-shadow: $color-mood-warning-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-error-background-dark {
+    color: $color-mood-error-background-dark-text;
+    background-color: $color-mood-error-background-dark-shadow;
+    border-color: $color-mood-error-dark-border;
+    text-shadow: $color-mood-error-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-danger-background-dark {
+    color: $color-mood-danger-background-dark-text;
+    background-color: $color-mood-danger-background-dark-shadow;
+    border-color: $color-mood-danger-dark-border;
+    text-shadow: $color-mood-danger-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-inverse-background-dark {
+    color: $color-mood-inverse-background-dark-text;
+    background-color: $color-mood-inverse-background-dark-shadow;
+    border-color: $color-mood-inverse-dark-border;
+    text-shadow: $color-mood-inverse-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-highlight-background-dark {
+    color: $color-mood-highlight-background-dark-text;
+    background-color: $color-mood-highlight-background-dark-shadow;
+    border-color: $color-mood-highlight-dark-border;
+    text-shadow: $color-mood-highlight-background-dark-text-shadow;
+}
+
+@mixin -base-color-mood-required-background-dark {
+    color: $color-mood-required-background-dark-text;
+    background-color: $color-mood-required-background-dark-shadow;
+    border-color: $color-mood-required-dark-border;
+    text-shadow: $color-mood-required-background-dark-text-shadow;
+}

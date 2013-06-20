@@ -1,0 +1,46 @@
+@import "compass";
+
+@mixin -base-color-branding-default-background-dark {
+    
+    color: $color-branding-default-background-dark-text;
+    background-color: $color-branding-default-background-dark-shadow;
+    border-color: $color-branding-default-dark-border;
+    text-shadow: $color-branding-default-background-dark-text-shadow;
+    
+}
+
+@mixin -base-color-branding-primary-background-dark {
+    
+    color: $color-branding-primary-background-dark-text;
+    background-color: $color-branding-primary-background-dark-shadow;
+    border-color: $color-branding-primary-dark-border;
+    text-shadow: $color-branding-primary-background-dark-text-shadow;
+    
+}
+
+@mixin -base-color-branding-secondary-background-dark {
+    
+    color: $color-branding-secondary-background-dark-text;
+    background-color: $color-branding-secondary-background-dark-shadow;
+    border-color: $color-branding-secondary-dark-border;
+    text-shadow: $color-branding-secondary-background-dark-text-shadow;
+    
+}
+
+@mixin -base-color-branding-tertiary-background-dark {
+    
+    color: $color-branding-tertiary-background-dark-text;
+    background-color: $color-branding-tertiary-background-dark-shadow;
+    border-color: $color-branding-tertiary-dark-border;
+    text-shadow: $color-branding-tertiary-background-dark-text-shadow;
+    
+}
+
+@mixin -base-color-branding-neutral-background-dark {
+    
+    color: $color-branding-neutral-background-dark-text;
+    background-color: $color-branding-neutral-background-dark-shadow;
+    border-color: $color-branding-neutral-dark-border;
+    text-shadow: $color-branding-neutral-background-dark-text-shadow;
+    
+}

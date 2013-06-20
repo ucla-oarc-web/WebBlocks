@@ -1,0 +1,67 @@
+@import "compass";
+
+@mixin -base-color-mood-info-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-info-background-dark-text;
+    text-shadow: $color-mood-info-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-info-background-dark-shadow, 
+                                              $color-mood-info-background-dark));
+}
+
+@mixin -base-color-mood-important-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-important-background-dark-text;
+    text-shadow: $color-mood-important-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-important-background-dark-shadow, 
+                                              $color-mood-important-background-dark));
+}
+
+@mixin -base-color-mood-success-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-success-background-dark-text;
+    text-shadow: $color-mood-success-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-success-background-dark-shadow, 
+                                              $color-mood-success-background-dark));
+}
+
+@mixin -base-color-mood-warning-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-warning-background-dark-text;
+    text-shadow: $color-mood-warning-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-warning-background-dark-shadow, $color-mood-warning-background-dark));
+}
+
+@mixin -base-color-mood-error-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-error-background-dark-text;
+    text-shadow: $color-mood-error-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-error-background-dark-shadow, $color-mood-error-background-dark));
+}
+
+@mixin -base-color-mood-danger-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-danger-background-dark-text;
+    text-shadow: $color-mood-danger-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-danger-background-dark-shadow, $color-mood-danger-background-dark));
+}
+
+@mixin -base-color-mood-inverse-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-inverse-background-dark-text;
+    text-shadow: $color-mood-inverse-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-inverse-background-dark-shadow, $color-mood-inverse-background-dark));
+}
+
+@mixin -base-color-mood-highlight-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-highlight-background-dark-text;
+    text-shadow: $color-mood-highlight-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-highlight-background-dark-shadow, $color-mood-highlight-background-dark));
+}
+
+@mixin -base-color-mood-required-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-mood-required-background-dark-text;
+    text-shadow: $color-mood-required-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-mood-required-background-dark-shadow, $color-mood-required-background-dark));
+}

@@ -1,0 +1,38 @@
+.dark {
+    
+    &.info {
+        @include -base-color-mood-info-background-dark;
+    }
+    
+    &.important {
+        @include -base-color-mood-important-background-dark;
+    }
+    
+    &.success {
+        @include -base-color-mood-success-background-dark;
+    }
+    
+    &.warning {
+        @include -base-color-mood-warning-background-dark;
+    }
+    
+    &.error {
+        @include -base-color-mood-error-background-dark;
+    }
+    
+    &.danger {
+        @include -base-color-mood-danger-background-dark;
+    }
+    
+    &.inverse {
+        @include -base-color-mood-inverse-background-dark;
+    }
+    
+    &.highlight {
+            @include -base-color-mood-highlight-background-dark;
+    }
+    
+    &.required {
+        @include -base-color-mood-required-background-dark;
+    }
+}

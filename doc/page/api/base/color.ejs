@@ -4,26 +4,26 @@
 
 <p>This library includes a large number of modules related to color. Generally, colors are included as a single module <code>Base/Color</code>, and many entities include them as a requisite.</p>
 
-<div data-effect="toggle" class="modules-list">
-    
-    <ul class="modules">
-
-        <li><%= DOC.modules.render('Base/Color/Branding/Background') %></li>
+<div data-effect="toggle" data-toggle="show" class="modules-list">
+    <p><button data-target=".modules-list" class="button secondary small">Show Modules</button></p>
+</div>
+<ul data-effect="toggle" class="list modules-list">
+    <li><%= DOC.modules.render('Base/Color/Branding/Background') %></li>
         <li><%= DOC.modules.render('Base/Color/Branding/Background_Gradient') %></li>
         <li><%= DOC.modules.render('Base/Color/Branding/Background_Light') %></li>
         <li><%= DOC.modules.render('Base/Color/Branding/Background_Light_Gradient') %></li>
+        <li><%= DOC.modules.render('Base/Color/Branding/Background_Dark') %></li>
+        <li><%= DOC.modules.render('Base/Color/Branding/Background_Dark_Gradient') %></li>
         <li><%= DOC.modules.render('Base/Color/Branding/Text') %></li>
         <li><%= DOC.modules.render('Base/Color/Mood/Background') %></li>
         <li><%= DOC.modules.render('Base/Color/Mood/Background_Gradient') %></li>
         <li><%= DOC.modules.render('Base/Color/Mood/Background_Light') %></li>
         <li><%= DOC.modules.render('Base/Color/Mood/Background_Light_Gradient') %></li>
+        <li><%= DOC.modules.render('Base/Color/Mood/Background_Dark') %></li>
+        <li><%= DOC.modules.render('Base/Color/Mood/Background_Dark_Gradient') %></li>
         <li><%= DOC.modules.render('Base/Color/Mood/Text') %></li>
-    
-    </ul>
-    
-    <button data-target=".modules-list" class="button secondary small">Hide Modules</button>
-    
-</div>
+</ul>
+<button data-effect="toggle" data-target=".modules-list" class="modules-list button secondary small">Hide Modules</button>
 
 <h3>Color Classifications</h3>
 
@@ -72,6 +72,8 @@
     <li><code>.gradient</code> adds a gradient to the color such as <span class="badge primary gradient">.primary.gradient</span></li>
     <li><code>.light</code> uses a light variant of the color such as <span class="badge primary light">.primary.light</span></li>
     <li><code>.light.gradient</code> uses a light gradient variant of the color such as <span class="badge primary light gradient">.primary.light.gradient</span></li>
+    <li><code>.dark</code> uses a dark variant of the color such as <span class="badge primary dark">.primary.dark</span></li>
+    <li><code>.dark.gradient</code> uses a dark gradient variant of the color such as <span class="badge primary dark gradient">.primary.light.gradient</span></li>
 </ul>
 
 <h4>Text Colors</h4>
@@ -98,108 +100,122 @@
 
 <div id="palette">
     <div class="row medium-small-collapse">
+        <div class="panel-2 primary dark"><div>.primary<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 primary dark gradient"><div>.primary<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 primary"><div>.primary</div></div>
         <div class="panel-2 primary gradient"><div>.primary<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 primary light"><div>.primary<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 primary light gradient"><div>.primary<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-primary"><div>.text-primary</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 secondary dark"><div>.secondary<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 secondary dark gradient"><div>.secondary<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 secondary"><div>.secondary</div></div>
         <div class="panel-2 secondary gradient"><div>.secondary<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 secondary light"><div>.secondary<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 secondary light gradient"><div>.secondary<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-secondary"><div>.text-secondary</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 tertiary dark"><div>.tertiary<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 tertiary dark gradient"><div>.tertiary<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 tertiary"><div>.tertiary</div></div>
         <div class="panel-2 tertiary gradient"><div>.tertiary<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 tertiary light"><div>.tertiary<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 tertiary light gradient"><div>.tertiary<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-tertiary"><div>.text-tertiary</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 neutral dark"><div>.neutral<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 neutral dark gradient"><div>.neutral<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 neutral"><div>.neutral</div></div>
         <div class="panel-2 neutral gradient"><div>.neutral<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 neutral light"><div>.neutral<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 neutral light gradient"><div>.neutral<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-neutral"><div>.text-neutral</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 default dark"><div>.default<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 default dark gradient"><div>.default<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 default"><div>.default</div></div>
         <div class="panel-2 default gradient"><div>.default<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 default light"><div>.default<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 default light gradient"><div>.default<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-default"><div>.text-default</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 info dark"><div>.info<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 info dark gradient"><div>.info<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 info"><div>.info</div></div>
         <div class="panel-2 info gradient"><div>.info<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 info light"><div>.info<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 info light gradient"><div>.info<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-info"><div>.text-info</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 success dark"><div>.success<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 success dark gradient"><div>.success<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 success"><div>.success</div></div>
         <div class="panel-2 success gradient"><div>.success<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 success light"><div>.success<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 success light gradient"><div>.success<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-success"><div>.text-success</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 warning dark"><div>.warning<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 warning dark gradient"><div>.warning<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 warning"><div>.warning</div></div>
         <div class="panel-2 warning gradient"><div>.warning<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 warning light"><div>.warning<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 warning light gradient"><div>.warning<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-warning"><div>.text-warning</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 error dark"><div>.error<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 error dark gradient"><div>.error<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 error"><div>.error</div></div>
         <div class="panel-2 error gradient"><div>.error<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 error light"><div>.error<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 error light gradient"><div>.error<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-error"><div>.text-error</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 danger dark"><div>.danger<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 danger dark gradient"><div>.danger<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 danger"><div>.danger</div></div>
         <div class="panel-2 danger gradient"><div>.danger<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 danger light"><div>.danger<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 danger light gradient"><div>.danger<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-danger"><div>.text-danger</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 important dark"><div>.important<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 important dark gradient"><div>.important<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 important"><div>.important</div></div>
         <div class="panel-2 important gradient"><div>.important<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 important light"><div>.important<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 important light gradient"><div>.important<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-important"><div>.text-important</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 inverse dark"><div>.inverse<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 inverse dark gradient"><div>.inverse<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 inverse"><div>.inverse</div></div>
         <div class="panel-2 inverse gradient"><div>.inverse<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 inverse light"><div>.inverse<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 inverse light gradient"><div>.inverse<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-inverse"><div>.text-inverse</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 required dark"><div>.required<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 required dark gradient"><div>.required<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 required"><div>.required</div></div>
         <div class="panel-2 required gradient"><div>.required<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 required light"><div>.required<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 required light gradient"><div>.required<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-required"><div>.text-required</div></div>
     </div>
     <div class="row medium-small-collapse">
+        <div class="panel-2 highlight dark"><div>.highlight<br class="hide-medium-small">.dark</div></div>
+        <div class="panel-2 highlight dark gradient"><div>.highlight<br class="hide-medium-small">.gradient<br class="hide-medium-small">.dark</div></div>
         <div class="panel-2 highlight"><div>.highlight</div></div>
         <div class="panel-2 highlight gradient"><div>.highlight<br class="hide-medium-small">.gradient</div></div>
         <div class="panel-2 highlight light"><div>.highlight<br class="hide-medium-small">.light</div></div>
         <div class="panel-2 highlight light gradient"><div>.highlight<br class="hide-medium-small">.light<br class="hide-medium-small">.gradient</div></div>
-        <div class="panel-2 text-highlight"><div>.text-highlight</div></div>
     </div>
 </div>
 
 <h3>Configuration</h3>
 
-<p>The robustness of the color implementation comes from the fact that it may be defined in many different ways.,</p>
+<p>The robustness of the color implementation comes from the fact that it may be defined in many different ways.</p>
 
 <h4>Color Base Values</h4>
 
@@ -244,6 +260,9 @@
     <li><%= DOC.vars.sass.render('color-background-light-brightness') %></li>
     <li><%= DOC.vars.sass.render('color-background-shadow-light-brightness') %></li>
     <li><%= DOC.vars.sass.render('color-light-border-brightness') %></li>
+    <li><%= DOC.vars.sass.render('color-background-dark-brightness') %></li>
+    <li><%= DOC.vars.sass.render('color-background-shadow-dark-brightness') %></li>
+    <li><%= DOC.vars.sass.render('color-dark-border-brightness') %></li>
     <li><%= DOC.vars.sass.render('color-contrast-threshold') %></li>
     <li><%= DOC.vars.sass.render('color-grade-dk') %></li>
     <li><%= DOC.vars.sass.render('color-grade-dk-text') %></li>
@@ -269,9 +288,17 @@
 
 <p>The <code>.light</code> variation of any color is defined by the base color with absolute brightnesses set on three variables:</p>
 
-<pre class="prettyprint">$color-background-light-brightness: 95%;
-$color-background-shadow-light-brightness: 85%;
+<pre class="prettyprint">$color-background-light-brightness: 92%;
+$color-background-shadow-light-brightness: 83%;
 $color-light-border-brightness: 60%;</pre>
+
+<h5>Dark Shade</h5>
+
+<p>The <code>.dark</code> variation of any color is defined by the base color with absolute brightnesses set on three variables:</p>
+
+<pre class="prettyprint">$color-background-dark-brightness: 14%;
+$color-background-shadow-dark-brightness: 818%;
+$color-dark-border-brightness: 40%;</pre>
 
 <h5>Text Shades on Color Background</h5>
 
@@ -280,9 +307,11 @@ $color-light-border-brightness: 60%;</pre>
 <pre class="prettyprint">$color-grade-dk-text: 80%;
 $color-grade-lt-text: 93%;</pre>
 
-<p>The color implementation also allows one to set the brightness threshold at which point the dark text is selected rather than light text:</p>
+<p>The color implementation also allows one to set the brightness threshold at which point the dark text is selected rather than light text (dark and light flavors inherit from <code>$color-contrast-threshold</code> unless explicitly defined otherwise):</p>
 
-<pre class="prettyprint">$color-contrast-threshold: 65%;</pre>
+<pre class="prettyprint">$color-contrast-threshold: 65%;
+$color-contrast-threshold-light: 65%;
+$color-contrast-threshold-dark: 65%;</pre>
 
 <h5>Foreground Text Color</h5>
 
@@ -311,16 +340,20 @@ $color-branding-primary-text-brightness: $color-text-brightness;</pre>
 
 <pre class="prettyprint">$color-branding-primary-dk: 10%;
 $color-branding-primary-lt: 10%;
-$color-branding-primary-background-light-brightness: 95%;
-$color-branding-primary-background-shadow-light-brightness: 85%;
+$color-branding-primary-background-light-brightness: 92%;
+$color-branding-primary-background-shadow-light-brightness: 83%;
 $color-branding-primary-light-border-brightness: 60%;
+$color-branding-primary-background-dark-brightness: 14%;
+$color-branding-primary-background-shadow-dark-brightness: 18%;
+$color-branding-primary-dark-border-brightness: 40%;
 $color-branding-primary-text-dark: #111;
 $color-branding-primary-text-light: #EEE;
 $color-branding-primary-contrast-threshold: 65%;
 $color-branding-primary-contrast-threshold-light: 65%;
+$color-branding-primary-contrast-threshold-dark 65%;
 $color-branding-primary-text-brightness: 40%;</pre>
 
-<p><span class="badge warning">WARNING</span> Three exceptions exist to the above statement. The <code>-text-dark</code> and <code>-text-light</code> individual variables are computed values, not the same as the percentages in <code>$color-grade-dk-text</code> and <code>$color-grade-lt-text</code>. Further, this also adds a <code>-contrast-threshold-light</code> value that is derived from the <code>$color-contrast-threshold</code> value but pertains to the contrast ratio for switching only for a single color.</p>
+<p><span class="badge warning">WARNING</span> An exception exist to the above statement. The <code>-text-dark</code> and <code>-text-light</code> individual variables are computed values, not the same as the percentages in <code>$color-grade-dk-text</code> and <code>$color-grade-lt-text</code>.</p>
 
 <p>Any of these values may be modified to directly influence how a single color is generated. For example, one might tweak <code>$color-branding-primary-dk</code> to influence the relative contrast of the primary border color or <code>$color-branding-primary-contrast-threshold</code> to influence where the contrast switchover point is for either dark or light text on the primary background.</p>
 
@@ -356,12 +389,33 @@ $color-branding-primary-foreground-text:
 
 <p>Instead of using functions as in the above example, any of these may be set to exact hex values as desired. An example of this might be:</p>
 
-<pre class="prettyprint">$color-branding-neutral-background: #DDD;
-$color-branding-neutral-background-shadow: #CCC;
-$color-branding-neutral-border: #BBB;
-$color-branding-neutral-background-text: #111;
-$color-branding-neutral-background-text-shadow: 0 -1px 1px #DDD;
-$color-branding-neutral-foreground-text: #666;</pre>
+<pre class="prettyprint">$color-branding-neutral-background: #d4d4d4;
+$color-branding-neutral-background-shadow: #bbb;
+$color-branding-neutral-border: #acacac;
+$color-branding-neutral-background-text: #010817;
+$color-branding-neutral-background-text-shadow: 0 -1px 1px #d4d4d4;</pre>
+
+<p>The same holds true for dark and light variants, respectively appending <code>-dark</code> or <code>-light</code>, such as:</p>
+
+<pre class="prettyprint">
+$color-branding-primary-background-dark: #242424;
+$color-branding-neutral-background-dark-shadow: #2e2e2e;
+$color-branding-neutral-dark-border: #666;
+$color-branding-neutral-background-dark-text: #edf0f5;
+$color-branding-neutral-background-dark-text-shadow: #242424;
+
+$color-branding-primary-background-light: #ebebeb;
+$color-branding-neutral-background-light-shadow: #d4d4d4;
+$color-branding-neutral-light-border: #acacac;
+$color-branding-neutral-background-light-text: #010817;
+$color-branding-neutral-background-light-text-shadow: #d4d4d4;
+</pre>
+
+<p>Text color may also be explicitly defined:</p>
+
+<pre class="prettyprint">$color-branding-neutral-foreground-text: #666;</pre>
+    
+<p>In all cases, when explicitly stating a color with a hex value, the general color computation functions will not be used for that individual value; however, they will continue to be used for all other values.</p>
 
 <style>
     #palette .row.medium-small-collapse .panel-2 div {

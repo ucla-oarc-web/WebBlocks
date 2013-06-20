@@ -1,0 +1,62 @@
+@mixin -base-color-mood-info-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-info-background-dark, 
+                         $color-mood-info-background-dark-shadow, 
+                         $color-mood-info-background-dark-text, 
+                         $color-mood-info-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-important-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-important-background-dark, 
+                         $color-mood-important-background-dark-shadow, 
+                         $color-mood-important-background-dark-text, 
+                         $color-mood-important-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-success-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-success-background-dark, 
+                         $color-mood-success-background-dark-shadow, 
+                         $color-mood-success-background-dark-text, 
+                         $color-mood-success-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-warning-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-warning-background-dark, 
+                         $color-mood-warning-background-dark-shadow, 
+                         $color-mood-warning-background-dark-text, 
+                         $color-mood-warning-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-error-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-error-background-dark, 
+                         $color-mood-error-background-dark-shadow, 
+                         $color-mood-error-background-dark-text, 
+                         $color-mood-error-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-danger-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-danger-background-dark, 
+                         $color-mood-danger-background-dark-shadow, 
+                         $color-mood-danger-background-dark-text, 
+                         $color-mood-danger-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-inverse-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-inverse-background-dark, 
+                         $color-mood-inverse-background-dark-shadow, 
+                         $color-mood-inverse-background-dark-text, 
+                         $color-mood-inverse-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-highlight-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-highlight-background-dark, 
+                         $color-mood-highlight-background-dark-shadow, 
+                         $color-mood-highlight-background-dark-text, 
+                         $color-mood-highlight-background-dark-text-shadow);
+}
+
+@mixin -base-color-mood-required-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-mood-required-background-dark, 
+                         $color-mood-required-background-dark-shadow, 
+                         $color-mood-required-background-dark-text, 
+                         $color-mood-required-background-dark-text-shadow);
+}

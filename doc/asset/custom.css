@@ -5,6 +5,8 @@ code {
     padding-left: 1px;
     padding-right: 1px;
     font-size: 0.93em;
+    max-width: 100%;
+    white-space: inherit;
 }
 
 pre, pre.prettyprint {

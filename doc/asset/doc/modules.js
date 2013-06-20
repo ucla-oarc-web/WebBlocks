@@ -132,6 +132,29 @@
 				],
 				api:'Base/Color'
 			},
+			'Base/Color/Branding/Background_Dark': {
+				description:'Defines a set of dark color classes that may be used for brand-related background colors.',
+				defines:{
+					'.primary.dark':'Dark primary brand background color',
+					'.secondary.dark':'Dark secondary brand background color',
+					'.tertiary.dark':'Dark tertiary brand background color',
+					'.neutral.dark':'Dark neutral brand background color'
+				},
+				api:'Base/Color'
+			},
+			'Base/Color/Branding/Background_Dark_Gradient': {
+				description:'Defines a set of dark gradient color classes that may be used for brand-related background colors.',
+				defines:{
+					'.primary.dark.gradient':'Dark primary gradient brand background color',
+					'.secondary.dark.gradient':'Dark secondary gradient brand background color',
+					'.tertiary.dark.gradient':'Dark tertiary gradient brand background color',
+					'.neutral.dark.gradient':'Dark neutral gradient brand background color'
+				},
+				requires: [
+					'Base/Color/Branding/Background_Dark'
+				],
+				api:'Base/Color'
+			},
 			'Base/Color/Branding/Text': {
 				description:'Defines a set of color classes that may be used for brand-related text colors.',
 				defines:{
@@ -208,6 +231,39 @@
 				},
 				requires: [
 					'Base/Color/Mood/Background_Light'
+				],
+				api:'Base/Color'
+			},
+			'Base/Color/Mood/Background_Dark': {
+				description:'Defines a set of dark color classes that may be used for mood-related background colors.',
+				defines:{
+					'.info.dark':'Dark info mood background color',
+					'.success.dark':'Dark success mood background color',
+					'.warning.dark':'Dark warning mood background color',
+					'.error.dark':'Dark error mood background color',
+					'.danger.dark':'Dark danger mood background color',
+					'.important.dark':'Dark important mood background color',
+					'.inverse.dark':'Dark inverse mood background color',
+					'.required.dark':'Dark required mood background color',
+					'.highdark.dark':'Dark highdark mood background color'
+				},
+				api:'Base/Color'
+			},
+			'Base/Color/Mood/Background_Dark_Gradient': {
+				description:'Defines a set of dark gradient color classes that may be used for mood-related background colors.',
+				defines:{
+					'.info.dark.gradient':'Dark info gradient mood background color',
+					'.success.dark.gradient':'Dark success gradient mood background color',
+					'.warning.dark.gradient':'Dark warning gradient mood background color',
+					'.error.dark.gradient':'Dark error gradient mood background color',
+					'.danger.dark.gradient':'Dark danger gradient mood background color',
+					'.important.dark.gradient':'Dark important gradient mood background color',
+					'.inverse.dark.gradient':'Dark inverse gradient mood background color',
+					'.required.dark.gradient':'Dark required gradient mood background color',
+					'.highdark.dark.gradient':'Dark highdark gradient mood background color'
+				},
+				requires: [
+					'Base/Color/Mood/Background_Dark'
 				],
 				api:'Base/Color'
 			},

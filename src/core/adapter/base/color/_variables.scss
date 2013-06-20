@@ -18,15 +18,20 @@
  * Basic color contrast and shading variables
  */
 
-$color-grade-dk: 10% !default;
+$color-grade-dk: 6% !default;
 $color-grade-lt: 10% !default;
 $color-grade-dk-text: 80% !default;
 $color-grade-lt-text: 93% !default;
 $color-text-brightness: 40% !default;
-$color-background-light-brightness: 95% !default;
-$color-background-shadow-light-brightness: 85% !default;
+$color-background-light-brightness: 92% !default;
+$color-background-shadow-light-brightness: 83% !default;
 $color-light-border-brightness: 60% !default;
+$color-background-dark-brightness: 14% !default;
+$color-background-shadow-dark-brightness: 18% !default;
+$color-dark-border-brightness: 40% !default;
 $color-contrast-threshold: 65% !default;
+$color-contrast-threshold-light: $color-contrast-threshold !default;
+$color-contrast-threshold-dark: $color-contrast-threshold !default;
 
 /**
  * Specialized tweaks for particular brandings and moods

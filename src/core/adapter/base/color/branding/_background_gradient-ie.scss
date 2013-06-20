@@ -1,34 +1,34 @@
 @mixin -base-color-branding-default-background-gradient-ie {
-    @include gradientBarSimpleFilter($color-branding-default-background, 
-                         $color-branding-default-background-shadow, 
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-branding-default-background, $color-branding-default-background-shadow), 
+                         -color-select-first-if-light($color-branding-default-background-shadow, $color-branding-default-background), 
                          $color-branding-default-background-text, 
                          $color-branding-default-background-text-shadow);
 }
 
 @mixin -base-color-branding-primary-background-gradient-ie {
-    @include gradientBarSimpleFilter($color-branding-primary-background, 
-                         $color-branding-primary-background-shadow, 
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-branding-primary-background, $color-branding-primary-background-shadow), 
+                         -color-select-first-if-light($color-branding-primary-background-shadow, $color-branding-primary-background), 
                          $color-branding-primary-background-text, 
                          $color-branding-primary-background-text-shadow);
 }
 
 @mixin -base-color-branding-secondary-background-gradient-ie {
-    @include gradientBarSimpleFilter($color-branding-secondary-background, 
-                         $color-branding-secondary-background-shadow, 
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-branding-secondary-background, $color-branding-secondary-background-shadow), 
+                         -color-select-first-if-light($color-branding-secondary-background-shadow, $color-branding-secondary-background), 
                          $color-branding-secondary-background-text, 
                          $color-branding-secondary-background-text-shadow);
 }
 
 @mixin -base-color-branding-tertiary-background-gradient-ie {
-    @include gradientBarSimpleFilter($color-branding-tertiary-background, 
-                         $color-branding-tertiary-background-shadow, 
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-branding-tertiary-background, $color-branding-tertiary-background-shadow), 
+                         -color-select-first-if-light($color-branding-tertiary-background-shadow, $color-branding-tertiary-background), 
                          $color-branding-tertiary-background-text, 
                          $color-branding-tertiary-background-text-shadow);
 }
 
 @mixin -base-color-branding-neutral-background-gradient-ie {
-    @include gradientBarSimpleFilter($color-branding-neutral-background, 
-                         $color-branding-neutral-background-shadow, 
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-branding-neutral-background, $color-branding-neutral-background-shadow), 
+                         -color-select-first-if-light($color-branding-neutral-background-shadow, $color-branding-neutral-background), 
                          $color-branding-neutral-background-text, 
                          $color-branding-neutral-background-text-shadow);
 }

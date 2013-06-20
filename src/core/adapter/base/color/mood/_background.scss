@@ -2,63 +2,63 @@
 
 @mixin -base-color-mood-info-background {
     color: $color-mood-info-background-text;
-    background-color: $color-mood-info-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-info-background-shadow, $color-mood-info-background);
     border-color: $color-mood-info-border;
     text-shadow: $color-mood-info-background-text-shadow;
 }
 
 @mixin -base-color-mood-important-background {
     color: $color-mood-important-background-text;
-    background-color: $color-mood-important-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-important-background-shadow, $color-mood-important-background);
     border-color: $color-mood-important-border;
     text-shadow: $color-mood-important-background-text-shadow;
 }
 
 @mixin -base-color-mood-success-background {
     color: $color-mood-success-background-text;
-    background-color: $color-mood-success-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-success-background-shadow, $color-mood-success-background);
     border-color: $color-mood-success-border;
     text-shadow: $color-mood-success-background-text-shadow;
 }
 
 @mixin -base-color-mood-warning-background {
     color: $color-mood-warning-background-text;
-    background-color: $color-mood-warning-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-warning-background-shadow, $color-mood-warning-background);
     border-color: $color-mood-warning-border;
     text-shadow: $color-mood-warning-background-text-shadow;
 }
 
 @mixin -base-color-mood-error-background {
     color: $color-mood-error-background-text;
-    background-color: $color-mood-error-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-error-background-shadow, $color-mood-error-background);
     border-color: $color-mood-error-border;
     text-shadow: $color-mood-error-background-text-shadow;
 }
 
 @mixin -base-color-mood-danger-background {
     color: $color-mood-danger-background-text;
-    background-color: $color-mood-danger-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-danger-background-shadow, $color-mood-danger-background);
     border-color: $color-mood-danger-border;
     text-shadow: $color-mood-danger-background-text-shadow;
 }
 
 @mixin -base-color-mood-inverse-background {
     color: $color-mood-inverse-background-text;
-    background-color: $color-mood-inverse-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-inverse-background-shadow, $color-mood-inverse-background);
     border-color: $color-mood-inverse-border;
     text-shadow: $color-mood-inverse-background-text-shadow;
 }
 
 @mixin -base-color-mood-highlight-background {
     color: $color-mood-highlight-background-text;
-    background-color: $color-mood-highlight-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-highlight-background-shadow, $color-mood-highlight-background);
     border-color: $color-mood-highlight-border;
     text-shadow: $color-mood-highlight-background-text-shadow;
 }
 
 @mixin -base-color-mood-required-background {
     color: $color-mood-required-background-text;
-    background-color: $color-mood-required-background-shadow;
+    background-color: -color-select-first-if-light($color-mood-required-background-shadow, $color-mood-required-background);
     border-color: $color-mood-required-border;
     text-shadow: $color-mood-required-background-text-shadow;
 }

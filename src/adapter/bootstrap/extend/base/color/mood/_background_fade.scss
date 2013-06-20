@@ -1,0 +1,8 @@
+.fade {
+    
+    &.info, &.success, &.warning, &.error, &.danger, &.important, &.inverse, &.required, &.highlight {
+        opacity: 1;
+    }
+
+    
+}

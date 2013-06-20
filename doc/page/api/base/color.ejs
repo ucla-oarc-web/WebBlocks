@@ -66,15 +66,39 @@
 
 <h4>Color Flavors</h4>
 
-<p>WebBlocks provides two classes that may be used to flavor a color:</p>
+<p>WebBlocks provides the <code>.gradient</code>, <code>.light</code> and <code>.dark</code> classes that may be used to flavor a color:</p>
 
 <ul>
-    <li><code>.gradient</code> adds a gradient to the color such as <span class="badge primary gradient">.primary.gradient</span></li>
-    <li><code>.light</code> uses a light variant of the color such as <span class="badge primary light">.primary.light</span></li>
-    <li><code>.light.gradient</code> uses a light gradient variant of the color such as <span class="badge primary light gradient">.primary.light.gradient</span></li>
-    <li><code>.dark</code> uses a dark variant of the color such as <span class="badge primary dark">.primary.dark</span></li>
-    <li><code>.dark.gradient</code> uses a dark gradient variant of the color such as <span class="badge primary dark gradient">.primary.light.gradient</span></li>
+    <li style="padding-bottom:5px;"><code>.gradient</code> adds a gradient to the color such as <span class="badge primary gradient">.primary.gradient</span></li>
+    <li style="padding-bottom:5px;"><code>.light</code> uses a light variant of the color such as <span class="badge primary light">.primary.light</span></li>
+    <li style="padding-bottom:5px;"><code>.light.gradient</code> uses a light gradient variant of the color such as <span class="badge primary light gradient">.primary.light.gradient</span></li>
+    <li style="padding-bottom:5px;"><code>.dark</code> uses a dark variant of the color such as <span class="badge primary dark">.primary.dark</span></li>
+    <li style="padding-bottom:5px;"><code>.dark.gradient</code> uses a dark gradient variant of the color such as <span class="badge primary dark gradient">.primary.dark.gradient</span></li>
 </ul>
+
+<h6 class="text-highlight">Extend Color Flavor: Fade</h6>
+
+<p>For the astute reader, it should be evident the color flavors <code>.dark</code> and <code>.light</code> are not semantic. If one changes the background from light to dark or vice versa, elements styled with <code>.dark</code> and <code>.light</code> may appear to pop or fade differently than intended. <a href="#API/Entity/Message">Entity/Message</a> intrinsically selects between the two based on which one is less jarring. When a developer needs similar functionality, the <code>.fade</code> and <code>.emphasize</code> classes may be used (if <code>Extend/Base/Color</code> is included, as it is by default):</p>
+
+<ul>
+    <li style="padding-bottom:5px;"><code>.fade</code> uses a dark variant of the color if the background is dark, or a light variant of the color if the background is light such as <span class="badge primary fade">.primary.fade</span></li>
+    <li style="padding-bottom:5px;"><code>.fade.gradient</code> uses a dark gradient variant of the color if the background is dark, or a light variant of the color if the background is light, such as <span class="badge primary fade gradient">.primary.fade.gradient</span></li>
+    <li style="padding-bottom:5px;"><code>.emphasize</code> uses a dark variant of the color if the background is light, or a light variant of the color if the background is dark, such as <span class="badge primary emphasize">.primary.emphasize</span></li>
+    <li style="padding-bottom:5px;"><code>.emphasize.gradient</code> uses a dark gradient variant of the color if the background is light, or a light gradient variation of the color if the background is dark, such as <span class="badge primary emphasize gradient">.primary.emphasize.gradient</span></li>
+</ul>
+
+<p><span class="badge warning">WARNING</span> The <code>.fade</code> class is viewed as a non-optimal name. Consequently, the class name may change when it becomes part of WebBlocks core in the <code>Base</code> namespace. This is why, for the moment, it resides in the <code>Extend</code> namespace. When this occurs, the <code>.fade</code> version will remain within the <code>Extend</code> namespace for those that rely on it.</p>
+
+<div data-effect="toggle" data-toggle="show" class="fade-emphasize-modules-list">
+    <p><button data-target=".fade-emphasize-modules-list" class="button secondary small">Show Modules</button></p>
+</div>
+<ul data-effect="toggle" class="list fade-emphasize-modules-list">
+    <li><%= DOC.modules.render('Extend/Base/Color/Branding/Background_Fade') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Branding/Background_Emphasize') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Mood/Background_Fade') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Mood/Background_Emphasize') %></li>
+</ul>
+<button data-effect="toggle" data-target=".fade-emphasize-modules-list" class="fade-emphasize-modules-list button secondary small">Hide Modules</button>
 
 <h4>Text Colors</h4>
 

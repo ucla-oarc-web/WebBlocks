@@ -3,7 +3,7 @@
 @mixin -base-color-branding-default-background {
     
     color: $color-branding-default-background-text;
-    background-color: $color-branding-default-background-shadow;
+    background-color: -color-select-first-if-light($color-branding-default-background-shadow, $color-branding-default-background);
     border-color: $color-branding-default-border;
     text-shadow: $color-branding-default-background-text-shadow;
     
@@ -12,7 +12,7 @@
 @mixin -base-color-branding-primary-background {
     
     color: $color-branding-primary-background-text;
-    background-color: $color-branding-primary-background-shadow;
+    background-color: -color-select-first-if-light($color-branding-primary-background-shadow, $color-branding-primary-background);
     border-color: $color-branding-primary-border;
     text-shadow: $color-branding-primary-background-text-shadow;
     
@@ -21,7 +21,7 @@
 @mixin -base-color-branding-secondary-background {
     
     color: $color-branding-secondary-background-text;
-    background-color: $color-branding-secondary-background-shadow;
+    background-color: -color-select-first-if-light($color-branding-secondary-background-shadow, $color-branding-secondary-background);
     border-color: $color-branding-secondary-border;
     text-shadow: $color-branding-secondary-background-text-shadow;
     
@@ -30,7 +30,7 @@
 @mixin -base-color-branding-tertiary-background {
     
     color: $color-branding-tertiary-background-text;
-    background-color: $color-branding-tertiary-background-shadow;
+    background-color: -color-select-first-if-light($color-branding-tertiary-background-shadow, $color-branding-tertiary-background);
     border-color: $color-branding-tertiary-border;
     text-shadow: $color-branding-tertiary-background-text-shadow;
     
@@ -39,7 +39,7 @@
 @mixin -base-color-branding-neutral-background {
     
     color: $color-branding-neutral-background-text;
-    background-color: $color-branding-neutral-background-shadow;
+    background-color: -color-select-first-if-light($color-branding-neutral-background-shadow, $color-branding-neutral-background);
     border-color: $color-branding-neutral-border;
     text-shadow: $color-branding-neutral-background-text-shadow;
     

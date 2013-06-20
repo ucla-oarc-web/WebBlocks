@@ -55,7 +55,7 @@
     &:hover {
         text-decoration: none;
         @include transition(background .1s linear);
-        @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+        @include box-shadow(#{inset 0 1px 0 rgba(-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),.2), 0 1px 2px rgba(-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),.05)});
     }
     
     &:focus {
@@ -72,154 +72,252 @@
     
     &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.important):not(.success):not(.warning):not(.error):not(.danger):not(.inverse):not(.highlight):not(.required){
         &:hover, &.active {
+            color: $color-branding-default-background-text;
             background: $color-branding-default-background-shadow;
             *background: darken($color-branding-default-background-shadow, 5%);    
             &.light {
+                color: $color-branding-default-background-light-text;
                 background: $color-branding-default-background-light-shadow;
                 *background: darken($color-branding-default-background-light-shadow, 5%);
+            }   
+            &.dark {
+                color: $color-branding-default-background-dark-text;
+                background: $color-branding-default-background-dark-shadow;
+                *background: darken($color-branding-default-background-dark-shadow, 5%);
             }
         }
     }
     
     &.primary {
         &:hover, &.active {
+            color: $color-branding-primary-background-text;
             background: $color-branding-primary-background-shadow;
             *background: darken($color-branding-primary-background-shadow, 5%);          
             &.light {
+                color: $color-branding-primary-background-light-text;
                 background: $color-branding-primary-background-light-shadow;
                 *background: darken($color-branding-primary-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-branding-primary-background-dark-text;
+                background: $color-branding-primary-background-dark-shadow;
+                *background: darken($color-branding-primary-background-dark-shadow, 5%);
             }
         }
     }
     
     &.secondary {
         &:hover, &.active {
+            color: $color-branding-secondary-background-text;
             background: $color-branding-secondary-background-shadow;
             *background: darken($color-branding-secondary-background-shadow, 5%);          
             &.light {
+                color: $color-branding-secondary-background-light-text;
                 background: $color-branding-secondary-background-light-shadow;
                 *background: darken($color-branding-secondary-background-light-shadow, 5%);
+            } 
+            &.dark {
+                color: $color-branding-secondary-background-dark-text;
+                background: $color-branding-secondary-background-dark-shadow;
+                *background: darken($color-branding-secondary-background-dark-shadow, 5%);
             }
         }
     }
     
     &.tertiary {
         &:hover, &.active {
+            color: $color-branding-tertiary-background-text;
             background: $color-branding-tertiary-background-shadow;
             *background: darken($color-branding-tertiary-background-shadow, 5%);          
             &.light {
+                color: $color-branding-tertiary-background-light-text;
                 background: $color-branding-tertiary-background-light-shadow;
                 *background: darken($color-branding-tertiary-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-branding-tertiary-background-dark-text;
+                background: $color-branding-tertiary-background-dark-shadow;
+                *background: darken($color-branding-tertiary-background-dark-shadow, 5%);
             }
         }
     }
     
     &.neutral {
         &:hover, &.active {
+            color: $color-branding-neutral-background-text;
             background: $color-branding-neutral-background-shadow;
             *background: darken($color-branding-neutral-background-shadow, 5%);          
             &.light {
+                color: $color-branding-neutral-background-light-text;
                 background: $color-branding-neutral-background-light-shadow;
                 *background: darken($color-branding-neutral-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-branding-neutral-background-dark-text;
+                background: $color-branding-neutral-background-dark-shadow;
+                *background: darken($color-branding-neutral-background-dark-shadow, 5%);
             }
         }
     }
     
     &.info {
         &:hover, &.active {
+            color: $color-mood-info-background-text;
             background: $color-mood-info-background-shadow;
             *background: darken($color-mood-info-background-shadow, 5%);
             &.light {
+                color: $color-mood-info-background-light-text;
                 background: $color-mood-info-background-light-shadow;
                 *background: darken($color-mood-info-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-info-background-dark-text;
+                background: $color-mood-info-background-dark-shadow;
+                *background: darken($color-mood-info-background-dark-shadow, 5%);
             }
         }
     }
     
     &.important {
         &:hover, &.active {
+            color: $color-mood-important-background-text;
             background: $color-mood-important-background-shadow;
             *background: darken($color-mood-important-background-shadow, 5%);
             &.light {
+                color: $color-mood-important-background-light-text;
                 background: $color-mood-important-background-light-shadow;
                 *background: darken($color-mood-important-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-important-background-dark-text;
+                background: $color-mood-important-background-dark-shadow;
+                *background: darken($color-mood-important-background-dark-shadow, 5%);
             }
         }
     }
     
     &.success {
         &:hover, &.active {
+            color: $color-mood-success-background-text;
             background: $color-mood-success-background-shadow;
             *background: darken($color-mood-success-background-shadow, 5%);
             &.light {
+                color: $color-mood-success-background-light-text;
                 background: $color-mood-success-background-light-shadow;
                 *background: darken($color-mood-success-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-success-background-dark-text;
+                background: $color-mood-success-background-dark-shadow;
+                *background: darken($color-mood-success-background-dark-shadow, 5%);
             }
         }
     }
     
     &.warning {
         &:hover, &.active {
+            color: $color-mood-warning-background-text;
             background: $color-mood-warning-background-shadow;
             *background: darken($color-mood-warning-background-shadow, 5%);
             &.light {
+                color: $color-mood-warning-background-light-text;
                 background: $color-mood-warning-background-light-shadow;
                 *background: darken($color-mood-warning-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-warning-background-dark-text;
+                background: $color-mood-warning-background-dark-shadow;
+                *background: darken($color-mood-warning-background-dark-shadow, 5%);
             }
         }
     }
     
     &.error {
         &:hover, &.active {
+            color: $color-mood-error-background-text;
             background: $color-mood-error-background-shadow;
             *background: darken($color-mood-error-background-shadow, 5%);
             &.light {
+                color: $color-mood-error-background-light-text;
                 background: $color-mood-error-background-light-shadow;
                 *background: darken($color-mood-error-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-error-background-dark-text;
+                background: $color-mood-error-background-dark-shadow;
+                *background: darken($color-mood-error-background-dark-shadow, 5%);
             }
         }
     }
     
     &.danger {
         &:hover, &.active {
+            color: $color-mood-danger-background-text;
             background: $color-mood-danger-background-shadow;
             *background: darken($color-mood-danger-background-shadow, 5%);
             &.light {
+                color: $color-mood-danger-background-light-text;
                 background: $color-mood-danger-background-light-shadow;
                 *background: darken($color-mood-danger-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-danger-background-dark-text;
+                background: $color-mood-danger-background-dark-shadow;
+                *background: darken($color-mood-danger-background-dark-shadow, 5%);
             }
         }
     }
     
     &.inverse {
         &:hover, &.active {
+            color: $color-mood-inverse-background-text;
             background: $color-mood-inverse-background-shadow;
             *background: darken($color-mood-inverse-background-shadow, 5%);
             &.light {
+                color: $color-mood-inverse-background-light-text;
                 background: $color-mood-inverse-background-light-shadow;
                 *background: darken($color-mood-inverse-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-inverse-background-dark-text;
+                background: $color-mood-inverse-background-dark-shadow;
+                *background: darken($color-mood-inverse-background-dark-shadow, 5%);
             }
         }
     }
     
     &.required {
         &:hover, &.active {
+            color: $color-mood-required-background-text;
             background: $color-mood-required-background-shadow;
             *background: darken($color-mood-required-background-shadow, 5%);
             &.light {
+                color: $color-mood-required-background-light-text;
                 background: $color-mood-required-background-light-shadow;
                 *background: darken($color-mood-required-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-required-background-dark-text;
+                background: $color-mood-required-background-dark-shadow;
+                *background: darken($color-mood-required-background-dark-shadow, 5%);
             }
         }
     }
     
     &.highlight {
         &:hover, &.active {
+            color: $color-mood-highlight-background-text;
             background: $color-mood-highlight-background-shadow;
             *background: darken($color-mood-highlight-background-shadow, 5%);
             &.light {
+                color: $color-mood-highlight-background-light-text;
                 background: $color-mood-highlight-background-light-shadow;
                 *background: darken($color-mood-highlight-background-light-shadow, 5%);
+            }
+            &.dark {
+                color: $color-mood-highlight-background-dark-text;
+                background: $color-mood-highlight-background-dark-shadow;
+                *background: darken($color-mood-highlight-background-dark-shadow, 5%);
             }
         }
     }

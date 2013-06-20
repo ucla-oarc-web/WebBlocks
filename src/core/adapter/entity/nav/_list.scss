@@ -23,7 +23,6 @@
     font-size: 1em;
     font-weight: bold;
     
-    @extend .text-neutral;
 }
 
 @mixin -entity-nav-list-header-divider { }

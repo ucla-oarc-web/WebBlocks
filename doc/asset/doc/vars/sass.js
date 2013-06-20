@@ -429,22 +429,22 @@
         },
         'color-contrast-threshold': {
             description:'generic threshold used to select light instead of dark color',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-threshold-light': {
             description:'generic threshold used to select light instead of dark color for light variant',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-threshold-dark': {
             description:'generic threshold used to select light instead of dark color for dark variant',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-threshold-body': {
             description:'generic threshold used to select light instead of dark color for body text',
-            default_value:'65%',
+            default_value:'50%',
             type:'percent'
         },
         'color-contrast-body': {

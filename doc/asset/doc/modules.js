@@ -1374,6 +1374,21 @@
 				],
 				api:'Entity/Table'
 			},
+            'Extend': {
+                description:'Defines a set of modules that add functionality that is not part of WebBlocks core. Some of these may be useful in niche contexts, while others may eventually make it into the core namespaces, although possibly with semantic changes.'
+            },
+            'Extend/Base': {
+                description:'Defines a set of modules that are not part of WebBlocks core but add additional foundational structures and functionality.'
+            },
+            'Extend/Base/Color': {
+                definition:'Extends the <code>Base/Color</code> namespace with additional non-core functionality.'
+            },
+            'Extend/Base/Color/Branding': {
+                definition:'Extends the <code>Base/Color/Branding</code> namespace with additional non-core functionality for branding colors.'
+            },
+            'Extend/Base/Color/Mood': {
+                definition:'Extends the <code>Base/Color/Mood</code> namespace with additional non-core functionality for mood colors.'
+            },
 			'Extend/Base/Color/Branding/Background_Fade': {
 				description:'Defines a set of color classes that may be used for brand-related background colors and have the property that they are conditionally light if the background is light or dark if the background is dark.',
 				defines:{

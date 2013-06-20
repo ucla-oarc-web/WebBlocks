@@ -137,7 +137,26 @@
 
 <h4>Form Controls</h4>
 
-<p>The <a href="#API/Entity/Form">form element</a> supports mood colors applied to its <code>.control</code> elements. When this is done, it will color the control's label, input and help text:</p>
+<p>The <a href="#API/Entity/Form">form element</a> supports colors applied to its <code>.control</code> elements. When this is done, it will color the control's label, input and help text:</p>
+
+<div class="example">
+    <pre class="prettyprint">&lt;form class="form horizontal"&gt;
+    &lt;div class="control primary"&gt;
+        &lt;label for="in"&gt;&lt;!-- label text --&gt;&lt;/label&gt;
+        &lt;input type="text" id="in" aria-describedby="in-help-1 in-help-2"&gt;
+        &lt;span id="in-help-1"&gt;&lt;!-- help text --&gt;&lt;/span&gt;
+        &lt;p id="in-help-2"&gt;&lt;!-- more help text --&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+    <form class="form horizontal">
+        <div class="control primary">
+            <label for="in">.control.primary</label>
+            <input type="text" id="in" aria-describedby="in-help-1 in-help-2">
+            <span id="in-help-1">inline help text</span>
+            <p id="in-help-2">and a block of help text</p>
+        </div>
+    </form>
+</div>
 
 <div class="example">
     <pre class="prettyprint">&lt;form class="form horizontal"&gt;
@@ -157,8 +176,6 @@
         </div>
     </form>
 </div>
-
-<p><span class="badge warning">WARNING</span> Form controls <em>do not</em> support branding colors.</p>
 
 <style>
     .example pre {

@@ -1,0 +1,56 @@
+@mixin -entity-form-control-branding {
+    background-image: none;
+    background-color: transparent;
+    text-shadow: none;
+    border-color: transparent;
+}
+
+@mixin -entity-form-control-branding-default {
+    color: $color-branding-default-foreground-text;
+    label {
+        color: $color-branding-default-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-branding-default-foreground-text;
+    }
+}
+
+@mixin -entity-form-control-branding-primary {
+    color: $color-branding-primary-foreground-text;
+    label {
+        color: $color-branding-primary-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-branding-primary-foreground-text;
+    }
+}
+
+@mixin -entity-form-control-branding-secondary {
+    color: $color-branding-secondary-foreground-text;
+    label {
+        color: $color-branding-secondary-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-branding-secondary-foreground-text;
+    }
+}
+
+@mixin -entity-form-control-branding-tertiary {
+    color: $color-branding-tertiary-foreground-text;
+    label {
+        color: $color-branding-tertiary-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-branding-tertiary-foreground-text;
+    }
+}
+
+@mixin -entity-form-control-branding-neutral {
+    color: $color-branding-neutral-foreground-text;
+    label {
+        color: $color-branding-neutral-foreground-text;
+    }
+    input, select, textarea {
+        border-color: $color-branding-neutral-foreground-text;
+    }
+}

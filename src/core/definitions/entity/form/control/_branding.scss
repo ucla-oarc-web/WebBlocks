@@ -1,0 +1,31 @@
+form.form div.control, form.form li.control {
+    
+    &.default,
+    &.primary,
+    &.secondary,
+    &.tertiary,
+    &.neutral {
+        @include -entity-form-control-branding;
+    }
+    
+    &.default {
+        @include -entity-form-control-branding-default;
+    }
+    
+    &.primary {
+        @include -entity-form-control-branding-primary;
+    }
+    
+    &.secondary {
+        @include -entity-form-control-branding-secondary;
+    }
+    
+    &.tertiary {
+        @include -entity-form-control-branding-tertiary;
+    }
+    
+    &.neutral {
+        @include -entity-form-control-branding-neutral;
+    }
+    
+}

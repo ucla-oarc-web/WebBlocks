@@ -34,29 +34,82 @@ $color-contrast-threshold-light: $color-contrast-threshold !default;
 $color-contrast-threshold-dark: $color-contrast-threshold !default;
 
 /**
- * Specialized tweaks for particular brandings and moods
+ * Specialized tweaks for particular brandings and moods, using a hack to
+ * only set these values if they have not explicitly been set by the user.
  */
 
-$color-branding-default-text-brightness: 5% !default;
+$color-branding-default-text-brightness: null !default;
+@if $color-branding-default-text-brightness == null {
+    $color-branding-default-text-brightness: 5% !default;
+}
 
-$color-mood-inverse-background-light-brightness: 40% !default;
-$color-mood-inverse-background-shadow-light-brightness: 30% !default;
-$color-mood-inverse-light-border-brightness: 30% !default;
+$color-branding-default-background-light-brightness: null !default;
+@if $color-branding-default-background-light-brightness == null {
+    $color-branding-default-background-light-brightness: 99% !default;
+}
 
-$color-mood-required: #a00 !default;
-$color-mood-required-background-light-brightness: $color-background-light-brightness !default;
-$color-mood-required-text-dark: $color-mood-required !default;
-$color-mood-required-text-light: -color-generate-with-lightness(
+$color-branding-default-background-shadow-light-brightness: null !default;
+@if $color-branding-default-background-shadow-light-brightness == null {
+    $color-branding-default-background-shadow-light-brightness: 96% !default;
+}
+
+$color-mood-inverse-background-light-brightness: null !default;
+@if $color-mood-inverse-background-light-brightness == null {
+    $color-mood-inverse-background-light-brightness: 40% !default;
+}
+
+$color-mood-inverse-background-shadow-light-brightness: null !default;
+@if $color-mood-inverse-background-shadow-light-brightness == null {
+    $color-mood-inverse-background-shadow-light-brightness: 30% !default;
+}
+
+$color-mood-inverse-light-border-brightness: null !default;
+@if $color-mood-inverse-light-border-brightness == null {
+    $color-mood-inverse-light-border-brightness: 30% !default;
+}
+
+$color-mood-required: null !default;
+@if $color-mood-required == null {
+    $color-mood-required: #a00 !default;
+}
+
+$color-mood-required-background-light-brightness: null !default;
+@if $color-mood-required-background-light-brightness == null {
+    $color-mood-required-background-light-brightness: $color-background-light-brightness !default;
+}
+
+$color-mood-required-text-dark: null !default;
+@if $color-mood-required-text-dark == null {
+    $color-mood-required-text-dark: $color-mood-required !default;
+}
+
+$color-mood-required-text-light: null !default;
+@if $color-mood-required-text-light == null {
+    $color-mood-required-text-light: -color-generate-with-lightness(
                                         $color-mood-required,
                                         $color-mood-required-background-light-brightness
                                  ) !default;
-$color-mood-required-background-light-brightness: 100% !default;
-$color-mood-required-background-shadow-light-brightness: 95% !default;
-$color-mood-required-foreground-text:    -color-generate-with-lightness(
+}
+
+$color-mood-required-background-light-brightness: null !default;
+@if $color-mood-required-background-light-brightness == null {
+    $color-mood-required-background-light-brightness: 100% !default;
+}
+
+$color-mood-required-background-shadow-light-brightness: null !default;
+@if $color-mood-required-background-shadow-light-brightness == null {
+    $color-mood-required-background-shadow-light-brightness: 95% !default;
+}
+
+$color-mood-required-foreground-text: null !default;
+@if $color-mood-required-foreground-text == null {
+    $color-mood-required-foreground-text: -color-generate-with-lightness(
                                                 $color-mood-required, 
                                                 $color-text-brightness
                                         ) !default;
-$color-mood-required: #d8d8d8 !default;
+}
 
-
-
+$color-mood-required: null !default;
+@if $color-mood-required == null {
+    $color-mood-required: #d8d8d8 !default;
+}

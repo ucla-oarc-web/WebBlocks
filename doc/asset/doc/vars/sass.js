@@ -384,12 +384,12 @@
         },
         'color-background-shadow-light-brightness': {
             description:'brightness percentage for <code>.light.gradient</code> shadow color',
-            default_value:'83%',
+            default_value:'85%',
             type:'percent'
         },
         'color-light-border-brightness': {
             description:'brightness percentage for light border',
-            default_value:'60%',
+            default_value:'70%',
             type:'percent'
         },
         'color-background-dark-brightness': {

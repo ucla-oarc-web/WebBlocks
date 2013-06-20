@@ -20,7 +20,6 @@
 
 @mixin -entity-nav-list-header {
     margin: 0 0 0.5*$type-line-spacing;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
     font-size: 1em;
     font-weight: bold;
     
@@ -51,7 +50,6 @@
     > a {
 
         display: block;
-        text-shadow: 0 1px 0 rgba(255,255,255,.5);
         padding: 3px 15px;
 
         &:hover {

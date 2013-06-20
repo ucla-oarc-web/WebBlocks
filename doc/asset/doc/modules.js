@@ -876,6 +876,58 @@
 					'table-bordered-border-radius'
 				],
 				api:'Entity/Table'
+			},
+			'Extend/Base/Color/Branding/Background_Fade': {
+				description:'Defines a set of color classes that may be used for brand-related background colors and have the property that they are conditionally light if the background is light or dark if the background is dark.',
+				defines:{
+					'.primary.fade':'Primary brand background color faded against body background',
+					'.secondary.fade':'Secondary brand background color faded against body background',
+					'.tertiary.fade':'Tertiary brand background color faded against body background',
+					'.neutral.fade':'Neutral brand background color faded against body background',
+					'.default.fade':'Default brand background color faded against body background'
+				},
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Mood/Background_Fade': {
+				description:'Defines a set of color classes that may be used for mood-related background colors and have the property that they are conditionally light if the background is light or dark if the background is dark.',
+				defines:{
+					'.info.fade':'Info mood background color faded against body background',
+					'.success.fade':'Success mood background color faded against body background',
+					'.warning.fade':'Warning mood background color faded against body background',
+					'.error.fade':'Error mood background color faded against body background',
+					'.danger.fade':'Danger mood background color faded against body background',
+					'.important.fade':'Important mood background color faded against body background',
+					'.inverse.fade':'Inverse mood background color faded against body background',
+					'.required.fade':'Required mood background color faded against body background',
+					'.highlight.fade':'Highlight mood background color faded against body background'
+				},
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Branding/Background_Emphasize': {
+				description:'Defines a set of color classes that may be used for brand-related background colors and have the property that they are conditionally dark if the background is light or light if the background is dark.',
+				defines:{
+					'.primary.emphasize':'Primary brand background color emphasized against body background',
+					'.secondary.emphasize':'Secondary brand background color emphasized against body background',
+					'.tertiary.emphasize':'Tertiary brand background color emphasized against body background',
+					'.neutral.emphasize':'Neutral brand background color emphasized against body background',
+					'.default.emphasize':'Default brand background color emphasized against body background'
+				},
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Mood/Background_Emphasize': {
+				description:'Defines a set of color classes that may be used for mood-related background colors and have the property that they are conditionally dark if the background is light or light if the background is dark.',
+				defines:{
+					'.info.emphasize':'Info mood background color emphasized against body background',
+					'.success.emphasize':'Success mood background color emphasized against body background',
+					'.warning.emphasize':'Warning mood background color emphasized against body background',
+					'.error.emphasize':'Error mood background color emphasized against body background',
+					'.danger.emphasize':'Danger mood background color emphasized against body background',
+					'.important.emphasize':'Important mood background color emphasized against body background',
+					'.inverse.emphasize':'Inverse mood background color emphasized against body background',
+					'.required.emphasize':'Required mood background color emphasized against body background',
+					'.highlight.emphasize':'Highlight mood background color emphasized against body background'
+				},
+				api:'Base/Color'
 			}
 		};
 		

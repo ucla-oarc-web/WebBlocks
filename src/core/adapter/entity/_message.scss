@@ -1,5 +1,15 @@
 @mixin -entity-message {
-    @extend .light;
+    @if $color-body-light {
+        &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.success):not(.warning):not(.error):not(.danger):not(.important):not(.inverse):not(.required):not(.highlight) {
+            @include -base-color-branding-default-background-light;
+        }
+        @extend .light;
+    } @else {
+        &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.success):not(.warning):not(.error):not(.danger):not(.important):not(.inverse):not(.required):not(.highlight) {
+            @include -base-color-branding-default-background-dark;
+        }
+        @extend .dark;
+    }
     padding: 5px 10px;
     border-radius: 5px;
     border-width: 1px;

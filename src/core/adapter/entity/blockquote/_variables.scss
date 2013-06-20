@@ -1,0 +1,5 @@
+$blockquote-small-color:      -color-select-first-if-light(#666, #999) !default;
+$blockquote-border-color:     -color-select-first-if-light(
+                                    $color-branding-neutral-light-border,
+                                    $color-branding-neutral-dark-border
+                              ) !default;

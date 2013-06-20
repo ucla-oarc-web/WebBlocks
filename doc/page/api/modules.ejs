@@ -18,6 +18,8 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <h4>Base Modules</h4>
 
+<p>These modules define foundational elements that are part of WebBlocks core.</p>
+
 <ul class="modules">
     <li><%= DOC.modules.render_details('Base/Block/Float') %></li>
     <li><%= DOC.modules.render_details('Base/Color/Branding/Background') %></li>
@@ -43,6 +45,8 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <h4>Compatibility Modules</h4>
 
+<p>These modules provide compatibility functionality that is part of WebBlocks core.</p>
+
 <ul class="modules">
     <li><%= DOC.modules.render_details('Compatibility/IE/Image/Scaling') %></li>
     <li><%= DOC.modules.render_details('Compatibility/IE/CSS/Filter/Border_Radius') %></li>
@@ -52,6 +56,8 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 </ul>
 
 <h4>Entity Modules</h4>
+
+<p>These modules define user interface elements that are part of WebBlocks core.</p>
 
 <ul class="modules">
     <li><%= DOC.modules.render_details('Entity/Badge') %></li>
@@ -64,5 +70,16 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
     <li><%= DOC.modules.render_details('Entity/Nav/Bar') %></li>
     <li><%= DOC.modules.render_details('Entity/Nav/List') %></li>
     <li><%= DOC.modules.render_details('Entity/Table') %></li>
+</ul>
+
+<h4>Extend Modules</h4>
+
+<p>These modules provide added functionality that is not officially part of WebBlocks core. Some of these modules may be useful in niche contexts, while other modules contained in this namespace may eventually make it into the <code>Base</code>, <code>Compatibility</code> or <code>Entity</code> namespaces, although their semantics may change.</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Extend/Base/Color/Branding/Background_Fade') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Branding/Background_Emphasize') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Mood/Background_Fade') %></li>
+    <li><%= DOC.modules.render('Extend/Base/Color/Mood/Background_Emphasize') %></li>
 </ul>
 

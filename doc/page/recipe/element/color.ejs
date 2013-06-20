@@ -40,7 +40,7 @@
     <div class="danger" style="padding:5px;margin-bottom:12px;">.danger</div>
 </div>
 
-<p>The <code>.gradient</code> and <code>.light</code> modifiers may be used with any inline or block element:</p>
+<p>The <code>.gradient</code>, <code>.light</code> and <code>.dark</code> modifiers may be used with any inline or block element:</p>
 
 <div class="example">
     <pre class="prettyprint">&lt;div class="danger gradient"&gt;.danger.gradient&lt;/div&gt;</pre>
@@ -55,6 +55,16 @@
 <div class="example">
     <pre class="prettyprint">&lt;div class="danger light gradient"&gt;.danger.light.gradient&lt;/div&gt;</pre>
     <div class="danger light gradient" style="padding:5px;margin-bottom:12px;">.danger.light.gradient</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger dark"&gt;.danger.dark&lt;/div&gt;</pre>
+    <div class="danger dark" style="padding:5px;margin-bottom:12px;">.danger.dark</div>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;div class="danger dark gradient"&gt;.danger.dark.gradient&lt;/div&gt;</pre>
+    <div class="danger dark gradient" style="padding:5px;margin-bottom:12px;">.danger.dark.gradient</div>
 </div>
     
 <h3>Special Elements</h3>
@@ -89,7 +99,7 @@
     <p><button class="button danger">.button.danger</button></p>
 </div>
 
-<p>While <code>.gradient</code> is automatically applied, the <code>.light</code> variant may be explicitly added:</p>
+<p>While <code>.gradient</code> is automatically applied, the <code>.light</code> or <code>.dark</code> variant may be explicitly added:</p>
 
 <div class="example">
     <pre class="prettyprint">&lt;button class="button primary light"&gt;.button.primary.light&lt;/button&gt;</pre>
@@ -101,9 +111,19 @@
     <p><button class="button danger light">.button.danger.light</button></p>
 </div>
 
+<div class="example">
+    <pre class="prettyprint">&lt;button class="button primary dark"&gt;.button.primary.dark&lt;/button&gt;</pre>
+    <p><button class="button primary dark">.button.primary.dark</button></p>
+</div>
+
+<div class="example">
+    <pre class="prettyprint">&lt;button class="button danger dark"&gt;.button.danger.dark&lt;/button&gt;</pre>
+    <p><button class="button danger dark">.button.danger.dark</button></p>
+</div>
+
 <h4>Message</h4>
 
-<p>The <a href="#API/Entity/Message">message element</a> automatically applies the <code>.light</code> modifier:</p>
+<p>The <a href="#API/Entity/Message">message element</a> automatically applies the <code>.light</code> modifier if the background is light or the <code>.dark</code> modifier if the background is dark, helping it blend in as part of the page:</p>
 
 <div class="example">
     <pre class="prettyprint">&lt;div class="message primary"&gt;.message.primary&lt;/div&gt;</pre>

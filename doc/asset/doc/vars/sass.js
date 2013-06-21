@@ -73,32 +73,32 @@
         },
         'type-font-size-h1': {
             description:'defines <code>h1</code> font size',
-            default_value:'2.5em',
+            default_value:'2.6em',
             type:'em (recommended), px'
         },
         'type-font-size-h2': {
             description:'defines <code>h2</code> font size',
-            default_value:'2.2em',
+            default_value:'2.25em',
             type:'em (recommended), px'
         },
         'type-font-size-h3': {
             description:'defines <code>h3</code> font size',
-            default_value:'1.75em',
+            default_value:'1.7em',
             type:'em (recommended), px'
         },
         'type-font-size-h4': {
             description:'defines <code>h4</code> font size',
-            default_value:'1.5em',
+            default_value:'1.4em',
             type:'em (recommended), px'
         },
         'type-font-size-h5': {
             description:'defines <code>h5</code> font size',
-            default_value:'1.25em',
+            default_value:'1.2em',
             type:'em (recommended), px'
         },
         'type-font-size-h6': {
             description:'defines <code>h6</code> font size',
-            default_value:'1.1em',
+            default_value:'1.05em',
             type:'em (recommended), px'
         },
         'type-font-size-h1-small': {
@@ -289,17 +289,17 @@
         },
         'color-branding-primary': {
             description:'defines base for primary color',
-            default_value:'#1b3d90',
+            default_value:'#10348c',
             type:'color'
         },
         'color-branding-secondary': {
             description:'defines base for secondary color',
-            default_value:'#7bc0de',
+            default_value:'#67c5ed',
             type:'color'
         },
         'color-branding-tertiary': {
             description:'defines base for tertiary color',
-            default_value:'#ffd44d',
+            default_value:'#f5e134',
             type:'color'
         },
         'color-branding-neutral': {
@@ -319,7 +319,7 @@
         },
         'color-body-link-text': {
             description:'defines body link color',
-            default_value:'#143075',
+            default_value:'#073198',
             type:'color'
         },
         'color-body-link-hover-text': {
@@ -329,27 +329,27 @@
         },
         'color-mood-info': {
             description:'defines base for info color',
-            default_value:'#2f96b4',
+            default_value:'#1296bc',
             type:'color'
         },
         'color-mood-success': {
             description:'defines base for success color',
-            default_value:'#51a351',
+            default_value:'#107100',
             type:'color'
         },
         'color-mood-warning': {
             description:'defines base for warning color',
-            default_value:'#c86d04',
+            default_value:'#ce5200',
             type:'color'
         },
         'color-mood-error': {
             description:'defines base for error color',
-            default_value:'#bd362f',
+            default_value:'#c91309',
             type:'color'
         },
         'color-mood-danger': {
             description:'defines base for danger color',
-            default_value:'#bd362f',
+            default_value:'#c91309',
             type:'color'
         },
         'color-mood-inverse': {
@@ -359,12 +359,12 @@
         },
         'color-mood-important': {
             description:'defines base for important color',
-            default_value:'#bd362f',
+            default_value:'#8b009c',
             type:'color'
         },
         'color-mood-required': {
             description:'defines base for required color',
-            default_value:'#a00',
+            default_value:'#ab0900',
             type:'color'
         },
         'color-mood-highlight': {
@@ -404,7 +404,7 @@
         },
         'color-text-brightness': {
             description:'brightness percentage for <code>text-</code> classes',
-            default_value:'40%',
+            default_value:'35%',
             type:'percent'
         },
         'color-background-light-brightness': {
@@ -439,22 +439,22 @@
         },
         'color-contrast-threshold': {
             description:'generic threshold used to select light instead of dark color',
-            default_value:'50%',
+            default_value:'60%',
             type:'percent'
         },
         'color-contrast-threshold-light': {
             description:'generic threshold used to select light instead of dark color for light variant',
-            default_value:'50%',
+            default_value:'60%',
             type:'percent'
         },
         'color-contrast-threshold-dark': {
             description:'generic threshold used to select light instead of dark color for dark variant',
-            default_value:'50%',
+            default_value:'60%',
             type:'percent'
         },
         'color-contrast-threshold-body': {
             description:'generic threshold used to select light instead of dark color for body text',
-            default_value:'50%',
+            default_value:'60%',
             type:'percent'
         },
         'color-contrast-body': {

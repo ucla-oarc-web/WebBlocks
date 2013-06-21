@@ -30,9 +30,7 @@ $color-grade-dk: 10% !default;
 $color-grade-lt: 10% !default;
 $color-grade-dk-text: 80% !default;
 $color-grade-lt-text: 87% !default;
-$color-contrast-threshold: 50% !default;
-
-$color-text-brightness: 40% !default;
+$color-contrast-threshold: 60% !default;
 
 $color-link-light: #fff !default;
 $color-link-light-opacity: 0.85;
@@ -46,8 +44,8 @@ $color-background-shadow-light-brightness: 85% !default;
 $color-light-border-brightness: 70% !default;
 $color-contrast-threshold-light: $color-contrast-threshold !default;
 
-$color-background-dark-brightness: 14% !default;
-$color-background-shadow-dark-brightness: 18% !default;
+$color-background-dark-brightness: 12% !default;
+$color-background-shadow-dark-brightness: 15% !default;
 $color-dark-border-brightness: 35% !default;
 $color-contrast-threshold-dark: $color-contrast-threshold !default;
 
@@ -97,8 +95,9 @@ $color-body-light: -color-contrast-above(
         @return darken($color, $percent);
     }
 }
-                                
-$color-body-link-text: -color-select-first-if-light(#143075, #95a4ca);
+                    
+$color-text-brightness: -color-select-first-if-light(35%,40%) !default;            
+$color-body-link-text: -color-select-first-if-light(#073198, #95a4ca);
 $color-body-link-hover-text: -color-select-first-if-light(#44557d, #d0d5e2);
 
 /**

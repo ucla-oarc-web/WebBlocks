@@ -289,22 +289,22 @@
         },
         'color-branding-primary': {
             description:'defines base for primary color',
-            default_value:'#10348c',
+            default_value:'#234189',
             type:'color'
         },
         'color-branding-secondary': {
             description:'defines base for secondary color',
-            default_value:'#67c5ed',
+            default_value:'#7bc0de',
             type:'color'
         },
         'color-branding-tertiary': {
             description:'defines base for tertiary color',
-            default_value:'#f5e134',
+            default_value:'#eada4d',
             type:'color'
         },
         'color-branding-neutral': {
             description:'defines base for neutral color',
-            default_value:'#bbb',
+            default_value:'#ccc',
             type:'color'
         },
         'color-body-background': {
@@ -329,27 +329,27 @@
         },
         'color-mood-info': {
             description:'defines base for info color',
-            default_value:'#1296bc',
+            default_value:'#2d95b3',
             type:'color'
         },
         'color-mood-success': {
             description:'defines base for success color',
-            default_value:'#107100',
+            default_value:'#2c8529',
             type:'color'
         },
         'color-mood-warning': {
             description:'defines base for warning color',
-            default_value:'#ce5200',
+            default_value:'#b76420',
             type:'color'
         },
         'color-mood-error': {
             description:'defines base for error color',
-            default_value:'#c91309',
+            default_value:'#ac3124',
             type:'color'
         },
         'color-mood-danger': {
             description:'defines base for danger color',
-            default_value:'#c91309',
+            default_value:'#ac3124',
             type:'color'
         },
         'color-mood-inverse': {
@@ -359,7 +359,7 @@
         },
         'color-mood-important': {
             description:'defines base for important color',
-            default_value:'#8b009c',
+            default_value:'#7a3582',
             type:'color'
         },
         'color-mood-required': {

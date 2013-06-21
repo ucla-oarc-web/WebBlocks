@@ -8,6 +8,8 @@
             
             <p>Select variable namespaces and then set the values of the individual variables to customize. Each variable includes a brief functional description and its WebBlocks default value (although this may be influenced if any extensions are included as well). Leave a field blank to accept the default value.</p>
             
+            <div class="message warning"><strong>NOTE</strong> This tool does not include an exhaustive list of all variables, particularly those around color; however, while deeper customization may be possible by defining your own <code>_variables.scss</code> file, this tool provides the vast majority of commonly-used variables.</div>
+            
         </div>
         
         <div class="row">
@@ -108,6 +110,8 @@
                 
                 <%= DOC.vars.sass.render_control('color-body-background') %>
                 <%= DOC.vars.sass.render_control('color-body-background-text') %>
+                <%= DOC.vars.sass.render_control('color-body-link-text') %>
+                <%= DOC.vars.sass.render_control('color-body-link-hover-text') %>
                 <%= DOC.vars.sass.render_control('color-branding-default') %>
                 <%= DOC.vars.sass.render_control('color-branding-primary') %>
                 <%= DOC.vars.sass.render_control('color-branding-secondary') %>

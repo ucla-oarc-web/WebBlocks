@@ -317,6 +317,16 @@
             default_value:'#323232',
             type:'color'
         },
+        'color-body-link-text': {
+            description:'defines body link color',
+            default_value:'#143075',
+            type:'color'
+        },
+        'color-body-link-hover-text': {
+            description:'defines body link hover color',
+            default_value:'#44557d',
+            type:'color'
+        },
         'color-mood-info': {
             description:'defines base for info color',
             default_value:'#2f96b4',

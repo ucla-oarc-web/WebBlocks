@@ -1,0 +1,55 @@
+<h2>Roadmap</h2>
+
+<p>The current stable release version of WebBlocks is <strong>version 1.0</strong>. Bugs reports for WebBlocks v1.0 should be reported to the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>.</p>
+
+<p>The current development branch of WebBlocks is <strong>version 1.1</strong>, currently in the planning stage. Feature requests should be made for WebBlocks v1.1 in the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=9" target="_blank">Milestone v1.1.xx</a>.</p>
+
+<h3>WebBlocks 1.0</h3>
+
+<p>WebBlocks 1.0 is currently <span class="badge success">STABLE RELEASE</span></p>
+
+<h4 class="text-highlight">Version History</h4>
+
+<p>As of June 21, 2013, WebBlocks 1.0 is a <strong>stable release version</strong>.</p>
+
+<ul>
+    <li><strong>June 21, 2013 - v1.0.08</strong><br><em class="text-neutral">release of Golden Master</em></li>
+    <li><strong>March 5, 2013 - v0.1.07</strong><br><em class="text-neutral">release of Beta 2</em></li>
+    <li><strong>February 22, 2013 - v0.1.06</strong><br><em class="text-neutral">release of Beta 1</em></li>
+    <li><strong>November 21, 2012 - v0.1.04</strong><br><em class="text-neutral">release of first development version with current architecture</em></li>
+    <li><strong>September 28, 2012 - v0.1.00</strong><br><em class="text-neutral">release of first development version</em></li>
+    <li><strong>May 14, 2012</strong><br><em class="text-neutral">project inception</em></li>
+</ul>
+
+<p>Report issues under <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>.</p>
+
+<h4 class="text-highlight">Known Issues</h4>
+
+<p>While a full set of bugs may be found in the <a href="https://github.com/ucla/WebBlocks/issues" target="_blank">WebBlocks Issue Tracker</a>, several broader issues are known:</p>
+
+<ul>
+    <li>The Entity/Nav/Bar element lacks the feature depth of comparable interface elements in other frameworks. Further, the Entity/Nav namespace lacks several common navigational elements. Try using WebBlocks with the Bootstrap adapter for additional navigational interface elements.</li>
+    <li>When using Bootstrap adapter, significant effort is needed when using dark content backgrounds. This is an issue with the current version of Twitter Bootstrap. Try using WebBlocks directly in dark content background cases.</li>
+    <li>WebBlocks attempts to address Internet Explorer compatibility issues, but it is expected that some issues may still exist, especially in Internet Explorer 7 and 8. Please report any compatibility issues encountered on the <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">WebBlocks Issue Tracker</a>.</li>
+</ul>
+
+<h3>WebBlocks 1.1</h3>
+
+<p>WebBlocks 1.1 is currently <span class="badge important">PLANNING PHASE</span></p>
+
+<h4 class="text-highlight">Planned Features</h4>
+
+<p>The following are a non-exhaustive list of featured planned for WebBlocks v1.1:</p>
+
+<ul>
+    <li><strong>User Interface Elements</strong> Several elements, such as <code>Entity/Nav/Bar</code>, will receive overhauls, while new elements will be added such as mega-menus, tabs, pills, mastheads and layout arrangement helpers such as galleries and prioritized content semantics. Additional <code>Extend</code> modules will also be added for niche functionality such as responsive tables and typography.</li>
+    <li><strong>Compiler</strong> The compilation process will be optimized to reduce compile times, and new features such as watch and partial builds will be added. It will also be made easier to attach packages, modules and adapters without adding handlers to the WebBlocks source tree.</li>
+    <li><strong>Module Architecture</strong> Namespaces will be reorganized to provide greater flexibility in element compiled into a build. New SASS pre-compiler directives will be added for conditional requires and to force a determinant load order to guarantee the developer-intended cascade. Javascript precompiler directives will also be added for greater dependency control.</li>
+    <li><strong>Element Configuration</strong> Existing configuration options will be streamlined, and some will be renamed, for better user clarity. New configuration options will also be added for further element customization.</li>
+    <li><strong>Build Optimizations</strong> Precompilers are known for generating redundant CSS, and WebBlocks is no exception. Module implementations will be revisited to reduce CSS size, and packages will also be added to provide greater CSS, Javascript and image optimizations.</li>
+    <li><strong>Adapters</strong> Integration of WebBlocks settings into Bootstrap style generation will be improved, and additional adapters to other third-party frameworks may be added.</li>
+    <li><strong>Packages</strong> New packages will be added as submodules, including additional common libraries, expanded effects drivers, responsive media and browser polyfills.</li>
+    <li><strong>Compatibility Support</strong> Modifications to the architecture to allow finer-grain compatibility targeting rather than just primary and IE sheets.</li>
+</ul>
+
+<p>Request features under <a href="https://github.com/ucla/WebBlocks/issues?milestone=9&state=open" target="_blank">Milestone v1.1.xx</a>.</p>

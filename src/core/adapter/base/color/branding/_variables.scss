@@ -11,9 +11,9 @@
 
 
 $color-branding-default: -color-select-first-if-light(#eee, #444) !default;
-$color-branding-primary: #1b3d90 !default;
-$color-branding-secondary: -color-select-first-if-light(#7bc0de, #4f7296) !default;
-$color-branding-tertiary: #ffd44d !default;
+$color-branding-primary: #10348c !default;
+$color-branding-secondary: -color-select-first-if-light(#67c5ed, #4f7296) !default;
+$color-branding-tertiary: #f5e134 !default;
 $color-branding-neutral: #bbb !default;
 
 
@@ -179,11 +179,11 @@ $color-branding-tertiary-border: -darken-if-light-or-else-lighten(
 $color-branding-neutral-border: -darken-if-light-or-else-lighten(
                     $color-branding-neutral, $color-branding-neutral-dk) !default;
 
-$color-branding-default-background-text-shadow: 0 -1px 1px $color-branding-default-background !default;
-$color-branding-primary-background-text-shadow: 0 -1px 1px $color-branding-primary-background !default;
-$color-branding-secondary-background-text-shadow: 0 -1px 1px $color-branding-secondary-background !default;
-$color-branding-tertiary-background-text-shadow: 0 -1px 1px $color-branding-tertiary-background !default;
-$color-branding-neutral-background-text-shadow: 0 -1px 1px $color-branding-neutral-background !default;
+$color-branding-default-background-text-shadow: none !default;
+$color-branding-primary-background-text-shadow: none !default;
+$color-branding-secondary-background-text-shadow: none !default;
+$color-branding-tertiary-background-text-shadow: none !default;
+$color-branding-neutral-background-text-shadow: none !default;
 
 $color-branding-default-background-text: -color-select-contrast-text(
                      $color-branding-default-background, $color-branding-default-text-dark, 
@@ -264,11 +264,11 @@ $color-branding-neutral-background-light-text: -color-select-contrast-text(
                    $color-branding-neutral-text-light, $color-branding-neutral-contrast-threshold-light
                    ) !default;
 
-$color-branding-default-background-light-text-shadow:   0 -1px 1px $color-branding-default-background-light-shadow !default;
-$color-branding-primary-background-light-text-shadow:   0 -1px 1px $color-branding-primary-background-light-shadow !default;
-$color-branding-secondary-background-light-text-shadow: 0 -1px 1px $color-branding-secondary-background-light-shadow !default;
-$color-branding-tertiary-background-light-text-shadow:  0 -1px 1px $color-branding-tertiary-background-light-shadow !default;
-$color-branding-neutral-background-light-text-shadow:   0 -1px 1px $color-branding-neutral-background-light-shadow !default;
+$color-branding-default-background-light-text-shadow: none !default;
+$color-branding-primary-background-light-text-shadow: none !default;
+$color-branding-secondary-background-light-text-shadow: none !default;
+$color-branding-tertiary-background-light-text-shadow: none !default;
+$color-branding-neutral-background-light-text-shadow: none !default;
 
 /** 
  * Dark background colors 
@@ -328,8 +328,8 @@ $color-branding-neutral-background-dark-text: -color-select-contrast-text(
                     $color-branding-neutral-text-light, $color-branding-neutral-contrast-threshold-dark
                     )  !default;
 
-$color-branding-default-background-dark-text-shadow:   0 -1px 1px $color-branding-default-background-dark-shadow !default;
-$color-branding-primary-background-dark-text-shadow:   0 -1px 1px $color-branding-primary-background-dark-shadow !default;
-$color-branding-secondary-background-dark-text-shadow: 0 -1px 1px $color-branding-secondary-background-dark-shadow !default;
-$color-branding-tertiary-background-dark-text-shadow:  0 -1px 1px $color-branding-tertiary-background-dark-shadow !default;
-$color-branding-neutral-background-dark-text-shadow:   0 -1px 1px $color-branding-neutral-background-dark-shadow !default;
+$color-branding-default-background-dark-text-shadow: none !default;
+$color-branding-primary-background-dark-text-shadow: none !default;
+$color-branding-secondary-background-dark-text-shadow: none !default;
+$color-branding-tertiary-background-dark-text-shadow: none !default;
+$color-branding-neutral-background-dark-text-shadow: none !default;

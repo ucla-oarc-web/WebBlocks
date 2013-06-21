@@ -4,12 +4,13 @@
 
 <p>For organizational purposes, WebBlocks is divided up into modules. Each module resides in a namespace, capturing its overall purpose. When building a custom version of WebBlocks, one may also select only certain modules to include (see <a href="#Configuration/Compiler/Components">Configure/Compiler/Components</a> for more details on this).</p>
 
-<p>WebBlocks defines three basic namespaces:</p>
+<p>WebBlocks defines four basic namespaces:</p>
 
 <ul>
     <li><strong>Base</strong> includes foundational elements such as the container and grid structure, branding and mood colors, typography and visibility utilities.</li>
     <li><strong>Entity</strong> includes standard user interface elements such as buttons, forms, messages, navigation menus, and badges. It also includes classes that style HTML classes such as tables, lists and blockquotes.</li>
-    <li><strong>Extend</strong> includes more advanced interaction entities, often extending those defined in <code>Entity</code>. This namespace is still under development and does not yet include any modules.</li>
+    <li><strong>Extend</strong> includes more advanced interaction entities, as well as entities not yet accepted into core.</li>
+    <li><strong>Compatibility</strong> includes polyfills and other compatibility features.</li>
 </ul>
 
 <p>In addition to modules, this API documentation also includes an <strong>Advanced</strong> section that includes a full list of modules, classes and configuration variables provided by WebBlocks. These may come in handy for determining which modules to include in a custom build, which classes are included in which modules, and which variables to set to modify the elements provided by WebBlocks.</p>

@@ -1,44 +1,49 @@
 @import "compass";
 
 @mixin -base-color-mood-background-gradient {
-    @include background-image(linear-gradient($color-mood-default-background, 
-                                              $color-mood-default-background-shadow));   
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-default-background, $color-mood-default-background-shadow), 
+                                              -color-select-first-if-light($color-mood-default-background-shadow, $color-mood-default-background)));   
 }
 
 @mixin -base-color-mood-info-background-gradient {
-    @include background-image(linear-gradient($color-mood-info-background, 
-                                              $color-mood-info-background-shadow));
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-info-background, $color-mood-info-background-shadow), 
+                                              -color-select-first-if-light($color-mood-info-background-shadow, $color-mood-info-background)));
 }
 
 @mixin -base-color-mood-important-background-gradient {
-    @include background-image(linear-gradient($color-mood-important-background, 
-                                              $color-mood-important-background-shadow));
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-important-background, $color-mood-important-background-shadow), 
+                                              -color-select-first-if-light($color-mood-important-background-shadow, $color-mood-important-background)));
 }
 
 @mixin -base-color-mood-success-background-gradient {
-    @include background-image(linear-gradient($color-mood-success-background, $color-mood-success-background-shadow));
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-success-background, $color-mood-success-background-shadow), -color-select-first-if-light($color-mood-success-background-shadow, $color-mood-success-background)));
 }
 
 @mixin -base-color-mood-warning-background-gradient {
-    @include background-image(linear-gradient($color-mood-warning-background, $color-mood-warning-background-shadow));
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-warning-background, $color-mood-warning-background-shadow), -color-select-first-if-light($color-mood-warning-background-shadow, $color-mood-warning-background)));
 }
 
 @mixin -base-color-mood-error-background-gradient {
-    @include background-image(linear-gradient($color-mood-error-background, $color-mood-error-background-shadow));
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-error-background, $color-mood-error-background-shadow), -color-select-first-if-light($color-mood-error-background-shadow, $color-mood-error-background)));
 }
 
 @mixin -base-color-mood-danger-background-gradient {
-    @include background-image(linear-gradient($color-mood-danger-background, $color-mood-danger-background-shadow));
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-danger-background, $color-mood-danger-background-shadow), -color-select-first-if-light($color-mood-danger-background-shadow, $color-mood-danger-background)));
 }
 
 @mixin -base-color-mood-inverse-background-gradient {
-    @include background-image(linear-gradient($color-mood-inverse-background, $color-mood-inverse-background-shadow));
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-inverse-background, $color-mood-inverse-background-shadow), -color-select-first-if-light($color-mood-inverse-background-shadow, $color-mood-inverse-background)));
 }
 
 @mixin -base-color-mood-highlight-background-gradient {
-    @include background-image(linear-gradient($color-mood-highlight-background, $color-mood-highlight-background-shadow));
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-highlight-background, $color-mood-highlight-background-shadow), -color-select-first-if-light($color-mood-highlight-background-shadow, $color-mood-highlight-background)));
 }
 
 @mixin -base-color-mood-required-background-gradient {
-    @include background-image(linear-gradient($color-mood-required-background, $color-mood-required-background-shadow));
+    @include background-image(linear-gradient(-color-select-first-if-light($color-mood-required-background, $color-mood-required-background-shadow), -color-select-first-if-light($color-mood-required-background-shadow, $color-mood-required-background)));
 }

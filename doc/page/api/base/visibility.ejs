@@ -4,6 +4,7 @@
 
 <ul class="modules">
     <li><%= DOC.modules.render('Base/Visibility/Hide') %></li>
+    <li><%= DOC.modules.render('Base/Visibility/Accessible/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Media_Query/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide') %></li>
     <li><%= DOC.modules.render('Base/Visibility/Responsive/Hide_Above') %></li>
@@ -17,11 +18,21 @@
 
 <pre class="prettyprint">&lt;div class="hide"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
 
+<h4>Visibility for Accessibility Tools Only</h4>
+
+<p>The <code>.hide-accessible</code> class may be used to define an element that will only show with accessibility tools such as screen readers.</p>
+
+<pre class="prettyprint">&lt;div class="hide-accessible"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
+<p>The <code>.focusable</code> class may be used in addition to the <code>.hide-accessible</code> class in cases where, in addition to accessibility tools, if one applies focus on the element, it will become visible.</p>
+
+<pre class="prettyprint">&lt;div class="hide-accessible focusable"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+
 <h4>Visibility based on Media Query Support</h4>
 
 <p>The <code>.hide-media-query</code> class may be used to define an element that will only show if media queries <em>are not supported</em> by the browser. This class is thus similar to the <code>noscript</code> tag used to show content when Javascript isn't available.</p>
 
-<pre class="prettyprint">&lt;div class="hide"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
+<pre class="prettyprint">&lt;div class="hide-media-query"&gt;&lt;!-- hidden content --&gt;&lt;/div&gt;</pre>
 
 <h4>Visibility based on Viewport Size</h4>
 

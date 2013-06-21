@@ -1,0 +1,40 @@
+//!requires base/color/mood/background_dark
+
+.gradient.dark {
+    
+    &.info {
+        @include -base-color-mood-info-background-dark-gradient;
+    }
+    
+    &.important {
+        @include -base-color-mood-important-background-dark-gradient;
+    }
+    
+    &.success {
+        @include -base-color-mood-success-background-dark-gradient;
+    }
+    
+    &.warning {
+        @include -base-color-mood-warning-background-dark-gradient;
+    }
+    
+    &.error {
+        @include -base-color-mood-error-background-dark-gradient;
+    }
+    
+    &.danger {
+        @include -base-color-mood-danger-background-dark-gradient;
+    }
+    
+    &.inverse {
+        @include -base-color-mood-inverse-background-dark-gradient;
+    }
+    
+    &.highlight {
+        @include -base-color-mood-highlight-background-dark-gradient;
+    }
+    
+    &.required {
+        @include -base-color-mood-required-background-dark-gradient;
+    }
+}

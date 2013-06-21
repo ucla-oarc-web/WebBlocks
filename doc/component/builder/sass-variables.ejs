@@ -1,0 +1,349 @@
+<form class="form" id="sass-variables-form">
+
+    <fieldset id="variables-sections">
+    
+        <div class='row'>
+        
+            <h4>Define Variables</h4>
+            
+            <p>Select variable namespaces and then set the values of the individual variables to customize. Each variable includes a brief functional description and its WebBlocks default value (although this may be influenced if any extensions are included as well). Leave a field blank to accept the default value.</p>
+            
+            <div class="message warning"><strong>NOTE</strong> This tool does not include an exhaustive list of all variables, particularly those around color; however, while deeper customization may be possible by defining your own <code>_variables.scss</code> file, this tool provides the vast majority of commonly-used variables.</div>
+            
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Breakpoint</label>
+                    <p>Variables that define the browser sizes when the structure reflows.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('breakpoint-xxsmall') %>
+                <%= DOC.vars.sass.render_control('breakpoint-xsmall') %>
+                <%= DOC.vars.sass.render_control('breakpoint-small') %>
+                <%= DOC.vars.sass.render_control('breakpoint-medium-small') %>
+                <%= DOC.vars.sass.render_control('breakpoint-medium') %>
+                <%= DOC.vars.sass.render_control('breakpoint-medium-large') %>
+                <%= DOC.vars.sass.render_control('breakpoint-large') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Structure</label>
+                    <p>Variables that define the behaviors of the container and grid.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('structure-container-gutter') %>
+                <%= DOC.vars.sass.render_control('structure-container-width-max') %>
+                <%= DOC.vars.sass.render_control('structure-panels') %>
+                <%= DOC.vars.sass.render_control('structure-panel-gutter') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Type</label>
+                    <p>Variables that define typographical presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('type-font-family') %>
+                <%= DOC.vars.sass.render_control('type-font-size') %>
+                <%= DOC.vars.sass.render_control('type-font-size-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h1') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h1-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h2') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h2-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h3') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h3-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h4') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h4-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h5') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h5-small') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h6') %>
+                <%= DOC.vars.sass.render_control('type-font-size-h6-small') %>
+                <%= DOC.vars.sass.render_control('type-line-height') %>
+                <%= DOC.vars.sass.render_control('type-line-height-heading') %>
+                <%= DOC.vars.sass.render_control('type-line-spacing') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Color</label>
+                    <p>Variables that define branding and mood colors and the color generators.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('color-body-background') %>
+                <%= DOC.vars.sass.render_control('color-body-background-text') %>
+                <%= DOC.vars.sass.render_control('color-body-link-text') %>
+                <%= DOC.vars.sass.render_control('color-body-link-hover-text') %>
+                <%= DOC.vars.sass.render_control('color-branding-default') %>
+                <%= DOC.vars.sass.render_control('color-branding-primary') %>
+                <%= DOC.vars.sass.render_control('color-branding-secondary') %>
+                <%= DOC.vars.sass.render_control('color-branding-tertiary') %>
+                <%= DOC.vars.sass.render_control('color-branding-neutral') %>
+                <%= DOC.vars.sass.render_control('color-mood-info') %>
+                <%= DOC.vars.sass.render_control('color-mood-success') %>
+                <%= DOC.vars.sass.render_control('color-mood-warning') %>
+                <%= DOC.vars.sass.render_control('color-mood-error') %>
+                <%= DOC.vars.sass.render_control('color-mood-danger') %>
+                <%= DOC.vars.sass.render_control('color-mood-important') %>
+                <%= DOC.vars.sass.render_control('color-mood-inverse') %>
+                <%= DOC.vars.sass.render_control('color-mood-required') %>
+                <%= DOC.vars.sass.render_control('color-mood-highlight') %>
+                <%= DOC.vars.sass.render_control('color-text-brightness') %>
+                <%= DOC.vars.sass.render_control('color-contrast-body') %>
+                <%= DOC.vars.sass.render_control('color-background-light-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-dark-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-shadow-light-brightness') %>
+                <%= DOC.vars.sass.render_control('color-background-shadow-dark-brightness') %>
+                <%= DOC.vars.sass.render_control('color-light-border-brightness') %>
+                <%= DOC.vars.sass.render_control('color-dark-border-brightness') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt-text') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk-text') %>
+                <%= DOC.vars.sass.render_control('color-grade-lt-text-body') %>
+                <%= DOC.vars.sass.render_control('color-grade-dk-text-body') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold-light') %>
+                <%= DOC.vars.sass.render_control('color-contrast-threshold-dark') %>
+                
+                <p class="text-warning">NOTE: This configuration tool not include the "Individual Color Computation" or "Individual Color Values" variables, given the enormity of the set. To customize the individual values of individual colors at this granularity, please see <a href="#API/Base/Color" target="_blank">API/Base/Color</a>.</p>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Button</label>
+                    <p>Variables that define button presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('button-border-radius-multiplier') %>
+                <%= DOC.vars.sass.render_control('button-border-radius-multiplier-default') %>
+                <%= DOC.vars.sass.render_control('button-border-radius-multiplier-large') %>
+                <%= DOC.vars.sass.render_control('button-border-radius-multiplier-mini') %>
+                <%= DOC.vars.sass.render_control('button-border-radius-multiplier-small') %>
+                <%= DOC.vars.sass.render_control('button-cursor') %>
+                <%= DOC.vars.sass.render_control('button-font-size-default') %>
+                <%= DOC.vars.sass.render_control('button-font-size-large') %>
+                <%= DOC.vars.sass.render_control('button-font-size-mini') %>
+                <%= DOC.vars.sass.render_control('button-font-size-small') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-default-horizontal') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-default-vertical') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-horizontal') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-large-horizontal') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-large-vertical') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-mini-horizontal') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-mini-vertical') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-small-horizontal') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-small-vertical') %>
+                <%= DOC.vars.sass.render_control('button-padding-multiplier-vertical') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Form</label>
+                    <p>Variables that define form presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('form-horizontal-offset') %>
+                <%= DOC.vars.sass.render_control('form-input-background-color') %>
+                <%= DOC.vars.sass.render_control('form-input-border-color') %>
+                <%= DOC.vars.sass.render_control('form-input-border-radius') %>
+                <%= DOC.vars.sass.render_control('form-input-size') %>
+                <%= DOC.vars.sass.render_control('form-input-size-large') %>
+                <%= DOC.vars.sass.render_control('form-input-size-mini') %>
+                <%= DOC.vars.sass.render_control('form-input-size-small') %>
+                <%= DOC.vars.sass.render_control('form-input-text-color') %>
+                <%= DOC.vars.sass.render_control('form-input-uneditable-background-color') %>
+                <%= DOC.vars.sass.render_control('form-input-uneditable-border-color') %>
+                <%= DOC.vars.sass.render_control('form-input-uneditable-text-color') %>
+                <%= DOC.vars.sass.render_control('form-legend-border-color') %>
+                <%= DOC.vars.sass.render_control('form-legend-color') %>
+                <%= DOC.vars.sass.render_control('form-legend-small-color') %>
+                <%= DOC.vars.sass.render_control('form-placeholder-text-color') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Table</label>
+                    <p>Variables that define table presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('table-border-color') %>
+                <%= DOC.vars.sass.render_control('table-bordered-border-radius') %>
+                <%= DOC.vars.sass.render_control('table-caption-text-color') %>
+                <%= DOC.vars.sass.render_control('table-cell-padding') %>
+                <%= DOC.vars.sass.render_control('table-condensed-cell-padding') %>
+                <%= DOC.vars.sass.render_control('table-hover-background-color') %>
+                <%= DOC.vars.sass.render_control('table-striped-background-color') %>
+                
+            </div>
+                
+        </div>
+        
+        <div class="row">
+            
+            <div class="panel-4">
+        
+                <div class="control">
+                    <label><input type="checkbox"> Blockquote</label>
+                    <p>Variables that define blockquote presentation.</p>
+                </div>
+
+            </div>
+            
+            <div class="panel-8" style="display:none">
+                
+                <%= DOC.vars.sass.render_control('blockquote-small-color') %>
+                <%= DOC.vars.sass.render_control('blockquote-border-color') %>
+                
+            </div>
+                
+        </div>
+        
+    </fieldset>
+    
+    <p><input type="submit" class="info button" value="Create Configuration File"></p>
+	
+	<div id="output-vars" style="display:none; padding-top:0.5em;">
+
+		<div class="control">
+			<textarea class="full" id="sass-vars" style="height:6em"></textarea>
+            <p>This code should be placed in <code>/src/sass/_variables.scss</code></p>
+		</div>
+
+		<div class="control">
+			<textarea class="full" id="json-vars" style="height:6em;display:none;"></textarea>
+		</div>
+	
+	</div>
+    
+</form>
+    
+<script type="text/javascript">
+    $('#variables-sections > .row > .panel-8').hide()
+    $('#variables-sections > .row > .panel-4 input[type=checkbox]').change(function(){
+        if($(this).attr('checked'))
+            $(this).closest('.panel-4').siblings(':not(:visible)').slideDown()
+        else{
+            var visible = $(this).closest('.panel-4').siblings(':visible')
+            visible.slideUp(function(){
+                visible.find('input[type=text]').val('')
+            })
+        }
+    })
+    $('#variables-sections input[type=text]').change(function(){
+        if($.trim($(this).val().length) > 0)
+            $(this).css('border-color','#222')
+        else
+            $(this).css('border-color','')
+    })
+    $('#sass-variables-form').submit(function(e){
+		e.preventDefault()
+        
+        $('#output-vars').show()
+		$('#output-vars textarea').val('')
+        
+        var vs = {}
+        $(this).find('input[type=text]').each(function(){
+            var v = $.trim($(this).val())
+            if(!v.length)
+                return;
+            vs[$(this).attr('name')] = v
+        })
+        
+        $('#json-vars').val(JSON.stringify(vs))
+        
+        var lines = []
+        $.each(vs, function(k,v){
+            lines.push('$'+k+': '+v+' !default;')
+        })
+        $('#sass-vars').val(lines.join('\n'))
+    })
+</script>
+
+<style>
+    #variables-sections .control p {
+        font-size: 0.93em;
+    }
+    #variables-sections .panel-4 .control label {
+        font-size: 1.2em;
+    }
+    #variables-sections input {
+        margin-bottom: 4px;
+    }
+    #variables-sections .panel-4 .control p {
+        padding-left: 22px;
+    }
+    #variables-sections .row {
+        margin-bottom: 1em;
+        border-bottom: 1px solid #ccc;
+    }
+</style>
+

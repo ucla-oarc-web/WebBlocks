@@ -1,0 +1,7 @@
+a.text-link-light {
+    @include -base-color-require-text-link-light;
+}
+
+a.text-link-dark {
+    @include -base-color-require-text-link-dark;
+}

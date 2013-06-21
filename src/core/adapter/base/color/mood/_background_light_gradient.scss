@@ -1,6 +1,7 @@
 @import "compass";
 
 @mixin -base-color-mood-info-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-info-background-light-text;
     text-shadow: $color-mood-info-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-info-background-light, 
@@ -8,6 +9,7 @@
 }
 
 @mixin -base-color-mood-important-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-important-background-light-text;
     text-shadow: $color-mood-important-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-important-background-light, 
@@ -15,6 +17,7 @@
 }
 
 @mixin -base-color-mood-success-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-success-background-light-text;
     text-shadow: $color-mood-success-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-success-background-light, 
@@ -22,36 +25,42 @@
 }
 
 @mixin -base-color-mood-warning-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-warning-background-light-text;
     text-shadow: $color-mood-warning-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-warning-background-light, $color-mood-warning-background-light-shadow));
 }
 
 @mixin -base-color-mood-error-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-error-background-light-text;
     text-shadow: $color-mood-error-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-error-background-light, $color-mood-error-background-light-shadow));
 }
 
 @mixin -base-color-mood-danger-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-danger-background-light-text;
     text-shadow: $color-mood-danger-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-danger-background-light, $color-mood-danger-background-light-shadow));
 }
 
 @mixin -base-color-mood-inverse-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-inverse-background-light-text;
     text-shadow: $color-mood-inverse-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-inverse-background-light, $color-mood-inverse-background-light-shadow));
 }
 
 @mixin -base-color-mood-highlight-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-highlight-background-light-text;
     text-shadow: $color-mood-highlight-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-highlight-background-light, $color-mood-highlight-background-light-shadow));
 }
 
 @mixin -base-color-mood-required-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-mood-required-background-light-text;
     text-shadow: $color-mood-required-background-light-text-shadow;
     @include background-image(linear-gradient($color-mood-required-background-light, $color-mood-required-background-light-shadow));

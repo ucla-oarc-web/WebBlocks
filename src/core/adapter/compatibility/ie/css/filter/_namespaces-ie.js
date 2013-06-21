@@ -1,0 +1,1 @@
+Blocks.IE.css.filter = {};

@@ -1,0 +1,62 @@
+@mixin -base-color-mood-info-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-info-background, $color-mood-info-background-shadow), 
+                         -color-select-first-if-light($color-mood-info-background-shadow, $color-mood-info-background), 
+                         $color-mood-info-background-text, 
+                         $color-mood-info-background-text-shadow);
+}
+
+@mixin -base-color-mood-important-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-important-background, $color-mood-important-background-shadow), 
+                         -color-select-first-if-light($color-mood-important-background-shadow, $color-mood-important-background), 
+                         $color-mood-important-background-text, 
+                         $color-mood-important-background-text-shadow);
+}
+
+@mixin -base-color-mood-success-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-success-background, $color-mood-success-background-shadow), 
+                         -color-select-first-if-light($color-mood-success-background-shadow, $color-mood-success-background), 
+                         $color-mood-success-background-text, 
+                         $color-mood-success-background-text-shadow);
+}
+
+@mixin -base-color-mood-warning-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-warning-background, $color-mood-warning-background-shadow), 
+                         -color-select-first-if-light($color-mood-warning-background-shadow, $color-mood-warning-background), 
+                         $color-mood-warning-background-text, 
+                         $color-mood-warning-background-text-shadow);
+}
+
+@mixin -base-color-mood-error-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-error-background, $color-mood-error-background-shadow), 
+                         -color-select-first-if-light($color-mood-error-background-shadow, $color-mood-error-background), 
+                         $color-mood-error-background-text, 
+                         $color-mood-error-background-text-shadow);
+}
+
+@mixin -base-color-mood-danger-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-danger-background, $color-mood-danger-background-shadow), 
+                         -color-select-first-if-light($color-mood-danger-background-shadow, $color-mood-danger-background), 
+                         $color-mood-danger-background-text, 
+                         $color-mood-danger-background-text-shadow);
+}
+
+@mixin -base-color-mood-inverse-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-inverse-background, $color-mood-inverse-background-shadow), 
+                         -color-select-first-if-light($color-mood-inverse-background-shadow, $color-mood-inverse-background), 
+                         $color-mood-inverse-background-text, 
+                         $color-mood-inverse-background-text-shadow);
+}
+
+@mixin -base-color-mood-highlight-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-highlight-background, $color-mood-highlight-background-shadow), 
+                         -color-select-first-if-light($color-mood-highlight-background-shadow, $color-mood-highlight-background), 
+                         $color-mood-highlight-background-text, 
+                         $color-mood-highlight-background-text-shadow);
+}
+
+@mixin -base-color-mood-required-background-gradient-ie {
+    @include gradientBarSimpleFilter(-color-select-first-if-light($color-mood-required-background, $color-mood-required-background-shadow), 
+                         -color-select-first-if-light($color-mood-required-background-shadow, $color-mood-required-background), 
+                         $color-mood-required-background-text, 
+                         $color-mood-required-background-text-shadow);
+}

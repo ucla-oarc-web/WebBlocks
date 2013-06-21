@@ -1,0 +1,5 @@
+<div class="control">
+    <label for="<%= input_id %>"><%= label_text %></label>
+    <input type="<%= input_type %>" name="<%= input_name %>" id="<%= input_id %>" aria-describedby="<%= input_id %>-help" placeholder="<%= input_value.replace(/"/gi, '&quot;') %>"<%= input_value.length > 30 ? 'class="full"' : '' %>>
+    <p id="<%= input_id %>-help"><%= help_text %></p>
+</div>

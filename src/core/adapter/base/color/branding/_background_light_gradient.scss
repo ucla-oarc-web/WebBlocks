@@ -1,6 +1,7 @@
 @import "compass";
 
 @mixin -base-color-branding-default-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-branding-default-background-light-text;
     text-shadow: $color-branding-default-background-light-text-shadow;
     @include background-image(linear-gradient($color-branding-default-background-light, 
@@ -9,6 +10,7 @@
 
 
 @mixin -base-color-branding-primary-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-branding-primary-background-light-text;
     text-shadow: $color-branding-primary-background-light-text-shadow;
     @include background-image(linear-gradient($color-branding-primary-background-light, 
@@ -17,6 +19,7 @@
 
 
 @mixin -base-color-branding-secondary-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-branding-secondary-background-light-text;
     text-shadow: $color-branding-secondary-background-light-text-shadow;
     @include background-image(linear-gradient($color-branding-secondary-background-light, 
@@ -25,6 +28,7 @@
 
 
 @mixin -base-color-branding-tertiary-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-branding-tertiary-background-light-text;
     text-shadow: $color-branding-tertiary-background-light-text-shadow;
     @include background-image(linear-gradient($color-branding-tertiary-background-light, 
@@ -33,6 +37,7 @@
 
 
 @mixin -base-color-branding-neutral-background-light-gradient {
+    $experimental-support-for-svg: true;
     color: $color-branding-neutral-background-light-text;
     text-shadow: $color-branding-neutral-background-light-text-shadow;
     @include background-image(linear-gradient($color-branding-neutral-background-light, 

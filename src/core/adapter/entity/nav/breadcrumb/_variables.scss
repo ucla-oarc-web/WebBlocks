@@ -1,0 +1,24 @@
+$nav-breadcrumb-background-color:	-color-select-first-if-light(
+                                        $color-branding-neutral-background-light-shadow,
+                                        $color-branding-neutral-background-dark-shadow
+                                    ) !default;
+$nav-breadcrumb-border-radius:		4px !default;
+$nav-breadcrumb-item-link-color:	#08C !default;
+$nav-breadcrumb-item-shadow-color:	-color-select-first-if-light(
+                                        $color-branding-neutral-background-light,
+                                        $color-branding-neutral-background-dark
+                                    ) !default;
+$nav-breadcrumb-active-color:		desaturate(
+                                        -color-select-first-if-light(
+                                            lighten($color-branding-neutral-background-light-text, 10%),
+                                            darken($color-branding-neutral-background-dark-text, 10%)
+                                        ), 
+                                        100%
+                                    ) !default;
+$nav-breadcrumb-divider-color:		desaturate(
+                                        -color-select-first-if-light(
+                                            lighten($color-branding-neutral-background-light-text, 40%),
+                                            darken($color-branding-neutral-background-dark-text, 40%)
+                                        ), 
+                                        100%
+                                    ) !default;

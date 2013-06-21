@@ -1,0 +1,34 @@
+@mixin -base-color-branding-default-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-branding-default-background-dark-shadow, 
+                         $color-branding-default-background-dark, 
+                         $color-branding-default-background-dark-text, 
+                         $color-branding-default-background-dark-text-shadow);
+}
+
+@mixin -base-color-branding-primary-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-branding-primary-background-dark-shadow, 
+                         $color-branding-primary-background-dark, 
+                         $color-branding-primary-background-dark-text, 
+                         $color-branding-primary-background-dark-text-shadow);
+}
+
+@mixin -base-color-branding-secondary-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-branding-secondary-background-dark-shadow, 
+                         $color-branding-secondary-background-dark, 
+                         $color-branding-secondary-background-dark-text, 
+                         $color-branding-secondary-background-dark-text-shadow);
+}
+
+@mixin -base-color-branding-tertiary-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-branding-tertiary-background-dark-shadow, 
+                         $color-branding-tertiary-background-dark, 
+                         $color-branding-tertiary-background-dark-text, 
+                         $color-branding-tertiary-background-dark-text-shadow);
+}
+
+@mixin -base-color-branding-neutral-background-dark-gradient-ie {
+    @include gradientBarSimpleFilter($color-branding-neutral-background-dark-shadow, 
+                         $color-branding-neutral-background-dark, 
+                         $color-branding-neutral-background-dark-text, 
+                         $color-branding-neutral-background-dark-text-shadow);
+}

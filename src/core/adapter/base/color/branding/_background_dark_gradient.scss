@@ -1,0 +1,43 @@
+@import "compass";
+
+@mixin -base-color-branding-default-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-branding-default-background-dark-text;
+    text-shadow: $color-branding-default-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-branding-default-background-dark-shadow, 
+                                              $color-branding-default-background-dark));   
+}
+
+@mixin -base-color-branding-primary-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-branding-primary-background-dark-text;
+    text-shadow: $color-branding-primary-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-branding-primary-background-dark-shadow, 
+                                              $color-branding-primary-background-dark));   
+}
+
+@mixin -base-color-branding-secondary-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-branding-secondary-background-dark-text;
+    text-shadow: $color-branding-secondary-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-branding-secondary-background-dark-shadow, 
+                                              $color-branding-secondary-background-dark));   
+}
+
+
+@mixin -base-color-branding-tertiary-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-branding-tertiary-background-dark-text;
+    text-shadow: $color-branding-tertiary-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-branding-tertiary-background-dark-shadow, 
+                                              $color-branding-tertiary-background-dark));   
+}
+
+
+@mixin -base-color-branding-neutral-background-dark-gradient {
+    $experimental-support-for-svg: true;
+    color: $color-branding-neutral-background-dark-text;
+    text-shadow: $color-branding-neutral-background-dark-text-shadow;
+    @include background-image(linear-gradient($color-branding-neutral-background-dark-shadow, 
+                                              $color-branding-neutral-background-dark));   
+}

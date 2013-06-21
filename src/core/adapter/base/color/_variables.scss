@@ -10,6 +10,14 @@
     }
 }
 
+@function -color-contrast-above($bg, $threshold) {
+    @if( ( red($bg)*299 + green($bg)*587 + blue($bg)*114 ) / 1000 >= ($threshold/100%)*255 ) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
 @function -color-generate-with-lightness($color, $lightness){
     @return hsl(hue($color), saturation($color), $lightness)
 }
@@ -21,37 +29,160 @@
 $color-grade-dk: 10% !default;
 $color-grade-lt: 10% !default;
 $color-grade-dk-text: 80% !default;
-$color-grade-lt-text: 93% !default;
+$color-grade-lt-text: 87% !default;
+$color-contrast-threshold: 50% !default;
+
 $color-text-brightness: 40% !default;
-$color-background-light-brightness: 95% !default;
+
+$color-link-light: #fff !default;
+$color-link-light-opacity: 0.85;
+$color-link-light-hover-opacity: 1.00;
+$color-link-dark: #000f33 !default;
+$color-link-dark-opacity: 0.85;
+$color-link-dark-hover-opacity: 1.00;
+
+$color-background-light-brightness: 92% !default;
 $color-background-shadow-light-brightness: 85% !default;
-$color-light-border-brightness: 60% !default;
-$color-contrast-threshold: 65% !default;
+$color-light-border-brightness: 70% !default;
+$color-contrast-threshold-light: $color-contrast-threshold !default;
+
+$color-background-dark-brightness: 14% !default;
+$color-background-shadow-dark-brightness: 18% !default;
+$color-dark-border-brightness: 35% !default;
+$color-contrast-threshold-dark: $color-contrast-threshold !default;
 
 /**
- * Specialized tweaks for particular brandings and moods
+ * Body color variable definitions.
  */
 
-$color-branding-default-text-brightness: 5% !default;
+$color-body-background: #fff !default;
 
-$color-mood-inverse-background-light-brightness: 40% !default;
-$color-mood-inverse-background-shadow-light-brightness: 30% !default;
-$color-mood-inverse-light-border-brightness: 30% !default;
+$color-contrast-threshold-body: $color-contrast-threshold !default;
+$color-grade-lt-text-body: $color-grade-lt-text !default;
+$color-grade-dk-text-body: $color-grade-dk-text !default;
 
-$color-mood-required: #a00 !default;
-$color-mood-required-background-light-brightness: $color-background-light-brightness !default;
-$color-mood-required-text-dark: $color-mood-required !default;
-$color-mood-required-text-light: -color-generate-with-lightness(
+$color-body-background-text: -color-select-contrast-text(
+                                $color-body-background, 
+                                shade($color-body-background, $color-grade-dk-text), 
+                                tint($color-body-background, $color-grade-lt-text), 
+                                $color-contrast-threshold-body
+                            )  !default;
+                                
+$color-body-light: -color-contrast-above(
+                        $color-body-background, 
+                        $color-contrast-threshold-body
+                    ) !default;
+
+
+@function -color-select-first-if-light($first, $second){
+    @if $color-body-light {
+        @return $first;
+    } @else {
+        @return $second;
+    }
+}
+
+@function -darken-if-light-or-else-lighten($color, $percent){
+    @if $color-body-light {
+        @return darken($color, $percent);
+    } @else {
+        @return lighten($color, $percent);
+    }
+}
+
+@function -lighten-if-light-or-else-darken($color, $percent){
+    @if $color-body-light {
+        @return lighten($color, $percent);
+    } @else {
+        @return darken($color, $percent);
+    }
+}
+                                
+$color-body-link-text: -color-select-first-if-light(#143075, #95a4ca);
+$color-body-link-hover-text: -color-select-first-if-light(#44557d, #d0d5e2);
+
+/**
+ * Specialized tweaks for particular brandings and moods, using a hack to
+ * only set these values if they have not explicitly been set by the user.
+ */
+
+$color-branding-default-text-brightness: null !default;
+@if $color-branding-default-text-brightness == null {
+    $color-branding-default-text-brightness: -color-select-first-if-light(5%, 95%) !default;
+}
+
+$color-branding-default-background-light-brightness: null !default;
+@if $color-branding-default-background-light-brightness == null {
+    $color-branding-default-background-light-brightness: -color-select-first-if-light(99%, $color-background-light-brightness) !default;
+}
+
+$color-branding-default-background-shadow-light-brightness: null !default;
+@if $color-branding-default-background-shadow-light-brightness == null {
+    $color-branding-default-background-shadow-light-brightness: -color-select-first-if-light(96%, $color-background-shadow-light-brightness) !default;
+}
+
+$color-mood-inverse-background-light-brightness: null !default;
+@if $color-mood-inverse-background-light-brightness == null {
+    $color-mood-inverse-background-light-brightness:  -color-select-first-if-light(40%, 96%) !default;
+}
+
+$color-mood-inverse-background-shadow-light-brightness: null !default;
+@if $color-mood-inverse-background-shadow-light-brightness == null {
+    $color-mood-inverse-background-shadow-light-brightness:  -color-select-first-if-light(30%, 100%) !default;
+}
+
+$color-mood-inverse-light-border-brightness: null !default;
+@if $color-mood-inverse-light-border-brightness == null {
+    $color-mood-inverse-light-border-brightness: -color-select-first-if-light(20%, 100%) !default;
+}
+
+
+
+
+
+
+$color-mood-required: null !default;
+@if $color-mood-required == null {
+    $color-mood-required: #a00 !default;
+}
+
+$color-mood-required-background-light-brightness: null !default;
+@if $color-mood-required-background-light-brightness == null {
+    $color-mood-required-background-light-brightness: $color-background-light-brightness !default;
+}
+
+$color-mood-required-text-dark: null !default;
+@if $color-mood-required-text-dark == null {
+    $color-mood-required-text-dark: $color-mood-required !default;
+}
+
+$color-mood-required-text-light: null !default;
+@if $color-mood-required-text-light == null {
+    $color-mood-required-text-light: -color-generate-with-lightness(
                                         $color-mood-required,
                                         $color-mood-required-background-light-brightness
                                  ) !default;
-$color-mood-required-background-light-brightness: 100% !default;
-$color-mood-required-background-shadow-light-brightness: 95% !default;
-$color-mood-required-foreground-text:    -color-generate-with-lightness(
+}
+
+$color-mood-required-background-light-brightness: null !default;
+@if $color-mood-required-background-light-brightness == null {
+    $color-mood-required-background-light-brightness: 100% !default;
+}
+
+$color-mood-required-background-shadow-light-brightness: null !default;
+@if $color-mood-required-background-shadow-light-brightness == null {
+    $color-mood-required-background-shadow-light-brightness: 95% !default;
+}
+
+$color-mood-required-foreground-text: null !default;
+@if $color-mood-required-foreground-text == null {
+    $color-mood-required-foreground-text: -color-generate-with-lightness(
                                                 $color-mood-required, 
                                                 $color-text-brightness
                                         ) !default;
-$color-mood-required: #d8d8d8 !default;
+}
 
-
-
+$color-mood-required: null !default;
+@if $color-mood-required == null {
+    $color-mood-required: #d8d8d8 !default;
+}

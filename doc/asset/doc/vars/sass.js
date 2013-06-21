@@ -182,6 +182,106 @@
             default_value:'4px',
             type:'px'
         },
+        'button-font-size-mini': {
+            description:'defines the font size of .button.mini',
+            default_value:'0.73em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-small': {
+            description:'defines the font size of .button.small',
+            default_value:'0.9em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-default': {
+            description:'defines the font size of .button (without size qualifier)',
+            default_value:'1.0em',
+            type:'em (recommended), px'
+        },
+        'button-font-size-large': {
+            description:'defines the font size of .button.large',
+            default_value:'1.1em',
+            type:'em (recommended), px'
+        },
+        'button-padding-multiplier-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-mini-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.mini, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-mini-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.mini, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-small-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.small, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-small-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.small, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-default-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button (without size qualifier), overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-default-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button (without size qualifier), overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-padding-multiplier-large-horizontal': {
+            description:'defines a multiplier against 1em for horizontal padding of .button.large, overriding $button-padding-multiplier-horizontal',
+            default_value:'1',
+            type:'decimal'
+        },
+        'button-padding-multiplier-large-vertical': {
+            description:'defines a multiplier against 1em for vertical padding of .button.large, overriding $button-padding-multiplier-vertical',
+            default_value:'0.3',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier': {
+            description:'defines a multiplier against 1em for vertical padding of .button',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-mini': {
+            description:'defines a multiplier against 1em for vertical padding of .button.mini, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-small': {
+            description:'defines a multiplier against 1em for vertical padding of .button.small, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-default': {
+            description:'defines a multiplier against 1em for vertical padding of .button (without size qualifier), overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-border-radius-multiplier-large': {
+            description:'defines a multiplier against 1em for vertical padding of .button.large, overriding $button-border-radius-multiplier',
+            default_value:'0.4',
+            type:'decimal'
+        },
+        'button-cursor': {
+            description:'defines the cursor shown when hovered over the button',
+            default_value:'pointer',
+            type:'string'
+        },
         'color-branding-default': {
             description:'defines base for default color',
             default_value:'#eee',
@@ -189,7 +289,7 @@
         },
         'color-branding-primary': {
             description:'defines base for primary color',
-            default_value:'#0a2a77',
+            default_value:'#1b3d90',
             type:'color'
         },
         'color-branding-secondary': {
@@ -205,6 +305,26 @@
         'color-branding-neutral': {
             description:'defines base for neutral color',
             default_value:'#bbb',
+            type:'color'
+        },
+        'color-body-background': {
+            description:'defines body background color',
+            default_value:'#fff',
+            type:'color'
+        },
+        'color-body-background-text': {
+            description:'defines body text color',
+            default_value:'#323232',
+            type:'color'
+        },
+        'color-body-link-text': {
+            description:'defines body link color',
+            default_value:'#143075',
+            type:'color'
+        },
+        'color-body-link-hover-text': {
+            description:'defines body link hover color',
+            default_value:'#44557d',
             type:'color'
         },
         'color-mood-info': {
@@ -263,12 +383,22 @@
             type:'percent'
         },
         'color-grade-dk-text': {
-            description:'percentage text is darkened when background below <code>$color-light-border-brightness</code> brightness',
+            description:'percentage text is darkened when background below <code>$color-contrast-threshold[-light|-dark]</code> brightness',
             default_value:'80%',
             type:'percent'
         },
         'color-grade-lt-text': {
-            description:'percentage text is lightened when background above <code>$color-light-border-brightness</code> brightness',
+            description:'percentage text is lightened when background above <code>$color-contrast-threshold[-light|-dark]</code> brightness',
+            default_value:'93%',
+            type:'percent'
+        },
+        'color-grade-dk-text-body': {
+            description:'percentage body text is darkened when background below <code>$color-contrast-threshold-body</code> brightness',
+            default_value:'80%',
+            type:'percent'
+        },
+        'color-grade-lt-text-body': {
+            description:'percentage body text is lightened when background above <code>$color-contrast-threshold-body</code> brightness',
             default_value:'93%',
             type:'percent'
         },
@@ -279,7 +409,7 @@
         },
         'color-background-light-brightness': {
             description:'brightness percentage for <code>.light</code> background color',
-            default_value:'95%',
+            default_value:'92%',
             type:'percent'
         },
         'color-background-shadow-light-brightness': {
@@ -289,12 +419,47 @@
         },
         'color-light-border-brightness': {
             description:'brightness percentage for light border',
+            default_value:'70%',
+            type:'percent'
+        },
+        'color-background-dark-brightness': {
+            description:'brightness percentage for <code>.dark</code> background color',
+            default_value:'14%',
+            type:'percent'
+        },
+        'color-background-shadow-dark-brightness': {
+            description:'brightness percentage for <code>.dark.gradient</code> shadow color',
+            default_value:'40%',
+            type:'percent'
+        },
+        'color-dark-border-brightness': {
+            description:'brightness percentage for light border',
             default_value:'60%',
             type:'percent'
         },
         'color-contrast-threshold': {
             description:'generic threshold used to select light instead of dark color',
-            default_value:'65%',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-threshold-light': {
+            description:'generic threshold used to select light instead of dark color for light variant',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-threshold-dark': {
+            description:'generic threshold used to select light instead of dark color for dark variant',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-threshold-body': {
+            description:'generic threshold used to select light instead of dark color for body text',
+            default_value:'50%',
+            type:'percent'
+        },
+        'color-contrast-body': {
+            description:'true if color is above <code>$color-constrast-threshold-body</code>; can be set explicitly to true to force light as the basis for fade or false to force dark as the basis for fade',
+            default_value:'true',
             type:'percent'
         },
         'form-horizontal-offset': {
@@ -334,7 +499,7 @@
         },
         'form-input-size-large': {
             description:'size of an <code>input.large</code> within <code>form.form</code>',
-            default_value:'240px',
+            default_value:'300px',
             type:'px, percent'
         },
         'form-input-background-color': {
@@ -381,6 +546,46 @@
             description:'text color for placeholder text of <code>input, textarea, select</code> within <code>form.form</code>',
             default_value:'lighten($form-input-text-color, 40%)',
             type:'color'
+        },
+        'nav-breadcrumb-background-color': {
+            description: 'color used for the background of the element containing the breadcrumb navigation items',
+            default_value: '#F5F5F5',
+            type: 'color'
+        },
+        'nav-breadcrumb-border-radius': {
+            description: 'border radius of the element containing the breadcrumb navigation items',
+            default_value: '4px',
+            type: 'px'
+        },
+        'nav-breadcrumb-item-link-color': {
+            description: 'color of the links within the breadcrumb navigation',
+            default_value: '#08C',
+            type: 'color'
+        },
+        'nav-breadcrumb-item-shadow-color': {
+            description: 'color of the text shadow on the breadcrumb navigation item text',
+            default_value: '#FFF',
+            type: 'color'
+        },
+        'nav-breadcrumb-active-color': {
+            description: 'text color of the active breadcrumb navigation item',
+            default_value: '#333',
+            type: 'color'
+        },
+        'nav-breadcrumb-divider-color': {
+            description: 'text color of the dividers within breadcrumb navigation',
+            default_value: '#CCC',
+            type: 'color'
+        },
+        'blockquote-small-color': {
+            description: 'color of text in blockquote wrapped by &lt;small&gt; tags',
+            default_value: '#666',
+            type: 'color'
+        },
+        'blockquote-border-color': {
+            description: 'text color of the dividers within breadcrumb navigation',
+            default_value: '#b3b3b3',
+            type: 'color'
         }
     }
     
@@ -395,12 +600,36 @@
             vars_rendered.push(DOC.vars.sass.render(vars_list[i]))
         return vars_rendered
     }
+    
+    DOC.vars.sass.get_all = function(){
+        return $.extend(true, {}, sass_vars)
+    }
+    
+    DOC.vars.sass.get = function(name){
+        return $.extend(true, {}, sass_vars[name])
+    }
 
     DOC.vars.sass.render = function(name){
         var variableView = new EJS({url: 'component/variable.ejs'}), 
             data = sass_vars[name]
         data.name = name
         return variableView.render(data)
+    }
+    
+    DOC.vars.sass.render_control = function(name){
+        var controlView = new EJS({url: 'component/control.ejs'}), 
+            data = {}
+        data.label_text = name
+        data.input_type = 'text'
+        data.input_name = name
+        data.input_id = name
+        data.input_value = typeof sass_vars[name]['default_value'] != 'undefined'
+                           ? sass_vars[name]['default_value']
+                           : ''
+        data.help_text = sass_vars[name].description;
+        if(typeof sass_vars[name]['default_value'] != 'undefined')
+            data.help_text += ' [default: '+sass_vars[name]['default_value']+']'
+        return controlView.render(data)
     }
     
 })();

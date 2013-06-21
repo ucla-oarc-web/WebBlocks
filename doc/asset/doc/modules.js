@@ -82,6 +82,15 @@
 			'Base/Color': {
 				description:'Defines a set of brand-related and mood-related colors for text and backgrounds'
 			},
+			'Base/Color/Body': {
+				description:'Defines body background and text colors',
+				uses:[
+					'color-body-background',
+					'color-body-background-text',
+					'color-body-link-text',
+					'color-body-link-hover-text'
+				]
+			},
 			'Base/Color/Branding': {
 				description:'Defines a set of brand-related colors for text and backgrounds'
 			},
@@ -94,6 +103,24 @@
 					'.neutral':'Neutral brand background color',
 					'.gradient':'Applies gradient to brand background color'
 				},
+				supports: [
+					'.primary a',
+					'.secondary a',
+					'.tertiary a',
+					'.neutral a'
+				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background-text',
+                    'color-branding-[BRAND]-background-shadow',
+                    'color-branding-[BRAND]-border',
+                    'color-branding-[BRAND]-background-text-shadow',
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Branding/Background_Gradient': {
@@ -107,6 +134,12 @@
 				requires: [
 					'Base/Color/Branding/Background'
 				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background',
+                    'color-branding-[BRAND]-background-shadow',
+                    'color-grade-lt'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Branding/Background_Light': {
@@ -117,6 +150,28 @@
 					'.tertiary.light':'Light tertiary brand background color',
 					'.neutral.light':'Light neutral brand background color'
 				},
+				supports: [
+					'.primary.light a',
+					'.secondary.light a',
+					'.tertiary.light a',
+					'.neutral.light a'
+				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background-light-text',
+                    'color-branding-[BRAND]-background-light-shadow',
+                    'color-branding-[BRAND]-light-border',
+                    'color-branding-[BRAND]-background-light-text-shadow',
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold',
+                    'color-background-light-brightness',
+                    'color-background-shadow-light-brightness',
+                    'color-light-border-brightness',
+                    'color-contrast-threshold-light'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Branding/Background_Light_Gradient': {
@@ -130,6 +185,67 @@
 				requires: [
 					'Base/Color/Branding/Background_Light'
 				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background-light',
+                    'color-branding-[BRAND]-background-light-shadow',
+                    'color-branding-[BRAND]-background-light-text',
+                    'color-branding-[BRAND]-background-light-text-shadow',
+                    'color-grade-lt'
+                ],
+				api:'Base/Color'
+			},
+			'Base/Color/Branding/Background_Dark': {
+				description:'Defines a set of dark color classes that may be used for brand-related background colors.',
+				defines:{
+					'.primary.dark':'Dark primary brand background color',
+					'.secondary.dark':'Dark secondary brand background color',
+					'.tertiary.dark':'Dark tertiary brand background color',
+					'.neutral.dark':'Dark neutral brand background color'
+				},
+				supports: [
+					'.primary.dark a',
+					'.secondary.dark a',
+					'.tertiary.dark a',
+					'.neutral.dark a'
+				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background-dark-text',
+                    'color-branding-[BRAND]-background-dark-shadow',
+                    'color-branding-[BRAND]-dark-border',
+                    'color-branding-[BRAND]-background-dark-text-shadow',
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold',
+                    'color-background-dark-brightness',
+                    'color-background-shadow-dark-brightness',
+                    'color-dark-border-brightness',
+                    'color-contrast-threshold-dark'
+                ],
+				api:'Base/Color'
+			},
+			'Base/Color/Branding/Background_Dark_Gradient': {
+				description:'Defines a set of dark gradient color classes that may be used for brand-related background colors.',
+				defines:{
+					'.primary.dark.gradient':'Dark primary gradient brand background color',
+					'.secondary.dark.gradient':'Dark secondary gradient brand background color',
+					'.tertiary.dark.gradient':'Dark tertiary gradient brand background color',
+					'.neutral.dark.gradient':'Dark neutral gradient brand background color'
+				},
+				requires: [
+					'Base/Color/Branding/Background_Dark'
+				],
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-background-dark',
+                    'color-branding-[BRAND]-background-dark-shadow',
+                    'color-branding-[BRAND]-background-dark-text',
+                    'color-branding-[BRAND]-background-dark-text-shadow',
+                    'color-grade-lt'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Branding/Text': {
@@ -140,6 +256,12 @@
 					'.text-tertiary':'Tertiary brand text color',
 					'.text-neutral':'Neutral brand text color'
 				},
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-text-brightness',
+                    'color-branding-[BRAND]-foreground-text',
+                    'color-text-brightness'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Mood': {
@@ -158,6 +280,29 @@
 					'.required':'Required mood background color',
 					'.highlight':'Highlight mood background color'
 				},
+				supports: [
+					'.info a',
+					'.success a',
+					'.warning a',
+					'.error a',
+					'.danger a',
+					'.important a',
+					'.inverse a',
+					'.required a',
+                    '.highlight a'
+				],
+                uses: [
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background-text',
+                    'color-mood-[MOOD]-background-shadow',
+                    'color-mood-[MOOD]-border',
+                    'color-mood-[MOOD]-background-text-shadow'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Mood/Background_Gradient': {
@@ -173,6 +318,12 @@
 					'.required.gradient':'Required gradient mood background color',
 					'.highlight.gradient':'Highlight gradient mood background color'
 				},
+                uses: [
+                    'color-grade-lt',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background',
+                    'color-mood-[MOOD]-background-shadow'
+                ],
 				requires: [
 					'Base/Color/Mood/Background'
 				],
@@ -191,6 +342,33 @@
 					'.required.light':'Light required mood background color',
 					'.highlight.light':'Light highlight mood background color'
 				},
+				supports: [
+					'.info.light a',
+					'.success.light a',
+					'.warning.light a',
+					'.error.light a',
+					'.danger.light a',
+					'.important.light a',
+					'.inverse.light a',
+					'.required.light a',
+                    '.highlight.light a'
+				],
+                uses: [
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold',
+                    'color-background-light-brightness',
+                    'color-background-shadow-light-brightness',
+                    'color-light-border-brightness',
+                    'color-contrast-threshold-light',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background-light-text',
+                    'color-mood-[MOOD]-background-light-shadow',
+                    'color-mood-[MOOD]-light-border',
+                    'color-mood-[MOOD]-background-light-text-shadow'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Mood/Background_Light_Gradient': {
@@ -209,6 +387,82 @@
 				requires: [
 					'Base/Color/Mood/Background_Light'
 				],
+                uses: [
+                    'color-grade-lt',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background-light',
+                    'color-mood-[MOOD]-background-light-shadow',
+                    'color-mood-[MOOD]-background-light-text',
+                    'color-mood-[MOOD]-background-light-text-shadow',
+                ],
+				api:'Base/Color'
+			},
+			'Base/Color/Mood/Background_Dark': {
+				description:'Defines a set of dark color classes that may be used for mood-related background colors.',
+				defines:{
+					'.info.dark':'Dark info mood background color',
+					'.success.dark':'Dark success mood background color',
+					'.warning.dark':'Dark warning mood background color',
+					'.error.dark':'Dark error mood background color',
+					'.danger.dark':'Dark danger mood background color',
+					'.important.dark':'Dark important mood background color',
+					'.inverse.dark':'Dark inverse mood background color',
+					'.required.dark':'Dark required mood background color',
+					'.highdark.dark':'Dark highdark mood background color'
+				},
+				supports: [
+					'.info.dark a',
+					'.success.dark a',
+					'.warning.dark a',
+					'.error.dark a',
+					'.danger.dark a',
+					'.important.dark a',
+					'.inverse.dark a',
+					'.required.dark a',
+                    '.highlight.dark a'
+				],
+                uses: [
+                    'color-grade-dk',
+                    'color-grade-lt',
+                    'color-grade-dk-text',
+                    'color-grade-lt-text',
+                    'color-contrast-threshold',
+                    'color-background-dark-brightness',
+                    'color-background-shadow-dark-brightness',
+                    'color-dark-border-brightness',
+                    'color-contrast-threshold-dark',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background-dark-text',
+                    'color-mood-[MOOD]-background-dark-shadow',
+                    'color-mood-[MOOD]-dark-border',
+                    'color-mood-[MOOD]-background-dark-text-shadow'
+                ],
+				api:'Base/Color'
+			},
+			'Base/Color/Mood/Background_Dark_Gradient': {
+				description:'Defines a set of dark gradient color classes that may be used for mood-related background colors.',
+				defines:{
+					'.info.dark.gradient':'Dark info gradient mood background color',
+					'.success.dark.gradient':'Dark success gradient mood background color',
+					'.warning.dark.gradient':'Dark warning gradient mood background color',
+					'.error.dark.gradient':'Dark error gradient mood background color',
+					'.danger.dark.gradient':'Dark danger gradient mood background color',
+					'.important.dark.gradient':'Dark important gradient mood background color',
+					'.inverse.dark.gradient':'Dark inverse gradient mood background color',
+					'.required.dark.gradient':'Dark required gradient mood background color',
+					'.highdark.dark.gradient':'Dark highdark gradient mood background color'
+				},
+				requires: [
+					'Base/Color/Mood/Background_Dark'
+				],
+                uses: [
+                    'color-grade-lt',
+                    'color-mood-[MOOD]',
+                    'color-mood-[MOOD]-background-dark',
+                    'color-mood-[MOOD]-background-dark-shadow',
+                    'color-mood-[MOOD]-background-dark-text',
+                    'color-mood-[MOOD]-background-dark-text-shadow'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Mood/Text': {
@@ -224,6 +478,12 @@
 					'.text-required':'Required mood text color',
 					'.text-highlight':'Highlight mood text color'
 				},
+                uses: [
+                    'color-branding-[BRAND]',
+                    'color-branding-[BRAND]-text-brightness',
+                    'color-branding-[BRAND]-foreground-text',
+                    'color-text-brightness'
+                ],
 				api:'Base/Color'
 			},
 			'Base/Color/Text': {
@@ -417,6 +677,17 @@
 				},
 				api:'Base/Visibility'
 			},
+			'Base/Visibility/Accessible': {
+				description:'Defines visibility control classes for accessibility tools.'
+			},
+			'Base/Visibility/Accessible/Hide': {
+				description:'Defines a class to hide content visually but not for accessibility tools',
+				defines:{
+					'.hide-accessible':'Hide content except for accessibility tools',
+					'.hide-accessible.focusable':'Hide content except for accessibility tools or when focus is applied'
+				},
+				api:'Base/Visibility'
+			},
 			'Base/Visibility/Media_Query': {
 				description:'Defines visibility control classes for media queries.'
 			},
@@ -473,6 +744,56 @@
 					'breakpoint-large'
 				],
 				api:'Base/Visibility'
+			},     
+			'Compatibility': {
+				description:'Defines a set of compatibility features.'
+			},
+			'Compatibility/IE': {
+				description:'Defines a set of IE compatibility features.'
+			},
+			'Compatibility/IE/Image': {
+				description:'Defines a set of IE compatibility features for images.'
+			},
+			'Compatibility/IE/Image/Scaling': {
+				description:'Adds bicubic scaling for IE 7 and below.',
+				api:'Compatibility'
+			},
+            'Compatibility/IE/CSS': {
+				description:'Defines a set of compatibility features for CSS effects.'
+            },
+            'Compatibility/IE/CSS/Filter': {
+				description:'Defines a set of compatibility features for CSS filter effect.'
+            },
+            'Compatibility/IE/CSS/Filter/Border_Radius': {
+                description:'Defines a method for transparently bypassing the fact that the filter property overrides border-radius.',
+				api:'Compatibility',
+                definesJS: {
+					'Blocks.IE.css.filter.borderRadius()':'Generates a wrapper element inside of the targetted element and moves the filter to it to avoid overriding border-radius.'
+                }
+            },
+			'Compatibility/Support': {
+				description:'Defines a set of methods (and properties on Modernizr) for detecting whether or not WebBlocks features are supported by the browser.',
+				api:'Compatibility',
+                definesJS: {
+					'Blocks.support.required()':'Browser supports all features required for WebBlocks',
+					'Blocks.support.full()':'Browser supports all features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/CSS': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports CSS features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_css_required':'Browser supports all CSS features required for WebBlocks',
+					'Modernizr.blocks_css_full':'Browser supports all CSS features recommended for WebBlocks',
+                }
+			},
+			'Compatibility/Support/HTML': {
+				description:'Defines a set of properties on the Modernizr object for detecting whether or not the browser supports HTML features used by WebBlocks.',
+				api:'Compatibility',
+                definesJS: {
+					'Modernizr.blocks_html_required':'Browser supports all HTML APIs required for WebBlocks',
+					'Modernizr.blocks_html_full':'Browser supports all HTML APIs recommended for WebBlocks',
+                }
 			},
 			'Entity': {
 				description:'Defines a base set of classes for marking up elements.'
@@ -510,6 +831,10 @@
 				supports: [
 					'.text-right'
 				],
+                uses: [
+                    'blockquote-small-color',
+                    'blockquote-border-color'
+                ],
 				api:'Entity/Blockquote'
 			},
 			'Entity/Button': {
@@ -533,6 +858,28 @@
 				},
 				requires: [
 					'Base/Color'
+				],
+				uses:[
+					'button-border-radius-multiplier',
+					'button-border-radius-multiplier-default',
+					'button-border-radius-multiplier-large',
+					'button-border-radius-multiplier-mini',
+					'button-border-radius-multiplier-small',
+                    'button-cursor',
+                    'button-font-size-default',
+                    'button-font-size-large',
+                    'button-font-size-mini',
+                    'button-font-size-small',
+                    'button-padding-multiplier-default-horizontal',
+                    'button-padding-multiplier-default-vertical',
+                    'button-padding-multiplier-horizontal',
+                    'button-padding-multiplier-large-horizontal',
+                    'button-padding-multiplier-large-vertical',
+                    'button-padding-multiplier-mini-horizontal',
+                    'button-padding-multiplier-mini-vertical',
+                    'button-padding-multiplier-small-horizontal',
+                    'button-padding-multiplier-small-vertical',
+                    'button-padding-multiplier-vertical'
 				],
 				supports: [
 					'.button.primary',
@@ -687,6 +1034,23 @@
 				},
 				api:'Entity/Nav/List'
 			},
+			'Entity/Nav/Breadcrumb': {
+			    description: 'Defines a user interface class that provides a breadcrumb-style navigation menu.',
+			    defines: {
+			        'nav.breadcrumb': 'Styles a nav element with an internal list of links.',
+			        'nav.breadcrumb .active': 'An item styled as the "active" or "current" item within the breadcrumb list.',
+			        'nav.breadcrumb .divider': 'A divider glyph used to visually demarcate items within the breadcrumb list.'
+			    },
+			    uses: [
+			        'nav-breadcrumb-background-color',
+			        'nav-breadcrumb-border-radius',
+			        'nav-breadcrumb-item-link-color',
+			        'nav-breadcrumb-item-shadow-color',
+			        'nav-breadcrumb-active-color',
+			        'nav-breadcrumb-divider-color'
+			    ],
+			    api: 'Entity/Nav/Breadcrumb'
+		    },
 			'Entity/Table': {
 				description:'Defines a user interface class that can be used to style a table, representing tabular data.',
 				defines: {
@@ -720,6 +1084,109 @@
 					'table-bordered-border-radius'
 				],
 				api:'Entity/Table'
+			},
+            'Extend': {
+                description:'Defines a set of modules that add functionality that is not part of WebBlocks core. Some of these may be useful in niche contexts, while others may eventually make it into the core namespaces, although possibly with semantic changes.'
+            },
+            'Extend/Base': {
+                description:'Defines a set of modules that are not part of WebBlocks core but add additional foundational structures and functionality.'
+            },
+            'Extend/Base/Color': {
+                definition:'Extends the <code>Base/Color</code> namespace with additional non-core functionality.'
+            },
+            'Extend/Base/Color/Branding': {
+                definition:'Extends the <code>Base/Color/Branding</code> namespace with additional non-core functionality for branding colors.'
+            },
+            'Extend/Base/Color/Mood': {
+                definition:'Extends the <code>Base/Color/Mood</code> namespace with additional non-core functionality for mood colors.'
+            },
+			'Extend/Base/Color/Branding/Background_Fade': {
+				description:'Defines a set of color classes that may be used for brand-related background colors and have the property that they are conditionally light if the background is light or dark if the background is dark.',
+				defines:{
+					'.primary.fade':'Primary brand background color faded against body background',
+					'.secondary.fade':'Secondary brand background color faded against body background',
+					'.tertiary.fade':'Tertiary brand background color faded against body background',
+					'.neutral.fade':'Neutral brand background color faded against body background',
+					'.default.fade':'Default brand background color faded against body background'
+				},
+				requires: [
+					'Base/Color/Branding/Background_Light',
+					'Base/Color/Branding/Background_Light_Gradient',
+					'Base/Color/Branding/Background_Dark',
+					'Base/Color/Branding/Background_Dark_Gradient',
+				],
+                uses: [
+                    'color-body-light'
+                ],
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Mood/Background_Fade': {
+				description:'Defines a set of color classes that may be used for mood-related background colors and have the property that they are conditionally light if the background is light or dark if the background is dark.',
+				defines:{
+					'.info.fade':'Info mood background color faded against body background',
+					'.success.fade':'Success mood background color faded against body background',
+					'.warning.fade':'Warning mood background color faded against body background',
+					'.error.fade':'Error mood background color faded against body background',
+					'.danger.fade':'Danger mood background color faded against body background',
+					'.important.fade':'Important mood background color faded against body background',
+					'.inverse.fade':'Inverse mood background color faded against body background',
+					'.required.fade':'Required mood background color faded against body background',
+					'.highlight.fade':'Highlight mood background color faded against body background'
+				},
+				requires: [
+					'Base/Color/Mood/Background_Light',
+					'Base/Color/Mood/Background_Light_Gradient',
+					'Base/Color/Mood/Background_Dark',
+					'Base/Color/Mood/Background_Dark_Gradient',
+				],
+                uses: [
+                    'color-body-light'
+                ],
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Branding/Background_Emphasize': {
+				description:'Defines a set of color classes that may be used for brand-related background colors and have the property that they are conditionally dark if the background is light or light if the background is dark.',
+				defines:{
+					'.primary.emphasize':'Primary brand background color emphasized against body background',
+					'.secondary.emphasize':'Secondary brand background color emphasized against body background',
+					'.tertiary.emphasize':'Tertiary brand background color emphasized against body background',
+					'.neutral.emphasize':'Neutral brand background color emphasized against body background',
+					'.default.emphasize':'Default brand background color emphasized against body background'
+				},
+				requires: [
+					'Base/Color/Branding/Background_Light',
+					'Base/Color/Branding/Background_Light_Gradient',
+					'Base/Color/Branding/Background_Dark',
+					'Base/Color/Branding/Background_Dark_Gradient',
+				],
+                uses: [
+                    'color-body-light'
+                ],
+				api:'Base/Color'
+			},
+			'Extend/Base/Color/Mood/Background_Emphasize': {
+				description:'Defines a set of color classes that may be used for mood-related background colors and have the property that they are conditionally dark if the background is light or light if the background is dark.',
+				defines:{
+					'.info.emphasize':'Info mood background color emphasized against body background',
+					'.success.emphasize':'Success mood background color emphasized against body background',
+					'.warning.emphasize':'Warning mood background color emphasized against body background',
+					'.error.emphasize':'Error mood background color emphasized against body background',
+					'.danger.emphasize':'Danger mood background color emphasized against body background',
+					'.important.emphasize':'Important mood background color emphasized against body background',
+					'.inverse.emphasize':'Inverse mood background color emphasized against body background',
+					'.required.emphasize':'Required mood background color emphasized against body background',
+					'.highlight.emphasize':'Highlight mood background color emphasized against body background'
+				},
+				requires: [
+					'Base/Color/Mood/Background_Light',
+					'Base/Color/Mood/Background_Light_Gradient',
+					'Base/Color/Mood/Background_Dark',
+					'Base/Color/Mood/Background_Dark_Gradient',
+				],
+                uses: [
+                    'color-body-light'
+                ],
+				api:'Base/Color'
 			}
 		};
 		
@@ -744,6 +1211,12 @@
                 definitions.push(i)
             data.definitions = definitions.join(', ')
         }
+        if(data.definesJS){
+            var definitions_js = []
+            for(var i in data.definesJS)
+                definitions_js.push(i)
+            data.definitions_js = definitions_js.join(', ')
+        }
         return view.render(data)
     }
 
@@ -757,6 +1230,12 @@
             for(var i in data.defines)
                 definitions.push(i)
             data.definitions = definitions.join(', ')
+        }
+        if(data.definesJS){
+            var definitions_js = []
+            for(var i in data.definesJS)
+                definitions_js.push(i)
+            data.definitions_js = definitions_js.join(', ')
         }
         if(data.uses){
             var uses_variables = []

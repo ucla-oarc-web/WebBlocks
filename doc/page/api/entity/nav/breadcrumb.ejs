@@ -1,0 +1,115 @@
+<h2>Breadcrumb</h2>
+
+<p>This library includes a module for a breadcrumb user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Nav/Breadcrumb') %></li>
+</ul>
+
+<div class="examples">
+
+    <h3>Basic Usage</h3>
+
+    <p>The minimal definition is simply a <code>nav.breadcrumb</code> containing a <code>ul</code> or <code>ol</code>.</p>
+
+    <pre class="prettyprint">&lt;nav class="breadcrumb"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <p>The nav breadcrumb renders as a full-width bar within its container.</p>
+
+    <nav class="breadcrumb">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <p>Dividers can be added between the breadcrumb items by adding a <code>span.divider</code> with a character or glyph of your choice.</p>
+   
+    <pre class="prettyprint">&lt;nav class="breadcrumb"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+  
+    <nav class="breadcrumb">
+        <ul>
+            <li><a>Item 1</a> <span class="divider">/</span></li>
+            <li><a>Item 2</a> <span class="divider">/</span></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+  
+    <p>Although recommended, you do not need to include links in the breadcrumb.</p>
+  
+    <pre class="prettyprint">&lt;nav class="breadcrumb"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Item 1 &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;Item 2 &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+  
+     <nav class="breadcrumb">
+        <ul>
+            <li>Item 1 <span class="divider">/</span></li>
+            <li>Item 2 <span class="divider">/</span></li>
+            <li>Item 3</li>
+        </ul>
+    </nav>
+
+    <p>The "active" or "current" item can be specified by adding the <code>.active</code> class to a list item.</p>
+    
+    <pre class="prettyprint">&lt;nav class="breadcrumb"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+  
+    <nav class="breadcrumb">
+        <ul>
+            <li><a>Item 1</a> <span class="divider">/</span></li>
+            <li><a>Item 2</a> <span class="divider">/</span></li>
+            <li class="active">Item 3</li>
+        </ul>
+    </nav>  
+    
+    <p>You may also apply the <code>.breadcrumb</code> class directly to the <code>ul</code> or <code>ol</code> element.</p>
+  
+    <pre class="prettyprint">&lt;ul class="breadcrumb"&gt;
+    &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt; &lt;span class="divider"&gt;/&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="active"&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</pre>
+  
+    <ul class="breadcrumb">
+      <li><a>Item 1</a> <span class="divider">/</span></li>
+      <li><a>Item 2</a> <span class="divider">/</span></li>
+      <li class="active">Item 3</li>
+    </ul>
+  
+</div>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Entity/Nav/Breadcrumb').join('</li><li>') %></li>
+</ul>
+  
+<style>
+    .examples nav.breadcrumb li a {
+        cursor: pointer; /* since we're not using href value on a tag */
+    }
+    .examples nav.breadcrumb {
+        margin-bottom: 10px;
+    }
+</style>

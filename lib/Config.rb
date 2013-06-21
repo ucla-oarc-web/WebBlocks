@@ -94,10 +94,11 @@ module WebBlocks
   
   @config[:build][:packages] = [
     :jquery,
-    :modernizr,
     :respond,
     :selectivizr,
-    :efx
+    :modernizr,
+    :efx,
+  # :opticss, # experimental: use with caution
   ]
   
   # src configuration
@@ -152,9 +153,20 @@ module WebBlocks
     
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
     
-    :modules  => ['base', 'entity'],  # array of directories in /src/core/definitions
-                                      # or false if no modules to include
-                                      # or :all to include all modules
+    :modules  => [
+                  'base',             # array of directories in /src/core/definitions
+                  'compatibility',    # or false if no modules to include
+                  'entity',           # or :all to include all modules
+                  
+                  ###############
+                  
+                  # temporary until semantics around .emphasize and .fade are finalized
+                  'extend/base/color/branding/background_emphasize',
+                  'extend/base/color/branding/background_fade',
+                  'extend/base/color/mood/background_emphasize',
+                  'extend/base/color/mood/background_fade',
+                  
+                  ],          
                                       
     :extensions => []                 # array of additional directories in /src
                                       # or false if no additional directories to include
@@ -169,7 +181,8 @@ module WebBlocks
     :sass       => 'sass',
     :uglifycss  => 'node ./node_modules/uglifycss/uglifycss',
     :uglifyjs   => 'node ./node_modules/uglify-js/bin/uglifyjs',
-    :compass    => 'compass'
+    :compass    => 'compass',
+    :bundler    => 'bundle'
   }
   
   # package configuration
@@ -210,6 +223,12 @@ module WebBlocks
   
   @config[:package][:selectivizr] = {
     :dir      => 'selectivizr'
+  }
+  
+  @config[:package][:opticss] = {
+    :dir         => 'opticss',
+    :commands    => "split_save [[save_file]]",
+    :commands_ie => "split_save [[save_file]]"
   }
 
   # advanced configuration

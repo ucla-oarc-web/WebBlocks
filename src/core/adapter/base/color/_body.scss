@@ -1,0 +1,12 @@
+body {
+    background-color: $color-body-background;
+    color: $color-body-background-text;
+}
+    
+a {
+    color: $color-body-link-text;
+}
+
+a:hover {
+    color: $color-body-link-hover-text;
+}

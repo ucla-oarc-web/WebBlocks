@@ -4,10 +4,10 @@
     margin-bottom: 0.3*$type-line-spacing;
     overflow: hidden;
     
-    color: lighten($textColor, 30%);
+    color: lighten($color-body-background-text, 30%);
     
     label {
-        color: $textColor;
+        color: $color-body-background-text;
     }
         
     > label:not(:first-child), > * label {

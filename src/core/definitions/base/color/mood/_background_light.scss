@@ -1,3 +1,5 @@
+//!require Base/Color/Mood/Background
+
 .light {
     
     &.info {
@@ -34,5 +36,122 @@
     
     &.required {
         @include -base-color-mood-required-background-light;
+    }
+    
+    @if -color-contrast-above($color-mood-info-background, $color-mood-info-contrast-threshold)
+    ==  -color-contrast-above($color-mood-info-background-light, $color-mood-info-contrast-threshold){
+    } @else {
+        &.info a {
+            @if -color-contrast-above($color-mood-info-background-light, 
+                                      $color-mood-info-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-success-background, $color-mood-success-contrast-threshold)
+    ==  -color-contrast-above($color-mood-success-background-light, $color-mood-success-contrast-threshold){
+    } @else {
+        &.success a {
+            @if -color-contrast-above($color-mood-success-background-light, 
+                                      $color-mood-success-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-warning-background, $color-mood-warning-contrast-threshold)
+    ==  -color-contrast-above($color-mood-warning-background-light, $color-mood-warning-contrast-threshold){
+    } @else {
+        &.warning a {
+            @if -color-contrast-above($color-mood-warning-background-light, 
+                                      $color-mood-warning-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-error-background, $color-mood-error-contrast-threshold)
+    ==  -color-contrast-above($color-mood-error-background-light, $color-mood-error-contrast-threshold){
+    } @else {
+        &.error a {
+            @if -color-contrast-above($color-mood-error-background-light, 
+                                      $color-mood-error-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-danger-background, $color-mood-danger-contrast-threshold)
+    ==  -color-contrast-above($color-mood-danger-background-light, $color-mood-danger-contrast-threshold){
+    } @else {
+        &.danger a {
+            @if -color-contrast-above($color-mood-danger-background-light, 
+                                      $color-mood-danger-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-important-background, $color-mood-important-contrast-threshold)
+    ==  -color-contrast-above($color-mood-important-background-light, $color-mood-important-contrast-threshold){
+    } @else {
+        &.important a {
+            @if -color-contrast-above($color-mood-important-background-light, 
+                                      $color-mood-important-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-inverse-background, $color-mood-inverse-contrast-threshold)
+    ==  -color-contrast-above($color-mood-inverse-background-light, $color-mood-inverse-contrast-threshold){
+    } @else {
+        &.inverse a {
+            @if -color-contrast-above($color-mood-inverse-background-light, 
+                                      $color-mood-inverse-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-highlight-background, $color-mood-highlight-contrast-threshold)
+    ==  -color-contrast-above($color-mood-highlight-background-light, $color-mood-highlight-contrast-threshold){
+    } @else {
+        &.highlight a {
+            @if -color-contrast-above($color-mood-highlight-background-light, 
+                                      $color-mood-highlight-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
+    }
+    
+    @if -color-contrast-above($color-mood-required-background, $color-mood-required-contrast-threshold)
+    ==  -color-contrast-above($color-mood-required-background-light, $color-mood-required-contrast-threshold){
+    } @else {
+        &.required a {
+            @if -color-contrast-above($color-mood-required-background-light, 
+                                      $color-mood-required-contrast-threshold) {
+                @extend a.text-link-dark;
+            } @else {
+                @extend a.text-link-light;
+            }
+        }
     }
 }

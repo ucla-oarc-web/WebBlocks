@@ -6,7 +6,6 @@
     background-color: -color-select-first-if-light($color-branding-default-background-shadow, $color-branding-default-background);
     border-color: $color-branding-default-border;
     text-shadow: $color-branding-default-background-text-shadow;
-    
 }
 
 @mixin -base-color-branding-primary-background {
@@ -44,4 +43,3 @@
     text-shadow: $color-branding-neutral-background-text-shadow;
     
 }
-

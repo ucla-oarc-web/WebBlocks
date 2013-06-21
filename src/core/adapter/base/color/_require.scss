@@ -1,0 +1,23 @@
+@mixin -base-color-require-text-link-light {
+    color: $color-link-light !important;
+    opacity: $color-link-light-opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$color-link-light-opacity*100})";
+    filter: alpha(opacity=$color-link-light-opacity*100);
+    &:hover {
+        opacity: $color-link-light-hover-opacity;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$color-link-light-hover-opacity*100})";
+        filter: alpha(opacity=$color-link-light-hover-opacity*100);
+    }
+}
+
+@mixin -base-color-require-text-link-dark {
+    color: $color-link-dark !important;
+    opacity: $color-link-dark-opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$color-link-dark-opacity*100})";
+    filter: alpha(opacity=$color-link-dark-opacity*100);
+    &:hover {
+        opacity: $color-link-dark-hover-opacity;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$color-link-dark-hover-opacity*100})";
+        filter: alpha(opacity=$color-link-dark-hover-opacity*100);
+    }
+}

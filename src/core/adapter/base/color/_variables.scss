@@ -29,10 +29,17 @@
 $color-grade-dk: 10% !default;
 $color-grade-lt: 10% !default;
 $color-grade-dk-text: 80% !default;
-$color-grade-lt-text: 93% !default;
+$color-grade-lt-text: 87% !default;
 $color-contrast-threshold: 50% !default;
 
 $color-text-brightness: 40% !default;
+
+$color-link-light: #fff !default;
+$color-link-light-opacity: 0.85;
+$color-link-light-hover-opacity: 1.00;
+$color-link-dark: #000f33 !default;
+$color-link-dark-opacity: 0.85;
+$color-link-dark-hover-opacity: 1.00;
 
 $color-background-light-brightness: 92% !default;
 $color-background-shadow-light-brightness: 85% !default;
@@ -90,6 +97,9 @@ $color-body-light: -color-contrast-above(
         @return darken($color, $percent);
     }
 }
+                                
+$color-body-link-text: -color-select-first-if-light(#143075, #95a4ca);
+$color-body-link-hover-text: -color-select-first-if-light(#44557d, #d0d5e2);
 
 /**
  * Specialized tweaks for particular brandings and moods, using a hack to

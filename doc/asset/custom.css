@@ -30,17 +30,6 @@ pre, pre.prettyprint {
     margin-bottom: 1em;
 }
 
-a {
-    text-decoration: none;
-}
-
-a, a:visited, a:active {
-    color: #1042bc;
-}
-
-a:hover:not(.button) {
-    color: #006ecc;
-}
 
 /* polyfills for a coming feature in WebBlocks */
 

@@ -33,3 +33,75 @@
 .required {
     @include -base-color-mood-required-background;
 }
+
+.info a {
+    @if -color-contrast-above($color-mood-info-background, $color-mood-info-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.success a {
+    @if -color-contrast-above($color-mood-success-background, $color-mood-success-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.warning a {
+    @if -color-contrast-above($color-mood-warning-background, $color-mood-warning-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.error a {
+    @if -color-contrast-above($color-mood-error-background, $color-mood-error-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.danger a {
+    @if -color-contrast-above($color-mood-danger-background, $color-mood-danger-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.important a {
+    @if -color-contrast-above($color-mood-important-background, $color-mood-important-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.inverse a {
+    @if -color-contrast-above($color-mood-inverse-background, $color-mood-inverse-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.highlight a {
+    @if -color-contrast-above($color-mood-highlight-background, $color-mood-highlight-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+
+.required a {
+    @if -color-contrast-above($color-mood-required-background, $color-mood-required-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}

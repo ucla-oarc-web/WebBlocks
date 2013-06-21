@@ -1,19 +1,86 @@
+a.text-link-light {
+    color: #fff;
+    opacity: 0.9;
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+a.text-link-dark {
+    color: #000;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1.0;
+    }
+}
+
+
+
 .default {
+    
     @include -base-color-branding-default-background;
 }
 
 .primary {
+    
     @include -base-color-branding-primary-background;
+    
 }
 
 .secondary {
+    
     @include -base-color-branding-secondary-background;
+    
 }
 
 .tertiary {
+    
     @include -base-color-branding-tertiary-background;
+    
 }
 
 .neutral {
+    
     @include -base-color-branding-neutral-background;
+    
+}
+    
+.default a {
+    @if -color-contrast-above($color-branding-default-background, $color-branding-default-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+    
+.primary a {
+    @if -color-contrast-above($color-branding-primary-background, $color-branding-primary-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+    
+.secondary a {
+    @if -color-contrast-above($color-branding-secondary-background, $color-branding-secondary-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+    
+.tertiary a {
+    @if -color-contrast-above($color-branding-tertiary-background, $color-branding-tertiary-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
+}
+    
+.neutral a {
+    @if -color-contrast-above($color-branding-neutral-background, $color-branding-neutral-contrast-threshold) {
+        @extend a.text-link-dark;
+    } @else {
+        @extend a.text-link-light;
+    }
 }

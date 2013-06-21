@@ -91,6 +91,16 @@ $color-body-light: -color-contrast-above(
     }
 }
 
+$color-text-link-light-brightness: 25% !default;
+$color-text-link-light-saturation: 90% !default;
+$color-text-link-dark-brightness: 80% !default;
+$color-text-link-dark-saturation: 90% !default;
+
+$color-text-link-hover-light-brightness: 40% !default;
+$color-text-link-hover-light-saturation: 40% !default;
+$color-text-link-hover-dark-brightness: 85% !default;
+$color-text-link-hover-dark-saturation: 40% !default;
+
 /**
  * Specialized tweaks for particular brandings and moods, using a hack to
  * only set these values if they have not explicitly been set by the user.

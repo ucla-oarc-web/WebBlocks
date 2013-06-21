@@ -7,6 +7,13 @@
     border-color: $color-branding-default-dark-border;
     text-shadow: $color-branding-default-background-dark-text-shadow;
     
+    a {
+        color: $color-branding-default-background-dark-link-text;
+        &:hover {
+            color: $color-branding-default-background-dark-link-hover-text;
+        }
+    }
+    
 }
 
 @mixin -base-color-branding-primary-background-dark {
@@ -15,6 +22,13 @@
     background-color: $color-branding-primary-background-dark-shadow;
     border-color: $color-branding-primary-dark-border;
     text-shadow: $color-branding-primary-background-dark-text-shadow;
+    
+    a {
+        color: $color-branding-primary-background-dark-link-text;
+        &:hover {
+            color: $color-branding-primary-background-dark-link-hover-text;
+        }
+    }
     
 }
 
@@ -25,6 +39,13 @@
     border-color: $color-branding-secondary-dark-border;
     text-shadow: $color-branding-secondary-background-dark-text-shadow;
     
+    a {
+        color: $color-branding-secondary-background-dark-link-text;
+        &:hover {
+            color: $color-branding-secondary-background-dark-link-hover-text;
+        }
+    }
+    
 }
 
 @mixin -base-color-branding-tertiary-background-dark {
@@ -34,6 +55,13 @@
     border-color: $color-branding-tertiary-dark-border;
     text-shadow: $color-branding-tertiary-background-dark-text-shadow;
     
+    a {
+        color: $color-branding-tertiary-background-dark-link-text;
+        &:hover {
+            color: $color-branding-tertiary-background-dark-link-hover-text;
+        }
+    }
+    
 }
 
 @mixin -base-color-branding-neutral-background-dark {
@@ -42,5 +70,12 @@
     background-color: $color-branding-neutral-background-dark-shadow;
     border-color: $color-branding-neutral-dark-border;
     text-shadow: $color-branding-neutral-background-dark-text-shadow;
+    
+    a {
+        color: $color-branding-neutral-background-dark-link-text;
+        &:hover {
+            color: $color-branding-neutral-background-dark-link-hover-text;
+        }
+    }
     
 }

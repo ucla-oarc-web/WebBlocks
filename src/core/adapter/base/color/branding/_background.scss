@@ -7,6 +7,12 @@
     border-color: $color-branding-default-border;
     text-shadow: $color-branding-default-background-text-shadow;
     
+    a {
+        color: $color-branding-default-background-link-text;
+        &:hover {
+            color: $color-branding-default-background-link-hover-text;
+        }
+    }
 }
 
 @mixin -base-color-branding-primary-background {
@@ -15,6 +21,13 @@
     background-color: -color-select-first-if-light($color-branding-primary-background-shadow, $color-branding-primary-background);
     border-color: $color-branding-primary-border;
     text-shadow: $color-branding-primary-background-text-shadow;
+    
+    a {
+        color: $color-branding-primary-background-link-text;
+        &:hover {
+            color: $color-branding-primary-background-link-hover-text;
+        }
+    }
     
 }
 
@@ -25,6 +38,13 @@
     border-color: $color-branding-secondary-border;
     text-shadow: $color-branding-secondary-background-text-shadow;
     
+    a {
+        color: $color-branding-secondary-background-link-text;
+        &:hover {
+            color: $color-branding-secondary-background-link-hover-text;
+        }
+    }
+    
 }
 
 @mixin -base-color-branding-tertiary-background {
@@ -34,6 +54,13 @@
     border-color: $color-branding-tertiary-border;
     text-shadow: $color-branding-tertiary-background-text-shadow;
     
+    a {
+        color: $color-branding-tertiary-background-link-text;
+        &:hover {
+            color: $color-branding-tertiary-background-link-hover-text;
+        }
+    }
+    
 }
 
 @mixin -base-color-branding-neutral-background {
@@ -42,6 +69,13 @@
     background-color: -color-select-first-if-light($color-branding-neutral-background-shadow, $color-branding-neutral-background);
     border-color: $color-branding-neutral-border;
     text-shadow: $color-branding-neutral-background-text-shadow;
+    
+    a {
+        color: $color-branding-neutral-background-link-text;
+        &:hover {
+            color: $color-branding-neutral-background-link-hover-text;
+        }
+    }
     
 }
 

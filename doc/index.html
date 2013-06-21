@@ -61,7 +61,13 @@
                 if(hash == '')
                     page = 'Start'
                 
-                DOC.go(page, loaded ? 200 : 0)
+                DOC.go(page, loaded ? 200 : 0, loaded ? DOC.prefetchAll : false)
+                
+                if(!loaded)
+                    $(window).load(function(){
+                        DOC.prefetchAll()
+                    })
+                
                 loaded = true
                 document.title = 'WebBlocks: '+page
                 

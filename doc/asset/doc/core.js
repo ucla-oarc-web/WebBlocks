@@ -24,8 +24,51 @@ var DOC = {
         }
         
     },
+            
+    'prefetchAll': function(){
+
+        var currentUrl = window.location.href,
+            hashPos = currentUrl.indexOf('#'),
+            loading = false,
+            prefetchUrl, prefetchAnchor, status
     
-    'go':function(name, fade){
+        if(hashPos >= 0)
+            currentUrl = currentUrl.substring(0,hashPos)
+
+        $('body a').each(function(){
+
+            if(DOC.loading)
+                loading = true // prepare to aboart because new DOC.go() request has been made
+
+            if(loading)
+                return false; // abort because a new loading request occurred
+
+            prefetchUrl = $(this).attr('href')
+
+            if(typeof prefetchUrl != 'string')
+                return; // abort because no href
+
+            if(prefetchUrl.substring(0,hashPos) == currentUrl){
+                prefetchAnchor = prefetchUrl.substring(hashPos).toLowerCase()
+            }else if(prefetchUrl.substring(0,1) == '#'){
+                prefetchAnchor = prefetchUrl.substring(1).toLowerCase()
+            }else{
+                return; // abort because not an anchor prefetch
+            }
+
+            status = DOC.prefetch(prefetchAnchor)
+
+            if(window.console)
+                switch(status){
+                    case 1: console.log('Prefetch PASS: '+prefetchAnchor); break;
+                    case 0: console.log('Prefetch SKIP: '+prefetchAnchor); break;
+                    default: console.log('Prefetch FAIL: '+prefetchAnchor); break;
+                }
+
+        })
+    },
+    
+    'go':function(name, fade, callback){
 
         DOC.loading = true
 
@@ -71,47 +114,10 @@ var DOC = {
             $('#content').efx()
             prettyPrint()
 
-            $('#content').fadeIn(fadeTime)
-            
-            DOC.loading = false
-            
-            var currentUrl = window.location.href,
-                hashPos = currentUrl.indexOf('#'),
-                loading = false,
-                prefetchUrl, prefetchAnchor, status
-            if(hashPos >= 0)
-                currentUrl = currentUrl.substring(0,hashPos)
-            
-            $('body a').each(function(){
-                
-                if(DOC.loading)
-                    loading = true // prepare to aboart because new DOC.go() request has been made
-                
-                if(loading)
-                    return false; // abort because a new loading request occurred
-                
-                prefetchUrl = $(this).attr('href')
-                
-                if(typeof prefetchUrl != 'string')
-                    return; // abort because no href
-                
-                if(prefetchUrl.substring(0,hashPos) == currentUrl){
-                    prefetchAnchor = prefetchUrl.substring(hashPos)
-                }else if(prefetchUrl.substring(0,1) == '#'){
-                    prefetchAnchor = prefetchUrl.substring(1)
-                }else{
-                    return; // abort because not an anchor prefetch
-                }
-                
-                status = DOC.prefetch(prefetchAnchor)
-                
-                if(window.console)
-                    switch(status){
-                        case 1: console.log('Prefetch PASS: '+prefetchAnchor); break;
-                        case 0: console.log('Prefetch SKIP: '+prefetchAnchor); break;
-                        default: console.log('Prefetch FAIL: '+prefetchAnchor); break;
-                    }
-                
+            $('#content').fadeIn(fadeTime, function(){
+                DOC.loading = false
+                if(callback)
+                    callback()
             })
 
         })

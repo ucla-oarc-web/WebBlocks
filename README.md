@@ -15,20 +15,6 @@ web solutions.
 Documentation for WebBlocks is available within the `doc` folder or online at:
 http://ucla.github.io/WebBlocks/doc
 
-## Status
-
-WebBlocks is currently in `BETA`.
-
-This designation signifies that the overall architecture and semantics of 
-WebBlocks will be preserved moving forward, meaning that future updates will be 
-backwards-compatible. That said, there are several outstanding issues that 
-exist such as IE compatibility and the presentation of some WebBlocks 
-elements.
-
-For a complete list of known problems and planned features, as well as to 
-report any issues with WebBlocks, please see the issue tracker:
-https://github.com/ucla/WebBlocks/issues
-
 ## License
 
 WebBlocks is open-source software licensed under the BSD 3-clause license. The 

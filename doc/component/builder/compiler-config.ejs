@@ -34,6 +34,21 @@
 	
 	</fieldset>
 	
+	<fieldset id="debug-mode">
+		
+		<h4>Debug Mode</h4>
+		
+		<p>If debug mode is turned on, WebBlocks will be built without being minified. Minification is the process of stripping out whitespace, comments and other marks that only exist for legibility.</p>
+		
+		<div class="control">
+			<select>
+				<option value="yes">Yes</option>
+				<option value="no" selected>No</option>
+			</select>
+		</div>
+        
+    </fieldset>
+	
 	<fieldset id="extensions">
 		
 		<h4>Extensions</h4>
@@ -281,6 +296,11 @@
 		
 		$('#packages input[type=checkbox]:checked').each(function(){
 			options.build.packages.push($(this).attr('data-package'))
+		})
+		
+		$('#debug-mode select').each(function(){
+			if(!options.build) options.build = []
+			options.build.debug = $(this).val() == 'yes' ? true : false
 		})
 		
 		/**

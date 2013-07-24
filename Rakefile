@@ -34,3 +34,15 @@ require 'rake/testtask'
 Rake::TestTask.new do |t|
   t.test_files = FileList['test/**/*.rb']
 end
+
+Rake::TestTask.new("test:unit") do |t|
+  t.libs << "test"
+  t.pattern = 'test/unit/**/*.rb'
+  t.verbose = true
+end
+
+Rake::TestTask.new("test:build") do |t|
+  t.libs << "test"
+  t.pattern = 'test/build/**/*.rb'
+  t.verbose = true
+end

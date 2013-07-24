@@ -361,6 +361,10 @@
 			})
 			output.push('WebBlocks.config[:build][:packages] = ['+arr.join(',')+']');
 		}
+        
+        if(options.build.debug){
+            output.push('WebBlocks.config[:build][:debug] = true')
+        }
 		
 		if(options.src.extensions && options.src.extensions.length > 0){
 				arr = []

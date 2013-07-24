@@ -150,13 +150,13 @@ git submodule update</pre>
     
 <p>Compiler unit tests are invoked as:</p>
 
-<pre class="prettyprint">rake test TEST=test/unit/*.rb</pre>
+<pre class="prettyprint">rake test:unit</pre>
 
 <p>These tests should be run whenever a change is made that affects the compiler itself. Any contribution made to WebBlocks must pass these unit tests before it is accepted. See <a href="#Core/Contribute/Submit">Development Contribution Submission Process</a> for more details about this process.</p>
 
 <p>Integration tests for SASS modules are invoked as:</p>
 
-<pre class="prettyprint">rake test TEST=test/build/*.rb</pre>
+<pre class="prettyprint">rake test:build</pre>
 
 <p>It should be further noted that these tests only ensure that WebBlocks will be built accurately. However, because the outcome of the compiler is a browser-side set of styles and interactions, WebBlocks does not currently provide an automated way to test presentation and behaviors.</p>
 

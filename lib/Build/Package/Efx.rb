@@ -41,7 +41,7 @@ module WebBlocks
           log.task "Package: Efx", "Copying Efx engine to JS build file" do
             file = "#{package_dir :efx}/src/engine.js"
             log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
-            append_file file, tmp_js_build_file
+            append_file file, tmp_js_build_file, ';'
           end
           
           log.task "Package: Efx", "Copying Efx drivers to CSS/JS build file" do
@@ -52,11 +52,12 @@ module WebBlocks
               dst = false
               if file.match /\.css$/
                 dst = tmp_css_build_file
+                append_file src, dst
               elsif file.match /\.js$/
                 dst = tmp_js_build_file
+                append_file src, dst, ';' 
               end
-              log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
-              append_file src, dst if dst
+              log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}" if dst
             end
           end
           

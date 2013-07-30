@@ -53,7 +53,7 @@ module WebBlocks
           log.task "Package: Modernizr", "Copying Modernizr sources to JS build file" do
             file = "#{package_dir :modernizr}/modernizr.js"
             log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
-            append_file file, tmp_js_build_file
+            append_file file, tmp_js_build_file, ';'
           end
           
         end

@@ -34,6 +34,21 @@
 	
 	</fieldset>
 	
+	<fieldset id="debug-mode">
+		
+		<h4>Debug Mode</h4>
+		
+		<p>If debug mode is turned on, WebBlocks will be built without being minified. Minification is the process of stripping out whitespace, comments and other marks that only exist for legibility.</p>
+		
+		<div class="control">
+			<select>
+				<option value="yes">Yes</option>
+				<option value="no" selected>No</option>
+			</select>
+		</div>
+        
+    </fieldset>
+	
 	<fieldset id="extensions">
 		
 		<h4>Extensions</h4>
@@ -45,7 +60,8 @@
 		<%
 
 		var extensions = {
-			'implicit-html':{'name':'Implicit HTML - Add WebBlocks semantics to HTML elements instead of requiring classes','url':'http://jquery.com'}
+			'implicit-html':{'name':'Implicit HTML - Add WebBlocks semantics to HTML elements instead of requiring classes'},
+			'flat-ui':{'name':'Flat UI - Flat interface without borders, shadows or gradients'}
 		}
 
 		for(var key in extensions){
@@ -283,6 +299,11 @@
 			options.build.packages.push($(this).attr('data-package'))
 		})
 		
+		$('#debug-mode select').each(function(){
+			if(!options.build) options.build = []
+			options.build.debug = $(this).val() == 'yes' ? true : false
+		})
+		
 		/**
 		 * Basic Output
 		 */
@@ -341,6 +362,10 @@
 			})
 			output.push('WebBlocks.config[:build][:packages] = ['+arr.join(',')+']');
 		}
+        
+        if(options.build.debug){
+            output.push('WebBlocks.config[:build][:debug] = true')
+        }
 		
 		if(options.src.extensions && options.src.extensions.length > 0){
 				arr = []

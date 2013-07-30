@@ -217,7 +217,7 @@ module WebBlocks
           get_files(dir, 'js').each do |src|
             dst = tmp_js_build_file
             log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
-            append_file src, dst
+            append_file src, dst, ';'
           end
           
         end
@@ -229,7 +229,7 @@ module WebBlocks
           get_files(dir, 'js').each do |src|
             dst = tmp_js_build_file_ie
             log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}"
-            append_file src, dst
+            append_file src, dst, ';'
           end
           
         end

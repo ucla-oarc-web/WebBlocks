@@ -10,10 +10,11 @@ module WebBlocks
       
     module Utilities
       
-      def append_file src, dst
+      def append_file src, dst, append = false
         contents = File.read src
         File.open dst, "a" do |handle|
           handle.puts contents
+          handle.puts append if append
         end
       end
       

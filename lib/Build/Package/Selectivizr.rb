@@ -41,7 +41,7 @@ module WebBlocks
           log.task "Package: Selectivizr", "Copying Selectivizr sources to IE JS build file" do
             file = "#{package_dir :selectivizr}/selectivizr.js"
             log.debug "#{tmp_js_build_file_ie.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
-            append_file file, tmp_js_build_file_ie
+            append_file file, tmp_js_build_file_ie, ';'
           end
           
         end

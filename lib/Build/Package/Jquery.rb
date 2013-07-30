@@ -69,7 +69,7 @@ module WebBlocks
           log.task "Package: jQuery", "Copying jQuery sources to JS build file" do
             file = "#{package_dir :jquery}/dist/jquery.js"
             log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
-            append_file file, tmp_js_build_file
+            append_file file, tmp_js_build_file, ';'
           end
           
         end

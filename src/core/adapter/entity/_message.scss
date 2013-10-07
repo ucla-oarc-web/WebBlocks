@@ -1,3 +1,5 @@
+//!requires base/color
+
 @mixin -entity-message {
     @if $color-body-light {
         &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.success):not(.warning):not(.error):not(.danger):not(.important):not(.inverse):not(.required):not(.highlight) {

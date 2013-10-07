@@ -10,8 +10,8 @@
             and (min-width: $breakpoint-small+1)
         {                                       
             width: 100% - ($structure-container-gutter*2);
-            padding-left: $structure-container-gutter;
-            padding-right: $structure-container-gutter;
+            margin-left: $structure-container-gutter;
+            margin-right: $structure-container-gutter;
         }
         max-width: $structure-container-width-max;
     } @else {
@@ -19,13 +19,13 @@
             and (min-width: $breakpoint-small+1)
         {                                       
             width: 100% - ($structure-container-gutter*2);
-            padding-left: $structure-container-gutter;
-            padding-right: $structure-container-gutter;
+            margin-left: $structure-container-gutter;
+            margin-right: $structure-container-gutter;
         }
     }
     @media screen and (max-width: $breakpoint-small) {
         width: auto;
-        padding-left: ($structure-container-gutter/100%) * $breakpoint-small; 
-        padding-right: ($structure-container-gutter/100%) * $breakpoint-small; 
+        margin-left: ($structure-container-gutter/100%) * $breakpoint-small; 
+        margin-right: ($structure-container-gutter/100%) * $breakpoint-small; 
     }
 }

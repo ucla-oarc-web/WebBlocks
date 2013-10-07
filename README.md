@@ -12,6 +12,8 @@ core, it is a highly modular toolkit that can be customized to meet business
 needs, fitted to different development paradigms and integrated into existing 
 web solutions.
 
+[![Build Status](https://travis-ci.org/ucla/WebBlocks.png)](https://travis-ci.org/ucla/WebBlocks)
+
 Documentation for WebBlocks is available within the `doc` folder or online at:
 http://ucla.github.io/WebBlocks/doc
 

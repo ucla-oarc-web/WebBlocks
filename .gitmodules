@@ -25,3 +25,6 @@
 [submodule "package/picturefill"]
 	path = package/picturefill
 	url = https://github.com/scottjehl/picturefill.git
+[submodule "package/srcset"]
+	path = package/srcset
+	url = https://github.com/borismus/srcset-polyfill.git

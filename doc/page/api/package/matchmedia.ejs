@@ -1,0 +1,29 @@
+<h2>Package: matchMedia()</h2>
+
+<p>The <a href="http://dev.w3.org/csswg/cssom-view/" target="_blank">CSSOM View Module</a> extends the <code>window</code> interface with a new <code>matchMedia()</code> method. This method allows one to programmatically determine the properties of the viewport.</p>
+
+<pre class="prettyprint">if (matchMedia('tv').matches) {
+  // logic for viewports with the tv media type
+}
+
+if (matchMedia('only screen and (max-width: 480px)').matches) {
+  // logic for small viewports
+}
+
+if (matchMedia('all and (orientation:landscape)').matches) {
+  // logic for landscape-oriented viewports
+}</pre>
+
+<p>The modern versions of almost all major browsers support this method, but the <a href="https://github.com/paulirish/matchMedia.js/" target="_blank">matchMedia.js</a> library, developed by Paul Irish, Schott Jehl and Nicholas Zakas, polyfills older browsers that do not expose this method.</p>
+
+<h3>Configuration</h3>
+
+<p>This package is enabled by default.</p>
+
+<p>To disable this package, add a line removing it within <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages].remove :matchMedia</pre>
+
+<p>If you are explicitly defining packages in <code>Rakefile-config.rb</code>, add the <code>:matchMedia</code> package as follows:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :matchMedia</pre>

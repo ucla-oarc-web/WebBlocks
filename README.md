@@ -12,6 +12,8 @@ core, it is a highly modular toolkit that can be customized to meet business
 needs, fitted to different development paradigms and integrated into existing 
 web solutions.
 
+[![Build Status](https://travis-ci.org/ucla/WebBlocks.png)](https://travis-ci.org/ucla/WebBlocks)
+
 Documentation for WebBlocks is available within the `doc` folder or online at:
 http://ucla.github.io/WebBlocks/doc
 
@@ -36,11 +38,16 @@ The integration manager for WebBlocks is Eric Bollens <ebollens@ucla.edu>.
 WebBlocks may leverage a number of external packages:
 
 * Efx - BSD License - http://github.com/ebollens/efx
+* FitVids.js - WTFPL License - https://github.com/davatron5000/FitVids.js
+* HTTP Client Hints - Public Domain - https://github.com/jonathantneal/http-client-hints
 * jQuery - MIT License - http://jquery.com
+* matchMedia.js - MIT License - https://github.com/paulirish/matchMedia.js
 * Modernizr - MIT or BSD License - http://modernizr.com
+* Picturefill - MIT or GPLv2 License - https://github.com/scottjehl/picturefill
 * Respond.js - MIT or GPLv2 License - https://github.com/scottjehl/Respond
-* Twitter Bootstrap - Apache License - http://twitter.github.com/bootstrap
 * Selectivizr - MIT License - http://selectivizr.com
+* srcset-polyfill - MIT License - https://github.com/borismus/srcset-polyfill
+* Twitter Bootstrap - Apache License - http://twitter.github.com/bootstrap
 
 WebBlocks also uses the following software directly within its build process:
 

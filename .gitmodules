@@ -19,3 +19,18 @@
 [submodule "package/OptiCSS"]
 	path = package/OptiCSS
 	url = https://github.com/ebollens/OptiCSS.git
+[submodule "package/matchMedia"]
+	path = package/matchMedia
+	url = https://github.com/paulirish/matchMedia.js.git
+[submodule "package/picturefill"]
+	path = package/picturefill
+	url = https://github.com/scottjehl/picturefill.git
+[submodule "package/srcset"]
+	path = package/srcset
+	url = https://github.com/borismus/srcset-polyfill.git
+[submodule "package/http-client-hints"]
+	path = package/http-client-hints
+	url = https://github.com/jonathantneal/http-client-hints.git
+[submodule "package/fitvids"]
+	path = package/fitvids
+	url = https://github.com/davatron5000/FitVids.js

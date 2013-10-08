@@ -1,0 +1,25 @@
+<h2>Package: <code>picture</code> Element</h2>
+
+<p>The <a href="http://www.w3.org/TR/html-picture-element/" target="_blank">Picture element</a> draft specification proposes an HTML extension for adaptive images. With a syntax similar to the <code>audio</code> and <code>video</code> elements, the specification defines a <code>picture</code> element with <code>source</code> child elements, using a media query syntax to allow the browser to select which to present.</p>
+
+<p>The <a href="https://github.com/scottjehl/picturefill" target="_blank">picturefill</a> library, developed by Scott Jehl, package exposes this functionality using <code>span</code> elements and data attributes:</p>
+
+<pre class="prettyprint">&lt;span data-picture data-alt="Example image"&gt;
+    &lt;span data-src="ex/small.jpg"&gt;&lt;/span&gt;
+    &lt;span data-src="ex/medium.jpg" data-media="(min-width: 400px)"&gt;&lt;/span&gt;
+    &lt;span data-src="ex/large.jpg" data-media="(min-width: 800px)"&gt;&lt;/span&gt;
+    &lt;span data-src="ex/extralarge.jpg" data-media="(min-width: 1000px)"&gt;&lt;/span&gt;
+    &lt;noscript&gt;&lt;img src="external/imgs/small.jpg" alt="Example image"&gt;&lt;/noscript&gt;
+&lt;/span&gt;</pre>
+
+<h3>Configuration</h3>
+
+<p>This package is enabled by default.</p>
+
+<p>To disable this package, add a line removing it within <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages].remove :picturefill</pre>
+
+<p>If you are explicitly defining packages in <code>Rakefile-config.rb</code>, add the <code>:matchMedia</code> package as follows:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :picturefill</pre>

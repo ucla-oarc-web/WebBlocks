@@ -1,0 +1,17 @@
+<h2>Package: <code>srcset</code> Attribute</h2>
+
+<p>The <a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset" target="_blank">srcset attribute</a> draft specification proposes a new <code>srcset</code> attribute on the <code>img</code> element that allows one to specify multiple source files at different resolutions.</p>
+
+<p>The <a href="https://github.com/borismus/srcset-polyfill" target="_blank">srcset-polyfill</a> library, developed by Boris Smus, implements this attribute per the current draft specification:</p>
+
+<pre class="prettyprint">&lt;img src="small.jpg" srcset="small.jpg 320w, medium.jpg 960w, large.jpg"&gt;</pre>
+
+<p>This differs from the <a href="#API/Package/Picturefill" target="_blank">Picture element</a> in that, while the <code>picture</code> element uses media query syntax to specifically state when a source file should be loaded, the <code>srcset</code> attribute simply provides hints to the user agent and lets the user agent select the correct image based on a number of factors such as screen size, display density, connection type, user preferences, etc.</p>
+
+<h3>Configuration</h3>
+
+<p>To include this package, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :srcset</pre>
+
+<p>This package is not included by default.</p>

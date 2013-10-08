@@ -94,9 +94,11 @@ module WebBlocks
   
   @config[:build][:packages] = [
     :jquery,
+    :matchMedia,
     :respond,
     :selectivizr,
     :modernizr,
+    :picturefill,
     :efx,
   # :opticss, # experimental: use with caution
   ]
@@ -201,8 +203,16 @@ module WebBlocks
     ]
   }
   
+  @config[:package][:httpclienthints] = {
+    :dir      => 'http-client-hints'
+  }
+  
   @config[:package][:efx] = {
     :dir      => 'efx'
+  }
+  
+  @config[:package][:fitvids] = {
+    :dir      => 'fitvids'
   }
   
   @config[:package][:jquery] = {
@@ -213,8 +223,17 @@ module WebBlocks
     :dir      => 'lettering'
   }
   
+  @config[:package][:matchMedia] = {
+    :dir              => 'matchMedia',
+    :include_listener => true
+  }
+  
   @config[:package][:modernizr] = {
     :dir      => 'modernizr'
+  }
+  
+  @config[:package][:picturefill] = {
+    :dir      => 'picturefill'
   }
   
   @config[:package][:respond] = {
@@ -223,6 +242,10 @@ module WebBlocks
   
   @config[:package][:selectivizr] = {
     :dir      => 'selectivizr'
+  }
+  
+  @config[:package][:srcset] = {
+    :dir      => 'srcset'
   }
   
   @config[:package][:opticss] = {

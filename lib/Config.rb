@@ -203,6 +203,10 @@ module WebBlocks
     ]
   }
   
+  @config[:package][:httpclienthints] = {
+    :dir      => 'http-client-hints'
+  }
+  
   @config[:package][:efx] = {
     :dir      => 'efx'
   }

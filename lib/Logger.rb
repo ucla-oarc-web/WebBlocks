@@ -24,7 +24,7 @@ module WebBlocks
         if ::WebBlocks.config[:options][:details]
           @types_to_print = [:system, :task, :failure, :success, :warning]
         else
-          @types_to_print = [:system]
+          @types_to_print = [:system, :failure, :warning]
         end
         @types_to_file = [:system, :task, :failure, :success, :warning, :info, :debug]
       end

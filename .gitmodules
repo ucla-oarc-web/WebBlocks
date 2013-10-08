@@ -22,3 +22,6 @@
 [submodule "package/matchMedia"]
 	path = package/matchMedia
 	url = https://github.com/paulirish/matchMedia.js.git
+[submodule "package/picturefill"]
+	path = package/picturefill
+	url = https://github.com/scottjehl/picturefill.git

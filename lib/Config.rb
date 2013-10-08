@@ -98,6 +98,7 @@ module WebBlocks
     :respond,
     :selectivizr,
     :modernizr,
+    :picturefill,
     :efx,
   # :opticss, # experimental: use with caution
   ]
@@ -221,6 +222,10 @@ module WebBlocks
   
   @config[:package][:modernizr] = {
     :dir      => 'modernizr'
+  }
+  
+  @config[:package][:picturefill] = {
+    :dir      => 'picturefill'
   }
   
   @config[:package][:respond] = {

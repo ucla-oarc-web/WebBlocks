@@ -11,7 +11,7 @@ module WebBlocks
     
     module Package
       
-      class Picturefill
+      class Srcset
         
         include ::WebBlocks::Logger
         include ::WebBlocks::Path::Temporary_Build
@@ -26,7 +26,7 @@ module WebBlocks
         
         def preprocess_js
           
-          preprocess_submodule :picturefill
+          preprocess_submodule :srcset
           
         end
         
@@ -38,9 +38,9 @@ module WebBlocks
         
         def assemble_js
           
-          file = "picturefill.js"
-          log.task "Package: Picturefill", "Copying #{file} to JS build file" do
-            file = "#{package_dir :picturefill}/#{file}"
+          file = "build/srcset.js"
+          log.task "Package: srcset", "Copying #{file} to JS build file" do
+            file = "#{package_dir :srcset}/#{file}"
             log.debug "#{tmp_js_build_file.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
             append_file file, tmp_js_build_file, ';'
           end
@@ -49,7 +49,7 @@ module WebBlocks
         
         def reset_package
           
-          reset_submodule :picturefill
+          reset_submodule :srcset
           
         end
         

@@ -236,6 +236,10 @@ module WebBlocks
     :dir      => 'selectivizr'
   }
   
+  @config[:package][:srcset] = {
+    :dir      => 'srcset'
+  }
+  
   @config[:package][:opticss] = {
     :dir         => 'opticss',
     :commands    => "split_save [[save_file]]",

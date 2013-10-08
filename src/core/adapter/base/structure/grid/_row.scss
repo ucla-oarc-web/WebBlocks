@@ -1,3 +1,5 @@
-﻿@mixin -base-structure-grid-row {
+//!requires base/block/float
+
+@mixin -base-structure-grid-row {
     @extend .clearfix;
 }

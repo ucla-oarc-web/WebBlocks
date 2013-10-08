@@ -19,3 +19,6 @@
 [submodule "package/OptiCSS"]
 	path = package/OptiCSS
 	url = https://github.com/ebollens/OptiCSS.git
+[submodule "package/matchMedia"]
+	path = package/matchMedia
+	url = https://github.com/paulirish/matchMedia.js.git

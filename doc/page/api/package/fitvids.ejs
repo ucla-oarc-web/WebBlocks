@@ -1,0 +1,21 @@
+<h2>Package: Flexible Video</h2>
+
+<p>The <code>max-width</code> technique works well for images, but not always for video players. The <a href='http://fitvidsjs.com/' target='_blank'>FitVids.js</a> library, developed by Chris Coyier and the Paravel team, allows video players to resize on the fly, scaling while preserving proportions. This library is based on the <a href='http://alistapart.com/article/creating-intrinsic-ratios-for-video' target='_blank'>Intrinsic Ratios for Video</a> method by Thierry Koblentz.</p>
+
+<h3>Configuration</h3>
+
+<p>To include this package, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :fitvids</pre>
+
+<p>This package is not included by default.</p>
+
+<h3>Usage</h3>
+
+<p>Once included, you can access it as a jQuery plugin:</p>
+
+<pre class='prettyprint'>  $(document).ready(function(){
+    $("#target").fitVids();
+  });</pre>
+
+<p>This plugin currently supports the YouTube, Vimeo, Blip.tv, Viddler and Kickstarter video players.</p>

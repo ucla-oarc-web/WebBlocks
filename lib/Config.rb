@@ -94,6 +94,7 @@ module WebBlocks
   
   @config[:build][:packages] = [
     :jquery,
+    :matchMedia,
     :respond,
     :selectivizr,
     :modernizr,
@@ -211,6 +212,11 @@ module WebBlocks
   
   @config[:package][:lettering] = {
     :dir      => 'lettering'
+  }
+  
+  @config[:package][:matchMedia] = {
+    :dir              => 'matchMedia',
+    :include_listener => true
   }
   
   @config[:package][:modernizr] = {

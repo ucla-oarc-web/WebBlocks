@@ -28,3 +28,6 @@
 [submodule "package/srcset"]
 	path = package/srcset
 	url = https://github.com/borismus/srcset-polyfill.git
+[submodule "package/http-client-hints"]
+	path = package/http-client-hints
+	url = https://github.com/jonathantneal/http-client-hints.git

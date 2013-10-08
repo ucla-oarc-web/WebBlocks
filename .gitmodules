@@ -31,3 +31,6 @@
 [submodule "package/http-client-hints"]
 	path = package/http-client-hints
 	url = https://github.com/jonathantneal/http-client-hints.git
+[submodule "package/fitvids"]
+	path = package/fitvids
+	url = https://github.com/davatron5000/FitVids.js

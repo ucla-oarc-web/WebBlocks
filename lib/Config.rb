@@ -211,6 +211,10 @@ module WebBlocks
     :dir      => 'efx'
   }
   
+  @config[:package][:fitvids] = {
+    :dir      => 'fitvids'
+  }
+  
   @config[:package][:jquery] = {
     :dir      => 'jquery'
   }

@@ -1,7 +1,5 @@
 <h2>Package: HTTP Client Hints</h2>
 
-<h3>Purpose</h3>
-
 <p>The <a href='http://tools.ietf.org/html/draft-grigorik-http-client-hints-00'>HTTP Client Hints</a> draft specification (IETF Network Working Group) proposes a new <code>CH</code> request header field for the HTTP protocol that includes three attributes: <code>dh</code> for the device-width in secondary orientation, <code>dw</code> for the device-width in primary orientation, and <code>dpr</code> as the ratio between physical pixels and density-independent pixels on the device. This request header field is intended to allow the server to make decisions based on the requesting device.</p>
 
 <p>An example of the HTTP Client Hint field:</p>
@@ -10,9 +8,7 @@
 
 <p>Unfortunately, this specification is in early draft form and has not yet been implemented in HTTP clients; however, the <a href='https://github.com/jonathantneal/http-client-hints' target='_blank'>http-client-hints</a> polyfill, developed by Jonathan Neal, provides this functionality through Javascript.</p>
 
-<h3>Usage</h3>
-
-<h4>Client-side</h4>
+<h3>Configuration</h3>
 
 <p>To include this package, add the following to <code>Rakefile-config.rb</code>:</p>
 
@@ -20,7 +16,7 @@
 
 <p>This package is not included by default.</p>
 
-<h4>Server-side</h4>
+<h3>Usage</h3>
 
 <div class='message warning'><strong>WARNING</strong> The Javascript implementation of HTTP Client Hints suffers from a first-load problem, namely that HTTP Client Hints will not be available for the first request made by the client to the server. This is because the initial Javascript payload to write the cookie is passed as the response to the first request. This should not be an issue for media, as it will be loaded after this polyfill invokes, but it will cause a problem if the initial page rendition relies on this field.</div>
 

@@ -1,4 +1,4 @@
-<h2>Package: matchMedia() Polyfill</h2>
+<h2>Package: matchMedia()</h2>
 
 <h3>Purpose</h3>
 
@@ -16,7 +16,7 @@ if (matchMedia('all and (orientation:landscape)').matches) {
   // logic for landscape-oriented viewports
 }</pre>
 
-<p>The modern versions of almost all major browsers support this method; however, older browsers, most notably IE 9, do not support it. Consequently, this package provides a polyfill as needed.</p>
+<p>The modern versions of almost all major browsers support this method, but the <a href="https://github.com/paulirish/matchMedia.js/" target="_blank">matchMedia.js</a> library, developed by Paul Irish, Schott Jehl and Nicholas Zakas, polyfills older browsers that do not expose this method.</p>
 
 <h3>Usage</h3>
 
@@ -28,4 +28,4 @@ if (matchMedia('all and (orientation:landscape)').matches) {
 
 <p>If you are explicitly defining packages in <code>Rakefile-config.rb</code>, add the <code>:matchMedia</code> package as follows:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages].remove :matchMedia</pre>
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :matchMedia</pre>

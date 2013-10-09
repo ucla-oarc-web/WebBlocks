@@ -207,6 +207,10 @@ module WebBlocks
     :dir      => 'alphaimagescaling'
   }
   
+  @config[:package][:adaptiveimages] = {
+    :pixel_density  => true
+  }
+  
   @config[:package][:httpclienthints] = {
     :dir      => 'http-client-hints'
   }

@@ -37,12 +37,6 @@ module WebBlocks
           
         end
         
-        def reset_package
-          
-          reset_submodule :respond
-          
-        end
-        
       end
       
     end

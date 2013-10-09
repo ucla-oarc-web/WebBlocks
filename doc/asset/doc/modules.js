@@ -755,7 +755,7 @@
 				description:'Defines a set of IE compatibility features for images.'
 			},
 			'Compatibility/IE/Image/Scaling': {
-				description:'Adds bicubic scaling for IE 7 and below.',
+				description:'Adds bicubic scaling on JPEG images for IE 7 and below.',
 				api:'Compatibility'
 			},
             'Compatibility/IE/CSS': {

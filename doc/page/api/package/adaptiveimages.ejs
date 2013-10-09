@@ -1,0 +1,31 @@
+<h2>Package: Adaptive Images</h2>
+
+<p><a href="http://adaptive-images.com/" target="_blank">Adaptive Images</a> is a server-side script that compresses images based on client-size dimensions set in a cookie. The client-side cookie can be incorporated by including the <code>:adaptiveimages</code> package, or alternatively one may use <code>:httpclienthints</code> with a <a href="https://github.com/ebollens/Adaptive-Images" target="_blank">fork of Adaptive Images</a> capable of reading that cookie or the HTTP setting.</p>
+
+<h3>Using Directly</h3>
+
+<p>If using Adaptive Images directly, the Javascript component that writes the cookie may be added as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :adaptiveimages</pre>
+
+<p>By default, this package will compress images at higher quality when the device in question has a high pixel density screen; however, this comes at the cost of larger images for high pixel density screens, and it may be disabled as:</p>
+
+<pre class="prettyprint">WebBlocks.config[:package][:adaptiveimages][:pixel_density] = false</pre>
+
+<p>This package is not included by default.</p>
+
+<h3>Using Client Hints</h3>
+
+<p>Alternatively, one may use HTTP Client Hints with Adaptive Images.</p>
+
+<p>To do this, pull the following fork of Adaptive Images:</p>
+
+<ul>
+    <li><a href="https://github.com/ebollens/Adaptive-Images" target="_blank">https://github.com/ebollens/Adaptive-Images</a></li>
+</ul>
+
+<p>Using this fork, the <code>:adaptiveimages</code> package <em>is not</em> needed. Instead, simply make sure that the HTTP Client Hints package is included:</p>
+
+<pre class='prettyprint'>WebBlocks.config[:build][:packages] << :httpclienthints</pre>
+
+<p>This package is not included by default.</p>

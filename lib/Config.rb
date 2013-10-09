@@ -203,6 +203,10 @@ module WebBlocks
     ]
   }
   
+  @config[:package][:alphaimagescaling] = {
+    :dir      => 'alphaimagescaling'
+  }
+  
   @config[:package][:httpclienthints] = {
     :dir      => 'http-client-hints'
   }

@@ -37,6 +37,7 @@ The integration manager for WebBlocks is Eric Bollens <ebollens@ucla.edu>.
 
 WebBlocks may leverage a number of external packages:
 
+* Alpha Image Scaling - http://unstoppablerobotninja.com/entry/fluid-images
 * Efx - BSD License - http://github.com/ebollens/efx
 * FitVids.js - WTFPL License - https://github.com/davatron5000/FitVids.js
 * HTTP Client Hints - Public Domain - https://github.com/jonathantneal/http-client-hints

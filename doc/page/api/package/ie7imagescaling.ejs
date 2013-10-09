@@ -1,0 +1,28 @@
+<h2>Package: IE < 8 Image Scaling</h2>
+
+<p>Responsive design requires flexible images that scale depending on the viewport. Unfortunately, the rendering image in IE < 8 does a shoddy job of this. There are two solutions for this:</p>
+
+<ul>
+    <li><code>-ms-interpolation-mode: bicubic</code> for JPEG images</li>
+    <li><code>AlphaImageLoader</code> property for all images</li>
+</ul>
+
+<p>If one needs only to support JPEG images, simply add the <code>Compatibility/IE/Image/Scaling</code> module; however, in cases where one wants to provide support for non-JPEG images, the more full-featured <code>:alphaimagescaling</code> package is provided. The <code>:alphaimagescaling</code> package uses a Ethan Marcotte's AlphaImageLoader technique described in his <a href="http://unstoppablerobotninja.com/entry/fluid-images/" target="_blank">Fluid Images blog article</a>, adding a wrapper to deal with pathing and loading.</p>
+
+<h3>Configuration</h3>
+
+<h4>Bicubic Image Scaling for JPEG Images</h4>
+
+<p>To enable bicubic scaling for JPEG images, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] << 'compatibility/ie/image/scaling'</pre>
+
+<p>This package is included by default.</p>
+
+<h4>AlphaImageLoader Scaling for All Images</h4>
+
+<p>To enable AlphaImageLoader scaling for all images, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :alphaimagescaling</pre>
+
+<p>This package is not included by default.</p>

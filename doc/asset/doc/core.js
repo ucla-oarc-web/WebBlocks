@@ -50,7 +50,9 @@ var DOC = {
             $('#content').efx()
             prettyPrint()
 
-            $('#content').fadeIn(fadeTime)
+            $('#content').fadeIn(fadeTime, function(){
+                $('#content nav.bar').blocks().navbar('init');
+            })
 
         })
         

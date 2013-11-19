@@ -51,7 +51,7 @@ var DOC = {
             prettyPrint()
 
             $('#content').fadeIn(fadeTime, function(){
-                $('#content nav.bar').blocks().navbar('init');
+                if($(document).blocks().navbar) $('#content nav.bar').blocks().navbar('init');
             })
 
         })

@@ -1,0 +1,148 @@
+<h2>Structure/Cluster</h2>
+
+<p>This library provides a module for defining a cluster of equal-width responsive content blocks:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Base/Structure/Cluster') %></li>
+</ul>
+
+<h3>Usage</h3>
+
+<p>The <code>.cluster</code> elements offers an easy way to associate a set of blocks where they will be presented as a set of equal-width columns, collapsing responsively based on the size of the viewport.</p>
+
+<pre class="prettyprint">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>By default, if you have an odd number of cluster elements, when they collapse into a multiple rows with unequal numbers of elements, the inequality will be solved by centering the elements. However, the <code>.left</code> class may be applied to the cluster to left align the collapse.</p>
+
+<pre class="prettyprint">&lt;div class="left cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>The <code>.cluster</code> element supports <i>between one and six direct children</i>. If you seek to use more than six direct children, you may nest a cluster within a cluster. If you seek to control responsive behaviors rather than use the default behaviors, use <a href="#API/Base/Structure/Grid">Base/Structure/Grid</a> instead.</p>
+
+
+<h3>Behavior</h3>
+
+<h4>Two Clustered Elements</h4>
+
+<div class="cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Three Clustered Elements</h4>
+
+<div class="cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Three Left Clustered Elements</h4>
+
+<div class="left cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="left cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Four Clustered Elements</h4>
+
+<div class="cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+    <div class="inverse">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fourth content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Five Clustered Elements</h4>
+
+<div class="cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+    <div class="inverse">&nbsp;</div>
+    <div class="neutral">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fourth content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fifth content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Five Left Clustered Elements</h4>
+
+<div class="left cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+    <div class="inverse">&nbsp;</div>
+    <div class="neutral">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="left cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fourth content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fifth content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Six Clustered Elements</h4>
+
+<div class="cluster">
+    <div class="primary">&nbsp;</div>
+    <div class="secondary">&nbsp;</div>
+    <div class="tertiary">&nbsp;</div>
+    <div class="inverse">&nbsp;</div>
+    <div class="neutral">&nbsp;</div>
+    <div class="default">&nbsp;</div>
+</div>
+
+<pre class="prettyprint" style="margin-top:12px;">&lt;div class="cluster"&gt;
+    &lt;div&gt;&lt;!-- First content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Second content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Third content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fourth content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Fifth content block --&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;!-- Sixth content block --&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Base/Structure/Cluster').join('</li><li>') %></li>
+</ul>

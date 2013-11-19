@@ -12,9 +12,13 @@
         }
         @extend .dark;
     }
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: $message-border-radius;
     border-width: 1px;
     border-style: solid;
     margin-bottom: 0.5em;
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
 }

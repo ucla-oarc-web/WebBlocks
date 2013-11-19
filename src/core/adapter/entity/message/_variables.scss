@@ -1,0 +1,55 @@
+@function -darken-if-color-light-or-else-lighten($color, $percent){
+    @if -color-contrast-above($color, $color-contrast-threshold) {
+        @return darken($color, $percent);
+    } @else {
+        @return lighten($color, $percent);
+    }
+}
+
+$message-border-radius: 5px !default;
+
+$message-header-color-brightness-difference-light: 12% !default;
+$message-header-color-brightness-difference-dark: 4% !default;
+
+$message-branding-primary-light-header-color: -darken-if-color-light-or-else-lighten($color-branding-primary-background-light, $message-header-color-brightness-difference-light) !default;
+$message-branding-primary-dark-header-color: -darken-if-color-light-or-else-lighten($color-branding-primary-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-branding-secondary-light-header-color: -darken-if-color-light-or-else-lighten($color-branding-secondary-background-light, $message-header-color-brightness-difference-light) !default;
+$message-branding-secondary-dark-header-color: -darken-if-color-light-or-else-lighten($color-branding-secondary-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-branding-tertiary-light-header-color: -darken-if-color-light-or-else-lighten($color-branding-tertiary-background-light, $message-header-color-brightness-difference-light) !default;
+$message-branding-tertiary-dark-header-color: -darken-if-color-light-or-else-lighten($color-branding-tertiary-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-branding-neutral-light-header-color: -darken-if-color-light-or-else-lighten($color-branding-neutral-background-light, $message-header-color-brightness-difference-light) !default;
+$message-branding-neutral-dark-header-color: -darken-if-color-light-or-else-lighten($color-branding-neutral-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-branding-default-light-header-color: -darken-if-color-light-or-else-lighten($color-branding-default-background-light, $message-header-color-brightness-difference-light) !default;
+$message-branding-default-dark-header-color: -darken-if-color-light-or-else-lighten($color-branding-default-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-info-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-info-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-info-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-info-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-success-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-success-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-success-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-success-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-warning-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-warning-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-warning-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-warning-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-error-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-error-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-error-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-error-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-danger-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-danger-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-danger-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-danger-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-important-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-important-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-important-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-important-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-highlight-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-highlight-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-highlight-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-highlight-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-required-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-required-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-required-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-required-background-dark, $message-header-color-brightness-difference-dark) !default;
+
+$message-mood-inverse-light-header-color: -darken-if-color-light-or-else-lighten($color-mood-inverse-background-light, $message-header-color-brightness-difference-light) !default;
+$message-mood-inverse-dark-header-color: -darken-if-color-light-or-else-lighten($color-mood-inverse-background-dark, $message-header-color-brightness-difference-dark) !default;
+

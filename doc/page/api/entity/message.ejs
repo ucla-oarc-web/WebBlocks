@@ -8,10 +8,26 @@
 
 <h3>Basic Example</h3>
 
-<p>A message is generally defined on a div element. However, it may be defined on any block-level element based on semantic purpose:</p>
+<p>A message is generally defined on an aside element. However, it may be defined on any block-level element based on semantic purpose:</p>
 
-<pre class="prettyprint">&lt;div class="message"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message">Message Text</div>
+<pre class="prettyprint">&lt;aside class="message"&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/aside&gt;</pre>
+<aside class="message">
+    <p>Message Text</p>
+</aside>
+
+<p>A message may include a <code>header</code>, in which case it must a sectional element (most commonly: <code>aside</code>, <code>section</code>):</p>
+
+<pre class="prettyprint">&lt;aside class="message"&gt;
+    &lt;header&gt;&lt;!-- Message Header --&gt;&lt;header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/aside&gt;</pre>
+
+<aside class="message">
+    <header><h1>Message Header</h1></header>
+    <p>Message Text</p>
+</aside>
 
 <h3>Colored Messages</h3>
 
@@ -19,43 +35,127 @@
 
 <h5>Branded Messages</h5>
 
-<pre class="prettyprint">&lt;div class="message primary"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message primary">Primary Message</div>
+<pre class="prettyprint">&lt;div class="message primary"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message primary">
+    <header><h1>Primary Message Header</h1></header>
+    <p>Primary Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message secondary"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message secondary">Secondary Message</div>
+<pre class="prettyprint">&lt;div class="message secondary"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message secondary">
+    <header><h1>Secondary Message Header</h1></header>
+    <p>Secondary Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message tertiary"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message tertiary">Tertiary Message</div>
+<pre class="prettyprint">&lt;div class="message tertiary"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message tertiary">
+    <header><h1>Tertiary Message Header</h1></header>
+    <p>Tertiary Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message neutral"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message neutral">Neutral Message</div>
+<pre class="prettyprint">&lt;div class="message neutral"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message neutral">
+    <header><h1>Neutral Message Header</h1></header>
+    <p>Neutral Message</p>
+</div>
 
 <h5>Mood Messages</h5>
 
-<pre class="prettyprint">&lt;div class="message info"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message info">Info Message</div>
+<pre class="prettyprint">&lt;div class="message info"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message info">
+    <header><h1>Info Message Header</h1></header>
+    <p>Info Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message success"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message success">Success Message</div>
+<pre class="prettyprint">&lt;div class="message success"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message success">
+    <header><h1>Success Message Header</h1></header>
+    <p>Success Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message warning"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message warning">Warning Message</div>
+<pre class="prettyprint">&lt;div class="message warning"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message warning">
+    <header><h1>Warning Message Header</h1></header>
+    <p>Warning Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message error"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message error">Error Message</div>
+<pre class="prettyprint">&lt;div class="message error"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message error">
+    <header><h1>Error Message Header</h1></header>
+    <p>Error Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message danger"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message danger">Danger Message</div>
+<pre class="prettyprint">&lt;div class="message danger"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message danger">
+    <header><h1>Danger Message Header</h1></header>
+    <p>Danger Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message important"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message important">Important Message</div>
+<pre class="prettyprint">&lt;div class="message important"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message important">
+    <header><h1>Important Message Header</h1></header>
+    <p>Important Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message inverse"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message inverse">Inverse Message</div>
+<pre class="prettyprint">&lt;div class="message inverse"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message inverse">
+    <header><h1>Inverse Message Header</h1></header>
+    <p>Inverse Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message required"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message required">Required Message</div>
+<pre class="prettyprint">&lt;div class="message required"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message required">
+    <header><h1>Required Message Header</h1></header>
+    <p>Required Message</p>
+</div>
 
-<pre class="prettyprint">&lt;div class="message highlight"&gt;&lt;!-- Message Text --&gt;&lt;/div&gt;</pre>
-<div class="message highlight">Highlight Message</div>
+<pre class="prettyprint">&lt;div class="message highlight"&gt;
+    &lt;header&gt;&lt;h1&gt;&lt;!-- Message Header --&gt;&lt;/h1&gt;&lt;/header&gt;
+    &lt;p&gt;&lt;!-- Message Text --&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+<div class="message highlight">
+    <header><h1>Highlight Message Header</h1></header>
+    <p>Highlight Message</p>
+</div>
+
+<h3>Configuration</h3>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Entity/Message').join('</li><li>') %></li>
+</ul>

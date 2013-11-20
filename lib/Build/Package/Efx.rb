@@ -20,7 +20,7 @@ module WebBlocks
         
         def preprocess
           
-          preprocess_js
+          preprocess_submodule :efx
           
         end
         
@@ -29,10 +29,17 @@ module WebBlocks
           preprocess_submodule :efx
           
         end
+
+        def preprocess_css
+
+          preprocess_submodule :efx
+
+        end
         
         def assemble
           
           assemble_js
+          assemble_css
           
         end
         
@@ -44,7 +51,25 @@ module WebBlocks
             append_file file, tmp_js_build_file, ';'
           end
           
-          log.task "Package: Efx", "Copying Efx drivers to CSS/JS build file" do
+          log.task "Package: Efx", "Copying Efx drivers to JS build file" do
+            dir = "#{package_dir :efx}/src/driver"
+            Dir.entries(dir).each do |file|
+              next if file[0,1] == '.'
+              src = "#{dir}/#{file}"
+              dst = false
+              if file.match /\.js$/
+                dst = tmp_js_build_file
+                append_file src, dst, ';' 
+              end
+              log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}" if dst
+            end
+          end
+          
+        end
+
+        def assemble_css
+
+          log.task "Package: Efx", "Copying Efx drivers to CSS build file" do
             dir = "#{package_dir :efx}/src/driver"
             Dir.entries(dir).each do |file|
               next if file[0,1] == '.'
@@ -53,14 +78,11 @@ module WebBlocks
               if file.match /\.css$/
                 dst = tmp_css_build_file
                 append_file src, dst
-              elsif file.match /\.js$/
-                dst = tmp_js_build_file
-                append_file src, dst, ';' 
               end
               log.debug "#{dst.gsub /^#{root_dir}\//, ''} <<- #{src.gsub /^#{root_dir}\//, ''}" if dst
             end
           end
-          
+
         end
         
         def reset_package

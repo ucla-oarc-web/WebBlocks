@@ -1,0 +1,16 @@
+form.form {
+
+    .control[data-required="true"] {
+        &:not(.required) .required-fail, .required-fail:not([data-required="ready"]) {
+            display: none;
+        }
+        &.required .required-pass, .required-pass:not([data-required="ready"]) {
+            display: none;
+        }
+    }
+
+    &:not(.form-required-failure) .form-required-fail {
+        display: none;
+    }
+
+}

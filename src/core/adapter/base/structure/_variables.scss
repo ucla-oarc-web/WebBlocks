@@ -8,3 +8,10 @@ $structure-panels:              12 !default;
 $structure-panel-gutter:        2.5641% !default;
 $structure-panel-width:         ((100% - ($structure-panels - 1) * $structure-panel-gutter)
                                 / $structure_panels) !default;
+
+
+$structure-cluster-element-gutter:        $structure-panel-gutter !default;
+$structure-cluster-breakpoint-2-columns: $breakpoint-xsmall !default;
+$structure-cluster-breakpoint-3-columns: $breakpoint-small !default;
+$structure-cluster-breakpoint-4-columns: $breakpoint-medium-small !default;
+$structure-cluster-breakpoint-6-columns: $breakpoint-medium !default;

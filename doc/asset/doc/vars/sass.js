@@ -56,6 +56,31 @@
             default_value:'2.5641%',
             type:'percentage'
         },
+        'structure-cluster-element-gutter': {
+            description:'defines spacing between cluster elements',
+            default_value:'2.5641%',
+            type:'percentage'
+        },
+        'structure-cluster-breakpoint-2-columns': {
+            description:'defines breakpoint at which cluster elements may be presented in up to two columns',
+            default_value:'480px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-3-columns': {
+            description:'defines breakpoint at which cluster elements may be presented in up to three columns',
+            default_value:'640px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-4-columns': {
+            description:'defines breakpoint at which elements may be presented in up to four columns',
+            default_value:'768px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-6-columns': {
+            description:'defines breakpoint at which elements may be presented in up to six columns',
+            default_value:'960px',
+            type:'px'
+        },
         'type-font-family': {
             description:'defines the body font family',
             default_value:'"Helvetica Neue", Helvetica, Arial, sans-serif;',

@@ -945,6 +945,8 @@
 					'form-legend-border-color',
 					'form-legend-color',
 					'form-legend-small-color',
+                    'form-input-font-size',
+                    'form-legend-font-size',
 					'form-input-size-mini',
 					'form-input-size-small',
 					'form-input-size',

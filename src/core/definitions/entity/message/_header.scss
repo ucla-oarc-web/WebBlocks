@@ -1,0 +1,10 @@
+.message {
+
+    @include -entity-message-header-colors;
+
+    header {
+        @include -entity-message-header-position;
+        @include -entity-message-header-style;
+    }
+
+}

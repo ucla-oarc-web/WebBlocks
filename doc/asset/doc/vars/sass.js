@@ -56,6 +56,31 @@
             default_value:'2.5641%',
             type:'percentage'
         },
+        'structure-cluster-element-gutter': {
+            description:'defines spacing between cluster elements',
+            default_value:'2.5641%',
+            type:'percentage'
+        },
+        'structure-cluster-breakpoint-2-columns': {
+            description:'defines breakpoint at which cluster elements may be presented in up to two columns',
+            default_value:'480px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-3-columns': {
+            description:'defines breakpoint at which cluster elements may be presented in up to three columns',
+            default_value:'640px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-4-columns': {
+            description:'defines breakpoint at which elements may be presented in up to four columns',
+            default_value:'768px',
+            type:'px'
+        },
+        'structure-cluster-breakpoint-6-columns': {
+            description:'defines breakpoint at which elements may be presented in up to six columns',
+            default_value:'960px',
+            type:'px'
+        },
         'type-font-family': {
             description:'defines the body font family',
             default_value:'"Helvetica Neue", Helvetica, Arial, sans-serif;',
@@ -586,6 +611,21 @@
             description: 'text color of the dividers within breadcrumb navigation',
             default_value: '#b3b3b3',
             type: 'color'
+        },
+        'message-border-radius': {
+            description:'border radius of <code>.message</code>',
+            default_value:'5px',
+            type:'px'
+        },
+        'message-header-color-brightness-difference-light': {
+            description: 'color computation value to determine color brightness for light color backgrounds',
+            default_value: '12%',
+            type:'percent'
+        },
+        'message-header-color-brightness-difference-dark': {
+            description: 'color computation value to determine color brightness for dark color backgrounds',
+            default_value: '4%',
+            type:'percent'
         }
     }
     

@@ -500,6 +500,22 @@
 			'Base/Structure': {
 				description:'Defines structural classes including a fluid grid, container and constrained content.'
 			},
+            'Base/Structure/Cluster': {
+                description:'Defines a class whereby all direct children (up to six) become equal-width columns that collapse responsively',
+                defines:{
+                    '.cluster':'Parent of clustered elements',
+                    '.cluster.left':'Parent of clustered elements, where uneven collapsed rows will align left',
+                    '.cluster > *':'Clustered elements treated as equal-width columns (up to six allowed)'
+                },
+                uses:[
+                    'structure-cluster-element-gutter',
+                    'structure-cluster-breakpoint-2-columns',
+                    'structure-cluster-breakpoint-3-columns',
+                    'structure-cluster-breakpoint-4-columns',
+                    'structure-cluster-breakpoint-6-columns'
+                ],
+                api:'Base/Structure/Cluster'
+            },
 			'Base/Structure/Grid': {
 				description:'Defines a set of classes that may be used to specify grid layouts for an application whereby, at a particular breakpoint, the row panels collapse to a vertically-oriented set of elements.',
 				defines:{
@@ -992,6 +1008,11 @@
 				requires: [
 					'Base/Color'
 				],
+                uses: [
+                    'message-border-radius',
+                    'message-header-color-brightness-difference-light',
+                    'message-header-color-brightness-difference-dark'
+                ],
 				api:'Entity/Message'
 			},
 			'Entity/Nav/Bar': {

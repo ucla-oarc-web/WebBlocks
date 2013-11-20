@@ -50,7 +50,12 @@ var DOC = {
             $('#content').efx()
             prettyPrint()
 
-            $('#content').fadeIn(fadeTime)
+            $('#content').fadeIn(fadeTime, function(){
+                if($(document).blocks().navbar)
+                    $('#content nav.bar').blocks().navbar('init');
+                if($(document).blocks().requiredFormControls)
+                    $('form.form').blocks().requiredFormControls('init');
+            })
 
         })
         

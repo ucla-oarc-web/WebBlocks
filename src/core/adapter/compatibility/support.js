@@ -10,9 +10,6 @@ window.addEventListener("load", function(){
     }
 }, true);
 
-if(typeof Blocks == 'undefined')
-    var Blocks = {};
-
 Blocks.support = {};
 
 (function(M, B){

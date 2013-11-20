@@ -323,60 +323,116 @@
     </div>
 </form>
 
-<h4>Help Text and Input Sizes</h4>
+<h4>Control Validation</h4>
+        
+<pre class="prettyprint">&lt;form class="form" action="#API/Entity/Form"&gt;
+    &lt;div class="form-required-fail message required"&gt;
+        All required form fields must be completed
+    &lt;/div&gt;
+    &lt;div class="control" data-required="true"&gt;
+        &lt;label for="i-8-1"&gt;Label&lt;/label&gt;
+        &lt;input type="text" id="i-8-1"&gt;
+        &lt;span class="required-fail"&gt;This field is required&lt;/span&gt;
+        &lt;span class="required-pass text-success"&gt;This field has been filled in as required&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="control" data-required="true"&gt;
+        &lt;label id="i-8-2"&gt;Label&lt;/label&gt;
+        &lt;input type="text" labeledby='i-8-2' value="default value"&gt;
+        &lt;input type="text" labeledby='i-8-2' value="default value"&gt;
+        &lt;p class="required-fail"&gt;These fields are both required&lt;/p&gt;
+        &lt;p class="required-pass text-success"&gt;These fields are both filled in as required&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="control"&gt;
+        &lt;label for="i-8-1"&gt;Label&lt;/label&gt;
+        &lt;input type="text" id="i-8-1"&gt;
+        &lt;span&gt;This control is not required&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="control"&gt;
+        &lt;input type="submit" class="button"&gt;
+    &lt;/div&gt;
+&lt;/form></pre>
+
+<form class="form" action="#API/Entity/Form">
+    <div class="form-required-fail message required">
+        All required form fields must be completed
+    </div>
+    <div class="control" data-required="true">
+        <label for="i-8-1">Label</label>
+        <input type="text" id="i-8-1">
+        <span class="required-fail">This field is required</span>
+        <span class="required-pass text-success">This field has been filled in as required</span>
+    </div>
+    <div class="control" data-required="true">
+        <label id="i-8-2">Label</label>
+        <input type="text" labeledby='i-8-2' value="default value">
+        <input type="text" labeledby='i-8-2' value="default value">
+        <p class="required-fail">These fields are both required</p>
+        <p class="required-pass text-success">These fields are both filled in as required</p>
+    </div>
+    <div class="control">
+        <label for="i-8-1">Label</label>
+        <input type="text" id="i-8-1">
+        <span>This control is not required</span>
+    </div>
+    <div class="control">
+        <input type="submit" class="button">
+    </div>
+</form>
+
+<h4>Putting It All Together</h4>
 
 <p>The <code>form.form.horizontal</code> supports all of the features supported by <code>form.form</code>, including help text and input sizes. This example is a synthesis of these features:</p>
 
 <pre class="prettyprint">&lt;form class="form horizontal"&gt;
     &lt;div class="control"&gt;
-        &lt;label for="i-8-1"&gt;Label 1&lt;/label&gt;
-        &lt;input id="i-8-1" aria-describedby="i-8-1-h" class="small"&gt;
-        &lt;span id="i-8-1-h"&gt;Help text inline with control&lt;/span&gt;
+        &lt;label for="i-9-1"&gt;Label 1&lt;/label&gt;
+        &lt;input id="i-9-1" aria-describedby="i-9-1-h" class="small"&gt;
+        &lt;span id="i-9-1-h"&gt;Help text inline with control&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label for="i-8-2"&gt;Label 2&lt;/label&gt;
-        &lt;textarea id="i-8-2" aria-describedby="i-8-2-h" class="full"&gt;&lt;/textarea&gt;
-        &lt;p id="i-8-2-h"&gt;help text below control&lt;/p&gt;
+        &lt;label for="i-9-2"&gt;Label 2&lt;/label&gt;
+        &lt;textarea id="i-9-2" aria-describedby="i-9-2-h" class="full"&gt;&lt;/textarea&gt;
+        &lt;p id="i-9-2-h"&gt;help text below control&lt;/p&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label for="i-8-3"&gt;Label 3&lt;/label&gt;
-        &lt;p id="i-8-3-h"&gt;Help text above control&lt;/p&gt;
-        &lt;select id="i-8-3" aria-describedby="i-8-3-h"&gt;
+        &lt;label for="i-9-3"&gt;Label 3&lt;/label&gt;
+        &lt;p id="i-9-3-h"&gt;Help text above control&lt;/p&gt;
+        &lt;select id="i-9-3" aria-describedby="i-9-3-h"&gt;
             &lt;option&gt;Select Option 1&lt;/option&gt;
             &lt;option&gt;Select Option 2&lt;/option&gt;
         &lt;/select&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label for="i-8-4"&gt;Label 4&lt;/label&gt;
-        &lt;p id="i-8-4-h"&gt;Help text above control&lt;/p&gt;
-        &lt;input id="i-8-4" aria-describedby="i-8-4-h i-8-4-h2 i-8-4-h3"&gt;
-        &lt;span id="i-8-4-h2"&gt;Help text above control&lt;/span&gt;
-        &lt;p id="i-8-4-h3"&gt;Help text above control&lt;/p&gt;
+        &lt;label for="i-9-4"&gt;Label 4&lt;/label&gt;
+        &lt;p id="i-9-4-h"&gt;Help text above control&lt;/p&gt;
+        &lt;input id="i-9-4" aria-describedby="i-9-4-h i-9-4-h2 i-9-4-h3"&gt;
+        &lt;span id="i-9-4-h2"&gt;Help text above control&lt;/span&gt;
+        &lt;p id="i-9-4-h3"&gt;Help text above control&lt;/p&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label for="i-8-5"&gt;Label 5&lt;/label&gt;
-        &lt;input id="i-8-5" class="mini"&gt;
+        &lt;label for="i-9-5"&gt;Label 5&lt;/label&gt;
+        &lt;input id="i-9-5" class="mini"&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label id="i-8-6"&gt;Label 6&lt;/label&gt;
+        &lt;label id="i-9-6"&gt;Label 6&lt;/label&gt;
         &lt;label&gt;
-            &lt;input type="checkbox" aria-labelledby="i-8-6"&gt; 
+            &lt;input type="checkbox" aria-labelledby="i-9-6"&gt; 
             first checkbox
         &lt;/label&gt;
         &lt;label&gt;
-            &lt;input type="checkbox" aria-labelledby="i-8-6"&gt; 
+            &lt;input type="checkbox" aria-labelledby="i-9-6"&gt; 
             second checkbox
         &lt;/label&gt;
     &lt;/div&gt;
     &lt;div class="control"&gt;
-        &lt;label id="i-8-7"&gt;Label&lt;/label&gt;
+        &lt;label id="i-9-7"&gt;Label&lt;/label&gt;
         &lt;div class="inline"&gt;
             &lt;label&gt;
-                &lt;input type="radio" aria-labelledby="i-8-7"&gt; 
+                &lt;input type="radio" aria-labelledby="i-9-7"&gt; 
                 first radio
             &lt;/label&gt;
             &lt;label&gt;
-                &lt;input type="radio" aria-labelledby="i-8-7"&gt; 
+                &lt;input type="radio" aria-labelledby="i-9-7"&gt; 
                 second radio
             &lt;/label&gt;
         &lt;/div&gt;
@@ -389,54 +445,54 @@
 
 <form class="form horizontal">
     <div class="control">
-        <label for="i-8-1">Label 1</label>
-        <input type="text" id="i-8-1" aria-describedby="i-8-1-h" class="small">
-        <span id="i-8-1-h">Help text inline with control</span>
+        <label for="i-9-1">Label 1</label>
+        <input type="text" id="i-9-1" aria-describedby="i-9-1-h" class="small">
+        <span id="i-9-1-h">Help text inline with control</span>
     </div>
     <div class="control">
-        <label for="i-8-2">Label 2</label>
-        <textarea id="i-8-2" aria-describedby="i-8-2-h" class="full"></textarea>
-        <p id="i-8-2-h">help text below control</p>
+        <label for="i-9-2">Label 2</label>
+        <textarea id="i-9-2" aria-describedby="i-9-2-h" class="full"></textarea>
+        <p id="i-9-2-h">help text below control</p>
     </div>
     <div class="control">
-        <label for="i-8-3">Label 3</label>
-        <p id="i-8-3-h">Help text above control</p>
-        <select id="i-8-3" aria-describedby="i-8-3-h">
+        <label for="i-9-3">Label 3</label>
+        <p id="i-9-3-h">Help text above control</p>
+        <select id="i-9-3" aria-describedby="i-9-3-h">
             <option>Select Option 1</option>
             <option>Select Option 2</option>
         </select>
     </div>
     <div class="control">
-        <label for="i-8-4">Label 4</label>
-        <p id="i-8-4-h">Help text above control</p>
-        <input type="text" id="i-8-4" aria-describedby="i-8-4-h i-8-4-h2 i-8-4-h3">
-        <span id="i-8-4-h2">Help text above control</span>
-        <p id="i-8-4-h3">Help text above control</p>
+        <label for="i-9-4">Label 4</label>
+        <p id="i-9-4-h">Help text above control</p>
+        <input type="text" id="i-9-4" aria-describedby="i-9-4-h i-9-4-h2 i-9-4-h3">
+        <span id="i-9-4-h2">Help text above control</span>
+        <p id="i-9-4-h3">Help text above control</p>
     </div>
     <div class="control">
-        <label for="i-8-5">Label 5</label>
-        <input type="text" id="i-8-5" class="mini">
+        <label for="i-9-5">Label 5</label>
+        <input type="text" id="i-9-5" class="mini">
     </div>
     <div class="control">
-        <label id="i-8-6">Label 6</label>
+        <label id="i-9-6">Label 6</label>
         <label>
-            <input type="checkbox" aria-labelledby="i-8-6"> 
+            <input type="checkbox" aria-labelledby="i-9-6"> 
             first checkbox
         </label>
         <label>
-            <input type="checkbox" aria-labelledby="i-8-6"> 
+            <input type="checkbox" aria-labelledby="i-9-6"> 
             second checkbox
         </label>
     </div>
     <div class="control">
-        <label id="i-8-7">Label</label>
+        <label id="i-9-7">Label</label>
         <div class="inline">
             <label>
-                <input type="radio" aria-labelledby="i-8-7"> 
+                <input type="radio" aria-labelledby="i-9-7"> 
                 first radio
             </label>
             <label>
-                <input type="radio" aria-labelledby="i-8-7"> 
+                <input type="radio" aria-labelledby="i-9-7"> 
                 second radio
             </label>
         </div>

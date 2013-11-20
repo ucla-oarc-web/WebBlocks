@@ -4,6 +4,9 @@ $form-legend-border-color:                  -color-select-first-if-light($color-
 $form-legend-color:                         $color-branding-default-background-text !default;
 $form-legend-small-color:                   -color-select-first-if-light(#666, #999) !default;
 
+$form-input-font-size:                      1em !default;
+$form-legend-font-size:                     1.5em !default;
+
 $form-input-size-mini:                      60px !default;
 $form-input-size-small:                     90px !default;
 $form-input-size:                           210px !default;

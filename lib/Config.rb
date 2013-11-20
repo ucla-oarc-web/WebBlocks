@@ -226,6 +226,10 @@ module WebBlocks
   @config[:package][:jquery] = {
     :dir      => 'jquery'
   }
+
+  @config[:package][:jqueryariamapper] = {
+    :dir      => 'jquery-aria-mapper'
+  }
   
   @config[:package][:lettering] = {
     :dir      => 'lettering'

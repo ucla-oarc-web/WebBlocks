@@ -51,6 +51,8 @@ var DOC = {
             prettyPrint()
 
             $('#content').fadeIn(fadeTime, function(){
+                if($(document).blocks().ariaMapper)
+                    $('body').blocks().ariaMapper()
                 if($(document).blocks().navbar)
                     $('#content nav.bar').blocks().navbar('init');
                 if($(document).blocks().requiredFormControls)

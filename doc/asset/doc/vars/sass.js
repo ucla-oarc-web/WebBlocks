@@ -507,6 +507,16 @@
             default_value:'#666',
             type:'color'
         },
+        'form-input-font-size': {
+            description:'font size for all form inputs',
+            default_value:'1em',
+            type:'em (recommended), px, percent'
+        },
+        'form-legend-font-size': {
+            description:'font size for all form inputs',
+            default_value:'1.5em',
+            type:'em (recommended), px, percent'
+        },
         'form-input-size-mini': {
             description:'size of an <code>input.mini</code> within <code>form.form</code>',
             default_value:'60px',

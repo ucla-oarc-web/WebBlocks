@@ -34,3 +34,6 @@
 [submodule "package/fitvids"]
 	path = package/fitvids
 	url = https://github.com/davatron5000/FitVids.js
+[submodule "package/jquery-aria-mapper"]
+	path = package/jquery-aria-mapper
+	url = https://github.com/ebollens/jQuery.ariaMapper

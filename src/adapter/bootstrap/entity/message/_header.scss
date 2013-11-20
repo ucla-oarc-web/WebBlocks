@@ -1,0 +1,13 @@
+// definition within the scope of .message header
+@mixin -entity-message-header-position {
+
+    margin: -8px -35px 5px -14px; // header should not be padded - this is the inverse of the .message padding
+    padding: 8px 35px 8px 14px;
+
+    & + *:before {
+        content: '';
+        height: 8px;
+        display: block;
+    }
+
+}

@@ -1,0 +1,181 @@
+// definition directly within the scope of .message
+@mixin -entity-message-header-colors {
+
+    &.primary {
+        &.light header {
+            background-color: $message-branding-primary-light-header-color;
+            border-color: $color-branding-primary-light-border;
+        }
+        &.dark header {
+            background-color: $message-branding-primary-dark-header-color;
+            border-color: $color-branding-primary-dark-border;
+        }
+    }
+
+    &.secondary {
+        &.light header {
+            background-color: $message-branding-secondary-light-header-color;
+            border-color: $color-branding-secondary-light-border;
+        }
+        &.dark header {
+            background-color: $message-branding-secondary-dark-header-color;
+            border-color: $color-branding-secondary-dark-border;
+        }
+    }
+
+    &.tertiary {
+        &.light header {
+            background-color: $message-branding-tertiary-light-header-color;
+            border-color: $color-branding-tertiary-light-border;
+        }
+        &.dark header {
+            background-color: $message-branding-tertiary-dark-header-color;
+            border-color: $color-branding-tertiary-dark-border;
+        }
+    }
+
+    &.neutral {
+        &.light header {
+            background-color: $message-branding-neutral-light-header-color;
+            border-color: $color-branding-neutral-light-border;
+        }
+        &.dark header {
+            background-color: $message-branding-neutral-dark-header-color;
+            border-color: $color-branding-neutral-dark-border;
+        }
+    }
+
+    &:not(.primary):not(.secondary):not(.tertiary):not(.neutral):not(.info):not(.success):not(.warning):not(.error):not(.danger):not(.highlight):not(.important):not(.inverse):not(.required) {
+        &.light header {
+            background-color: $message-branding-default-light-header-color;
+            border-color: $color-branding-default-light-border;
+        }
+        &.dark header {
+            background-color: $message-branding-default-dark-header-color;
+            border-color: $color-branding-default-dark-border;
+        }
+    }
+
+    &.info {
+        &.light header {
+            background-color: $message-mood-info-light-header-color;
+            border-color: $color-mood-info-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-info-dark-header-color;
+            border-color: $color-mood-info-dark-border;
+        }
+    }
+
+    &.success {
+        &.light header {
+            background-color: $message-mood-success-light-header-color;
+            border-color: $color-mood-success-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-success-dark-header-color;
+            border-color: $color-mood-success-dark-border;
+        }
+    }
+
+    &.warning {
+        &.light header {
+            background-color: $message-mood-warning-light-header-color;
+            border-color: $color-mood-warning-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-warning-dark-header-color;
+            border-color: $color-mood-warning-dark-border;
+        }
+    }
+
+    &.error {
+        &.light header {
+            background-color: $message-mood-error-light-header-color;
+            border-color: $color-mood-error-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-error-dark-header-color;
+            border-color: $color-mood-error-dark-border;
+        }
+    }
+
+    &.danger {
+        &.light header {
+            background-color: $message-mood-danger-light-header-color;
+            border-color: $color-mood-danger-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-danger-dark-header-color;
+            border-color: $color-mood-danger-dark-border;
+        }
+    }
+
+    &.important {
+        &.light header {
+            background-color: $message-mood-important-light-header-color;
+            border-color: $color-mood-important-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-important-dark-header-color;
+            border-color: $color-mood-important-dark-border;
+        }
+    }
+
+    &.highlight {
+        &.light header {
+            background-color: $message-mood-highlight-light-header-color;
+            border-color: $color-mood-highlight-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-highlight-dark-header-color;
+            border-color: $color-mood-highlight-dark-border;
+        }
+    }
+
+    &.required {
+        &.light header {
+            background-color: $message-mood-required-light-header-color;
+            border-color: $color-mood-required-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-required-dark-header-color;
+            border-color: $color-mood-required-dark-border;
+        }
+    }
+
+    &.inverse {
+        &.light header {
+            background-color: $message-mood-inverse-light-header-color;
+            border-color: $color-mood-inverse-light-border;
+        }
+        &.dark header {
+            background-color: $message-mood-inverse-dark-header-color;
+            border-color: $color-mood-inverse-dark-border;
+        }
+    }
+
+}
+
+// definition within the scope of .message header
+@mixin -entity-message-header-position {
+
+    margin: -8px -12px 8px -12px; // header should not be padded - this is the inverse of the .message padding
+    padding: 8px 12px;
+
+    & + *:before {
+        content: '';
+        height: 8px;
+        display: block;
+    }
+
+}
+
+// definition within the scope of .message header
+@mixin -entity-message-header-style {
+    border-bottom: 1px solid;
+    &, h1, h2, h3, h4, h5, h6 {
+        font-size: 1.0em;
+        margin-bottom: 0;
+    }
+}

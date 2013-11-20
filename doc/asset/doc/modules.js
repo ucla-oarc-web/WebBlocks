@@ -992,6 +992,11 @@
 				requires: [
 					'Base/Color'
 				],
+                uses: [
+                    'message-border-radius',
+                    'message-header-color-brightness-difference-light',
+                    'message-header-color-brightness-difference-dark'
+                ],
 				api:'Entity/Message'
 			},
 			'Entity/Nav/Bar': {

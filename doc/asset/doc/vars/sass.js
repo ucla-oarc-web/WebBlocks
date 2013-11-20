@@ -586,6 +586,21 @@
             description: 'text color of the dividers within breadcrumb navigation',
             default_value: '#b3b3b3',
             type: 'color'
+        },
+        'message-border-radius': {
+            description:'border radius of <code>.message</code>',
+            default_value:'5px',
+            type:'px'
+        },
+        'message-header-color-brightness-difference-light': {
+            description: 'color computation value to determine color brightness for light color backgrounds',
+            default_value: '12%',
+            type:'percent'
+        },
+        'message-header-color-brightness-difference-dark': {
+            description: 'color computation value to determine color brightness for dark color backgrounds',
+            default_value: '4%',
+            type:'percent'
         }
     }
     

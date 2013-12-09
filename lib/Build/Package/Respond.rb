@@ -39,7 +39,7 @@ module WebBlocks
         def assemble_js
           
           log.task "Package: Respond", "Copying Respond sources to IE JS build file" do
-            file = "#{package_dir :respond}/respond.src.js"
+            file = "#{package_dir :respond}/src/respond.js"
             log.debug "#{tmp_js_build_file_ie.gsub /^#{root_dir}\//, ''} <<- #{file.gsub /^#{root_dir}\//, ''}"
             append_file file, tmp_js_build_file_ie, ';'
           end

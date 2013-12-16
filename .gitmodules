@@ -37,3 +37,6 @@
 [submodule "package/jquery-aria-mapper"]
 	path = package/jquery-aria-mapper
 	url = https://github.com/ebollens/jQuery.ariaMapper
+[submodule "package/fastclick"]
+	path = package/fastclick
+	url = https://github.com/ftlabs/fastclick.git

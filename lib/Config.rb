@@ -166,15 +166,6 @@ module WebBlocks
                   'base',             # array of directories in /src/core/definitions
                   'compatibility',    # or false if no modules to include
                   'entity',           # or :all to include all modules
-                  
-                  ###############
-                  
-                  # temporary until semantics around .emphasize and .fade are finalized
-                  'extend/base/color/branding/background_emphasize',
-                  'extend/base/color/branding/background_fade',
-                  'extend/base/color/mood/background_emphasize',
-                  'extend/base/color/mood/background_fade',
-                  
                   ],          
                                       
     :extensions => []                 # array of additional directories in /src

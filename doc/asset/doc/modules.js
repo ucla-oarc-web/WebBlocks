@@ -959,6 +959,8 @@
 					'form-input-uneditable-text-color',
 					'form-input-uneditable-background-color',
 					'form-input-uneditable-border-color',
+                    'form-input-boxshadow',
+                    'form-input-boxshadow-focus',
 					'form-placeholder-text-color'
 				],
 				supports: [

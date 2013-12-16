@@ -225,6 +225,10 @@ module WebBlocks
   @config[:package][:efx] = {
     :dir      => 'efx'
   }
+
+  @config[:package][:fastclick] = {
+    :dir      => 'fastclick'
+  }
   
   @config[:package][:fitvids] = {
     :dir      => 'fitvids'

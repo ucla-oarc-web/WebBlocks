@@ -94,3 +94,7 @@ nav.tabs h3 {
     font-size: 1em;
     color: #999;
 }
+
+a {
+    text-decoration: none;
+}

@@ -258,6 +258,19 @@ module WebBlocks
         end
 
       end
+
+      def assemble_font_files_for base_dir
+
+        get_files(base_dir, ['eot','ttf','otf','woff']).each do |file|
+
+          dst = "#{tmp_font_build_dir}/#{file.gsub /^#{base_dir}\//, ''}"
+          log.debug "#{tmp_font_build_dir.gsub /^#{root_dir}\//, ''} <- #{file.gsub /^#{root_dir}\//, ''}"
+          FileUtils.mkdir_p File.dirname(dst)
+          FileUtils.cp_r file, dst
+
+        end
+
+      end
       
       def assemble_img_files_for base_dir
         

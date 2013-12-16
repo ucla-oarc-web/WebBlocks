@@ -92,10 +92,26 @@ module WebBlocks
         end
         
         def assemble
-          
+
+          assemble_font
           assemble_img
           assemble_js
           
+        end
+
+        def assemble_font
+
+          return unless config[:src][:extensions]
+          extensions = config[:src][:extensions].respond_to?(:each) ? config[:src][:extensions] : [config[:src][:extensions]]
+
+          extensions.each do |extension|
+
+            log.task "Core: Extensions", "Copying fonts from extension #{extension}" do
+              assemble_font_files_for from_src_extensions_dir_to extension
+            end
+
+          end
+
         end
         
         def assemble_img

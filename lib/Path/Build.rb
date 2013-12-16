@@ -27,6 +27,10 @@ module WebBlocks
       def img_build_dir
         from_build_dir_to config[:build][:img][:dir]
       end
+
+      def font_build_dir
+        from_build_dir_to config[:build][:font][:dir]
+      end
       
       def js_build_dir
         from_build_dir_to config[:build][:js][:dir]

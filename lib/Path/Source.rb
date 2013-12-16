@@ -75,6 +75,10 @@ module WebBlocks
       def src_css_dir
         from_src_dir_to config[:src][:css][:dir]
       end
+
+      def src_font_dir
+        from_src_dir_to config[:src][:font][:dir]
+      end
       
       def src_img_dir
         from_src_dir_to config[:src][:img][:dir]

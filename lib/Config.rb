@@ -87,6 +87,10 @@ module WebBlocks
     :name_ie            => 'blocks-ie.js',
     :name_script_dir    => 'script'
   }
+
+  @config[:build][:font] = {
+    :dir      => 'font'
+  }
   
   @config[:build][:img] = {
     :dir      => 'img'
@@ -115,6 +119,9 @@ module WebBlocks
     },
     :css      => {
       :dir => 'css'
+    },
+    :font      => {
+      :dir => 'font'
     },
     :img      => {
       :dir => 'img'

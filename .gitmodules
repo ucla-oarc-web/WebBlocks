@@ -40,3 +40,6 @@
 [submodule "package/fastclick"]
 	path = package/fastclick
 	url = https://github.com/ftlabs/fastclick.git
+[submodule "package/rem-unit"]
+	path = package/rem-unit
+	url = https://github.com/chuckcarpenter/REM-unit-polyfill.git

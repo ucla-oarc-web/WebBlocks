@@ -248,6 +248,10 @@ module WebBlocks
     :dir      => 'picturefill'
   }
   
+  @config[:package][:remunit] = {
+    :dir      => 'rem-unit'
+  }
+
   @config[:package][:respond] = {
     :dir      => 'respond'
   }

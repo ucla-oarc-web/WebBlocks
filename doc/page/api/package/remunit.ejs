@@ -1,0 +1,11 @@
+<h2>Package: Rem Unit</h2>
+
+<p>The <a href="http://www.w3.org/TR/css3-values/" target="_blank">CSS Values and Units Module Level 3</a> added the <code>rem</code> (root em) unit as a sizing compliment to em but bounded to the root element. Unfortunately, IE8 and below do not support the unit. The <a href="https://github.com/chuckcarpenter/REM-unit-polyfill" target="_blank">REM unit polyfill</a> library, written by Chuck Carpenter, solves this problem.</p>
+
+<h3>Configuration</h3>
+
+<p>To include this package, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] << :remunit</pre>
+
+<p>This package is not included by default.</p>

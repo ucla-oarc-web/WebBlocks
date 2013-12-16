@@ -3,8 +3,7 @@
     width: 100%;
     margin: auto;
     @if $structure-container-width-max {
-        @media screen 
-            and (max-width: $structure-container-width-max 
+        @media (max-width: $structure-container-width-max
                                 + $structure-container-width-max 
                                     * (($structure-container-gutter*2)/100%) )
             and (min-width: $breakpoint-small+1)
@@ -15,15 +14,14 @@
         }
         max-width: $structure-container-width-max;
     } @else {
-        @media screen 
-            and (min-width: $breakpoint-small+1)
+        @media (min-width: $breakpoint-small+1)
         {                                       
             width: 100% - ($structure-container-gutter*2);
             margin-left: $structure-container-gutter;
             margin-right: $structure-container-gutter;
         }
     }
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         width: auto;
         margin-left: ($structure-container-gutter/100%) * $breakpoint-small; 
         margin-right: ($structure-container-gutter/100%) * $breakpoint-small; 

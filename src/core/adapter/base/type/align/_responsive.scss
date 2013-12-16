@@ -1,6 +1,6 @@
 @mixin -base-type-align-left-responsive-xxsmall {
     
-    @media screen and (max-width: $breakpoint-xxsmall) {
+    @media (max-width: $breakpoint-xxsmall) {
         text-align: left;
     }
     
@@ -8,7 +8,7 @@
 
 @mixin -base-type-align-left-responsive-xsmall {
     
-    @media screen and (max-width: $breakpoint-xsmall) {
+    @media (max-width: $breakpoint-xsmall) {
         text-align: left;
     }
     
@@ -16,7 +16,7 @@
 
 @mixin -base-type-align-left-responsive-small {
     
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         text-align: left;
     }
     
@@ -24,7 +24,7 @@
 
 @mixin -base-type-align-left-responsive-medium-small {
     
-    @media screen and (max-width: $breakpoint-medium-small) {
+    @media (max-width: $breakpoint-medium-small) {
         text-align: left;
     }
     
@@ -32,7 +32,7 @@
 
 @mixin -base-type-align-left-responsive-medium {
     
-    @media screen and (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-medium) {
         text-align: left;
     }
     
@@ -40,7 +40,7 @@
 
 @mixin -base-type-align-left-responsive-medium-large {
     
-    @media screen and (max-width: $breakpoint-medium-large) {
+    @media (max-width: $breakpoint-medium-large) {
         text-align: left;
     }
     
@@ -48,7 +48,7 @@
 
 @mixin -base-type-align-left-responsive-large {
     
-    @media screen and (max-width: $breakpoint-large) {
+    @media (max-width: $breakpoint-large) {
         text-align: left;
     }
     
@@ -56,7 +56,7 @@
 
 @mixin -base-type-align-center-responsive-xxsmall {
     
-    @media screen and (max-width: $breakpoint-xxsmall) {
+    @media (max-width: $breakpoint-xxsmall) {
         text-align: center;
     }
     
@@ -64,7 +64,7 @@
 
 @mixin -base-type-align-center-responsive-xsmall {
     
-    @media screen and (max-width: $breakpoint-xsmall) {
+    @media (max-width: $breakpoint-xsmall) {
         text-align: center;
     }
     
@@ -72,7 +72,7 @@
 
 @mixin -base-type-align-center-responsive-small {
     
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         text-align: center;
     }
     
@@ -80,7 +80,7 @@
 
 @mixin -base-type-align-center-responsive-medium-small {
     
-    @media screen and (max-width: $breakpoint-medium-small) {
+    @media (max-width: $breakpoint-medium-small) {
         text-align: center;
     }
     
@@ -88,7 +88,7 @@
 
 @mixin -base-type-align-center-responsive-medium {
     
-    @media screen and (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-medium) {
         text-align: center;
     }
     
@@ -96,7 +96,7 @@
 
 @mixin -base-type-align-center-responsive-medium-large {
     
-    @media screen and (max-width: $breakpoint-medium-large) {
+    @media (max-width: $breakpoint-medium-large) {
         text-align: center;
     }
     
@@ -104,7 +104,7 @@
 
 @mixin -base-type-align-center-responsive-large {
     
-    @media screen and (max-width: $breakpoint-large) {
+    @media (max-width: $breakpoint-large) {
         text-align: center;
     }
     
@@ -112,7 +112,7 @@
 
 @mixin -base-type-align-right-responsive-xxsmall {
     
-    @media screen and (max-width: $breakpoint-xxsmall) {
+    @media (max-width: $breakpoint-xxsmall) {
         text-align: right;
     }
     
@@ -120,7 +120,7 @@
 
 @mixin -base-type-align-right-responsive-xsmall {
     
-    @media screen and (max-width: $breakpoint-xsmall) {
+    @media (max-width: $breakpoint-xsmall) {
         text-align: right;
     }
     
@@ -128,7 +128,7 @@
 
 @mixin -base-type-align-right-responsive-small {
     
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         text-align: right;
     }
     
@@ -136,7 +136,7 @@
 
 @mixin -base-type-align-right-responsive-medium-small {
     
-    @media screen and (max-width: $breakpoint-medium-small) {
+    @media (max-width: $breakpoint-medium-small) {
         text-align: right;
     }
     
@@ -144,7 +144,7 @@
 
 @mixin -base-type-align-right-responsive-medium {
     
-    @media screen and (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-medium) {
         text-align: right;
     }
     
@@ -152,7 +152,7 @@
 
 @mixin -base-type-align-right-responsive-medium-large {
     
-    @media screen and (max-width: $breakpoint-medium-large) {
+    @media (max-width: $breakpoint-medium-large) {
         text-align: right;
     }
     
@@ -160,7 +160,7 @@
 
 @mixin -base-type-align-right-responsive-large {
     
-    @media screen and (max-width: $breakpoint-large) {
+    @media (max-width: $breakpoint-large) {
         text-align: right;
     }
     
@@ -168,7 +168,7 @@
 
 @mixin -base-type-align-justify-responsive-xxsmall {
     
-    @media screen and (max-width: $breakpoint-xxsmall) {
+    @media (max-width: $breakpoint-xxsmall) {
         text-align: justify;
     }
     
@@ -176,7 +176,7 @@
 
 @mixin -base-type-align-justify-responsive-xsmall {
     
-    @media screen and (max-width: $breakpoint-xsmall) {
+    @media (max-width: $breakpoint-xsmall) {
         text-align: justify;
     }
     
@@ -184,7 +184,7 @@
 
 @mixin -base-type-align-justify-responsive-small {
     
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         text-align: justify;
     }
     
@@ -192,7 +192,7 @@
 
 @mixin -base-type-align-justify-responsive-medium-small {
     
-    @media screen and (max-width: $breakpoint-medium-small) {
+    @media (max-width: $breakpoint-medium-small) {
         text-align: justify;
     }
     
@@ -200,7 +200,7 @@
 
 @mixin -base-type-align-justify-responsive-medium {
     
-    @media screen and (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-medium) {
         text-align: justify;
     }
     
@@ -208,7 +208,7 @@
 
 @mixin -base-type-align-justify-responsive-medium-large {
     
-    @media screen and (max-width: $breakpoint-medium-large) {
+    @media (max-width: $breakpoint-medium-large) {
         text-align: justify;
     }
     
@@ -216,7 +216,7 @@
 
 @mixin -base-type-align-justify-responsive-large {
     
-    @media screen and (max-width: $breakpoint-large) {
+    @media (max-width: $breakpoint-large) {
         text-align: justify;
     }
     

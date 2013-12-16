@@ -577,6 +577,16 @@
             default_value:'$color-branding-default-border',
             type:'color'
         },
+        'form-input-boxshadow': {
+            description:'box shadow applied on controls within <code>form.form</code>',
+            default_value:'inset 0 1px 1px rgba(0,0,0,.075)',
+            type:'boxshadow'
+        },
+        'form-input-boxshadow-focus': {
+            description:'box shadow applied on focused controls within <code>form.form</code>',
+            default_value:'#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)}',
+            type:'boxshadow'
+        },
         'form-placeholder-text-color': {
             description:'text color for placeholder text of <code>input, textarea, select</code> within <code>form.form</code>',
             default_value:'lighten($form-input-text-color, 40%)',

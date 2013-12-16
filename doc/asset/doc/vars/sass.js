@@ -307,6 +307,11 @@
             default_value:'pointer',
             type:'string'
         },
+        'button-boxshadow-hover': {
+            description:'box shadow applied when hovered over the button',
+            default_value:'#{inset 0 1px 0 rgba(-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),.2), 0 1px 2px rgba(-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),.05)}',
+            type:'boxshadow'
+        },
         'color-branding-default': {
             description:'defines base for default color',
             default_value:'#eee',

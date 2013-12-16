@@ -895,7 +895,8 @@
                     'button-padding-multiplier-mini-vertical',
                     'button-padding-multiplier-small-horizontal',
                     'button-padding-multiplier-small-vertical',
-                    'button-padding-multiplier-vertical'
+                    'button-padding-multiplier-vertical',
+                    'button-boxshadow-hover'
 				],
 				supports: [
 					'.button.primary',

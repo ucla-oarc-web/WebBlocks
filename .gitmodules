@@ -37,3 +37,6 @@
 [submodule "package/jquery-aria-mapper"]
 	path = package/jquery-aria-mapper
 	url = https://github.com/ebollens/jQuery.ariaMapper
+[submodule "package/rem-unit"]
+	path = package/rem-unit
+	url = https://github.com/chuckcarpenter/REM-unit-polyfill.git

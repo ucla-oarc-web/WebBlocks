@@ -81,12 +81,14 @@ module WebBlocks
         
           status, stdout, stderr = systemu "#{config[:exec][:git]} submodule update \"#{package_dir name}\""
 
-          if stderr.length > 0
-            log.failure "Submodule: #{name}", "Update failed for submodule #{name}"
-          elsif stdout.length > 0
-            log.info "Submodule: #{name}", "Updated submodule #{name}"
+          if status == 0
+            if stdout.length > 0
+              log.info "Submodule: #{name}", "Updated submodule #{name}"
+            else
+              log.info "Submodule: #{name}", "Skipped as submodule #{name} is already up to date"
+            end
           else
-            log.info "Submodule: #{name}", "Skipped as submodule #{name} is already up to date"
+            log.failure "Submodule: #{name}", "Update failed for submodule #{name}"
           end
         
         end

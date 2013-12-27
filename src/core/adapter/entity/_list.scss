@@ -57,3 +57,14 @@
 		}
 	}
 }
+
+@mixin -entity-list-horizontal {
+    @extend .clearfix;
+    > li {
+        float: left;
+        padding-right: 2em;
+    }
+    &.unstyled > li {
+        padding-right: 0;
+    }
+}

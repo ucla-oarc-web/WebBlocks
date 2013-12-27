@@ -10,20 +10,8 @@ nav.list .divider {
     @include -entity-nav-list-divider;
 }
 
-nav.list h1.divider, nav.list h2.divider, nav.list h3.divider, nav.list h4.divider, nav.list h5.divider, nav.list h6.divider {
-    @include -entity-nav-list-header-divider;
-}
-
 nav.list li, nav.list li {
     @include -entity-nav-list-item;
-}
-
-nav.list li.active, nav.list li.active {
-    @include -entity-nav-list-item-active;
-}
-
-nav.list a {
-    @include -entity-nav-list-link;
 }
 
 nav.list.flyout {

@@ -99,8 +99,6 @@
     &lt;/ul&gt;
 &lt;/nav&gt;</pre>
 
-    <p>The title is styled to fit with the list:</p>
-
     <nav class="list">
         <ul>
             <li><a>Item 1</a></li>
@@ -111,11 +109,121 @@
             <li><a>Item 4</a></li>
         </ul>
     </nav>
-    
+
+    <p>Similarly, <code>.divider</code> may be applied on a header:</p>
+
+    <pre class="prettyprint">&lt;nav class="list"&gt;
+    &lt;h1&gt;Title 1&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h1 class="divider"&gt;Title 2&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="list">
+        <h1>Title 1</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <h1 class="divider">Title 2</h1>
+        <ul>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+
+    <h4>Horizontal List</h4>
+
+    <p>Single and multiple lists may be presented horizontally with <code>nav.list.horizontal</code>:</p>
+
+    <pre class="prettyprint">&lt;nav class="list horizontal"&gt;
+    &lt;h1&gt;Title 1&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h1&gt;Title 2&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="list horizontal">
+        <h1>Title 1</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <h1>Title 2</h1>
+        <ul>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+
+    <p>A dividing line from the previous list may be defined with <code>nav.list.horizontal ul.divider</code>:</p>
+
+    <pre class="prettyprint">&lt;nav class="list horizontal"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="divider"&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="list horizontal">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <ul class="divider">
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+
+    <p>Similarly, <code>.divider</code> may be applied on a header:</p>
+
+    <pre class="prettyprint">&lt;nav class="list horizontal"&gt;
+    &lt;h1&gt;Title 1&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h1 class="divider"&gt;Title 2&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    <nav class="list horizontal">
+        <h1>Title 1</h1>
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+        </ul>
+        <h1 class="divider">Title 2</h1>
+        <ul>
+            <li><a>Item 3</a></li>
+            <li><a>Item 4</a></li>
+        </ul>
+    </nav>
+
     <h4>Hierarchical List</h4>
-    
+
     <p>A <code>nav.list</code> may include sub-lists to establish hierarchy in the menu:</p>
-    
+
     <pre class="prettyprint">&lt;nav class="list"&gt;
     &lt;h1&gt;List Header&lt;/h1&gt;
     &lt;ul&gt;
@@ -134,6 +242,8 @@
         &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;</pre>
+
+    <p class="text-warning">Please note that <code>nav.list.horizontal</code> does not support hierarchical lists.</p>
     
     <p>Sublists render as indented and they support the same features as the parent list such as headers and separators:</p>
     
@@ -157,6 +267,8 @@
     </nav>
     
     <h3>List Effects</h3>
+
+    <p class="text-warning">Please note that list effects are not supported on <code>nav.list.horizontal</code>.</p>
     
     <h4>Accordion List</h4>
     

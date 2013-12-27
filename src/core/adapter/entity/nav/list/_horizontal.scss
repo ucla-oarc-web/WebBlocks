@@ -1,0 +1,32 @@
+@mixin -entity-nav-list-horizontal {
+    @extend .clearfix;
+}
+
+@mixin -entity-nav-list-horizontal-header {
+    @extend .float-left;
+    line-height: 1.4;
+    padding: 3px 15px;
+}
+
+@mixin -entity-nav-list-horizontal-divider {
+    border-top: 0px hidden;
+    padding-top: 0;
+    border-left: 1px solid $nav-list-divider-color;
+    padding-left: 10px;
+    margin-left: 12px;
+}
+
+@mixin -entity-nav-list-horizontal-header-divider {
+    padding-left: 25px;
+    padding-top: 3px;
+}
+
+@mixin -entity-nav-list-horizontal-ol {
+    @extend .float-left;
+    @extend ol.list.horizontal;
+}
+
+@mixin -entity-nav-list-horizontal-ul {
+    @extend .float-left;
+    @extend ul.list.horizontal;
+}

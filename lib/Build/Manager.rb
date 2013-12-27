@@ -19,7 +19,7 @@ module WebBlocks
       
       def attach_packages
         
-        config[:build][:packages].each do |package|
+        (config[:src][:packages] | config[:build][:packages]).each do |package|
           
           path = ::WebBlocks::Path.from_root_to "lib/Build/Package/#{package.to_s.downcase.capitalize}.rb"
           

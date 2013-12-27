@@ -6,7 +6,7 @@
 
 <p>If using Adaptive Images directly, the Javascript component that writes the cookie may be added as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] << :adaptiveimages</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :adaptiveimages</pre>
 
 <p>By default, this package will compress images at higher quality when the device in question has a high pixel density screen; however, this comes at the cost of larger images for high pixel density screens, and it may be disabled as:</p>
 
@@ -26,6 +26,6 @@
 
 <p>Using this fork, the <code>:adaptiveimages</code> package <em>is not</em> needed. Instead, simply make sure that the HTTP Client Hints package is included:</p>
 
-<pre class='prettyprint'>WebBlocks.config[:build][:packages] << :httpclienthints</pre>
+<pre class='prettyprint'>WebBlocks.config[:src][:packages] << :httpclienthints</pre>
 
 <p>This package is not included by default.</p>

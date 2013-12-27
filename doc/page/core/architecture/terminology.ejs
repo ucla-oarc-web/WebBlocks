@@ -28,10 +28,10 @@
 
 <p>When building WebBlocks via <code>rake</code>, one may modify the packages to be included by modifying <code>Rakefile-config.rb</code>. For example, to only include Modernizr, Respond.js and Selectivizr, the build configuration could be set as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] = []
-WebBlocks.config[:build][:packages] << :modernizr
-WebBlocks.config[:build][:packages] << :respond
-WebBlocks.config[:build][:packages] << :selectivizr</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages] = []
+WebBlocks.config[:src][:packages] << :modernizr
+WebBlocks.config[:src][:packages] << :respond
+WebBlocks.config[:src][:packages] << :selectivizr</pre>
 
 <h3>Module</h3>
 

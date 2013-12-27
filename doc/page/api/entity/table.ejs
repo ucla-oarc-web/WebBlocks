@@ -151,6 +151,35 @@
     </tr>
 </table>
 
+<h4>Scrollable Collapse</h4>
+
+<p>Tables may extend beyond the width of a screen, even once all whitespace is collapsed out. The <code>scrollable-collapse</code> class denotes that a table should not exceed 100% of its parent container, but if the data inside is wider than the parent container, then the user will be given the ability to scroll the table.</p>
+
+<pre class="prettyprint">&lt;table class="table scrollable-collapse"&gt;
+    &lt;!-- Content wider than table container --&gt;
+&lt;/table&gt;</pre>
+
+<table class="table scrollable-collapse">
+    <tr>
+        <td class="primary" style="min-width:400px; width:400px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pulvinar sem a sem venenatis aliquam.</td>
+        <td class="secondary" style="min-width:400px; width:400px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pulvinar sem a sem venenatis aliquam.</td>
+        <td class="tertiary" style="min-width:400px; width:400px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pulvinar sem a sem venenatis aliquam.</td>
+        <td class="neutral" style="min-width:400px; width:400px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pulvinar sem a sem venenatis aliquam.</td>
+    </tr>
+</table>
+
+<p>This effect is achieved by applying a scrollable wrapper around the table. This occurs during the window load event; however, if the page is modified after load, newly added elements may be initialized such as:</p>
+
+<pre class="prettyprint">$('.table.scrollable-collapse').blocks().overflowScrollable('init');</pre>
+
+<p>The Javascript initializer may alsobe bypassed by applying its wrapper directly, such as:</p>
+
+<pre class="prettyprint">&lt;div class="overflow-scroll"&gt;
+    &lt;table class="table scrollable-collapse"&gt;
+        &lt;!-- Content wider than table container --&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</pre>
+
 <h4>Table Caption</h4>
 
 <p>The <code>.table</code> element has built-in support for <code>caption</code>:</p>

@@ -1,3 +1,6 @@
+//!requires base/block/float
+//!requires entity/list
+
 @mixin -entity-nav-list-horizontal {
     @extend .clearfix;
 }

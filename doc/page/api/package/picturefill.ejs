@@ -18,8 +18,8 @@
 
 <p>To disable this package, add a line removing it within <code>Rakefile-config.rb</code>:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages].remove :picturefill</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages].remove :picturefill</pre>
 
 <p>If you are explicitly defining packages in <code>Rakefile-config.rb</code>, add the <code>:matchMedia</code> package as follows:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] << :picturefill</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :picturefill</pre>

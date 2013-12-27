@@ -95,17 +95,9 @@ module WebBlocks
   @config[:build][:img] = {
     :dir      => 'img'
   }
-  
-  @config[:build][:packages] = [
-    :jquery,
-    :matchMedia,
-    :respond,
-    :selectivizr,
-    :modernizr,
-    :picturefill,
-    :efx,
-  # :opticss, # experimental: use with caution
-  ]
+
+  # DEPRECATED -- USE config[:src][:packages] instead
+  @config[:build][:packages] = []
   
   # src configuration
   
@@ -159,6 +151,16 @@ module WebBlocks
         :dir => 'adapter'
       }
     },
+
+    :packages => [
+      :jquery,
+      :matchMedia,
+      :respond,
+      :selectivizr,
+      :modernizr,
+      :picturefill,
+      :efx,
+    ],
     
     :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
     
@@ -166,7 +168,7 @@ module WebBlocks
                   'base',             # array of directories in /src/core/definitions
                   'compatibility',    # or false if no modules to include
                   'entity',           # or :all to include all modules
-                  ],          
+                  ],
                                       
     :extensions => []                 # array of additional directories in /src
                                       # or false if no additional directories to include

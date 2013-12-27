@@ -360,7 +360,7 @@
 					return;
 				arr.push(this)
 			})
-			output.push('WebBlocks.config[:build][:packages] = ['+arr.join(',')+']');
+			output.push('WebBlocks.config[:src][:packages] = ['+arr.join(',')+']');
 		}
         
         if(options.build.debug){

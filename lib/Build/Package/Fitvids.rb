@@ -27,9 +27,11 @@ module WebBlocks
         def preprocess_js
           
           preprocess_submodule :fitvids
+
+          packages = (config[:src][:packages] | config[:build][:packages])
           
-          if config[:build][:packages].include? :jquery
-            log.failure "Package: FitVids", "Package jquery must be loaded before fitvids" if config[:build][:packages].index(:jquery) > config[:build][:packages].index(:fitvids)
+          if packages.include? :jquery
+            log.failure "Package: FitVids", "Package jquery must be loaded before fitvids" if packages.index(:jquery) > packages.index(:fitvids)
           else
             log.warning "Package: FitVids", "Package jquery required but not included -- ensure it is loaded externally"
           end

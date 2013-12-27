@@ -67,7 +67,7 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <p>By default, several packages are compiled with WebBlocks:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] = [
+<pre class="prettyprint">WebBlocks.config[:src][:packages] = [
     :jquery,
     :modernizr,
     :respond,
@@ -77,17 +77,17 @@ WebBlocks.config[:src][:modules] << 'entity/form'</pre>
 
 <p>A package can be removed as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages].delete :jquery</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages].delete :jquery</pre>
 
 <p>This is useful, for example, if jQuery is already being included by another <code>script</code> tag within the application where WebBlocks will be used.</p>
 
 <p>An additional package can be added as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] << :lettering</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :lettering</pre>
 
 <p>The package set compiled with WebBlocks can also be completely redefined such as:</p>
 
-<pre class="prettyprint">WebBlocks.config[:build][:packages] = []
-WebBlocks.config[:build][:packages] << :modernizr
-WebBlocks.config[:build][:packages] << :respond
-WebBlocks.config[:build][:packages] << :selectivizr</pre>
+<pre class="prettyprint">WebBlocks.config[:src][:packages] = []
+WebBlocks.config[:src][:packages] << :modernizr
+WebBlocks.config[:src][:packages] << :respond
+WebBlocks.config[:src][:packages] << :selectivizr</pre>

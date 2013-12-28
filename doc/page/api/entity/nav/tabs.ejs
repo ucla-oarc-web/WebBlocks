@@ -3,7 +3,7 @@
 <p>This library includes a module for a breadcrumb user interface element:</p>
 
 <ul class="modules">
-    <li><%= DOC.modules.render('Entity/Nav/Breadcrumb') %></li>
+    <li><%= DOC.modules.render('Entity/Nav/Tabs') %></li>
 </ul>
 
 <div class="examples">
@@ -83,12 +83,12 @@
             </ul>
         </nav>
 
-        <section class="primary light" style="padding:1em 1em 0.5em 1em" id="tab-1" data-tabs="show">
+        <section style="padding:1em 1em 0.5em 1em" id="tab-1" data-tabs="show">
             <h5>First Tab</h5>
             <p>This is content for the first tab</p>
         </section>
 
-        <section class="secondary light" style="padding:1em 1em 0.5em 1em" id="tab-2">
+        <section style="padding:1em 1em 0.5em 1em" id="tab-2">
             <h5>Second Tab</h5>
             <p>This is content for the second tab</p>
         </section>
@@ -100,14 +100,5 @@
 <h4>Configuration</h4>
 
 <ul class="configuration">
-    <li><%= DOC.modules.render_variables('Entity/Nav/Breadcrumb').join('</li><li>') %></li>
+    <li><%= DOC.modules.render_variables('Entity/Nav/Tabs').join('</li><li>') %></li>
 </ul>
-  
-<style>
-    .examples nav.breadcrumb li a {
-        cursor: pointer; /* since we're not using href value on a tag */
-    }
-    .examples nav.breadcrumb {
-        margin-bottom: 10px;
-    }
-</style>

@@ -627,13 +627,73 @@
             default_value: '#CCC',
             type: 'color'
         },
+        'nav-tabs-border-bottom-color': {
+            description: 'border color of the bottom border within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-padding-X': {
+            description: 'horizontal padding inside a tab within tabbed navigation',
+            default_value: '16px',
+            type: 'px (recommended), em'
+        },
+        'nav-tabs-link-padding-Y': {
+            description: 'vertical padding inside a tab within tabbed navigation',
+            default_value: '8px',
+            type: 'px (recommended), em'
+        },
+        'nav-tabs-link-spacing-before': {
+            description: 'horizontal spacing (margin) before each tab within tabbed navigation',
+            default_value: '0.5em',
+            type: 'em, px'
+        },
+        'nav-tabs-link-spacing-after': {
+            description: 'horizontal spacing (margin) before each tab within tabbed navigation',
+            default_value: '0',
+            type: 'em, px'
+        },
+        'nav-tabs-link-border-color': {
+            description: 'border color of each tab within tabbed navigation',
+            default_value: '#ccc',
+            type: 'color'
+        },
+        'nav-tabs-link-border-radius': {
+            description: 'border radius of each tab within tabbed navigation',
+            default_value: '8px',
+            type: 'em, px'
+        },
+        'nav-tabs-link-background-color': {
+            description: 'border color of each tab within tabbed navigation',
+            default_value: '#fbfbfb',
+            type: 'color'
+        },
+        'nav-tabs-link-active-border-color': {
+            description: 'border color of the current active tab within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-active-background-color': {
+            description: 'border color of the current active tab within tabbed navigation',
+            default_value: '#fff',
+            type: 'color'
+        },
+        'nav-tabs-link-hover-border-color': {
+            description: 'border color of the current hovered tab within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-hover-background-color': {
+            description: 'border color of the current hovered tab within tabbed navigation',
+            default_value: '#fff',
+            type: 'color'
+        },
         'blockquote-small-color': {
             description: 'color of text in blockquote wrapped by &lt;small&gt; tags',
             default_value: '#666',
             type: 'color'
         },
         'blockquote-border-color': {
-            description: 'text color of the dividers within breadcrumb navigation',
+            description: 'color of border in blockquote',
             default_value: '#b3b3b3',
             type: 'color'
         },

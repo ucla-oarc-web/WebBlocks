@@ -32,25 +32,25 @@ class TestUnitBuildManager < ::Test::Unit::TestCase
   
   def test_attach_packages
     
-    config[:build][:packages] = [:jquery]
+    config[:src][:packages] = [:jquery]
       
     attach_packages
     
-    assert_equal config[:build][:packages].length, observers.length
+    assert_equal config[:src][:packages].length, observers.length
     assert_kind_of ::WebBlocks::Build::Package::Jquery, observers[0]
     
   end
   
   def test_attach_packages_all_with_handlers
     
-    config[:build][:packages] = [:jquery, :modernizr, :respond, :selectivizr, :efx]
+    config[:src][:packages] = [:jquery, :modernizr, :respond, :selectivizr, :efx]
       
     attach_packages
     
-    assert_equal config[:build][:packages].length, observers.length
+    assert_equal config[:src][:packages].length, observers.length
     
     idx = 0
-    config[:build][:packages].each do |package|
+    config[:src][:packages].each do |package|
       assert_kind_of eval("::WebBlocks::Build::Package::#{package.to_s.capitalize}"), observers[idx]
       idx += 1
     end

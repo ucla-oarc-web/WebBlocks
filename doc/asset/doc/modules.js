@@ -1077,6 +1077,29 @@
 			    ],
 			    api: 'Entity/Nav/Breadcrumb'
 		    },
+            'Entity/Nav/Tabs': {
+                description: 'Defines a user interface class that provides a tabs-style navigation menu.',
+                defines: {
+                    'nav.tabs': 'Styles a nav element as a list of tabs.',
+                    'nav.tabs li a.active': 'An item styled as the "active" item within the tabs list.',
+                    'nav.tabs li a:hover': 'An item styled as hovered over within the tabs list.'
+                },
+                uses: [
+                    'nav-tabs-border-bottom-color',
+                    'nav-tabs-link-padding-X',
+                    'nav-tabs-link-padding-Y',
+                    'nav-tabs-link-spacing-before',
+                    'nav-tabs-link-spacing-after',
+                    'nav-tabs-link-border-color',
+                    'nav-tabs-link-background-color',
+                    'nav-tabs-link-border-radius',
+                    'nav-tabs-link-active-border-color',
+                    'nav-tabs-link-active-background-color',
+                    'nav-tabs-link-hover-border-color',
+                    'nav-tabs-link-hover-background-color'
+                ],
+                api: 'Entity/Nav/Tabs'
+            },
 			'Entity/Table': {
 				description:'Defines a user interface class that can be used to style a table, representing tabular data.',
 				defines: {

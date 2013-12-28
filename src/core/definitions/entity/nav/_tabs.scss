@@ -1,0 +1,19 @@
+nav.tabs {
+    @include -entity-nav-tabs;
+}
+
+nav.tabs > ul {
+    @include -entity-nav-tabs-ul;
+}
+
+nav.tabs > ol {
+    @include -entity-nav-tabs-ol;
+}
+
+nav.tabs > ol > li, nav.tabs > ul > li {
+    @include -entity-nav-tabs-item;
+}
+
+nav.tabs > ol > li > a, nav.tabs > ul > li > a {
+    @include -entity-nav-tabs-link;
+}

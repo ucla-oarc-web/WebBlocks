@@ -1,0 +1,47 @@
+//!requires entity/list
+//!requires entity/nav/list
+
+@import "compass/css3/border-radius";
+
+@mixin -entity-nav-tabs {
+    @extend .clearfix;
+    border-bottom: 1px solid $nav-tabs-border-bottom-color;
+}
+
+@mixin -entity-nav-tabs-ol {
+    @extend .float-left;
+    @extend ol.list.horizontal;
+    @extend ol.list.unstyled;
+    margin-bottom: $nav-tabs-link-padding-Y+1px;
+}
+
+@mixin -entity-nav-tabs-ul {
+    @extend .float-left;
+    @extend ul.list.horizontal;
+    @extend ul.list.unstyled;
+    margin-bottom: $nav-tabs-link-padding-Y+1px;
+}
+
+@mixin -entity-nav-tabs-item {
+    line-height: 1;
+    padding-right: $nav-tabs-link-spacing-after;
+    padding-left: $nav-tabs-link-spacing-before;
+}
+
+@mixin -entity-nav-tabs-link {
+    padding: $nav-tabs-link-padding-Y $nav-tabs-link-padding-X $nav-tabs-link-padding-Y $nav-tabs-link-padding-X;
+    border: 1px solid $nav-tabs-link-border-color;
+    background-color: $nav-tabs-link-background-color;
+    border-bottom: 0;
+    @include border-radius($nav-tabs-link-border-radius $nav-tabs-link-border-radius 0 0);
+    &.active, &[data-active="true"] {
+        border-color: $nav-tabs-link-active-border-color;
+        background-color: $nav-tabs-link-active-background-color;
+        padding-bottom: $nav-tabs-link-padding-Y+1px;
+    }
+    &:hover {
+        cursor: pointer;
+        border-color: $nav-tabs-link-hover-border-color;
+        background-color: $nav-tabs-link-hover-background-color;
+    }
+}

@@ -1,10 +1,78 @@
 <h2>Roadmap</h2>
 
-<p>The current stable release version of WebBlocks is <strong>Version 1.0</strong>. Bugs reports for WebBlocks v1.0 should be reported to the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>.</p>
+<p>The stable release version of WebBlocks is <strong>Version 1.0</strong>. Bugs reports for WebBlocks v1.0 should be reported to the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>.</p>
 
-<p>The current development branch of WebBlocks is <strong>Version 1.1</strong>, currently in early-stage development. Feature requests should be made for WebBlocks v1.1 in the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=9" target="_blank">Milestone v1.1.xx</a>.</p>
+<p>The next version of WebBlocks is <strong>Version 1.1</strong>, with the first beta released on December 31, 2013. Feature requests should be made for WebBlocks v1.1 in the GitHub issue tracker under <a href="https://github.com/ucla/WebBlocks/issues?milestone=9" target="_blank">Milestone v1.1.xx</a>.</p>
 
-<p>The next development version of WebBlocks is <strong>Version 2.0</strong>, currently in early-stage planning and prototyping. Feature requests should be made for WebBlocks v2.0 under the <a href="https://github.com/WebBlocks/WebBlocks" target="_blank">WebBlocks/WebBlocks</a> project.</p>
+<p>The next generation of WebBlocks is <strong>Version 2.0</strong>, currently in early-stage planning and prototyping. Feature requests should be made for WebBlocks v2.0 under the <a href="https://github.com/WebBlocks/WebBlocks" target="_blank">WebBlocks/WebBlocks</a> project.</p>
+
+<hr>
+
+<h3>Project Timeline</h3>
+
+<p>The following are notable dates for the project as a whole:</p>
+
+<ul>
+    <li><strong>December 31, 2013</strong> - First beta release of WebBlocks 1.1</li>
+    <li><strong>October 8, 2013</strong> - First development snapshot of WebBlocks 1.1</li>
+    <li><strong>September 10, 2013</strong> - Roadmap announced for WebBlocks 1.1 and 2.0</li>
+    <li><strong>June 21, 2013</strong> - Golden master release of WebBlocks 1.0</li>
+    <li><strong>February 22, 2013</strong> - First beta release of WebBlocks 1.0</li>
+    <li><strong>November 21, 2012</strong> - Finalized architecture for WebBlocks 1.0</li>
+    <li><strong>September 28, 2012</strong> - First development snapshot of WebBlocks 1.0</li>
+    <li><strong>May 14, 2014</strong> - Project inception</li>
+</ul>
+
+<hr>
+
+<h3>WebBlocks 1.1</h3>
+
+<p>WebBlocks 1.1 is currently <span class="badge warning">BETA RELEASE</span></p>
+
+<h4 class="text-highlight">Version History</h4>
+
+<ul>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.1.03" target="_blank">December 31, 2013 - v1.1.03</a></strong><br><em class="text-neutral">release of WebBlocks 1.1 Beta 1</em></li>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.1.02" target="_blank">December 16, 2013 - v1.1.02</a></strong><br><em class="text-neutral">pre-release development snapshot</em></li>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.1.01" target="_blank">November 20, 2013 - v1.1.01</a></strong><br><em class="text-neutral">pre-release development snapshot</em></li>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.1.00" target="_blank">October 8, 2013 - v1.1.00</a></strong><br><em class="text-neutral">pre-release development snapshot</em></li>
+</ul>
+
+<p>Known issues may be found under <a href="https://github.com/ucla/WebBlocks/issues?milestone=22&state=open" target="_blank">Milestone v1.1.04</a> and <a href="https://github.com/ucla/WebBlocks/issues?milestone=9&state=open" target="_blank">Milestone v1.1.xx</a>; the former contains issues slated for the next revision release, while the latter contains new issue not yet slated for a particular revision release.</p>
+
+<h4 class="text-highlight">Notable Changes</h4>
+
+<p>WebBlocks 1.1 includes the following notable changes from WebBlocks 1.0:</p>
+
+<ul>
+    <li><strong>Responsive content arrangement</strong> with the <a href="#API/Base/Structure/Cluster" target="_blank">Base/Structure/Cluster</a> module.</li>
+    <li><strong>Tabbed navigation</strong> with the <a href="#API/Entity/Nav/Tabs" target="_blank">Entity/Nav/Tabs</a> module and optionally the <code>:efx</code> package.</li>
+    <li><strong>Scrollable tables and content areas</strong> for responsive support through a new classes in the <a href="#API/Entity/Table" target="_blank">Entity/Table</a> and <a href="#API/Base/Block" target="_blank">Base/Block</a> modules.</li>
+    <li><strong>Browser-side responsive images</strong> through the <a href="#API/Package/picturefill" target="_blank">picturefill</a> and <a href="#API/Package/srcset" target="_blank">srcset</a> packages.</li>
+    <li><strong>Server-side responsive image support</strong> through the <a href="#API/Package/httpclienthints" target="_blank">httpclienthints</a> and <a href="#API/Package/adaptiveimages" target="_blank">adaptiveimages</a> packages.</li>
+    <li><strong>Semantics-based ARIA accessibility</strong> through the <a href="#API/Package/jqueryariamapper" target="_blank">jqueryariamapper</a> package.</li>
+    <li><strong>Flexible video containers</strong> through the <a href="#API/Package/fitvids" target="_blank">fitvids</a> package.</li>
+    <li><strong>Entity enhancements</strong> including <a href="#API/Entity/Message" target="_blank">Entity/Message headers</a>, <a href="#API/Entity/List" target="_blank">horizontal lists in Entity/List</a>, <a href="#API/Entity/Nav/List" target="_blank">horizontal nav lists in Entity/Nav/List</a>, <a href="#API/Base/Color" target="_blank">inverted gradients</a> configurability of <a href="#API/Entity/Form" target="_blank">Entity/Form</a>, <a href="#API/Entity/Message" target="_blank">Entity/Message</a> and <a href="#API/Entity/Button" target="_blank">Entity/Button</a>, and the <code>flat-ui</code> extension.</li>
+    <li><strong>Print support</strong> added to the <a href="#API/Base/Structure/Grid">Base/Structure/Grid</a> module.</li>
+    <li><strong>External adapter support</strong> added to <a href="Configuration/Compiler/Advanced" target="_blank">compiler configuration</a></li>
+    <li><strong>Font asset support</strong> added for modules, extensions and under <code>src/font</code>.</li>
+    <li><strong>Javascript functionality modularization</strong> through the <a href="#Core/Architecture/Javascript" target="_blank">jQuery.fn.blocks()</a> namespace manager.</li>
+    <li><strong>Updates to existing packages</strong> including Selectivizr, Respond.js and Efx.</li>
+    <li><strong>Mobile click delay removal</strong> through the <a href="#API/Package/fastclick" target="_blank">fastclick</a> package.</li>
+    <li><strong>Additional polyfills</strong> through the <a href="#API/Package/matchmedia" target="_blank">matchmedia</a>, <a href="#API/Package/remunit" target="_blank">remunit</a> and <a href="#API/Package/ie7imagescaling" target="_blank">ie7imagescaling</a> packages.</li>
+    <li><strong>Core improvements</strong> including increased test coverage, logger output and documentation.</li>
+</ul>
+
+<h4 class="text-highlight">Backwards Compatibility</h4>
+
+<p><strong>Semantically, WebBlocks 1.1 is completely backwards compatible with WebBlocks 1.0</strong>; however, please note the following two changes to the compiler configuration:</p>
+
+<ul>
+    <li>WebBlocks 1.1 defaults to compile without the <code>bootstrap</code> adapter. For those that still need the Bootstrap adapter, the following line should be added to <code>Rakefile-config.rb</code>: <pre class="prettyprint">WebBlocks.config[:src][:adapter] = 'bootstrap'</pre></li>
+    <li>WebBlocks 1.1 changed the namespace for package configurations to <code>WebBlocks.config[:src][:packages]</code> instead of <code>WebBlocks.config[:build][:packages]</code>. Packages appended to the old configuration array will still be included, but issuing a <code>.delete</code> against <code>WebBlocks.config[:build][:packages]</code> will no longer work. For example, to remove the <code>:jquery</code> package, <code>Rakefile-config.rb</code> should be updated as follows: <pre class="prettyprint">WebBlocks.config[:src][:packages].delete :jquery</pre></li>
+</ul>
+
+<p>Additionally, for those overriding default WebBlocks behaviors, some implementation differences within entities may have occurred, so testing is encouraged. Strides have been taken though to minimize the differences, and fixes should be minor.</p>
 
 <hr>
 
@@ -14,9 +82,11 @@
 
 <h4 class="text-highlight">Version History</h4>
 
-<p>As of June 21, 2013, WebBlocks 1.0 is a <strong>stable release version</strong>.</p>
+<p>Since June 21, 2013, WebBlocks 1.0 reached <strong>stable release status</strong>.</p>
 
 <ul>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.0.11" target="_blank">November 20, 2013 - v1.0.11</a></strong><br><em class="text-neutral">maintenance release version</em></li>
+    <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.0.10" target="_blank">October 7, 2013 - v1.0.10</a></strong><br><em class="text-neutral">maintenance release version</em></li>
     <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.0.09" target="_blank">July 29, 2013 - v1.0.09</a></strong><br><em class="text-neutral">maintenance release version</em></li>
     <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.0.08" target="_blank">June 21, 2013 - v1.0.08</a></strong><br><em class="text-neutral">release of Golden Master</em></li>
     <li><strong><a href="https://github.com/ucla/WebBlocks/releases/tag/v1.0.07" target="_blank">March 5, 2013 - v0.1.07</a></strong><br><em class="text-neutral">release of Beta 2</em></li>
@@ -26,68 +96,13 @@
     <li><strong>May 14, 2012</strong><br><em class="text-neutral">project inception</em></li>
 </ul>
 
-<p>Known issues may be found under <a href="https://github.com/ucla/WebBlocks/issues?milestone=13&state=open" target="_blank">Milestone v1.0.10</a> and <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>; the former contains issues slated for the next revision release, while the latter contains new issue not yet slated for a particular revision release.</p>
-
-<hr>
-
-<h3>WebBlocks 1.1</h3>
-
-<p>WebBlocks 1.1 is currently <span class="badge danger">EARLY-STAGE DEVELOPMENT</span></p>
-
-<p>While early-stage developmet is beginning, features may still be requested under <a href="https://github.com/ucla/WebBlocks/issues?milestone=9&state=open" target="_blank">Milestone v1.1.xx</a>.</p>
-
-<h4 class="text-highlight">Planned Features</h4>
-
-<p>The following is a non-exhaustive list of featured planned for WebBlocks v1.1:</p>
-
-<h5>Rich User Interfaces</h5>
-
-<p>The <a href="https://github.com/ucla/WebBlocks/wiki/Subgroup%3A-Rich-User-Interfaces" target="_blank">Rich User Interfaces subgroup</a> has  prioritized the following features for WebBlocks v1.1:</p>
-
-<ul>
-    <li>Mega-menu (new)</li>
-    <li>Slideshow (new)</li>
-    <li>Gallery (new)</li>
-    <li>Calendar (new)</li>
-    <li>Navbar (enhancements)</li>
-</ul>
-
-<h5>Text and Media</h5>
-
-<p>The <a href="https://github.com/ucla/WebBlocks/wiki/Subgroup%3A-Text-and-Media" target="_blank">Text and Media subgroup</a> has prioritized the following features for WebBlocks v1.1:</p>
-
-<ul>
-    <li>Linearized table</li>
-    <li>Scrollable table</li>
-    <li><code>img[srcset]</code> support</li>
-    <li><code>picture</code> support</li>
-    <li>Adaptive Images integration</li>
-    <li>Cookie-based Client Hints support</li>
-    <li>Responsive Video (to be defined)</li>
-    <li>Font Asset packaging in compiler</li>
-    <li>Font multi-platform support</li>
-    <li>Print Sheet support</li>
-    <li><code>rem</code> unit support</li>
-    <li>Code syntax highlighting</li>
-    <li>SVG, Canvas and WebGL support</li>
-</ul>
-
-<h5>Core</h5>
-
-<p>The <a href="https://github.com/ucla/WebBlocks/wiki/Subgroup%3A-Core" target="_blank">Core subgroup</a> has prioritized the following features for WebBlocks v1.1:</p>
-
-<ul>
-    <li>Existing packages updates and new packages</li>
-    <li>Support external package definitions</li>
-    <li>Boostrap adapter support for Bootstrap 3</li>
-    <li>New configuration options</li>
-</ul>
+<p>Known issues may be found under <a href="https://github.com/ucla/WebBlocks/issues?milestone=21&state=open" target="_blank">Milestone v1.0.12</a> and <a href="https://github.com/ucla/WebBlocks/issues?milestone=11&state=open" target="_blank">Milestone v1.0.xx</a>; the former contains issues slated for the next revision release, while the latter contains new issue not yet slated for a particular revision release.</p>
 
 <hr>
 
 <h3>WebBlocks 2</h3>
 
-<p>WebBlocks 2 is currently <span class="badge important">EARLY-STAGE PLANNING AND PROTOTYPING</span></p>
+<p>WebBlocks 2 is currently <span class="badge important">PLANNING/PROTOTYPE</span></p>
 
 <p>Where WebBlocks 1 grew organically, WebBlocks 2 seeks to reorganize the underlying architecture, continuing to support all of the use cases provided by WebBlocks 1 while simplifying and changing underlying structures to reduce complexity and improve flexibility.</p>
 
@@ -103,15 +118,11 @@
 
 <ul>
     <li><strong>Remove confusion between modular types.</strong> A module is left free to its own auspices to include a third-party package, provide an adapter layer if certain frameworks are enabled, etc. While everything becomes a module, the expressive <code>Blockfile.rb</code> shall allow users to accomplish any use case supported in WebBlocks 1.</li>
-    <li><strong>Reduce barriers to entry.</strong> Any framework can be made to support inclusion as a WebBlocks component either by adding a <code>Blockfile</code> or by creating a module that specifies the other framework as a Bower dependency and provides a <code>Blockfile.rb</code> for managing the other framework's assets.</li>
-    <li><strong>Simplify extensibility.</strong> By modularizing, any component can be swapped in or out. For example, an application integrating WebBlocks (see <a href='http://localhost/WebBlocks/doc/#Recipe/Integration/Submodule' target='_blank'>Recipe: Submodule Integration</a>) will ont need to call-forward to WebBlocks <code>rake</code> but rather may directly include the WebBlocks rake tasks module.</li>
+    <li><strong>Reduce barriers to entry.</strong> Any framework can be made to support inclusion as a WebBlocks component either by adding a <code>Blockfile.rb</code> or by creating a module that specifies the other framework as a Bower dependency and provides a <code>Blockfile.rb</code> for managing the other framework's assets.</li>
+    <li><strong>Simplify extensibility.</strong> By modularizing, any component can be swapped in or out. For example, an application integrating WebBlocks (see <a href='http://localhost/WebBlocks/doc/#Recipe/Integration/Submodule' target='_blank'>Recipe: Submodule Integration</a>) will not need to call-forward to WebBlocks <code>rake</code> but rather may directly include the WebBlocks rake tasks module.</li>
     <li><strong>Trend towards microframeworks.</strong> Between Bower and the <code>Blockfile.rb</code> file, a module shall be able to completely specify its dependencies. In doing so, a module may compile itself without needing to be loaded into an overarching WebBlocks toolkit project.</li>
     <li><strong>Explicit control in addition to implicit convention.</strong> Each module is free to define its own internals. As an example, a module may choose to support third-party frameworks with adapters or it may bypass this; similarly, a module may choose to separate mixins from definitions, such as in WebBlocks 1, or it may bypass this complexity.</li>
     <li><strong>Compiler performance improvements.</strong> Rather than building a monolithic linker stack, the compiler may compile partials of tightly coupled components and then combine them for a final product.</li>
 </ul>
 
 <p>This approach yields a large number of separate modules. For clarity, core modules will be developed as repositories under the <a href='https://github.com/WebBlocks'>WebBlocks organization</a>.</p>
-
-<p>The toolkit, which provides an easy wrapper for the compiler and rake tasks, may be found under <a href='https://github.com/WebBlocks/WebBlocks-toolkit' target='_blank'>WebBlocks/WebBlocks-toolkit</a>, while the compiler is separate under <a href='https://github.com/WebBlocks/WebBlocks-core' target='_blank'>WebBlocks/WebBlocks-core</a> and rake tasks reside under <a href='https://github.com/WebBlocks/WebBlocks-rake'>WebBlocks/WebBlocks-rake</a>. The WebBlocks organization shall also include a set of modules, such as <a href='https://github.com/WebBlocks/WebBlocks-base-visibility'>WebBlocks/WebBlocks-base-visibility</a>, which provide the actual semantics of WebBlocks.</p>
-
-<p>To get involved with WebBlocks 2, see the <a href='https://github.com/WebBlocks/WebBlocks' target='_blank'>WebBlocks/WebBlocks</a> project.</p>

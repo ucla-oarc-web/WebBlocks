@@ -134,6 +134,10 @@ module WebBlocks
     :adapters => {
       :dir => 'adapter'
     },
+
+    :search => {
+      :adapter => {}
+    },
     
     :extension => {
       :dir => 'extension'

@@ -2,6 +2,23 @@
 
 <p>The WebBlocks compiler provides additional configuration options that may be used in certain niche situations.</p>
 
+<h3>Custom Adapters</h3>
+
+<p>In addition to adapters packaged with WebBlocks, the toolkit also supports the use of external adapters that reside elsewhere in the filesystem (such as a separate repository). To define the path to one of these, you must configure a search path for your adapter.</p>
+
+<p>The following in <code>Rakefile-config.rb</code> establishes a search path for a fictional adapter:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:search][:adapter]['example'] = {
+  :class => 'ExampleAdapter::Handler',
+  :path => '/absolute/path/to/example_adapter/handler.rb'
+}</pre>
+
+<p>Once a search path is defined, the adapter may then be included by name, also within <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:adapter] = 'example'</pre>
+
+<p>See <a href="#Core/Architecture/Adapter">Core/Architecture/Adapter</a> for more details about writing an adapter, with the exception for these external adapters in that they do not need to reside within <code>src/adapter</code> and they may use a custom class name.</p>
+
 <h3>Execution Paths</h3>
 
 <p>WebBlocks uses a number of utilities during the compile process:</p>

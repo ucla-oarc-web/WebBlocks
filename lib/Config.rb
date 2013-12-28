@@ -166,7 +166,7 @@ module WebBlocks
       :efx,
     ],
     
-    :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
+    :adapter  => [],
     
     :modules  => [
                   'base',             # array of directories in /src/core/definitions

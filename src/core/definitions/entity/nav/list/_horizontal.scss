@@ -1,0 +1,23 @@
+nav.list.horizontal {
+    @include -entity-nav-list-horizontal;
+}
+
+nav.list.horizontal h1, nav.list.horizontal h2, nav.list.horizontal h3, nav.list.horizontal h4, nav.list.horizontal h5,  nav.list.horizontal h6 {
+    @include -entity-nav-list-horizontal-header;
+}
+
+nav.list.horizontal .divider {
+    @include -entity-nav-list-horizontal-divider;
+}
+
+nav.list.horizontal h1.divider, nav.list.horizontal h2.divider, nav.list.horizontal h3.divider, nav.list.horizontal h4.divider, nav.list.horizontal h5.divider,  nav.list.horizontal h6.divider {
+    @include -entity-nav-list-horizontal-header-divider;
+}
+
+nav.list.horizontal ul {
+    @include -entity-nav-list-horizontal-ul;
+}
+
+nav.list.horizontal ol {
+    @include -entity-nav-list-horizontal-ol;
+}

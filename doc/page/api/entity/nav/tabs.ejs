@@ -1,0 +1,104 @@
+<h2>Tabs</h2>
+
+<p>This library includes a module for a breadcrumb user interface element:</p>
+
+<ul class="modules">
+    <li><%= DOC.modules.render('Entity/Nav/Tabs') %></li>
+</ul>
+
+<div class="examples">
+
+    <h3>Basic Usage</h3>
+
+    <p>The minimal definition is simply a <code>nav.tabs</code> containing a <code>ul</code> or <code>ol</code>.</p>
+
+    <pre class="prettyprint">&lt;nav class="tabs"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- more list items... --&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+    
+    <p>The nav tabs render as a full-width bar within its container.</p>
+
+    <nav class="tabs">
+        <ul>
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+        </ul>
+    </nav>
+
+    <h4>Active Tab</h4>
+
+    <p>The "active" or "current" item can be specified by adding the <code>.active</code> class to a list item.</p>
+    
+    <pre class="prettyprint">&lt;nav class="tabs"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;
+        &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;
+        &lt;li&gt;&lt;a class="active"&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+  
+    <nav class="tabs">
+        <ul>
+            <li><a>Item 1</a>
+            <li><a>Item 2</a>
+            <li><a class="active">Item 3</a></li>
+        </ul>
+    </nav>
+
+    <h3>Javascript Panels with Efx</h3>
+
+    <p>If the <code>:efx</code> package is included, the <code>tabs</code> effect may be used as follows:</p>
+
+    <pre class="prettyprint">&lt;div data-effect="tabs"&gt;
+
+     &lt;nav class="tabs"&gt;
+         &lt;ul&gt;
+             &lt;li&gt;&lt;a data-target="#tab-1" data-active="true"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+             &lt;li&gt;&lt;a data-target="#tab-2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+     &lt;/nav&gt;
+
+     &lt;section id="tab-1" data-tabs="show"&gt;
+         &lt;h5&gt;First Tab&lt;/h5&gt;
+         &lt;p&gt;This is content for the first tab&lt;/p&gt;
+     &lt;/section&gt;
+
+     &lt;section id="tab-2"&gt;
+         &lt;h5&gt;Second Tab&lt;/h5&gt;
+         &lt;p&gt;This is content for the second tab&lt;/p&gt;
+     &lt;/section&gt;
+
+ &lt;/div&gt;</pre>
+
+    <div data-effect="tabs">
+
+        <nav class="tabs">
+            <ul>
+                <li><a data-target="#tab-1" data-active="true">Tab 1</a></li>
+                <li><a data-target="#tab-2">Tab 2</a></li>
+            </ul>
+        </nav>
+
+        <section style="padding:1em 1em 0.5em 1em" id="tab-1" data-tabs="show">
+            <h5>First Tab</h5>
+            <p>This is content for the first tab</p>
+        </section>
+
+        <section style="padding:1em 1em 0.5em 1em" id="tab-2">
+            <h5>Second Tab</h5>
+            <p>This is content for the second tab</p>
+        </section>
+
+    </div>
+  
+</div>
+
+<h4>Configuration</h4>
+
+<ul class="configuration">
+    <li><%= DOC.modules.render_variables('Entity/Nav/Tabs').join('</li><li>') %></li>
+</ul>

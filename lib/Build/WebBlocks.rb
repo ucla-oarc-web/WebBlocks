@@ -31,6 +31,7 @@ module WebBlocks
         log.task "WebBlocks", "Set up temporary build directory" do
         
           preprocess_css
+          preprocess_font
           preprocess_img
           preprocess_js
         
@@ -41,7 +42,7 @@ module WebBlocks
       def preprocess_css
         
         log.task "WebBlocks", "Set up CSS temporary build region" do
-        
+
           FileUtils.mkdir_p tmp_build_dir
           FileUtils.rm_rf tmp_css_build_dir
           FileUtils.mkdir_p tmp_css_build_dir
@@ -66,16 +67,28 @@ module WebBlocks
         
       end
       
+      def preprocess_font
+        
+        log.task "WebBlocks", "Set up font temporary build region" do
+
+          FileUtils.mkdir_p tmp_build_dir
+          FileUtils.rm_rf tmp_font_build_dir
+          FileUtils.mkdir_p tmp_font_build_dir
+
+        end
+        
+      end
+
       def preprocess_img
-        
+
         log.task "WebBlocks", "Set up image temporary build region" do
-        
+
           FileUtils.mkdir_p tmp_build_dir
           FileUtils.rm_rf tmp_img_build_dir
           FileUtils.mkdir_p tmp_img_build_dir
-        
+
         end
-        
+
       end
       
       def preprocess_js
@@ -157,6 +170,7 @@ module WebBlocks
       def assemble
         
         assemble_css
+        assemble_font
         assemble_img
         assemble_js
         
@@ -189,14 +203,32 @@ module WebBlocks
         end
         
       end
+
+      def assemble_font
+
+        log.task "WebBlocks", "Assembling font sources into font directory" do
+
+          dir = src_font_dir
+
+          get_files(dir, ['eot','ttf','otf','woff']).each do |src|
+            relname = src.gsub /^#{dir}\//, ''
+            dst = "#{tmp_font_build_dir}/#{relname}"
+            log.debug "#{tmp_font_build_dir.gsub /^#{root_dir}\//, ''} <- #{src.gsub /^#{root_dir}\//, ''}"
+            FileUtils.mkdir_p File.dirname(dst)
+            FileUtils.cp src, dst
+          end
+
+        end
+
+      end
       
       def assemble_img
         
-        log.task "WebBlocks", "Assembling image sources into JS files" do
+        log.task "WebBlocks", "Assembling image sources into image directory" do
           
           dir = src_img_dir
           
-          get_files(dir, ['gif','jpg','jpeg','png','bmp']).each do |src|
+          get_files(dir, ['gif','jpg','jpeg','png','bmp','svg']).each do |src|
             relname = src.gsub /^#{dir}\//, ''
             dst = "#{tmp_img_build_dir}/#{relname}"
             log.debug "#{tmp_img_build_dir.gsub /^#{root_dir}\//, ''} <- #{src.gsub /^#{root_dir}\//, ''}"
@@ -255,6 +287,7 @@ module WebBlocks
         log.task "WebBlocks", "Packaging build files" do
         
           package_css
+          package_font
           package_img
           package_js
           
@@ -287,6 +320,22 @@ module WebBlocks
           
         end
         
+      end
+
+      def package_font
+
+        FileUtils.mkdir_p build_dir
+        FileUtils.mkdir_p font_build_dir
+
+        log.task "WebBlocks", "Packaging font build files" do
+
+          log.info "Copying #{tmp_font_build_dir} to #{font_build_dir}" do
+            FileUtils.rm_rf font_build_dir
+            FileUtils.cp_r tmp_font_build_dir, font_build_dir
+          end
+
+        end
+
       end
       
       def package_img

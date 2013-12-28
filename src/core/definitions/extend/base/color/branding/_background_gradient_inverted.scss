@@ -1,0 +1,25 @@
+//!requires base/color/branding/background_gradient
+
+.gradient.inverted {
+
+    &.default {
+        @include -extend-base-color-branding-default-background-gradient-inverted;
+    }
+
+    &.primary {
+        @include -extend-base-color-branding-primary-background-gradient-inverted;
+    }
+
+    &.secondary {
+        @include -extend-base-color-branding-secondary-background-gradient-inverted;
+    }
+
+    &.tertiary {
+        @include -extend-base-color-branding-tertiary-background-gradient-inverted;
+    }
+
+    &.neutral {
+        @include -extend-base-color-branding-neutral-background-gradient-inverted;
+    }
+
+}

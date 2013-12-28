@@ -1,0 +1,27 @@
+<h2>Package: FastClick</h2>
+
+<p>When touch support is available, such as on mobile and tablet devices, modern web browsers supply a delay of 300ms or so before firing a click event. This delay is provided because the browser is waiting to see if the user is performing a double tap; however, in applications where double tap functionality is not used, this delay simply makes the page feel slow. This plugin is intended to resolve this problem by immediately firing a click event when a touch occurs.</p>
+
+<h3>Configuration</h3>
+
+<p>To include this package, add the following to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :fastclick</pre>
+
+<p>This package is not included by default.</p>
+
+<h3>Usage</h3>
+
+<p>Once included, you must specify the target region where fast clicks should be supported.</p>
+
+<p>To include fast clicks over the entire site:</p>
+
+<pre class="prettyprint">$(window).load(function(){
+    FastClick.attach(document.body);
+});</pre>
+
+<p>If jQuery is not available, you can use:</p>
+
+<pre class="prettyprint">window.addEventListener('load', function() {
+    FastClick.attach(document.body);
+}, false);</pre>

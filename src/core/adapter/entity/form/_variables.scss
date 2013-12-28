@@ -22,3 +22,6 @@ $form-input-uneditable-background-color:    $form-input-background-color !defaul
 $form-input-uneditable-border-color:        $color-branding-default-border !default;
 
 $form-placeholder-text-color:                desaturate(-lighten-if-light-or-else-darken($form-input-text-color, 60%), 100%) !default;
+
+$form-input-boxshadow:                      inset 0 1px 1px rgba(0,0,0,.075) !default;
+$form-input-boxshadow-focus:                #{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)} !default;

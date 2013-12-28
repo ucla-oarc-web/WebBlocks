@@ -1,6 +1,6 @@
 @mixin -base-block-float-left-responsive-above-xxsmall {
     
-    @media screen and (min-width: $breakpoint-xxsmall+1) {
+    @media (min-width: $breakpoint-xxsmall+1) {
         float: left;
     }
     
@@ -8,7 +8,7 @@
 
 @mixin -base-block-float-left-responsive-above-xsmall {
     
-    @media screen and (min-width: $breakpoint-xsmall+1) {
+    @media (min-width: $breakpoint-xsmall+1) {
         float: left;
     }
     
@@ -16,7 +16,7 @@
 
 @mixin -base-block-float-left-responsive-above-small {
     
-    @media screen and (min-width: $breakpoint-small+1) {
+    @media (min-width: $breakpoint-small+1) {
         float: left;
     }
     
@@ -24,7 +24,7 @@
 
 @mixin -base-block-float-left-responsive-above-medium-small {
     
-    @media screen and (min-width: $breakpoint-medium-small+1) {
+    @media (min-width: $breakpoint-medium-small+1) {
         float: left;
     }
     
@@ -32,7 +32,7 @@
 
 @mixin -base-block-float-left-responsive-above-medium {
     
-    @media screen and (min-width: $breakpoint-medium+1) {
+    @media (min-width: $breakpoint-medium+1) {
         float: left;
     }
     
@@ -40,7 +40,7 @@
 
 @mixin -base-block-float-left-responsive-above-medium-large {
     
-    @media screen and (min-width: $breakpoint-medium-large+1) {
+    @media (min-width: $breakpoint-medium-large+1) {
         float: left;
     }
     
@@ -48,7 +48,7 @@
 
 @mixin -base-block-float-left-responsive-above-large {
     
-    @media screen and (min-width: $breakpoint-large+1) {
+    @media (min-width: $breakpoint-large+1) {
         float: left;
     }
     
@@ -56,7 +56,7 @@
 
 @mixin -base-block-float-right-responsive-above-xxsmall {
     
-    @media screen and (min-width: $breakpoint-xxsmall+1) {
+    @media (min-width: $breakpoint-xxsmall+1) {
         float: right;
     }
     
@@ -64,7 +64,7 @@
 
 @mixin -base-block-float-right-responsive-above-xsmall {
     
-    @media screen and (min-width: $breakpoint-xsmall+1) {
+    @media (min-width: $breakpoint-xsmall+1) {
         float: right;
     }
     
@@ -72,7 +72,7 @@
 
 @mixin -base-block-float-right-responsive-above-small {
     
-    @media screen and (min-width: $breakpoint-small+1) {
+    @media (min-width: $breakpoint-small+1) {
         float: right;
     }
     
@@ -80,7 +80,7 @@
 
 @mixin -base-block-float-right-responsive-above-medium-small {
     
-    @media screen and (min-width: $breakpoint-medium-small+1) {
+    @media (min-width: $breakpoint-medium-small+1) {
         float: right;
     }
     
@@ -88,7 +88,7 @@
 
 @mixin -base-block-float-right-responsive-above-medium {
     
-    @media screen and (min-width: $breakpoint-medium) {
+    @media (min-width: $breakpoint-medium) {
         float: right;
     }
     
@@ -96,7 +96,7 @@
 
 @mixin -base-block-float-right-responsive-above-medium-large {
     
-    @media screen and (min-width: $breakpoint-medium-large+1) {
+    @media (min-width: $breakpoint-medium-large+1) {
         float: right;
     }
     
@@ -104,7 +104,7 @@
 
 @mixin -base-block-float-right-responsive-above-large {
     
-    @media screen and (min-width: $breakpoint-large+1) {
+    @media (min-width: $breakpoint-large+1) {
         float: right;
     }
     

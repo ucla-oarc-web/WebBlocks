@@ -47,9 +47,18 @@ module WebBlocks
         
         def assemble
           
+          assemble_font
           assemble_img
           assemble_js
           
+        end
+
+        def assemble_font
+
+          log.task "Core: Adapter", "Copying fonts from core adapter" do
+            assemble_font_files_for src_core_adapter_dir
+          end
+
         end
         
         def assemble_img

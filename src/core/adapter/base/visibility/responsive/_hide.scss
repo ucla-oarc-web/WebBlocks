@@ -1,6 +1,6 @@
 @mixin -base-visibility-hide-xxsmall {
     
-    @media screen and (max-width: $breakpoint-xxsmall) {
+    @media (max-width: $breakpoint-xxsmall) {
         display: none;
     }
     
@@ -8,7 +8,7 @@
 
 @mixin -base-visibility-hide-xsmall {
     
-    @media screen and (max-width: $breakpoint-xsmall) {
+    @media (max-width: $breakpoint-xsmall) {
         display: none;
     }
     
@@ -16,7 +16,7 @@
 
 @mixin -base-visibility-hide-small {
     
-    @media screen and (max-width: $breakpoint-small) {
+    @media (max-width: $breakpoint-small) {
         display: none;
     }
     
@@ -24,7 +24,7 @@
 
 @mixin -base-visibility-hide-medium-small {
     
-    @media screen and (max-width: $breakpoint-medium-small) {
+    @media (max-width: $breakpoint-medium-small) {
         display: none;
     }
     
@@ -32,7 +32,7 @@
 
 @mixin -base-visibility-hide-medium {
     
-    @media screen and (max-width: $breakpoint-medium) {
+    @media (max-width: $breakpoint-medium) {
         display: none;
     }
     
@@ -40,7 +40,7 @@
 
 @mixin -base-visibility-hide-medium-large {
     
-    @media screen and (max-width: $breakpoint-medium-large) {
+    @media (max-width: $breakpoint-medium-large) {
         display: none;
     }
     
@@ -48,7 +48,7 @@
 
 @mixin -base-visibility-hide-large {
     
-    @media screen and (max-width: $breakpoint-large) {
+    @media (max-width: $breakpoint-large) {
         display: none;
     }
     

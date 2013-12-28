@@ -27,6 +27,10 @@ module WebBlocks
       def tmp_css_build_file_ie
         from_tmp_build_dir_to 'css', 'blocks-ie.css'
       end
+
+      def tmp_font_build_dir
+        from_tmp_build_dir_to 'font'
+      end
       
       def tmp_img_build_dir
         from_tmp_build_dir_to 'img'

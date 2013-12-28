@@ -25,8 +25,6 @@
     
 }
 
-@mixin -entity-nav-list-header-divider { }
-
 @mixin -entity-nav-list-divider {
     border-bottom-width: 0;
     border-top: 1px solid $nav-list-divider-color;
@@ -56,12 +54,6 @@
         }
 
     }
-}
-
-@mixin -entity-nav-list-link {
-}
-
-@mixin -entity-nav-list-item-active {
 }
 
 @mixin -entity-nav-list-flyout {

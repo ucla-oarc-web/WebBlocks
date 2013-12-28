@@ -307,6 +307,11 @@
             default_value:'pointer',
             type:'string'
         },
+        'button-boxshadow-hover': {
+            description:'box shadow applied when hovered over the button',
+            default_value:'#{inset 0 1px 0 rgba(-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),-color-select-first-if-light(255,0),.2), 0 1px 2px rgba(-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),-color-select-first-if-light(0,255),.05)}',
+            type:'boxshadow'
+        },
         'color-branding-default': {
             description:'defines base for default color',
             default_value:'#eee',
@@ -577,6 +582,16 @@
             default_value:'$color-branding-default-border',
             type:'color'
         },
+        'form-input-boxshadow': {
+            description:'box shadow applied on controls within <code>form.form</code>',
+            default_value:'inset 0 1px 1px rgba(0,0,0,.075)',
+            type:'boxshadow'
+        },
+        'form-input-boxshadow-focus': {
+            description:'box shadow applied on focused controls within <code>form.form</code>',
+            default_value:'#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)}',
+            type:'boxshadow'
+        },
         'form-placeholder-text-color': {
             description:'text color for placeholder text of <code>input, textarea, select</code> within <code>form.form</code>',
             default_value:'lighten($form-input-text-color, 40%)',
@@ -612,13 +627,73 @@
             default_value: '#CCC',
             type: 'color'
         },
+        'nav-tabs-border-bottom-color': {
+            description: 'border color of the bottom border within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-padding-X': {
+            description: 'horizontal padding inside a tab within tabbed navigation',
+            default_value: '16px',
+            type: 'px (recommended), em'
+        },
+        'nav-tabs-link-padding-Y': {
+            description: 'vertical padding inside a tab within tabbed navigation',
+            default_value: '8px',
+            type: 'px (recommended), em'
+        },
+        'nav-tabs-link-spacing-before': {
+            description: 'horizontal spacing (margin) before each tab within tabbed navigation',
+            default_value: '0.5em',
+            type: 'em, px'
+        },
+        'nav-tabs-link-spacing-after': {
+            description: 'horizontal spacing (margin) before each tab within tabbed navigation',
+            default_value: '0',
+            type: 'em, px'
+        },
+        'nav-tabs-link-border-color': {
+            description: 'border color of each tab within tabbed navigation',
+            default_value: '#ccc',
+            type: 'color'
+        },
+        'nav-tabs-link-border-radius': {
+            description: 'border radius of each tab within tabbed navigation',
+            default_value: '8px',
+            type: 'em, px'
+        },
+        'nav-tabs-link-background-color': {
+            description: 'border color of each tab within tabbed navigation',
+            default_value: '#fbfbfb',
+            type: 'color'
+        },
+        'nav-tabs-link-active-border-color': {
+            description: 'border color of the current active tab within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-active-background-color': {
+            description: 'border color of the current active tab within tabbed navigation',
+            default_value: '#fff',
+            type: 'color'
+        },
+        'nav-tabs-link-hover-border-color': {
+            description: 'border color of the current hovered tab within tabbed navigation',
+            default_value: '#aaa',
+            type: 'color'
+        },
+        'nav-tabs-link-hover-background-color': {
+            description: 'border color of the current hovered tab within tabbed navigation',
+            default_value: '#fff',
+            type: 'color'
+        },
         'blockquote-small-color': {
             description: 'color of text in blockquote wrapped by &lt;small&gt; tags',
             default_value: '#666',
             type: 'color'
         },
         'blockquote-border-color': {
-            description: 'text color of the dividers within breadcrumb navigation',
+            description: 'color of border in blockquote',
             default_value: '#b3b3b3',
             type: 'color'
         },

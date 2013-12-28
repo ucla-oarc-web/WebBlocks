@@ -19,7 +19,7 @@ module WebBlocks
       
       def attach_packages
         
-        config[:build][:packages].each do |package|
+        (config[:src][:packages] | config[:build][:packages]).each do |package|
           
           path = ::WebBlocks::Path.from_root_to "lib/Build/Package/#{package.to_s.downcase.capitalize}.rb"
           
@@ -41,14 +41,34 @@ module WebBlocks
       
       def attach_module namespace, mod
         
-        mod = mod.to_s.downcase.capitalize
-        namespace = namespace.to_s.downcase.capitalize
-        
-        path = ::WebBlocks::Path.from_root_to "lib/Build/#{namespace}/#{mod}.rb"
+        mod = mod.to_s.downcase
+        namespace = namespace.to_s.downcase
+
+        if config[:src][:search].has_key?(namespace.to_sym) and config[:src][:search][namespace.to_sym].has_key?(mod)
+          search = config[:src][:search][namespace.to_sym][mod]
+        else
+          search = nil
+        end
+
+        mod = mod.capitalize
+        namespace = namespace.capitalize
+
+        if search and search.has_key?(:path)
+          path = search[:path]
+        else
+          path = ::WebBlocks::Path.from_root_to "lib/Build/#{namespace}/#{mod}.rb"
+        end
+
+        if search and search.has_key?(:class)
+          klass = search[:class][0,2] == '::' ? search[:class] : "::#{search[:class]}"
+        else
+          klass = "::WebBlocks::Build::#{namespace}::#{mod}"
+        end
+
         if File.exists? path
           load path
           begin
-            observer(eval("::WebBlocks::Build::#{namespace.capitalize}::#{mod}").new)
+            observer(eval(klass).new)
             log.success namespace.capitalize, "Attached #{namespace} handler #{mod}"
           rescue
             log.warning namespace.capitalize, "Skipped #{namespace} handler #{mod} (undefined)"

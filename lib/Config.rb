@@ -87,21 +87,17 @@ module WebBlocks
     :name_ie            => 'blocks-ie.js',
     :name_script_dir    => 'script'
   }
+
+  @config[:build][:font] = {
+    :dir      => 'font'
+  }
   
   @config[:build][:img] = {
     :dir      => 'img'
   }
-  
-  @config[:build][:packages] = [
-    :jquery,
-    :matchMedia,
-    :respond,
-    :selectivizr,
-    :modernizr,
-    :picturefill,
-    :efx,
-  # :opticss, # experimental: use with caution
-  ]
+
+  # DEPRECATED -- USE config[:src][:packages] instead
+  @config[:build][:packages] = []
   
   # src configuration
   
@@ -115,6 +111,9 @@ module WebBlocks
     },
     :css      => {
       :dir => 'css'
+    },
+    :font      => {
+      :dir => 'font'
     },
     :img      => {
       :dir => 'img'
@@ -135,6 +134,10 @@ module WebBlocks
     :adapters => {
       :dir => 'adapter'
     },
+
+    :search => {
+      :adapter => {}
+    },
     
     :extension => {
       :dir => 'extension'
@@ -152,23 +155,24 @@ module WebBlocks
         :dir => 'adapter'
       }
     },
+
+    :packages => [
+      :jquery,
+      :matchMedia,
+      :respond,
+      :selectivizr,
+      :modernizr,
+      :picturefill,
+      :efx,
+    ],
     
-    :adapter  => 'bootstrap',         # name of directory in /src/adapter or false
+    :adapter  => [],
     
     :modules  => [
                   'base',             # array of directories in /src/core/definitions
                   'compatibility',    # or false if no modules to include
                   'entity',           # or :all to include all modules
-                  
-                  ###############
-                  
-                  # temporary until semantics around .emphasize and .fade are finalized
-                  'extend/base/color/branding/background_emphasize',
-                  'extend/base/color/branding/background_fade',
-                  'extend/base/color/mood/background_emphasize',
-                  'extend/base/color/mood/background_fade',
-                  
-                  ],          
+                  ],
                                       
     :extensions => []                 # array of additional directories in /src
                                       # or false if no additional directories to include
@@ -218,6 +222,10 @@ module WebBlocks
   @config[:package][:efx] = {
     :dir      => 'efx'
   }
+
+  @config[:package][:fastclick] = {
+    :dir      => 'fastclick'
+  }
   
   @config[:package][:fitvids] = {
     :dir      => 'fitvids'
@@ -248,6 +256,10 @@ module WebBlocks
     :dir      => 'picturefill'
   }
   
+  @config[:package][:remunit] = {
+    :dir      => 'rem-unit'
+  }
+
   @config[:package][:respond] = {
     :dir      => 'respond'
   }

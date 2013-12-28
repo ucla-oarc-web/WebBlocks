@@ -1,0 +1,45 @@
+//!requires entity/list
+//!requires entity/nav/list
+
+@import "compass/css3/border-radius";
+
+@mixin -entity-nav-tabs {
+    @extend .clearfix;
+    border-bottom: 1px solid #aaa;
+}
+
+@mixin -entity-nav-tabs-ol {
+    @extend .float-left;
+    @extend ol.list.horizontal;
+    @extend ol.list.unstyled;
+    margin-bottom: 9px;
+}
+
+@mixin -entity-nav-tabs-ul {
+    @extend .float-left;
+    @extend ul.list.horizontal;
+    @extend ul.list.unstyled;
+    margin-bottom: 9px;
+}
+
+@mixin -entity-nav-tabs-item {
+    line-height: 1;
+    padding-right: 1em;
+}
+
+@mixin -entity-nav-tabs-link {
+    padding: 8px 16px 8px 16px;
+    border: 1px solid #ccc;
+    background-color: #fbfbfb;
+    border-bottom: 0;
+    @include border-radius(8px 8px 0 0);
+    &.active {
+        border-color: #aaa;
+        background-color: #fff;
+        padding-bottom: 9px;
+    }
+    &:hover {
+        border-color: #aaa;
+        background-color: #fff;
+    }
+}

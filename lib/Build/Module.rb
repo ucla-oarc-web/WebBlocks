@@ -403,7 +403,7 @@ module WebBlocks
             lines.each do |line|
               line.gsub! /^\/\/\!\s*requires_package\s*/, ''
               line.split(/\s/).each do |dependency|
-                log.warning "Package #{dependency} required and must be included external to WebBlocks" unless (config[:src][:packages] | config[:build][:packages]).include? dependency.to_sym
+                log.warning "Package #{dependency} required in #{file.to_path} and must be included external to WebBlocks" unless (config[:src][:packages] | config[:build][:packages]).include? dependency.to_sym
               end
             end
           end

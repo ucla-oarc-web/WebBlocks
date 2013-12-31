@@ -1,7 +1,7 @@
 if(typeof Blocks == 'undefined')
     var Blocks = {};
 
-(function ($, window, document, undefined) {
+typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
 
     var methods = {};
 

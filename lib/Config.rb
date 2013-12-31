@@ -164,6 +164,7 @@ module WebBlocks
       :modernizr,
       :picturefill,
       :efx,
+      :jqueryariamapper
     ],
     
     :adapter  => [],

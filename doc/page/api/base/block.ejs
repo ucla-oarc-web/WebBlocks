@@ -6,6 +6,7 @@
     <li><%= DOC.modules.render('Base/Block/Float') %></li>
     <li><%= DOC.modules.render('Base/Block/Float/Responsive') %></li>
     <li><%= DOC.modules.render('Base/Block/Float/Responsive_Above') %></li>
+    <li><%= DOC.modules.render('Base/Block/Overflow') %></li>
 </ul>
 
 <h3>Basic Usage</h3>
@@ -131,3 +132,34 @@
         padding: 5px;
     }
 </style>
+
+<h3>Scrollable Containers</h3>
+
+<p>Responsive design reflows page elements to present them adequately under all viewport dimensions; however, in some cases, it may not be reasonable to reshape and resize an element. The <code>.overflow-scroll</code> class provides an alternative where, if the inner contents of an <code>.overflow-scroll</code> element exceed the dimensions of the element, then scrollbars will be added.</code>
+
+<p>A common example of a scrollable container is a table:</p>
+
+<div class="overflow-scroll" style="width:400px; max-width:100%;">
+    <table>
+        <tr>
+            <td style="white-space:nowrap" class="secondary">Data Cell #1</td>
+            <td style="white-space:nowrap" class="tertiary">Data Cell #2</td>
+            <td style="white-space:nowrap" class="secondary">Data Cell #3</td>
+            <td style="white-space:nowrap" class="tertiary">Data Cell #4</td>
+            <td style="white-space:nowrap" class="secondary">Data Cell #5</td>
+        </tr>
+    </table>
+</div>
+<pre class="prettyprint">&lt;div class="overflow-scroll" style="width:400px; max-width:100%;"&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td style="white-space:nowrap" class="secondary"&gt;Data Cell #1&lt;/td&gt;
+            &lt;td style="white-space:nowrap" class="tertiary"&gt;Data Cell #2&lt;/td&gt;
+            &lt;td style="white-space:nowrap" class="secondary"&gt;Data Cell #3&lt;/td&gt;
+            &lt;td style="white-space:nowrap" class="tertiary"&gt;Data Cell #4&lt;/td&gt;
+            &lt;td style="white-space:nowrap" class="secondary"&gt;Data Cell #5&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</pre>
+
+<p>Note that, in the case of the table, WebBlocks also provides <code>.table.scrollable-collapse</code> (see <a href="#API/Entity/Table">API/Entity/Table</a>), which handles wrapping the table within an <code>.overflow-scroll</code> automatically.

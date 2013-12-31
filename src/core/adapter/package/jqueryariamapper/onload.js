@@ -1,7 +1,8 @@
-//!requires_package jquery
+//!require_package jquery
+//!require_package jqueryariamapper
 
 typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
     $(window).load(function(){
-        Blocks.IE.css.filter.borderRadius('nav.bar')
-    });
+        $('body').blocks().ariaMapper()
+    })
 })(jQuery, window, document);

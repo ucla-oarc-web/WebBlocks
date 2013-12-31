@@ -1,72 +1,78 @@
-$(document).addBlocksMethod('requiredFormControls', function(command){
+//!requires_package jquery
 
-    var addAriaAlert = function(){
-        $(this).attr('role', $(this).hasClass('required') ? 'alert' : null);
-    };
+typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
 
-    var commands = {
+    $(document).addBlocksMethod('requiredFormControls', function(command){
 
-        'init': function(){
+        var addAriaAlert = function(){
+            $(this).attr('role', $(this).hasClass('required') ? 'alert' : null);
+        };
 
-            $(this).find('.control[data-required="true"]').each(function(){
+        var commands = {
 
-                var $control = $(this),
-                    $inputs = $control.find('input,textarea,select'),
-                    markControls = function(){
-                        if($inputs.filter(function(){ return !$(this).val().length }).length > 0){
-                            $control.addClass('required');
-                        }else{
-                            $control.removeClass('required');
+            'init': function(){
+
+                $(this).find('.control[data-required="true"]').each(function(){
+
+                    var $control = $(this),
+                        $inputs = $control.find('input,textarea,select'),
+                        markControls = function(){
+                            if($inputs.filter(function(){ return !$(this).val().length }).length > 0){
+                                $control.addClass('required');
+                            }else{
+                                $control.removeClass('required');
+                            }
                         }
-                    }
 
-                if(!$control.closest('form.form').length)
-                    return;
+                    if(!$control.closest('form.form').length)
+                        return;
 
-                $inputs.change(function(){
-                    markControls();
-                    addAriaAlert.call($control);
+                    $inputs.change(function(){
+                        markControls();
+                        addAriaAlert.call($control);
+                    })
+
+                    markControls()
+
+                    $control.find('.required-pass, .required-fail').attr('data-required', 'ready')
+
                 })
 
-                markControls()
+                $(this).submit(function(e){
+                    $(this).blocks().requiredFormControls('validate').length || e.preventDefault();
+                })
 
-                $control.find('.required-pass, .required-fail').attr('data-required', 'ready')
+                return true;
 
-            })
+            },
 
-            $(this).submit(function(e){
-                $(this).blocks().requiredFormControls('validate').length || e.preventDefault();
-            })
+            'validate': function(){
 
-            return true;
+                var $form = $(this),
+                            $controls = $form.find('.control').filter(function(){ return $(this).hasClass('required') }),
+                            $formRequiredFail = $form.find('.form-required-fail');
 
-        },
+                if(!$controls.length)
+                    return $form;
 
-        'validate': function(){
+                $controls.each(function(){
+                    addAriaAlert.call(this);
+                })
 
-            var $form = $(this),
-                        $controls = $form.find('.control').filter(function(){ return $(this).hasClass('required') }),
-                        $formRequiredFail = $form.find('.form-required-fail');
+                $form.addClass('form-required-failure');
+                $formRequiredFail.attr('role', 'alert');
+                return false;
+            }
 
-            if(!$controls.length)
-                return $form;
+        };
 
-            $controls.each(function(){
-                addAriaAlert.call(this);
-            })
-
-            $form.addClass('form-required-failure');
-            $formRequiredFail.attr('role', 'alert');
-            return false;
-        }
-
-    };
-
-    return $(this).map(function(){ return commands[command].apply(this)}).filter(function(){ return this.valueOf(); })
+        return $(this).map(function(){ return commands[command].apply(this)}).filter(function(){ return this.valueOf(); })
 
 
-})
+    })
 
-$(window).load(function(){
-    $('form.form').blocks().requiredFormControls('init');
-});
+    $(window).load(function(){
+        $('form.form').blocks().requiredFormControls('init');
+    });
+
+})(jQuery, window, document);

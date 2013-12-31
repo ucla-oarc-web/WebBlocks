@@ -1,21 +1,24 @@
-$(document).addBlocksMethod('overflowScrollable',function(command){
+//!requires_package jquery
 
-  var commands = {
+typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
 
-    'init': function(){
+    $(document).addBlocksMethod('overflowScrollable',function(command){
 
-      var $this = $(this)
+      var commands = {
 
-      if(!$this.parent().hasClass('overflow-scroll'))
-        $this.wrap($(document.createElement('div')).addClass('overflow-scroll'))
+        'init': function(){
 
-    }
+          var $this = $(this)
 
-  }
+          if(!$this.parent().hasClass('overflow-scroll'))
+            $this.wrap($(document.createElement('div')).addClass('overflow-scroll'))
 
-  commands[command] && commands[command].call($(this), Array.prototype.slice.call(arguments,1));
+        }
 
-});
+      }
 
+      commands[command] && commands[command].call($(this), Array.prototype.slice.call(arguments,1));
 
+    });
 
+})(jQuery, window, document);

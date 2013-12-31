@@ -27,7 +27,7 @@
 #     
 #   Packages 
 #   
-#     WebBlocks.config[:src][:packages] = [:jquery, :matchMedia, :respond, :selectivizr, :modernizr, :picturefill, :efx]
+#     WebBlocks.config[:src][:packages] = [:jquery, :matchMedia, :respond, :selectivizr, :modernizr, :picturefill, :efx, :jqueryariamapper]
 #
 # This file may also reside elsewhere in your filesystem, in which case Rake 
 # should be passed a command-line property on invocation:

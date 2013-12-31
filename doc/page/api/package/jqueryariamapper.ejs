@@ -1,6 +1,108 @@
 <h2>Package: jQuery ARIA Mapper</h2>
 
-<div class="message warning">
-    <header>UNDER CONSTRUCTION</header>
-    <p>This page is a stub with further details to be provided shortly.</p>
-</div>
+<p>The <a href="http://www.w3.org/TR/wai-aria/" target="_blank">Accessible Rich Internet Applications (WIA-ARIA)</a> provides an ontology of roles, states and properties that improve the accessibility and interoperability of web content and applications for assistive technologies.</p>
+
+<p>The <a href="https://github.com/ebollens/jQuery.ariaMapper" target="_blank">jQuery.ariaMapper</a> plugin, developed by <a href="http://eb.io" target="_blank">Eric Bollens</a>, provides a mechanism for mapping ARIA roles, states and properties onto known semantics, such as HTML elements or framework-defined classes. WebBlocks provides a module <code>package/jqueryariamapper/binding</code> that performs such a mapping onto HTML elements and WebBlocks semantics, and an additional <code>package/jqueryariamapper/onload</code> that will trigger the mapping during the <code>load</code> event.</p>
+
+<h3>Configuration</h3>
+
+<p>This package is enabled by default.</p>
+
+<p>To disable this package, add a line removing it within <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:packages].remove :jqueryariamapper</pre>
+
+<p>If you are explicitly defining packages in <code>Rakefile-config.rb</code>, add the <code>:jqueryariamapper</code> package as follows:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:packages] << :jqueryariamapper</pre>
+
+<p>If this package is enabled, WebBlocks will also load the <code>package/jqueryariamapper/binding</code> module when it runs; the <code>package/jqueryariamapper/onload</code> module may additionally be added to automatically run the mapper during the <code>load</code> event:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] << 'package/jqueryariamapper/onload'</pre>
+
+<h3>Usage</h3>
+
+<p>When content is ready to be mapped, run:</p>
+
+<pre class="prettyprint">$('body').blocks().ariaMapper()</pre>
+
+<p>The <code>package/jqueryariamapper/onload</code> module may be added to do this during the <code>load</code> event:</p>
+
+<pre class="prettyprint">WebBlocks.config[:src][:modules] << 'package/jqueryariamapper/onload'</pre>
+
+<p>When <code>ariaMapper()</code> is called without options, this operation is idempotent for the same DOM content.</p>
+
+<h4>Custom Mappings</h4>
+
+<p>The <code>$(ele).blocks().ariaMapper()</code> accepts an optional <code>options</code> object.</p>
+
+<p>For example, WebBlocks defaults to applying the <code>alert</code> role to messages of error, danger, important and required connotations. This could be overridden so all take the <code>status</code> role as:</p>
+
+<pre class="prettyprint">var custom = {
+    "roles": {
+        "selectors": {
+            "alert": [],
+            "status": [
+             ".message.error",
+             ".message.danger",
+             ".message.important",
+             ".message.required",
+             ".message.highlight",
+             ".message.success",
+             ".message.warning",
+             ".message.info"
+            ]
+        }
+    }
+};
+$('body').blocks().ariaMapper(custom);</pre>
+
+<p>This will override the default options, which are:</p>
+
+<pre class="prettyprint">{
+    "roles": {
+        "selectors": {
+            "alert": [
+                ".message.error",
+                ".message.danger",
+                ".message.important",
+                ".message.required"
+            ],
+            "banner": "header:not("+sectionElements.join(' header):not(')+" header)",
+            "contentinfo": "footer:not("+sectionElements.join(' footer):not(')+" footer)",
+            "main": "main",
+            "article": "article",
+            "complementary": "aside:not(main aside)",
+            "navigation": "nav",
+            "region": "section",
+            "search": [ "nav.search" ],
+            "status": [
+                ".message.highlight",
+                ".message.success",
+                ".message.warning",
+                ".message.info"
+            ]
+        },
+        "filters": {
+            "navigation": function(){ return !this.hasClass('search') }
+        },
+        "callbacks": {
+        },
+        "exclusions": []
+    },
+    "labeledby": {
+        "selectors": {
+            "form.form div.control label input": function(){
+                var label = this.closest('div.control').children('label').first();
+                if(label.find('input').length == 0)
+                    this.ariaMapperHelper('setLabeledBy', label)
+            }
+        }
+    }
+}</pre>
+
+<p>An astute reader may recognize that a number of the default mappings are HTML 5 "polyfill" mappings, namely an attempt to map HTML 5 semantics contextually to roles based on their intended purpose. These mappings are for the roles <code>banner</code>, <code>contentinfo</code>, <code>main</code>, <code>article</code>, <code>complementary</code>, <code>navigation</code> and <code>region</code>. If only WebBlocks and custom mappings are desired, these "polyfill" mappings may be disabled without specifying each explicitly by simply using the following option:</p>
+
+<pre class="prettyprint">$('body').blocks().ariaMapper({'polyfill':false});</pre>
+
+<p>For a full understanding of all the configuration options available via the ARIA Mapper, please see its <a href="https://github.com/ebollens/jQuery.ariaMapper/blob/master/test.js" target="_blank">unit test sources</a>.</p>

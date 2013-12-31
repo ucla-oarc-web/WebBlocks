@@ -392,6 +392,28 @@
     
     <p><span class="badge info">NOTE</span> Resize this documentation to see how the navbars collapse on overflow.</p>
 
+    <h4>Javascript Handlers</h4>
+
+    <p>The responsive collapse behavior is initialized during the <code>load</code> event:</p>
+
+    <pre class="prettyprint">$(window).load(function(){
+
+    $('nav.bar').blocks().navbar('init');
+
+    $(window).resize(function(){
+        $('nav.bar').blocks().navbar('reflow');
+    });
+
+});</pre>
+
+    <p>If a <code>nav.bar</code> is added to the DOM after load via Javascript, then it must be explicitly initialized:</p>
+
+    <pre class="prettyprint">$(ele).blocks().navbar('init');
+
+$(window).resize(function(){
+    $(ele).blocks().navbar('reflow');
+});</pre>
+
     <h4>Custom Collapse Toggle and Menu</h4>
 
     <p>The typical configuration of nav.bar includes just an optional heading element and a list. However, it is possible to set a custom collapse toggle that one clicks on to have the menu drop down while in responsive mode, as well as a custom menu that drops down.</p>

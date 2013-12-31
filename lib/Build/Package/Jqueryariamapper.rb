@@ -18,6 +18,18 @@ module WebBlocks
         include ::WebBlocks::Build::Submodule
         include ::WebBlocks::Build::Utilities
 
+        def init
+
+          init_js
+
+        end
+
+        def init_js
+
+          config[:src][:modules] << 'package/jqueryariamapper/binding' unless config[:src][:packages].include?('package') or config[:src][:packages].include?('package/jqueryariamapper') or config[:src][:packages].include?('package/jqueryariamapper/binding')
+
+        end
+
         def preprocess
 
           preprocess_js

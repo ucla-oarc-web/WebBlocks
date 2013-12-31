@@ -1,39 +1,44 @@
+//!requires_package jquery
 //!requires_package lettering
 
-$(document).ready(function(){
-    
-    if(!jQuery().lettering)
-        return;
-    
-    var linesClass = 'text-split-lines',
-        wordsClass = 'text-split-words',
-        charsClass = 'text-split-chars'
+typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
 
-    $('.'+linesClass).each(function(){
+    $(document).ready(function(){
 
-        var $this = $(this)
+        if(!jQuery().lettering)
+            return;
 
-        $this.lettering('lines')
+        var linesClass = 'text-split-lines',
+            wordsClass = 'text-split-words',
+            charsClass = 'text-split-chars'
 
-        if($this.hasClass(wordsClass))
-            $this.removeClass(wordsClass).children('span').addClass(wordsClass)
+        $('.'+linesClass).each(function(){
 
-        if($this.hasClass(charsClass))
-            $this.removeClass(charsClass).children('span').addClass(charsClass)
+            var $this = $(this)
 
-    })
+            $this.lettering('lines')
 
-    $('.'+wordsClass).each(function(){
+            if($this.hasClass(wordsClass))
+                $this.removeClass(wordsClass).children('span').addClass(wordsClass)
 
-        var $this = $(this)
+            if($this.hasClass(charsClass))
+                $this.removeClass(charsClass).children('span').addClass(charsClass)
 
-        $this.lettering('words')
+        })
 
-        if($this.hasClass(charsClass))
-            $this.removeClass(charsClass).children('span').addClass(charsClass)
+        $('.'+wordsClass).each(function(){
 
-    })
+            var $this = $(this)
 
-    $('.'+charsClass).lettering()
+            $this.lettering('words')
 
-});
+            if($this.hasClass(charsClass))
+                $this.removeClass(charsClass).children('span').addClass(charsClass)
+
+        })
+
+        $('.'+charsClass).lettering()
+
+    });
+
+})(jQuery, window, document);

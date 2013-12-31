@@ -48,37 +48,44 @@
 					'breakpoint-medium-large',
 					'breakpoint-large'
 				],
-				api:'Base/Block/Float'
+				api:'Base/Block'
 			},
-			'Base/Block/Float/Responsive_Above': {
-				description:'Defines a set of classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint.',
-				defines: {
-					'.float-left-above-xxsmall':'Float content left above <code>$beakpoint-xxsmall</code>',
-					'.float-left-above-xsmall':'Float content left above <code>$beakpoint-xsmall</code>',
-					'.float-left-above-small':'Float content left above <code>$beakpoint-small</code>',
-					'.float-left-above-medium-small':'Float content left above <code>$beakpoint-medium-small</code>',
-					'.float-left-above-medium':'Float content left above <code>$beakpoint-medium</code>',
-					'.float-left-above-medium-large':'Float content left above <code>$beakpoint-medium-large</code>',
-					'.float-left-above-large':'Float content left above <code>$beakpoint-large</code>',
+            'Base/Block/Float/Responsive_Above': {
+                description:'Defines a set of classes that set content to be hidden when viewport is <em>larger</em> than a particular breakpoint.',
+                defines: {
+                    '.float-left-above-xxsmall':'Float content left above <code>$beakpoint-xxsmall</code>',
+                    '.float-left-above-xsmall':'Float content left above <code>$beakpoint-xsmall</code>',
+                    '.float-left-above-small':'Float content left above <code>$beakpoint-small</code>',
+                    '.float-left-above-medium-small':'Float content left above <code>$beakpoint-medium-small</code>',
+                    '.float-left-above-medium':'Float content left above <code>$beakpoint-medium</code>',
+                    '.float-left-above-medium-large':'Float content left above <code>$beakpoint-medium-large</code>',
+                    '.float-left-above-large':'Float content left above <code>$beakpoint-large</code>',
                     '.float-right-above-xxsmall':'Float content right above <code>$beakpoint-xxsmall</code>',
-					'.float-right-above-xsmall':'Float content right above <code>$beakpoint-xsmall</code>',
-					'.float-right-above-small':'Float content right above <code>$beakpoint-small</code>',
-					'.float-right-above-medium-small':'Float content right above <code>$beakpoint-medium-small</code>',
-					'.float-right-above-medium':'Float content right above <code>$beakpoint-medium</code>',
-					'.float-right-above-medium-large':'Float content right above <code>$beakpoint-medium-large</code>',
-					'.float-right-above-large':'Float content right above <code>$beakpoint-large</code>'
-				},
-				uses:[
-					'breakpoint-xxsmall',
-					'breakpoint-xsmall',
-					'breakpoint-small',
-					'breakpoint-medium-small',
-					'breakpoint-medium',
-					'breakpoint-medium-large',
-					'breakpoint-large'
-				],
-				api:'Base/Block/Float'
-			},
+                    '.float-right-above-xsmall':'Float content right above <code>$beakpoint-xsmall</code>',
+                    '.float-right-above-small':'Float content right above <code>$beakpoint-small</code>',
+                    '.float-right-above-medium-small':'Float content right above <code>$beakpoint-medium-small</code>',
+                    '.float-right-above-medium':'Float content right above <code>$beakpoint-medium</code>',
+                    '.float-right-above-medium-large':'Float content right above <code>$beakpoint-medium-large</code>',
+                    '.float-right-above-large':'Float content right above <code>$beakpoint-large</code>'
+                },
+                uses:[
+                    'breakpoint-xxsmall',
+                    'breakpoint-xsmall',
+                    'breakpoint-small',
+                    'breakpoint-medium-small',
+                    'breakpoint-medium',
+                    'breakpoint-medium-large',
+                    'breakpoint-large'
+                ],
+                api:'Base/Block'
+            },
+            'Base/Block/Overflow': {
+                description:'Defines a set of classes that assist with handling when inner contents overflow a container.',
+                defines: {
+                    '.overflow-scroll':'If inner content exceeds container bounds, allow scrolling of inner content.'
+                },
+                api:'Base/Block'
+            },
 			'Base/Color': {
 				description:'Defines a set of brand-related and mood-related colors for text and backgrounds'
 			},

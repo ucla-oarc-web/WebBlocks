@@ -55,8 +55,10 @@ var DOC = {
                     $('body').blocks().ariaMapper()
                 if($(document).blocks().navbar)
                     $('#content nav.bar').blocks().navbar('init');
+                if($(document).blocks().overflowScrollable)
+                    $('#content .table.scrollable-collapse').blocks().overflowScrollable('init')
                 if($(document).blocks().requiredFormControls)
-                    $('form.form').blocks().requiredFormControls('init');
+                    $('#content form.form').blocks().requiredFormControls('init');
             })
 
         })

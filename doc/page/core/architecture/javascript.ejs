@@ -18,7 +18,7 @@
 
 <h3>Examples</h3>
 
-<h4>Using</h4>
+<h4>Accessing Methods</h4>
 
 <p>This is how WebBlocks initializes and reflows <a href="#API/Entity/Nav/Bar">Entity/Nav/Bar</a>:</p>
 
@@ -45,7 +45,7 @@ $(window).resize(function(){
     $('#topbar').block().navbar('reflow');
 })</pre>
 
-<h4>Adding</h4>
+<h4>Custom Methods</h4>
 
 <p>Suppose one wants to add a method that will logs all form values to the console:</p>
 
@@ -66,3 +66,27 @@ $(window).resize(function(){
     $(this).blocks().logFormValues();
 
 })</pre>
+
+<h4>Without jQuery</h4>
+
+<p>While modules may include functionality that will not work without jQuery, they should be written in such a way that they will not break the DOM or cause fatal Javascript errors.</p>
+
+<p>The former requires thoughtful design decisions about markup and CSS; the latter can be achieved by warning that jQuery is a required package and wrapping the jQuery method definitions and instantiations as follows:
+
+<pre class="prettyprint">//!requires_package jquery
+
+typeof jQuery != 'undefined' && (function ($, window, document, undefined) {
+
+    $(document).addBlocksMethod('example',function(command){
+        /* .. */
+    });
+
+    $(window).load(function(){
+
+        $('#example').blocks().example();
+
+    });
+
+})(jQuery, window, document);</pre>
+
+This will avoid the block from running if jQuery is not included.

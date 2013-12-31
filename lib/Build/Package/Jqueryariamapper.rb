@@ -42,22 +42,6 @@ module WebBlocks
 
         end
 
-        def link
-
-          link_js
-
-        end
-
-        def link_js
-
-          unless ['package','package/jquery-aria-mapper'].keep_if(){ |k|
-            WebBlocks.config[:src][:modules].include? k
-          }.length > 0
-            WebBlocks.config[:src][:modules] << 'package/jquery-aria-mapper'
-          end
-
-        end
-
         def assemble
 
           assemble_js

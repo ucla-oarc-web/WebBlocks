@@ -29,3 +29,13 @@
     <li><%= DOC.modules.render_details('Compatibility/Support/CSS') %></li>
     <li><%= DOC.modules.render_details('Compatibility/Support/HTML') %></li>
 </ul>
+
+<h3>IE9 and Below - Experimental CSS Splitting</h3>
+
+<p>Internet Explorer 9 and below are unable to process more than 4095 rules per stylesheet. WebBlocks includes OptiCSS as an optional and experimental package to seemlessly split stylesheets that exceed this limit.</p>
+
+<div class='message warning'><strong>WARNING</strong> This is an experimental package not yet part of WebBlocks core. Some users have reported issues with this package</div>
+
+<p>Enable this by compiling WebBlocks with the <code>:opticss</code> package added to <code>Rakefile-config.rb</code>:</p>
+
+<pre class="prettyprint">WebBlocks.config[:build][:packages] &lt;&lt; :opticss</pre>

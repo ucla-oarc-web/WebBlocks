@@ -66,3 +66,4 @@ WebBlocks also uses the following software directly within its build process:
 * uglify-js - https://npmjs.org/package/uglify-js
 
 A sincere thanks to all of these authors for making their fine work available.
+this is ok for you.
